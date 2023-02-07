@@ -2,6 +2,7 @@
   "Store": [
     {
       "id": "0",
+      "view":"0",
       "title": "Fluffy Keyring News",
       "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
       "si": "서울특별시",
@@ -34,13 +35,13 @@
       "detailInfo3": [],
       "sns": "https://www.instagram.com/onemorebagkr/",
       "web": "",
-      "mainImg": "",
-      "detailImg": [],
+      "mainImg": ["https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.40.59.png?alt=media&token=597d76e1-ab08-49e0-ba27-bc8e58a6e572"],
       "lat": "37.5411291",
       "lon": "127.060485"
     },
     {
       "id": "1",
+      "view":"0",
       "title": "Kauts",
       "address": "서울특별시 마포구 양화로 188 AK&플라자 2층",
       "si": "서울특별시",
@@ -80,6 +81,7 @@
     },
     {
       "id": "2",
+      "view":"0",
       "title": "Gram Style Lab with Musinsa",
       "address": "서울특별시 성동구 연무장11길 19 코자 성수스토어",
       "si": "서울특별시",
@@ -123,6 +125,7 @@
     },
     {
       "id": "3",
+      "view":"0",
       "title": "더 퍼스트 슬램덩크 at 더현대 서울",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울",
       "si": "서울특별시",
@@ -162,6 +165,7 @@
     },
     {
       "id": "4",
+      "view":"0",
       "title": "농심 신라면 팝업스토어",
       "address": "서울특별시 성동구 연무장15길 11 에스팩토리",
       "si": "서울특별시",
@@ -207,6 +211,7 @@
     },
     {
       "id": "5",
+      "view":"0",
       "title": "예일 X 나이스웨더",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B2",
       "si": "서울특별시",
@@ -255,6 +260,7 @@
     },
     {
       "id": "6",
+      "view":"0",
       "title": "시시오시 X 위글위글",
       "address": "서울특별시 강서구 하늘길 77 롯데백화점김포공항점GF층 행사장 옆",
       "si": "서울특별시",
@@ -313,6 +319,7 @@
     },
     {
       "id": "7",
+      "view":"0",
       "title": "PARTEZ! THE MUSEUM",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B2",
       "si": "서울특별시",
@@ -361,6 +368,7 @@
     },
     {
       "id": "8",
+      "view":"0",
       "title": "파티세리 아모니",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B1",
       "si": "서울특별시",
@@ -398,6 +406,7 @@
     },
     {
       "id": "9",
+      "view":"0",
       "title": "송월 X 발란사",
       "address": "서울특별시 성동구 연무장길1 퓨처소사이어티",
       "si": "서울특별시",
@@ -446,6 +455,7 @@
     },
     {
       "id": "10",
+      "view":"0",
       "title": "Dyson Style Lab",
       "address": "서울특별시 성동구 연무장길 101-1 성수 오우드",
       "si": "서울특별시",
