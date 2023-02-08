@@ -8,7 +8,7 @@ export const StyleListWrap = styled.div`
   margin-left: 7vh;
 `;
 
-export const RecentListBtn = styled.button`
+export const RecentList = styled.h2`
   margin-left: 7vh;
 `;
 
