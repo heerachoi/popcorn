@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SignupPage  from "../pages/SignupPage/SignupPage";
-import MyPage from "../pages/MyPage/MyPage";
-import DetailPage from "../pages/DetailPage/DetailPage";
-import HomePage from "../pages/HomePage/HomePage"; 
+import SignupPage from '../pages/SignUpPage/SignUpPage';
+import MyPage from '../pages/MyPage/MyPage';
+import DetailPage from '../pages/DetailPage/DetailPage';
+import HomePage from '../pages/HomePage/HomePage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 
 const Router = () => {
-  return(
+  return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
@@ -16,7 +16,7 @@ const Router = () => {
         <Route path="/search" element={<SearchPage/>}/>
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default Router;
