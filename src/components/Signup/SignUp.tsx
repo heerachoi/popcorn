@@ -5,11 +5,14 @@ import {
   RecaptchaVerifier,
   updateProfile,
   signInWithPhoneNumber,
+  deleteUser,
+  signOut,
+  PhoneAuthProvider,
+  signInWithCredential,
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
-import SignOut from './SignOut';
-import DeleteAccount from './DeleteAccount';
-import SignIn from './SignIn';
+import { confirmAlert } from 'react-confirm-alert';
+import { useNavigate } from 'react-router-dom';
 
 interface SignUpInput {
   nickName: string;
@@ -23,6 +26,8 @@ interface SignUpInput {
 }
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const initSignUpInput = {
     nickName: '',
     email: '',
@@ -49,6 +54,9 @@ const SignUp = () => {
   const [helperText, setHelperText] = useState<SignUpInput>(
     initHelperTextSignUpInput,
   );
+  const [phoneVerify, setPhoneVerify] = useState(false);
+  const [requestedPV, setRequestedPV] = useState(false);
+  const [dataId, setDataId] = useState('');
 
   const signUpInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -78,26 +86,72 @@ const SignUp = () => {
     // 언어 선택
     auth.languageCode = 'ko';
     // 리캡챠, 1번째 인수는 클릭한 버튼의 아이디와 같아야 한다.
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      'phone',
-      {
-        size: 'invisible',
-        callback: (response: any) => {},
-      },
-      auth,
-    );
-
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        're-container',
+        {
+          size: 'invisible',
+          callback: () => {},
+        },
+        auth,
+      );
+    }
     const appVerifier = window.recaptchaVerifier;
-    // 인증번호를 보내는 메서드, 2번째 인수는 휴대폰 번호
-    signInWithPhoneNumber(auth, '+82' + signUpInput.phoneNumber, appVerifier)
-      .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
-        console.log(confirmationResult);
-        // ...
-      })
-      .catch((error) => {
-        alert(error);
+
+    const provider = new PhoneAuthProvider(auth);
+    provider
+      .verifyPhoneNumber('+82' + signUpInput.phoneNumber, appVerifier)
+      .then(function (verificationId) {
+        // window.verificationId = verificationId;
+        setDataId(verificationId);
+        setRequestedPV(true);
       });
+
+    // 인증번호를 보내는 메서드, 2번째 인수는 휴대폰 번호
+    // signInWithPhoneNumber(auth, '+82' + signUpInput.phoneNumber, appVerifier)
+    //   .then((confirmationResult) => {
+    //     window.confirmationResult = confirmationResult;
+    //     console.log(confirmationResult);
+    //     setDataId(confirmationResult.verificationId);
+    //     setRequestedPV(true);
+    //   })
+    //   .catch((error) => {
+    //     if (error.message.includes('invalid-phone-number'))
+    //       return alert('알맞은 휴대폰 번호를 입력해 주세요.');
+    //   });
+  };
+
+  const phoneVerifyHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    console.log(window.verificationId);
+    // Obtain verificationCode from the user.
+    const code = signUpInput.phoneCode;
+    const authCredential = PhoneAuthProvider.credential(dataId, code);
+    console.log('code', code);
+    console.log(authCredential);
+    const userCredential = signInWithCredential(auth, authCredential);
+    console.log(userCredential);
+
+    // const code = signUpInput.phoneCode;
+    // window.confirmationResult
+    //   .confirm(code)
+    //   .then(() => {
+    //     deleteUser(auth.currentUser!);
+    //     signOut(auth);
+    //     setPhoneVerify(true);
+    //     setRequestedPV(false);
+    //     alert('인증이 완료되었습니다.');
+    //     // ...
+    //   })
+    //   .catch((error: any) => {
+    //     // User couldn't sign in (bad verification code?)
+    //     // ...
+    //     console.log(error);
+    //     if (error.message.includes('invalid-verification-code'))
+    //       return alert('인증번호를 입력해 주세요.');
+    //     if (error.message.includes('code-expired'))
+    //       return alert('인증번호가 틀립니다. 다시 입력해 주세요.');
+    //   });
   };
 
   // 회원가입 클릭 이벤트
@@ -112,10 +166,36 @@ const SignUp = () => {
       signUpInput.password === '' ||
       signUpInput.password === ''
     )
-      return alert('빈칸을 입력해 주세요.');
+      return confirmAlert({
+        title: '오류',
+        message: '빈칸을 입력해 주세요.',
+        buttons: [
+          {
+            label: '확인',
+            onClick: () => {},
+          },
+          {
+            label: '취소',
+            onClick: () => {},
+          },
+        ],
+      });
     if (signUpInput.gender === '' || signUpInput.age === '')
-      return alert('카테고리를 선택해 주세요.');
-
+      return confirmAlert({
+        title: '오류',
+        message: '카테고리를 선택해 주세요.',
+        buttons: [
+          {
+            label: '확인',
+            onClick: () => {},
+          },
+          {
+            label: '취소',
+            onClick: () => {},
+          },
+        ],
+      });
+    if (!phoneVerify || requestedPV) return alert('휴대폰 인증이 필요합니다.');
     await createUserWithEmailAndPassword(
       auth,
       signUpInput.email,
@@ -134,13 +214,35 @@ const SignUp = () => {
           email: signUpInput.email,
           gender: signUpInput.gender,
           age: signUpInput.age,
+          phoneNumber: signUpInput.phoneNumber,
         });
+        console.log(user);
         // input값 초기화
-        setSignUpInput(initSignUpInput);
+        return confirmAlert({
+          title: '가입완료',
+          message: '회원가입이 완료되었습니다.',
+          buttons: [
+            {
+              label: '확인',
+              onClick: () => {
+                navigate('/login');
+              },
+            },
+          ],
+        });
       })
       .catch((error) => {
         if (error.message.includes('email-already-in-use'))
-          return alert('이미 등록된 회원입니다.');
+          return confirmAlert({
+            title: '오류',
+            message: '이미 등록된 회원입니다. 이메일을 다시 입력해주세요.',
+            buttons: [
+              {
+                label: '확인',
+                onClick: () => {},
+              },
+            ],
+          });
       });
   };
 
@@ -299,28 +401,43 @@ const SignUp = () => {
           <option value="선택안함">선택안함</option>
         </select>
         <div style={{ color: 'red' }}>{helperText.age}</div>
-        <button>가입</button>
+        <h3>휴대폰 번호</h3>
+        <div id="re-container"></div>
+        <input
+          onChange={signUpInputChangeHandler}
+          value={signUpInput.phoneNumber}
+          name="phoneNumber"
+          type="text"
+        />
+        <button id="phone" onClick={phoneNumberPostHandler}>
+          인증번호 보내기
+        </button>
+        {requestedPV ? (
+          <>
+            <input
+              onChange={signUpInputChangeHandler}
+              value={signUpInput.phoneCode}
+              name="phoneCode"
+              type="text"
+            />
+            <button id="phoneCodeBtn" onClick={phoneVerifyHandler}>
+              인증하기
+            </button>
+            <div>
+              <button
+                onClick={() => {
+                  navigate('/login');
+                }}
+              >
+                로그인 화면으로 돌아가기
+              </button>
+            </div>
+          </>
+        ) : null}
+        <div>
+          <button>가입</button>
+        </div>
       </form>
-      <h3>휴대폰 번호</h3>
-      <input
-        onChange={signUpInputChangeHandler}
-        value={signUpInput.phoneNumber}
-        name="phoneNumber"
-        type="text"
-      />
-      <button id="phone" onClick={phoneNumberPostHandler}>
-        인증번호 보내기
-      </button>
-      <input
-        onChange={signUpInputChangeHandler}
-        value={signUpInput.phoneCode}
-        name="phoneCode"
-        type="text"
-      />
-      <button onClick={phoneNumberPostHandler}>인증하기</button>
-      <SignOut />
-      <DeleteAccount />
-      <SignIn />
     </div>
   );
 };

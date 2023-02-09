@@ -1,6 +1,10 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebase';
+import DeleteAccount from './DeleteAccount';
+import SignOut from './SignOut';
 
 interface SignInInput {
   email: string;
@@ -8,6 +12,8 @@ interface SignInInput {
 }
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const initSignInInput = {
     email: '',
     password: '',
@@ -38,22 +44,58 @@ const SignIn = () => {
   ) => {
     event.preventDefault();
     if (signInInput.email === '' || signInInput.password === '')
-      return alert('빈칸을 입력해 주세요.');
+      confirmAlert({
+        title: '오류',
+        message: '빈 칸을 입력해 주세요.',
+        buttons: [
+          {
+            label: '확인',
+            onClick: () => {},
+          },
+          {
+            label: '취소',
+            onClick: () => {},
+          },
+        ],
+      });
 
     await signInWithEmailAndPassword(
       auth,
       signInInput.email,
       signInInput.password,
     )
-      .then((userCredential) => {
-        setSignInInput(initSignInInput);
-        window.location.href = '/';
-      })
+      .then(() => navigate('/'))
       .catch((error: any) => {
         if (error.message.includes('user-not-found'))
-          return alert('회원가입 되지 않은 회원입니다.');
+          confirmAlert({
+            title: '오류',
+            message: '회원가입이 되지 않은 이메일입니다.',
+            buttons: [
+              {
+                label: '확인',
+                onClick: () => {},
+              },
+              {
+                label: '취소',
+                onClick: () => {},
+              },
+            ],
+          });
         if (error.message.includes('wrong-password'))
-          return alert('비밀번호가 틀렸습니다. 다시 확인해주세요.');
+          confirmAlert({
+            title: '오류',
+            message: '비밀번호가 틀렸습니다. 다시 확인해주세요.',
+            buttons: [
+              {
+                label: '확인',
+                onClick: () => {},
+              },
+              {
+                label: '취소',
+                onClick: () => {},
+              },
+            ],
+          });
       });
   };
 
@@ -85,27 +127,38 @@ const SignIn = () => {
   };
 
   return (
-    <form onSubmit={signInClickHandler}>
-      <h3>ID</h3>
-      <input
-        value={signInInput.email}
-        name="email"
-        type="text"
-        onChange={signInInputChangeHandler}
-        onBlur={validateEmail}
-      />
-      <div style={{ color: 'red' }}>{helperText.email}</div>
-      <h3>PW</h3>
-      <input
-        value={signInInput.password}
-        name="password"
-        type="password"
-        onChange={signInInputChangeHandler}
-        onBlur={validatePassword}
-      />
-      <div style={{ color: 'red' }}>{helperText.password}</div>
-      <button>로그인</button>
-    </form>
+    <>
+      <form onSubmit={signInClickHandler}>
+        <h3>ID</h3>
+        <input
+          value={signInInput.email}
+          name="email"
+          type="text"
+          onChange={signInInputChangeHandler}
+          onBlur={validateEmail}
+        />
+        <div style={{ color: 'red' }}>{helperText.email}</div>
+        <h3>PW</h3>
+        <input
+          value={signInInput.password}
+          name="password"
+          type="password"
+          onChange={signInInputChangeHandler}
+          onBlur={validatePassword}
+        />
+        <div style={{ color: 'red' }}>{helperText.password}</div>
+        <button>로그인</button>
+      </form>
+      <button
+        onClick={() => {
+          navigate('/signup');
+        }}
+      >
+        회원가입 하러가기
+      </button>
+      <SignOut />
+      <DeleteAccount />
+    </>
   );
 };
 
