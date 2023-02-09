@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { NewStoreForm, StoreImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
 import { setDoc, doc } from 'firebase/firestore';
-import { db, storage } from '../../../../firebase';
+import { db, storage } from '../../../firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 

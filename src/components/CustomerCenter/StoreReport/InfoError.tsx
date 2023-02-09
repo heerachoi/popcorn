@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { InfoErrorForm, ErrorImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
-import { db, storage } from '../../../../firebase';
+import { db, storage } from '../../../firebase';
 import { setDoc, doc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
