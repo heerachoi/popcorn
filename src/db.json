@@ -2,7 +2,7 @@
   "Store": [
     {
       "id": "0",
-      "view":"0",
+      "view": "0",
       "title": "Fluffy Keyring News",
       "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
       "si": "서울특별시",
@@ -10,6 +10,8 @@
       "dong": "필운동",
       "open": "2023.01.13",
       "close": "2023.02.06",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "12:00",
         "12:00",
@@ -35,13 +37,15 @@
       "detailInfo3": [],
       "sns": "https://www.instagram.com/onemorebagkr/",
       "web": "",
-      "mainImg": ["https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.40.59.png?alt=media&token=597d76e1-ab08-49e0-ba27-bc8e58a6e572"],
+      "mainImg": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b"
+      ],
       "lat": "37.5411291",
       "lon": "127.060485"
     },
     {
       "id": "1",
-      "view":"0",
+      "view": "0",
       "title": "Kauts",
       "address": "서울특별시 마포구 양화로 188 AK&플라자 2층",
       "si": "서울특별시",
@@ -49,6 +53,8 @@
       "dong": "동교동",
       "open": "2023.01.09",
       "close": "2023.02.06",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "11:00",
         "11:00",
@@ -74,14 +80,17 @@
       "detailInfo3": [],
       "sns": "https://www.instagram.com/kauts_life/",
       "web": "https://www.kauts-korea.com/",
-      "mainImg": "",
+      "mainImg": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Kauts%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.41.36.png?",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Kauts%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.41.42.png?alt=media&token=1a661ebf-0169-4d19-9be9-5e0a5dd1bd2a"
+      ],
       "detailImg": [],
       "lat": "37.5411291",
       "lon": "127.060485"
     },
     {
       "id": "2",
-      "view":"0",
+      "view": "0",
       "title": "Gram Style Lab with Musinsa",
       "address": "서울특별시 성동구 연무장11길 19 코자 성수스토어",
       "si": "서울특별시",
@@ -89,6 +98,8 @@
       "dong": "성수동",
       "open": "2023.01.09",
       "close": "2023.02.06",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "12:00",
         "12:00",
@@ -125,7 +136,7 @@
     },
     {
       "id": "3",
-      "view":"0",
+      "view": "0",
       "title": "더 퍼스트 슬램덩크 at 더현대 서울",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울",
       "si": "서울특별시",
@@ -133,6 +144,8 @@
       "dong": "여의도동",
       "open": "2023.01.26",
       "close": "2023.02.07",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "10:30",
         "10:30",
@@ -158,14 +171,19 @@
       "detailInfo3": [],
       "sns": "https://www.instagram.com/slamdunk_popup/",
       "web": "",
-      "mainImg": "",
+      "mainImg": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.07.png?alt=media&token=165cd3e9-c68b-4638-bc7f-9c556c8fbc1f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.20.png?alt=media&token=694784d6-48fb-4783-8fc6-a0d8f7c89d30",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.29.png?alt=media&token=236812be-eac8-4632-8c3b-b9330bb53d31",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.40.png?alt=media&token=c8267e80-2cbf-49c8-92b4-d60b75b61c34"
+      ],
       "detailImg": [],
       "lat": "37.5411291",
       "lon": "127.060485"
     },
     {
       "id": "4",
-      "view":"0",
+      "view": "0",
       "title": "농심 신라면 팝업스토어",
       "address": "서울특별시 성동구 연무장15길 11 에스팩토리",
       "si": "서울특별시",
@@ -173,6 +191,8 @@
       "dong": "성수동",
       "open": "2023.01.09",
       "close": "2023.02.08",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "12:00",
         "12:00",
@@ -204,14 +224,20 @@
       "detailInfo3": [],
       "sns": "https://www.instagram.com/zepeto.official/",
       "web": "",
-      "mainImg": "",
+      "mainImg": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.44.28.png?alt=media&token=8a4f1439-baa8-4ef0-a999-7545a20d87ba",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Kauts%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.41.42.png?alt=media&token=1a661ebf-0169-4d19-9be9-5e0a5dd1bd2a",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.44.36.png?alt=media&token=4750cc5c-1b23-43b0-9875-536f90330ec3",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.44.56.png?alt=media&token=5149d8fe-d542-4018-89c0-5216a1406100",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.07.png?alt=media&token=6e4c54bf-27ad-4c10-9aa9-5c32d3cf142a"
+      ],
       "detailImg": [],
       "lat": "37.5411291",
       "lon": "127.060485"
     },
     {
       "id": "5",
-      "view":"0",
+      "view": "0",
       "title": "예일 X 나이스웨더",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B2",
       "si": "서울특별시",
@@ -219,6 +245,8 @@
       "dong": "여의도동",
       "open": "2023.01.26",
       "close": "2023.02.08",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "10:30",
         "10:30",
@@ -253,14 +281,21 @@
       "detailInfo3": [],
       "sns": "https://www.instagram.com/phyps_department/",
       "web": "",
-      "mainImg": "",
+      "mainImg": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.36.png?alt=media&token=66980bbd-75ae-4d17-b585-5170e17741d5",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.41.png?alt=media&token=42e15673-85be-45c7-ad9c-de2350e84de2",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.44.png?alt=media&token=5a9f551f-6316-466d-be38-da5c86231616",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.50.png?alt=media&token=132632bb-001d-4ad3-beff-a57e01b9cee4",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.01.png?alt=media&token=e133a487-4e66-4ebd-aad6-cc4205188e5c",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.52.png?alt=media&token=b63de098-8582-4a49-b235-7502a2f526d5"
+      ],
       "detailImg": [],
       "lat": "37.5411291",
       "lon": "127.060485"
     },
     {
       "id": "6",
-      "view":"0",
+      "view": "0",
       "title": "시시오시 X 위글위글",
       "address": "서울특별시 강서구 하늘길 77 롯데백화점김포공항점GF층 행사장 옆",
       "si": "서울특별시",
@@ -268,6 +303,8 @@
       "dong": "방화동",
       "open": "2023.01.28",
       "close": "2023.02.08",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "10:30",
         "10:30",
@@ -312,14 +349,18 @@
       ],
       "sns": "https://www.instagram.com/sisihosi_official/",
       "web": "",
-      "mainImg": "",
+      "mainImg": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WiggleWiggle%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.43.png?alt=media&token=dc9bc447-1fbb-4ff5-afbf-3ac01f23e3b2",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WiggleWiggle%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.47.png?alt=media&token=ac4dc0aa-561b-4d1e-af6b-8c75ea7ed5ad",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WiggleWiggle%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.50.png?alt=media&token=80accd49-b9dc-41b6-afc9-cb73043e5852"
+      ],
       "detailImg": [],
       "lat": "37.5411291",
       "lon": "127.060485"
     },
     {
       "id": "7",
-      "view":"0",
+      "view": "0",
       "title": "PARTEZ! THE MUSEUM",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B2",
       "si": "서울특별시",
@@ -327,6 +368,8 @@
       "dong": "여의도동",
       "open": "2023.01.26",
       "close": "2023.02.08",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "10:30",
         "10:30",
@@ -368,7 +411,7 @@
     },
     {
       "id": "8",
-      "view":"0",
+      "view": "0",
       "title": "파티세리 아모니",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B1",
       "si": "서울특별시",
@@ -376,6 +419,8 @@
       "dong": "여의도동",
       "open": "2023.02.03",
       "close": "2023.02.09",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "10:30",
         "10:30",
@@ -406,7 +451,7 @@
     },
     {
       "id": "9",
-      "view":"0",
+      "view": "0",
       "title": "송월 X 발란사",
       "address": "서울특별시 성동구 연무장길1 퓨처소사이어티",
       "si": "서울특별시",
@@ -414,6 +459,8 @@
       "dong": "성수동",
       "open": "2023.02.03",
       "close": "2023.02.11",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "10:00",
         "10:00",
@@ -455,14 +502,16 @@
     },
     {
       "id": "10",
-      "view":"0",
+      "view": "0",
       "title": "Dyson Style Lab",
       "address": "서울특별시 성동구 연무장길 101-1 성수 오우드",
       "si": "서울특별시",
       "gu": "성동구",
       "dong": "성수동",
-      "open": "2023.02.02",
+      "open": "2023.02.17",
       "close": "2023.02.19",
+      "location": "서울",
+      "item": "액세서리",
       "openingTime": [
         "10:00",
         "10:00",

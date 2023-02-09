@@ -1,0 +1,188 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import data from '../../../db.json';
+import {
+  StyleListWrap,
+  RecentList,
+  PopupTitle,
+  PopupDate,
+  PopupAddress,
+} from './style';
+
+const HomePageList: any = () => {
+  const navigate = useNavigate();
+
+  // yyyymmdd 포맷으로 오늘 날짜를 받아오는 함수
+  const currentDate = new Date();
+  const year = String(currentDate.getFullYear());
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  const today = parseInt(year + month + day);
+  // console.log(today);
+
+  // 오픈날짜를 yyyymmdd 포맷으로 받아오는 함수
+  const openingDate = data.Store.filter((info) => info.open).map(
+    (openingday) => {
+      return parseInt(openingday.open.split('.').join(''));
+    },
+  );
+  console.log(openingDate);
+
+  // popupList = 전체 데이터
+  const popupList = data.Store.filter((list) => list.open);
+
+  const [recentlyOpen, setRecentlyOpen] = useState(null);
+  const [endingSoon, setEndingSoon] = useState(null);
+  // newDate?? 3일전 filter를 돌리는데 오늘로부터 이틀전 newdate를 가져오면 오늘날짜를 가져옴
+  // map안에 if를 돌려서 ??
+  // map에 return if 조건
+
+  return (
+    <>
+      <RecentList>최근 오픈했어요</RecentList>
+      {popupList.map((popup) => {
+        console.log(popup);
+        return (
+          <>
+            <StyleListWrap key={popup.id} onClick={() => navigate('/detail')}>
+              <PopupTitle>{popup.title}</PopupTitle>
+              <PopupDate>
+                {popup.open} ~ {popup.close}
+              </PopupDate>
+              <PopupAddress>{popup.address}</PopupAddress>
+            </StyleListWrap>
+          </>
+        );
+      })}
+    </>
+  );
+};
+
+export default HomePageList;
+
+
+======================================
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import data from '../../../db.json';
+import {
+  StyleListWrap,
+  RecentList,
+  PopupTitle,
+  PopupDate,
+  PopupAddress,
+} from './style';
+
+const HomePageList: any = () => {
+  const navigate = useNavigate();
+
+  // yyyymmdd 포맷으로 오늘 날짜를 받아오는 함수
+  const currentDate = new Date();
+  const year = String(currentDate.getFullYear());
+  const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+  const day = String(currentDate.getDate()).padStart(2, '0');
+  const today = parseInt(year + month + day);
+
+  // console.log(today);
+
+  // 오픈날짜를 yyyymmdd 포맷으로 받아오는 함수
+  // const openingDate = data.Store.filter((info) => info.open).map(
+  //   (openingday) => {
+  //     return parseInt(openingday.open.split('.').join(''));
+  //   },
+  // );
+  // console.log(openingDate);
+
+  // popupList = 전체 데이터
+  // 오늘 오픈한 것만 필터링 여기서 해야함
+  const popupList = data.Store.filter(
+    (list) => list.open <= today - 2 && today >= list.open,
+  );
+  console.log(today - 2);
+
+  // const [recentlyOpen, setRecentlyOpen] = useState(null);
+  // const [endingSoon, setEndingSoon] = useState(null);
+  // newDate?? 3일전 filter를 돌리는데 오늘로부터 이틀전 newdate를 가져오면 오늘날짜를 가져옴
+  // map안에 if를 돌려서 ??
+  // map에 return if 조건
+
+  return (
+    <>
+      <RecentList>최근 오픈했어요</RecentList>
+
+      {popupList.map((popup) => {
+        return (
+          <>
+            <StyleListWrap key={popup.id} onClick={() => navigate('/detail')}>
+              <PopupTitle>{popup.title}</PopupTitle>
+              <PopupDate>
+                {popup.open} ~ {popup.close}
+              </PopupDate>
+              <PopupAddress>{popup.address}</PopupAddress>
+            </StyleListWrap>
+          </>
+        );
+      })}
+    </>
+  );
+};
+
+export default HomePageList;
+
+
+
+=========데이터
+{
+      "id": "10",
+      "view": "0",
+      "title": "Dyson Style Lab",
+      "address": "서울특별시 성동구 연무장길 101-1 성수 오우드",
+      "si": "서울특별시",
+      "gu": "성동구",
+      "dong": "성수동",
+      "open": "2023.02.17",
+      "close": "2023.02.19",
+      "location": "서울",
+      "item": "액세서리",
+      "openingTime": [
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00"
+      ],
+      "explain": "세계적인 가전 브랜드 '다이슨(dyson)'의 첫 번째 스타일 랩 팝업스토어",
+      "info": [
+        {
+          "[공지] 다이슨 스타일랩 예약관련": "예약 방문 시 더 빠른 입장이 가능하오니 참고바랍니다. (현장 방문 가능)"
+        },
+        {
+          "[공지] 현장 구매 혜택 안내": "다이슨 스타일랩에서 제품을 구매하시면 특별한 혜택을 드립니다."
+        }
+      ],
+      "detailInfo1": [],
+      "detailInfo2": [
+        "슈퍼소닉 구매 시 슈퍼소닉 전용 스탠드(니켈/블랙) 증정",
+        "에어랩 구매 시 트래블 백(블랙/푸시아) 증정",
+        "코랄 구매 시 , 레더 케이스(프러시안 블루) 증정"
+      ],
+      "detailInfo3": [],
+      "sns": "https://www.instagram.com/kauts_life/",
+      "web": "https://www.kauts-korea.com/",
+      "mainImg": "",
+      "detailImg": [],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    }

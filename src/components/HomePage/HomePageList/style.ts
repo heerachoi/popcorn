@@ -19,3 +19,7 @@ export const PopupTitle = styled.h3`
 export const PopupDate = styled.p``;
 
 export const PopupAddress = styled.p``;
+
+export const ClosingSoonList = styled.h2`
+  margin-left: 7vh;
+`;
