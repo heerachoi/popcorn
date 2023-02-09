@@ -5,19 +5,19 @@ import DetailPage from "../pages/DetailPage/DetailPage";
 import HomePage from "../pages/HomePage/HomePage"; 
 import CustomerCenterPage from '../pages/CustomerCenterPage/CustomerCenterPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
+import LogInPage from '../pages/LogInPage/LogInPage';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path="/" element={<HomePage/>}/>
         <Route path="/detail" element={<DetailPage/>}/>
         <Route path="/signup" element={<SignUpPage/>}/>
         <Route path="/my" element={<MyPage/>}/>
         <Route path="/customer" element={<CustomerCenterPage/>}/>
         <Route path="/search" element={<SearchPage/>}/>
-
+        <Route path="/login" element={<LogInPage />} />
       </Routes>
     </BrowserRouter>
   );
