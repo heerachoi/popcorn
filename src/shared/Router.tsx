@@ -4,9 +4,10 @@ import MyPage from "../pages/MyPage/MyPage";
 import DetailPage from "../pages/DetailPage/DetailPage";
 import HomePage from "../pages/HomePage/HomePage"; 
 import CustomerCenterPage from '../pages/CustomerCenterPage/CustomerCenterPage';
+import SearchPage from '../pages/SearchPage/SearchPage';
 
 const Router = () => {
-  return(
+  return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage/>}/>
@@ -14,9 +15,10 @@ const Router = () => {
         <Route path="/signup" element={<SignupPage/>}/>
         <Route path="/my" element={<MyPage/>}/>
         <Route path="/customer" element={<CustomerCenterPage/>}/>
+        <Route path="/search" element={<SearchPage/>}/>
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default Router;

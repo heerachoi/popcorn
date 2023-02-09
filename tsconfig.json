@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "firebase.ts"]
+  "include": ["src", "src/window.d.ts"]
 }

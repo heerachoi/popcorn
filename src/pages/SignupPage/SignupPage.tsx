@@ -1,7 +1,7 @@
-const SignupPage:any = () => {
-  return (
-    <>SignupPage</>
-  )
-}
+import SignUp from '../../components/Signup/SignUp';
 
-export default SignupPage;
+const SignUpPage: any = () => {
+  return <SignUp />;
+};
+
+export default SignUpPage;
