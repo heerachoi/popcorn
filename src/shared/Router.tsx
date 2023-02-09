@@ -4,16 +4,18 @@ import MyPage from '../pages/MyPage/MyPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import HomePage from '../pages/HomePage/HomePage';
 import SearchPage from '../pages/SearchPage/SearchPage';
+import LogInPage from '../pages/LogInPage/LogInPage';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/detail" element={<DetailPage/>}/>
-        <Route path="/signup" element={<SignupPage/>}/>
-        <Route path="/my" element={<MyPage/>}/>
-        <Route path="/search" element={<SearchPage/>}/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/detail" element={<DetailPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LogInPage />} />
+        <Route path="/my" element={<MyPage />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </BrowserRouter>
   );

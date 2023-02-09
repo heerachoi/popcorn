@@ -1,7 +1,13 @@
-import SignUp from '../../components/Signup/SignUp';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage: any = () => {
-  return <SignUp />;
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <button onClick={() => navigate('/signup')}>HomePage</button>
+    </>
+  );
 };
 
 export default HomePage;
