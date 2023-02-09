@@ -97,12 +97,11 @@ const SignUp = () => {
       );
     }
     const appVerifier = window.recaptchaVerifier;
-
+    console.log(!appVerifier);
     const provider = new PhoneAuthProvider(auth);
     provider
       .verifyPhoneNumber('+82' + signUpInput.phoneNumber, appVerifier)
-      .then(function (verificationId) {
-        // window.verificationId = verificationId;
+      .then((verificationId) => {
         setDataId(verificationId);
         setRequestedPV(true);
       });
@@ -129,8 +128,14 @@ const SignUp = () => {
     const authCredential = PhoneAuthProvider.credential(dataId, code);
     console.log('code', code);
     console.log(authCredential);
-    const userCredential = signInWithCredential(auth, authCredential);
-    console.log(userCredential);
+    const userCredential = signInWithCredential(auth, authCredential).then(
+      () => {
+        deleteUser(auth.currentUser!);
+        signOut(auth);
+        setPhoneVerify(true);
+        setRequestedPV(false);
+      },
+    );
 
     // const code = signUpInput.phoneCode;
     // window.confirmationResult

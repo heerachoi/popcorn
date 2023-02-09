@@ -5,12 +5,12 @@ import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCeMjbI-9cRxDl7XTENDK1R_jurvzMgvAM',
-  authDomain: 'popcorn2-2efc6.firebaseapp.com',
-  projectId: 'popcorn2-2efc6',
-  storageBucket: 'popcorn2-2efc6.appspot.com',
-  messagingSenderId: '680184002592',
-  appId: '1:680184002592:web:5811bb9a4ec3423b262445',
+  apiKey: 'AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o',
+  authDomain: 'popcorn1-4b47e.firebaseapp.com',
+  projectId: 'popcorn1-4b47e',
+  storageBucket: 'popcorn1-4b47e.appspot.com',
+  messagingSenderId: '833591756301',
+  appId: '1:833591756301:web:8d87811bac1791e966b744',
 };
 
 // Initialize Firebase
