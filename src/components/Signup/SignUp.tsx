@@ -86,6 +86,7 @@ const SignUp = () => {
     // 언어 선택
     auth.languageCode = 'ko';
     // 리캡챠, 1번째 인수는 클릭한 버튼의 아이디와 같아야 한다.
+    // 리캡챠가 실행되지 않았을 때만 리캡챠를 실행
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
         're-container',
@@ -428,17 +429,17 @@ const SignUp = () => {
             <button id="phoneCodeBtn" onClick={phoneVerifyHandler}>
               인증하기
             </button>
-            <div>
-              <button
-                onClick={() => {
-                  navigate('/login');
-                }}
-              >
-                로그인 화면으로 돌아가기
-              </button>
-            </div>
           </>
         ) : null}
+        <div>
+          <button
+            onClick={() => {
+              navigate('/login');
+            }}
+          >
+            로그인 화면으로 돌아가기
+          </button>
+        </div>
         <div>
           <button>가입</button>
         </div>
