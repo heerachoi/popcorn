@@ -3,7 +3,7 @@ import { deleteDoc, doc } from 'firebase/firestore';
 import React from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
-import { auth, db } from '../../firebase';
+import { auth, db } from '../../../services/firebase';
 
 const DeleteAccount = () => {
   const navigate = useNavigate();

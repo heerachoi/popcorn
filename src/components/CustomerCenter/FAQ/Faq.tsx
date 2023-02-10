@@ -1,5 +1,4 @@
-import React from 'react';
-import data from '../../../db.json';
+import data from '../../../data/popupStore.json';
 
 const Faq: any = () => {
   const faqList = data.FAQ;
@@ -9,7 +8,9 @@ const Faq: any = () => {
       {faqList.map((qa) => {
         return (
           <div key={qa.id}>
-            <h4>{qa.id}. Q : {qa.Q}</h4>
+            <h4>
+              {qa.id}. Q : {qa.Q}
+            </h4>
             <p>A : {qa.A}</p>
           </div>
         );

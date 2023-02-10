@@ -2,11 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import { InfoErrorForm, ErrorImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
-import { db, storage } from '../../../firebase';
+import { db, storage } from '../../../services/firebase';
 import { setDoc, doc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
-
 
 // 정보 오류/수정 제보
 const InfoError: any = () => {

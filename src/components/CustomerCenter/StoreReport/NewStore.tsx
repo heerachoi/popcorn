@@ -3,12 +3,11 @@ import { useState } from 'react';
 import { NewStoreForm, StoreImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
 import { setDoc, doc } from 'firebase/firestore';
-import { db, storage } from '../../../firebase';
+import { db, storage } from '../../../services/firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
-
-// 신규 스토어 제보 
+// 신규 스토어 제보
 const NewStore = () => {
   const [storeName, setStoreName] = useState<string>(''); // 브랜드명
   const [storePlace, setStorePlace] = useState<string>(''); // 위치

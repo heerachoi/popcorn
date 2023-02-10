@@ -1,17 +1,17 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../firebase';
-import DeleteAccount from './DeleteAccount';
-import SignOut from './SignOut';
+import { auth } from '../../../services/firebase';
+import DeleteAccount from '../DeleteAccount/DeleteAccount';
+import Logout from '../Logout/Logout';
 
 interface SignInInput {
   email: string;
   password: string;
 }
 
-const SignIn = () => {
+const Login = () => {
   const navigate = useNavigate();
 
   const initSignInInput = {
@@ -156,10 +156,10 @@ const SignIn = () => {
       >
         회원가입 하러가기
       </button>
-      <SignOut />
+      <Logout />
       <DeleteAccount />
     </>
   );
 };
 
-export default SignIn;
+export default Login;
