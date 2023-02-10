@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from 'react-router-dom';
 import * as S from './style';
-import { auth } from '../../firebase';
-import SignOut from '../Signup/SignOut';
+import { auth } from '../../services/firebase';
+import Logout from '../Authentication/Logout/Logout';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Header = () => {
               로그인
             </S.CategoryBtn>
           ) : (
-            <SignOut />
+            <Logout />
           )}
           <S.MapBtn onClick={() => navigate('/map')}>지도</S.MapBtn>
           {!auth?.currentUser?.uid ? null : (

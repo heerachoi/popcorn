@@ -1,6 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React from 'react';
-import { auth } from '../../firebase';
+import { auth } from '../../../services/firebase';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +12,7 @@ const SignUpBtn = styled.button`
   border-radius: 4px;
 `;
 
-const SignOut = () => {
+const Logout = () => {
   const navigate = useNavigate();
 
   // 로그아웃 이벤트
@@ -45,4 +44,4 @@ const SignOut = () => {
   return <SignUpBtn onClick={SignOutClickHandler}>로그아웃</SignUpBtn>;
 };
 
-export default SignOut;
+export default Logout;
