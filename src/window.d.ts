@@ -3,6 +3,7 @@
 export declare global {
   interface Window {
     recaptchaVerifier: any;
-    confirmationResult: unknown;
+    confirmationResult: any;
+    verificationId: any;
   }
 }
