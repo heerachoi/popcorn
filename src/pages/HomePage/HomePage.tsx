@@ -6,7 +6,7 @@ import SignUp from '../../components/Signup/SignUp';
 
 const HomePage: any = () => {
   const navigate = useNavigate();
-  
+
   return (
     <>
       {/* <SignUp /> */}
