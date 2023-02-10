@@ -64,9 +64,8 @@
   "devDependencies": {
     "@types/react-calendar": "^3.9.0",
     "@types/react-datepicker": "^4.8.0",
-    "@types/styled-components": "^5.1.26"
-    "@types/cookie": "^0.5.1",
     "@types/styled-components": "^5.1.26",
+    "@types/cookie": "^0.5.1",
     "@types/uuid": "^9.0.0"
   }
 }
