@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import data from '../../db.json';
+import data from '../../data/popupStore.json';
 
 const TestPopupList: any = () => {
   const navigate = useNavigate();
@@ -31,10 +31,20 @@ const TestPopupList: any = () => {
               <TagDiv>
                 <TagUl>
                   <TagNameLi>
-                    <Link to="/search" style={{textDecoration:'none', color:'black'}}>{list.location}</Link>
+                    <Link
+                      to="/search"
+                      style={{ textDecoration: 'none', color: 'black' }}
+                    >
+                      {list.location}
+                    </Link>
                   </TagNameLi>
                   <TagNameLi>
-                    <Link to="/search" style={{textDecoration:'none', color:'black'}}>{list.item}</Link>
+                    <Link
+                      to="/search"
+                      style={{ textDecoration: 'none', color: 'black' }}
+                    >
+                      {list.item}
+                    </Link>
                   </TagNameLi>
                 </TagUl>
               </TagDiv>
