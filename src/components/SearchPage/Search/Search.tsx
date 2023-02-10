@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import datas from '../../../db.json';
 import { ko } from 'date-fns/esm/locale';
 import {DatePickerContainer, SearchContainer, SearchContainerTop, SearchEventPeriod,SearchContainerBottom,DepartmentStoreCategory, ItemCategory, SearchInput, FilterTypes, StartingDate, SelectDate, StoreContainer, PosterImg, StoreTitle, EventPeriod,EtcCategory,FilterResult, CalendarContainer, ToggleCalendar} from './style';
-
+import "react-datepicker/dist/react-datepicker.css";
 const Search:any = () => {
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<any>([]);
@@ -115,7 +115,7 @@ const Search:any = () => {
         storeList.map((store:any, index:any) => {
           return(
             <StoreContainer key={index}>
-              <PosterImg src={store.mainImg[0]}/>
+              <PosterImg src={store.imgURL[0]}/>
               <StoreTitle>{store.title}</StoreTitle>
               <EventPeriod>{store.open} - {store.close} </EventPeriod>
             </StoreContainer>
