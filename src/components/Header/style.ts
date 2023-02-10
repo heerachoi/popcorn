@@ -22,18 +22,16 @@ export const Title = styled.button`
 export const DummyBox = styled.div``;
 
 export const BtnWrap = styled.div`
-  width: 300px;
+  width: 400px;
   display: flex;
   justify-content: space-around;
 `;
 
-export const SignUpBtn = styled.button`
+export const CategoryBtn = styled.button`
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid #323232;
   border-radius: 4px;
 `;
 
-export const CustomerCenterBtn = styled(SignUpBtn)``;
-export const LoginBtn = styled(SignUpBtn)``;
-export const MapBtn = styled(SignUpBtn)``;
+export const MapBtn = styled(CategoryBtn)``;

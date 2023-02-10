@@ -7,8 +7,8 @@ const CustomerCenterPage: any = () => {
   return (
     <div>
       CustomerCenterPage
-      <NewStore />
-      <InfoError />
+      {/* <NewStore /> */}
+      {/* <InfoError /> */}
       <Faq />
     </div>
   );
