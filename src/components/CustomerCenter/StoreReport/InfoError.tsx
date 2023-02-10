@@ -7,6 +7,8 @@ import { setDoc, doc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
+
+// 정보 오류/수정 제보
 const InfoError: any = () => {
   const [errorStoreName, setErrorStoreName] = useState<string>(''); // 브랜드명
   const [errorContent, setErrorContent] = useState<string>(''); // 오류수정건의
@@ -73,6 +75,7 @@ const InfoError: any = () => {
     <>
       <InfoErrorForm onSubmit={errInfoAddHandler}>
         <div>
+          <h2>정보 오류/수정 제보</h2>
           <h4>1. 브랜드명 (스토어 이름)</h4>
           <input
             type="text"
@@ -81,7 +84,7 @@ const InfoError: any = () => {
           />
         </div>
         <div>
-          <h4>2. 오류 수정 건의</h4>
+          <h4>2. 오류 & 수정 건의</h4>
           <input
             type="text"
             value={errorContent}
