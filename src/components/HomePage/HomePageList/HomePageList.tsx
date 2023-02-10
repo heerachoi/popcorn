@@ -62,7 +62,10 @@ const HomePageList: any = () => {
       {popupList.map((popup) => {
         return (
           <>
-            <StyleListWrap key={popup.id} onClick={() => navigate('/detail')}>
+            <StyleListWrap
+              key={popup.id}
+              onClick={() => navigate(`/detail/${popup.id}`)}
+            >
               <PopupTitle>{popup.title}</PopupTitle>
               <PopupDate>
                 {popup.open} ~ {popup.close}
@@ -77,7 +80,10 @@ const HomePageList: any = () => {
       {closingSoonList.map((popup) => {
         return (
           <>
-            <StyleListWrap key={popup.id} onClick={() => navigate('/detail')}>
+            <StyleListWrap
+              key={popup.id}
+              onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
+            >
               <PopupTitle>{popup.title}</PopupTitle>
               <PopupDate>
                 {popup.open} ~ {popup.close}
