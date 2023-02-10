@@ -1,9 +1,16 @@
 import styled from 'styled-components';
+import DatePicker from 'react-datepicker';
+
+export const DatePickerContainer = styled(DatePicker)`
+  outline: none;
+  border: none;
+`
 
 export const SearchContainer = styled.div`
   width: 80%;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 40px;
 `
 
 export const SearchContainerTop = styled.div`
@@ -23,24 +30,44 @@ export const SearchInput = styled.input`
 `
 
 export const StartingDate = styled.div`
-  width: 25%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200px;
   margin-left: 10px;
   border-right: 1px solid #E6EBFA;
 `
 
-export const SearchEventPeriod = styled.div`
-  width: 25%;
+export const SearchEventPeriod = styled.select`
+  width: 200px;
   margin-left: 10px;
+  border: none;
+  outline: none;
+`
+
+export const CalendarContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const ToggleCalendar = styled.div`
+  /* display: flex; */
+  margin-top: 40px;
+  box-sizing: border-box;
 `
 
 export const SearchContainerBottom = styled(SearchContainerTop)`
   border-top: none;
 `
 
-export const DepartmentStoreCategory = styled.div`
+export const DepartmentStoreCategory = styled.select`
   width: 33%;
   margin-left: 10px;
+  border: none;
+  outline: none;
   border-right: 1px solid #E6EBFA;
+  padding-right: 40px;
+  box-sizing: border-box;
 `
 
 export const ItemCategory = styled.div`
