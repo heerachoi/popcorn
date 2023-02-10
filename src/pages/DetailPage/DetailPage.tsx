@@ -1,7 +1,7 @@
-import DetailTop from '../../components/Detail/StoreDetailInfo';
+import StoreDetailInfo from '../../components/Detail/StoreDetailInfo';
 
 const DetailPage: any = () => {
-  return <DetailTop />;
+  return <StoreDetailInfo />;
 };
 
 export default DetailPage;

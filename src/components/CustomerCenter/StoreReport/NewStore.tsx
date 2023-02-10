@@ -7,6 +7,8 @@ import { db, storage } from '../../../firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 
+
+// 신규 스토어 제보 
 const NewStore = () => {
   const [storeName, setStoreName] = useState<string>(''); // 브랜드명
   const [storePlace, setStorePlace] = useState<string>(''); // 위치
@@ -110,6 +112,7 @@ const NewStore = () => {
     <>
       <NewStoreForm onSubmit={InfoAddHandler}>
         <div>
+          <h2>신규 브랜드 스토어</h2>
           <h4>1. 브랜드명 (스토어 이름)</h4>
           <input type="text" value={storeName} onChange={storeNameHandler} />
         </div>
