@@ -8,8 +8,40 @@ import SearchPage from '../pages/SearchPage/SearchPage';
 import LogInPage from '../pages/LogInPage/LogInPage';
 import Header from '../components/Header/Header';
 import MapPage from '../pages/MapPage/MapPage';
+import { auth } from '../services/firebase';
+import { useEffect } from 'react';
+import { useSetRecoilState } from 'recoil';
+import { userInfo } from '../atoms';
 
 const Router = () => {
+  const setUser = useSetRecoilState(userInfo);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser({
+          isLogin: true,
+          userInfomation: {
+            displayName: user.displayName || '',
+            email: user.email || '',
+            photoURL: user.photoURL || '',
+            uid: user.uid || '',
+          },
+        });
+      } else {
+        setUser({
+          isLogin: false,
+          userInfomation: {
+            displayName: '',
+            email: '',
+            photoURL: '',
+            uid: '',
+          },
+        });
+      }
+    });
+  }, [auth]);
+
   return (
     <BrowserRouter>
       <Routes>
