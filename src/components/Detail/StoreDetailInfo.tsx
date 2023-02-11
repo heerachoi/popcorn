@@ -48,13 +48,25 @@ const StoreDetailInfo = () => {
       <S.SNSWrap>
         <S.SNSTitle>sns 계정 : </S.SNSTitle>{' '}
         <S.SNSText>
-          <Link to={detailData.sns}>인스타그램</Link>
+          <Link to={detailData.sns} target="_blank">
+            인스타그램
+          </Link>
         </S.SNSText>
       </S.SNSWrap>
       <S.BrandPageWrap>
         <S.BrandTitle>브랜드 페이지 : </S.BrandTitle>{' '}
         <S.BrandText>
-          <Link to={detailData.web}>브랜드홈페이지</Link>
+          <Link to={detailData.web} target="_blank">
+            브랜드홈페이지
+          </Link>
+        </S.BrandText>
+      </S.BrandPageWrap>
+      <S.BrandPageWrap>
+        <S.BrandTitle> 예약 </S.BrandTitle>{' '}
+        <S.BrandText>
+          <Link to={detailData.reserveURL} target="_blank">
+            예약 홈페이지
+          </Link>
         </S.BrandText>
       </S.BrandPageWrap>
     </S.StoreDetailInfoWrap>

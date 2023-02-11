@@ -3,9 +3,6 @@ import { useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../services/firebase';
-import DeleteAccount from '../DeleteAccount/DeleteAccount';
-import Logout from '../Logout/Logout';
-
 interface SignInInput {
   email: string;
   password: string;
@@ -13,6 +10,8 @@ interface SignInInput {
 
 const Login = () => {
   const navigate = useNavigate();
+
+  console.log(auth);
 
   const initSignInInput = {
     email: '',
@@ -64,7 +63,9 @@ const Login = () => {
       signInInput.email,
       signInInput.password,
     )
-      .then(() => navigate('/'))
+      .then(() => {
+        navigate('/');
+      })
       .catch((error: any) => {
         if (error.message.includes('user-not-found'))
           confirmAlert({
@@ -149,15 +150,8 @@ const Login = () => {
         <div style={{ color: 'red' }}>{helperText.password}</div>
         <button>로그인</button>
       </form>
-      <button
-        onClick={() => {
-          navigate('/signup');
-        }}
-      >
-        회원가입 하러가기
-      </button>
-      <Logout />
-      <DeleteAccount />
+      <button onClick={() => navigate('/signup')}>회원가입 하러가기</button>
+      <button onClick={() => navigate('/')}>홈으로 이동하기</button>
     </>
   );
 };

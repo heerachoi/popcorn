@@ -5,5 +5,7 @@ export declare global {
     recaptchaVerifier: any;
     confirmationResult: any;
     verificationId: any;
+    resetReCaptcha: any;
+    recaptchaWidgetId: any;
   }
 }
