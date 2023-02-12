@@ -39,16 +39,7 @@ const SignUp = () => {
     phoneCode: '',
   };
 
-  const initHelperTextSignUpInput = {
-    nickName: '',
-    email: '',
-    password: '',
-    passwordCheck: '',
-    gender: '',
-    age: '',
-    phoneNumber: '',
-    phoneCode: '',
-  };
+  const initHelperTextSignUpInput = { ...initSignUpInput };
 
   const [signUpInput, setSignUpInput] = useState<SignUpInput>(initSignUpInput);
   const [helperText, setHelperText] = useState<SignUpInput>(
@@ -57,7 +48,6 @@ const SignUp = () => {
   const [phoneVerify, setPhoneVerify] = useState(false);
   const [requestedPV, setRequestedPV] = useState(false);
   const [dataId, setDataId] = useState('');
-  // const [recaptcha, setRecaptcha] = useState<any>();
 
   const signUpInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -85,100 +75,61 @@ const SignUp = () => {
   ) => {
     event.preventDefault();
     // 언어 선택
-    // console.log('error!!!!!!');
     auth.languageCode = 'ko';
     // 리캡챠, 1번째 인수는 클릭한 버튼의 아이디와 같아야 한다.
-    // 리캡챠가 실행되지 않았을 때만 리캡챠를 실행
-
-    // if (!window.recaptchaVerifier) {
-    window.recaptchaVerifier = new RecaptchaVerifier(
-      're-container',
-      {
-        size: 'invisible',
-        callback: (response: any) => {
-          console.log('recaptchaVerifier response', response);
-          // setRecaptcha(grecaptcha);
+    // if문을 넣으니 여러번 눌러도 리캡챠가 실행되었다.
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        're-container',
+        {
+          size: 'invisible',
+          callback: (response: any) => {
+            console.log('recaptchaVerifier response', response);
+            // setRecaptcha(grecaptcha);
+          },
+          'expired-callback': (data: any) => {
+            console.log('reCAPTCHA expired, refreshing...');
+            window.recaptchaVerifier.reset();
+          },
         },
-        'expired-callback': (data: any) => {
-          console.log('reCAPTCHA expired, refreshing...');
-          window.recaptchaVerifier.reset();
-        },
-      },
-      auth,
-    );
-    // }
+        auth,
+      );
+    }
 
-    // recaptchaVerifier.render().
-
-    // const appVerifier = window.recaptchaVerifier;
-
-    // // appVerifier.render().then((widgetId: any) => {
-    // //   window.recaptchaWidgetId = widgetId;
-    // //   // grecaptcha.reset(widgetId);
-    // //   console.log(widgetId);
-    // // });
-
-    // const provider = new PhoneAuthProvider(auth);
-    // console.log('provider');
-    // provider
-    //   .verifyPhoneNumber('+82' + signUpInput.phoneNumber, appVerifier)
-    //   .then((verificationId) => {
-    //     console.log('sdlkfjkldsjf');
-    //     setDataId(verificationId);
-    //     setRequestedPV(true);
-    //   })
-    //   .catch((verificationId) => {
-    //     window.recaptchaVerifier.recaptcha.reset(verificationId);
-    //     console.log();
-    //   });
+    const appVerifier = window.recaptchaVerifier;
 
     // 인증번호를 보내는 메서드, 2번째 인수는 휴대폰 번호
-    // signInWithPhoneNumber(auth, '+82' + signUpInput.phoneNumber, appVerifier)
-    //   .then((confirmationResult) => {
-    //     window.confirmationResult = confirmationResult;
-    //     console.log(confirmationResult);
-    //     setDataId(confirmationResult.verificationId);
-    //     setRequestedPV(true);
-    //   })
-    //   .catch((error) => {
-    //     if (error.message.includes('invalid-phone-number'))
-    //       return alert('알맞은 휴대폰 번호를 입력해 주세요.');
-    //   });
+    signInWithPhoneNumber(auth, '+82' + signUpInput.phoneNumber, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        setDataId(confirmationResult.verificationId);
+        setRequestedPV(true);
+      })
+      .catch((error) => {
+        if (error.message.includes('invalid-phone-number'))
+          return alert('알맞은 휴대폰 번호를 입력해 주세요.');
+      });
   };
 
   const phoneVerifyHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(window.verificationId);
-    // Obtain verificationCode from the user.
+
     const code = signUpInput.phoneCode;
     const authCredential = PhoneAuthProvider.credential(dataId, code);
-    signInWithCredential(auth, authCredential).then(() => {
-      deleteUser(auth.currentUser!);
-      signOut(auth);
-      setPhoneVerify(true);
-      setRequestedPV(false);
-    });
-
-    // const code = signUpInput.phoneCode;
-    // window.confirmationResult
-    //   .confirm(code)
-    //   .then(() => {
-    //     deleteUser(auth.currentUser!);
-    //     signOut(auth);
-    //     setPhoneVerify(true);
-    //     setRequestedPV(false);
-    //     alert('인증이 완료되었습니다.');
-    //     // ...
-    //   })
-    //   .catch((error: any) => {
-    //     // User couldn't sign in (bad verification code?)
-    //     // ...
-    //     console.log(error);
-    //     if (error.message.includes('invalid-verification-code'))
-    //       return alert('인증번호를 입력해 주세요.');
-    //     if (error.message.includes('code-expired'))
-    //       return alert('인증번호가 틀립니다. 다시 입력해 주세요.');
-    //   });
+    signInWithCredential(auth, authCredential)
+      .then(() => {
+        deleteUser(auth.currentUser!);
+        signOut(auth);
+        setPhoneVerify(true);
+        setRequestedPV(false);
+        alert('인증이 완료되었습니다.');
+      })
+      .catch((error: any) => {
+        if (error.message.includes('invalid-verification-code'))
+          return alert('인증번호를 입력해 주세요.');
+        if (error.message.includes('code-expired'))
+          return alert('인증번호가 틀립니다. 다시 입력해 주세요.');
+      });
   };
 
   // 회원가입 클릭 이벤트

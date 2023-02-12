@@ -1,4 +1,4 @@
-import StoreDetailInfo from '../../components/Detail/StoreDetailInfo';
+import StoreDetailInfo from '../../components/Detail/StoreDetailInfo/StoreDetailInfo';
 
 const DetailPage: any = () => {
   return <StoreDetailInfo />;

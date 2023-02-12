@@ -1,6 +1,7 @@
 import { uuidv4 } from '@firebase/util';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import KakaoShare from './KakaoShare';
 import * as S from './style';
 
 const StoreDetailInfo = () => {
@@ -69,6 +70,7 @@ const StoreDetailInfo = () => {
           </Link>
         </S.BrandText>
       </S.BrandPageWrap>
+      <KakaoShare detailData={detailData} />
     </S.StoreDetailInfoWrap>
   );
 };

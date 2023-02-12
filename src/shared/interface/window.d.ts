@@ -7,5 +7,6 @@ export declare global {
     verificationId: any;
     resetReCaptcha: any;
     recaptchaWidgetId: any;
+    Kakao: any;
   }
 }

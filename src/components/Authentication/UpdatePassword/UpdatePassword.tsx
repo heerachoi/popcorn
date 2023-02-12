@@ -44,7 +44,6 @@ const UpdatePassword = () => {
         }
       });
   };
-  //////// 현재 비밀번호를 확인하는 함수 ////////
 
   const checkHelperText = () => {
     const isUpdatePassword = helperPasswordInput.updatePassword !== '';
@@ -64,18 +63,15 @@ const UpdatePassword = () => {
       passwordInput.updatePassword !== '' &&
       passwordInput.updatePasswordCheck !== ''
     ) {
-      updatePassword(user!, passwordInput.updatePassword).then(() => {
-        console.log(passwordInput.updatePassword);
-        console.log('good');
-      });
-      setCheck(false);
+      updatePassword(user!, passwordInput.updatePassword).then(() =>
+        setCheck(false),
+      );
     } else if (!check) {
       alert('현재 비밀번호 인증을 해주시길 바랍니다.');
     } else {
       alert('입력한 비밀번호가 다릅니다. 다시 확인 후 입력해 주세요.');
     }
   };
-  //////// 비밀번호를 변경하는 함수 ////////
 
   const passwordChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -122,8 +118,8 @@ const UpdatePassword = () => {
       });
     }
   };
-
   //////// 유효성 검사 ////////
+
   return (
     <div>
       <input
