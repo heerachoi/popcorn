@@ -1,0 +1,58 @@
+ {
+      "id": "3",
+      "view": "0",
+      "title": "더 퍼스트 슬램덩크 at 더현대 서울",
+      "address": "서울특별시 영등포구 여의대로 108 더현대 서울",
+      "si": "서울특별시",
+      "gu": "영등포구",
+      "dong": "여의도동",
+      "open": "2023.01.26",
+      "close": "2023.02.07",
+      "location": "서울",
+      "item": "패션잡화",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "약 200개의 슬램덩크 굿즈를 선보여요. 슬램덩크 한정판 피규어는 물론, 슬램덩크 팬이라면 놓칠 수 없는 캐릭터 유니폼 패키지 등을 선보일 예정이랍니다.",
+      "sns": "https://www.instagram.com/slamdunk_popup/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.07.png?alt=media&token=165cd3e9-c68b-4638-bc7f-9c556c8fbc1f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.20.png?alt=media&token=694784d6-48fb-4783-8fc6-a0d8f7c89d30",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.29.png?alt=media&token=236812be-eac8-4632-8c3b-b9330bb53d31",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.40.png?alt=media&token=c8267e80-2cbf-49c8-92b4-d60b75b61c34"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+
+    맨 처음 실행시
+    const [location, setLocation] = useState('현재 경도', '현재 위도');
+
+    map(location) 현재 위치 박아주기
+
+    setLocation('검색 경도', '검색 위도')
+    => map(location) 검색 위치 박아주고 주위 반경 3km 이내에 있는 데이터 마크업 뿌려주기
+    데이터의 정확한 위치는 data.lat, data.lon 으로 지정하기
+
+    weather(location) 도 위와 똑같이
+
+    detail 페이지에서는 상위 컴포넌트에서 누르면 react-router-dom으로 data를 넘겨주기 때문에 data.lat,data.lon이 있어서 상관없음 
+
+    모르겠는 점 : 주위 음식점 및 카페는 경도 위도를 지원해주지 않으면 맵에 뿌려주기 불가능할듯 ?
+    data.si, data.gu, data.dong이 있는데 이걸 검색할 때 어떤식을 활용하는지? 카카오톡 api가 지원해주는 로컬 api를 사용하면 필요없지 않나? 잘모르겠다.
