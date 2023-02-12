@@ -16,6 +16,8 @@ import { userInfo } from '../atoms';
 const Router = () => {
   const setUser = useSetRecoilState(userInfo);
 
+  // 로그인 상태를 전역적으로 관리해주는 함수
+  // 로그아웃이 된 상태에서만 Header가 바뀐다.
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
