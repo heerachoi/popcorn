@@ -1,10 +1,13 @@
 // firebase import
 // const current = "kWhtWlL0n4auOkXnR3t7lmXQn8r1";
-// 
-const MyPage:any = () => {
+import { MyProfile } from '../../components/MyPage/MyProfile';
+
+const MyPage: any = () => {
   return (
-    <>MyPage</>
-  )
-}
+    <>
+      <MyProfile />
+    </>
+  );
+};
 
 export default MyPage;
