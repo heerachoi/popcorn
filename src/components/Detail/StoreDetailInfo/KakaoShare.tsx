@@ -11,15 +11,14 @@ const KakaoShare = ({ detailData }: Props) => {
       window.Kakao.isInitialized(); // init되면 true, 아니면 false를 반환한다
     }
   }, []);
-  //   console.log(detailData.imgURL);
-  console.log(detailData);
+
   const shareKakao = () => {
     window.Kakao.Share.createDefaultButton({
       container: '#KakaoShareBtn',
       objectType: 'feed',
       content: {
-        title: '팝업스토어 popcorn과 함께하세요!',
-        // description: '팝업스토어 popcorn과 함께하세요!',
+        title: detailData.title,
+        description: '#' + detailData.item,
         imageUrl: detailData.imgURL[0],
         link: {
           // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
@@ -27,35 +26,13 @@ const KakaoShare = ({ detailData }: Props) => {
           webUrl: 'http://localhost:3000',
         },
       },
-      itemContent: {
-        titleImageUrl: detailData.imgURL[0],
-        titleImageText: detailData.title,
-        titleImageCategory: detailData.item,
-        items: [
-          {
-            item: '주소',
-            itemOp: detailData.address,
-          },
-        ],
-        sum: '운영기간',
-        sumOp: detailData.open + '~' + detailData.close,
-      },
       social: {
         // 나중에 글 추천수의 데이터를 받아와서 바꿔줌
         likeCount: 286,
-        // 나중에 글 조회수의 데이터를 받아와서 바꿔줌
-        // 조회수: 45,
       },
       buttons: [
         {
           title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'http://localhost:3000',
-            webUrl: 'http://localhost:3000',
-          },
-        },
-        {
-          title: '앱으로 보기',
           link: {
             mobileWebUrl: 'http://localhost:3000',
             webUrl: 'http://localhost:3000',
