@@ -8,5 +8,6 @@ export declare global {
     resetReCaptcha: any;
     recaptchaWidgetId: any;
     Kakao: any;
+    kakao: any;
   }
 }

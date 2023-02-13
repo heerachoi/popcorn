@@ -13,6 +13,7 @@ import {
 import { doc, setDoc } from 'firebase/firestore';
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
+import * as S from './style';
 
 interface SignUpInput {
   nickName: string;
@@ -97,7 +98,6 @@ const SignUp = () => {
     }
 
     const appVerifier = window.recaptchaVerifier;
-
     // 인증번호를 보내는 메서드, 2번째 인수는 휴대폰 번호
     signInWithPhoneNumber(auth, '+82' + signUpInput.phoneNumber, appVerifier)
       .then((confirmationResult) => {
@@ -255,8 +255,7 @@ const SignUp = () => {
     if (!regexPw.test(event.target.value)) {
       setHelperText({
         ...helperText,
-        password:
-          '비밀번호는 8자 이상이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.',
+        password: '조건에 맞게 입력해 주세요.',
       });
     } else {
       setHelperText({
@@ -310,113 +309,142 @@ const SignUp = () => {
   /////////// 유효성 검사 ////////////
 
   return (
-    <div>
-      <form onSubmit={singUpHandler}>
-        <h3>닉네임</h3>
-        <input
-          onChange={signUpInputChangeHandler}
-          value={signUpInput.nickName}
-          name="nickName"
-          type="text"
-          onBlur={validateNickName}
-        />
-        <div style={{ color: 'red' }}>{helperText.nickName}</div>
-        <h3>이메일</h3>
-        <input
-          onChange={signUpInputChangeHandler}
-          value={signUpInput.email}
-          name="email"
-          type="email"
-          onBlur={validateEmail}
-        />
-        <div style={{ color: 'red' }}>{helperText.email}</div>
-        <h3>비밀번호</h3>
-        <input
-          onChange={signUpInputChangeHandler}
-          value={signUpInput.password}
-          name="password"
-          type="password"
-          onBlur={validatePassword}
-        />
-        <div style={{ color: 'red' }}>{helperText.password}</div>
-        <h3>비밀번호 확인</h3>
-        <input
-          onChange={signUpInputChangeHandler}
-          value={signUpInput.passwordCheck}
-          name="passwordCheck"
-          type="password"
-          onBlur={validatePasswordCheck}
-        />
-        <div style={{ color: 'red' }}>{helperText.passwordCheck}</div>
-        <h3>성별</h3>
-        <select
-          value={signUpInput.gender}
-          name="gender"
-          onChange={signUpSelectChanchHandler}
-          onBlur={validateGender}
-        >
-          <option value="">성별을 선택해 주세요</option>
-          <option value="남자">남자</option>
-          <option value="여자">여자</option>
-          <option value="선택안함">선택안함</option>
-        </select>
-        <div style={{ color: 'red' }}>{helperText.gender}</div>
-        <h3>연령</h3>
-        <select
-          value={signUpInput.age}
-          name="age"
-          onChange={signUpSelectChanchHandler}
-          onBlur={validateAge}
-        >
-          <option value="">연령을 선택해 주세요</option>
-          <option value="10대">10대</option>
-          <option value="20대">20대</option>
-          <option value="30대">30대</option>
-          <option value="40대">40대</option>
-          <option value="50대">50대</option>
-          <option value="60대">60대</option>
-          <option value="70대">70대</option>
-          <option value="선택안함">선택안함</option>
-        </select>
-        <div style={{ color: 'red' }}>{helperText.age}</div>
-        <h3>휴대폰 번호</h3>
-        <div id="re-container"></div>
-        <input
-          onChange={signUpInputChangeHandler}
-          value={signUpInput.phoneNumber}
-          name="phoneNumber"
-          type="text"
-        />
-        <button id="phone" onClick={phoneNumberPostHandler}>
-          인증번호 보내기
-        </button>
-        {requestedPV ? (
-          <>
-            <input
+    <S.Wrap>
+      <S.TitleWrap>
+        <S.Title>회원가입</S.Title>
+      </S.TitleWrap>
+      <S.FormWrap onSubmit={singUpHandler}>
+        <S.FormItemWrap>
+          <S.FormText>닉네임</S.FormText>
+          <S.FormInput
+            placeholder="닉네임을 입력해 주세요."
+            onChange={signUpInputChangeHandler}
+            value={signUpInput.nickName}
+            name="nickName"
+            type="text"
+            onBlur={validateNickName}
+          />
+          <S.HelperText>{helperText.nickName}</S.HelperText>
+        </S.FormItemWrap>
+        <S.FormItemWrap>
+          <S.FormText>이메일 (아이디)</S.FormText>
+          <S.FormInput
+            placeholder="이메일을 입력해 주세요."
+            onChange={signUpInputChangeHandler}
+            value={signUpInput.email}
+            name="email"
+            type="email"
+            onBlur={validateEmail}
+          />
+        </S.FormItemWrap>
+        <S.FormItemWrap>
+          <S.HelperText>{helperText.email}</S.HelperText>
+          <S.FormText>
+            비밀번호 (대문자, 소문자+숫자+특수문자 8자 이상)
+          </S.FormText>
+          <S.FormInput
+            placeholder="비밀번호를 입력해 주세요."
+            onChange={signUpInputChangeHandler}
+            value={signUpInput.password}
+            name="password"
+            type="password"
+            onBlur={validatePassword}
+          />
+          <S.HelperText>{helperText.password}</S.HelperText>
+        </S.FormItemWrap>
+        <S.FormItemWrap>
+          <S.FormText>비밀번호 확인</S.FormText>
+          <S.FormInput
+            placeholder="비밀번호를 확인해 주세요."
+            onChange={signUpInputChangeHandler}
+            value={signUpInput.passwordCheck}
+            name="passwordCheck"
+            type="password"
+            onBlur={validatePasswordCheck}
+          />
+          <S.HelperText>{helperText.passwordCheck}</S.HelperText>
+        </S.FormItemWrap>
+        <S.FormItemWrap>
+          <S.FormText>성별</S.FormText>
+          <S.FormSelect
+            as="select"
+            value={signUpInput.gender}
+            name="gender"
+            onChange={signUpSelectChanchHandler}
+            onBlur={validateGender}
+          >
+            <option value="">성별을 선택해 주세요</option>
+            <option value="남자">남자</option>
+            <option value="여자">여자</option>
+            <option value="선택안함">선택안함</option>
+          </S.FormSelect>
+          <S.HelperText>{helperText.gender}</S.HelperText>
+        </S.FormItemWrap>
+        <S.FormItemWrap>
+          <S.FormText>연령</S.FormText>
+          <S.FormSelect
+            as="select"
+            value={signUpInput.age}
+            name="age"
+            onChange={signUpSelectChanchHandler}
+            onBlur={validateAge}
+          >
+            <option value="">연령을 선택해 주세요</option>
+            <option value="10대">10대</option>
+            <option value="20대">20대</option>
+            <option value="30대">30대</option>
+            <option value="40대">40대</option>
+            <option value="50대">50대</option>
+            <option value="60대">60대</option>
+            <option value="70대">70대</option>
+            <option value="선택안함">선택안함</option>
+          </S.FormSelect>
+          <S.HelperText>{helperText.age}</S.HelperText>
+        </S.FormItemWrap>
+        <S.FormItemWrap>
+          <S.FormText>휴대전화 (숫자만 입력)</S.FormText>
+          <div id="re-container"></div>
+          <S.FormBtnWrap>
+            <S.PhoneInput
               onChange={signUpInputChangeHandler}
-              value={signUpInput.phoneCode}
-              name="phoneCode"
+              value={signUpInput.phoneNumber}
+              name="phoneNumber"
               type="text"
             />
-            <button id="phoneCodeBtn" onClick={phoneVerifyHandler}>
-              인증하기
-            </button>
-          </>
-        ) : null}
-        <div>
-          <button
+            <S.PhoneBtn id="phone" onClick={phoneNumberPostHandler}>
+              인증번호 보내기
+            </S.PhoneBtn>
+          </S.FormBtnWrap>
+        </S.FormItemWrap>
+        <S.FormItemWrap>
+          <S.FormBtnWrap>
+            {requestedPV ? (
+              <>
+                <S.PhoneInput
+                  onChange={signUpInputChangeHandler}
+                  value={signUpInput.phoneCode}
+                  name="phoneCode"
+                  type="text"
+                />
+                <S.PhoneBtn id="phoneCodeBtn" onClick={phoneVerifyHandler}>
+                  인증하기
+                </S.PhoneBtn>
+              </>
+            ) : null}
+          </S.FormBtnWrap>
+        </S.FormItemWrap>
+        <S.FormBtnWrap>
+          <S.CancleBtn
             onClick={() => {
               navigate('/login');
             }}
           >
-            로그인 화면으로 돌아가기
-          </button>
-        </div>
-        <div>
-          <button>가입</button>
-        </div>
-      </form>
-    </div>
+            취소
+          </S.CancleBtn>
+          <S.SignUpBtn>회원가입</S.SignUpBtn>
+        </S.FormBtnWrap>
+      </S.FormWrap>
+    </S.Wrap>
   );
 };
 
