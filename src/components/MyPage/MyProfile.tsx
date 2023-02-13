@@ -1,5 +1,7 @@
-import { useState } from 'react';
-// import { db, storage } from '../../../services/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState, useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userInfo } from '../../atoms';
 import { auth } from '../../services/firebase';
 import {
   MyProfileWrapper,
@@ -10,29 +12,81 @@ import {
   DeleteAccountBtn,
   PasswordChange,
   NicknameInput,
+  Colortext,
 } from './style';
+import { updateProfile } from 'firebase/auth';
 
-export const MyProfile = () => {
-  console.log(auth.currentUser);
+const MyProfile = () => {
+  // nickname : 현재 nickname이 들어옴
+  const [nickname, setNickname] = useState<any>('');
+  // currentUser : displayName이 담겨있는 객체
+  const [currentUser, setCurrentUser] = useState<any>('');
 
-  const [nickname, setNickname] = useState<string>(''); // 닉네임(displayName)
-  const [photoUrl, setPhotoUrl] = useState<string>(''); // 이미지 링크(photoURL)
+  // useRecoilValue 기능으로 userInfo를 받아옴
+  // const user = useRecoilValue(userInfo);
 
-  // 닉네임 받아오는 함수
+  // 로그인 상태인지 확인 함수
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      // auth = getAuth() : currentUser이 담겨있는 배열(AuthImpl)
+      // user : displayName이 담겨있는 객체(UserImpl)
 
-  const userName = auth.currentUser?.displayName;
-  console.log(userName);
+      if (user) {
+        console.log('auth.currentUser', auth.currentUser);
+        setCurrentUser(auth.currentUser);
+        // auth.currentUser : displayName이 담겨있는 객체(UserImpl)
+        // setCurrentUser : 함수?같은 건데 잘 모르겠음
+        setNickname(auth.currentUser?.displayName);
 
-  // setNickname(userName);
+        console.log(
+          'auth.currentUser?.displayName',
+          auth.currentUser?.displayName,
+        );
+        //auth.currentUser?.displayName : 원래 닉네임
+        console.log('로그인 되어있음');
+      } else if (!user) {
+        console.log('로그인 안됨');
+      }
+    });
+    if (!currentUser) return;
+  }, []);
+
+  // 닉네임 바꿔주는 함수
+  // auth와 getAuth()는 같음
+
+  const onClick = async () => {
+    await updateProfile(currentUser, {
+      displayName: nickname,
+      photoURL: 'https://example.com/jane-q-user/profile.jpg',
+    })
+      .then(() => {
+        setNickname('');
+        console.log('nickname=>', nickname);
+        alert('Profile updated!');
+      })
+      .catch((error) => {
+        console.log('An error occurred');
+      });
+  };
+  // 인풋에 입력한 상태 그대로 ui표시
+  // onchange는 매번 set을 해주는 것
+  const NicknameChangeInput = (event: any) => {
+    setNickname(event.target.value);
+    console.log('event.target.value', event.target.value);
+  };
 
   return (
     <MyProfileWrapper>
       <MyProfileImage>이미지</MyProfileImage>
-      <MyProfileNickname>{userName}</MyProfileNickname>
+      <MyProfileNickname>{currentUser?.displayName}</MyProfileNickname>
       <NicknameModifyBox>
-        {/* 여기 인풋태그 피그마랑 최대한 비슷하게 고치기 */}
-        <NicknameInput placeholder="닉네임을 입력해주세요"></NicknameInput>
-        <ModifyButton>수정</ModifyButton>
+        <NicknameInput
+          placeholder="닉네임을 입력해주세요"
+          onChange={NicknameChangeInput}
+          value={nickname}
+        />
+
+        <ModifyButton onClick={onClick}>수정</ModifyButton>
       </NicknameModifyBox>
 
       <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
@@ -40,3 +94,5 @@ export const MyProfile = () => {
     </MyProfileWrapper>
   );
 };
+
+export default MyProfile;

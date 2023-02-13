@@ -153,3 +153,558 @@ const MyPage = () => {
 };
 
 export default MyPage;
+
+
+
+======================================
+
+recoil로 닉네임 받아오는 함수 
+
+// import { useState, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userInfo } from '../../atoms';
+// import { db, storage } from '../../../services/firebase';
+// import { auth } from '../../services/firebase';
+import {
+  MyProfileWrapper,
+  MyProfileImage,
+  MyProfileNickname,
+  NicknameModifyBox,
+  ModifyButton,
+  DeleteAccountBtn,
+  PasswordChange,
+  NicknameInput,
+} from './style';
+
+const MyProfile = () => {
+  // console.log(auth.currentUser?.displayName);
+  // 유저로 저장을 해서
+  // useRecoilValue(userInfo)
+  const user = useRecoilValue(userInfo);
+  // const [nickname, setNickname] = useState<string | null | undefined>(''); // 닉네임(displayName)
+  // const [photoUrl, setPhotoUrl] = useState<string>(''); // 이미지 링크(photoURL)
+
+  // displayName 바꿔주는 함수는 내가 작성하기!
+
+  // 닉네임 받아오는 함수
+  // const nicknameShow = () => {}
+
+  // useEffect(() => {
+  //   const userName = auth.currentUser?.displayName;
+  //   // console.log(userName);
+  //   setNickname(userName);
+  // }, [nickname]);
+  // console.log(user);
+
+  return (
+    <MyProfileWrapper>
+      <MyProfileImage>이미지</MyProfileImage>
+      <MyProfileNickname>{user.userInfomation.displayName}</MyProfileNickname>
+      <NicknameModifyBox>
+        {/* 여기 인풋태그 피그마랑 최대한 비슷하게 고치기 */}
+        <NicknameInput placeholder="닉네임을 입력해주세요"></NicknameInput>
+        <ModifyButton>수정</ModifyButton>
+      </NicknameModifyBox>
+
+      <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
+      <PasswordChange>비밀번호 변경</PasswordChange>
+    </MyProfileWrapper>
+  );
+};
+
+export default MyProfile;
+
+================
+인풋값 받아오는 거까진 됨
+
+import { useState, useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userInfo } from '../../atoms';
+import {
+  MyProfileWrapper,
+  MyProfileImage,
+  MyProfileNickname,
+  NicknameModifyBox,
+  ModifyButton,
+  DeleteAccountBtn,
+  PasswordChange,
+  NicknameInput,
+} from './style';
+
+const MyProfile = () => {
+  // 닉네임 받아오기
+  const [nickName, setNickName] = useState<string>('');
+  // 오류메세지 상태 저장
+  const [nickNameMessage, setNickNameMessage] = useState('');
+  //유효성검사
+  const [isNickName, setIsNickName] = useState(true);
+  const user = useRecoilValue(userInfo);
+  // displayName 바꿔주는 함수는 내가 작성하기!
+
+  // 인풋하는 족족 데이터 받고 수정
+  const NicknameChangeInput = (event: any) => {
+    setNickName(event.target.value);
+  };
+  console.log(NicknameChangeInput);
+  return (
+    <MyProfileWrapper>
+      <MyProfileImage>이미지</MyProfileImage>
+      <MyProfileNickname>{user.userInfomation.displayName}</MyProfileNickname>
+      <NicknameModifyBox>
+        <NicknameInput
+          value={nickName}
+          onChange={NicknameChangeInput}
+          placeholder="닉네임을 입력해주세요"
+        />
+        <ModifyButton>수정</ModifyButton>
+      </NicknameModifyBox>
+
+      <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
+      <PasswordChange>비밀번호 변경</PasswordChange>
+    </MyProfileWrapper>
+  );
+};
+
+export default MyProfile;
+
+
+=========================== 파이어베이스 auth에서 받아오는 방법 
+
+import { useState, useEffect } from 'react';
+// firebase auth에서 닉네임, 유저 아이디등을 받아올 수 있도록 import함
+import { auth } from '../../services/firebase';
+import {
+  MyProfileWrapper,
+  MyProfileImage,
+  MyProfileNickname,
+  NicknameModifyBox,
+  ModifyButton,
+  DeleteAccountBtn,
+  PasswordChange,
+  NicknameInput,
+} from './style';
+
+const MyProfile = () => {
+  const [nickname, setNickname] = useState<string | null | undefined>(
+    '{auth.currentUser?.displayName}',
+  );
+  console.log();
+
+  useEffect(() => {
+    const userName = auth.currentUser?.displayName;
+    setNickname(userName);
+  }, [nickname]);
+
+  return (
+    <MyProfileWrapper>
+      <MyProfileImage>이미지</MyProfileImage>
+      <MyProfileNickname>{auth.currentUser?.displayName}</MyProfileNickname>
+      <NicknameModifyBox>
+        <NicknameInput placeholder="닉네임을 입력해주세요"></NicknameInput>
+        <ModifyButton>수정</ModifyButton>
+      </NicknameModifyBox>
+
+      <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
+      <PasswordChange>비밀번호 변경</PasswordChange>
+    </MyProfileWrapper>
+  );
+};
+
+export default MyProfile;
+
+
+======================================== 유효성검사에 삽질 많이한 코드 (누만나 참고함)
+
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState, useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userInfo } from '../../atoms';
+import { auth } from '../../services/firebase';
+import {
+  MyProfileWrapper,
+  MyProfileImage,
+  MyProfileNickname,
+  NicknameModifyBox,
+  ModifyButton,
+  DeleteAccountBtn,
+  PasswordChange,
+  NicknameInput,
+  Colortext,
+} from './style';
+import { getAuth, updateProfile } from 'firebase/auth';
+
+const MyProfile = () => {
+  // nickname : 현재 nickname이 들어옴
+  const [nickname, setNickname] = useState<any>('');
+  // currentUser : displayName이 담겨있는 객체
+  const [currentUser, setCurrentUser] = useState<any>('');
+
+  // //오류메시지 상태저장
+  // const [nickNameMessage, setNickNameMessage] = useState('');
+
+  // //유효성검사
+  // const [isNickName, setIsNickName] = useState(true);
+
+  console.log('nickname', nickname);
+  console.log('currentUser', currentUser);
+  // useRecoilValue 기능으로 userInfo를 받아옴
+  // const user = useRecoilValue(userInfo);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      // auth = getAuth() : currentUser이 담겨있는 배열(AuthImpl)
+      // user : displayName이 담겨있는 객체(UserImpl)
+      console.log('user', user);
+
+      if (user) {
+        setCurrentUser(auth.currentUser);
+        console.log('auth.currentUser', auth.currentUser);
+        console.log('setCurrentUser', setCurrentUser);
+        // auth.currentUser : displayName이 담겨있는 객체(UserImpl)
+        // setCurrentUser : 함수?같은 건데 잘 모르겠음
+        setNickname(auth.currentUser?.displayName);
+
+        console.log(
+          'auth.currentUser?.displayName',
+          auth.currentUser?.displayName,
+        );
+        //auth.currentUser?.displayName : 현재 닉네임
+        console.log('로그인 되어있음');
+      } else if (!user) {
+        console.log('로그인 안됨');
+      }
+    });
+    if (!currentUser) return;
+  }, []);
+
+  // 인풋에 입력한 상태 그대로 ui표시
+  const NicknameChangeInput = (event: any) => {
+    setNickname(event.target.value);
+    console.log('event.target.value', event.target.value);
+  };
+  // const NicknameChangeInput = useCallback(
+  //   (event: any) => {
+  //     setNickname(event.target.value);
+  //     if (event.target.value.length < 2 || event.target.value.length > 5) {
+  //       setNickNameMessage('2글자 이상 5글자 미만으로 입력해주세요.');
+  //       setIsNickName(false);
+  //     } else {
+  //       setNickNameMessage('올바른 이름 형식입니다 :)');
+  //       setIsNickName(true);
+  //     }
+  //   },
+  //   [setIsNickName],
+  // );
+
+  //   const onUpdateUser = async () => {
+  //     // const id = await getCurrentSessionId()
+  //     // const editUser = { nickName, email }
+  //     // const res = await axios.put(getUsersUrl() + "/" + id, editUser)
+  //     const newUser = auth.currentUser?.displayName;
+  //     const res = await updateUser(newUser, newUser)
+
+  //     if (!res) return
+
+  //     window.location.reload()
+
+  //     return res.data
+  // }
+
+  // 닉네임 바꿔주는 함수
+  // auth와 getAuth()는 같음
+  const auth = getAuth();
+
+  updateProfile(currentUser, {
+    displayName: nickname,
+
+    photoURL: 'https://example.com/jane-q-user/profile.jpg',
+  })
+    .then(() => {
+      console.log('Profile updated!');
+    })
+    .catch((error) => {
+      console.log('An error occurred');
+    });
+
+  useEffect(() => {}, []);
+
+  return (
+    <MyProfileWrapper>
+      <MyProfileImage>이미지</MyProfileImage>
+      <MyProfileNickname>{nickname}</MyProfileNickname>
+      <NicknameModifyBox>
+        <NicknameInput
+          placeholder="닉네임을 입력해주세요"
+          onChange={NicknameChangeInput}
+        />
+        {/* {nickname?.length > 0 && (
+          <Colortext className={`message ${isNickName ? 'success' : 'error'}`}>
+            {nickNameMessage}
+          </Colortext>
+        )} */}
+        <ModifyButton
+        // onClick={() => {
+        //   if (!isNickName) return;
+        //   onUpdateUser;
+        // }}
+        >
+          수정
+        </ModifyButton>
+      </NicknameModifyBox>
+
+      <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
+      <PasswordChange>비밀번호 변경</PasswordChange>
+    </MyProfileWrapper>
+  );
+};
+
+export default MyProfile;
+
+
+=================================여기까지도 어느정도 잘 돌아감..
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState, useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userInfo } from '../../atoms';
+import { auth } from '../../services/firebase';
+import {
+  MyProfileWrapper,
+  MyProfileImage,
+  MyProfileNickname,
+  NicknameModifyBox,
+  ModifyButton,
+  DeleteAccountBtn,
+  PasswordChange,
+  NicknameInput,
+  Colortext,
+} from './style';
+import { getAuth, updateProfile } from 'firebase/auth';
+
+const MyProfile = () => {
+  // nickname : 현재 nickname이 들어옴
+  const [nickname, setNickname] = useState<any>('');
+  // currentUser : displayName이 담겨있는 객체
+  const [currentUser, setCurrentUser] = useState<any>('');
+
+  console.log('nickname', nickname);
+  console.log('currentUser', currentUser);
+  // useRecoilValue 기능으로 userInfo를 받아옴
+  // const user = useRecoilValue(userInfo);
+  const [nicknameChangeBtn, setNicknameChangeBtn] = useState();
+
+  const onChangeNickname = () => {
+    setNicknameChangeBtn(nicknameChangeBtn);
+    console.log('버튼 클릭');
+  };
+
+  // 로그인 상태인지 확인 함수
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      // auth = getAuth() : currentUser이 담겨있는 배열(AuthImpl)
+      // user : displayName이 담겨있는 객체(UserImpl)
+      console.log('user', user);
+
+      if (user) {
+        setCurrentUser(auth.currentUser);
+        console.log('auth.currentUser', auth.currentUser);
+        console.log('setCurrentUser', setCurrentUser);
+        // auth.currentUser : displayName이 담겨있는 객체(UserImpl)
+        // setCurrentUser : 함수?같은 건데 잘 모르겠음
+        setNickname(auth.currentUser?.displayName);
+
+        console.log(
+          'auth.currentUser?.displayName',
+          auth.currentUser?.displayName,
+        );
+        //auth.currentUser?.displayName : 현재 닉네임
+        console.log('로그인 되어있음');
+      } else if (!user) {
+        console.log('로그인 안됨');
+      }
+    });
+    if (!currentUser) return;
+  }, []);
+
+  // const NicknameChangeBtn = () => {
+
+  // }
+
+  // 인풋에 입력한 상태 그대로 ui표시
+  const NicknameChangeInput = (event: any) => {
+    // if(NicknameChangeBtn)
+    // setNickname(event.target.value);
+    console.log('event.target.value', event.target.value);
+  };
+
+  // 닉네임 바꿔주는 함수
+  // auth와 getAuth()는 같음
+  const auth = getAuth();
+
+  updateProfile(currentUser, {
+    displayName: nickname,
+    photoURL: 'https://example.com/jane-q-user/profile.jpg',
+  })
+    .then(() => {
+      console.log('nickname=>', nickname);
+      alert('Profile updated!');
+    })
+    .catch((error) => {
+      console.log('An error occurred');
+    });
+
+  return (
+    <MyProfileWrapper>
+      <MyProfileImage>이미지</MyProfileImage>
+      <MyProfileNickname>{nickname}</MyProfileNickname>
+      <NicknameModifyBox>
+        <NicknameInput
+          placeholder="닉네임을 입력해주세요"
+          onChange={NicknameChangeInput}
+        />
+        {/* {nickname?.length > 0 && (
+          <Colortext className={`message ${isNickName ? 'success' : 'error'}`}>
+            {nickNameMessage}
+          </Colortext>
+        )} */}
+        <ModifyButton
+          onClick={onChangeNickname}
+          // onClick={() => {
+          //   if (!isNickName) return;
+          //   onUpdateUser;
+          // }}
+        >
+          수정
+        </ModifyButton>
+      </NicknameModifyBox>
+
+      <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
+      <PasswordChange>비밀번호 변경</PasswordChange>
+    </MyProfileWrapper>
+  );
+};
+
+export default MyProfile;
+
+
+
+============이상한데 돌아가는 코드 
+
+import { onAuthStateChanged } from 'firebase/auth';
+import { useEffect, useState, useCallback } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userInfo } from '../../atoms';
+import { auth } from '../../services/firebase';
+import {
+  MyProfileWrapper,
+  MyProfileImage,
+  MyProfileNickname,
+  NicknameModifyBox,
+  ModifyButton,
+  DeleteAccountBtn,
+  PasswordChange,
+  NicknameInput,
+  Colortext,
+} from './style';
+import { getAuth, updateProfile } from 'firebase/auth';
+
+const MyProfile = () => {
+  // nickname : 현재 nickname이 들어옴
+  const [nickname, setNickname] = useState<any>('');
+  // currentUser : displayName이 담겨있는 객체
+  const [currentUser, setCurrentUser] = useState<any>('');
+
+  // useRecoilValue 기능으로 userInfo를 받아옴
+  // const user = useRecoilValue(userInfo);
+  const [nicknameChangeBtn, setNicknameChangeBtn] = useState();
+
+  // 로그인 상태인지 확인 함수
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      // auth = getAuth() : currentUser이 담겨있는 배열(AuthImpl)
+      // user : displayName이 담겨있는 객체(UserImpl)
+
+      if (user) {
+        setCurrentUser(auth.currentUser);
+        console.log('auth.currentUser', auth.currentUser);
+        console.log('setCurrentUser', setCurrentUser);
+        // auth.currentUser : displayName이 담겨있는 객체(UserImpl)
+        // setCurrentUser : 함수?같은 건데 잘 모르겠음
+        setNickname(auth.currentUser?.displayName);
+
+        console.log(
+          'auth.currentUser?.displayName',
+          auth.currentUser?.displayName,
+        );
+        //auth.currentUser?.displayName : 원래 닉네임
+        console.log('로그인 되어있음');
+      } else if (!user) {
+        console.log('로그인 안됨');
+      }
+    });
+    if (!currentUser) return;
+  }, []);
+
+  // 닉네임 바꿔주는 함수
+  // auth와 getAuth()는 같음
+  const auth = getAuth();
+
+  const onClick = async () => {
+    await updateProfile(currentUser, {
+      displayName: nickname,
+      photoURL: 'https://example.com/jane-q-user/profile.jpg',
+    })
+      .then(() => {
+        setNickname('');
+        console.log('nickname=>', nickname);
+        alert('Profile updated!');
+      })
+      .catch((error) => {
+        console.log('An error occurred');
+      });
+  };
+
+  // 수정 버튼 누르기
+  // const NicknameToggle = () => {
+  //   setNicknameChangeBtn(nicknameChangeBtn);
+  //   console.log('버튼 클릭');
+
+  // };
+
+  // 인풋에 입력한 상태 그대로 ui표시
+  const NicknameChangeInput = (event: any) => {
+    setNickname(event.target.value);
+  };
+
+  return (
+    <MyProfileWrapper>
+      <MyProfileImage>이미지</MyProfileImage>
+      <MyProfileNickname>{currentUser?.displayName}</MyProfileNickname>
+      <NicknameModifyBox>
+        <NicknameInput
+          placeholder="닉네임을 입력해주세요"
+          onChange={NicknameChangeInput}
+          value={nickname}
+        />
+        {/* {nickname?.length > 0 && (
+          <Colortext className={`message ${isNickName ? 'success' : 'error'}`}>
+            {nickNameMessage}
+          </Colortext>
+        )} */}
+        <ModifyButton
+          onClick={onClick}
+          // onClick={() => {
+          //   if (!isNickName) return;
+          //   onUpdateUser;
+          // }}
+        >
+          수정
+        </ModifyButton>
+      </NicknameModifyBox>
+
+      <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
+      <PasswordChange>비밀번호 변경</PasswordChange>
+    </MyProfileWrapper>
+  );
+};
+
+export default MyProfile;

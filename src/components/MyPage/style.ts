@@ -47,3 +47,13 @@ export const PasswordChange = styled.button`
   margin-left: 15vh;
   cursor: pointer;
 `;
+
+export const Colortext = styled.span`
+  font-size: 10px;
+  &.success {
+    color: green;
+  }
+  &.error {
+    color: #ff2727;
+  }
+`;

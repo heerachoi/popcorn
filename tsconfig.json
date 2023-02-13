@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/window.d.ts"]
+  "include": ["src", "src/shared/window.d.ts"]
 }
