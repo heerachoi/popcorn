@@ -19,31 +19,38 @@ import { updateProfile } from 'firebase/auth';
 const MyProfile = () => {
   // nickname : 현재 nickname이 들어옴
   const [nickname, setNickname] = useState<any>('');
+  console.log('nickname', nickname);
+
   // currentUser : displayName이 담겨있는 객체
   const [currentUser, setCurrentUser] = useState<any>('');
 
-  // useRecoilValue 기능으로 userInfo를 받아옴
-  // const user = useRecoilValue(userInfo);
-
   // 로그인 상태인지 확인 함수
+  //useEffect(()=>{},[])
   useEffect(() => {
+    // ⭐⭐⭐괄호안에 들어가는 user가 뭔지? 아무거나 넣어도 되는데
+    // onAuthStateChanged에서 user를 받아서 email같은 정보들을 확인해서 맞으면 auth.currentUser
     auth.onAuthStateChanged((user) => {
       // auth = getAuth() : currentUser이 담겨있는 배열(AuthImpl)
       // user : displayName이 담겨있는 객체(UserImpl)
-
+      console.log('user', user);
       if (user) {
+        // auth.currentUser는 리렌더링해야만 보임(useEffect의 특징)
+        // 렌더링 결과가 실제 돔에 반영된 직후다.
+        // 그러니까 이 모습이 다 그려지고 나서 함수값이 찍히는 것이다.
+        // 그리고 컴포넌트가 사라지기 직전에도 마지막으로 호출된다
+        // useEffect는 상태 값이 변경돼서 다시 랜더링 된 다음에 호출되는 것을 볼 수 있다.
         console.log('auth.currentUser', auth.currentUser);
         setCurrentUser(auth.currentUser);
         // auth.currentUser : displayName이 담겨있는 객체(UserImpl)
         // setCurrentUser : 함수?같은 건데 잘 모르겠음
         setNickname(auth.currentUser?.displayName);
-
         console.log(
           'auth.currentUser?.displayName',
           auth.currentUser?.displayName,
         );
+
         //auth.currentUser?.displayName : 원래 닉네임
-        console.log('로그인 되어있음');
+        // console.log('로그인 되어있음');
       } else if (!user) {
         console.log('로그인 안됨');
       }
