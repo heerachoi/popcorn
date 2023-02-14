@@ -2,6 +2,18 @@ import styled from 'styled-components';
 
 export const StoreDetailInfoWrap = styled.div``;
 
+export const ImgWrap = styled.div``;
+export const Img = styled.img`
+  width: 300px;
+  height: 300px;
+`;
+
+export const DetailInfoContent = styled.section`
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+`;
+
 export const TitleWrap = styled.div`
   display: flex;
   justify-content: space-between;
@@ -14,15 +26,6 @@ export const Title = styled.span`
   font-weight: 800;
   font-size: 26px;
   line-height: 38px;
-`;
-export const ViewTitle = styled.span`
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 14px;
-  line-height: 38px;
-  margin-right: 25%;
-  flex-direction: column;
 `;
 
 export const SideTitleWrap = styled.div`
@@ -40,13 +43,6 @@ export const SideTitleIconText = styled.div`
   margin: 0 10px;
 `;
 
-export const SideTitleText = styled.span`
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 13px;
-`;
-
 export const SideTitleIcon = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
@@ -54,16 +50,11 @@ export const SideTitleIcon = styled.span`
   font-size: 13px;
 `;
 
-export const ImgWrap = styled.div``;
-export const Img = styled.img`
-  width: 300px;
-  height: 300px;
-`;
-
-export const DetailInfoContent = styled.section`
-  max-width: 1040px;
-  width: 100%;
-  margin: 0 auto;
+export const SideTitleText = styled.span`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 13px;
 `;
 
 export const InfoContentWrap = styled.div`
@@ -89,13 +80,24 @@ export const InfoTitleText = styled.td`
   padding: 15px 0;
 `;
 
-export const SnsLinkWrap = styled.p`
-`
+export const SnsLinkWrap = styled.p``;
 
 export const Hr = styled.hr`
   max-width: 1040px;
   width: 100%;
 `;
+
+
+
+// export const ViewTitle = styled.span`
+//   font-family: 'Apple SD Gothic Neo';
+//   font-style: normal;
+//   font-weight: 800;
+//   font-size: 14px;
+//   line-height: 38px;
+//   margin-right: 25%;
+//   flex-direction: column;
+// `;
 
 export const OperationPeriodWrap = styled.div``;
 export const OperationPeriodTitle = styled.span`
@@ -113,8 +115,8 @@ export const OpeningHoursBox = styled.div`
   flex-direction: column;
 `;
 
-export const OpeningHoursTitle = styled(OperationPeriodTitle)``;
-export const OpeningHoursText = styled(OperationPeriodTitle)``;
+// export const OpeningHoursTitle = styled(OperationPeriodTitle)``;
+// export const OpeningHoursText = styled(OperationPeriodTitle)``;
 
 // export const AddressWrap = styled.div``;
 // export const AddressTitle = styled(OperationPeriodTitle)``;

@@ -21,6 +21,7 @@ const StoreDetailInfo = () => {
         ))} */}
         <StoreDetailImg />
       </S.ImgWrap>
+
       <S.DetailInfoContent>
         <S.TitleWrap>
           <S.Title>{detailData.title}</S.Title>
@@ -58,18 +59,18 @@ const StoreDetailInfo = () => {
             </S.InfoTr>
             <S.InfoTr>
               <S.InfoTitleText>운영시간</S.InfoTitleText>
-              <S.InfoContentText>
+              <S.OpeningHoursWrap>
                 <S.OpeningHoursBox>
                   {detailData.openingTime?.map((openTime: string) => {
                     return <span>{openTime + '-'}</span>;
                   })}
                 </S.OpeningHoursBox>
-                {/* <S.OpeningHoursBox>
+                <S.OpeningHoursBox>
                   {detailData.closeTime?.map((closeTime: string) => {
                     return <span>{closeTime}</span>;
                   })}
-                </S.OpeningHoursBox> */}
-              </S.InfoContentText>
+                </S.OpeningHoursBox>
+              </S.OpeningHoursWrap>
             </S.InfoTr>
             <S.InfoTr>
               <S.InfoTitleText>주소</S.InfoTitleText>
@@ -105,7 +106,10 @@ const StoreDetailInfo = () => {
           </S.InfoTable>
         </S.InfoContentWrap>
       </S.DetailInfoContent>
-     <S.Hr />
+      
+      {/* 하단 선 */}
+     <S.Hr /> 
+     
     </S.StoreDetailInfoWrap>
   );
 };

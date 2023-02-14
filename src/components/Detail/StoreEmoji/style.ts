@@ -23,9 +23,11 @@ align-items: center;
 flex-direction: column;
 `
 
-export const EmojiIcon = styled.span`
+export const EmojiIconBtn = styled.button`
 font-size: 40px;
 cursor: pointer;
+background-color: transparent;
+border: none;
 `
 
 export const EmojiText = styled.span`
