@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { InfoErrorForm, ErrorImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
-import { storage } from '../../../services/firebase';
+import { storage } from '../../services/firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
-import { auth } from '../../../services/firebase';
+import { auth } from '../../services/firebase';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
@@ -82,7 +82,6 @@ const InfoError: any = () => {
     // 제보 날짜 받기 위해 today라는 변수 생성
     const today = new Date();
 
-    
     // db에 올라가는 데이터 구조
     const newErrModifiInfo = {
       id: uuidv4(),
@@ -146,8 +145,8 @@ const InfoError: any = () => {
         <ErrorImgLabel htmlFor="storeInfoImg">
           <BiImageAdd />
           {errImgFile && (
-              <img src={errImgFile} style={{ width: 150, height: 150 }} />
-            )}
+            <img src={errImgFile} style={{ width: 150, height: 150 }} />
+          )}
         </ErrorImgLabel>
         <input
           type="file"
