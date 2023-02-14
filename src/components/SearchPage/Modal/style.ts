@@ -39,6 +39,7 @@ export const ModalHolder = styled.div`
   padding: 2rem;
 `
 
+// Modal 
 export const ModalHeader = styled.div`
  display: flex;
   justify-content: flex-end;

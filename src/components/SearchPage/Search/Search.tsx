@@ -3,17 +3,23 @@ import datas from '../../../data/popupStore.json';
 import { ko } from 'date-fns/esm/locale';
 import Modal from '../Modal/Modal'
 import useModal from '../../../hooks/useModal';
+import StoreCalendar from '../StoreCalendar/StoreCalendar';
+import {ImLocation, ImSearch} from 'react-icons/im';
+import {BsCalendarRange} from 'react-icons/bs'
+import {RiProductHuntLine} from 'react-icons/ri';
+import {BiCalendar, BiCategoryAlt} from 'react-icons/bi'
 import {
   DatePickerContainer,
-  SearchContainer,
-  SearchContainerTop,
+  SearchPageContainer,
+  FilterContainer,
+  SearchItemContainer,
+  SearchTagContainer,
   SearchEventPeriod,
-  SearchContainerBottom,
   DepartmentStoreCategory,
   ItemCategory,
+  FilterTitle,
   SearchInput,
   FilterTypes,
-  StartingDate,
   SelectDate,
   StoreContainer,
   PosterImg,
@@ -25,7 +31,8 @@ import {
   LocationCategory,
   DatePickerWrapper,
   CalendarContainer,
-  FilterResultAndCalendarContainer
+  FilterResultAndCalendarContainer,
+  FilterItemHolder,
 } from './style';
 import 'react-datepicker/dist/react-datepicker.css';
 interface Store {
@@ -259,53 +266,90 @@ const Search:React.FC = () => {
 const {isShowing, toggle} = useModal();
 console.log('isShowing', isShowing);
   return (
-    <SearchContainer>
-      <SearchContainerTop>
-        <SearchInput
-          type="text"
-          value={searchTerm}
-          placeholder="키워드를 입력해주세요. (예. 서울, 액세서리)"
-          onChange={(event) => setSearchTerm(event.target.value)}
-          onKeyPress={checkKeypress}
-        />
-        <DatePickerWrapper>
-          {/* 팝업스토어 시작 날짜 선택 */}
-          <DatePickerContainer
-            selected={dateSelected}
-            locale={ko}
-            onChange={(date) => setDateSelected(date)}
-            dateFormat="yyyy-MM-dd"
-            minDate={new Date()}
-            showPopperArrow={false}
-            isClearable={true}
-            placeholderText="선택 하세요"
-            closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
-          />
-        </DatePickerWrapper>
-        <SearchEventPeriod onChange={(event) => setPopupDurationFilter(event.target.value)}>
-          <option value="">전체</option>
-          <option value="1주일 이하">1주일 이하</option>
-          <option value="2주일 이하">2주일 이하</option>
-          <option value="한달 이하">한달 이하</option>
-          팝업 기간
-        </SearchEventPeriod>
-      </SearchContainerTop>
-      <SearchContainerBottom>
-        <DepartmentStoreCategory onChange={(event) => setDepartmentStoreFilter(event.target.value)}>
-          <option value="">모두선택</option>
-          <option value="백화점 팝업">백화점 팝업</option>
-          <option value="지역상권 공간">지역상권 공간</option>
-        </DepartmentStoreCategory>
-        <button className="button-default" onClick={toggle}>Show Modal</button>
-        <Modal
-          isShowing={isShowing}
-          hide={toggle}
-        />
-        <ItemCategory>제품 카테고리</ItemCategory>
-        <EtcCategory>기타 카테고리</EtcCategory>
-      </SearchContainerBottom>
+    <SearchPageContainer>
+      <FilterContainer>
+        <SearchItemContainer>
+          <ImSearch/>
+          <SearchTagContainer>
+            <FilterTitle>키워드</FilterTitle>
+            <SearchInput
+              type="text"
+              value={searchTerm}
+              placeholder="키워드를 입력해주세요."
+              onChange={(event) => setSearchTerm(event.target.value)}
+              onKeyPress={checkKeypress}
+            />
+          </SearchTagContainer>
+        </SearchItemContainer>
+        <SearchItemContainer>
+          <BiCalendar/>
+          <SearchTagContainer>
+            <FilterTitle>진행중인 팝업스토어</FilterTitle>
+            <DatePickerWrapper>
+            {/* 팝업스토어 시작 날짜 선택 */}
+            <DatePickerContainer
+              selected={dateSelected}
+              locale={ko}
+              onChange={(date) => setDateSelected(date)}
+              dateFormat="yyyy-MM-dd"
+              minDate={new Date()}
+              showPopperArrow={false}
+              isClearable={true}
+              placeholderText="진행중인 팝업스토어"
+              closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
+            />
+          </DatePickerWrapper>
+          </SearchTagContainer>
+        </SearchItemContainer>
+        <SearchItemContainer>
+          <BsCalendarRange/>
+          <SearchTagContainer>
+            <FilterTitle>팝업 기간</FilterTitle>
+            <SearchEventPeriod onChange={(event) => setPopupDurationFilter(event.target.value)}>
+              <option value="">전체</option>
+              <option value="1주일 이하">1주일 이하</option>
+              <option value="2주일 이하">2주일 이하</option>
+              <option value="한달 이하">한달 이하</option>
+              팝업 기간
+            </SearchEventPeriod>
+          </SearchTagContainer>
+        </SearchItemContainer>
+        <SearchItemContainer>
+          <ImLocation/>
+          <SearchTagContainer>
+           <FilterTitle className="button-default" onClick={toggle}>위치 카테고리</FilterTitle>
+            <Modal
+              isShowing={isShowing}
+              hide={toggle}
+            />
+            <FilterItemHolder>전체</FilterItemHolder>
+          </SearchTagContainer>
+        </SearchItemContainer>
+        <SearchItemContainer>
+          <RiProductHuntLine/>
+          <SearchTagContainer>
+            <FilterTitle className="button-default" onClick={toggle}>제품 카테고리</FilterTitle>
+            <Modal
+              isShowing={isShowing}
+              hide={toggle}
+            />
+            <FilterItemHolder>전체</FilterItemHolder>
+          </SearchTagContainer>
+        </SearchItemContainer>
+        <SearchItemContainer>
+          <BiCategoryAlt/>
+          <SearchTagContainer>
+            <FilterTitle className="button-default" onClick={toggle}>기타 카테고리</FilterTitle>
+            <Modal 
+              isShowing={isShowing} 
+              hide={toggle}
+            />
+            <FilterItemHolder>전체</FilterItemHolder>
+          </SearchTagContainer>
+        </SearchItemContainer>
       <FilterTypes />
       <SelectDate />
+      </FilterContainer>
       <FilterResultAndCalendarContainer>
       <FilterResult>
         {storeList.map((store: any, index: any) => {
@@ -321,10 +365,10 @@ console.log('isShowing', isShowing);
         })}
       </FilterResult>
       <CalendarContainer>
-        달력
+        <StoreCalendar/>
       </CalendarContainer>
       </FilterResultAndCalendarContainer>
-    </SearchContainer>
+    </SearchPageContainer>
   );
 };
 
