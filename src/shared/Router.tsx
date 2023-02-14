@@ -1,4 +1,4 @@
-import SignUpPage from '../pages/SignUpPage/SignupPage';
+import SignUpPage from '../pages/SignUpPage/SignUpPage';
 import MyPage from '../pages/MyPage/MyPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import HomePage from '../pages/HomePage/HomePage';

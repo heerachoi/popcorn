@@ -51,17 +51,18 @@ const MyProfile = () => {
 
         //auth.currentUser?.displayName : 원래 닉네임
         // console.log('로그인 되어있음');
-      } else if (!user) {
+      } else {
         console.log('로그인 안됨');
       }
     });
-    if (!currentUser) return;
+    // if (!currentUser) return;
   }, []);
 
   // 닉네임 바꿔주는 함수
   // auth와 getAuth()는 같음
 
   const onClick = async () => {
+    // currentUser의 display네임을 바꿔줄 것이다.
     await updateProfile(currentUser, {
       displayName: nickname,
       photoURL: 'https://example.com/jane-q-user/profile.jpg',
