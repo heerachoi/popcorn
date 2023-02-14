@@ -1,0 +1,920 @@
+{
+  "Store": [
+    {
+      "id": "0",
+      "view": "0",
+      "title": "Fluffy Keyring News",
+      "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
+      "si": "서울특별시",
+      "gu": "종로구",
+      "dong": "필운동",
+      "open": "2023.01.13",
+      "close": "2023.02.06",
+      "location": "서울",
+      "item": "액세서리",
+      "openingTime": [
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00"
+      ],
+      "closeTime": [
+        "19:00",
+        "19:00",
+        "19:00",
+        "19:00",
+        "19:00",
+        "19:00",
+        "19:00"
+      ],
+      "explain": "인형 키링을 주제로 하는 이번 팝업스토어에서는 새롭게 소개하는 신규 브랜드 16팀을 포함한 국내외 36팀의 100종 이상의 인형 키링들을 소개합니다. 작가와 브랜드의 개성과 정성이 가득 담긴 폭신폭신 부들부들한 인형 키링들을 열쇠, 가방, 에어팟, 외로워 보이는 사물, 어디에든 달아보세요!",
+      "sns": "https://www.instagram.com/onemorebagkr/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "1",
+      "view": "0",
+      "title": "Kauts",
+      "address": "서울특별시 마포구 양화로 188 AK&플라자 2층",
+      "si": "서울특별시",
+      "gu": "마포구",
+      "dong": "동교동",
+      "open": "2023.01.09",
+      "close": "2023.02.06",
+      "location": "서울",
+      "item": "신발",
+
+      "openingTime": [
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00"
+      ],
+      "closeTime": [
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00"
+      ],
+      "explain": "'RUBBERIS,MILKFROMTREE.' 라는 슬로건의 시작된 캐트릿(캐쥬얼스트릿)브랜드 카우츠의 첫 단독 팝업스토어",
+      "sns": "https://www.instagram.com/kauts_life/",
+      "web": "https://www.kauts-korea.com/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Kauts%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.41.36.png?alt=media&token=a5580ae1-4662-4658-94ec-4bb152ce1fa0",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Kauts%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.41.42.png?alt=media&token=1a661ebf-0169-4d19-9be9-5e0a5dd1bd2a"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "2",
+      "view": "0",
+      "title": "Gram Style Lab with Musinsa",
+      "address": "서울특별시 성동구 연무장11길 19 코자 성수스토어",
+      "si": "서울특별시",
+      "gu": "성동구",
+      "dong": "성수동",
+      "open": "2023.01.09",
+      "close": "2023.02.06",
+      "location": "서울",
+      "item": "전자기기",
+      "openingTime": [
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "00:00",
+        "11:00",
+        "11:00"
+      ],
+      "closeTime": [
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "20:00"
+      ],
+      "explain": "당신을 더욱 빛나게 해줄 LG gram 신제품을 만나볼 수 있는 LG그램과 무신사의 특별한 팝업스토어 - 타임 별 50명 제한",
+      "sns": "https://www.instagram.com/mylggram/",
+      "web": "https://www.lge.co.kr/benefits/event/detail-EV00004671#evtTab2",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.37.16.png?alt=media&token=fd4c6878-16c8-4d18-bbd9-cae133fb4890",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.38.12.png?alt=media&token=8c11dc8d-9b86-42cc-a032-850eaad9e698",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.38.25.png?alt=media&token=e8642c60-6faf-41c0-bdfc-b0d0da940f75",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.38.58.png?alt=media&token=3f5064e9-8f74-4324-9e61-fbaf7b8b7389",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.39.12.png?alt=media&token=fc575716-13eb-4a33-a29f-fd0a02bbc4f0"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "3",
+      "view": "0",
+      "title": "더 퍼스트 슬램덩크 at 더현대 서울",
+      "address": "서울특별시 영등포구 여의대로 108 더현대 서울",
+      "si": "서울특별시",
+      "gu": "영등포구",
+      "dong": "여의도동",
+      "open": "2023.01.26",
+      "close": "2023.02.07",
+      "location": "서울",
+      "item": "패션잡화",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "약 200개의 슬램덩크 굿즈를 선보여요. 슬램덩크 한정판 피규어는 물론, 슬램덩크 팬이라면 놓칠 수 없는 캐릭터 유니폼 패키지 등을 선보일 예정이랍니다.",
+      "sns": "https://www.instagram.com/slamdunk_popup/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.07.png?alt=media&token=165cd3e9-c68b-4638-bc7f-9c556c8fbc1f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.20.png?alt=media&token=694784d6-48fb-4783-8fc6-a0d8f7c89d30",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.29.png?alt=media&token=236812be-eac8-4632-8c3b-b9330bb53d31",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.40.png?alt=media&token=c8267e80-2cbf-49c8-92b4-d60b75b61c34"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "4",
+      "view": "0",
+      "title": "농심 신라면 팝업스토어",
+      "address": "서울특별시 성동구 연무장15길 11 에스팩토리",
+      "si": "서울특별시",
+      "gu": "성동구",
+      "dong": "성수동",
+      "open": "2023.01.09",
+      "close": "2023.02.08",
+      "location": "서울",
+      "item": "식품",
+      "openingTime": [
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "11:00",
+        "11:00"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "19:00",
+        "19:00"
+      ],
+      "explain": "메타버스 플랫폼 제페토 신라면 분식점 월드에서 신라면 레시피 옵션 투표를 통해 가장 많이 선정된 조합의 신제품 '신라면 제페토 큰사발' 출시에 따라 오픈한 농심 신라면의 팝업 스토어 나만의 신라면을 맛볼 수 있는 시식존부터 신라면 프로덕트월과 히스토리, 손흥민 선수 전시, 포토존 등 다양한 체험을 할 수 있는 공간",
+      "sns": "https://www.instagram.com/zepeto.official/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.44.28.png?alt=media&token=8a4f1439-baa8-4ef0-a999-7545a20d87ba",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Kauts%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.41.42.png?alt=media&token=1a661ebf-0169-4d19-9be9-5e0a5dd1bd2a",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.44.36.png?alt=media&token=4750cc5c-1b23-43b0-9875-536f90330ec3",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.44.56.png?alt=media&token=5149d8fe-d542-4018-89c0-5216a1406100",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.07.png?alt=media&token=6e4c54bf-27ad-4c10-9aa9-5c32d3cf142a"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "5",
+      "view": "0",
+      "title": "예일 X 나이스웨더",
+      "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B2",
+      "si": "서울특별시",
+      "gu": "영등포구",
+      "dong": "여의도동",
+      "open": "2023.01.26",
+      "close": "2023.02.08",
+      "location": "서울",
+      "item": "의류",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "NICEWEATHER & YEAL 제안하는 신개념 골프 컬렉션. 예일이 추구하는 지속가능한 가치에 나이스 웨더의 시그니처 블루 컬러를 조합하여 선보이는 활력있는 라이프스타일을 위한 골프캐주얼 웨어를 선보이는 팝업스토어",
+      "sns": "https://www.instagram.com/phyps_department/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.36.png?alt=media&token=66980bbd-75ae-4d17-b585-5170e17741d5",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.41.png?alt=media&token=42e15673-85be-45c7-ad9c-de2350e84de2",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.44.png?alt=media&token=5a9f551f-6316-466d-be38-da5c86231616",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.50.png?alt=media&token=132632bb-001d-4ad3-beff-a57e01b9cee4",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NiceWeather%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.01.png?alt=media&token=e133a487-4e66-4ebd-aad6-cc4205188e5c",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.52.png?alt=media&token=b63de098-8582-4a49-b235-7502a2f526d5"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "6",
+      "view": "0",
+      "title": "시시오시 X 위글위글",
+      "address": "서울특별시 강서구 하늘길 77 롯데백화점김포공항점GF층 행사장 옆",
+      "si": "서울특별시",
+      "gu": "강서구",
+      "dong": "방화동",
+      "open": "2023.01.28",
+      "close": "2023.02.08",
+      "location": "서울",
+      "item": "잡화",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00"
+      ],
+      "explain": "요즘 가장 핫한 위글위글과 시시호시의 콜라보 팝업스토어",
+      "sns": "https://www.instagram.com/sisihosi_official/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WiggleWiggle%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.43.png?alt=media&token=dc9bc447-1fbb-4ff5-afbf-3ac01f23e3b2",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WiggleWiggle%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.47.png?alt=media&token=ac4dc0aa-561b-4d1e-af6b-8c75ea7ed5ad",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WiggleWiggle%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.50.png?alt=media&token=80accd49-b9dc-41b6-afc9-cb73043e5852"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "7",
+      "view": "0",
+      "title": "PARTEZ! THE MUSEUM",
+      "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B2",
+      "si": "서울특별시",
+      "gu": "영등포구",
+      "dong": "여의도동",
+      "open": "2023.01.26",
+      "close": "2023.02.08",
+      "location": "서울",
+      "item": "액세서리",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "특별한 아름다움을 경험할 수 있는 파르테즈의 뮤지엄으로 여러분을 초대합니다. 앤틱하고 클래식한 박물관에서 파르테즈만의 감성이 담긴 빛나는 주얼리들을 경험해보세요.",
+      "sns": "https://www.instagram.com/___partez/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Partez%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.47.27.png?alt=media&token=aaf5057b-9447-4b34-83a0-c5c2c4105ee5",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Partez%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.47.31.png?alt=media&token=776ded4e-a124-49ad-9ffc-3b08a1b79a7b"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "8",
+      "view": "0",
+      "title": "파티세리 아모니",
+      "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B1",
+      "si": "서울특별시",
+      "gu": "영등포구",
+      "dong": "여의도동",
+      "open": "2023.02.03",
+      "close": "2023.02.09",
+      "location": "서울",
+      "item": "식품",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "한국적인 식재료로 만드는 디저트 브랜드 '파티세리 아모니' 팝업스토어",
+      "sns": "https://www.instagram.com/patisserie_armoni/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/PatisserieArmoni%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.47.52.png?alt=media&token=81a845d8-76f1-4f87-a6b6-d43117bff986",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/PatisserieArmoni%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.47.57.png?alt=media&token=27e4a364-57b9-4a26-929b-c982737087df",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/PatisserieArmoni%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.48.00.png?alt=media&token=20794e0a-afaf-42a9-b246-10767060f6c6"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "9",
+      "view": "0",
+      "title": "송월 X 발란사",
+      "address": "서울특별시 성동구 연무장길1 퓨처소사이어티",
+      "si": "서울특별시",
+      "gu": "성동구",
+      "dong": "성수동",
+      "open": "2023.02.03",
+      "close": "2023.02.11",
+      "location": "서울",
+      "item": "패션잡화",
+      "openingTime": [
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00"
+      ],
+      "explain": "74년 전통의 송월타올이 새로운 젊은 캐릭터 '타올쿤(TOWELKUN)'을 내세워 편집숍 브랜드 '발란사'와 협업한 팝업스토어",
+      "sns": "https://www.instagram.com/songwoltowel_official/",
+      "web": "https://songwol.co.kr/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Towelkun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.48.30.png?alt=media&token=beb1adf3-5e78-4ffc-9d12-dd86a11fd1eb",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Towelkun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.48.33.png?alt=media&token=3348cb02-9328-48e1-bf3d-21a6773099c3",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Towelkun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.48.42.png?alt=media&token=37e79588-7192-498f-a5b1-f3115076c640",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Towelkun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.48.47.png?alt=media&token=c73d5e4c-4329-424b-995b-169cedc64dbf",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Towelkun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.49.04.png?alt=media&token=fc96bdbd-8275-4efb-af03-b936fb6cd1a8"
+      ],
+      "reserveURL": "https://korea.dyson-demo.com/events-landing-listing?location=custom&custom-location=10",
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "10",
+      "view": "0",
+      "title": "Dyson Style Lab",
+      "address": "서울특별시 성동구 연무장길 101-1 성수 오우드",
+      "si": "서울특별시",
+      "gu": "성동구",
+      "dong": "성수동",
+      "open": "2023.02.17",
+      "close": "2023.02.19",
+      "location": "서울",
+      "item": "가전제품",
+      "openingTime": [
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00"
+      ],
+      "explain": "세계적인 가전 브랜드 '다이슨(dyson)'의 첫 번째 스타일 랩 팝업스토어",
+      "sns": "https://www.instagram.com/kauts_life/",
+      "web": "https://www.kauts-korea.com/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Dyson%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.50.13.png?alt=media&token=80c451ec-4aae-43f8-9157-d50aa9e97b1d",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Dyson%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.50.23.png?alt=media&token=27e30540-fda5-4879-83e3-33d6de7c3374",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Dyson%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.50.37.png?alt=media&token=916070ac-084f-4c3d-a272-1a41886aa567",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Dyson%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.50.51.png?alt=media&token=6765d3b4-5eac-4ec8-81f2-36e291ead87e",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Dyson%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.50.57.png?alt=media&token=a1794215-6d96-41c4-a6f1-78feb6c36c5f"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "11",
+      "view": "0",
+      "title": "1064studio",
+      "address": "서울특별시 양천구 목동동로 257 현대백화점 목동점 B2",
+      "si": "서울특별시",
+      "gu": "양천구",
+      "dong": "목동",
+      "open": "2022.12.16",
+      "close": "2023.03.30",
+      "location": "서울",
+      "item": "액세서리",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "하이엔드 디자이너 주얼리 브랜드 '1064studio' 팝업 스토어 (사진 출처: 1064studio 인스타그램) ",
+      "sns": "https://www.instagram.com/1064_studio/",
+      "web": "https://www.1064studio.com/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/1064Studio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.26.25.png?alt=media&token=104a286b-01ba-45d0-82a7-acb41c3ecc38",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/1064Studio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.26.29.png?alt=media&token=1a14ad96-6ee1-45b6-8192-32299ba32684",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/1064Studio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.26.33.png?alt=media&token=2043bd48-ba4a-4c86-980e-472ee1943627",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/1064Studio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.26.39.png?alt=media&token=dcd4f841-258d-43b5-96ec-62f6aaa3e712",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/1064Studio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.26.42.png?alt=media&token=9fedeaa5-8456-4451-a5d9-05ad3b652a11"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "12",
+      "view": "0",
+      "title": "부산사이다",
+      "address": "부산시 중구 대청로137번길 8-2 지하1층",
+      "si": "부산광역시",
+      "gu": "중구",
+      "dong": "중앙동",
+      "open": "2022.12.16",
+      "close": "2023.02.26",
+      "location": "부산",
+      "item": "식품",
+      "openingTime": [
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00"
+      ],
+      "closeTime": [
+        "17:00",
+        "17:00",
+        "17:00",
+        "17:00",
+        "17:00",
+        "17:00",
+        "17:00"
+      ],
+      "explain": "부산의 이야기를 담은 로컬 사이다 '부산 사이다'의 팝업 스토어\n오리지널, 다대포 노을, 영도해무, 송정밤바다 네 가지 맛의 사이다를 만날 수 있어요.\n\n*오리지널 : 레몬과 라임이 들어간 사이다, 우리가 알고있는 사이다 맛이나요!\n*다대포 노을 : 오렌지와 히비스커스를 참가한 사이다, 히비스커스 맛이 나는 사이다입니다.\n영도해무 : 레몬과 구운 소금을 넣은 사이다, 소금의 짭짤한 맛이 나는 사이다랍니다!\n*송정 밤바다 : 오징어 먹물과 얼그레이를 넣은 사이다, 얼그레이 향이 은은하게 나는 사이다입니다!",
+      "sns": "https://www.instagram.com/busancider/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/BusanCider%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.48.27.png?alt=media&token=c8c8fd2c-675d-4fa4-aad7-a8adc69a172e",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/BusanCider%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.48.31.png?alt=media&token=ef0850bc-62d1-429c-94f6-792813406139",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/BusanCider%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.48.41.png?alt=media&token=363ed14b-3ff3-4d31-9fea-776a6cc4598e",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/BusanCider%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.48.46.png?alt=media&token=6defe830-a2eb-4527-b817-75d3c81bc554",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/BusanCider%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.48.57.png?alt=media&token=09ec76ac-2aae-4f94-a00d-e2a5b1c99a35"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "13",
+      "view": "0",
+      "title": "Chigong",
+      "address": "서울특별시 마포구 양화로 188 2층 비옥OFOF",
+      "si": "서울광역시",
+      "gu": "마포구",
+      "dong": "동교동",
+      "open": "2023.01.26",
+      "close": "2023.02.28",
+      "location": "서울",
+      "item": "리빙/라이프스타일",
+      "openingTime": [
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00"
+      ],
+      "closeTime": [
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00"
+      ],
+      "explain": "사용하고 쉽게 버리는 플라스틱 칫솔 대신 친환경 소재로 만들고 동시에 트렌디한 디자인의 칫솔을 선보이는 치공(Chigong)의 팝업스토어 (이미지 출처 : 치공 공식 사이트)",
+      "sns": "https://www.instagram.com/chigong.official/",
+      "web": "https://chigong.kr/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Chigong%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.12.35.png?alt=media&token=9be04809-436e-438a-a6f8-3d3d94643f78",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Chigong%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.12.39.png?alt=media&token=43bbba80-296b-4ff6-8457-e4868b87bc33"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "14",
+      "view": "0",
+      "title": "CHIVAS REGAL GIL (시바스 리갈 길)",
+      "address": "서울특별시 강남구 압구정로50길 13",
+      "si": "서울특별시",
+      "gu": "강남구",
+      "dong": "신사동",
+      "open": "2023.01.12",
+      "close": "2023.02.26",
+      "location": "서울",
+      "item": "기타",
+      "openingTime": [
+        "15:00",
+        "휴무일",
+        "15:00",
+        "15:00",
+        "15:00",
+        "15:00",
+        "15:00"
+      ],
+      "closeTime": [
+        "24:00",
+        "휴무일",
+        "24:00",
+        "24:00",
+        "24:00",
+        "24:00",
+        "24:00"
+      ],
+      "explain": "글로벌 스카치 위스키의 아이콘 '시바스(CHIVAS)'가 브랜드 캠페인 'I RISE WE RISE-나의 성장 우리의 성장'의 일환으로 오픈한 팝업스토어\n시바스만의 브랜드 헤리티지 및 힙합 공연과 댄스 워크샵, 칵테일 클래스 등 다양한 프로그램을 경험할 수 있는 공간\n* 신분증 지참 필수",
+      "sns": "https://www.instagram.com/chivasregal/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ChivasRegalGil%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.49.55.png?alt=media&token=2ac611a4-1b26-4fb0-a30b-d00b4a87a281",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ChivasRegalGil%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.50.02.png?alt=media&token=2319a3a8-79a0-47a4-beb0-ac19350daadd",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ChivasRegalGil%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.50.05.png?alt=media&token=d7717d69-e319-48e7-aa23-27d88dafc900",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ChivasRegalGil%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.50.07.png?alt=media&token=0f08ef25-6558-453b-a4ef-1b8eea657baa",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ChivasRegalGil%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.50.21.png?alt=media&token=6dd70924-35f8-4424-84ca-308ef3b766a4"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "15",
+      "view": "0",
+      "title": "클리프노츠 (CLIFFNOTES)",
+      "address": "서울특별시 강남구 테헤란로 517 현대백화점 무역센터점 B1 위마켓",
+      "si": "서울특별시",
+      "gu": "강남구",
+      "dong": "삼성동",
+      "open": "2023.02.06",
+      "close": "2023.02.16",
+      "location": "서울",
+      "item": "리빙/라이프스타일",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "크리에이티브 니치 프래그런스 브랜드 '클리프노츠'가 발렌타인데이를 맞이하여 현대백화점 무역센터점 지하 1층 위마켓에서 팝업스토어를 진행합니다.\n(사진 출처:클리프노츠 인스타그램)",
+      "sns": "https://www.instagram.com/cliffnotes_official/",
+      "web": "https://www.cliffnotes.co.kr/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Cliffnotes%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.21.47.png?alt=media&token=3e982f65-ed9a-401c-812c-80511b3797e8",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Cliffnotes%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.21.53.png?alt=media&token=077cefea-d90e-469b-bcbf-be7a2dbb2f33",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Cliffnotes%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.21.56.png?alt=media&token=3fa943b9-a5cd-4320-afd9-bcb725b2b8a1"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "16",
+      "view": "0",
+      "title": "DELPHIC POP-UP",
+      "address": "서울특별시 강남구 압구정로 343 갤러리아 명품관 WEST",
+      "si": "서울특별시",
+      "gu": "강남구",
+      "dong": "압구정동",
+      "open": "2023.01.27",
+      "close": "2023.02.23",
+      "location": "서울",
+      "item": "식품",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "세계 각국에서 공수한 최상급의 신선한 원료를 기반으로 체계적인 찻잎 품질 검사와 재배 및 제조 이력을 직접 파악하고 진행하여 엄선된 재료만을 소비자에게 제공하는 프리미엄 차(tea) 전문 브랜드 '델픽(Delphic)' 팝업스토어\n다양한 작가들의 다구를 포함해 델픽의 차를 만나보실 수 있습니다.\n(이미지 출처 : '델픽 공식 인스타그램')",
+      "sns": "https://www.instagram.com/delphic_official/",
+      "web": "https://delphic.kr/HOME",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DelphicPopUp%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.47.21.png?alt=media&token=7bdb93ba-b5fc-48c3-970d-47d63f1a3a97",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DelphicPopUp%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.47.25.png?alt=media&token=32eca770-e392-4431-b927-8c10a16a5d42",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DelphicPopUp%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.47.28.png?alt=media&token=13c0318e-23b2-4560-acca-85d38db3a38c"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "17",
+      "view": "0",
+      "title": "Don't Lose Your Heart",
+      "address": "서울특별시 서초구 신반포로 176 센트럴시티 1층",
+      "si": "서울특별시",
+      "gu": "서초구",
+      "dong": "반포동",
+      "open": "2023.02.01",
+      "close": "2023.02.28",
+      "location": "서울",
+      "item": "의류",
+      "openingTime": [
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00"
+      ],
+      "closeTime": [
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00",
+        "22:00"
+      ],
+      "explain": "테니스 패션 역사에서 가장 하이라이트라고 할 수 있는 1970-80년대 스타일에서 영감을 받아 코트 위에 뿐만 아니라 일상생활에서도 자연스럽게 착용할 수 있는 의류 등을 소개하는 앤덴위댄스(Andthenwedence)의 팝업스토어\n(이미지 출처 : 앤덴위댄스 공식 인스타그램)",
+      "sns": "https://www.instagram.com/andthenwedance_official/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Don'tLoseYourHeart%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.13.10.png?alt=media&token=28aac623-811a-4643-a836-952515704503",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Don'tLoseYourHeart%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.13.14.png?alt=media&token=fc8a585a-3fe8-43aa-beee-e8ca3df6b705",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Don'tLoseYourHeart%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.13.17.png?alt=media&token=6cea624d-d30c-4750-ac13-fd5b257fdacf"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "18",
+      "view": "0",
+      "title": "두껍상회 강남",
+      "address": "서울특별시 강남구 강남대로 420 역삼빌딩",
+      "si": "서울특별시",
+      "gu": "서초구",
+      "dong": "역삼동",
+      "open": "2023.01.20",
+      "close": "2023.03.05",
+      "location": "서울",
+      "item": "기타",
+      "openingTime": [
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00"
+      ],
+      "closeTime": [
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00"
+      ],
+      "explain": "곧 돌아 올 진로의 100살 생일을 기념하기위해 다시 컴백했껍\n초대형 어린이 놀이터 가고 싶은 껌딱지 지금 바로 풋처핸껍!",
+      "sns": "https://www.instagram.com/official.jinro/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.44.png?alt=media&token=489a8fc3-488a-4a35-a9f1-4076aaa97e2f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.35.png?alt=media&token=5a3c96b7-3eec-4fdf-b931-df15ad1aa54a",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.39.png?alt=media&token=89a0f6fc-fd51-48b1-a738-d893ec9975b0",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.46.png?alt=media&token=11a7ed36-8c27-4c19-b61c-a247bf8bc6f9",
+        "https://console.firebase.google.com/project/popcorn1-4b47e/storage/popcorn1-4b47e.appspot.com/files/~2FDuGgup?hl=ko"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "19",
+      "view": "0",
+      "title": "EXPLORE THE NEW by 갤럭시 스튜디오",
+      "address": "서울특별시 성동구 연무장길 26",
+      "si": "서울특별시",
+      "gu": "성동구",
+      "dong": "성수동",
+      "open": "2023.02.04",
+      "close": "2023.03.12",
+      "location": "서울",
+      "item": "전자기기",
+      "openingTime": [
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00"
+      ],
+      "closeTime": [
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00"
+      ],
+      "explain": "새로움을 향해 끝없이 탐험하고 미래를 변화시키는 갤럭시의 여정은 계속된다. 개기일식과 만남을 주제로 한 정성윤 작가의 <Eclipse>를 중심으로 비밀스러운 파티가 벌어진 갤럭시 스튜디오.\n작품 속 갤럭시 S23의 광각, 초광각, 망원 렌즈를 표상하는 세 개의 원은 마치 달과 태양처럼 교차하고 분리되며 장대한 서사를 알리듯 아름다운 빛의 산란을 일으킨다.\n언제나 그랬듯 가능성 그 너머를 향하는 갤럭시 S23과 육성재가 함께한 밤. 찬란한 빛의 시간.",
+      "sns": "https://www.instagram.com/samsungKorea/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ExploreTheNewByGalaxyStudio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.17.50.png?alt=media&token=f231df00-32a1-4533-944d-37e731ba9a04",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ExploreTheNewByGalaxyStudio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.17.53.png?alt=media&token=55d02b84-4198-4c50-842b-d9893c798e73",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ExploreTheNewByGalaxyStudio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.17.56.png?alt=media&token=32f16d39-46c0-4c6d-a448-25e4a75351ef",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ExploreTheNewByGalaxyStudio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.18.00.png?alt=media&token=fc8ce41d-f151-4a45-85f8-513208fd1031"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    },
+    {
+      "id": "20",
+      "view": "0",
+      "title": "HPIX (에이치픽스)",
+      "address": "서울특별시 영등포구 여의대로 108 더현대 서울",
+      "si": "서울특별시",
+      "gu": "영등포구",
+      "dong": "여의도동",
+      "open": "2023.02.01",
+      "close": "2023.02.12",
+      "location": "서울",
+      "item": "리빙/라이프스타일",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "explain": "에이치픽스가 전개하는 바우하우스 디자인 가구를 소개하는 독일 브랜드, TECTA의 베스트 컬렉션부터 다채로운 컬러감의 다양한 가구 라인을 만나볼 수 있는 팝업스토어에서 다양한 텍타 굿즈 기프트와 프로모션 혜택을 만나보세요!\n(이미지 출처 : TECTA KOREA 인스타그램)",
+      "sns": "https://www.instagram.com/tecta_kr/",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/HPIX%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.13.58.png?alt=media&token=737af064-532e-49f2-a6e1-404146459e4f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/HPIX%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.14.04.png?alt=media&token=62bea849-3284-4d2d-aac1-f7eb8c9300eb",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/HPIX%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.14.08.png?alt=media&token=026766ec-635c-4b56-bd4c-590a26db2048"
+      ],
+      "lat": "37.5411291",
+      "lon": "127.060485"
+    }
+  ],
+  "FAQ": [
+    {
+      "id": "1",
+      "Q": "입점된 팝업스토어의 이벤트는 어디서 볼 수 있나요?",
+      "A": "해당 팝업스토어의 공지사항 탭에서 확인하실 수 있습니다."
+    },
+    {
+      "id": "2",
+      "Q": "홈페이지에 없는 팝업스토어를 발견했는데 추가 가능한가요?",
+      "A": "고객센터 - 팝업스토어 제보 - 신규 스토어 제보에서 로그인 하신 후 제보해 주시면 확인 후 추가 가능합니다."
+    },
+    {
+      "id": "3",
+      "Q": "팝업스토어 정보 오류가 있어요! 어디로 문의 드리면 되나요?",
+      "A": "고객센터 - 팝업스토어 제보 - 정보 오류/수정 제보에서 로그인 하신 후 제보해 주시면 확인 후 수정하겠습니다."
+    },
+    {
+      "id": "4",
+      "Q": "팝업스토어 기간이 연장돼서 수정하고 싶은데 어떻게 하면 되나요?",
+      "A": "고객센터 - 팝업스토어 제보 - 정보 오류/수정 제보에서 로그인 하신 후 제보해 주시면 확인 후 수정하겠습니다."
+    },
+    {
+      "id": "5",
+      "Q": "팝업스토어 기간이 연장돼서 수정하고 싶은데 어떻게 하면 되나요?",
+      "A": "고객센터 - 팝업스토어 제보 - 정보 오류/수정 제보에서 로그인 하신 후 제보해 주시면 확인 후 수정하겠습니다."
+    },
+    {
+      "id": "6",
+      "Q": "팝업스토어 기간이 연장돼서 수정하고 싶은데 어떻게 하면 되나요?",
+      "A": "고객센터 - 팝업스토어 제보 - 정보 오류/수정 제보에서 로그인 하신 후 제보해 주시면 확인 후 수정하겠습니다."
+    },
+    {
+      "id": "7",
+      "Q": "팝업스토어 기간이 연장돼서 수정하고 싶은데 어떻게 하면 되나요?",
+      "A": "고객센터 - 팝업스토어 제보 - 정보 오류/수정 제보에서 로그인 하신 후 제보해 주시면 확인 후 수정하겠습니다."
+    }
+  ]
+}
