@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 export const MyProfileWrapper = styled.div``;
 
-export const MyProfileImage = styled.div`
-  height: 17vh;
-  width: 10vw;
-  border-radius: 3px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15vh 15vh 10vh 15vh;
+// export const MyProfileImage = styled.div`
+//   height: 17vh;
+//   width: 10vw;
+//   border-radius: 3px;
+//   border: 1px solid black;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 15vh 15vh 10vh 15vh;
 
-  cursor: pointer;
-`;
+//   cursor: pointer;
+// `;
 
 export const MyProfileNickname = styled.h3`
   margin: 5vh 15vh 2vh;
@@ -56,4 +56,30 @@ export const Colortext = styled.span`
   &.error {
     color: #ff2727;
   }
+`;
+
+export const ProfileImgLabel = styled.label`
+  height: 150px;
+  width: 150px;
+  border-radius: 3px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15vh 15vh 10vh 15vh;
+
+  cursor: pointer;
+`;
+
+export const ProfileImgFileInput = styled.input`
+  height: 10%;
+  width: 20%;
+  border-radius: 3px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15vh 15vh 10vh 15vh;
+
+  cursor: pointer;
 `;

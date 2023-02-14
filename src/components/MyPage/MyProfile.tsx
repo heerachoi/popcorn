@@ -5,7 +5,6 @@ import { userInfo } from '../../atoms';
 import { auth } from '../../services/firebase';
 import {
   MyProfileWrapper,
-  MyProfileImage,
   MyProfileNickname,
   NicknameModifyBox,
   ModifyButton,
@@ -13,53 +12,44 @@ import {
   PasswordChange,
   NicknameInput,
   Colortext,
+  ProfileImgLabel,
+  ProfileImgFileInput,
 } from './style';
 import { updateProfile } from 'firebase/auth';
+// 이미지 업로드를 위해 firebase.ts에 만들어놓은 getFirestore를 import해옴
+import { storage } from '../../../src/services/firebase';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 
 const MyProfile = () => {
-  // nickname : 현재 nickname이 들어옴
-  const [nickname, setNickname] = useState<any>('');
-  console.log('nickname', nickname);
+  const [nickname, setNickname] = useState<any>(''); // 닉네임
+  console.log('========================================시작');
+  console.log('nickname1', nickname);
+  const [currentUser, setCurrentUser] = useState<any>(''); // 현재 유저정보가 담겨있는 객체
+  console.log('currentUser', currentUser);
+  const [imgFile, setImgFile] = useState(''); // 이미지 파일
+  const [fileName, setFileName] = useState(''); // 이미지 파일 이름
 
-  // currentUser : displayName이 담겨있는 객체
-  const [currentUser, setCurrentUser] = useState<any>('');
-
-  // 로그인 상태인지 확인 함수
-  //useEffect(()=>{},[])
+  // useEffect(()=>{})
+  // 로그인 상태인지 확인하는 함수
   useEffect(() => {
-    // ⭐⭐⭐괄호안에 들어가는 user가 뭔지? 아무거나 넣어도 되는데
-    // onAuthStateChanged에서 user를 받아서 email같은 정보들을 확인해서 맞으면 auth.currentUser
     auth.onAuthStateChanged((user) => {
-      // auth = getAuth() : currentUser이 담겨있는 배열(AuthImpl)
-      // user : displayName이 담겨있는 객체(UserImpl)
-      console.log('user', user);
+      // 유저가 맞으면
       if (user) {
-        // auth.currentUser는 리렌더링해야만 보임(useEffect의 특징)
-        // 렌더링 결과가 실제 돔에 반영된 직후다.
-        // 그러니까 이 모습이 다 그려지고 나서 함수값이 찍히는 것이다.
-        // 그리고 컴포넌트가 사라지기 직전에도 마지막으로 호출된다
-        // useEffect는 상태 값이 변경돼서 다시 랜더링 된 다음에 호출되는 것을 볼 수 있다.
-        console.log('auth.currentUser', auth.currentUser);
-        setCurrentUser(auth.currentUser);
-        // auth.currentUser : displayName이 담겨있는 객체(UserImpl)
-        // setCurrentUser : 함수?같은 건데 잘 모르겠음
         setNickname(auth.currentUser?.displayName);
+        console.log('nickname2', nickname);
         console.log(
           'auth.currentUser?.displayName',
           auth.currentUser?.displayName,
         );
-
-        //auth.currentUser?.displayName : 원래 닉네임
-        // console.log('로그인 되어있음');
+        setCurrentUser(auth.currentUser);
+        console.log('currentUser2', currentUser);
+        console.log('auth.currentUser1', auth.currentUser);
       } else {
         console.log('로그인 안됨');
       }
     });
     // if (!currentUser) return;
   }, []);
-
-  // 닉네임 바꿔주는 함수
-  // auth와 getAuth()는 같음
 
   const onClick = async () => {
     // currentUser의 display네임을 바꿔줄 것이다.
@@ -69,23 +59,39 @@ const MyProfile = () => {
     })
       .then(() => {
         setNickname('');
-        console.log('nickname=>', nickname);
+        console.log('nickname3', nickname);
         alert('Profile updated!');
       })
       .catch((error) => {
         console.log('An error occurred');
       });
   };
-  // 인풋에 입력한 상태 그대로 ui표시
-  // onchange는 매번 set을 해주는 것
+
   const NicknameChangeInput = (event: any) => {
     setNickname(event.target.value);
+    console.log('nickname4', nickname);
     console.log('event.target.value', event.target.value);
   };
 
+  const ProfileImgChangeInput = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    const target = event.currentTarget;
+    const theFile = (target.files as FileList)[0];
+    setFileName(theFile.name);
+  };
+
+  console.log('==================================끝');
   return (
     <MyProfileWrapper>
-      <MyProfileImage>이미지</MyProfileImage>
+      <div style={{ marginTop: 20 }}>
+        <ProfileImgLabel htmlFor="profileImg">
+          이미지
+          {imgFile && <img src="imgFile" style={{ width: 150, height: 150 }} />}
+        </ProfileImgLabel>
+        <ProfileImgFileInput type="file" accept="image/*" id="profileImg" />
+      </div>
+
       <MyProfileNickname>{currentUser?.displayName}</MyProfileNickname>
       <NicknameModifyBox>
         <NicknameInput
