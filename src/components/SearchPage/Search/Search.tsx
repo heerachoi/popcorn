@@ -4,7 +4,10 @@ import { ko } from 'date-fns/esm/locale';
 import Modal from '../Modal/Modal'
 import useModal from '../../../hooks/useModal';
 import StoreCalendar from '../StoreCalendar/StoreCalendar';
-import {ImLocation} from 'react-icons/im'
+import {ImLocation, ImSearch} from 'react-icons/im';
+import {BsCalendarRange} from 'react-icons/bs'
+import {RiProductHuntLine} from 'react-icons/ri';
+import {BiCalendar, BiCategoryAlt} from 'react-icons/bi'
 import {
   DatePickerContainer,
   SearchPageContainer,
@@ -266,7 +269,7 @@ console.log('isShowing', isShowing);
     <SearchPageContainer>
       <FilterContainer>
         <SearchItemContainer>
-          <ImLocation/>
+          <ImSearch/>
           <SearchTagContainer>
             <FilterTitle>키워드</FilterTitle>
             <SearchInput
@@ -279,6 +282,7 @@ console.log('isShowing', isShowing);
           </SearchTagContainer>
         </SearchItemContainer>
         <SearchItemContainer>
+          <BiCalendar/>
           <SearchTagContainer>
             <FilterTitle>진행중인 팝업스토어</FilterTitle>
             <DatePickerWrapper>
@@ -298,10 +302,10 @@ console.log('isShowing', isShowing);
           </SearchTagContainer>
         </SearchItemContainer>
         <SearchItemContainer>
+          <BsCalendarRange/>
           <SearchTagContainer>
             <FilterTitle>팝업 기간</FilterTitle>
             <SearchEventPeriod onChange={(event) => setPopupDurationFilter(event.target.value)}>
-              <FilterTitle>팝업 기간</FilterTitle>
               <option value="">전체</option>
               <option value="1주일 이하">1주일 이하</option>
               <option value="2주일 이하">2주일 이하</option>
@@ -311,8 +315,9 @@ console.log('isShowing', isShowing);
           </SearchTagContainer>
         </SearchItemContainer>
         <SearchItemContainer>
+          <ImLocation/>
           <SearchTagContainer>
-           <FilterTitle className="button-default" onClick={toggle}>제품 카테고리</FilterTitle>
+           <FilterTitle className="button-default" onClick={toggle}>위치 카테고리</FilterTitle>
             <Modal
               isShowing={isShowing}
               hide={toggle}
@@ -321,6 +326,7 @@ console.log('isShowing', isShowing);
           </SearchTagContainer>
         </SearchItemContainer>
         <SearchItemContainer>
+          <RiProductHuntLine/>
           <SearchTagContainer>
             <FilterTitle className="button-default" onClick={toggle}>제품 카테고리</FilterTitle>
             <Modal
@@ -331,6 +337,7 @@ console.log('isShowing', isShowing);
           </SearchTagContainer>
         </SearchItemContainer>
         <SearchItemContainer>
+          <BiCategoryAlt/>
           <SearchTagContainer>
             <FilterTitle className="button-default" onClick={toggle}>기타 카테고리</FilterTitle>
             <Modal 
