@@ -1,5 +1,7 @@
+import MapView from '../../components/MapView/MapView';
+
 const MapPage = () => {
-  return <div>MapPage</div>;
+  return <MapView />;
 };
 
 export default MapPage;

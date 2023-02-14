@@ -1,4 +1,3 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignUpPage from '../pages/SignUpPage/SignupPage';
 import MyPage from '../pages/MyPage/MyPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
@@ -8,6 +7,7 @@ import SearchPage from '../pages/SearchPage/SearchPage';
 import LogInPage from '../pages/LogInPage/LogInPage';
 import Header from '../components/Header/Header';
 import MapPage from '../pages/MapPage/MapPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { auth } from '../services/firebase';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
@@ -27,10 +27,10 @@ const Router = () => {
         setUser({
           isLogin: true,
           userInfomation: {
-            displayName: user.displayName || '',
-            email: user.email || '',
-            photoURL: user.photoURL || '',
-            uid: user.uid || '',
+            displayName: user.displayName,
+            email: user.email,
+            photoURL: user.photoURL,
+            uid: user.uid,
           },
         });
         // user가 없으니까 로그아웃 상태란 뜻

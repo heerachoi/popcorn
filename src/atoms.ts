@@ -9,10 +9,10 @@ interface UserInfoState {
 }
 
 interface UserInfomation {
-  displayName: string;
-  email: string;
-  photoURL: string;
-  uid: string;
+  displayName: string | null;
+  email: string | null;
+  photoURL: string | null;
+  uid: string | null;
 }
 
 export const userInfo = atom<UserInfoState>({
