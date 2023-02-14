@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 
+export const DatePickerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const DatePickerContainer = styled(DatePicker)`
   outline: none;
   border: none;
+  display: flex;
+  flex-direction: column;
 `
 
 export const SearchContainer = styled.div`
@@ -45,10 +52,10 @@ export const SearchEventPeriod = styled.select`
   outline: none;
 `
 
-export const CalendarContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-`
+// export const CalendarContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+// `
 
 export const ToggleCalendar = styled.div`
   /* display: flex; */
@@ -75,6 +82,13 @@ export const ItemCategory = styled.div`
   margin-left: 10px;
   border-right: 1px solid #E6EBFA;
 `
+
+export const LocationCategory = styled.div`
+  width: 33%;
+  margin-left: 10px;
+  border-right: 1px solid #E6EBFA;
+`
+
 
 export const EtcCategory = styled(ItemCategory)`
   border: none;
@@ -115,4 +129,10 @@ export const StoreContainer = styled.div`
   width: 259px;
   border: 1px solid #A6A6A6;
   border-radius: 8px;
+`
+
+export const CalendarContainer = styled.div`
+border: 5px solid aliceblue
+`
+export const FilterResultAndCalendarContainer = styled.div`
 `
