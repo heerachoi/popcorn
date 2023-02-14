@@ -62,12 +62,12 @@ const StoreDetailInfo = () => {
               <S.OpeningHoursWrap>
                 <S.OpeningHoursBox>
                   {detailData.openingTime?.map((openTime: string) => {
-                    return <span>{openTime + '-'}</span>;
+                    return <span key={uuidv4()}>{openTime + '-'}</span>;
                   })}
                 </S.OpeningHoursBox>
                 <S.OpeningHoursBox>
                   {detailData.closeTime?.map((closeTime: string) => {
-                    return <span>{closeTime}</span>;
+                    return <span key={uuidv4()}>{closeTime}</span>;
                   })}
                 </S.OpeningHoursBox>
               </S.OpeningHoursWrap>

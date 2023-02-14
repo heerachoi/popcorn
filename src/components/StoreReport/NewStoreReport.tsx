@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { NewStoreForm, StoreImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
-import { storage } from '../../../services/firebase';
+import { storage } from '../../services/firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import { auth } from '../../../services/firebase';
+import { auth } from '../../services/firebase';
 
 interface NewStoreInput {
   title: string;
@@ -31,7 +31,7 @@ const NewStoreReport: any = () => {
   const [imgFile, setImgFile] = useState(''); // 이미지 파일
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
 
-  const userId = auth?.currentUser
+  const userId = auth?.currentUser;
 
   // input onChange 함수
   const newStoreInputonChangeHandler = (
@@ -48,7 +48,10 @@ const NewStoreReport: any = () => {
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const target = event.currentTarget;
+    console.log('target', target)
+
     const theFile = (target.files as FileList)[0]; // 이벤트로부터 파일을 얻어와서 첫 번째 파일만 받음
+    console.log('theFile', theFile)
     setFileName(theFile.name);
 
     const reader = new FileReader();
