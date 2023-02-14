@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export const StyledSlider = styled(Slider)`
-  height: 40vh;
+  height: 360px;
 
   img {
     cursor: pointer;

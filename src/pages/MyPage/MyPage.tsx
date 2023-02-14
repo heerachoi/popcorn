@@ -1,13 +1,10 @@
-import DeleteAccount from '../../components/Authentication/DeleteAccount/DeleteAccount';
-import UpdatePassword from '../../components/Authentication/UpdatePassword/UpdatePassword';
-
-const MyPage: any = () => {
+// firebase import
+// const current = "kWhtWlL0n4auOkXnR3t7lmXQn8r1";
+// 
+const MyPage:any = () => {
   return (
-    <>
-      <DeleteAccount />
-      <UpdatePassword />
-    </>
-  );
-};
+    <>MyPage</>
+  )
+}
 
 export default MyPage;
