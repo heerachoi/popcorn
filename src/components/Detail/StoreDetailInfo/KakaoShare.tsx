@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import styled from 'styled-components';
 
 interface Props {
   detailData: any;
@@ -44,14 +45,24 @@ const KakaoShare = ({ detailData }: Props) => {
 
   return (
     <div id="KakaoShareBtn">
-      <button onClick={shareKakao}>
+      <KakaoImgBtn onClick={shareKakao}>
         <img
           src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
           alt="카카오링크 보내기 버튼"
         />
-      </button>
+      </KakaoImgBtn>
     </div>
   );
 };
 
 export default KakaoShare;
+
+export const KakaoImgBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+`;
