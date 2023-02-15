@@ -1,13 +1,33 @@
 import styled from 'styled-components';
 import { VscSearch } from 'react-icons/vsc';
+import { useRecoilState } from 'recoil';
+import { MapSearchValue } from '../../../atoms';
 
-const MapSearch = () => {
+interface Props {
+  onSearchSubmitHandler: (event: React.FormEvent<HTMLFormElement>) => void;
+}
+
+const MapSearch = ({ onSearchSubmitHandler }: Props) => {
+  const [search, setSearch] = useRecoilState(MapSearchValue);
+
+  const searchValueChangeHandler = (
+    event: React.FormEvent<HTMLInputElement>,
+  ) => {
+    setSearch({ value: event.currentTarget.value });
+  };
+
   return (
     <Wrap>
-      <VscIconWrap>
-        <VscSearch size={28}></VscSearch>
-      </VscIconWrap>
-      <SearchInput />
+      <form onSubmit={onSearchSubmitHandler}>
+        <VscIconWrap>
+          <VscSearch size={28}></VscSearch>
+        </VscIconWrap>
+        <SearchInput
+          onChange={searchValueChangeHandler}
+          type="text"
+          value={search.value}
+        />
+      </form>
     </Wrap>
   );
 };

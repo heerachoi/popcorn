@@ -19,7 +19,6 @@ const StoreDetailInfo = () => {
       <S.DetailContainer>
         {/* 이미지 슬라이드 컴포넌트 */}
         <StoreDetailImg />
-
         {/* 디테일 정보 부분 (이모티콘 위 하단선까지) */}
         <S.DetailInfoContent>
           <S.TitleWrap>
@@ -60,7 +59,6 @@ const StoreDetailInfo = () => {
               </S.SideTitleIconText>
             </S.SideTitleWrap>
           </S.TitleWrap>
-
           <S.InfoContentWrap>
             <S.InfoTable>
               <S.InfoTbody>
