@@ -48,10 +48,10 @@ const NewStoreReport: any = () => {
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const target = event.currentTarget;
-    console.log('target', target)
+    console.log('target', target);
 
     const theFile = (target.files as FileList)[0]; // 이벤트로부터 파일을 얻어와서 첫 번째 파일만 받음
-    console.log('theFile', theFile)
+    console.log('theFile', theFile);
     setFileName(theFile.name);
 
     const reader = new FileReader();
