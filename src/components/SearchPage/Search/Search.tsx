@@ -8,6 +8,8 @@ import {ImLocation, ImSearch} from 'react-icons/im';
 import {BsCalendarRange} from 'react-icons/bs'
 import {RiProductHuntLine} from 'react-icons/ri';
 import {BiCalendar, BiCategoryAlt} from 'react-icons/bi'
+import { useRecoilValue } from 'recoil';
+import { ModalButtonData } from '../../../data/ModalButtonData/ModalButtonData';
 import {
   DatePickerContainer,
   SearchPageContainer,
@@ -61,7 +63,7 @@ interface Store {
 const Search:React.FC = () => {
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(datas.Store);
-  console.log('outside storeList', storeList)
+  // console.log('outside storeList', storeList)
   // 팝업 스토어 필터된 리스트
   let filterList:Store[] = [];
   let searchList:Store[] = [];
@@ -288,11 +290,16 @@ const Search:React.FC = () => {
       // result = result.filter((store)=>{
       //   return saveDatePickerList.includes(store);
       // })    
-      console.log('final filter result', result);
+      // console.log('final filter result', result);
       setStoreList(result);
   };
   // 카테고리 Modal 
   const {isShowing, toggle} = useModal();
+
+
+    const objectResult = useRecoilValue(ModalButtonData);
+  console.log('objectResult',objectResult);
+    
   return (
     <SearchPageContainer>
       <FilterContainer>
