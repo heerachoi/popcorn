@@ -4,19 +4,37 @@ import { auth } from '../../services/firebase';
 import Logout from '../Authentication/Logout/Logout';
 import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../atoms';
+import { BsBellFill } from 'react-icons/bs';
+import useModal from '../../hooks/useModal';
+import Modal from '../SearchPage/Modal/Modal';
+import AlertModal from './AlertModal';
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userInfo);
 
-  //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
+  console.log(auth?.currentUser?.email); //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
   // 해결 : Router에서 auth.onAuthStateChanged 메서드를 사용해서 파이어베이스에서 DB정보를 참조해서 변경 사항 가져옴
+
+  const notification = () => {
+    console.log('alert');
+
+  }
+
+  const {isShowing, toggle} = useModal();
+
   return (
     <>
       <S.Wrap>
         <S.Title onClick={() => navigate('/')}>POPCORN</S.Title>
-        <S.DummyBox></S.DummyBox>
         <S.BtnWrap>
+           <S.CategoryBtn onClick={notification}>
+          <BsBellFill className="button-default" onClick={toggle}/>
+            <AlertModal
+              isShowing={isShowing}
+              hide={toggle}
+            />
+        </S.CategoryBtn>
           <S.CategoryBtn onClick={() => navigate('/customer')}>
             고객센터
           </S.CategoryBtn>

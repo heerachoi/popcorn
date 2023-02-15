@@ -19,7 +19,6 @@ export const userInfo = atom<UserInfoState>({
   key: 'user',
   default: {
     isLogin: false,
-    //로그인이 아닐때 빈값
     userInfomation: {
       displayName: '',
       email: '',

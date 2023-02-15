@@ -174,12 +174,7 @@ const SignUp = () => {
         ],
       });
     if (!phoneVerify || requestedPV) return alert('휴대폰 인증이 필요합니다.');
-    // 이메일과 패스워드로 유저를 만들어주겠다. 라는 함수
     await createUserWithEmailAndPassword(
-      // 위에서 만든 auth라는 것을 전달해주면서
-      // email과 password를 전달해줘야함
-      // 회원가입할 때 입력받는 email과 password를 이곳에 전달해주기만 하면 이 함수는 작동이 됨
-
       auth,
       signUpInput.email,
       signUpInput.password,

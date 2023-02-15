@@ -1,4 +1,4 @@
-import SignUpPage from '../pages/SignUpPage/SignUpPage';
+import SignUpPage from '../pages/SignUpPage/SignupPage';
 import MyPage from '../pages/MyPage/MyPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import HomePage from '../pages/HomePage/HomePage';
@@ -14,14 +14,11 @@ import { useSetRecoilState } from 'recoil';
 import { userInfo } from '../atoms';
 
 const Router = () => {
-  // usestate에서 setUser랑 똑같음
   const setUser = useSetRecoilState(userInfo);
 
   // 로그인 상태를 전역적으로 관리해주는 함수
   // 로그아웃이 된 상태에서만 Header가 바뀐다.
   useEffect(() => {
-    // 유저정보의 상태가 변하는걸 체크해주는 함수
-    // 유저가 auth.current랑 똑같음 or auth였나.. 재창님 기억안나심
     auth.onAuthStateChanged((user) => {
       if (user) {
         setUser({
@@ -33,7 +30,6 @@ const Router = () => {
             uid: user.uid,
           },
         });
-        // user가 없으니까 로그아웃 상태란 뜻
       } else {
         setUser({
           isLogin: false,

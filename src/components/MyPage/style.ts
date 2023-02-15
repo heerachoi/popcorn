@@ -2,21 +2,8 @@ import styled from 'styled-components';
 
 export const MyProfileWrapper = styled.div``;
 
-// export const MyProfileImage = styled.div`
-//   height: 17vh;
-//   width: 10vw;
-//   border-radius: 3px;
-//   border: 1px solid black;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin: 15vh 15vh 10vh 15vh;
-
-//   cursor: pointer;
-// `;
-
 export const MyProfileNickname = styled.h3`
-  margin: 5vh 15vh 2vh;
+  margin: 3vh 15vh 2vh;
 `;
 
 export const NicknameModifyBox = styled.div`
@@ -37,17 +24,6 @@ export const ModifyButton = styled.button`
   margin-left: 1vw;
 `;
 
-export const DeleteAccountBtn = styled.button`
-  margin: 5vh 15vh 2vh;
-  cursor: pointer;
-`;
-
-export const PasswordChange = styled.button`
-  display: flex;
-  margin-left: 15vh;
-  cursor: pointer;
-`;
-
 export const Colortext = styled.span`
   font-size: 10px;
   &.success {
@@ -58,6 +34,45 @@ export const Colortext = styled.span`
   }
 `;
 
+// 이미지 수정, 업로드 관련 스타일링
+export const ImgModifyButton = styled.button`
+  margin: 0vh 15vh 1vh 15vh;
+`;
+
+// export const ProfileImgLabel = styled.label`
+//   height: 150px;
+//   width: 150px;
+//   border-radius: 3px;
+//   border: 1px solid black;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 15vh 15vh 10vh 15vh;
+
+//   cursor: pointer;
+// `;
+
+// export const ProfileImgFileInput = styled.input`
+//   height: 10%;
+//   width: 20%;
+//   border-radius: 3px;
+//   border: 1px solid black;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 15vh 15vh 10vh 15vh;
+
+//   cursor: pointer;
+// `;
+
+// export const NewProfileForm = styled.form``;
+
+// export const ImageModifyBtn = styled.button`
+//   margin-left: 15vh;
+//   cursor: pointer;
+// `;
+
+// =========여기서부터 이미지 라벨=========
 export const ProfileImgLabel = styled.label`
   height: 150px;
   width: 150px;
@@ -66,20 +81,12 @@ export const ProfileImgLabel = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 15vh 15vh 10vh 15vh;
-
+  margin: 15vh 15vh 1vh 15vh;
   cursor: pointer;
 `;
 
-export const ProfileImgFileInput = styled.input`
-  height: 10%;
-  width: 20%;
-  border-radius: 3px;
-  border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 15vh 15vh 10vh 15vh;
-
-  cursor: pointer;
+export const ProfileImgInput = styled.input`
+  margin: 1vh 15vh 1vh 15vh;
 `;
+
+export const NewImageForm = styled.form``;
