@@ -1,6 +1,51 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 
+export const SearchPageContainer = styled.div`
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 40px;
+`
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  gap:10px;
+`
+
+export const SearchItemContainer = styled.div`
+  border: 1px solid #000;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 7px 20px;
+`
+
+export const SearchTagContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const FilterTitle = styled.div`
+  
+`
+
+export const SearchInput = styled.input`
+  font-size: 13px;
+  border: none;
+  outline: none;
+  
+  border-radius: 3px;
+`
+
+export const SearchEventPeriod = styled.select`
+  outline: none;
+  
+  border-radius: 3px;
+`
+
 export const DatePickerWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,90 +53,38 @@ export const DatePickerWrapper = styled.div`
 
 export const DatePickerContainer = styled(DatePicker)`
   outline: none;
-  border: none;
   display: flex;
   flex-direction: column;
+  
+  
 `
-
-export const SearchContainer = styled.div`
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 40px;
-`
-
-export const SearchContainerTop = styled.div`
-  display: flex;
-  border: 8px solid #E6EBFA;
-  height: 36px;
-  align-items: center;
-`
-
-export const SearchInput = styled.input`
-  width: 50%;
-  border: none;
-  border-right: 1px solid #E6EBFA;
-  font-size: 16px;
-  outline: none;
-  margin-left: 10px;
-`
-
-export const StartingDate = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 200px;
-  margin-left: 10px;
-  border-right: 1px solid #E6EBFA;
-`
-
-export const SearchEventPeriod = styled.select`
-  width: 200px;
-  margin-left: 10px;
-  border: none;
-  outline: none;
-`
-
-// export const CalendarContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-// `
 
 export const ToggleCalendar = styled.div`
   /* display: flex; */
   margin-top: 40px;
   box-sizing: border-box;
-`
-
-export const SearchContainerBottom = styled(SearchContainerTop)`
-  border-top: none;
+  
 `
 
 export const DepartmentStoreCategory = styled.select`
-  width: 33%;
-  margin-left: 10px;
-  border: none;
   outline: none;
-  border-right: 1px solid #E6EBFA;
-  padding-right: 40px;
   box-sizing: border-box;
 `
 
 export const ItemCategory = styled.div`
-  width: 33%;
-  margin-left: 10px;
-  border-right: 1px solid #E6EBFA;
+  
+  border: 1px solid black;
+  border-radius: 3px;
 `
 
 export const LocationCategory = styled.div`
-  width: 33%;
-  margin-left: 10px;
-  border-right: 1px solid #E6EBFA;
+  
 `
 
 
 export const EtcCategory = styled(ItemCategory)`
-  border: none;
+  border: 1px solid black;
+  border-radius: 3px;
 `
 
 export const FilterTypes = styled.div`
@@ -122,7 +115,7 @@ export const FilterResult = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  margin-top: 30px;
+  width: 50%;
 `
 
 export const StoreContainer = styled.div`
@@ -132,7 +125,15 @@ export const StoreContainer = styled.div`
 `
 
 export const CalendarContainer = styled.div`
-border: 5px solid aliceblue
+  width: 50%;
 `
+
+export const FilterItemHolder = styled.div`
+  color: rgba(0,0,0,0.5);
+`
+
+
 export const FilterResultAndCalendarContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `
