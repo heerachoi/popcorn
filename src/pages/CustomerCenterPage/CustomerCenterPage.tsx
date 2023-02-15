@@ -7,14 +7,22 @@ const CustomerCenterPage: any = () => {
   // 초기 화면에 0번째 탭이 나오도록 초기값 설정
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // 탭 메뉴 제목과 들어갈 내용 담은 배열 
+  // 탭 메뉴 제목과 들어갈 내용 담은 배열
   const menuArr = [
     {
-      tabTitle: <S.MenuTitleTabBtn onClick={() => tabClickHandler(0)} >공지사항 및 이벤트</S.MenuTitleTabBtn>,
+      tabTitle: (
+        <S.MenuTitleTabBtn onClick={() => tabClickHandler(0)}>
+          공지사항 및 이벤트
+        </S.MenuTitleTabBtn>
+      ),
       tabContent: <div>공지사항 내용</div>,
     },
     {
-      tabTitle: <S.MenuTitleTabBtn onClick={() => tabClickHandler(1)}>FAQ</S.MenuTitleTabBtn>,
+      tabTitle: (
+        <S.MenuTitleTabBtn onClick={() => tabClickHandler(1)}>
+          FAQ
+        </S.MenuTitleTabBtn>
+      ),
       tabContent: (
         <div>
           <Faq />
@@ -22,7 +30,11 @@ const CustomerCenterPage: any = () => {
       ),
     },
     {
-      tabTitle: <S.MenuTitleTabBtn onClick={() => tabClickHandler(2)}>Contact Us</S.MenuTitleTabBtn>,
+      tabTitle: (
+        <S.MenuTitleTabBtn onClick={() => tabClickHandler(2)}>
+          Contact Us
+        </S.MenuTitleTabBtn>
+      ),
       tabContent: <div>Contact Us 내용</div>,
     },
   ];
@@ -42,7 +54,7 @@ const CustomerCenterPage: any = () => {
           {/* map으로 title을 뽑아옴 */}
           {menuArr.map((section: any, index: any) => {
             return section.tabTitle;
-          })} 
+          })}
         </S.TabMenu>
         <S.ContentBox>
           {/* activeIndex에 해당하는 내용 보여줌 */}

@@ -37,6 +37,7 @@ const DetailMap = () => {
 export default DetailMap;
 
 const DetailPageMap = styled.div`
+  margin: 0 auto;
   width: 500px;
   height: 500px;
 `;
