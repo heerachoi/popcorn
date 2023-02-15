@@ -8,7 +8,7 @@ interface getDetailWeatherData {
 
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
-export const getPopupData = async () => {
+export const getDetailData = async () => {
   const { data } = await axios.get('http://localhost:3010/Store');
   return data;
 };
@@ -21,7 +21,6 @@ export const getDetailWeatherData = async ({
   const { data } = await axios.get(
     `${OPENWEATHER_URL}/weather?lat=${lat}&lon=${lon}&appid=${api}&lang=kr&units=metric`,
   );
-  console.log('api', lat, lon, api);
   return data;
 };
 

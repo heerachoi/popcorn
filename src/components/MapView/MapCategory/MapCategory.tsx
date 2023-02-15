@@ -4,7 +4,7 @@ const MapCategory = () => {
   return (
     <Wrap>
       <CategoryBtn>팝업스토어</CategoryBtn>
-      <CategoryBtn>맛집</CategoryBtn>
+      <CategoryBtn>음식점</CategoryBtn>
       <CategoryBtn>카페</CategoryBtn>
     </Wrap>
   );

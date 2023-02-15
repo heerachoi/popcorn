@@ -14,8 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "types": ["kakao.maps.d.ts"]
+    "jsx": "react-jsx"
   },
   "include": ["src", "src/shared/window.d.ts"]
 }
