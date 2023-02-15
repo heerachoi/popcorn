@@ -47,7 +47,6 @@ const Modal = ({ isShowing, hide }: { isShowing: boolean, hide: () => void }) =>
   // 만약 전체가 true 일 경우 모두 true로 set
   // 전체 버튼이 아닌 다른 버튼이 click 될때 false로 되면 전체도 false
   const buttonClickHandler = (id:number) => {
-    // console.log('id', id +" " + buttons[id-1].active);
     if (id === 1 && buttons[0].active === false) {
        const updateFilter = buttons.map(button => {
         return {
@@ -56,11 +55,17 @@ const Modal = ({ isShowing, hide }: { isShowing: boolean, hide: () => void }) =>
         };
     })
     setButtons(updateFilter);
+    } else if (id === 1 && buttons[0].active === true) {
+       const updateFilter = buttons.map(button => {
+        return {
+          ...button,
+          active: false
+        };
+    })
+    setButtons(updateFilter);
     }
     else {
-      if (buttons[0].active === true) {
-        buttons[0].active = false;
-      }
+      
       const updateFilter = buttons.map(button => {
         if (button.id === id) {
           return {
