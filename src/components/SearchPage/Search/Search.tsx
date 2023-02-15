@@ -68,6 +68,8 @@ const Search:React.FC = () => {
   let filterList:Store[] = [];
   let searchList:Store[] = [];
   let durationList:Store[] =[];
+  let locationList:Store[] =[];
+
   // keyEnter
   const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
  // 검색어
@@ -100,6 +102,9 @@ const Search:React.FC = () => {
   const [otherFilter, setOtherFilter] = useState<any>('');
   const [saveOtherList, setSaveOtherList] = useState<Store[]>(datas.Store);
 
+
+  // 카테고리 Modal 
+  const {isShowing, toggle} = useModal();
 
   // 검색어 필터
   // 눌린 키가 enter인지 체크
@@ -236,15 +241,46 @@ const Search:React.FC = () => {
   }
 
   // 지역 필터
+  // 위치 모달 결과 - 전체리스트에서 LocationFilter에 true인 것만 가져온다.
+  const locationFilterList = useRecoilValue(ModalButtonData);
+  // console.log('locationFilterList',locationFilterList);
+  
   const locationFilterHandler = () => {
-    if (enterKeyPressed === true) {
-      storeList.filter((store:Store) => {
-        if (store.location === searchTerm) {
-          filterList.push(store);
-        }
-      });
-    }    
+    // console.log('locationFilterHandler')
+    // locationList = datas.Store;
+    console.log('locationList ====' , locationList)
+    if (locationFilterList[0].label === '전체') {
+        setSaveLocationtList(datas.Store);
+    } else {
+      for (let i = 0; i < locationFilterList.length; i++) {
+        let tmpStore:Store[] = [];
+        datas.Store.filter((store) => 
+          {
+          //   console.log('store.location',store.location);
+          //  console.log('locationFilterList[i].label',locationFilterList[i].label);
+           if (store.si === locationFilterList[i].label){
+              locationList.push(store);
+            }
+            console.log('locationList', locationList)
+          }
+        )
+        // locationList = tmpStore;
+        //   tmpStore = []; 
+      } 
+      console.log(locationList)
+      setSaveLocationtList(locationList);
+      locationList = [];
+    } 
   }
+// 위치 
+  useEffect(() => {
+    if (locationFilterList.length != 0) {
+    locationFilterHandler();
+    }
+  }, [
+    locationFilterList,
+  ]);
+
 
   // 검색 
   useEffect(() => {
@@ -269,6 +305,7 @@ const Search:React.FC = () => {
 
   // list를 확인해줘야 필터링 리스트에 바로 적용된다. 
   useEffect(() => {
+    console.log('useeffect ------------------------')
     startFilter();
   }, [
     savePopupDurationList,
@@ -280,10 +317,22 @@ const Search:React.FC = () => {
   const startFilter = () => {
     
     let result:Store[] = [];
-      console.log('STARTFILTER saveSearchList: ',  saveSearchList);
-      console.log('savePopupDurationList',savePopupDurationList)
+      // 1. 검색 & 기간 필터
       result = saveSearchList.filter((store:Store) => savePopupDurationList.includes(store));
-
+      // console.log('first result', result);
+      // console.log('saveLocationList', saveLocationList);
+      // 2. #1에서 나온 목록에서 위치 필터
+      let result2:Store[] = [];
+      result.map((store:Store, index)=> {
+        for (let i = 0; i < saveLocationList.length; i++) {
+          if (saveLocationList[i].id === store.id) {
+            result2.push(store);
+          }
+        }
+      })
+      // console.log('second result', result2);
+      // 3. #2에서 나온 목록에서 위치 필터
+      
       // saveSearchList.forEach((store:Store)=> {
       //   savePopupDurationList.includes(store);
       // })
@@ -291,15 +340,9 @@ const Search:React.FC = () => {
       //   return saveDatePickerList.includes(store);
       // })    
       // console.log('final filter result', result);
-      setStoreList(result);
+      setStoreList(result2);
   };
-  // 카테고리 Modal 
-  const {isShowing, toggle} = useModal();
 
-
-    const objectResult = useRecoilValue(ModalButtonData);
-  console.log('objectResult',objectResult);
-    
   return (
     <SearchPageContainer>
       <FilterContainer>

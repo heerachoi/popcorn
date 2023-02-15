@@ -4,7 +4,7 @@ export const ModalButtonData = atom({
   key: 'locatioButtonState',
   default: [
     { id: 1, label: '전체', active: false },
-    { id: 2, label: '서울특별시', active: false },
+    { id: 2, label: '서울', active: false },
     { id: 3, label: '인천광역시', active: false },
     { id: 4, label: '울산광역시', active: false },
     { id: 5, label: '대전광역시', active: false },

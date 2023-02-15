@@ -38,7 +38,8 @@ const Modal = ({ isShowing, hide }: { isShowing: boolean, hide: () => void }) =>
           count++;
         }
       })  
-      if (count > 0 ) {
+      console.log(count)
+      if (count == 0 ) {
         buttons[0].active = false;
         setButtons(buttons);
       } 
@@ -80,8 +81,7 @@ const Modal = ({ isShowing, hide }: { isShowing: boolean, hide: () => void }) =>
   }
 }
 
- const setLocationButtonData = useSetRecoilState(ModalButtonData);
-
+const setLocationButtonData = useSetRecoilState(ModalButtonData);
 
 const handleSubmit = () => {
     const selectedButtons = buttons.filter((button) => button.active);
