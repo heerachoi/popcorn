@@ -12,8 +12,6 @@ interface SignInInput {
 const Login = () => {
   const navigate = useNavigate();
 
-  console.log(auth);
-
   const initSignInInput = {
     email: '',
     password: '',
@@ -64,7 +62,8 @@ const Login = () => {
       signInInput.email,
       signInInput.password,
     )
-      .then(() => {
+      .then((res) => {
+        console.log('res', res); // res.idtoken을 크롬 브라우저 쿠키에 set해주고, 토큰 아이디가 쿠키에 남아있으면 로그인 상태를 확인해줌
         navigate('/');
       })
       .catch((error: any) => {

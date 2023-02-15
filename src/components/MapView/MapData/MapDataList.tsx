@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import MapDataCard from './MapDataCard';
 
-const MapDataList = () => {
+const MapDataList = ({ popupData }: any) => {
   return (
     <Wrap>
       <MapDataCard />

@@ -6,9 +6,9 @@ import StoreEmoji from '../../components/Detail/StoreEmoji/StoreEmoji';
 const DetailPage: any = () => {
   return (
     <>
-      <StoreDetailInfo />
+      {/* <StoreDetailInfo /> */}
       <StoreEmoji />
-      {/* <DetailMap /> */}
+      <DetailMap />
       {/* <StoreDetailImg /> */}
     </>
   );

@@ -62,12 +62,12 @@ const StoreDetailInfo = () => {
               <S.OpeningHoursWrap>
                 <S.OpeningHoursBox>
                   {detailData.openingTime?.map((openTime: string) => {
-                    return <span>{openTime + '-'}</span>;
+                    return <span key={uuidv4()}>{openTime + '-'}</span>;
                   })}
                 </S.OpeningHoursBox>
                 <S.OpeningHoursBox>
                   {detailData.closeTime?.map((closeTime: string) => {
-                    return <span>{closeTime}</span>;
+                    return <span key={uuidv4()}>{closeTime}</span>;
                   })}
                 </S.OpeningHoursBox>
               </S.OpeningHoursWrap>
@@ -78,7 +78,9 @@ const StoreDetailInfo = () => {
             </S.InfoTr>
             <S.InfoTr>
               <S.InfoTitleText>날씨</S.InfoTitleText>
-              <S.InfoContentText><BsFillSunFill /></S.InfoContentText>
+              <S.InfoContentText>
+                <BsFillSunFill />
+              </S.InfoContentText>
             </S.InfoTr>
             <S.InfoTr>
               <S.InfoTitleText>스토어 설명</S.InfoTitleText>
@@ -88,12 +90,20 @@ const StoreDetailInfo = () => {
               <S.InfoTitleText>SNS계정</S.InfoTitleText>
               <S.InfoContentText>
                 <S.SnsLinkWrap>
-                  <Link to={detailData.sns} target="_blank" style={{color:'black'}}>
+                  <Link
+                    to={detailData.sns}
+                    target="_blank"
+                    style={{ color: 'black' }}
+                  >
                     <BsInstagram />
                   </Link>
                 </S.SnsLinkWrap>
                 <S.SnsLinkWrap>
-                  <Link to={detailData.web} target="_blank" style={{color:'black'}}>
+                  <Link
+                    to={detailData.web}
+                    target="_blank"
+                    style={{ color: 'black' }}
+                  >
                     <BsGlobe />
                   </Link>
                 </S.SnsLinkWrap>
@@ -106,10 +116,9 @@ const StoreDetailInfo = () => {
           </S.InfoTable>
         </S.InfoContentWrap>
       </S.DetailInfoContent>
-      
+
       {/* 하단 선 */}
-     <S.Hr /> 
-     
+      <S.Hr />
     </S.StoreDetailInfoWrap>
   );
 };
