@@ -70,14 +70,18 @@ const Search:React.FC = () => {
   const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
  // 검색어
   const [searchTerm, setSearchTerm] = useState<any>('');
+  // console.log('searchTerm',searchTerm);
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(datas.Store);
+  // console.log('saveSearchList',saveSearchList);
   // Date Picker
   const [dateSelected, setDateSelected] = useState<any>();
   const [saveDatePickerList, setSaveDatePickerList] = useState<Store[]>(datas.Store);
-  console.log('dateSelected',dateSelected)
+  // console.log('dateSelected',dateSelected)
   // 팝업 기간
-  const [popupDurationFilter, setPopupDurationFilter] = useState<any>('');
+  const [popupDurationFilter, setPopupDurationFilter] = useState<any>('전체');
   const [savePopupDurationList, setSavePopupDurationList] = useState<Store[]>(datas.Store);
+      // console.log('popupDurationFilter', popupDurationFilter)
+
   // 팝업 유형
   const [departmentStoreFilter, setDepartmentStoreFilter] = useState<any>('');
   const [saveDepartmentList, setSaveDepartmentList] = useState<Store[]>(datas.Store);
@@ -115,7 +119,11 @@ const Search:React.FC = () => {
         } 
       }
     )
-    setSaveSearchList(searchList);
+    if (searchTerm.length === 0) {
+      setSaveSearchList(datas.Store);
+    } else {
+      setSaveSearchList(searchList);
+    }
     startFilter();
   }
 
@@ -171,7 +179,7 @@ const Search:React.FC = () => {
     // DatePicker의 날짜 숫자형식으로 가져온다
     const pickedDate = Number(dateSelectedFilterHandler());
     // nan일경우 모두 포함
-    console.log('pickedDate', pickedDate);
+    // console.log('pickedDate', pickedDate);
     let datePickerList:Store[] =[];
     if (!Number.isNaN(pickedDate)) {
       datas.Store.map((store:Store) => {
@@ -189,32 +197,40 @@ const Search:React.FC = () => {
 
 
   // 팝업 기간
+  // 전체일 경우 팝업스토어 목록 전체를 SavePopupDurationList에 저장
   const durationHandler = () => {
-    datas.Store.forEach((store:Store) => {
-      let monthDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-      let countDays = 0;
-      let openDateList = store.open.split('.');
-      let openYear = parseInt(openDateList[0]);
-      let openMonth = parseInt(openDateList[1]);
-      let openDate = parseInt(openDateList[2])
+    console.log('inside popupDurationFilter', popupDurationFilter)
+    if (popupDurationFilter === '전체') {
+        setSavePopupDurationList(datas.Store);
+    } else {
+      datas.Store.forEach((store:Store) => {
+        let monthDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        let countDays = 0;
+        let openDateList = store.open.split('.');
+        let openYear = parseInt(openDateList[0]);
+        let openMonth = parseInt(openDateList[1]);
+        let openDate = parseInt(openDateList[2])
 
-      // 윤년 확인
-      if (calculateLeapYear(openYear)) {
-        monthDay[1] = 29;
-      }
-      let closeDateSplit = store.close.split('.');
-      let closeDate = parseInt(closeDateSplit[1]);
-      countDays =  closeDate + (monthDay[openMonth-1] - openDate);
-      if (popupDurationFilter === '1주일 이하' && countDays <= 7) {
-        durationList.push(store);
-      } else if (popupDurationFilter === '2주일 이하' && countDays <= 14) {
-        durationList.push(store);
-      } else if (popupDurationFilter === '한달 이하' && countDays <= 31) {
-        durationList.push(store);
-      }
-    })
-    setSavePopupDurationList(durationList);
-    startFilter();
+        // 윤년 확인
+        if (calculateLeapYear(openYear)) {
+          monthDay[1] = 29;
+        }
+        let closeDateSplit = store.close.split('.');
+        let closeDate = parseInt(closeDateSplit[1]);
+        countDays =  closeDate + (monthDay[openMonth-1] - openDate);
+        
+        if (popupDurationFilter === '1주일 이하' && countDays <= 7) {
+          durationList.push(store);
+        } else if (popupDurationFilter === '2주일 이하' && countDays <= 14) {
+          durationList.push(store);
+        } else if (popupDurationFilter === '한달 이하' && countDays <= 31) {
+          durationList.push(store);
+        }
+      })
+      // console.log('durationList',durationList)
+      setSavePopupDurationList(durationList);
+    }
+    // startFilter();
   }
 
   // 지역 필터
@@ -249,22 +265,34 @@ const Search:React.FC = () => {
     popupDurationFilter,
   ]);
 
+  // list를 확인해줘야 필터링 리스트에 바로 적용된다. 
+  useEffect(() => {
+    startFilter();
+  }, [
+    savePopupDurationList,
+    saveDepartmentList,
+    saveLocationList,
+  ]);
+
   // 지역, 날짜, 기타 사항 필터
   const startFilter = () => {
+    
     let result:Store[] = [];
-      console.log('검색리스트: ', saveSearchList);
+      console.log('STARTFILTER saveSearchList: ',  saveSearchList);
+      console.log('savePopupDurationList',savePopupDurationList)
+      result = saveSearchList.filter((store:Store) => savePopupDurationList.includes(store));
 
-      result = saveSearchList.filter((store:Store)=> {
-        return savePopupDurationList.includes(store);
-      })
-      result = result.filter((store)=>{
-        return saveDatePickerList.includes(store);
-      })    
+      // saveSearchList.forEach((store:Store)=> {
+      //   savePopupDurationList.includes(store);
+      // })
+      // result = result.filter((store)=>{
+      //   return saveDatePickerList.includes(store);
+      // })    
+      console.log('final filter result', result);
       setStoreList(result);
   };
-
-const {isShowing, toggle} = useModal();
-console.log('isShowing', isShowing);
+  // 카테고리 Modal 
+  const {isShowing, toggle} = useModal();
   return (
     <SearchPageContainer>
       <FilterContainer>
@@ -306,7 +334,7 @@ console.log('isShowing', isShowing);
           <SearchTagContainer>
             <FilterTitle>팝업 기간</FilterTitle>
             <SearchEventPeriod onChange={(event) => setPopupDurationFilter(event.target.value)}>
-              <option value="">전체</option>
+              <option value="전체">전체</option>
               <option value="1주일 이하">1주일 이하</option>
               <option value="2주일 이하">2주일 이하</option>
               <option value="한달 이하">한달 이하</option>
