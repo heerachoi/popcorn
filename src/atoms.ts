@@ -1,4 +1,5 @@
 import { atom } from 'recoil';
+import { getPopupData } from './services/api';
 
 // atom은 두 가지를 요구하는데 첫 번째는 key로 유니크해야한다.
 // 두 번째는 default 값이 필요하다.
@@ -15,6 +16,10 @@ interface UserInfomation {
   uid: string | null;
 }
 
+interface MapSearchValue {
+  value: string;
+}
+
 export const userInfo = atom<UserInfoState>({
   key: 'user',
   default: {
@@ -25,5 +30,12 @@ export const userInfo = atom<UserInfoState>({
       photoURL: '',
       uid: '',
     },
+  },
+});
+
+export const MapSearchValue = atom<MapSearchValue>({
+  key: 'searchValue',
+  default: {
+    value: '',
   },
 });

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { NewStoreForm, StoreImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
-import { storage } from '../../../services/firebase';
+import { storage } from '../../services/firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import { auth } from '../../../services/firebase';
-// 스토어 정보들을 불러오는 거라 난 이거 필요없음
+import { auth } from '../../services/firebase';
+
 interface NewStoreInput {
   title: string;
   storeName: string;
@@ -15,7 +15,7 @@ interface NewStoreInput {
   endDate: string;
   etcContent: string;
 }
-// 스토어 정보들을 불러오는 거라 난 이거 필요없음
+
 const NewStoreReport: any = () => {
   const initNewStoreInput = {
     title: '',
@@ -25,17 +25,15 @@ const NewStoreReport: any = () => {
     endDate: '',
     etcContent: '',
   };
-  // 스토어 정보들을 불러오는 거라 난 이거 필요없음
+
   const [newStoreInput, setNewStoreInput] =
     useState<NewStoreInput>(initNewStoreInput);
-
   const [imgFile, setImgFile] = useState(''); // 이미지 파일
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
 
   const userId = auth?.currentUser;
 
   // input onChange 함수
-  // 제목, 브랜드명, 위치, 기간, 종료 날짜, 기타내용, 이미지 인풋
   const newStoreInputonChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
@@ -50,7 +48,10 @@ const NewStoreReport: any = () => {
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const target = event.currentTarget;
+    console.log('target', target);
+
     const theFile = (target.files as FileList)[0]; // 이벤트로부터 파일을 얻어와서 첫 번째 파일만 받음
+    console.log('theFile', theFile);
     setFileName(theFile.name);
 
     const reader = new FileReader();
