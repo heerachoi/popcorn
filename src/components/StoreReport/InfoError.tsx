@@ -92,6 +92,7 @@ const InfoError: any = () => {
       infoModifiContent: infoErrModifiInput.infoModifiContent,
       errImg: downloadImgUrl,
       reportedDate: today.toLocaleString(),
+      status: "false"
     };
 
     // db에 추가

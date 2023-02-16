@@ -31,8 +31,8 @@ const Header = () => {
             <BsBellFill className="button-default" onClick={toggle} />
             <AlertModal isShowing={isShowing} hide={toggle} />
           </S.CategoryBtn>
-          <S.CategoryBtn onClick={() => navigate('/customer')}>
-            고객센터
+          <S.CategoryBtn onClick={() => navigate('/report')}>
+            팝업스토어 제보
           </S.CategoryBtn>
           <S.CategoryBtn onClick={() => navigate('/signup')}>
             회원가입
@@ -49,7 +49,7 @@ const Header = () => {
             <S.CategoryBtn
               onClick={() => {
                 user.userInfomation.email === 'master@gmail.com'
-                  ? navigate('/masterdetail')
+                  ? navigate('/master')
                   : navigate('/my');
               }}
             >
