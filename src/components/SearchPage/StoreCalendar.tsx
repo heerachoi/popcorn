@@ -3,8 +3,8 @@ import { Calendar, Event,momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { BigCalendar} from './style';
-import { MdHeight } from 'react-icons/md';
+import styled from 'styled-components';
+
 
 interface StoreEvent extends Event {
   title: string;
@@ -45,3 +45,11 @@ const StoreCalendar = () => {
 }
 
 export default StoreCalendar;
+
+
+const BigCalendar = styled(Calendar)`
+  outline: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+`

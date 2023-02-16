@@ -53,15 +53,15 @@ export const CloseModal = styled.div`
   background-color: aliceblue;
 `
 
-
-// 위로 안쓸듯? 
-
 export const FilterTitle = styled.h2`
+  padding-bottom: 20px;
 `
 
 export const FilterContainer = styled.div`
-  border: 9px solid aliceblue;
-  padding: 20px;
+  border: 2px solid #9AF8FF;
+  padding: 20px 30px 30px;
+  box-sizing: border-box;
+
 `
 
 export const CategoryItemTitle = styled.h3`
@@ -71,13 +71,19 @@ export const CategoryItemContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap:wrap;
-  justify-content: space-between;
+  gap: 20px;
+  /* justify-content: space-between; */
 `
 
-export const CategoryItem = styled.div`
+interface CategoryItemProps {
+  active: boolean;
+}
+export const CategoryButton = styled.div<CategoryItemProps>`
   /* width: 100%; */
   padding: 10px 20px;
-  border: 9px solid aliceblue;
+  border: 1px solid #9AF8FF;
+  border-radius: 10px;
   margin-bottom: 10px;
-  
+  background-color: ${props => props.active ? '#E4FDFF':'tranparent'  };
+  cursor : pointer ;
 `

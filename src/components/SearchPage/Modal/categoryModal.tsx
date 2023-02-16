@@ -3,73 +3,30 @@ import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import { atom, useSetRecoilState } from 'recoil';
 import { ModalButtonData } from '../../../data/ModalButtonData/ModalButtonData';
-import {CgClose} from 'react-icons/cg';
+import {CgClose} from 'react-icons/cg'
 import { CategoryItemProps } from '../../../types/modal/modalInterface';
 
-const Modal = ({ isShowing, hide, value }: { isShowing: boolean, hide: () => void, value: string }) => {
-
+const categoryMoodal = ({ isShowing, hide, value }: { isShowing: boolean, hide: () => void, value: string}) => {
   // 카테 고리별 눌러졌을때 불들어오게  
   // true 인 애들로 filter
   // true인 목록순서로, 전체에서 하나씩 차례로 걸로준다. 최종 남은 아이들이 있다면 
   // 뽁은 목록 search에 보내주기
-  
-  interface ButtonValue {
-    id: number;
-    label: string;
-    active: boolean;
-    }
-
-  let buttonValues:ButtonValue[] = [];
-
-  if (value === '위치') {
-    buttonValues = [
-    { id: 1, label: '전체', active: false },
-    { id: 2, label: '서울특별시', active: false },
-    { id: 3, label: '인천광역시', active: false },
-    { id: 4, label: '울산광역시', active: false },
-    { id: 5, label: '대전광역시', active: false },
-    { id: 6, label: '광주광역시', active: false },
-    { id: 7, label: '대구광역시', active: false },
-    { id: 8, label: '부산광역시', active: false },
-    { id: 9, label: '경상도', active: false },
-    { id: 10, label: '충청도', active: false },
-    { id: 11, label: '전라도', active: false },
-    { id: 12, label: '강원도', active: false },
-    { id: 13, label: '제주도', active: false },
-  ];
-} else if (value === '제품') {
-   buttonValues = [
-    { id: 1, label: '전체', active: false },
-    { id: 2, label: '패션', active: false },
-    { id: 3, label: '식음료', active: false },
-    { id: 4, label: '캐릭터', active: false },
-    { id: 5, label: '소품', active: false },
-    { id: 6, label: '주류', active: false },
-    { id: 7, label: '기타', active: false },
-  ];
-} else if (value === '기타') {
-   buttonValues = [
+ 
+  const [buttons, setButtons] = useState([
     { id: 1, label: '전체', active: false },
     { id: 2, label: '10', active: false },
     { id: 3, label: '20', active: false },
     { id: 4, label: '30', active: false },
     { id: 5, label: '40+', active: false },
     { id: 6, label: '여성', active: false },
-    { id: 7, label: '남성', active: false }
-  ],[
+    { id: 7, label: '남성', active: false },
+  ]);
+
+    const [departmentButtons, setDepartmentButtons] = useState([
     { id: 1, label: '전체', active: false },
     { id: 2, label: '백화점', active: false },
     { id: 3, label: '상권', active: false },
-  ];
-}
-  
-  
-  
-  const [buttons, setButtons] = useState(buttonValues);
-
-  // if (value === '제품') {
-  //   setButtons(itemValue);
-  // }
+  ]);
   
   // 버튼이 한개라도 false이면 전체도 false 상태가 된다.
   const checkForAllButton = () =>
@@ -142,7 +99,7 @@ const handleSubmit = () => {
           </CloseButton>
         </ModalHeader>
         <FilterTitle>
-          {value} 선택
+          지역 선택
         </FilterTitle>
         <FilterContainer>        
           <CategoryItemContainer>
@@ -158,7 +115,7 @@ const handleSubmit = () => {
   </React.Fragment>, document.body
 ) : null;}
 
-export default Modal;
+export default categoryMoodal;
 
 
 const ModalContainer = styled.div`
@@ -228,6 +185,7 @@ const CategoryItemContainer = styled.div`
   flex-direction: row;
   flex-wrap:wrap;
   gap: 20px;
+  /* justify-content: space-between; */
 `
 
 const CategoryButton = styled.div<CategoryItemProps>`
@@ -270,3 +228,7 @@ const CancelButton = styled.button`
 `
 const SubmitButton = styled(CancelButton)`
 `
+
+
+
+
