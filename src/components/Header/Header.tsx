@@ -18,23 +18,19 @@ const Header = () => {
 
   const notification = () => {
     console.log('alert');
+  };
 
-  }
-
-  const {isShowing, toggle} = useModal();
+  const { isShowing, toggle } = useModal();
 
   return (
     <>
       <S.Wrap>
         <S.Title onClick={() => navigate('/')}>POPCORN</S.Title>
         <S.BtnWrap>
-           <S.CategoryBtn onClick={notification}>
-          <BsBellFill className="button-default" onClick={toggle}/>
-            <AlertModal
-              isShowing={isShowing}
-              hide={toggle}
-            />
-        </S.CategoryBtn>
+          <S.CategoryBtn onClick={notification}>
+            <BsBellFill className="button-default" onClick={toggle} />
+            <AlertModal isShowing={isShowing} hide={toggle} />
+          </S.CategoryBtn>
           <S.CategoryBtn onClick={() => navigate('/customer')}>
             고객센터
           </S.CategoryBtn>
@@ -53,7 +49,7 @@ const Header = () => {
             <S.CategoryBtn
               onClick={() => {
                 user.userInfomation.email === 'master@gmail.com'
-                  ? navigate('/customer')
+                  ? navigate('/masterdetail')
                   : navigate('/my');
               }}
             >
