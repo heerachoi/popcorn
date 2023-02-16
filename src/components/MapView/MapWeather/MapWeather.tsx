@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { useLocation } from 'react-router-dom';
+import { useQuery } from 'react-query';
 import {
   getDetailAirPollutionData,
   getDetailWeatherData,
 } from '../../../services/api';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const API_KEY = '45fabc77306799b105d9b9f9d05ad05a';
 

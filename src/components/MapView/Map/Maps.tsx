@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 import { Circle, Map, MapMarker } from 'react-kakao-maps-sdk';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { mapSearchValue } from '../../../atoms';
 import MapModal from './MapModal';
 
 interface IMap {
@@ -13,7 +15,7 @@ interface IMap {
 
 interface Props {
   info: any;
-  markers: any;
+  foodData: any;
   map: any;
   setMap: any;
   setInfo: any;
@@ -24,7 +26,7 @@ interface Props {
 
 const Maps = ({
   info,
-  markers,
+  foodData,
   map,
   setMap,
   setInfo,
@@ -32,10 +34,7 @@ const Maps = ({
   setMyLocation,
   popupData,
 }: Props) => {
-  const mapRef = useRef(null);
-  const [filterData, setFilterData] = useState<any>([]);
-  const arrFilter: any = [];
-  const markerLocation: any = [];
+  const search = useRecoilValue(mapSearchValue);
 
   const getLocation = (): Promise<GeolocationPosition> => {
     return new Promise((resolve, reject) => {
@@ -50,7 +49,6 @@ const Maps = ({
                 Ma: position.coords.latitude,
                 La: position.coords.longitude,
               });
-              mapDist();
             }
           },
           (error) => reject(error),
@@ -64,67 +62,9 @@ const Maps = ({
   useEffect(() => {
     getLocation();
   }, []);
-  console.log(mapRef.current);
-  const mapDist = () => {
-    let circle = new kakao.maps.Circle({
-      center: new kakao.maps.LatLng(
-        Number(myLocation.lat),
-        Number(myLocation.lng),
-      ),
-      radius: 3000,
-      strokeOpacity: 0.3,
-      strokeStyle: 'dashed',
-      fillOpacity: 0.8,
-    });
-    // let center = circle?.getPosition();
-    // let radius = circle?.getRadius();
-    // console.log(center);
-    // console.log('radius', radius);
-    // let line: any = new kakao.maps.Polyline({ path: [markers.position] });
-
-    let distArr: number[] = [];
-
-    // markers?.forEach(function (marker: any) {
-    //   // 마커의 위치와 원의 중심을 경로로 하는 폴리라인 설정
-    //   let markerPosition = marker.getPosition();
-    //   let path = [markerPosition, center];
-    //   line.setPath(path);
-
-    //   // 마커와 원의 중심 사이의 거리
-    //   let dist = line.getLength();
-
-    //   // 이 거리가 원의 반지름보다 작거나 같다면
-    //   if (dist <= radius) {
-    //     // 거리를 배열에 넣어줌, 마커의 경도/위도를 배열에 넣어줌
-    //     distArr.push(dist);
-    //     markerLocation.push(markerPosition);
-    //   }
-    //   setFilterData(distArr);
-    // });
-    // console.log(markerLocation);
-    // 마커의 위치를 아이템에서 찾아줌 : 마커에는 데이터 값이 경도/위도 밖에 없기 때문에
-    // for (const markerLocate of markerLocation) {
-    //   let coords = new kakao.maps.Coords(markerLocate.La, markerLocate.Ma);
-    //   console.log(coords);
-    // let La = coords.La.toFixed(10);
-    // let Ma = coords.Ma.toFixed(10);
-    //   const filters = markers?.find(
-    //     (item: any) =>
-    //       Number(item.lat).toFixed(10) === Ma &&
-    //       Number(item.lng).toFixed(10) === La,
-    //   );
-    //   if (filters !== undefined) {
-    //     arrFilter.push(filters);
-    //   }
-    // }
-    // 위의 아이템에 마커와 내 위치의 거리를 계산한 값을 넣어줌
-    // for (let i = 0; i < arrFilter.length; i++) {
-    //   arrFilter[i].dist = distArr[i];
-    // }
-  };
 
   const [openModal, setOpenModal] = useState(false);
-  console.log(filterData);
+
   return (
     <>
       {/* <Wrap id="map" ref={MapRef} /> */}
@@ -142,22 +82,6 @@ const Maps = ({
         level={3}
         onCreate={setMap}
       >
-        {myLocation && (
-          <Circle
-            ref={mapRef}
-            center={{
-              lat: myLocation?.Ma,
-              lng: myLocation?.La,
-            }}
-            radius={3000}
-            strokeWeight={5} // 선의 두께입니다
-            strokeColor={'#75B8FA'} // 선의 색깔입니다
-            strokeOpacity={2} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-            strokeStyle={'dash'} // 선의 스타일 입니다
-            fillColor={'#CFE7FF'} // 채우기 색깔입니다
-            fillOpacity={0.7} // 채우기 불투명도 입니다
-          />
-        )}
         <MapMarker // 마커를 생성합니다
           position={{
             // 마커가 표시될 위치입니다
@@ -165,28 +89,10 @@ const Maps = ({
             lng: myLocation?.La || 0,
           }}
         />
-        {markers.map((marker: any) => (
+        {foodData.map((marker: any) => (
           <MapMarker
-            key={`marker-${marker.content}-${marker.position.lat},${marker.position.lng}`}
+            key={`marker-${marker.title}-${marker.position.lat},${marker.position.lng}`}
             position={marker.position} // 마커를 표시할 위치
-            image={{
-              src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
-              size: {
-                width: 24,
-                height: 35,
-              },
-            }}
-            onClick={() => setInfo(marker)}
-          >
-            {info && info.content === marker.content && (
-              <div style={{ color: '#000' }}>{marker.content}</div>
-            )}
-          </MapMarker>
-        ))}
-        {popupData?.map((marker: any) => (
-          <MapMarker
-            key={`marker-${marker.title}-${marker.lat},${marker.lon}`}
-            position={{ lat: marker.lat, lng: marker.lon }} // 마커를 표시할 위치
             image={{
               src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
               size: {
@@ -200,6 +106,29 @@ const Maps = ({
               <div style={{ color: '#000' }}>{marker.title}</div>
             )}
           </MapMarker>
+        ))}
+        {popupData?.map((popup: any) => (
+          <>
+            {(popup?.address.includes(search) ||
+              popup?.title.includes(search)) && (
+              <MapMarker
+                key={`marker-${popup.title}-${popup.lat},${popup.lon}`}
+                position={{ lat: popup.lat, lng: popup.lon }} // 마커를 표시할 위치
+                image={{
+                  src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
+                  size: {
+                    width: 24,
+                    height: 35,
+                  },
+                }}
+                onClick={() => setInfo(popup)}
+              >
+                {info && info.title === popup.title && (
+                  <div style={{ color: '#000' }}>{popup.title}</div>
+                )}
+              </MapMarker>
+            )}
+          </>
         ))}
       </Wrap>
     </>
