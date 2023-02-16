@@ -1,71 +1,33 @@
 import React, { useEffect, useState,} from 'react';
+import styled from 'styled-components';
+// Data
 import datas from '../../../data/popupStore.json';
+// Interface
+import { Store } from '../../../types/data/storeInterface';
+// Library
 import { ko } from 'date-fns/esm/locale';
-import Modal from '../Modal/Modal'
-import useModal from '../../../hooks/useModal';
-import StoreCalendar from '../StoreCalendar/StoreCalendar';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+// React-icons
 import {ImLocation, ImSearch} from 'react-icons/im';
 import {BsCalendarRange} from 'react-icons/bs'
 import {RiProductHuntLine} from 'react-icons/ri';
 import {BiCalendar, BiCategoryAlt} from 'react-icons/bi'
+// Recoil
 import { useRecoilValue } from 'recoil';
+// Hooks
+import useLocationModal from '../../../hooks/useLocationModal';
+import useItemModal from '../../../hooks/useItemModal';
+import useOtherModal from '../../../hooks/useOtherModal';
+// Component
+import Modal from '../../../components/SearchPage/Modal/Modal';
 import { ModalButtonData } from '../../../data/ModalButtonData/ModalButtonData';
-import {
-  DatePickerContainer,
-  SearchPageContainer,
-  FilterContainer,
-  SearchItemContainer,
-  SearchTagContainer,
-  SearchEventPeriod,
-  DepartmentStoreCategory,
-  ItemCategory,
-  FilterTitle,
-  SearchInput,
-  FilterTypes,
-  SelectDate,
-  StoreContainer,
-  PosterImg,
-  StoreTitle,
-  EventPeriod,
-  EtcCategory,
-  FilterResult,
-  ToggleCalendar,
-  LocationCategory,
-  DatePickerWrapper,
-  CalendarContainer,
-  FilterResultAndCalendarContainer,
-  FilterItemHolder,
-} from './style';
-import 'react-datepicker/dist/react-datepicker.css';
-interface Store {
-  id: string;
-  view: string;
-  title: string;
-  address: string;
-  si: string;
-  gu: string;
-  dong: string;
-  open: string;
-  close: string;
-  location: string;
-  item: string;
-  openingTime: string[];
-  closeTime: string[];
-  explain: string;
-  sns: string;
-  web: string;
-  imgURL: string[];
-  lat: string;
-  lon: string;
-}
+import StoreCalendar from '../../../components/SearchPage/StoreCalendar';
 
-//React.FC<Store>
 const Search:React.FC = () => {
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(datas.Store);
-  // console.log('outside storeList', storeList)
   // 팝업 스토어 필터된 리스트
-  let filterList:Store[] = [];
   let searchList:Store[] = [];
   let durationList:Store[] =[];
   let locationList:Store[] =[];
@@ -74,9 +36,7 @@ const Search:React.FC = () => {
   const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
  // 검색어
   const [searchTerm, setSearchTerm] = useState<any>('');
-  // console.log('searchTerm',searchTerm);
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(datas.Store);
-  // console.log('saveSearchList',saveSearchList);
   // Date Picker
   const [dateSelected, setDateSelected] = useState<any>();
   const [saveDatePickerList, setSaveDatePickerList] = useState<Store[]>(datas.Store);
@@ -84,7 +44,6 @@ const Search:React.FC = () => {
   // 팝업 기간
   const [popupDurationFilter, setPopupDurationFilter] = useState<any>('전체');
   const [savePopupDurationList, setSavePopupDurationList] = useState<Store[]>(datas.Store);
-      // console.log('popupDurationFilter', popupDurationFilter)
 
   // 팝업 유형
   const [departmentStoreFilter, setDepartmentStoreFilter] = useState<any>('');
@@ -94,18 +53,20 @@ const Search:React.FC = () => {
   const [saveLocationList, setSaveLocationtList] = useState<Store[]>(datas.Store);
   // 지역 모달창 노출 여부 state
   // const [showLocationModal, setShowLocationModal] = useState<boolean>(false);
-
   //  제품 필터
   const [productFilter, setProductFilter] = useState<any>('');
   const [saveItemList, setSaveItemList] = useState<Store[]>(datas.Store);
   // 기타 필터
   const [otherFilter, setOtherFilter] = useState<any>('');
   const [saveOtherList, setSaveOtherList] = useState<Store[]>(datas.Store);
-
+  // 모달 버튼
+  const [modalValue, setModalValue] = useState<string>("");
 
   // 카테고리 Modal 
-  const {isShowing, toggle} = useModal();
-
+  const {isShowing, toggle} = useLocationModal();
+   const {isItemModalShowing, itemToggle} = useItemModal();
+  const {isOtherModalShowing, otherToggle} = useOtherModal();
+ 
   // 검색어 필터
   // 눌린 키가 enter인지 체크
   const checkKeypress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -138,20 +99,7 @@ const Search:React.FC = () => {
   // DatePicker 날짜 숫자로 바꿔준다
   const dateSelectedFilterHandler = () => {
     // 날짜 구조 변경 - Tue Feb 14 2023 00:00:00 GMT+0900 (한국 표준시) => month 숫자로 변경
-    const monthInWords = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
+    const monthInWords = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec',];
     if (dateSelected != null) {
       // Month
       const getStrigDate = String(dateSelected);
@@ -167,7 +115,7 @@ const Search:React.FC = () => {
     // 윤년 계산
   const calculateLeapYear = (year:number) => {
     if (year % 400 === 0) {
-      // 육년
+      // 윤년
       return true;
     } else if (year % 100 === 0) {
       // 평년
@@ -186,7 +134,7 @@ const Search:React.FC = () => {
     // DatePicker의 날짜 숫자형식으로 가져온다
     const pickedDate = Number(dateSelectedFilterHandler());
     // nan일경우 모두 포함
-    // console.log('pickedDate', pickedDate);
+    console.log('pickedDate', pickedDate);
     let datePickerList:Store[] =[];
     if (!Number.isNaN(pickedDate)) {
       datas.Store.map((store:Store) => {
@@ -206,7 +154,6 @@ const Search:React.FC = () => {
   // 팝업 기간
   // 전체일 경우 팝업스토어 목록 전체를 SavePopupDurationList에 저장
   const durationHandler = () => {
-    console.log('inside popupDurationFilter', popupDurationFilter)
     if (popupDurationFilter === '전체') {
         setSavePopupDurationList(datas.Store);
     } else {
@@ -234,40 +181,29 @@ const Search:React.FC = () => {
           durationList.push(store);
         }
       })
-      // console.log('durationList',durationList)
       setSavePopupDurationList(durationList);
     }
-    // startFilter();
   }
 
   // 지역 필터
   // 위치 모달 결과 - 전체리스트에서 LocationFilter에 true인 것만 가져온다.
-  const locationFilterList = useRecoilValue(ModalButtonData);
-  // console.log('locationFilterList',locationFilterList);
-  
+  const locationFilterList = useRecoilValue(ModalButtonData);  
   const locationFilterHandler = () => {
     // console.log('locationFilterHandler')
     // locationList = datas.Store;
-    console.log('locationList ====' , locationList)
     if (locationFilterList[0].label === '전체') {
         setSaveLocationtList(datas.Store);
     } else {
       for (let i = 0; i < locationFilterList.length; i++) {
-        let tmpStore:Store[] = [];
         datas.Store.filter((store) => 
           {
-          //   console.log('store.location',store.location);
-          //  console.log('locationFilterList[i].label',locationFilterList[i].label);
            if (store.si === locationFilterList[i].label){
               locationList.push(store);
             }
             console.log('locationList', locationList)
           }
         )
-        // locationList = tmpStore;
-        //   tmpStore = []; 
       } 
-      console.log(locationList)
       setSaveLocationtList(locationList);
       locationList = [];
     } 
@@ -305,7 +241,6 @@ const Search:React.FC = () => {
 
   // list를 확인해줘야 필터링 리스트에 바로 적용된다. 
   useEffect(() => {
-    console.log('useeffect ------------------------')
     startFilter();
   }, [
     savePopupDurationList,
@@ -319,8 +254,6 @@ const Search:React.FC = () => {
     let result:Store[] = [];
       // 1. 검색 & 기간 필터
       result = saveSearchList.filter((store:Store) => savePopupDurationList.includes(store));
-      // console.log('first result', result);
-      // console.log('saveLocationList', saveLocationList);
       // 2. #1에서 나온 목록에서 위치 필터
       let result2:Store[] = [];
       result.map((store:Store, index)=> {
@@ -333,15 +266,13 @@ const Search:React.FC = () => {
       // console.log('second result', result2);
       // 3. #2에서 나온 목록에서 위치 필터
       
-      // saveSearchList.forEach((store:Store)=> {
-      //   savePopupDurationList.includes(store);
-      // })
-      // result = result.filter((store)=>{
-      //   return saveDatePickerList.includes(store);
-      // })    
-      // console.log('final filter result', result);
       setStoreList(result2);
   };
+
+  const modalClickHandler= (event:any) => {
+    console.log(event.currentTarget);
+    toggle(event);
+  }
 
   return (
     <SearchPageContainer>
@@ -395,10 +326,11 @@ const Search:React.FC = () => {
         <SearchItemContainer>
           <ImLocation/>
           <SearchTagContainer>
-           <FilterTitle className="button-default" onClick={toggle}>위치 카테고리</FilterTitle>
+           <FilterTitle className="button-default" onClick={modalClickHandler} >위치 카테고리</FilterTitle>
             <Modal
               isShowing={isShowing}
               hide={toggle}
+              value={'위치'}
             />
             <FilterItemHolder>전체</FilterItemHolder>
           </SearchTagContainer>
@@ -406,10 +338,11 @@ const Search:React.FC = () => {
         <SearchItemContainer>
           <RiProductHuntLine/>
           <SearchTagContainer>
-            <FilterTitle className="button-default" onClick={toggle}>제품 카테고리</FilterTitle>
+            <FilterTitle className="button-default" onClick={itemToggle}>제품 카테고리</FilterTitle>
             <Modal
-              isShowing={isShowing}
-              hide={toggle}
+              isShowing={isItemModalShowing}
+              hide={itemToggle}
+              value={'제품'}
             />
             <FilterItemHolder>전체</FilterItemHolder>
           </SearchTagContainer>
@@ -417,10 +350,11 @@ const Search:React.FC = () => {
         <SearchItemContainer>
           <BiCategoryAlt/>
           <SearchTagContainer>
-            <FilterTitle className="button-default" onClick={toggle}>기타 카테고리</FilterTitle>
+            <FilterTitle className="button-default" onClick={otherToggle}>기타 카테고리</FilterTitle>
             <Modal 
-              isShowing={isShowing} 
-              hide={toggle}
+              isShowing={isOtherModalShowing} 
+              hide={otherToggle}
+              value={'기타'}
             />
             <FilterItemHolder>전체</FilterItemHolder>
           </SearchTagContainer>
@@ -450,5 +384,141 @@ const Search:React.FC = () => {
   );
 };
 
-
 export default Search;
+
+const SearchPageContainer = styled.div`
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 40px;
+`
+const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  gap:10px;
+`
+
+const SearchItemContainer = styled.div`
+  border: 1px solid #A6A6A6;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 7px 20px;
+`
+
+const SearchTagContainer = styled.div`
+  display: flex; 
+  flex-direction: column;
+`
+
+const FilterTitle = styled.div`
+  font-size: 16px;
+`
+
+const SearchInput = styled.input`
+  font-size: 13px;
+  border: none;
+  outline: none;
+  
+  border-radius: 3px;
+`
+
+const SearchEventPeriod = styled.select`
+  outline: none;
+  
+  border-radius: 3px;
+`
+
+const DatePickerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const DatePickerContainer = styled(DatePicker)`
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  
+  
+`
+
+const ToggleCalendar = styled.div`
+  /* display: flex; */
+  margin-top: 40px;
+  box-sizing: border-box;
+  
+`
+
+const DepartmentStoreCategory = styled.select`
+  outline: none;
+  box-sizing: border-box;
+`
+
+const ItemCategory = styled.div`
+  
+  border: 1px solid black;
+  border-radius: 3px;
+`
+
+const LocationCategory = styled.div`
+  
+`
+
+
+const EtcCategory = styled(ItemCategory)`
+  border: 1px solid black;
+  border-radius: 3px;
+`
+
+const FilterTypes = styled.div`
+`
+
+const SelectDate = styled.div`
+`
+
+const PosterImg = styled.img`
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+`;
+
+const StoreTitle = styled.div`
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 29px;
+  color: #323232;
+`
+
+const EventPeriod = styled.div`
+font-weight: 500;
+font-size: 14px;
+line-height: 24px;
+color: #A6A6A6;
+`
+const FilterResult = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 50%;
+`
+
+const StoreContainer = styled.div`
+  width: 209px;
+  border: 1px solid #A6A6A6;
+  border-radius: 8px;
+`
+
+const CalendarContainer = styled.div`
+  width: 50%;
+`
+
+const FilterItemHolder = styled.div`
+  color: rgba(0,0,0,0.5);
+`
+
+
+const FilterResultAndCalendarContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`

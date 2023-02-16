@@ -12,6 +12,7 @@ import { auth } from '../services/firebase';
 import { useEffect } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { userInfo } from '../atoms';
+import MasterDetailPage from '../pages/MasterDetailPage/MasterDetailPage';
 
 const Router = () => {
   const setUser = useSetRecoilState(userInfo);
@@ -56,6 +57,7 @@ const Router = () => {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/login" element={<LogInPage />} />
           <Route path="/map" element={<MapPage />} />
+          <Route path="/masterdetail" element={<MasterDetailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

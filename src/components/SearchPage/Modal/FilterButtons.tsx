@@ -1,21 +1,8 @@
 import React from 'react'
-import { CategoryButton } from './style'
-
 import styled from 'styled-components';
+import { CategoryItemProps } from '../../../types/modal/modalInterface';
 
-interface CategoryItemProps {
-  active: boolean;
-}
-
-const FilterButtons = styled.button<CategoryItemProps>`
-  background-color: ${props => props.active ? 'red' : 'blue'};
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-`;
-
-const CategoryItemContainer = ({ buttons, onButtonClick }: { buttons: { id: number, label: string, active: boolean }[], onButtonClick: (id: number) => void }) => {
+const FilterButtons = ({ buttons, onButtonClick }: { buttons: { id: number, label: string, active: boolean }[], onButtonClick: (id: number) => void }) => {
   return (
     <div>
       {buttons.map(button =>(<CategoryButton key={button.id} active={button.active} onClick={() => onButtonClick(button.id)} >{button.label}</CategoryButton>))}
@@ -24,3 +11,12 @@ const CategoryItemContainer = ({ buttons, onButtonClick }: { buttons: { id: numb
 };
 
 export default FilterButtons;
+
+const CategoryButton = styled.div<CategoryItemProps>`
+  padding: 10px 20px;
+  border: 1px solid #A6A6A6;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  background-color: ${props => props.active ? '#E4FDFF':'tranparent'  };
+  cursor : pointer ;
+`
