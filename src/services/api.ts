@@ -42,6 +42,8 @@ export const getNewStoreReport = async () => {
 };
 
 export const getInfoErrReport = async () => {
-  const { data } = await axios.get('http://localhost:3001/infoErrModifiContents');
+  const { data } = await axios.get(
+    'http://localhost:3001/infoErrModifiContents',
+  );
   return data;
 };

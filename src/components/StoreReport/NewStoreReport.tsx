@@ -13,7 +13,7 @@ interface NewStoreInput {
   storeAdress: string;
   startDate: string;
   endDate: string;
-  etcContent: string;
+  etcContent: string;  
 }
 
 const NewStoreReport: any = () => {
@@ -98,11 +98,12 @@ const NewStoreReport: any = () => {
       etcContent: newStoreInput.etcContent,
       infoImg: downloadImageUrl,
       reportedDate: today.toLocaleString(),
+      status: false,
     };
 
     // db에 추가
     try {
-      axios.post('http://localhost:3001/newStores', newStore);
+      axios.post('http://localhost:3010/newStores', newStore);
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
 
@@ -130,7 +131,7 @@ const NewStoreReport: any = () => {
             onChange={newStoreInputonChangeHandler}
             value={newStoreInput.storeName}
           />
-          <h2>위치</h2>
+          <h2>주소</h2>
           <input
             type="text"
             name="storeAdress"

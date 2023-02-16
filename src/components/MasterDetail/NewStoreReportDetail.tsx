@@ -1,12 +1,30 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import { useParams } from 'react-router-dom';
 import { getNewStoreReport } from '../../services/api';
 import * as S from './style';
 
 const NewStoreReportDetail = () => {
-  const { data } = useQuery('newStores', getNewStoreReport);
-  console.log('data', data);
-  
+  const {data} = useQuery('newStores', getNewStoreReport);
+
+
+  const paramId = useParams();
+  // console.log('paramId', paramId);
+
+  useEffect(() => {
+    getNewStoreReport();
+  }, []);
+
+  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
+
+  const currentState = selectedDetail[0].status;
+  console.log('currentState', currentState);
+
+  const checkHandler = () => {
+    alert('test')
+  };
+
   return (
     <S.ReportListWrap>
       <S.ReportListContainer>
@@ -15,7 +33,7 @@ const NewStoreReportDetail = () => {
         </S.ReportTitleBox>
 
         <S.ReportContentListWrap>
-          {data?.map((li:any) => {
+          {selectedDetail?.map((li: any) => {
             return (
               <S.GridBox key={li.id}>
                 <S.Grid>
@@ -24,7 +42,9 @@ const NewStoreReportDetail = () => {
                 </S.Grid>
                 <S.Grid>
                   <S.ReportTitle>제보자</S.ReportTitle>
-                  <S.ReportContentText>{li.userId.displayName}</S.ReportContentText>
+                  <S.ReportContentText>
+                    {li.userId.displayName}
+                  </S.ReportContentText>
                 </S.Grid>
                 <S.Grid>
                   <S.ReportTitle>제보 날짜</S.ReportTitle>
@@ -43,22 +63,22 @@ const NewStoreReportDetail = () => {
                   <S.ReportContentText>{li.startDate}</S.ReportContentText>
                 </S.Grid>
                 <S.Grid>
-                <S.ReportTitle>종료날짜</S.ReportTitle>
-                <S.ReportContentText>{li.endDate}</S.ReportContentText>
+                  <S.ReportTitle>종료날짜</S.ReportTitle>
+                  <S.ReportContentText>{li.endDate}</S.ReportContentText>
                 </S.Grid>
                 <S.Grid>
-                <S.ReportTitle>제보내용</S.ReportTitle>
-                <S.ReportContentText>{li.etcContent}</S.ReportContentText>
+                  <S.ReportTitle>제보내용</S.ReportTitle>
+                  <S.ReportContentText>{li.etcContent}</S.ReportContentText>
                 </S.Grid>
                 <S.Grid>
-                <S.ReportTitle>이미지</S.ReportTitle>
-                <S.ReportContentText>
+                  <S.ReportTitle>이미지</S.ReportTitle>
+                  <S.ReportContentText>
                     <img src={li.infoImg} />
-                </S.ReportContentText>
+                  </S.ReportContentText>
                 </S.Grid>
                 <S.ButtonBox>
                   <S.CheckBtn>취소</S.CheckBtn>
-                  <S.CheckBtn>확인</S.CheckBtn>
+                  <S.CheckBtn onClick={checkHandler}>확인</S.CheckBtn>
                 </S.ButtonBox>
               </S.GridBox>
             );

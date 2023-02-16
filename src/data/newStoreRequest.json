@@ -28,14 +28,129 @@
         "apiKey": "AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o",
         "appName": "[DEFAULT]"
       },
-      "title": "제목",
+      "title": "신규 팝업스토어 신청합니다",
       "storeName": "브랜드명",
       "storeAdress": "위치",
       "startDate": "2023-02-14",
       "endDate": "2023-02-16",
       "etcContent": "기타내용",
       "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2FKakaoTalk_20230131_153052121_03.jpg?alt=media&token=32e08744-f10e-4343-8173-ea29d82390e3",
-      "reportedDate": "2023. 2. 12. 오후 9:38:48"
+      "reportedDate": "2023. 2. 12. 오후 9:38:48",
+      "status": true
+    },
+    {
+      "id": "4d8acfcd-fbc0-4635-aab1-39e87e61ab80",
+      "userId": {
+        "uid": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+        "email": "jieun@naver.com",
+        "emailVerified": false,
+        "displayName": "은이",
+        "isAnonymous": false,
+        "providerData": [
+          {
+            "providerId": "password",
+            "uid": "jieun@naver.com",
+            "displayName": "은이",
+            "email": "jieun@naver.com",
+            "phoneNumber": null,
+            "photoURL": null
+          }
+        ],
+        "stsTokenManager": {
+          "refreshToken": "APJWN8e734PT1dZVNijm6y6mdhZ0omUiI_HrqPAHI6rAdE6grt56kjR6EnbPTpppdxzpRJUO9jdvyHkasED3Y56oetv_3VNuPV3niamKB8Xr7BMs9k598bxpXZupnDjiQZ3VRn-w3PRtQQlCpR5BUWCxsLA5BDJL6L_-OaSlgiWTJHFqB4ToE8ImW1Er2f_1-J3QL04oJWKg2MrNBVBSKAVskSaNA23Kzg",
+          "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFlYjMxMjdiMjRjZTg2MDJjODEyNDUxZThmZTczZDU4MjkyMDg4N2MiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi7J2A7J20IiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3BvcGNvcm4xLTRiNDdlIiwiYXVkIjoicG9wY29ybjEtNGI0N2UiLCJhdXRoX3RpbWUiOjE2NzY1NDMzNjUsInVzZXJfaWQiOiJtZHRUTFg4VEdxUkVJTFVUaVFKelpKRGFQUkkyIiwic3ViIjoibWR0VExYOFRHcVJFSUxVVGlRSnpaSkRhUFJJMiIsImlhdCI6MTY3NjU0MzM2NSwiZXhwIjoxNjc2NTQ2OTY1LCJlbWFpbCI6ImppZXVuQG5hdmVyLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJqaWV1bkBuYXZlci5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.CFbtYgCYgs89DubEOqGh87sR3lTdInJHwluElK8ZWvK3ipLSiylA68V0KxNvraAyDUKr8hIuN9-1oJV6HJl7PmAfkJWtLns1Z9vpahk2bs8m2RbkjLf78h6tRDLUpGyd1R7yWcZJgXcpz5dkE4wIZiiTaU3rQTpaUsiS6ESeOjdhyNG3anjsYlck6OXfgz2cNYiXSPUiI_tqe46jeY_QUWnOIhEE3mniTM0iGcNwA158k-A6VeEka3flnHGxVhSoWzhRg5_Scxdka_cEBUDtdu6mt9JRB7Xh7gIRkof28AdV7nquYXsbKcGEaRbp3F0Wl2HSYPnbuVbrMkmohlva7g",
+          "expirationTime": 1676546966079
+        },
+        "createdAt": "1676543344581",
+        "lastLoginAt": "1676543344581",
+        "apiKey": "AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o",
+        "appName": "[DEFAULT]"
+      },
+      "title": "새로운 팝업스토어 신청합니다.",
+      "storeName": "라인프렌즈 X 부원",
+      "storeAdress": "서울특별시 서초구 강남대로 437 라인프렌즈 강남 플래그십스토어",
+      "startDate": "2023-02-10",
+      "endDate": "2023-03-09",
+      "etcContent": "아티스트 '부원'의 시그니처 캐릭터 오브제 만날 수 있습니다",
+      "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2Fsec3_img3_3.jpg?alt=media&token=0b65dd5a-6e6d-402b-bb2b-a583b3846e93",
+      "reportedDate": "2023. 2. 16. 오후 7:43:16",
+      "status": false
+    },
+    {
+      "id": "e322d35d-d093-4f4c-a79c-0b13212a14e9",
+      "userId": {
+        "uid": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+        "email": "jieun@naver.com",
+        "emailVerified": false,
+        "displayName": "은이",
+        "isAnonymous": false,
+        "providerData": [
+          {
+            "providerId": "password",
+            "uid": "jieun@naver.com",
+            "displayName": "은이",
+            "email": "jieun@naver.com",
+            "phoneNumber": null,
+            "photoURL": null
+          }
+        ],
+        "stsTokenManager": {
+          "refreshToken": "APJWN8fz4hnvIeUWtXCFPtSMr-lh3GHj-vheIQn7yyUSS4U5LkQjVgon06O_sLlMsZc8vbtvYsmVG2wg-enl9WsVds4YSnQS8odkXKqgLRJ2s3X4AJa3n5WX_lUQpSXrID2scQfFG-ceGsbg5PjjSN3njPsVKjzNRHA7XvOwJkO6XeSmp25K5B1WcPttTDIlubPoTfS0-MWo4lwhFS97XPUl78-jjauzbA",
+          "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFlYjMxMjdiMjRjZTg2MDJjODEyNDUxZThmZTczZDU4MjkyMDg4N2MiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi7J2A7J20IiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3BvcGNvcm4xLTRiNDdlIiwiYXVkIjoicG9wY29ybjEtNGI0N2UiLCJhdXRoX3RpbWUiOjE2NzY1NDUyMTAsInVzZXJfaWQiOiJtZHRUTFg4VEdxUkVJTFVUaVFKelpKRGFQUkkyIiwic3ViIjoibWR0VExYOFRHcVJFSUxVVGlRSnpaSkRhUFJJMiIsImlhdCI6MTY3NjU0NTIxMCwiZXhwIjoxNjc2NTQ4ODEwLCJlbWFpbCI6ImppZXVuQG5hdmVyLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJqaWV1bkBuYXZlci5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.xKn2NQ9AgTGPlZ0lKw9v6_Z3LS5iddx88xyZ2hJPqNVAvbZpfwrEbSBkoGeIs-Abt3y8ILuCcdjkgsOh5qpG-KTcfc473oFdjIeSj05q4Ythb4dW2ZRrSEB7yKlYAR1EroAOBChl8wUVTy9Hu_iBnnNkanm7a5xQ1JDUsX5nHYmmY4miX_DnyxyFj1Y-0HESXqaF45qY6BXCVbIVZQYoZqZ6w9CDKi7PnTke4yw-6Wk9Rr4Zk2mlnKxeoWxbkjfn35c9ALzUBenZmaj_lIhEZF7Z7cQ2QI-uxopgjFd5sZjUsTpajazYSD7BMqDcA0hswHZYYwtPBMT61Elvqmsq8g",
+          "expirationTime": 1676548811455
+        },
+        "createdAt": "1676543344581",
+        "lastLoginAt": "1676545210800",
+        "apiKey": "AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o",
+        "appName": "[DEFAULT]"
+      },
+      "title": "스토어 신청이요",
+      "storeName": "탐닉 by 더위크앤",
+      "storeAdress": "서울특별시 영등포구 국회대로68길 24 더코노셔 레지던스 1층 야외",
+      "startDate": "2023-02-13",
+      "endDate": "2023-02-10",
+      "etcContent": "특급호텔 & 미슐랭 원스타 레스토랑 출신 셰프 요리 맛보기",
+      "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2Fl_2023021502000145300053731.jpg?alt=media&token=bf26fa34-8de6-4f33-bce4-c1c941a3d527",
+      "reportedDate": "2023. 2. 16. 오후 8:01:52",
+      "status": false
+    },
+    {
+      "id": "6ade4587-7a15-4511-b108-a176d5564104",
+      "userId": {
+        "uid": "sQJAKtswHaM0dFHW08urpPUoVLW2",
+        "email": "master@gmail.com",
+        "emailVerified": false,
+        "displayName": "운영자",
+        "isAnonymous": false,
+        "providerData": [
+          {
+            "providerId": "password",
+            "uid": "master@gmail.com",
+            "displayName": "운영자",
+            "email": "master@gmail.com",
+            "phoneNumber": null,
+            "photoURL": null
+          }
+        ],
+        "stsTokenManager": {
+          "refreshToken": "APJWN8eLSBVaiPJ41kM3nAg1V_jX3QGlX_X6HpJZnVHnqAKmIxLKXR5swvhCdt1DbE1329Mtd9fzgWmGQfbZl5I6ePxl_rDP9S9V1AdfFRm2si37eO_mAAbqJzc5OlKnMg559NZKzWEsOhjLOVCtVJadn0FPJQ0XBDBHJaCj9SUTXTgH_YeY0dpNoTpHCGDVfSCkStF0wBdOzJqMuaa-7el7bPNL7Ojn9w",
+          "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFlYjMxMjdiMjRjZTg2MDJjODEyNDUxZThmZTczZDU4MjkyMDg4N2MiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi7Jq07JiB7J6QIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3BvcGNvcm4xLTRiNDdlIiwiYXVkIjoicG9wY29ybjEtNGI0N2UiLCJhdXRoX3RpbWUiOjE2NzY1NDUzMjQsInVzZXJfaWQiOiJzUUpBS3Rzd0hhTTBkRkhXMDh1cnBQVW9WTFcyIiwic3ViIjoic1FKQUt0c3dIYU0wZEZIVzA4dXJwUFVvVkxXMiIsImlhdCI6MTY3NjU0NTMyNCwiZXhwIjoxNjc2NTQ4OTI0LCJlbWFpbCI6Im1hc3RlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsibWFzdGVyQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.kFxhhpWcQwI9BaODyVjp6BcOw3Uo4Wkok02Ygyy70xTn90fWW-AoOR68y2zbJT20TH7mJhoiIrVYQqDaPK3JWc815d8IMq5r3p3MaQsFNgDy68SY-o82x6KQfmiY6waLUrxdjrcR8kKxYbxYOGSbCJ67_aMMy-T14eoVelYm8XIL7AmYwX08q8XFQcMaWdZl3fHYINIBTcnQSo_2ahp4s7aP49KOKjeQ7sa0EiXff1v9q8ml2lyGlwPvzaGyQdAVnlTiJdeYANlJwgyu8EEeRTursMh1gjgT0NDC0Z7FmjfHtIt0wnraRoY_-UyYo2L3f9utG9IwPX1dOApsixckAg",
+          "expirationTime": 1676548925141
+        },
+        "createdAt": "1676171489881",
+        "lastLoginAt": "1676545324509",
+        "apiKey": "AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o",
+        "appName": "[DEFAULT]"
+      },
+      "title": "ㄴㅇㄹㄴ",
+      "storeName": "ㅇㄹㄴㅇㄹㄴㄹ",
+      "storeAdress": "ㄴㅇㄹㄴㄹㄴㅇ",
+      "startDate": "",
+      "endDate": "",
+      "etcContent": "ㅎㄴㅇㅎㅇㅎ",
+      "infoImg": "",
+      "reportedDate": "2023. 2. 16. 오후 8:59:59",
+      "status": false
     }
   ]
 }
