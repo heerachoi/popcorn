@@ -7,7 +7,7 @@ import { userInfo } from '../../atoms';
 import { BsBellFill } from 'react-icons/bs';
 import useModal from '../../hooks/useModal';
 import Modal from '../SearchPage/SearchModal/SearchModal';
-import AlertModal from './AlertModal';
+import AlertModal from './Notification/NotificationModal';
 
 const Header = () => {
   const navigate = useNavigate();
