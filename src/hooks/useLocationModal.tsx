@@ -11,8 +11,6 @@ const useLocationModal = () => {
       setModalValue(categoryValue || "");
     }
   }
-
-  console.log('modalValue',modalValue);
   return {
     isShowing,
     toggle,

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import * as S from './style';
 
 const DepartmentModal = () => {
   return (

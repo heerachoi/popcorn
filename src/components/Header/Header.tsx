@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../atoms';
 import { BsBellFill } from 'react-icons/bs';
 import useModal from '../../hooks/useModal';
-import Modal from '../SearchPage/Modal/Modal';
+import Modal from '../SearchPage/SearchModal/SearchModal';
 import AlertModal from './AlertModal';
 
 const Header = () => {
