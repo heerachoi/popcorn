@@ -34,7 +34,7 @@ const HomePageList: any = () => {
   // 오늘 오픈한 것만 필터링 여기서 해야함
   const popupList = data.Store.filter((list) => {
     return (
-      parseInt(list.open.split('.').join('')) >= today - 2 &&
+      parseInt(list.open.split('.').join('')) >= today - 5 &&
       today >= parseInt(list.open.split('.').join(''))
     );
   }, console.log(data.Store));
@@ -51,7 +51,7 @@ const HomePageList: any = () => {
     return (
       // 곧 마감하는 조건 입력하기
       parseInt(list.close.split('.').join('')) >= today &&
-      today + 3 >= parseInt(list.close.split('.').join(''))
+      today + 5 >= parseInt(list.close.split('.').join(''))
     );
   }, console.log(data.Store));
 
