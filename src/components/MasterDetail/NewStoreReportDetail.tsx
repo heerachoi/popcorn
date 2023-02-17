@@ -6,8 +6,14 @@ import { getNewStoreReport } from '../../services/api';
 import * as S from './style';
 
 const NewStoreReportDetail = () => {
-  const {data} = useQuery('newStores', getNewStoreReport);
+  const { data } = useQuery('newStores', getNewStoreReport);
 
+  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
+  console.log('selectedDetail', selectedDetail);
+
+  // const [currentStatus, setCurrentStatus] = useState({
+  //   status: selectedDetail[0]?.status,
+  // });
 
   const paramId = useParams();
   // console.log('paramId', paramId);
@@ -16,13 +22,12 @@ const NewStoreReportDetail = () => {
     getNewStoreReport();
   }, []);
 
-  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
-
   const currentState = selectedDetail[0].status;
   console.log('currentState', currentState);
 
   const checkHandler = () => {
-    alert('test')
+    // setCurrentStatus({ ...selectedDetail, status: !selectedDetail.status });
+    // axios.patch(`http://localhost:3010/newStores/${selectedDetail.id}`, status);
   };
 
   return (
