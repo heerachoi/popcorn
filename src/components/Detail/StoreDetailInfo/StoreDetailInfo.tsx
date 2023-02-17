@@ -22,7 +22,7 @@ const StoreDetailInfo = () => {
         {/* 디테일 정보 부분 (이모티콘 위 하단선까지) */}
         <S.DetailInfoContent>
           <S.TitleWrap>
-            <S.Title>{detailData.title}</S.Title>
+            <S.Title>{detailData?.title}</S.Title>
             <S.SideTitleWrap>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>12</S.SideTitleIcon>
@@ -34,7 +34,7 @@ const StoreDetailInfo = () => {
                 </S.SideTitleIcon>
                 <S.SideTitleText>
                   <Link
-                    to={detailData.reserveURL}
+                    to={detailData?.reserveURL}
                     target="_blank"
                     style={{ color: 'black', textDecoration: 'none' }}
                   >
@@ -64,7 +64,7 @@ const StoreDetailInfo = () => {
               <S.InfoTbody>
                 <S.InfoTr>
                   <S.InfoTitleText>운영기간</S.InfoTitleText>
-                  <S.InfoContentText>{`${detailData.open} ~ ${detailData.close}`}</S.InfoContentText>
+                  <S.InfoContentText>{`${detailData?.open} ~ ${detailData?.close}`}</S.InfoContentText>
                 </S.InfoTr>
               </S.InfoTbody>
               <S.InfoTbody>
@@ -72,12 +72,12 @@ const StoreDetailInfo = () => {
                   <S.InfoTitleText>운영시간</S.InfoTitleText>
                   <S.OpeningHoursWrap>
                     <S.OpeningHoursBox>
-                      {detailData.openingTime?.map((openTime: string) => {
+                      {detailData?.openingTime?.map((openTime: string) => {
                         return <span key={uuidv4()}>{openTime + '-'}</span>;
                       })}
                     </S.OpeningHoursBox>
                     <S.OpeningHoursBox>
-                      {detailData.closeTime?.map((closeTime: string) => {
+                      {detailData?.closeTime?.map((closeTime: string) => {
                         return <span key={uuidv4()}>{closeTime}</span>;
                       })}
                     </S.OpeningHoursBox>
@@ -87,7 +87,7 @@ const StoreDetailInfo = () => {
               <S.InfoTbody>
                 <S.InfoTr>
                   <S.InfoTitleText>주소</S.InfoTitleText>
-                  <S.InfoContentText>{detailData.address}</S.InfoContentText>
+                  <S.InfoContentText>{detailData?.address}</S.InfoContentText>
                 </S.InfoTr>
               </S.InfoTbody>
               <S.InfoTbody>
@@ -101,7 +101,7 @@ const StoreDetailInfo = () => {
               <S.InfoTbody>
                 <S.InfoTr>
                   <S.InfoTitleText>스토어 설명</S.InfoTitleText>
-                  <S.InfoContentText>{detailData.explain}</S.InfoContentText>
+                  <S.InfoContentText>{detailData?.explain}</S.InfoContentText>
                 </S.InfoTr>
               </S.InfoTbody>
               <S.InfoTbody>
@@ -110,7 +110,7 @@ const StoreDetailInfo = () => {
                   <S.InfoContentText>
                     <S.SnsLinkWrap>
                       <Link
-                        to={detailData.sns}
+                        to={detailData?.sns}
                         target="_blank"
                         style={{ color: 'black' }}
                       >
@@ -119,7 +119,7 @@ const StoreDetailInfo = () => {
                     </S.SnsLinkWrap>
                     <S.SnsLinkWrap>
                       <Link
-                        to={detailData.web}
+                        to={detailData?.web}
                         target="_blank"
                         style={{ color: 'black' }}
                       >
@@ -132,7 +132,7 @@ const StoreDetailInfo = () => {
               <S.InfoTbody>
                 <S.InfoTr>
                   <S.InfoTitleText>카테고리</S.InfoTitleText>
-                  <S.InfoContentText>{detailData.item}</S.InfoContentText>
+                  <S.InfoContentText>{detailData?.item}</S.InfoContentText>
                 </S.InfoTr>
               </S.InfoTbody>
             </S.InfoTable>
