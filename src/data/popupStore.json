@@ -36,8 +36,9 @@
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b"
       ],
-      "lat": "37.5780746",
-      "lon": "126.8151311"
+      "lat": "37.5411291",
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "1",
@@ -78,7 +79,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Kauts%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.41.42.png?alt=media&token=1a661ebf-0169-4d19-9be9-5e0a5dd1bd2a"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "2",
@@ -121,7 +123,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.39.12.png?alt=media&token=fc575716-13eb-4a33-a29f-fd0a02bbc4f0"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "3",
@@ -163,7 +166,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.40.png?alt=media&token=c8267e80-2cbf-49c8-92b4-d60b75b61c34"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "4",
@@ -206,7 +210,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.45.07.png?alt=media&token=6e4c54bf-27ad-4c10-9aa9-5c32d3cf142a"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "5",
@@ -291,7 +296,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WiggleWiggle%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.46.50.png?alt=media&token=80accd49-b9dc-41b6-afc9-cb73043e5852"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "7",
@@ -331,7 +337,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Partez%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.47.31.png?alt=media&token=776ded4e-a124-49ad-9ffc-3b08a1b79a7b"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "8",
@@ -372,7 +379,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/PatisserieArmoni%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.48.00.png?alt=media&token=20794e0a-afaf-42a9-b246-10767060f6c6"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "9",
@@ -416,7 +424,8 @@
       ],
       "reserveURL": "https://korea.dyson-demo.com/events-landing-listing?location=custom&custom-location=10",
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "10",
@@ -459,7 +468,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Dyson%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.50.57.png?alt=media&token=a1794215-6d96-41c4-a6f1-78feb6c36c5f"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "11",
@@ -502,7 +512,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/1064Studio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.26.42.png?alt=media&token=9fedeaa5-8456-4451-a5d9-05ad3b652a11"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "12",
@@ -585,7 +596,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Chigong%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.12.39.png?alt=media&token=43bbba80-296b-4ff6-8457-e4868b87bc33"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "14",
@@ -628,7 +640,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ChivasRegalGil%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.50.21.png?alt=media&token=6dd70924-35f8-4424-84ca-308ef3b766a4"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "15",
@@ -669,7 +682,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Cliffnotes%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.21.56.png?alt=media&token=3fa943b9-a5cd-4320-afd9-bcb725b2b8a1"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "16",
@@ -710,7 +724,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DelphicPopUp%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.47.28.png?alt=media&token=13c0318e-23b2-4560-acca-85d38db3a38c"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "17",
@@ -751,7 +766,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Don'tLoseYourHeart%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.13.17.png?alt=media&token=6cea624d-d30c-4750-ac13-fd5b257fdacf"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "18",
@@ -794,7 +810,8 @@
         "https://console.firebase.google.com/project/popcorn1-4b47e/storage/popcorn1-4b47e.appspot.com/files/~2FDuGgup?hl=ko"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "19",
@@ -836,7 +853,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ExploreTheNewByGalaxyStudio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.18.00.png?alt=media&token=fc8ce41d-f151-4a45-85f8-513208fd1031"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     },
     {
       "id": "20",
@@ -877,7 +895,8 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/HPIX%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.14.08.png?alt=media&token=026766ec-635c-4b56-bd4c-590a26db2048"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어"
     }
   ]
 }

@@ -1,19 +1,21 @@
 import styled from 'styled-components';
 import { VscSearch } from 'react-icons/vsc';
-import { useRecoilState } from 'recoil';
-import { MapSearchValue } from '../../../atoms';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { mapCategoryValue, mapSearchValue } from '../../../atoms';
 
 interface Props {
   onSearchSubmitHandler: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 const MapSearch = ({ onSearchSubmitHandler }: Props) => {
-  const [search, setSearch] = useRecoilState(MapSearchValue);
+  const [search, setSearch] = useRecoilState(mapSearchValue);
+  const setCategory = useSetRecoilState(mapCategoryValue);
 
   const searchValueChangeHandler = (
     event: React.FormEvent<HTMLInputElement>,
   ) => {
-    setSearch({ value: event.currentTarget.value });
+    setSearch(event.currentTarget.value);
+    setCategory('');
   };
 
   return (
@@ -25,7 +27,7 @@ const MapSearch = ({ onSearchSubmitHandler }: Props) => {
         <SearchInput
           onChange={searchValueChangeHandler}
           type="text"
-          value={search.value}
+          value={search}
         />
       </form>
     </Wrap>

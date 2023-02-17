@@ -63,3 +63,25 @@
     맛집 카테고리에서 searchText + '맛집' 이라고 검색하게 한 뒤 로컬 api에서 반환해주는 json값을 받아온다.
     json값에 lat, lon이 있으므로 지도에 마커로 뿌려주면 될 것 같다.
     이 방법이 안되면 data가 없으므로 크롤링을 해야하는데 시간이 너무 오래 걸려 이번 프로젝트에서는 무리라고 생각한다.
+
+     const NAVER_CLIENT_ID = 'ZDK5Gc_XwH219r8fwyIt';
+            const NAVER_CLIENT_SECRET = 'VRu_0jKjhT';
+            // 네이버 API 제한 횟수 제한
+            // 엔터 연속으로 쳐서 데이터 여러번 불러오게 하는거 막기 ( 3초 이상 ,..)
+            for (let i = 0; i < data.length / 2; i++) {
+              console.log('자!!!!!!!!!!!!!!!!!!', data[i]);
+
+
+//               GET /v2/search/web HTTP/1.1
+// Host: dapi.kakao.com
+// Authorization: KakaoAK ${REST_API_KEY}
+
+              const {
+                data: { items },
+              } = await axios.get('/v1/search/image', {
+                params: { query: data[i].place_name, start: 1, display: 1 },
+                headers: {
+                  'X-Naver-Client-Id': NAVER_CLIENT_ID,
+                  'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
+                },
+              });
