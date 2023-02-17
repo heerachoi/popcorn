@@ -3,9 +3,6 @@ export interface Store {
   view: string;
   title: string;
   address: string;
-  si: string;
-  gu: string;
-  dong: string;
   open: string;
   close: string;
   location: string;
@@ -18,4 +15,6 @@ export interface Store {
   imgURL: string[];
   lat: string;
   lon: string;
+  category: string;
+  reserveURL: string;
 }

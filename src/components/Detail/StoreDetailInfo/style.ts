@@ -82,7 +82,7 @@ export const InfoTable = styled.table`
   font-style: normal;
   font-size: 14px;
 `;
-export const InfoTbody = styled.tbody``
+export const InfoTbody = styled.tbody``;
 export const InfoTr = styled.tr``;
 
 export const InfoTitleText = styled.td`
@@ -100,13 +100,13 @@ export const Hr = styled.hr`
 `;
 
 export const GrapfBox = styled.div`
-margin: 10px 0;
+  margin: 10px 0;
   width: 100%;
   height: 300px;
   border: 1px solid black;
   text-align: center;
   font-size: 20px;
-  font-weight:bold;
+  font-weight: bold;
 `;
 
 // export const ViewTitle = styled.span`

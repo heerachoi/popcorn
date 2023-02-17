@@ -5,9 +5,6 @@
       "view": "0",
       "title": "Fluffy Keyring News",
       "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
-      "si": "서울특별시",
-      "gu": "종로구",
-      "dong": "필운동",
       "open": "2023.01.13",
       "close": "2023.02.06",
       "location": "서울",
@@ -38,21 +35,18 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "1",
       "view": "0",
       "title": "Kauts",
       "address": "서울특별시 마포구 양화로 188 AK&플라자 2층",
-      "si": "서울특별시",
-      "gu": "마포구",
-      "dong": "동교동",
       "open": "2023.01.09",
       "close": "2023.02.06",
       "location": "서울",
       "item": "신발",
-
       "openingTime": [
         "11:00",
         "11:00",
@@ -80,16 +74,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "2",
       "view": "0",
       "title": "Gram Style Lab with Musinsa",
       "address": "서울특별시 성동구 연무장11길 19 코자 성수스토어",
-      "si": "서울특별시",
-      "gu": "성동구",
-      "dong": "성수동",
       "open": "2023.01.09",
       "close": "2023.02.06",
       "location": "서울",
@@ -124,16 +116,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "3",
       "view": "0",
       "title": "더 퍼스트 슬램덩크 at 더현대 서울",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울",
-      "si": "서울특별시",
-      "gu": "영등포구",
-      "dong": "여의도동",
       "open": "2023.01.26",
       "close": "2023.02.07",
       "location": "서울",
@@ -167,16 +157,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "4",
       "view": "0",
       "title": "농심 신라면 팝업스토어",
       "address": "서울특별시 성동구 연무장15길 11 에스팩토리",
-      "si": "서울특별시",
-      "gu": "성동구",
-      "dong": "성수동",
       "open": "2023.01.09",
       "close": "2023.02.08",
       "location": "서울",
@@ -211,16 +199,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "5",
       "view": "0",
       "title": "예일 X 나이스웨더",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B2",
-      "si": "서울특별시",
-      "gu": "영등포구",
-      "dong": "여의도동",
       "open": "2023.01.26",
       "close": "2023.02.08",
       "location": "서울",
@@ -255,16 +241,15 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.52.png?alt=media&token=b63de098-8582-4a49-b235-7502a2f526d5"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "6",
       "view": "0",
       "title": "시시오시 X 위글위글",
       "address": "서울특별시 강서구 하늘길 77 롯데백화점김포공항점GF층 행사장 옆",
-      "si": "서울특별시",
-      "gu": "강서구",
-      "dong": "방화동",
       "open": "2023.01.28",
       "close": "2023.02.08",
       "location": "서울",
@@ -297,16 +282,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "7",
       "view": "0",
       "title": "PARTEZ! THE MUSEUM",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B2",
-      "si": "서울특별시",
-      "gu": "영등포구",
-      "dong": "여의도동",
       "open": "2023.01.26",
       "close": "2023.02.08",
       "location": "서울",
@@ -338,16 +321,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "8",
       "view": "0",
       "title": "파티세리 아모니",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울 B1",
-      "si": "서울특별시",
-      "gu": "영등포구",
-      "dong": "여의도동",
       "open": "2023.02.03",
       "close": "2023.02.09",
       "location": "서울",
@@ -380,16 +361,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "9",
       "view": "0",
       "title": "송월 X 발란사",
       "address": "서울특별시 성동구 연무장길1 퓨처소사이어티",
-      "si": "서울특별시",
-      "gu": "성동구",
-      "dong": "성수동",
       "open": "2023.02.03",
       "close": "2023.02.11",
       "location": "서울",
@@ -422,19 +401,17 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Towelkun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.48.47.png?alt=media&token=c73d5e4c-4329-424b-995b-169cedc64dbf",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Towelkun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.49.04.png?alt=media&token=fc96bdbd-8275-4efb-af03-b936fb6cd1a8"
       ],
-      "reserveURL": "https://korea.dyson-demo.com/events-landing-listing?location=custom&custom-location=10",
+
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": "https://korea.dyson-demo.com/events-landing-listing?location=custom&custom-location=10"
     },
     {
       "id": "10",
       "view": "0",
       "title": "Dyson Style Lab",
       "address": "서울특별시 성동구 연무장길 101-1 성수 오우드",
-      "si": "서울특별시",
-      "gu": "성동구",
-      "dong": "성수동",
       "open": "2023.02.17",
       "close": "2023.02.19",
       "location": "서울",
@@ -469,16 +446,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "11",
       "view": "0",
       "title": "1064studio",
       "address": "서울특별시 양천구 목동동로 257 현대백화점 목동점 B2",
-      "si": "서울특별시",
-      "gu": "양천구",
-      "dong": "목동",
       "open": "2022.12.16",
       "close": "2023.03.30",
       "location": "서울",
@@ -513,16 +488,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "12",
       "view": "0",
       "title": "부산사이다",
       "address": "부산시 중구 대청로137번길 8-2 지하1층",
-      "si": "부산광역시",
-      "gu": "중구",
-      "dong": "중앙동",
       "open": "2022.12.16",
       "close": "2023.02.26",
       "location": "부산",
@@ -556,16 +529,15 @@
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/BusanCider%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.48.57.png?alt=media&token=09ec76ac-2aae-4f94-a00d-e2a5b1c99a35"
       ],
       "lat": "37.5411291",
-      "lon": "127.060485"
+      "lon": "127.060485",
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "13",
       "view": "0",
       "title": "Chigong",
       "address": "서울특별시 마포구 양화로 188 2층 비옥OFOF",
-      "si": "서울광역시",
-      "gu": "마포구",
-      "dong": "동교동",
       "open": "2023.01.26",
       "close": "2023.02.28",
       "location": "서울",
@@ -597,16 +569,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "14",
       "view": "0",
       "title": "CHIVAS REGAL GIL (시바스 리갈 길)",
       "address": "서울특별시 강남구 압구정로50길 13",
-      "si": "서울특별시",
-      "gu": "강남구",
-      "dong": "신사동",
       "open": "2023.01.12",
       "close": "2023.02.26",
       "location": "서울",
@@ -641,16 +611,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "15",
       "view": "0",
       "title": "클리프노츠 (CLIFFNOTES)",
       "address": "서울특별시 강남구 테헤란로 517 현대백화점 무역센터점 B1 위마켓",
-      "si": "서울특별시",
-      "gu": "강남구",
-      "dong": "삼성동",
       "open": "2023.02.06",
       "close": "2023.02.16",
       "location": "서울",
@@ -683,16 +651,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "16",
       "view": "0",
       "title": "DELPHIC POP-UP",
       "address": "서울특별시 강남구 압구정로 343 갤러리아 명품관 WEST",
-      "si": "서울특별시",
-      "gu": "강남구",
-      "dong": "압구정동",
       "open": "2023.01.27",
       "close": "2023.02.23",
       "location": "서울",
@@ -725,16 +691,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "17",
       "view": "0",
       "title": "Don't Lose Your Heart",
       "address": "서울특별시 서초구 신반포로 176 센트럴시티 1층",
-      "si": "서울특별시",
-      "gu": "서초구",
-      "dong": "반포동",
       "open": "2023.02.01",
       "close": "2023.02.28",
       "location": "서울",
@@ -767,16 +731,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "18",
       "view": "0",
       "title": "두껍상회 강남",
       "address": "서울특별시 강남구 강남대로 420 역삼빌딩",
-      "si": "서울특별시",
-      "gu": "서초구",
-      "dong": "역삼동",
       "open": "2023.01.20",
       "close": "2023.03.05",
       "location": "서울",
@@ -811,16 +773,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "19",
       "view": "0",
       "title": "EXPLORE THE NEW by 갤럭시 스튜디오",
       "address": "서울특별시 성동구 연무장길 26",
-      "si": "서울특별시",
-      "gu": "성동구",
-      "dong": "성수동",
       "open": "2023.02.04",
       "close": "2023.03.12",
       "location": "서울",
@@ -854,16 +814,14 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     },
     {
       "id": "20",
       "view": "0",
       "title": "HPIX (에이치픽스)",
       "address": "서울특별시 영등포구 여의대로 108 더현대 서울",
-      "si": "서울특별시",
-      "gu": "영등포구",
-      "dong": "여의도동",
       "open": "2023.02.01",
       "close": "2023.02.12",
       "location": "서울",
@@ -896,7 +854,8 @@
       ],
       "lat": "37.5411291",
       "lon": "127.060485",
-      "category": "팝업스토어"
+      "category": "팝업스토어",
+      "reserveURL": ""
     }
   ]
 }
