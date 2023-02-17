@@ -44,18 +44,19 @@ const MapPage = () => {
   const onSearchSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // new kakao.maps.services.Places(); 키워드로 검색하면 object를 반환해준다.
-    setMarkerHandler(search);
-    setCategory(' ');
+    setMarkerHandler(search, category);
+    // setCategory(' ');
   };
 
-  const setMarkerHandler = (search: any) => {
+  const setMarkerHandler = (search: any, category: any) => {
     const ps = new kakao.maps.services.Places();
     console.log(search);
     // ps.keywordSearch(검색어, (키워드 데이터 [], 검색 상태 OK 여부, total count, page 수))
-    // if (search === '홍대') search += '마포구';
-    // if (search === '건대') search += '광진구';
+    if (search === '홍대') search += '마포구';
+    if (search === '건대') search += '광진구';
     // if (search)
 
+    console.log('카테고리', category);
     ps.keywordSearch(
       search,
       (data, status, _pagination) => {
@@ -74,50 +75,58 @@ const MapPage = () => {
           //   const NAVER_CLIENT_SECRET = 'VRu_0jKjhT';
           // 네이버 API 제한 횟수 제한
           // 엔터 연속으로 쳐서 데이터 여러번 불러오게 하는거 막기 ( 3초 이상 ,..)
-          for (let i = 0; i < data.length; i++) {
-            // console.log('자!!!!!!!!!!!!!!!!!!', data[i]);
+          if (category === '음식점' || category === '카페') {
+            for (let i = 0; i < data.length; i++) {
+              // console.log('자!!!!!!!!!!!!!!!!!!', data[i]);
 
-            // const {
-            //   data: { items },
-            // } = await axios.get('/v1/search/image', {
-            //   params: { query: data[i].place_name, start: 1, display: 1 },
-            //   headers: {
-            //     'X-Naver-Client-Id': NAVER_CLIENT_ID,
-            //     'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
-            //   },
-            // });
+              // const {
+              //   data: { items },
+              // } = await axios.get('/v1/search/image', {
+              //   params: { query: data[i].place_name, start: 1, display: 1 },
+              //   headers: {
+              //     'X-Naver-Client-Id': NAVER_CLIENT_ID,
+              //     'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
+              //   },
+              // });
 
-            // @ts-ignore
+              // @ts-ignore
 
-            markers.push({
-              position: {
-                lat: data[i].y,
-                lng: data[i].x,
-              },
-              title: data[i].place_name,
-              address: data[i].address_name,
-              category: data[i].category_group_name,
-              placeURL: data[i].place_url,
-              id: data[i].id,
-              phone: data[i].phone,
-              // img: items.length !== 0 ? items[0].link : '파베이미지',
-            });
-
-            // @ts-ignore
-            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+              markers.push({
+                position: {
+                  lat: data[i].y,
+                  lng: data[i].x,
+                },
+                title: data[i].place_name,
+                address: data[i].address_name,
+                category: data[i].category_group_name,
+                placeURL: data[i].place_url,
+                id: data[i].id,
+                phone: data[i].phone,
+                // img: items.length !== 0 ? items[0].link : '파베이미지',
+              });
+              // @ts-ignore
+              bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+            }
+          } else {
+            for (let i = 0; i < popupData.length; i++) {
+              console.log(popupData[i].lat, popupData[i].lon);
+              // @ts-ignore
+              bounds.extend(
+                new kakao.maps.LatLng(popupData[i].lat, popupData[i].lon),
+              );
+            }
           }
 
           setFoodData(markers);
-
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 
-          if (category === '') {
-            map.setBounds(bounds);
-            // 검색된 장소 지도 가운데 위치를 내 위치로 업데이트 시켜줌
-            let latlng = map.getCenter();
+          // if (category === '') {
+          map.setBounds(bounds);
+          // 검색된 장소 지도 가운데 위치를 내 위치로 업데이트 시켜줌
+          let latlng = map.getCenter();
 
-            setMyLocation(latlng);
-          }
+          setMyLocation(latlng);
+          // }
 
           // setSearch('');
           // setSearch((prev) => prev + ' ' + category);

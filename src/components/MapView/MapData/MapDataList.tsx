@@ -11,8 +11,8 @@ const MapDataList = ({ popupData }: any) => {
   const category = useRecoilValue(mapCategoryValue);
   const foodData = useRecoilValue(mapFoodData);
   const search = useRecoilValue(mapSearchValue);
-  console.log('search', search);
-  console.log('category', category);
+  // console.log('search', search);
+  // console.log('category', category);
   return (
     <Wrap>
       {category === ' ' &&

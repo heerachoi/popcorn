@@ -1,17 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { mapCategoryValue, mapFoodData, mapSearchValue } from '../../../atoms';
+import { mapCategoryValue, mapSearchValue } from '../../../atoms';
 
 const MapDataCard = ({ popup, food }: any) => {
   const category = useRecoilValue(mapCategoryValue);
   const search = useRecoilValue(mapSearchValue);
-  // console.log(category, '데이터카드 카테고리입니다.');
-  console.log(food, 'food입니다');
-  console.log(popup?.si, 'popup.si');
-  console.log(popup?.gu, 'popup?.gu');
-  console.log(popup?.dong, 'popup?.dong');
-
   const condition =
     popup?.address.includes(search) || popup?.title.includes(search) || food;
 

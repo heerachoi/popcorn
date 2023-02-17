@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { mapCategoryValue, mapSearchValue } from '../../../atoms';
 
 interface Props {
-  setMarkerHandler: (search: any) => void;
+  setMarkerHandler: (search: any, category: any) => void;
   onSearchSubmitHandler: any;
 }
 
@@ -19,10 +19,10 @@ const MapCategory = ({ setMarkerHandler, onSearchSubmitHandler }: Props) => {
     // setSearch((prev) =>
     //   category !== '팝업스토어' ? prev + ' ' + category : prev.slice(-2, 0),
     // );
-    console.log('category', category);
-    console.log('search가 set되야됨', search);
-    console.log('1초후에 실행됨');
-    setMarkerHandler(`${search} ${category}`);
+    // console.log('category', category);
+    // console.log('search가 set되야됨', search);
+    // console.log('1초후에 실행됨');
+    setMarkerHandler(`${search} ${category}`, category);
   };
 
   const onSubmit = (event: any) => {
