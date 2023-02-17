@@ -8,14 +8,14 @@ const DetailMap = () => {
   const { state: detailData } = useLocation();
 
   const detailLocation = {
-    lat: detailData.lat,
-    lng: detailData.lon,
+    lat: detailData?.lat,
+    lng: detailData?.lon,
   };
 
   return (
     <DetailPageMap center={detailLocation}>
       <MapMarker position={detailLocation}>
-        <div>{detailData.title}</div>
+        <div>{detailData?.title}</div>
       </MapMarker>
     </DetailPageMap>
   );
