@@ -26,7 +26,6 @@
     "react": "^18.2.0",
     "react-alice-carousel": "^2.7.0",
     "react-big-calendar": "^1.6.4",
-    "react-calendar": "^4.0.0",
     "react-carousel": "^4.3.0",
     "react-confirm-alert": "^3.0.6",
     "react-datepicker": "^4.10.0",
@@ -72,7 +71,6 @@
   "devDependencies": {
     "@types/cookie": "^0.5.1",
     "@types/react-big-calendar": "^1.6.0",
-    "@types/react-calendar": "^3.9.0",
     "@types/react-datepicker": "^4.8.0",
     "@types/request": "^2.48.8",
     "@types/styled-components": "^5.1.26",

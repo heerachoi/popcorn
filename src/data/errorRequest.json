@@ -1,9 +1,6 @@
 {
   "infoErrModifiContents": [
     {
-      "title": "제목"
-    },
-    {
       "id": "d3b4c004-8d30-4aa7-bbf8-06f7fd9b32e7",
       "userId": {
         "uid": "sQJAKtswHaM0dFHW08urpPUoVLW2",
@@ -31,12 +28,13 @@
         "apiKey": "AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o",
         "appName": "[DEFAULT]"
       },
-      "title": "제목",
+      "title": "스토어 날짜 변경 신청합니다",
       "storeName": "브랜드명",
       "infoErrContent": "오류",
       "infoModifiContent": "수정",
       "errImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/errInfoImg%2FKakaoTalk_20230131_153052121_03.jpg?alt=media&token=4e93ed9d-3eda-4e2e-9b25-7b80e23cfbc6",
-      "date": "2023. 2. 12. 오후 10:12:05"
+      "reportedDate": "2023. 2. 12. 오후 10:12:05",
+      "status": false
     }
   ]
 }

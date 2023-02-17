@@ -35,3 +35,15 @@ export const getDetailAirPollutionData = async ({
   );
   return data;
 };
+
+export const getNewStoreReport = async () => {
+  const { data } = await axios.get('http://localhost:3010/newStores');
+  return data;
+};
+
+export const getInfoErrReport = async () => {
+  const { data } = await axios.get(
+    'http://localhost:3001/infoErrModifiContents',
+  );
+  return data;
+};

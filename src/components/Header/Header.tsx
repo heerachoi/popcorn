@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../atoms';
 import { BsBellFill } from 'react-icons/bs';
 import useModal from '../../hooks/useModal';
-import Modal from '../SearchPage/Modal/Modal';
+import Modal from '../SearchPage/SearchModal/SearchModal';
 import AlertModal from './AlertModal';
 
 const Header = () => {
@@ -18,25 +18,21 @@ const Header = () => {
 
   const notification = () => {
     console.log('alert');
+  };
 
-  }
-
-  const {isShowing, toggle} = useModal();
+  const { isShowing, toggle } = useModal();
 
   return (
     <>
       <S.Wrap>
         <S.Title onClick={() => navigate('/')}>POPCORN</S.Title>
         <S.BtnWrap>
-           <S.CategoryBtn onClick={notification}>
-          <BsBellFill className="button-default" onClick={toggle}/>
-            <AlertModal
-              isShowing={isShowing}
-              hide={toggle}
-            />
-        </S.CategoryBtn>
-          <S.CategoryBtn onClick={() => navigate('/customer')}>
-            고객센터
+          <S.CategoryBtn onClick={notification}>
+            <BsBellFill className="button-default" onClick={toggle} />
+            <AlertModal isShowing={isShowing} hide={toggle} />
+          </S.CategoryBtn>
+          <S.CategoryBtn onClick={() => navigate('/report')}>
+            팝업스토어 제보
           </S.CategoryBtn>
           <S.CategoryBtn onClick={() => navigate('/signup')}>
             회원가입
@@ -53,7 +49,7 @@ const Header = () => {
             <S.CategoryBtn
               onClick={() => {
                 user.userInfomation.email === 'master@gmail.com'
-                  ? navigate('/customer')
+                  ? navigate('/master')
                   : navigate('/my');
               }}
             >

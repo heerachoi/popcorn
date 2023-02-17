@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Calendar, Event,momentLocalizer } from 'react-big-calendar';
+import { Calendar, } from 'react-big-calendar';
 
 export const BigCalendar = styled(Calendar)`
   outline: none;

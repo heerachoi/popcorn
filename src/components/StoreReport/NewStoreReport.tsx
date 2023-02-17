@@ -10,17 +10,17 @@ import { auth } from '../../services/firebase';
 interface NewStoreInput {
   title: string;
   storeName: string;
-  storePlace: string;
+  storeAdress: string;
   startDate: string;
   endDate: string;
-  etcContent: string;
+  etcContent: string;  
 }
 
 const NewStoreReport: any = () => {
   const initNewStoreInput = {
     title: '',
     storeName: '',
-    storePlace: '',
+    storeAdress: '',
     startDate: '',
     endDate: '',
     etcContent: '',
@@ -92,17 +92,18 @@ const NewStoreReport: any = () => {
       userId,
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
-      storePlace: newStoreInput.storePlace,
+      storeAdress: newStoreInput.storeAdress,
       startDate: newStoreInput.startDate,
       endDate: newStoreInput.endDate,
       etcContent: newStoreInput.etcContent,
       infoImg: downloadImageUrl,
-      date: today.toLocaleString(),
+      reportedDate: today.toLocaleString(),
+      status: false,
     };
 
     // db에 추가
     try {
-      axios.post('http://localhost:3001/newStores', newStore);
+      axios.post('http://localhost:3010/newStores', newStore);
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
 
@@ -115,7 +116,7 @@ const NewStoreReport: any = () => {
   return (
     <NewStoreForm onSubmit={newStoreInfoAddHandler}>
       <div>
-        <h2>제목</h2>
+        <h2>제보 제목</h2>
         <input
           type="text"
           name="title"
@@ -130,12 +131,12 @@ const NewStoreReport: any = () => {
             onChange={newStoreInputonChangeHandler}
             value={newStoreInput.storeName}
           />
-          <h2>위치</h2>
+          <h2>주소</h2>
           <input
             type="text"
-            name="storePlace"
+            name="storeAdress"
             onChange={newStoreInputonChangeHandler}
-            value={newStoreInput.storePlace}
+            value={newStoreInput.storeAdress}
           />
         </div>
         <div>
