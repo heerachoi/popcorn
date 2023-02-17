@@ -4,6 +4,7 @@ import React from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../../../services/firebase';
+import styled from 'styled-components';
 
 const DeleteAccount = () => {
   const navigate = useNavigate();
@@ -52,9 +53,26 @@ const DeleteAccount = () => {
 
   return (
     <form onSubmit={deleteAccountClickHandler}>
-      <button>회원탈퇴</button>
+      <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
     </form>
   );
 };
 
 export default DeleteAccount;
+
+const DeleteAccountBtn = styled.button`
+  margin: 5vh 15vh 1vh 15vh;
+  width: 10%;
+  height: 48px;
+  left: 372px;
+  top: 1157px;
+  border: 1px solid #323232;
+  border-radius: 8px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  background-color: transparent;
+`;
