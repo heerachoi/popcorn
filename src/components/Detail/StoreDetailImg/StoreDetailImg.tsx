@@ -9,7 +9,7 @@ import styled from 'styled-components';
 const TestImgSlide = () => {
   const { state: detailData } = useLocation();
 
-  const img = detailData.imgURL;
+  const img = detailData?.imgURL;
   //   console.log('detailData', detailData);
   //   console.log('detailData,imgURL', img);
 
@@ -36,7 +36,7 @@ const TestImgSlide = () => {
   // 썸네일 이미지 슬라이드 세팅
   const settingsThumbs: any = {
     // img.length
-    slidesToShow: img.length < 3 ? img.length : 3,
+    slidesToShow: img?.length < 3 ? img?.length : 3,
     slidesToScroll: 1,
     asNavFor: '.slider-for',
     arrows: false,
@@ -55,10 +55,10 @@ const TestImgSlide = () => {
             asNavFor={nav2}
             ref={(slider) => setSlider1(slider)}
           >
-            {img.map((slide: any, idx: any) => {
+            {img?.map((slide: any, idx: any) => {
               return (
                 <S.MainImgDiv key={idx}>
-                  <img src={`${slide}=${slide.id}`} />
+                  <img src={`${slide}=${slide?.id}`} />
                 </S.MainImgDiv>
               );
             })}
@@ -70,10 +70,10 @@ const TestImgSlide = () => {
             asNavFor={nav1}
             ref={(slider) => setSlider2(slider)}
           >
-            {img.map((slide: any, idx: any) => {
+            {img?.map((slide: any, idx: any) => {
               return (
                 <S.ThumbnailImg key={idx}>
-                  <img src={`${slide}=${slide.id}`} />
+                  <img src={`${slide}=${slide?.id}`} />
                 </S.ThumbnailImg>
               );
             })}
