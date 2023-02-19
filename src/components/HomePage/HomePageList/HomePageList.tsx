@@ -64,7 +64,7 @@ const HomePageList: any = () => {
           <>
             <StyleListWrap
               key={popup.id}
-              onClick={() => navigate(`/detail/${popup.id}`)}
+              onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
             >
               <PopupTitle>{popup.title}</PopupTitle>
               <PopupDate>
