@@ -5,7 +5,7 @@ const MyPage: any = () => {
   return (
     <>
       <MyProfile />
-      {/* <DeleteAccount /> */}
+      <DeleteAccount />
       {/* <UpdatePassword /> */}
     </>
   );
