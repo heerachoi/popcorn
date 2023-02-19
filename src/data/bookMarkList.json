@@ -4,6 +4,31 @@
       "storeId": "1",
       "userId": "01234",
       "notification": false
+    },
+    {
+      "storeId": "2",
+      "userId": "01234",
+      "notification": false
+    },
+    {
+      "storeId": "3",
+      "userId": "01234",
+      "notification": false
+    },
+    {
+      "storeId": "4",
+      "userId": "01234",
+      "notification": false
+    },
+    {
+      "storeId": "5",
+      "userId": "01234",
+      "notification": false
+    },
+    {
+      "storeId": "6",
+      "userId": "01234",
+      "notification": false
     }
   ]
 }

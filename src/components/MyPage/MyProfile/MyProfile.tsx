@@ -1,11 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { auth, storage } from '../../../services/firebase';
 import { updateProfile, onAuthStateChanged } from 'firebase/auth';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import * as S from './style';
 import MyPageTab from '../MyPageTab/MyPageTab';
-
+import DeleteAccount from '../../Authentication/DeleteAccount/DeleteAccount';
+import React from 'react';
 const MyProfile = () => {
   const [nickname, setNickname] = useState<any>(''); // 닉네임
   // 현재 유저를 나타내며, 수정 완료 버튼을 누르기 전까지 currentUser의 displayName은 이전에 설정해두었던 닉네임을 가리킨다.
@@ -114,9 +115,11 @@ const MyProfile = () => {
             />
           </S.ProfileImgLabelInputWrapper>
           <S.MyProfileNickname>{currentUser.displayName}</S.MyProfileNickname>
+
           <S.NicknameInputWrapper>
             <S.NicknameText>닉네임</S.NicknameText>
             <S.NicknameInput
+              type="text"
               placeholder={currentUser.displayName}
               onChange={ToChangeNicknameInput}
               value={nickname}
@@ -124,17 +127,18 @@ const MyProfile = () => {
           </S.NicknameInputWrapper>
           <S.EmailInputWrpper>
             <S.EmailText>이메일</S.EmailText>
-            <S.EmailInput placeholder={currentUser.email} />
+            <S.EmailInput placeholder={currentUser.email} readOnly />
           </S.EmailInputWrpper>
-          <S.PhoneNumInputWrpper>
+          {/* <S.PhoneNumInputWrpper>
             <S.PhoneNumText>휴대전화</S.PhoneNumText>
             <S.PhoneNumInput placeholder={currentUser.phoneNumber} />
-          </S.PhoneNumInputWrpper>
+          </S.PhoneNumInputWrpper> */}
 
           <S.ModifyCompleteButton type="submit">
             수정완료
           </S.ModifyCompleteButton>
         </S.NewProfileSubmitForm>
+        <DeleteAccount />
       </S.MyProfileBox>
       <MyPageTab />
     </S.MyPageAll>
