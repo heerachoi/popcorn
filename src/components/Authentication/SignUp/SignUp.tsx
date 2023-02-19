@@ -14,6 +14,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 import * as S from './style';
+import axios from 'axios';
 
 interface SignUpInput {
   nickName: string;
@@ -185,31 +186,33 @@ const SignUp = () => {
           displayName: signUpInput.nickName,
         });
         // 회원가입하고 바로 데이터베이스 저장
-        setDoc(doc(db, 'users', user.uid), {
-          uid: user.uid,
-          nickName: user.displayName,
-          profileImg: user.photoURL,
+        let userInfo = {
+          age: signUpInput.age,
           email: signUpInput.email,
           gender: signUpInput.gender,
-          age: signUpInput.age,
+          nickName: signUpInput.nickName,
           phoneNumber: signUpInput.phoneNumber,
-        });
-        // input값 초기화
-        return confirmAlert({
-          title: '가입완료',
-          message: '회원가입이 완료되었습니다.',
-          buttons: [
-            {
-              label: '확인',
-              onClick: async () => {
-                await signOut(auth);
-                navigate('/login');
+          profileImg: user.photoURL,
+          id: user.uid,
+        };
+        axios.post('http://localhost:3010/users', userInfo).then(() => {
+          return confirmAlert({
+            title: '가입완료',
+            message: '회원가입이 완료되었습니다.',
+            buttons: [
+              {
+                label: '확인',
+                onClick: async () => {
+                  await signOut(auth);
+                  navigate('/login');
+                },
               },
-            },
-          ],
+            ],
+          });
         });
       })
       .catch((error) => {
+        console.log(error.message);
         if (error.message.includes('email-already-in-use'))
           return confirmAlert({
             title: '오류',
@@ -434,13 +437,7 @@ const SignUp = () => {
           </S.FormBtnWrap>
         </S.FormItemWrap>
         <S.FormBtnWrap>
-          <S.CancleBtn
-            onClick={() => {
-              navigate('/login');
-            }}
-          >
-            취소
-          </S.CancleBtn>
+          <S.CancleBtn onClick={() => navigate('/login')}>취소</S.CancleBtn>
           <S.SignUpBtn>회원가입</S.SignUpBtn>
         </S.FormBtnWrap>
       </S.FormWrap>

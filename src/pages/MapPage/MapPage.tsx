@@ -28,7 +28,7 @@ interface Markers {
 
 const MapPage = () => {
   const [info, setInfo] = useState<Markers>();
-  const [markers, setMarkers] = useState<Markers[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [map, setMap] = useState<any>();
   const [myLocation, setMyLocation] = useState<any>({
     Ma: 37.49810223154336,
@@ -39,7 +39,10 @@ const MapPage = () => {
 
   const [foodData, setFoodData] = useRecoilState(mapFoodData);
 
-  const { data: popupData, isLoading } = useQuery('popupData', getPopupData);
+  const { data: popupData, isLoading: popupDataIsLoading } = useQuery(
+    'popupData',
+    getPopupData,
+  );
 
   const onSearchSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -75,58 +78,57 @@ const MapPage = () => {
           //   const NAVER_CLIENT_SECRET = 'VRu_0jKjhT';
           // 네이버 API 제한 횟수 제한
           // 엔터 연속으로 쳐서 데이터 여러번 불러오게 하는거 막기 ( 3초 이상 ,..)
-          if (category === '음식점' || category === '카페') {
-            for (let i = 0; i < data.length; i++) {
-              // console.log('자!!!!!!!!!!!!!!!!!!', data[i]);
+          // if (category === '음식점' || category === '카페') {
+          for (let i = 0; i < data.length; i++) {
+            // console.log('자!!!!!!!!!!!!!!!!!!', data[i]);
 
-              // const {
-              //   data: { items },
-              // } = await axios.get('/v1/search/image', {
-              //   params: { query: data[i].place_name, start: 1, display: 1 },
-              //   headers: {
-              //     'X-Naver-Client-Id': NAVER_CLIENT_ID,
-              //     'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
-              //   },
-              // });
+            // const {
+            //   data: { items },
+            // } = await axios.get('/v1/search/image', {
+            //   params: { query: data[i].place_name, start: 1, display: 1 },
+            //   headers: {
+            //     'X-Naver-Client-Id': NAVER_CLIENT_ID,
+            //     'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
+            //   },
+            // });
 
-              // @ts-ignore
+            // @ts-ignore
 
-              markers.push({
-                position: {
-                  lat: data[i].y,
-                  lng: data[i].x,
-                },
-                title: data[i].place_name,
-                address: data[i].address_name,
-                category: data[i].category_group_name,
-                placeURL: data[i].place_url,
-                id: data[i].id,
-                phone: data[i].phone,
-                // img: items.length !== 0 ? items[0].link : '파베이미지',
-              });
-              // @ts-ignore
-              bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-            }
-          } else {
-            for (let i = 0; i < popupData.length; i++) {
-              console.log(popupData[i].lat, popupData[i].lon);
-              // @ts-ignore
-              bounds.extend(
-                new kakao.maps.LatLng(popupData[i].lat, popupData[i].lon),
-              );
-            }
+            markers.push({
+              position: {
+                lat: data[i].y,
+                lng: data[i].x,
+              },
+              title: data[i].place_name,
+              address: data[i].address_name,
+              category: data[i].category_group_name,
+              placeURL: data[i].place_url,
+              id: data[i].id,
+              phone: data[i].phone,
+              // imgURL: items.length !== 0 ? items[0].link : '파베이미지',
+            });
+            // @ts-ignore
+            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
           }
+          // } else {
+          //   for (let i = 0; i < popupData.length; i++) {
+          //     console.log(popupData[i].lat, popupData[i].lon);
+          //     // @ts-ignore
+          //     bounds.extend(
+          //       new kakao.maps.LatLng(popupData[i].lat, popupData[i].lon),
+          //     );
+          //   }
+          // }
 
           setFoodData(markers);
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 
-          // if (category === '') {
-          map.setBounds(bounds);
-          // 검색된 장소 지도 가운데 위치를 내 위치로 업데이트 시켜줌
-          let latlng = map.getCenter();
-
-          setMyLocation(latlng);
-          // }
+          if (category === ' ') {
+            map.setBounds(bounds);
+            // 검색된 장소 지도 가운데 위치를 내 위치로 업데이트 시켜줌
+            let latlng = map.getCenter();
+            setMyLocation(latlng);
+          }
 
           // setSearch('');
           // setSearch((prev) => prev + ' ' + category);
@@ -156,35 +158,89 @@ const MapPage = () => {
     };
   };
 
+  const geocoder = new kakao.maps.services.Geocoder();
+  const searchAddrFromCoords = (coords: kakao.maps.LatLng, callback: any) => {
+    // 좌표로 행정동 주소 정보를 요청합니다
+    geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
+  };
+
+  const getLocation = (): Promise<GeolocationPosition> => {
+    return new Promise((resolve, reject) => {
+      if (navigator.geolocation) {
+        // getCurrentPosition 사용자의 경도, 위도를 알려줌
+        // 첫 번째 인자가 성공했을 때 반환하는 함수, 두 번째 인자가 실패했을 때 반환하는 함수
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            if (position) {
+              console.log(position);
+              setMyLocation({
+                Ma: position.coords.latitude,
+                La: position.coords.longitude,
+              });
+              setIsLoading(false);
+              console.log('');
+              searchAddrFromCoords(
+                new kakao.maps.LatLng(
+                  position.coords.latitude,
+                  position.coords.longitude,
+                ),
+                displayCenterInfo,
+              );
+            }
+          },
+          (error) => reject(error),
+        );
+      } else {
+        alert('Geolocation is not supported by this browser.');
+      }
+    });
+  };
+
+  // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
+  function displayCenterInfo(result: any, status: any) {
+    if (status === kakao.maps.services.Status.OK) {
+      console.log('result', result);
+      setSearch(result[0].region_2depth_name);
+    }
+  }
+
+  useEffect(() => {
+    getLocation();
+  }, []);
+
   useEffect(() => {
     if (!map) return;
     // setMarkerHandler();
   }, [map]);
 
   return (
-    <Wrap>
-      <div>
-        <MapCategory
-          setMarkerHandler={setMarkerHandler}
-          onSearchSubmitHandler={onSearchSubmitHandler}
-        />
-        <MapSearch onSearchSubmitHandler={onSearchSubmitHandler} />
-        <MapDataList popupData={popupData} />
-      </div>
-      <div>
-        <MapWeather myLocation={myLocation} />
-        <Maps
-          info={info}
-          foodData={foodData}
-          map={map}
-          setMap={setMap}
-          setInfo={setInfo}
-          myLocation={myLocation}
-          setMyLocation={setMyLocation}
-          popupData={popupData}
-        />
-      </div>
-    </Wrap>
+    <>
+      {isLoading ? (
+        <div>로딩중</div>
+      ) : (
+        <Wrap>
+          <div>
+            <MapCategory
+              setMarkerHandler={setMarkerHandler}
+              popupData={popupData}
+            />
+            <MapSearch onSearchSubmitHandler={onSearchSubmitHandler} />
+            <MapDataList popupData={popupData} setMyLocation={setMyLocation} />
+          </div>
+          <div>
+            <MapWeather myLocation={myLocation} />
+            <Maps
+              info={info}
+              foodData={foodData}
+              setMap={setMap}
+              setInfo={setInfo}
+              myLocation={myLocation}
+              popupData={popupData}
+            />
+          </div>
+        </Wrap>
+      )}
+    </>
   );
 };
 
