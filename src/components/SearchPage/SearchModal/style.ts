@@ -46,7 +46,6 @@ export const LocationModalContent = styled.div`
 
 export const CloseModal = styled.div`
   cursor: pointer;
-  background-color: aliceblue;
 `
 
 export const FilterTitle = styled.h2`
