@@ -47,3 +47,8 @@ export const getInfoErrReport = async () => {
   );
   return data;
 };
+
+export const getUser = async () => {
+  const { data } = await axios.get('http://localhost:4000/users');
+  return data;
+};
