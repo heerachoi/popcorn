@@ -1,30 +1,27 @@
 import styled from 'styled-components';
 
-export const FaqWrap = styled.div``;
+export const FaqWrap = styled.div`
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+`;
 
 export const Container = styled.div`
- `;
-
-export const QaBox = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: baseline;
 position: relative;
+height: 60px;
 border-bottom: 1px solid gray;
-  width: 1000px;
-  padding: 10px;
 `;
 
-export const Qtitle = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  width: 100%;
-`;
+export const DropDownBtn = styled.button`
+background-color: transparent;
+border: none;
 
-
-export const ToggleBtn = styled.button`
-  background-color: transparent;
-  border: none;
-  font-size: 16px;
-
-  cursor: pointer;
+cursor: pointer;
+`
+export const AnswerContainer = styled.div`
+height: 0;
+overflow: hidden;
 `

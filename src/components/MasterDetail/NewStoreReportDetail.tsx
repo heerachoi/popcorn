@@ -37,7 +37,7 @@ const NewStoreReportDetail = () => {
   const checkHandler = () => {
     alert('확인');
     navigate('/master');
-    return axios.patch(`http://localhost:3010/newStores/${paramId.id}`, {
+    return axios.patch(`http://localhost:3002/newStores/${paramId.id}`, {
       status: !currentState,
     });
   };

@@ -7,8 +7,10 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { Store } from '../../types/data/storeInterface';
 import datas from '../../data/popupStore.json';
+import { useNavigate } from 'react-router-dom';
 
 const MasterNewPost = () => {
+  const navigate = useNavigate();
   const initialState: Store = {
     id: '',
     view: {},
@@ -136,6 +138,7 @@ const MasterNewPost = () => {
       setImgFile('');
 
       alert('작성 완료!');
+      navigate('/master');
     } catch (err) {
       console.log(err);
     }
@@ -205,28 +208,6 @@ const MasterNewPost = () => {
             value={newPostInput.closeTime}
           />
         </S.TreeGridBox>
-        {/* <S.TreeGridBox>
-          <S.PostTitle>
-            영업시간
-            <div>(주말)</div>
-          </S.PostTitle>
-          <S.TitleInput
-            style={{ width: 200 }}
-            type="text"
-            placeholder="오픈시간"
-            name="weekendOpeningTime"
-            onChange={newPostInputChangeHandler}
-            value={newPostInput.weekendOpeningTime}
-          />
-          <S.TitleInput
-            style={{ width: 200 }}
-            type="text"
-            placeholder="마감시간"
-            name="weekendCloseTime"
-            onChange={newPostInputChangeHandler}
-            value={newPostInput.closeTime}
-          />
-        </S.TreeGridBox> */}
         <S.PostGrid>
           <S.PostTitle>특이사항</S.PostTitle>
           <S.TitleInput

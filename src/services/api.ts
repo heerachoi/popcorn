@@ -1,4 +1,4 @@
-import axios from 'axios';
+ import axios from 'axios';
 
 interface getDetailWeatherData {
   lat: string;
@@ -37,7 +37,7 @@ export const getDetailAirPollutionData = async ({
 };
 
 export const getNewStoreReport = async () => {
-  const { data } = await axios.get('http://localhost:3010/newStores');
+  const { data } = await axios.get('http://localhost:3002/newStores');
   return data;
 };
 
