@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getInfoErrReport, getNewStoreReport } from '../../services/api';
 import * as S from './style';
 
-const ReportList: any = () => {
+const ErrReportList: any = () => {
   const navigate = useNavigate();
   const { data } = useQuery('infoErrModifiContents', getInfoErrReport);
   //   console.log('data', data);
@@ -16,14 +16,14 @@ const ReportList: any = () => {
           return (
             <S.ListBox
               key={li.id}
-              onClick={() => navigate(`/masterDetail/${li.id}`)}
+              onClick={() => navigate(`/masterDetail2/${li.id}`)}
             >
               <S.ListContent>
                 <S.TitleText>{li.title}</S.TitleText>
-                <S.NameText>{li.userId.displayName}</S.NameText>
+                <S.DateText>{li.reportedDate}</S.DateText>
               </S.ListContent>
               <S.ListContent>
-                <S.DateText>{li.reportedDate}</S.DateText>
+                <S.NameText>{li.userId.displayName}</S.NameText>
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
@@ -38,4 +38,4 @@ const ReportList: any = () => {
   );
 };
 
-export default ReportList;
+export default ErrReportList;
