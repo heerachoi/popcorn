@@ -11,9 +11,11 @@ import { FaHeart } from 'react-icons/fa';
 import { BsInstagram, BsGlobe, BsFillSunFill } from 'react-icons/bs';
 import StoreEmoji from '../StoreEmoji/StoreEmoji';
 
-const StoreDetailInfo = () => {
-  const { state: detailData } = useLocation();
+interface Props {
+  detailData: any;
+}
 
+const StoreDetailInfo = ({ detailData }: Props) => {
   return (
     <S.StoreDetailInfoWrap>
       <S.DetailContainer>
