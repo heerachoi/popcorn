@@ -1,14 +1,12 @@
 import { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { getTodayDate } from '../../../utils/FormatDate';
+import data from '../../../data/popupStore.json';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import * as S from './style'
 
-import { getTodayDate } from '../../../utils/FormatDate';
-import data from '../../../data/popupStore.json';
 // Slider
-import { Component } from "react";
 import Slider from "react-slick";
 
 import styled from 'styled-components';
@@ -87,7 +85,6 @@ const ClosingSoonSwiper: React.FC = () => {
             <S.PopupAddress>{popup.address}</S.PopupAddress>
             </S.StoreInformation>
             </S.SwiperSlider>
-
           ))}
         </S.SwiperContainer>
     
