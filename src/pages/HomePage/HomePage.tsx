@@ -1,6 +1,7 @@
 import Banner from '../../components/HomePage/Banner/Banner';
 import * as S from './style';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import data from '../../data/popupStore.json';
 import { getTodayDate } from '../../utils/FormatDate';
 import CategorySwiper from '../../components/HomePage/Swiper/CategorySwiper';
@@ -8,21 +9,15 @@ import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwipe
 import {Store} from '../../types/data/storeInterface';
 
 const HomePage: any = () => {
-  // const [ womenPopularList, setWomenPopularList] = useState<Store[]>();
+  const navigate = useNavigate();
 
   // 여성 인기 팝업스토어
   const womenViewSort = data.Store.sort((a,b) => b.view.women - a.view.women);
   const womenTopTwo = womenViewSort.slice(0, 2); 
-  // setWomenPopularList(topTwo);
 
   // 남성 인기 팝업스토어
   const menViewSort = data.Store.sort((a,b) => b.view.men - a.view.men);
   const menTopTwo = menViewSort.slice(0, 2); 
-  // setWomenPopularList(topTwo);
-
-  // useEffect(() => {
-  //     womenPopular();
-  //   });
 
   return (
     <>
@@ -54,8 +49,8 @@ const HomePage: any = () => {
           <S.FilterStoreList>
             {womenTopTwo?.map((popup) => {
               return (
-                <S.StoreContainer key={popup.id}>
-                   <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"></S.PopupImg>
+                <S.StoreContainer key={popup.id} onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
+                   <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
                   <S.StoreInformation>
                     <S.PopupTitle>{popup.title}</S.PopupTitle>
                   <S.PopupDate>
@@ -66,6 +61,9 @@ const HomePage: any = () => {
                 </S.StoreContainer>
               )
             }) }
+            <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
+              더 많은 팝업스토어 보기
+            </S.SeeMoreContainer>
           </S.FilterStoreList>
         </S.CategoryListContainer>
         <S.ListTitleContainer>
@@ -76,8 +74,8 @@ const HomePage: any = () => {
           <S.FilterStoreList>
             {menTopTwo?.map((popup) => {
               return (
-                <S.StoreContainer key={popup.id}>
-                   <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"></S.PopupImg>
+                <S.StoreContainer key={popup.id} onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
+                   <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
                   <S.StoreInformation>
                     <S.PopupTitle>{popup.title}</S.PopupTitle>
                   <S.PopupDate>
@@ -88,9 +86,9 @@ const HomePage: any = () => {
                 </S.StoreContainer>
               )
             }) }
-             <S.StoreContainer>
-              <div>더 많은 팝업스토어 보기</div>
-             </S.StoreContainer>
+            <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
+              더 많은 팝업스토어 보기
+            </S.SeeMoreContainer>
           </S.FilterStoreList>
         </S.CategoryListContainer>
       </S.HomePageContentContainer>
