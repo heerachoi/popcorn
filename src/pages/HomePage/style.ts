@@ -8,10 +8,10 @@ export const HomePageContentContainer = styled.div`
 `;
 
 export const StoreContainer = styled.div`
-  width: 334px;
   height: 516px;
   border: 1px solid #D9D9D9;
   background-color: #F5F5F5;
+  border-radius: 8px;
 `;
 
 export const ListTitleContainer = styled.div`
@@ -32,10 +32,6 @@ export const OpeningBackground = styled.div`
   border-radius: 12px;
 `;
 
-export const ClosingBackground = styled(OpeningBackground)`
-  width: 131px;
-`;
-
 export const ListTitle = styled.p`
   font-size: 24px;
   position: relative;
@@ -43,19 +39,14 @@ export const ListTitle = styled.p`
   top:-8px;
 `;
 
-export const StyleListWrap = styled.div`
-  width: 334px;
-  border: 1px solid #D9D9D9;
-  background-color: #F5F5F5;
-  border-radius: 8px;
-`;
-
 export const FilterStoreList = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 18px;
 `
 
 export const PopupImg = styled.img`
+  width: 334px;
   height: 334px;
   border-radius: 8px 8px 0px 0px;
 `;
@@ -63,8 +54,8 @@ export const PopupImg = styled.img`
 export const StoreInformation = styled.div`
   box-sizing: border-box;
   padding: 0px 20px;
+  width: 334px;
 `;
-
 
 export const PopupTitle = styled.h3`
 `;
@@ -73,6 +64,18 @@ export const PopupDate = styled.p``;
 
 export const PopupAddress = styled.p``;
 
-export const ClosingSoonList = styled.h2`
-  margin-left: 7vh;
+
+export const SeeMoreContainer = styled.div`
+  width: 344px;
+  height: 516px;
+  background: linear-gradient(0deg, rgba(50, 50, 50, 0.9), rgba(50, 50, 50, 0.9)), url(store1.jpg);
+  background-blend-mode: multiply, normal;
+  border: 1px solid #323232;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
