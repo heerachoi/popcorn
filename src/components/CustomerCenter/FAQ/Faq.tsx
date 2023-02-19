@@ -1,38 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import data from '../../../data/customerCenter.json';
 import * as S from './style';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
 const Faq: any = () => {
   const faqList = data.FAQ;
+  const [isClicked, setIsClicked] = useState(null);
 
-  const [isClick, setIsClick] = useState<boolean>(false);
-
-  const toggleClickHandler = () => {
-    setIsClick(!isClick);
+  const clickHandler = (i: any) => {
+    if (isClicked === i) {
+      return setIsClicked(null);
+    }
+    setIsClicked(i);
   };
 
   return (
     <S.FaqWrap>
-      {faqList.map((qa) => {
+      {faqList.map((qa, i) => {
         return (
-          <S.QaBox key={qa.id}>
-            <S.Qtitle>
-              <h4>Q : {qa.Q}</h4>
-              <S.ToggleBtn onClick={toggleClickHandler}>
-                {isClick ? '▲' : '▼'}
-              </S.ToggleBtn>
-            </S.Qtitle>
-
-            {isClick && (
-              <S.Qtitle>
-                <p>A : {qa.A}</p>
-              </S.Qtitle>
-            )}
-          </S.QaBox>
+          <S.Container key={qa.id}>
+            <S.TitleBox onClick={() => clickHandler(i)}>
+              <span>Q. {qa.Q}</span>
+              {isClicked === i ? <IoIosArrowDown /> : <IoIosArrowUp />}
+            </S.TitleBox>
+            <S.AnswerBox className={isClicked === i ? 'show' : ''}>
+              <S.AnswerText>A. {qa.A}</S.AnswerText>
+            </S.AnswerBox>
+          </S.Container>
         );
       })}
     </S.FaqWrap>
   );
 };
-
 export default Faq;

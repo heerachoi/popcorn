@@ -103,7 +103,7 @@ const NewStoreReport: any = () => {
 
     // db에 추가
     try {
-      axios.post('http://localhost:3010/newStores', newStore);
+      axios.post('http://localhost:3002/newStores', newStore);
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
 

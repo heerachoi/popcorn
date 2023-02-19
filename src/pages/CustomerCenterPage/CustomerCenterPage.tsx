@@ -10,38 +10,25 @@ const CustomerCenterPage: any = () => {
   // 탭 메뉴 제목과 들어갈 내용 담은 배열
   const menuArr = [
     {
-      tabTitle: (
-        <S.MenuTitleTabBtn onClick={() => tabClickHandler(0)}>
-          공지사항 및 이벤트
-        </S.MenuTitleTabBtn>
-      ),
+      id: 0,
+      tabTitle: '공지사항 및 이벤트',
       tabContent: <div>공지사항 내용</div>,
     },
     {
-      tabTitle: (
-        <S.MenuTitleTabBtn onClick={() => tabClickHandler(1)}>
-          FAQ
-        </S.MenuTitleTabBtn>
-      ),
-      tabContent: (
-        <div>
-          <Faq />
-        </div>
-      ),
+      id: 1,
+      tabTitle: 'FAQ (자주 묻는 질문)',
+      tabContent: <Faq />,
     },
     {
-      tabTitle: (
-        <S.MenuTitleTabBtn onClick={() => tabClickHandler(2)}>
-          Contact Us
-        </S.MenuTitleTabBtn>
-      ),
+      id: 2,
+      tabTitle: 'Contact Us',
       tabContent: <div>Contact Us 내용</div>,
     },
   ];
 
   // onClick 시 해당 탭의 index값을 set
-  const tabClickHandler = (index: any) => {
-    setActiveIndex(index);
+  const tabClickHandler = (i: any) => {
+    setActiveIndex(i);
   };
 
   return (
@@ -52,8 +39,14 @@ const CustomerCenterPage: any = () => {
       <S.CustomerCenterContainer>
         <S.TabMenu>
           {/* map으로 title을 뽑아옴 */}
-          {menuArr.map((section: any, index: any) => {
-            return section.tabTitle;
+          {menuArr.map((item: any, i: any) => {
+            return (
+              <S.TabTitleBox key={item.id}>
+                <S.MenuTitleTabBtn className={activeIndex === i ? 'active' : ''} onClick={()=>tabClickHandler(i)}>
+                  {item.tabTitle}
+                  </S.MenuTitleTabBtn>
+              </S.TabTitleBox>
+            );
           })}
         </S.TabMenu>
         <S.ContentBox>
