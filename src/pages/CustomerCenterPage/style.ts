@@ -15,7 +15,7 @@ export const CustomerCenterContainer = styled.div`
   box-sizing: border-box;
   max-width: 1040px;
   width: 100%;
-  height: 600px;
+  height: 700px;
   margin: 0 auto;
   padding: 0 40px;
   border: 1px solid #9b9b9b;

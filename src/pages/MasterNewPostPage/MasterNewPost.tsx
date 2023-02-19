@@ -52,10 +52,8 @@ const MasterNewPost = () => {
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const target = event.currentTarget;
-    console.log('target', target);
 
     const theFile = (target.files as FileList)[0]; // 이벤트로부터 파일을 얻어와서 첫 번째 파일만 받음
-    console.log('theFile', theFile);
     setFileName(theFile.name);
 
     const reader = new FileReader();
@@ -63,13 +61,10 @@ const MasterNewPost = () => {
 
     reader.onloadend = (finishedEvent: any) => {
       setImgFile(finishedEvent.currentTarget.result);
-      console.log(
-        'finishedEvent.currentTarget.result',
-        finishedEvent.currentTarget.result,
-      );
     };
   };
 
+  // 작성하기 버튼 클릭 시 새 게시물 db에 추가
   const newPostAddHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

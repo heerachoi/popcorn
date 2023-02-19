@@ -37,7 +37,7 @@ const CustomerCenterPage: any = () => {
         <S.TitleText>고객센터</S.TitleText>
       </S.CustomerCenterTitle>
       <S.CustomerCenterContainer>
-        <S.TabMenu >
+        <S.TabMenu>
           {/* map으로 title을 뽑아옴 */}
           {menuArr.map((item: any, i: any) => {
             return (
