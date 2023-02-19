@@ -36,7 +36,7 @@ const MasterNewPost = () => {
   const [imgFile, setImgFile] = useState(''); // 이미지 파일
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
 
-  const newPostInputChangeHandler = (
+  const newPostInputChangeHandler: any = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setNewPostInput({

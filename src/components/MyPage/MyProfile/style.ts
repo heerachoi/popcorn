@@ -12,8 +12,9 @@ export const MyProfileBox = styled.div`
   top: 142px;
 
   /* txt2 */
-  border: 1px solid #a6a6a6;
+  border: 2px solid #ffeb62;
   border-radius: 8px;
+  background: #fff9d2;
 `;
 
 export const ProfileImgLabelInputWrapper = styled.div`
@@ -73,26 +74,40 @@ export const NicknameInput = styled.input`
 `;
 
 export const ModifyCompleteButton = styled.button`
-  /* txt1 */
+  cursor: pointer;
 
-  background: #323232;
-  border-radius: 8px;
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
 
   position: absolute;
-  width: 58%;
-  height: 60px;
-  /* left: 724px; */
-  /* top: 1151px; */
+
+  width: 122px;
+  height: 48px;
+  left: 12%;
+  top: 971px;
+
+  /* Grayscale/Gray1 */
+
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  margin: auto;
+  text-align: center;
 
-  color: #ffffff;
-  cursor: pointer;
-  margin: 7vh 5vh 5vh 5vh;
+  /* Grayscale/Gray1 */
+
+  color: #9b9b9b;
+  background-color: #ffffff;
 `;
 
 // 이미지 수정, 업로드 관련 스타일링
@@ -151,6 +166,7 @@ export const EmailInput = styled.input`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
+  background-color: #d9d9d9;
 `;
 
 // =======휴대전화 묶음

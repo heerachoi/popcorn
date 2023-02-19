@@ -20,30 +20,12 @@ const HomePageList: any = () => {
   const day = String(currentDate.getDate()).padStart(2, '0');
   const today = parseInt(year + month + day);
 
-  // console.log(today);
-
-  // 오픈날짜를 yyyymmdd 포맷으로 받아오는 함수
-  // const openingDate = data.Store.filter((info) => info.open).map(
-  //   (openingday) => {
-  //     return parseInt(openingday.open.split('.').join(''));
-  //   },
-  // );
-  // console.log(openingDate);
-
-  // popupList = 전체 데이터
-  // 오늘 오픈한 것만 필터링 여기서 해야함
   const popupList = data.Store.filter((list) => {
     return (
-      parseInt(list.open.split('.').join('')) >= today - 2 &&
+      parseInt(list.open.split('.').join('')) >= today - 5 &&
       today >= parseInt(list.open.split('.').join(''))
     );
   }, console.log(data.Store));
-
-  // const [recentlyOpen, setRecentlyOpen] = useState(null);
-  // const [endingSoon, setEndingSoon] = useState(null);
-  // newDate?? 3일전 filter를 돌리는데 오늘로부터 이틀전 newdate를 가져오면 오늘날짜를 가져옴
-  // map안에 if를 돌려서 ??
-  // map에 return if 조건
 
   // popupList = 전체 데이터
   // 오늘 오픈한 것만 필터링 여기서 해야함
@@ -51,7 +33,7 @@ const HomePageList: any = () => {
     return (
       // 곧 마감하는 조건 입력하기
       parseInt(list.close.split('.').join('')) >= today &&
-      today + 3 >= parseInt(list.close.split('.').join(''))
+      today + 5 >= parseInt(list.close.split('.').join(''))
     );
   }, console.log(data.Store));
 
