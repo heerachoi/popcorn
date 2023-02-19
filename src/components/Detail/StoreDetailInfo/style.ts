@@ -99,16 +99,6 @@ export const Hr = styled.hr`
   width: 100%;
 `;
 
-export const GrapfBox = styled.div`
-  margin: 10px 0;
-  width: 100%;
-  height: 300px;
-  border: 1px solid black;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-`;
-
 // export const ViewTitle = styled.span`
 //   font-family: 'Apple SD Gothic Neo';
 //   font-style: normal;
