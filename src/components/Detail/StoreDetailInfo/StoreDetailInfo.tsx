@@ -145,9 +145,6 @@ const StoreDetailInfo = ({ detailData }: Props) => {
       <S.Hr />
       {/* 좋아요/별로에요 이모티콘 컴포넌트 */}
       <StoreEmoji />
-
-      {/* 그래프 컴포넌트 들어갈 곳 */}
-      <S.GrapfBox>그래프 들어갈 공간</S.GrapfBox>
     </S.StoreDetailInfoWrap>
   );
 };
