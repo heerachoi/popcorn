@@ -20,7 +20,7 @@ export const Title = styled.button`
 `;
 
 export const DummyBox = styled.div`
-background-color: aliceblue`;
+`;
 
 export const BtnWrap = styled.div`
   width: 400px;
