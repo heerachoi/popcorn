@@ -8,22 +8,6 @@ import axios from 'axios';
 import { Store } from '../../types/data/storeInterface';
 import datas from '../../data/popupStore.json';
 
-// interface NewPostInput {
-//   title: string;
-//   address: string;
-//   open: string;
-//   close: string;
-//   weekdayOpeningTime: string;
-//   weekdayCloseTime: string;
-//   weekendOpeningTime: string;
-//   weekendCloseTime: string;
-//   significantContent: string;
-//   explain: string;
-//   sns: string;
-//   web:string;
-//   item: string;
-// }
-
 const MasterNewPost = () => {
   const initialState: Store = {
     id: '',
@@ -98,7 +82,17 @@ const MasterNewPost = () => {
       downloadImageUrl = '';
     }
 
-    const today = new Date();
+    // 월~일 오픈 시간
+    const openingTime = [newPostInput.openingTime];
+    for (let i = 0; i < 7; i++) {
+      openingTime[i] = newPostInput.openingTime;
+    }
+
+    // 월~일 마감 시간
+    const closeTime = [newPostInput.closeTime];
+    for (let i = 0; i < 7; i++) {
+      closeTime[i] = newPostInput.closeTime;
+    }
 
     // popupStore.json db에 올라가는 데이터 구조
     const NewPost = {
@@ -122,8 +116,8 @@ const MasterNewPost = () => {
       close: newPostInput.close,
       location: newPostInput.location,
       item: newPostInput.item,
-      openingTime: [newPostInput.openingTime],
-      closeTime: [newPostInput.closeTime],
+      openingTime: openingTime,
+      closeTime: closeTime,
       significantContent: newPostInput.significantContent,
       explain: newPostInput.explain,
       sns: newPostInput.sns,
@@ -131,7 +125,7 @@ const MasterNewPost = () => {
       imgURL: [downloadImageUrl],
       lat: '',
       lon: '',
-      category: '',
+      category: '팝업스토어',
       reserveURL: '',
     };
 
@@ -222,7 +216,7 @@ const MasterNewPost = () => {
             placeholder="오픈시간"
             name="weekendOpeningTime"
             onChange={newPostInputChangeHandler}
-            value={newPostInput.openingTime}
+            value={newPostInput.weekendOpeningTime}
           />
           <S.TitleInput
             style={{ width: 200 }}

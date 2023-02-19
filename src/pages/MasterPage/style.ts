@@ -42,6 +42,11 @@ export const MenuTitleTabBtn = styled.button`
 
   cursor: pointer;
 
+  &.active {
+    border-bottom: 2px solid #f2901d;
+    color: #F2901D;
+  }
+
   &:focus {
     border-bottom: 2px solid #f2901d;
   }

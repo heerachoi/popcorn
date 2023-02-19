@@ -53,7 +53,7 @@ export const MenuTitleTabBtn = styled.button`
   cursor: pointer;
 
   &:focus,
-  &:active {
+  &.active {
     background-color: navy;
     color: white;
   }

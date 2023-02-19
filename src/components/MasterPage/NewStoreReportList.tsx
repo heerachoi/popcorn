@@ -7,15 +7,17 @@ import * as S from './style';
 const NewStoreReportList: any = () => {
   const navigate = useNavigate();
   const { data } = useQuery('newStores', getNewStoreReport);
-    console.log('data', data);
-
+  console.log('data', data);
 
   return (
     <S.ContentWrap>
       <S.ListContainer>
         {data?.map((li: any) => {
           return (
-            <S.ListBox key={li.id} onClick={() => navigate(`/masterDetail/${li.id}`)}>
+            <S.ListBox
+              key={li.id}
+              onClick={() => navigate(`/masterDetail/${li.id}`)}
+            >
               <S.ListContent>
                 <S.TitleText>{li.title}</S.TitleText>
                 <S.DateText>{li.reportedDate}</S.DateText>
