@@ -1,24 +1,34 @@
 {
   "BookMarkList": [
     {
-      "storeId": "1",
-      "userId": "01234",
-      "notification": false
-    },
-    {
-      "storeId": "2",
-      "userId": "01234",
-      "notification": false
-    },
-    {
+      "id": 1,
       "storeId": "3",
-      "userId": "01234",
-      "notification": false
+      "userId": "qOW94Q60fyNvbvzLm7R2csHBRoe2",
+      "notification": false,
+      "title": "더 퍼스트 슬램덩크 at 더현대 서울",
+      "open": "2023.01.26",
+      "close": "2023.02.21",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/SlamDunk%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.43.07.png?alt=media&token=165cd3e9-c68b-4638-bc7f-9c556c8fbc1f"
     },
     {
-      "storeId": "4",
-      "userId": "01234",
-      "notification": false
+      "id": 2,
+      "storeId": "16",
+      "userId": "qOW94Q60fyNvbvzLm7R2csHBRoe2",
+      "notification": false,
+      "title": "DELPHIC POP-UP",
+      "open": "2023.01.27",
+      "close": "2023.02.23",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DelphicPopUp%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.47.21.png?alt=media&token=7bdb93ba-b5fc-48c3-970d-47d63f1a3a97"
+    },
+    {
+      "id": 3,
+      "storeId": "2",
+      "userId": "qOW94Q60fyNvbvzLm7R2csHBRoe2",
+      "notification": false,
+      "title": "Gram Style Lab with Musinsa",
+      "open": "2023.02.19",
+      "close": "2023.02.06",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.37.16.png?alt=media&token=fd4c6878-16c8-4d18-bbd9-cae133fb4890"
     }
   ]
 }

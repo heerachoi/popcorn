@@ -11,18 +11,49 @@ import { FaHeart } from 'react-icons/fa';
 import { BsInstagram, BsGlobe, BsFillSunFill } from 'react-icons/bs';
 import StoreEmoji from '../StoreEmoji/StoreEmoji';
 import { useState } from 'react';
+import axios from 'axios';
+import { auth } from '../../../services/firebase';
 
 interface Props {
   detailData: any;
 }
 
-const [bookMarkIcon, setbookMarkIcon] = useState(false);
-
-const bookmarkOnClick = () => {
-  alert('북마크 추가 ');
-};
-
 const StoreDetailInfo = ({ detailData }: Props) => {
+  const initialState = {
+    id: 123,
+    storeId: '',
+    userId: '',
+    notification: false,
+    title: '',
+    open: '',
+    close: '',
+    imgURL: '',
+  };
+
+  // 여기서 버튼 클릭하면 추가되게
+  const [newBookmarkClick, setNewBookmarkClick] = useState(initialState);
+  // 북마크 true, false
+  const [bookmarkClick, setBookmarkClick] = useState(false);
+
+  const NewBookmark = {
+    id: '',
+    storeId: detailData.id,
+    userId: auth.currentUser?.uid,
+    notification: false,
+    title: detailData.title,
+    open: detailData.open,
+    close: detailData.close,
+    imgURL: detailData.imgURL[0],
+  };
+
+  // 클릭했을 때
+  const postBookmarkHandler = async () => {
+    // json서버를 열어야함
+    await axios.post(`http://localhost:3011/BookMarkList`, NewBookmark);
+    setNewBookmarkClick(initialState);
+    alert('북마크에 추가됐어요!');
+  };
+
   return (
     <S.StoreDetailInfoWrap>
       <S.DetailContainer>
@@ -63,7 +94,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
               <S.SideTitleIconText>
                 {/* 북마크 */}
 
-                <S.BookmarkClick onClick={bookmarkOnClick}>
+                <S.BookmarkClick onClick={postBookmarkHandler}>
                   <S.SideTitleIcon>
                     <FaHeart />
                   </S.SideTitleIcon>
