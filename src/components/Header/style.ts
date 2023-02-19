@@ -5,7 +5,6 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #a6a6a6;
 `;
 
 export const Title = styled.button`
@@ -16,11 +15,10 @@ export const Title = styled.button`
   font-size: 32px;
   line-height: 38px;
   border: none;
-  background-color: rgba(255, 255, 255, 0);
 `;
 
 export const DummyBox = styled.div`
-background-color: aliceblue`;
+`;
 
 export const BtnWrap = styled.div`
   width: 400px;
@@ -30,9 +28,8 @@ export const BtnWrap = styled.div`
 
 export const CategoryBtn = styled.button`
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid #323232;
-  border-radius: 4px;
+  border: none;
+  background-color: transparent;
 `;
 
 export const MapBtn = styled(CategoryBtn)``;
