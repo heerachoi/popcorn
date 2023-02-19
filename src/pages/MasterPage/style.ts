@@ -1,47 +1,26 @@
 import styled from 'styled-components';
 
 export const MasterPageWrap = styled.div`
-  max-width: 1040px;
+  /* max-width: 1040px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto; */
 `;
 
-export const NewPostWriteBtnBox = styled.div`
-  margin-top: 20px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-`;
-export const WriteBtn = styled.button`
-  width: 180px;
-  height: 50px;
-  border-radius: 10px;
-  background-color: transparent;
-  border: 2px solid gray;
-  font-size: 18px;
-  font-weight: 800;
-
-  &:hover {
-    cursor: pointer;
-    color: red;
-  }
-`;
 export const ReportListContainer = styled.div`
+  box-sizing: border-box;
   max-width: 1040px;
   width: 100%;
-  height: 700px;
+  height: 730px;
   margin: 0 auto;
-  /* background-color: beige; */
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 0 5px;
+  border: 1px solid #9b9b9b;
+  padding: 0 51px;
   border-radius: 8px;
   margin-top: 48px;
 `;
 
 export const TabMenu = styled.ul`
   padding: 0;
+  margin: 0%;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -59,22 +38,41 @@ export const MenuTitleTabBtn = styled.button`
   display: block;
   border: none;
   color: black;
-  padding: 6px 18px;
-  margin: 0 5px -1px 0;
-
   text-decoration: none;
 
   cursor: pointer;
 
-  &:hover {
-    border-bottom: 2px solid navy;
+  &.active {
+    border-bottom: 2px solid #f2901d;
+    color: #F2901D;
+  }
+
+  &:focus {
+    border-bottom: 2px solid #f2901d;
   }
 `;
 
 export const ContentBox = styled.div`
-  /* display: flex;
+  margin-top: 10px;
+`;
+export const NewPostWriteBtnBox = styled.div`
+  margin-top: 20px;
+  position: relative;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
+`;
+export const WriteBtn = styled.button`
+  width: 180px;
+  height: 50px;
+  color: #f2901d;
+  border-radius: 10px;
+  background-color: #fff9d2;
+  border: 2px solid #ffeb62;
+  font-size: 18px;
+  font-weight: 800;
 
-  /* background-color: beige; */
+  &:hover {
+    cursor: pointer;
+  }
 `;

@@ -16,16 +16,17 @@ export const ContentWrap = styled.div`
 export const ListContainer = styled.div``;
 
 export const ListBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-
-  &:hover{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  &:hover {
     cursor: pointer;
   }
 `;
 export const ListContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   padding: 0 10px;
+  height: 40px
 `;
 export const TitleText = styled.p`
   font-size: 16px;

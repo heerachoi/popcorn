@@ -1,4 +1,4 @@
-import SignupPage from '../pages/SignUpPage/SignupPage';
+import SignupPage from '../pages/SignupPage/SignupPage';
 import MyPage from '../pages/MyPage/MyPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import HomePage from '../pages/HomePage/HomePage';
@@ -12,11 +12,14 @@ import { auth } from '../services/firebase';
 import { useEffect } from 'react';
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 import { userInfo } from '../atoms';
-import MasterDetailPage from '../pages/MasterDetailPage/MasterDetailPage';
+import NewStoreReportDetailPage from '../pages/MasterDetailPage/NewStoreReportDetailPage';
 import MasterPage from '../pages/MasterPage/MasterPage';
 import ReportPage from '../pages/ReportPage/ReportPage';
 import { useQuery } from 'react-query';
 import { getUser } from '../services/api';
+import ErrReportDetailPage from '../pages/MasterDetailPage/ErrReportDetailPage';
+import MasterNewPost from '../pages/MasterNewPostPage/MasterNewPost';
+
 
 const Router = () => {
   const [users, setUsers] = useRecoilState(userInfo);
@@ -75,8 +78,16 @@ const Router = () => {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/login" element={<LogInPage />} />
           <Route path="/map" element={<MapPage />} />
-          <Route path="/masterdetail/:id" element={<MasterDetailPage />} />
+          <Route
+            path="/masterdetail/:id"
+            element={<NewStoreReportDetailPage />}
+          />
+          <Route
+            path="/masterdetail2/:id"
+            element={<ErrReportDetailPage />}
+          />
           <Route path="/master" element={<MasterPage />} />
+          <Route path="/masterpost" element={<MasterNewPost />} />
           <Route path="/report" element={<ReportPage />} />
         </Route>
       </Routes>
