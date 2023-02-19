@@ -5,7 +5,7 @@ import * as S from './style';
 import { useNavigate } from 'react-router-dom';
 
 const MasterPage: any = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [index, setIndex] = useState(0);
 
   const tabMenuArr = [
@@ -33,7 +33,10 @@ const MasterPage: any = () => {
               // console.log('item',item);
               return (
                 <S.MenuTitleBox key={item.id}>
-                  <S.MenuTitleTabBtn onClick={() => tabMenuClickHandler(idx)}>
+                  <S.MenuTitleTabBtn
+                    className={index === idx ? 'active' : ''}
+                    onClick={() => tabMenuClickHandler(idx)}
+                  >
                     {item.tabTitle}
                   </S.MenuTitleTabBtn>
                 </S.MenuTitleBox>
@@ -44,11 +47,12 @@ const MasterPage: any = () => {
         </S.ReportListContainer>
       </S.MasterPageWrap>
       <S.NewPostWriteBtnBox>
-        <S.WriteBtn onClick={()=>navigate('/masterpost')}>새 게시물 쓰기</S.WriteBtn>
+        <S.WriteBtn onClick={() => navigate('/masterpost')}>
+          새 게시물 쓰기
+        </S.WriteBtn>
       </S.NewPostWriteBtnBox>
     </>
   );
 };
 
 export default MasterPage;
-

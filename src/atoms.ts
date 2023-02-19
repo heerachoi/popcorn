@@ -13,6 +13,9 @@ interface UserInfomation {
   email: string | null;
   photoURL: string | null;
   uid: string | null;
+  age: string;
+  gender: string;
+  phoneNumber: string | null;
 }
 
 type MapSearchValue = string;
@@ -27,6 +30,9 @@ export const userInfo = atom<UserInfoState>({
       email: '',
       photoURL: '',
       uid: '',
+      age: '',
+      gender: '',
+      phoneNumber: '',
     },
   },
 });

@@ -195,7 +195,7 @@ const SignUp = () => {
           profileImg: user.photoURL,
           id: user.uid,
         };
-        axios.post('http://localhost:3010/users', userInfo).then(() => {
+        axios.post('http://localhost:4000/users', userInfo).then(() => {
           return confirmAlert({
             title: '가입완료',
             message: '회원가입이 완료되었습니다.',
@@ -296,11 +296,11 @@ const SignUp = () => {
     }
   };
 
-  const validateAge = (event: React.FocusEvent<HTMLSelectElement>) => {
+  const validateAge = (event: React.FocusEvent<HTMLInputElement>) => {
     if (event.target.value === '') {
       setHelperText({
         ...helperText,
-        age: '카테고리를 선택해 주세요.',
+        age: '생년월일을 입력해 주세요.',
       });
     } else {
       setHelperText({
@@ -368,6 +368,27 @@ const SignUp = () => {
           <S.HelperText>{helperText.passwordCheck}</S.HelperText>
         </S.FormItemWrap>
         <S.FormItemWrap>
+          <S.FormText>생년월일</S.FormText>
+          <S.FormInput
+            value={signUpInput.age}
+            name="age"
+            onChange={signUpInputChangeHandler}
+            onBlur={validateAge}
+            type="date"
+          />
+          {/* <option value="">연령을 선택해 주세요</option>
+            <option value="10대">10대</option>
+            <option value="20대">20대</option>
+            <option value="30대">30대</option>
+            <option value="40대">40대</option>
+            <option value="50대">50대</option>
+            <option value="60대">60대</option>
+            <option value="70대">70대</option>
+            <option value="선택안함">선택안함</option> */}
+
+          <S.HelperText>{helperText.age}</S.HelperText>
+        </S.FormItemWrap>
+        <S.FormItemWrap>
           <S.FormText>성별</S.FormText>
           <S.FormSelect
             as="select"
@@ -377,32 +398,11 @@ const SignUp = () => {
             onBlur={validateGender}
           >
             <option value="">성별을 선택해 주세요</option>
-            <option value="남자">남자</option>
-            <option value="여자">여자</option>
+            <option value="men">남자</option>
+            <option value="women">여자</option>
             <option value="선택안함">선택안함</option>
           </S.FormSelect>
           <S.HelperText>{helperText.gender}</S.HelperText>
-        </S.FormItemWrap>
-        <S.FormItemWrap>
-          <S.FormText>연령</S.FormText>
-          <S.FormSelect
-            as="select"
-            value={signUpInput.age}
-            name="age"
-            onChange={signUpSelectChanchHandler}
-            onBlur={validateAge}
-          >
-            <option value="">연령을 선택해 주세요</option>
-            <option value="10대">10대</option>
-            <option value="20대">20대</option>
-            <option value="30대">30대</option>
-            <option value="40대">40대</option>
-            <option value="50대">50대</option>
-            <option value="60대">60대</option>
-            <option value="70대">70대</option>
-            <option value="선택안함">선택안함</option>
-          </S.FormSelect>
-          <S.HelperText>{helperText.age}</S.HelperText>
         </S.FormItemWrap>
         <S.FormItemWrap>
           <S.FormText>휴대전화 (숫자만 입력)</S.FormText>
