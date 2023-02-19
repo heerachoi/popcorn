@@ -56,6 +56,9 @@ const Header = () => {
               마이페이지
             </S.CategoryBtn>
           )}
+          <S.CategoryBtn onClick={() => navigate('/customer')}>
+            고객센터
+          </S.CategoryBtn>
         </S.BtnWrap>
       </S.Wrap>
       <Outlet />
