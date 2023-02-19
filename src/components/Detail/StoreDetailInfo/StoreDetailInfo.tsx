@@ -10,10 +10,17 @@ import { MdIosShare } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa';
 import { BsInstagram, BsGlobe, BsFillSunFill } from 'react-icons/bs';
 import StoreEmoji from '../StoreEmoji/StoreEmoji';
+import { useState } from 'react';
 
 interface Props {
   detailData: any;
 }
+
+const [bookMarkIcon, setbookMarkIcon] = useState(false);
+
+const bookmarkOnClick = () => {
+  alert('북마크 추가 ');
+};
 
 const StoreDetailInfo = ({ detailData }: Props) => {
   return (
@@ -54,10 +61,14 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                 </S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
-                <S.SideTitleIcon>
-                  <FaHeart />
-                </S.SideTitleIcon>
-                <S.SideTitleText>북마크</S.SideTitleText>
+                {/* 북마크 */}
+
+                <S.BookmarkClick onClick={bookmarkOnClick}>
+                  <S.SideTitleIcon>
+                    <FaHeart />
+                  </S.SideTitleIcon>
+                  <S.SideTitleText>북마크</S.SideTitleText>
+                </S.BookmarkClick>
               </S.SideTitleIconText>
             </S.SideTitleWrap>
           </S.TitleWrap>

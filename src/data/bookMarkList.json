@@ -19,16 +19,6 @@
       "storeId": "4",
       "userId": "01234",
       "notification": false
-    },
-    {
-      "storeId": "5",
-      "userId": "01234",
-      "notification": false
-    },
-    {
-      "storeId": "6",
-      "userId": "01234",
-      "notification": false
     }
   ]
 }

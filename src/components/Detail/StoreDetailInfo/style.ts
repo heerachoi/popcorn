@@ -52,8 +52,14 @@ export const SideTitleIconText = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 0 10px;
+  cursor: pointer;
 `;
 
+export const BookmarkClick = styled.button`
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+`;
 export const SideTitleIcon = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;

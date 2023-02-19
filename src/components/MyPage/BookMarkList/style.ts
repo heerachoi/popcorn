@@ -3,6 +3,7 @@ import styled from 'styled-components';
 // BookMarkList.tsx
 
 export const BookMarkContainer = styled.div`
+  /* overflow: scroll; */
   /* background-color: yellowgreen; */
 `;
 
