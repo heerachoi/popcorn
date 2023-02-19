@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import data from '../../../data/bookMarkList.json';
 import * as S from './style';
 
@@ -11,7 +12,9 @@ const BookMarkList = () => {
       <S.BookMarkContainer>
         {bookmarkList.map((bookmark) => {
           return (
-            <S.BookMarkCard onClick={() => navigate(`/datail/1`)}>
+            <S.BookMarkCard
+              onClick={() => navigate(`/datail/${bookmark.storeId}`)}
+            >
               <S.BookMarkThumbnail></S.BookMarkThumbnail>
               <S.BookMarkCardTitle>{bookmark.storeId}</S.BookMarkCardTitle>
               <S.BookMarkCardDate>2023.02.04 - 2023.02.26</S.BookMarkCardDate>

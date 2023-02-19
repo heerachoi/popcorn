@@ -1,8 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
-import { Circle, Map, MapMarker } from 'react-kakao-maps-sdk';
+import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { mapSearchValue } from '../../../atoms';
+import { mapCategoryValue, mapSearchValue } from '../../../atoms';
 import MapModal from './MapModal';
 
 interface IMap {
@@ -16,54 +15,22 @@ interface IMap {
 interface Props {
   info: any;
   foodData: any;
-  map: any;
   setMap: any;
   setInfo: any;
   myLocation: any;
-  setMyLocation: any;
   popupData: any;
 }
 
 const Maps = ({
   info,
   foodData,
-  map,
   setMap,
   setInfo,
   myLocation,
-  setMyLocation,
   popupData,
 }: Props) => {
   const search = useRecoilValue(mapSearchValue);
-
-  const getLocation = (): Promise<GeolocationPosition> => {
-    return new Promise((resolve, reject) => {
-      if (navigator.geolocation) {
-        // getCurrentPosition 사용자의 경도, 위도를 알려줌
-        // 첫 번째 인자가 성공했을 때 반환하는 함수, 두 번째 인자가 실패했을 때 반환하는 함수
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            if (position) {
-              console.log(position);
-              setMyLocation({
-                Ma: position.coords.latitude,
-                La: position.coords.longitude,
-              });
-            }
-          },
-          (error) => reject(error),
-        );
-      } else {
-        alert('Geolocation is not supported by this browser.');
-      }
-    });
-  };
-
-  useEffect(() => {
-    getLocation();
-  }, []);
-
-  const [openModal, setOpenModal] = useState(false);
+  const category = useRecoilValue(mapCategoryValue);
 
   return (
     <>
@@ -89,31 +56,12 @@ const Maps = ({
             lng: myLocation?.La || 0,
           }}
         />
-        {foodData.map((marker: any) => (
-          <MapMarker
-            key={`marker-${marker.title}-${marker.position.lat},${marker.position.lng}`}
-            position={marker.position} // 마커를 표시할 위치
-            image={{
-              src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
-              size: {
-                width: 24,
-                height: 35,
-              },
-            }}
-            onClick={() => setInfo(marker)}
-          >
-            {info && info.title === marker.title && (
-              <div style={{ color: '#000' }}>{marker.title}</div>
-            )}
-          </MapMarker>
-        ))}
-        {popupData?.map((popup: any) => (
-          <>
-            {(popup?.address.includes(search) ||
-              popup?.title.includes(search)) && (
+        {(category === '음식점' || category === '카페') &&
+          foodData.map((marker: any) => (
+            <>
               <MapMarker
-                key={`marker-${popup.title}-${popup.lat},${popup.lon}`}
-                position={{ lat: popup.lat, lng: popup.lon }} // 마커를 표시할 위치
+                key={`marker-${marker.title}-${marker.position.lat},${marker.position.lng}`}
+                position={marker.position} // 마커를 표시할 위치
                 image={{
                   src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
                   size: {
@@ -121,12 +69,48 @@ const Maps = ({
                     height: 35,
                   },
                 }}
-                onClick={() => setInfo(popup)}
-              >
+                onClick={() => {
+                  setInfo(marker);
+                }}
+              />
+              {info && info.title === marker.title && (
+                <CustomOverlayMap
+                  position={marker.position}
+                  yAnchor={1.4}
+                  zIndex={1}
+                >
+                  <MapModal marker={marker} setInfo={setInfo} />
+                </CustomOverlayMap>
+              )}
+            </>
+          ))}
+        {popupData?.map((popup: any) => (
+          <>
+            {(popup?.address.includes(search) ||
+              popup?.title.includes(search)) && (
+              <>
+                <MapMarker
+                  key={`popup-${popup.title}-${popup.lat},${popup.lon}`}
+                  position={{ lat: popup.lat, lng: popup.lon }} // 마커를 표시할 위치
+                  image={{
+                    src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
+                    size: {
+                      width: 24,
+                      height: 35,
+                    },
+                  }}
+                  onClick={() => setInfo(popup)}
+                />
                 {info && info.title === popup.title && (
-                  <div style={{ color: '#000' }}>{popup.title}</div>
+                  <CustomOverlayMap
+                    position={{ lat: popup.lat, lng: popup.lon }}
+                    yAnchor={1.4}
+                    zIndex={99}
+                  >
+                    <MapModal marker={popup} setInfo={setInfo} />
+                  </CustomOverlayMap>
                 )}
-              </MapMarker>
+              </>
             )}
           </>
         ))}

@@ -1,6 +1,10 @@
 export interface Store {
   id: string;
-  view: string;
+  view: {
+    [key: string]: number;
+  };
+  like: number;
+  hate: number;
   title: string;
   address: string;
   open: string;
@@ -9,6 +13,7 @@ export interface Store {
   item: string;
   openingTime: string[];
   closeTime: string[];
+  significantContent:string;
   explain: string;
   sns: string;
   web: string;

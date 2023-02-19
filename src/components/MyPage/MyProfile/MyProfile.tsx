@@ -19,7 +19,7 @@ const MyProfile = () => {
     auth.currentUser?.photoURL,
   ); // 업로드한 이미지 url
   console.log('=================================시작');
-  console.log('imgFileName', imgFileName);
+  console.log('currentUser', currentUser);
   console.log('imgUploadUrl ', imgUploadUrl);
 
   // 변경할 이미지를 input창에 넣으면 변경됨

@@ -18,10 +18,10 @@ const NewStoreReportList: any = () => {
             <S.ListBox key={li.id} onClick={() => navigate(`/masterDetail/${li.id}`)}>
               <S.ListContent>
                 <S.TitleText>{li.title}</S.TitleText>
-                <S.NameText>{li.userId.displayName}</S.NameText>
+                <S.DateText>{li.reportedDate}</S.DateText>
               </S.ListContent>
               <S.ListContent>
-                <S.DateText>{li.reportedDate}</S.DateText>
+                <S.NameText>{li.userId.displayName}</S.NameText>
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
