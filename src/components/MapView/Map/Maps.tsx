@@ -1,6 +1,5 @@
-import { useEffect, useState, useRef, Dispatch, SetStateAction } from 'react';
-import { Circle, Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { mapCategoryValue, mapSearchValue } from '../../../atoms';
 import MapModal from './MapModal';
@@ -16,81 +15,22 @@ interface IMap {
 interface Props {
   info: any;
   foodData: any;
-  map: any;
   setMap: any;
   setInfo: any;
   myLocation: any;
-  setMyLocation: any;
   popupData: any;
-  setIsLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 const Maps = ({
   info,
   foodData,
-  map,
   setMap,
   setInfo,
   myLocation,
-  setMyLocation,
   popupData,
-  setIsLoading,
 }: Props) => {
   const search = useRecoilValue(mapSearchValue);
   const category = useRecoilValue(mapCategoryValue);
-  const geocoder = new kakao.maps.services.Geocoder();
-  const setSearch = useSetRecoilState(mapSearchValue);
-
-  // const searchAddrFromCoords = (coords: kakao.maps.LatLng, callback: any) => {
-  //   // 좌표로 행정동 주소 정보를 요청합니다
-  //   geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
-  // };
-
-  // const getLocation = (): Promise<GeolocationPosition> => {
-  //   return new Promise((resolve, reject) => {
-  //     if (navigator.geolocation) {
-  //       // getCurrentPosition 사용자의 경도, 위도를 알려줌
-  //       // 첫 번째 인자가 성공했을 때 반환하는 함수, 두 번째 인자가 실패했을 때 반환하는 함수
-  //       navigator.geolocation.getCurrentPosition(
-  //         (position) => {
-  //           if (position) {
-  //             console.log(position);
-  //             setMyLocation({
-  //               Ma: position.coords.latitude,
-  //               La: position.coords.longitude,
-  //             });
-  //             // setIsLoading(false);
-  //             console.log('');
-  //             searchAddrFromCoords(
-  //               new kakao.maps.LatLng(
-  //                 position.coords.latitude,
-  //                 position.coords.longitude,
-  //               ),
-  //               displayCenterInfo,
-  //             );
-  //           }
-  //         },
-  //         (error) => reject(error),
-  //       );
-  //     } else {
-  //       alert('Geolocation is not supported by this browser.');
-  //     }
-  //   });
-  // };
-
-  // // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-  // function displayCenterInfo(result: any, status: any) {
-  //   if (status === kakao.maps.services.Status.OK) {
-  //     console.log('result', result);
-  //     setSearch(result[0].region_2depth_name);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   getLocation();
-  // }, []);
-
-  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>

@@ -1,8 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { mapCategoryValue, mapSearchValue, popupList } from '../../../atoms';
+import { mapCategoryValue, mapSearchValue } from '../../../atoms';
 
 const MapDataCard = ({ popup, food, setMyLocation }: any) => {
   const category = useRecoilValue(mapCategoryValue);
@@ -94,7 +92,3 @@ const DetailImg = styled.img`
   width: 100px;
   height: 100px;
 `;
-
-// (popup?.si === search ||
-// popup?.gu === search ||
-// popup?.dong === search)
