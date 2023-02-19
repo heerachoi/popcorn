@@ -10,7 +10,7 @@ import MapPage from '../pages/MapPage/MapPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { auth } from '../services/firebase';
 import { useEffect } from 'react';
-import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import { userInfo } from '../atoms';
 import NewStoreReportDetailPage from '../pages/MasterDetailPage/NewStoreReportDetailPage';
 import MasterPage from '../pages/MasterPage/MasterPage';
@@ -19,7 +19,6 @@ import { useQuery } from 'react-query';
 import { getUser } from '../services/api';
 import ErrReportDetailPage from '../pages/MasterDetailPage/ErrReportDetailPage';
 import MasterNewPost from '../pages/MasterNewPostPage/MasterNewPost';
-
 
 const Router = () => {
   const [users, setUsers] = useRecoilState(userInfo);
@@ -56,7 +55,6 @@ const Router = () => {
 
     // myUser가 빈 값이 아닐 때
     if (!!myUser) {
-      console.log('fewf');
       setUsers({
         isLogin: true,
         userInfomation: {
