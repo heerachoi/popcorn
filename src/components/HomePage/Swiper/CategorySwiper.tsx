@@ -75,7 +75,7 @@ const CategorySwiper:React.FC = () => {
           {popupList.map((popup) => (
             <S.SwiperSlider
               key={popup.id}
-              onClick={() => navigate(`/detail/${popup.id}`)}
+              onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
             >
             <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"></S.PopupImg>
             <S.StoreInformation>
@@ -86,7 +86,6 @@ const CategorySwiper:React.FC = () => {
             <S.PopupAddress>{popup.address}</S.PopupAddress>
             </S.StoreInformation>
             </S.SwiperSlider>
-
           ))}
         </S.SwiperContainer>
     

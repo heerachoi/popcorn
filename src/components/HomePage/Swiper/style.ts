@@ -102,12 +102,4 @@ export const swiperOptions = {
 
 
 export const SwiperSlider = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  margin-right: 20px; // Add margin-right to create space between elements
-  width: 280px;
-  height: 340px;
-  position: relative;
-  cursor: pointer;
-  overflow: hidden; */
 `;

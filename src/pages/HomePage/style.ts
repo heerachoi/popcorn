@@ -9,6 +9,9 @@ export const HomePageContentContainer = styled.div`
 
 export const StoreContainer = styled.div`
   width: 334px;
+  height: 516px;
+  border: 1px solid #D9D9D9;
+  background-color: #F5F5F5;
 `;
 
 export const ListTitleContainer = styled.div`
