@@ -61,18 +61,37 @@ const DeleteAccount = () => {
 export default DeleteAccount;
 
 const DeleteAccountBtn = styled.button`
-  margin: 5vh 15vh 1vh 15vh;
-  width: 10%;
+  cursor: pointer;
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+
+  position: absolute;
+  width: 122px;
   height: 48px;
-  left: 372px;
-  top: 1157px;
-  border: 1px solid #323232;
+  left: 53%;
+  top: 971px;
+
+  /* Grayscale/Gray1 */
+
+  border: 1px solid #9b9b9b;
   border-radius: 8px;
+
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  background-color: transparent;
+
+  /* Grayscale/Gray1 */
+
+  color: #ffffff;
+  background-color: #bdbdbd;
 `;

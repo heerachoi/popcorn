@@ -52,8 +52,14 @@ export const SideTitleIconText = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 0 10px;
+  cursor: pointer;
 `;
 
+export const BookmarkClick = styled.button`
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+`;
 export const SideTitleIcon = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
@@ -97,16 +103,6 @@ export const SnsLinkWrap = styled.p``;
 export const Hr = styled.hr`
   max-width: 1040px;
   width: 100%;
-`;
-
-export const GrapfBox = styled.div`
-  margin: 10px 0;
-  width: 100%;
-  height: 300px;
-  border: 1px solid black;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
 `;
 
 // export const ViewTitle = styled.span`

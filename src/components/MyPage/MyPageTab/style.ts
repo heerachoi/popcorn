@@ -16,6 +16,7 @@ export const MyBookmarkReportBox = styled.div`
   box-sizing: border-box;
 
   position: absolute;
+  /* width: 60%; */
   width: 688px;
   height: 1084px;
   left: 580px;
@@ -37,30 +38,22 @@ export const MyBookmarkReportTabMenu = styled.ul`
 `;
 
 export const MyTitleTabBtn = styled.button`
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
   background-color: transparent;
+  font-weight: bold;
+  font-size: 20px;
   text-align: center;
   display: block;
-  border: 1px solid transparent;
-  color: #323232;
-
-  padding: 6px 100px;
+  border: none;
+  color: black;
+  padding: 6px 18px;
   margin: 0 5px -1px 0;
 
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   text-decoration: none;
 
   cursor: pointer;
-
-  &:focus,
-  &:active {
-    background-color: #323232;
-    color: white;
+  width: 45%;
+  &:hover {
+    border-bottom: 3px solid #323232;
   }
 `;
 
