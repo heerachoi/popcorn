@@ -3,8 +3,6 @@ interface Props {
 }
 
 const DetailPageViews = ({ detailData }: Props) => {
-  console.log('detailData', detailData);
-
   const teenagerPercent = (detailData.view[10] / detailData.view['all']) * 100;
   const twentyPercent = (detailData.view[20] / detailData.view['all']) * 100;
   const thirtyPercent = (detailData.view[30] / detailData.view['all']) * 100;
