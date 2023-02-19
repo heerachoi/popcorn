@@ -232,13 +232,10 @@ const MapPage = () => {
             <Maps
               info={info}
               foodData={foodData}
-              map={map}
               setMap={setMap}
               setInfo={setInfo}
               myLocation={myLocation}
-              setMyLocation={setMyLocation}
               popupData={popupData}
-              setIsLoading={setIsLoading}
             />
           </div>
         </Wrap>
