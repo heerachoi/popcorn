@@ -1,18 +1,36 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { mapCategoryValue, mapSearchValue } from '../../../atoms';
+import { mapCategoryValue, mapSearchValue, popupList } from '../../../atoms';
 
-const MapDataCard = ({ popup, food }: any) => {
+const MapDataCard = ({ popup, food, setMyLocation }: any) => {
   const category = useRecoilValue(mapCategoryValue);
   const search = useRecoilValue(mapSearchValue);
   const condition =
     popup?.address.includes(search) || popup?.title.includes(search) || food;
 
+  // 카드를 누르면 해당 좌표로 지도가 이동되는 함수
+  // popup 카테고리 일 때
+  const popupCenterChangeHandler = () => {
+    console.log(popup.lat, popup.lon, 'id');
+    setMyLocation({ Ma: popup.lat, La: popup.lon });
+  };
+
+  // 음식점, 카페 카테고리 일 때
+  const foodCenterChangeHandler = () => {
+    setMyLocation({ Ma: food.position.lat, La: food.position.lng });
+  };
   return (
     <>
       {condition && (
-        <Wrap>
+        <Wrap
+          onClick={
+            category === ' '
+              ? popupCenterChangeHandler
+              : foodCenterChangeHandler
+          }
+        >
           <div>
             <DetailWrap>
               <DetailTitle>
@@ -49,6 +67,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 `;
 
 const DetailWrap = styled.div`

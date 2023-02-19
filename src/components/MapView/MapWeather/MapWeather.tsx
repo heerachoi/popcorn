@@ -17,8 +17,8 @@ interface Props {
 
 const MapWeather = ({ myLocation }: Props) => {
   const queryProps = {
-    lat: myLocation?.Ma || 0,
-    lon: myLocation?.La || 0,
+    lat: myLocation?.Ma,
+    lon: myLocation?.La,
     api: API_KEY,
   };
 
@@ -35,6 +35,7 @@ const MapWeather = ({ myLocation }: Props) => {
     () => getDetailAirPollutionData(queryProps),
   );
 
+  console.log('myLocation', myLocation);
   useEffect(() => {
     weatherRefetch();
     airPollutionRefetch();

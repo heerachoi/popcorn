@@ -46,6 +46,11 @@ export const mapFoodData = atom<any>({
   default: [],
 });
 
+export const popupList = atom<any>({
+  key: 'popupList',
+  default: [],
+});
+
 // export const mapCategorySelector = selector<any>({
 //   key: 'mapCategorySelector',
 //   get: async ({ get }) => {

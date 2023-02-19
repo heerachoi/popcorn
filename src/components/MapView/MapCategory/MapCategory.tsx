@@ -1,17 +1,19 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { mapCategoryValue, mapSearchValue } from '../../../atoms';
+import { mapCategoryValue, mapSearchValue, popupList } from '../../../atoms';
 
 interface Props {
   setMarkerHandler: (search: any, category: any) => void;
-  onSearchSubmitHandler: any;
+  popupData: any;
 }
 
-const MapCategory = ({ setMarkerHandler, onSearchSubmitHandler }: Props) => {
+const MapCategory = ({ setMarkerHandler, popupData }: Props) => {
   const setcategory = useSetRecoilState(mapCategoryValue);
   const setSearch = useSetRecoilState(mapSearchValue);
   const search = useRecoilValue(mapSearchValue);
 
+  const popuplist = useRecoilValue(popupList);
+  console.log('popuplist', popuplist);
   const categoryChangeHandler = async (category: string) => {
     setcategory(category);
     // 클릭하면 setSearch가 되기 전에 setMarkerHandler에서 search값이 들어갔다.
@@ -36,12 +38,17 @@ const MapCategory = ({ setMarkerHandler, onSearchSubmitHandler }: Props) => {
         팝업스토어
       </CategoryBtn>
       <CategoryBtn
+        disabled={popuplist?.length === 0}
         type="submit"
         onClick={() => categoryChangeHandler('음식점')}
       >
         음식점
       </CategoryBtn>
-      <CategoryBtn type="submit" onClick={() => categoryChangeHandler('카페')}>
+      <CategoryBtn
+        disabled={popuplist?.length === 0}
+        type="submit"
+        onClick={() => categoryChangeHandler('카페')}
+      >
         카페
       </CategoryBtn>
       {/* </form> */}
