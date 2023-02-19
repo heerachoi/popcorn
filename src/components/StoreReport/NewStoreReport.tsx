@@ -10,7 +10,7 @@ import { auth } from '../../services/firebase';
 interface NewStoreInput {
   title: string;
   storeName: string;
-  storeAdress: string;
+  storeAddress: string;
   startDate: string;
   endDate: string;
   etcContent: string;  
@@ -20,7 +20,7 @@ const NewStoreReport: any = () => {
   const initNewStoreInput = {
     title: '',
     storeName: '',
-    storeAdress: '',
+    storeAddress: '',
     startDate: '',
     endDate: '',
     etcContent: '',
@@ -92,7 +92,7 @@ const NewStoreReport: any = () => {
       userId,
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
-      storeAdress: newStoreInput.storeAdress,
+      storeAddress: newStoreInput.storeAddress,
       startDate: newStoreInput.startDate,
       endDate: newStoreInput.endDate,
       etcContent: newStoreInput.etcContent,
@@ -134,9 +134,9 @@ const NewStoreReport: any = () => {
           <h2>주소</h2>
           <input
             type="text"
-            name="storeAdress"
+            name="storeAddress"
             onChange={newStoreInputonChangeHandler}
-            value={newStoreInput.storeAdress}
+            value={newStoreInput.storeAddress}
           />
         </div>
         <div>

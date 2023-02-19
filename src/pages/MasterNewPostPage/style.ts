@@ -49,8 +49,15 @@ export const TitleInput = styled.input`
   border: 1px solid #9b9b9b;
   border-radius: 8px;
 
-  &::before{
+  &::before {
     content: attr(data-placeholder);
+    width: 100%;
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    color: gray;
+  }
+  &:valid::before {
+    display: none;
   }
 `;
 
@@ -72,6 +79,7 @@ export const ImgLabel = styled.label`
   display: flex;
   justify-content: center;
   align-items: center;
+
   cursor: pointer;
 `;
 export const BtnBox = styled.div`
@@ -81,14 +89,14 @@ export const BtnBox = styled.div`
 `;
 
 export const CancleAddBtn = styled.button`
-  border: 1px solid #323232;
+  border: 1px solid #9b9b9b;
   border-radius: 8px;
   margin: 15px;
   width: 150px;
   height: 50px;
 
-  background-color: transparent;
-
+  background-color: #bdbdbd;
+  color: white;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 600;
@@ -97,4 +105,8 @@ export const CancleAddBtn = styled.button`
   text-align: center;
 
   cursor: pointer;
+
+  &:hover {
+    color: #f2901d;
+  }
 `;
