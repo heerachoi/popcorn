@@ -7,6 +7,7 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { auth } from '../../services/firebase';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import * as S from './style';
 
 interface InfoErrInput {
   title: string;
@@ -92,7 +93,7 @@ const InfoError: any = () => {
       infoModifiContent: infoErrModifiInput.infoModifiContent,
       errImg: downloadImgUrl,
       reportedDate: today.toLocaleString(),
-      status: "false"
+      status: false,
     };
 
     // db에 추가
@@ -111,40 +112,60 @@ const InfoError: any = () => {
   };
 
   return (
-    <InfoErrorForm onSubmit={errModifiInfoAddHandler}>
-      <div>
-        <h2>제목</h2>
-        <input
+    <S.InfoErrorForm onSubmit={errModifiInfoAddHandler}>
+      <S.ReportGrid>
+        <S.ReportTitle>제보 제목</S.ReportTitle>
+        <S.ReportTitleInput
           type="text"
           name="title"
+          placeholder="제목을 입력해 주세요."
+          required
           onChange={infoErrModifiOnChangeHandler}
           value={infoErrModifiInput.title}
         />
-        <h2>브랜드명 (스토어 이름)</h2>
-        <input
+      </S.ReportGrid>
+      <S.ReportGrid>
+        <S.ReportTitle>
+          브랜드명
+          <div>(스토어 이름)</div>
+        </S.ReportTitle>
+        <S.ReportTitleInput
           type="text"
           name="storeName"
+          placeholder="스토어 이름을 입력해 주세요."
+          required
           onChange={infoErrModifiOnChangeHandler}
           value={infoErrModifiInput.storeName}
         />
-        <h2>정보 오류 내용</h2>
-        <input
+      </S.ReportGrid>
+      <S.ReportGrid>
+        <S.ReportTitle>정보 오류</S.ReportTitle>
+        <S.ReportTitleInput
+        style={{ height: 100 }}
           type="text"
           name="infoErrContent"
+          placeholder='정보 오류 내용을 입력해 주세요. 없을 시 "없음"으로 입력해 주세요.'
+          required
           onChange={infoErrModifiOnChangeHandler}
           value={infoErrModifiInput.infoErrContent}
         />
-        <h2>정보 수정 내용</h2>
-        <input
+      </S.ReportGrid>
+      <S.ReportGrid>
+        <S.ReportTitle>정보 수정</S.ReportTitle>
+        <S.ReportTitleInput
+        style={{ height: 100 }}
           type="text"
           name="infoModifiContent"
+          placeholder='정보 수정 내용을 입력해 주세요. 없을 시 "없음"으로 입력해 주세요.'
+          required
           onChange={infoErrModifiOnChangeHandler}
           value={infoErrModifiInput.infoModifiContent}
         />
-      </div>
-      <div style={{ marginTop: 20 }}>
+      </S.ReportGrid>
+      <S.ReportGrid>
+        <S.ReportTitle>이미지</S.ReportTitle>
         <ErrorImgLabel htmlFor="storeInfoImg">
-          <BiImageAdd />
+          <BiImageAdd style={{fontSize:'60px'}}/>
           {errImgFile && (
             <img src={errImgFile} style={{ width: 150, height: 150 }} />
           )}
@@ -156,12 +177,16 @@ const InfoError: any = () => {
           onChange={errModifiImgOnChangeHandler}
           style={{ display: 'none' }}
         />
-      </div>
-      <div>
-        <button>취소</button>
-        <button type="submit">제보하기</button>
-      </div>
-    </InfoErrorForm>
+      </S.ReportGrid>
+      <S.ButtonBox>
+        <S.CancleAddButton
+          style={{ backgroundColor: 'white', color: '#9B9B9B' }}
+        >
+          취소
+        </S.CancleAddButton>
+        <S.CancleAddButton type="submit">제보하기</S.CancleAddButton>
+      </S.ButtonBox>
+    </S.InfoErrorForm>
   );
 };
 

@@ -81,7 +81,6 @@ export const GrapfBox = styled.div`
   margin: 10px 0;
   width: 1000px;
   height: 300px;
-  border: 1px solid black;
   text-align: center;
   font-size: 20px;
   font-weight: bold;

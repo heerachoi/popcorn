@@ -16,11 +16,13 @@ export const ReportListContainer = styled.div`
   padding: 0 51px;
   border-radius: 8px;
   margin-top: 48px;
+  background-color: #f5f5f5;
 `;
 
 export const TabMenu = styled.ul`
   padding: 0;
   margin: 0%;
+  margin-top: 10px;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -74,5 +76,7 @@ export const WriteBtn = styled.button`
 
   &:hover {
     cursor: pointer;
+    background-color: #f2901d;
+    color: #fff9d2
   }
 `;
