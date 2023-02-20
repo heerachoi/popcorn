@@ -3,20 +3,6 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-export const PopupImg = styled.img`
-`;
-
-export const StoreInformation = styled.div`
-`;
-
-
-export const PopupTitle = styled.h3`
-`;
-
-export const PopupDate = styled.p``;
-
-export const PopupAddress = styled.p``;
-
 export const SwiperContainer = styled(Slider)`
   width: 1100px;
   height: 516px;
@@ -38,68 +24,76 @@ export const SwiperContainer = styled(Slider)`
   }
 
   .slick-track:before {
+    height: 100%;
+    background-color: aliceblue;
+  }
+
+.slick-slide {
+    width: 334px;
+    height: 516px;
+    margin-right: 18px;
+}
+
+.slick-slide:not(.slick-active) {
+  display: none;
+}
+
+`;
+
+// Popup Store 포스터 카드
+export const StoreContainer = styled.div`
+  height: 516px;
+  border: 1px solid #D9D9D9;
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover{
+    background-color: #FFF9D2;
+    border: 1px solid #FFB321;
   }
 `;
 
-
-export const SwiperWrapper = styled.div`
-  
+export const PopupImg = styled.img`
+  width: 334px;
+  height: 334px;
+  border-radius: 8px 8px 0px 0px;
 `;
 
-export const PrevButton = styled.div`
-  /* position: absolute;
-  left: 20px;
-  top: 85%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 50%;
+export const StoreInformation = styled.div`
+  box-sizing: border-box;
+  padding: 0px 20px;
+  width: 334px;
+`;
+
+export const PopupTitle = styled.h3`
+`;
+
+export const PopupDate = styled.p``;
+
+export const PopupAddress = styled.p`
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* 말줄임 적용 */
+`;
+
+export const CategoryContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+`;
+
+export const Category = styled.div`
+  padding: 4px 16px 3px;
+  height: 21px;
+  background: #676767;
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;  
   display: flex;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 999;
-  &:hover {
-    background-color: #ccc;
-  } */
-`;
-
-export const NextButton = styled.div`
-  /* position: absolute;
-  right: 20px;
-   top: 85%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 1090;
-  &:hover {
-    background-color: #ccc;
-  } */
-`;
-
-export const swiperOptions = {
-  // slidesPerView: 3,
-  // spaceBetween: 30,
-  // navigation: {
-  //   prevEl: '.prev-button',
-  //   nextEl: '.next-button',
-  // },
-};
-
-// import { SwiperSlide } from "swiper/react";
-
-
-
-export const SwiperSlider = styled.div`
+  &:hover{
+    background-color: #FFB321;
+  }
 `;

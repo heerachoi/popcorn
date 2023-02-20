@@ -65,7 +65,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
             <S.Title>{detailData?.title}</S.Title>
             <S.SideTitleWrap>
               <S.SideTitleIconText>
-                <S.SideTitleIcon>12</S.SideTitleIcon>
+                <S.SideTitleIcon>{detailData?.view.all}</S.SideTitleIcon>
                 <S.SideTitleText>조회수</S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>

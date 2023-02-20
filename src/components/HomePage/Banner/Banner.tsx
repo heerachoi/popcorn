@@ -3,6 +3,7 @@ import popcornBnr1 from '../../../assets/Logo/popcornBnr1.jpg';
 import popcornBnr2 from '../../../assets/Logo/popcornBnr2.jpg';
 import popcornBnr3 from '../../../assets/Logo/popcornBnr3.jpg';
 import { StyledSlider, IMG } from './style';
+import { MostViews } from '../../../utils/Filter';
 
 const Banner: any = () => {
   const settings: any = {
@@ -19,7 +20,7 @@ const Banner: any = () => {
   return (
     <StyledSlider {...settings}>
       <IMG>
-        <Link to="/">
+        <Link to="/detail/${popup.id}">
           <img src={popcornBnr1} alt="배너1" />
         </Link>
       </IMG>

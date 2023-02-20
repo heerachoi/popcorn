@@ -15,22 +15,25 @@ export const Title = styled.button`
   font-size: 32px;
   line-height: 38px;
   border: none;
+  background-color: transparent;
 `;
 
-export const DummyBox = styled.div`
-`;
+export const DummyBox = styled.div``;
 
 export const BtnWrap = styled.div`
-  width: 400px;
+  width: 700px;
   display: flex;
   justify-content: space-around;
 `;
 
 export const CategoryBtn = styled.button`
   cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  /* left: 8px; */
+  top: -8px;
   border: none;
   background-color: transparent;
 `;
 
 export const MapBtn = styled(CategoryBtn)``;
-
