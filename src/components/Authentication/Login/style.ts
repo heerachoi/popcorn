@@ -12,11 +12,7 @@ export const LoginImgWrap = styled.div`
   margin-top: 50px;
 `;
 
-export const LoginImg = styled.div`
-  width: 400px;
-  height: 300px;
-  background-color: whitesmoke;
-`;
+export const LoginImg = styled.img``;
 
 export const TitleWrap = styled.div`
   margin-top: 20px;
@@ -26,8 +22,10 @@ export const Title = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
-  font-size: 36px;
+  font-size: 32px;
   color: #323232;
+  position: relative;
+  top: -12px;
 `;
 
 export const FormWrap = styled.form`
@@ -35,43 +33,89 @@ export const FormWrap = styled.form`
   flex-direction: column;
 `;
 export const FormInput = styled.input`
-  border: 1px solid #a6a6a6;
+  border: 1px solid #bdbdbd;
   border-radius: 8px;
-  width: 400px;
-  height: 50px;
+  width: 367px;
+  height: 60px;
   padding: 0 20px 0 20px;
   margin-bottom: 20px;
+  color: #323232;
+  &::placeholder {
+    color: #9b9b9b;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid #676767;
+  }
 `;
 
 export const FormBtnWrap = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-`;
-
-export const NavigateBtn = styled.button`
-  border: none;
-  background-color: white;
+  margin-top: 30px;
   cursor: pointer;
 `;
 
+export const FormSignWrap = styled(FormBtnWrap)`
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+`;
+
+export const NavigateBtn = styled.button`
+  color: #9b9b9b;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  border: none;
+  background-color: white;
+`;
+
 export const LoginBtn = styled.button`
-  background-color: #a6a6a6;
+  background-color: #bdbdbd;
   border-radius: 8px;
   border: none;
-  width: 442px;
-  height: 50px;
+  width: 409px;
+  height: 60px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   color: white;
-  background-color: #323232;
   cursor: pointer;
+  &:hover {
+    background-color: #676767;
+  }
+`;
+
+export const SignUpBtn = styled(LoginBtn)`
+  margin-top: 20px;
+  background-color: #fff9d2;
+  border: 1px solid #ffeb62;
+  color: #f2901d;
+  &:hover {
+    color: #ffffff;
+    background-color: #ffb321;
+  }
 `;
 
 export const HelperText = styled.span`
   color: red;
   margin-top: -10px;
   margin-bottom: 10px;
+`;
+
+export const TextBackground = styled.div`
+  text-align: center;
+  width: 110px;
+  height: 30px;
+  background-color: #ffeb62;
+  /* position: absolute; */
+  box-sizing: border-box;
+  border-radius: 20px;
+  &:hover {
+    background-color: #ffb321;
+  }
 `;
