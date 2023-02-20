@@ -26,8 +26,13 @@ export const ListContent = styled.div`
   justify-content: space-between;
   align-items: baseline;
   padding: 0 10px;
-  height: 40px
+  height: 40px;
+
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 500;
 `;
+
 export const TitleText = styled.p`
   font-size: 16px;
   font-weight: bold;
