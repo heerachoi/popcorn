@@ -1,11 +1,11 @@
-import SignupPage from '../pages/SignupPage/SignupPage';
+import SignupPage from '../pages/SignUpPage/SignupPage';
 import MyPage from '../pages/MyPage/MyPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import HomePage from '../pages/HomePage/HomePage';
 import CustomerCenterPage from '../pages/CustomerCenterPage/CustomerCenterPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import LogInPage from '../pages/LogInPage/LogInPage';
-import Header from '../components/Header/Header';
+import Header from '../components/Layout/Header/Header';
 import MapPage from '../pages/MapPage/MapPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { auth } from '../services/firebase';
@@ -19,6 +19,7 @@ import { useQuery } from 'react-query';
 import { getUser } from '../services/api';
 import ErrReportDetailPage from '../pages/MasterDetailPage/ErrReportDetailPage';
 import MasterNewPost from '../pages/MasterNewPostPage/MasterNewPost';
+import Layout from '../components/Layout/Layout';
 
 const Router = () => {
   const [users, setUsers] = useRecoilState(userInfo);
@@ -66,8 +67,8 @@ const Router = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<Header />}>
+      <Layout>
+        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/detail/:id" element={<DetailPage />} />
           <Route path="/signup" element={<SignupPage />} />
@@ -84,8 +85,8 @@ const Router = () => {
           <Route path="/master" element={<MasterPage />} />
           <Route path="/masterpost" element={<MasterNewPost />} />
           <Route path="/report" element={<ReportPage />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };

@@ -14,9 +14,7 @@ const DetailMap = () => {
 
   return (
     <DetailPageMap center={detailLocation}>
-      <MapMarker position={detailLocation}>
-        <div>{detailData?.title}</div>
-      </MapMarker>
+      <MapMarker position={detailLocation} />
     </DetailPageMap>
   );
 };

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { isActiveMenu } from '../../atoms';
 import Faq from '../../components/CustomerCenter/FAQ/Faq';
 import * as S from './style';
 
 const CustomerCenterPage: any = () => {
   // 탭 메뉴 제목을 클릭하면 해당 탭의 index값 저장
   // 초기 화면에 0번째 탭이 나오도록 초기값 설정
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useRecoilState(isActiveMenu);
 
   // 탭 메뉴 제목과 들어갈 내용 담은 배열
   const menuArr = [
@@ -42,9 +43,12 @@ const CustomerCenterPage: any = () => {
           {menuArr.map((item: any, i: any) => {
             return (
               <S.TabTitleBox key={item.id}>
-                <S.MenuTitleTabBtn className={activeIndex === i ? 'active' : ''} onClick={()=>tabClickHandler(i)}>
+                <S.MenuTitleTabBtn
+                  className={activeIndex === i ? 'active' : ''}
+                  onClick={() => tabClickHandler(i)}
+                >
                   {item.tabTitle}
-                  </S.MenuTitleTabBtn>
+                </S.MenuTitleTabBtn>
               </S.TabTitleBox>
             );
           })}
