@@ -13,11 +13,12 @@ import StoreEmoji from '../StoreEmoji/StoreEmoji';
 import { useState } from 'react';
 import axios from 'axios';
 import { auth } from '../../../services/firebase';
-
+import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 interface Props {
   detailData: any;
 }
-
+// detailData로 이미 store의 데이터를 불러오고 있다.
+// detailData = popupStore.json 데이터 객체 하나
 const StoreDetailInfo = ({ detailData }: Props) => {
   const initialState = {
     id: 123,
@@ -28,12 +29,16 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     open: '',
     close: '',
     imgURL: '',
+    status: false,
   };
 
   // 여기서 버튼 클릭하면 추가되게
   const [newBookmarkClick, setNewBookmarkClick] = useState(initialState);
-  // 북마크 true, false
-  const [bookmarkClick, setBookmarkClick] = useState(false);
+  // 북마크 true, false 상태값
+  const [bookmarkDeleteBtnClick, setBookmarkDeleteBtnClick] = useState(true);
+  // 북마크 삭제하고 삭제된 북마크 빼고 리스트 불러오기
+  const [bookmarkDeleteClickList, setBookmarkDeleteClickList] =
+    useState(initialState);
 
   const NewBookmark = {
     id: '',
@@ -44,15 +49,38 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     open: detailData.open,
     close: detailData.close,
     imgURL: detailData.imgURL[0],
+    status: bookmarkDeleteBtnClick, // 북마크의 바뀐 상태 true, false
   };
 
-  // 클릭했을 때
+  // // 리스트에 있는 storeId값과 지금 선택한 detailData.id값 일치하면 출력 금지
+  //         .filter((id) => detailData[0].id !== id.storeId)
+
+  // 클릭했을 때 북마크에 추가 + 삭제?
   const postBookmarkHandler = async () => {
     // json서버를 열어야함
     await axios.post(`http://localhost:3011/BookMarkList`, NewBookmark);
     setNewBookmarkClick(initialState);
-    alert('북마크에 추가됐어요!');
+    // setBookmarkDeleteBtnClick(!bookmarkDeleteBtnClick);
+    setBookmarkDeleteBtnClick(!NewBookmark.status);
+    // true면 북마크 추가 false(bookmarkDeleteBtnClick랑 굳이 비교할 필요가 없음)
+    if (NewBookmark.status) {
+      alert('북마크에 추가됐어요!');
+    } else {
+      console.log('북마크 해제됐어요!');
+    }
+
+    console.log('detailData', detailData);
+    console.log(
+      '================bookmarkDeleteBtnClick',
+      bookmarkDeleteBtnClick,
+    );
+    console.log('================NewBookmark.status', NewBookmark.status);
   };
+  // const bookmarkDeleteBtn = () => {
+  //   setBookmarkDeleteBtnClick(!bookmarkDeleteBtnClick);
+
+  //   console.log('bookmarkDeleteBtnClick', bookmarkDeleteBtnClick);
+  // };
 
   return (
     <S.StoreDetailInfoWrap>
@@ -94,11 +122,21 @@ const StoreDetailInfo = ({ detailData }: Props) => {
               <S.SideTitleIconText>
                 {/* 북마크 */}
 
-                <S.BookmarkClick onClick={postBookmarkHandler}>
-                  <S.SideTitleIcon>
-                    <FaHeart />
-                  </S.SideTitleIcon>
-                  <S.SideTitleText>북마크</S.SideTitleText>
+                <S.BookmarkClick
+                  onClick={postBookmarkHandler}
+                  style={{
+                    border: 'none',
+                    backgroundColor: 'transparent',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <S.SideTitleText>
+                    {bookmarkDeleteBtnClick ? (
+                      <BsBookmark />
+                    ) : (
+                      <BsBookmarkFill />
+                    )}
+                  </S.SideTitleText>
                 </S.BookmarkClick>
               </S.SideTitleIconText>
             </S.SideTitleWrap>

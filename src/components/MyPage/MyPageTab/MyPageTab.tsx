@@ -2,7 +2,10 @@ import * as S from './style';
 import BookMarkList from '../BookMarkList/BookMarkList';
 import { useState } from 'react';
 
-const MyPageTab = () => {
+interface Props {
+  detailData?: any;
+}
+const MyPageTab = ({ detailData }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const MyTabClick = (i: any) => {
     return setActiveIndex(i);
@@ -14,7 +17,7 @@ const MyPageTab = () => {
           <p>북마크</p>
         </S.MyTitleTabBtn>
       ),
-      tabContent: <BookMarkList />,
+      tabContent: <BookMarkList detailData={detailData} />,
     },
     {
       tabTitle: (

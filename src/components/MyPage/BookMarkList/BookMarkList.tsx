@@ -1,43 +1,56 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import data from '../../../data/bookMarkList.json';
+import data from '../../../data/bookmarkList.json';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
-import axios from 'axios';
+import { BsBookmarkFill } from 'react-icons/bs';
 
-const BookMarkList = () => {
+interface Props {
+  detailData: any;
+}
+const BookMarkList = ({ detailData }: Props) => {
   const bookmarkList = data.BookMarkList;
 
   const navigate = useNavigate();
 
   const uid = auth.currentUser?.uid;
   // uid ===bookmarkList.userId
+
+  // console.log('bookmarkList', bookmarkList);
+  // console.log('detailData', detailData);
   return (
     <>
       <S.BookMarkContainer>
-        {bookmarkList.map((bookmark) => {
-          if (uid === bookmark.userId) {
-            return (
-              <S.BookMarkCard
-                onClick={() => navigate(`/datail/${bookmark.storeId}`)}
-              >
-                <S.BookMarkThumbnail>
-                  <img
-                    src={bookmark.imgURL}
-                    style={{ width: '296px', height: '296.46px' }}
-                  />
-                </S.BookMarkThumbnail>
-                <S.BookMarkCardTitle>{bookmark.title}</S.BookMarkCardTitle>
-                <S.BookMarkCardDate>
-                  {bookmark.open} - {bookmark.close}
-                </S.BookMarkCardDate>
-                <S.BookMarkCardFilterBtn>
-                  <S.BookMarkCardFilterTxt>마감임박</S.BookMarkCardFilterTxt>
-                </S.BookMarkCardFilterBtn>
-              </S.BookMarkCard>
-            );
-          }
-        })}
+        {/* 북마크 리스트에 storeId가 같은 게 있으면 중복추가 금지 */}
+        {bookmarkList
+          // // 리스트에 있는 storeId값과 지금 선택한 detailData.id값 일치하면 출력 금지
+          //         .filter((id) => detailData[0].id !== id.storeId)
+
+          .map((bookmark) => {
+            if (uid === bookmark.userId) {
+              return (
+                <S.BookMarkCard>
+                  <BsBookmarkFill />
+                  <S.BookMarkThumbnail
+                    onClick={() => navigate(`/datail/${bookmark.storeId}`)}
+                  >
+                    <img
+                      src={bookmark.imgURL}
+                      style={{ width: '296px', height: '296.46px' }}
+                    ></img>
+                  </S.BookMarkThumbnail>
+
+                  <S.BookMarkCardTitle>{bookmark.title}</S.BookMarkCardTitle>
+                  <S.BookMarkCardDate>
+                    {bookmark.open} - {bookmark.close}
+                  </S.BookMarkCardDate>
+                  <S.BookMarkCardFilterBtn>
+                    <S.BookMarkCardFilterTxt>마감임박</S.BookMarkCardFilterTxt>
+                  </S.BookMarkCardFilterBtn>
+                </S.BookMarkCard>
+              );
+            }
+          })}
       </S.BookMarkContainer>
     </>
   );
