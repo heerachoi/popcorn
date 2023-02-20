@@ -1,15 +1,18 @@
 import * as S from './style';
 import BookmarkList from '../BookMarkList/BookMarkList';
 import { useState } from 'react';
+import MyReportList from '../MyReportList/MyReportList';
 
 interface Props {
   detailData?: any;
 }
 const MyPageTab = ({ detailData }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  
   const MyTabClick = (i: any) => {
     return setActiveIndex(i);
   };
+
   const myTabArr = [
     {
       tabTitle: (
@@ -25,7 +28,7 @@ const MyPageTab = ({ detailData }: Props) => {
           <p>내가 쓴 제보</p>
         </S.MyTitleTabBtn>
       ),
-      tabContent: <div>내가 쓴 제보 리스트</div>,
+      tabContent: <MyReportList />,
     },
   ];
 

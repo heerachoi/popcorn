@@ -30,14 +30,16 @@ const ReportPage = () => {
         <S.TabTitle>
           {tabMenu.map((item, i) => {
             return (
-              <S.TitleBox>
-                <S.TitleBtn
-                  className={idx === i ? 'active' : ''}
-                  onClick={() => tabSelectHandler(i)}
-                >
-                  {item.title}
-                </S.TitleBtn>
-              </S.TitleBox>
+              <>
+                <S.TitleBox>
+                  <S.TitleBtn
+                    className={idx === i ? 'active' : ''}
+                    onClick={() => tabSelectHandler(i)}
+                  >
+                    {item.title}
+                  </S.TitleBtn>
+                </S.TitleBox>
+              </>
             );
           })}
         </S.TabTitle>
