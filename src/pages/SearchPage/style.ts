@@ -95,8 +95,9 @@ export const SelectDate = styled.div`
 `
 
 export const PosterImg = styled.img`
-  width: 100%;
-  border-radius: 8px 8px 0px 0px;
+  width: 175px;
+  height: 175px;
+  border-radius: 8px 0px 0px 8px;
 `;
 
 export const StoreTitle = styled.div`
@@ -120,9 +121,18 @@ export const FilterResult = styled.div`
 `
 
 export const StoreContainer = styled.div`
-  width: 209px;
   border: 1px solid #A6A6A6;
   border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  height: 175px;
+`
+
+export const StoreInformation = styled.div`
+  display:flex;
+  flex-direction: column;
+  padding: 16px;
 `
 
 export const CalendarContainer = styled.div`
@@ -138,3 +148,24 @@ export const FilterResultAndCalendarContainer = styled.div`
   display: flex;
   flex-direction: row;
 `
+
+export const CategoryContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+`;
+
+export const Category = styled.div`
+  padding: 4px 16px 3px;
+  height: 21px;
+  background: #676767;
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;  
+  display: flex;
+  align-items: center;
+  &:hover{
+    background-color: #FFB321;
+  }
+`;

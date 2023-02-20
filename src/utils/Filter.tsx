@@ -4,21 +4,21 @@ import { getTodayDate } from './FormatDate';
 import { Store } from '../types/data/storeInterface';
 
 // 현재 진행중인 스토어
-export const CurrentlyOpen = () => {
-  const todayDate = getTodayDate();
-  const currentlyOpen = [];
-  const openStoreList = data.Store.filter((store) => {
-    const openDate = Number(store.open.split(".").join(""));
-    const closeDate = Number(store.close.split(".").join(""));
-    if (todayDate >= openDate && todayDate <= closeDate){
-      currentlyOpen.push(store); 
-    }
-  })
-}
+// export const CurrentlyOpen = () => {
+//   const todayDate = getTodayDate();
+//   let currentlyOpen = [];
+//   const openStoreList = data.Store.filter((store) => {
+//     const openDate = Number(store.open.split(".").join(""));
+//     const closeDate = Number(store.close.split(".").join(""));
+//     if (todayDate >= openDate && todayDate <= closeDate){
+//       currentlyOpen.push(store); 
+//     }
+//   })
+//   return currentlyOpen;
+// }
 
 // 뷰 많은 스토어 리스트
 export const MostViews = () => {
-  const currentlyOpenStoreList = CurrentlyOpen();
   const SortByViews = data.Store.sort((a,b) => b.view.all - a.view.all);
   const ViewToThree = SortByViews.slice(0, 3);
   return ViewToThree;
