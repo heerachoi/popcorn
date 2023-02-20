@@ -94,7 +94,7 @@ const NewStoreReportDetail = () => {
                   </S.ReportContentText>
                 </S.Grid>
                 <S.ButtonBox>
-                  <S.CheckBtn onClick={() => navigate('/master')}>
+                  <S.CheckBtn style={{ backgroundColor: 'white', color: '#9B9B9B' }} onClick={() => navigate('/master')}>
                     취소
                   </S.CheckBtn>
                   <S.CheckBtn onClick={checkHandler}>확인</S.CheckBtn>

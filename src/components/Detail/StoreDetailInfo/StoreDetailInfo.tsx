@@ -95,11 +95,9 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                 {/* 북마크 */}
 
                 <S.BookmarkClick onClick={postBookmarkHandler}>
-                  <S.SideTitleIcon>
                     <FaHeart />
-                  </S.SideTitleIcon>
-                  <S.SideTitleText>북마크</S.SideTitleText>
                 </S.BookmarkClick>
+                  <S.SideTitleText>북마크</S.SideTitleText>
               </S.SideTitleIconText>
             </S.SideTitleWrap>
           </S.TitleWrap>

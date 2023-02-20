@@ -257,7 +257,7 @@ const MasterNewPost = () => {
         <S.PostGrid>
           <S.PostTitle>이미지</S.PostTitle>
           <S.ImgLabel htmlFor="newPostImg">
-            <BiImageAdd />
+            <BiImageAdd style={{fontSize:'60px'}}/>
             {imgFile && (
               <img src={imgFile} style={{ width: 150, height: 150 }} />
             )}
@@ -272,7 +272,7 @@ const MasterNewPost = () => {
         </S.PostGrid>
         <S.BtnBox>
           <S.CancleAddBtn
-            style={{ backgroundColor: '#F5F5F5', color: '#9B9B9B' }}
+            style={{ backgroundColor: 'white', color: '#9B9B9B' }}
           >
             취소
           </S.CancleAddBtn>

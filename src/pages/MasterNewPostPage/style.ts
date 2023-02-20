@@ -21,7 +21,7 @@ export const NewPostContainer = styled.form`
   border-radius: 8px;
   margin-top: 49px;
   padding: 40px;
-  /* background-color: beige; */
+  background-color: #f5f5f5;
 `;
 export const PostGrid = styled.div`
   display: grid;
@@ -75,7 +75,7 @@ export const ImgLabel = styled.label`
   height: 150px;
   width: 150px;
   border-radius: 8px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,6 +107,6 @@ export const CancleAddBtn = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #f2901d;
+    background-color: #9b9b9b;
   }
 `;

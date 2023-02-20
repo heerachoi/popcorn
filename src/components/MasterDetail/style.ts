@@ -25,6 +25,8 @@ export const ReportContentListWrap = styled.div`
 export const GridBox = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  background: #f5f5f5;
+  max-height: 900px;
 `;
 
 export const Grid = styled.div`
@@ -35,14 +37,18 @@ export const Grid = styled.div`
 
 export const ReportTitle = styled.div`
   text-align: center;
-  margin : 10px;
-  font-size: 18px;
-  font-weight: 700;
-  color: navy;
+  margin: 10px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 600;
 `;
 
 export const ReportContentText = styled.div`
-  margin: 10px ;
+  margin: 10px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-size: 14px;
 
   img {
     width: 150px;
@@ -51,22 +57,30 @@ export const ReportContentText = styled.div`
 `;
 
 export const ButtonBox = styled.div`
-  float: right;
-  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const CheckBtn = styled.button`
-  font-size: 16px;
-  font-weight: 800;
-  margin: 10px;
-  width: 130px;
-  height: 40px;
+  border: 1px solid #9b9b9b;
   border-radius: 8px;
+  margin: 15px;
+  width: 150px;
+  height: 50px;
 
-  background-color: transparent;
+  background-color: #bdbdbd;
+  color: white;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  cursor: pointer;
 
   &:hover {
-    color: red;
-    cursor: pointer;
+    background-color: #9b9b9b;
   }
 `;
