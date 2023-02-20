@@ -10,7 +10,7 @@ export const ReportListContainer = styled.div`
   box-sizing: border-box;
   max-width: 1040px;
   width: 100%;
-  height: 730px;
+  height: 750px;
   margin: 0 auto;
   border: 1px solid #9b9b9b;
   padding: 0 51px;
@@ -58,7 +58,7 @@ export const ContentBox = styled.div`
   margin-top: 10px;
 `;
 export const NewPostWriteBtnBox = styled.div`
-  margin-top: 20px;
+  margin-top: 26px;
   position: relative;
   display: flex;
   justify-content: center;

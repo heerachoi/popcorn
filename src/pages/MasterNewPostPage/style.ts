@@ -28,7 +28,7 @@ export const NewPostTitle = styled.div`
 `;
 
 export const NewPostContainer = styled.form`
-  height: 1000px;
+  height: 1050px;
   border: 1px solid #9b9b9b;
   border-radius: 8px;
   margin-top: 49px;
@@ -71,6 +71,17 @@ export const TitleInput = styled.input`
   &:valid::before {
     display: none;
   }
+`;
+
+export const TextArea = styled.textarea`
+  width: 500px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid #9b9b9b;
+  border-radius: 8px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  resize: none;
 `;
 
 export const TreeGridBox = styled.div`

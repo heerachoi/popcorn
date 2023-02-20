@@ -49,6 +49,17 @@ export const ReportTitleInput = styled.input`
   }
 `;
 
+export const TextArea = styled.textarea`
+  width: 500px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid #9b9b9b;
+  border-radius: 8px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  resize: none;
+`;
+
 export const StoreImgLabel = styled.label`
   height: 150px;
   width: 150px;
@@ -70,8 +81,8 @@ export const ButtonBox = styled.div`
 export const CancleAddButton = styled.button`
   border: 1px solid #9b9b9b;
   border-radius: 8px;
-  margin: 15px;
-  margin-bottom: 22px;
+  margin: 0 15px;
+  margin-bottom: 48px;
   width: 150px;
   height: 50px;
 

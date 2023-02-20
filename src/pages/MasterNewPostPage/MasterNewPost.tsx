@@ -140,7 +140,7 @@ const MasterNewPost = () => {
   };
 
   return (
-    <S.NewPostWrap>      
+    <S.NewPostWrap>
       <S.TitleBackground />
       <S.NewPostTitle>새 게시물 작성</S.NewPostTitle>
       <S.NewPostContainer onSubmit={newPostAddHandler}>
@@ -207,7 +207,6 @@ const MasterNewPost = () => {
         <S.PostGrid>
           <S.PostTitle>특이사항</S.PostTitle>
           <S.TitleInput
-            style={{ height: '60px' }}
             type="text"
             placeholder="특이사항 (ex:월요일 휴무, 금요일만 20시 마감)"
             name="significantContent"
@@ -217,8 +216,8 @@ const MasterNewPost = () => {
         </S.PostGrid>
         <S.PostGrid>
           <S.PostTitle>팝업스토어 설명</S.PostTitle>
-          <S.TitleInput
-            type="text"
+          <S.TextArea
+            style={{ height: 100 }}
             placeholder="팝업스토어에 대한 설명을 입력해 주세요."
             name="explain"
             onChange={newPostInputChangeHandler}
