@@ -7,8 +7,10 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { Store } from '../../types/data/storeInterface';
 import datas from '../../data/popupStore.json';
+import { useNavigate } from 'react-router-dom';
 
 const MasterNewPost = () => {
+  const navigate = useNavigate();
   const initialState: Store = {
     id: '',
     view: {},
@@ -50,10 +52,8 @@ const MasterNewPost = () => {
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const target = event.currentTarget;
-    console.log('target', target);
 
     const theFile = (target.files as FileList)[0]; // 이벤트로부터 파일을 얻어와서 첫 번째 파일만 받음
-    console.log('theFile', theFile);
     setFileName(theFile.name);
 
     const reader = new FileReader();
@@ -61,13 +61,10 @@ const MasterNewPost = () => {
 
     reader.onloadend = (finishedEvent: any) => {
       setImgFile(finishedEvent.currentTarget.result);
-      console.log(
-        'finishedEvent.currentTarget.result',
-        finishedEvent.currentTarget.result,
-      );
     };
   };
 
+  // 작성하기 버튼 클릭 시 새 게시물 db에 추가
   const newPostAddHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -136,13 +133,15 @@ const MasterNewPost = () => {
       setImgFile('');
 
       alert('작성 완료!');
+      navigate('/master');
     } catch (err) {
       console.log(err);
     }
   };
 
   return (
-    <S.NewPostWrap>
+    <S.NewPostWrap>      
+      <S.TitleBackground />
       <S.NewPostTitle>새 게시물 작성</S.NewPostTitle>
       <S.NewPostContainer onSubmit={newPostAddHandler}>
         <S.PostGrid>
@@ -205,28 +204,6 @@ const MasterNewPost = () => {
             value={newPostInput.closeTime}
           />
         </S.TreeGridBox>
-        {/* <S.TreeGridBox>
-          <S.PostTitle>
-            영업시간
-            <div>(주말)</div>
-          </S.PostTitle>
-          <S.TitleInput
-            style={{ width: 200 }}
-            type="text"
-            placeholder="오픈시간"
-            name="weekendOpeningTime"
-            onChange={newPostInputChangeHandler}
-            value={newPostInput.weekendOpeningTime}
-          />
-          <S.TitleInput
-            style={{ width: 200 }}
-            type="text"
-            placeholder="마감시간"
-            name="weekendCloseTime"
-            onChange={newPostInputChangeHandler}
-            value={newPostInput.closeTime}
-          />
-        </S.TreeGridBox> */}
         <S.PostGrid>
           <S.PostTitle>특이사항</S.PostTitle>
           <S.TitleInput
@@ -281,7 +258,7 @@ const MasterNewPost = () => {
         <S.PostGrid>
           <S.PostTitle>이미지</S.PostTitle>
           <S.ImgLabel htmlFor="newPostImg">
-            <BiImageAdd />
+            <BiImageAdd style={{ fontSize: '60px' }} />
             {imgFile && (
               <img src={imgFile} style={{ width: 150, height: 150 }} />
             )}
@@ -296,7 +273,7 @@ const MasterNewPost = () => {
         </S.PostGrid>
         <S.BtnBox>
           <S.CancleAddBtn
-            style={{ backgroundColor: '#F5F5F5', color: '#9B9B9B' }}
+            style={{ backgroundColor: 'white', color: '#9B9B9B' }}
           >
             취소
           </S.CancleAddBtn>

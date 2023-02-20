@@ -1,17 +1,8 @@
-import { useRef, useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getTodayDate } from '../../../utils/FormatDate';
 import data from '../../../data/popupStore.json';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import * as S from './style'
-
-// Slider
-import Slider from "react-slick";
-
-import styled from 'styled-components';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const ClosingSoonSwiper: React.FC = () => {
   const navigate = useNavigate();
@@ -40,7 +31,7 @@ const ClosingSoonSwiper: React.FC = () => {
     slidesToShow: 3,
     slidesToScroll: 3,
     arrow: true,
-    
+     variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -72,7 +63,7 @@ const ClosingSoonSwiper: React.FC = () => {
    return (
         <S.SwiperContainer {...settings}>
           {closingSoonList.map((popup) => (
-            <S.SwiperSlider
+            <S.StoreContainer
               key={popup.id}
               onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
             >
@@ -83,8 +74,13 @@ const ClosingSoonSwiper: React.FC = () => {
             {popup.open} - {popup.close}
             </S.PopupDate>
             <S.PopupAddress>{popup.address}</S.PopupAddress>
+            <S.CategoryContainer>
+              <S.Category onClick={() => navigate(`/search`)}>{popup.location}</S.Category>
+              <S.Category onClick={() => navigate(`/search`)}>{popup.category}</S.Category>
+              <S.Category onClick={() => navigate(`/search`)}>{popup.item}</S.Category>
+            </S.CategoryContainer>
             </S.StoreInformation>
-            </S.SwiperSlider>
+            </S.StoreContainer>
           ))}
         </S.SwiperContainer>
     

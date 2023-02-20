@@ -37,7 +37,7 @@ const NewStoreReportDetail = () => {
   const checkHandler = () => {
     alert('확인');
     navigate('/master');
-    return axios.patch(`http://localhost:3010/newStores/${paramId.id}`, {
+    return axios.patch(`http://localhost:3002/newStores/${paramId.id}`, {
       status: !currentState,
     });
   };
@@ -94,7 +94,7 @@ const NewStoreReportDetail = () => {
                   </S.ReportContentText>
                 </S.Grid>
                 <S.ButtonBox>
-                  <S.CheckBtn onClick={() => navigate('/master')}>
+                  <S.CheckBtn style={{ backgroundColor: 'white', color: '#9B9B9B' }} onClick={() => navigate('/master')}>
                     취소
                   </S.CheckBtn>
                   <S.CheckBtn onClick={checkHandler}>확인</S.CheckBtn>

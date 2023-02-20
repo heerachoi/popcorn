@@ -7,9 +7,23 @@ import styled from 'styled-components';
 
 const SignUpBtn = styled.button`
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid #323232;
-  border-radius: 4px;
+  font-size: 20px;
+  position: relative;
+  top: -8px;
+  border: none;
+  background-color: transparent;
+`;
+
+export const BtnBox = styled.div``;
+
+export const TextBackground = styled.div`
+  width: 80px;
+  height: 20px;
+  background-color: #ffeb62;
+  position: absolute;
+  box-sizing: border-box;
+  padding-left: 20px;
+  border-radius: 12px;
 `;
 
 const Logout = () => {
@@ -41,7 +55,12 @@ const Logout = () => {
     }
   };
 
-  return <SignUpBtn onClick={SignOutClickHandler}>로그아웃</SignUpBtn>;
+  return (
+    <BtnBox>
+      <TextBackground />
+      <SignUpBtn onClick={SignOutClickHandler}>로그아웃</SignUpBtn>
+    </BtnBox>
+  );
 };
 
 export default Logout;

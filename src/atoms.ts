@@ -57,6 +57,11 @@ export const popupList = atom<any>({
   default: [],
 });
 
+export const isActiveMenu = atom<number>({
+  key: 'isActiveMenu',
+  default: 0,
+});
+
 // export const mapCategorySelector = selector<any>({
 //   key: 'mapCategorySelector',
 //   get: async ({ get }) => {
