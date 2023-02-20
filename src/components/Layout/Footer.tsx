@@ -3,6 +3,9 @@ import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { isActiveMenu } from '../../atoms';
 import Faq from '../CustomerCenter/FAQ/Faq';
+import Vector from '../../assets/Logo/Vector.png';
+import popcornLogo from '../../assets/Logo/popcorn_logo.png';
+import DefaultLogo from '../../assets/Logo/State=Default.png';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -38,14 +41,20 @@ const Footer = () => {
   return (
     <FooterWrap>
       <FooterTitleWrap>
-        <FooterTitle>POPCORN</FooterTitle>
+        <FooterTitle
+          // src={require('../../assets/Logo/State=Default.png')}
+          // alt="타이틀"
+          onClick={() => navigate('/')}
+        ></FooterTitle>
       </FooterTitleWrap>
       <FooterMenuWrap>
         {menuArr.map((item: any, i: any) => {
           return (
-            <FooterMenu key={item.id} onClick={() => tabClickHandler(i)}>
-              {item.tabTitle}
-            </FooterMenu>
+            <TextBackground>
+              <FooterMenu key={item.id} onClick={() => tabClickHandler(i)}>
+                {item.tabTitle}
+              </FooterMenu>
+            </TextBackground>
           );
         })}
       </FooterMenuWrap>
@@ -55,20 +64,29 @@ const Footer = () => {
 
 export default Footer;
 
+// Styled 컴포넌트에서 배경 이미지 추가하는 방법
+// 1. import 사용할 이미지를 한다.
+// 2. ${} 안에 import 한 값을 넣어준다.
 const FooterWrap = styled.div`
+  height: 250px;
   margin-top: 50px;
-  height: 300px;
-  background-color: #ffeb62;
   display: flex;
   justify-content: space-around;
+  background-image: url(${Vector});
+  background-size: cover;
 `;
-
 const FooterTitleWrap = styled.div`
-  padding: 40px 0;
+  padding: 90px 30px;
 `;
-const FooterTitle = styled.span`
-  font-size: 70px;
-  font-weight: 600;
+const FooterTitle = styled.div`
+  cursor: pointer;
+  width: 200px;
+  height: 50px;
+  background-image: url(${DefaultLogo});
+  background-repeat: no-repeat;
+  &:hover {
+    background-image: url(${popcornLogo});
+  }
 `;
 const FooterMenuWrap = styled.div`
   width: 350px;
@@ -79,8 +97,23 @@ const FooterMenuWrap = styled.div`
 `;
 const FooterMenu = styled.button`
   cursor: pointer;
-  font-size: 18px;
-  font-weight: 400;
+  position: relative;
+  top: -8px;
   border: none;
   background-color: transparent;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+`;
+
+export const TextBackground = styled.div`
+  height: 20px;
+  background-color: #ffeb62;
+  /* position: absolute; */
+  box-sizing: border-box;
+  border-radius: 12px;
+  &:hover {
+    background-color: #ffb321;
+  }
 `;
