@@ -1,12 +1,24 @@
 import styled from 'styled-components';
 
 export const NewPostWrap = styled.div`
-  /* background-color: beige; */
   max-width: 1040px;
   width: 100%;
   margin: 0 auto;
 `;
+
+export const TitleBackground = styled.div`
+  width: 210px;
+  height: 30px;
+  background-color: #ffeb62;
+  position: absolute;
+  box-sizing: border-box;
+  padding-left: 20px;
+  border-radius: 12px;
+  right: 858px;
+  top: 140px;
+`;
 export const NewPostTitle = styled.div`
+  position: relative;
   text-align: center;
   margin-top: 48px;
   font-family: 'Apple SD Gothic Neo';
@@ -92,6 +104,7 @@ export const CancleAddBtn = styled.button`
   border: 1px solid #9b9b9b;
   border-radius: 8px;
   margin: 15px;
+  margin-bottom: 22px;
   width: 150px;
   height: 50px;
 

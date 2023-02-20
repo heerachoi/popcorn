@@ -140,7 +140,8 @@ const MasterNewPost = () => {
   };
 
   return (
-    <S.NewPostWrap>
+    <S.NewPostWrap>      
+      <S.TitleBackground />
       <S.NewPostTitle>새 게시물 작성</S.NewPostTitle>
       <S.NewPostContainer onSubmit={newPostAddHandler}>
         <S.PostGrid>
@@ -257,7 +258,7 @@ const MasterNewPost = () => {
         <S.PostGrid>
           <S.PostTitle>이미지</S.PostTitle>
           <S.ImgLabel htmlFor="newPostImg">
-            <BiImageAdd style={{fontSize:'60px'}}/>
+            <BiImageAdd style={{ fontSize: '60px' }} />
             {imgFile && (
               <img src={imgFile} style={{ width: 150, height: 150 }} />
             )}

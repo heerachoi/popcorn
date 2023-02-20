@@ -9,7 +9,18 @@ export const CustomerCenterTitle = styled.div`
   margin: 48px 0;
 `;
 
-export const TitleText = styled.h1``;
+export const TitleBackground = styled.div`
+  width: 140px;
+  height: 23px;
+  background-color: #ffeb62;
+  position: absolute;
+  box-sizing: border-box;
+  padding-left: 20px;
+  border-radius: 12px;
+`;
+export const TitleText = styled.h1`
+position: relative;
+`;
 
 export const CustomerCenterContainer = styled.div`
   box-sizing: border-box;
@@ -38,9 +49,7 @@ export const TabMenu = styled.ul`
   }
 `;
 
-export const TabTitleBox = styled.div`
-
-`;
+export const TabTitleBox = styled.div``;
 
 export const MenuTitleTabBtn = styled.button`
   font-family: 'Apple SD Gothic Neo';

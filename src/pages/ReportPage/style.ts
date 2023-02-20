@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const ReportWrap = styled.div``;
+export const ReportWrap = styled.div`
+  max-width: 1040px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+`;
 export const ReportContainer = styled.div`
   box-sizing: border-box;
   max-width: 1040px;
@@ -10,7 +15,6 @@ export const ReportContainer = styled.div`
   border: 1px solid #9b9b9b;
   padding: 0 51px;
   border-radius: 8px;
-  margin-top: 48px;
   background-color: #f5f5f5;
 `;
 

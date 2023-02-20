@@ -35,6 +35,7 @@ const CustomerCenterPage: any = () => {
   return (
     <S.CustomerCenterWrap>
       <S.CustomerCenterTitle>
+        <S.TitleBackground />
         <S.TitleText>고객센터</S.TitleText>
       </S.CustomerCenterTitle>
       <S.CustomerCenterContainer>

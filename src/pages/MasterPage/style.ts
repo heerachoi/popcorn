@@ -76,5 +76,7 @@ export const WriteBtn = styled.button`
 
   &:hover {
     cursor: pointer;
+    background-color: #f2901d;
+    color: #fff9d2
   }
 `;

@@ -71,6 +71,7 @@ export const CancleAddButton = styled.button`
   border: 1px solid #9b9b9b;
   border-radius: 8px;
   margin: 15px;
+  margin-bottom: 22px;
   width: 150px;
   height: 50px;
 

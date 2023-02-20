@@ -24,6 +24,7 @@ export const ReportContentListWrap = styled.div`
 
 export const GridBox = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
+  
   border-radius: 10px;
   background: #f5f5f5;
   max-height: 900px;
@@ -66,6 +67,7 @@ export const CheckBtn = styled.button`
   border: 1px solid #9b9b9b;
   border-radius: 8px;
   margin: 15px;
+  margin-bottom: 22px;
   width: 150px;
   height: 50px;
 
