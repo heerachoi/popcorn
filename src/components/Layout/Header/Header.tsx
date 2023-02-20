@@ -57,7 +57,7 @@ const Header = () => {
             </S.CategoryBtn>
           </TextBackground>
           {!user.isLogin && (
-            <TextBackground>
+            <TextBackground style={{ width: 110 }}>
               <S.CategoryBtn onClick={() => navigate('/signup')}>
                 회원가입
               </S.CategoryBtn>
@@ -66,7 +66,7 @@ const Header = () => {
           {user.isLogin ? (
             <Logout />
           ) : (
-            <TextBackground>
+            <TextBackground style={{ width: 100 }}>
               <S.CategoryBtn onClick={() => navigate('/login')}>
                 로그인
               </S.CategoryBtn>
