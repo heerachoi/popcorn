@@ -74,9 +74,21 @@ const CategorySwiper:React.FC = () => {
             </S.PopupDate>
             <S.PopupAddress>{popup.address}</S.PopupAddress>
             <S.CategoryContainer>
-              <S.Category onClick={() => navigate(`/search`)}>{popup.location}</S.Category>
-              <S.Category onClick={() => navigate(`/search`)}>{popup.category}</S.Category>
-              <S.Category onClick={() => navigate(`/search`)}>{popup.item}</S.Category>
+              <S.Category onClick={(event) => { 
+                  event.stopPropagation(); 
+                  navigate(`/search?location=${popup.location}`);
+                }}> 
+                {popup.location} 
+              </S.Category>
+              <S.Category onClick={(event) => {
+                  event.stopPropagation();
+                  navigate(`/search?category=${popup.category}`);
+                }}>{popup.category}
+              </S.Category>
+              <S.Category onClick={(event) => {
+                  event.stopPropagation();
+                  navigate(`/search?item=${popup.item}`);
+                }}>{popup.item}</S.Category>
             </S.CategoryContainer>
             </S.StoreInformation>
             </S.StoreContainer>

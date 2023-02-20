@@ -22,8 +22,11 @@ import useOtherModal from '../../hooks/useOtherModal';
 import Modal from '../../components/SearchPage/SearchModal/SearchModal';
 import { ModalButtonData } from '../../data/ModalButtonData/ModalButtonData';
 import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
+import { useNavigate } from 'react-router-dom';
 
 const Search: React.FC = () => {
+  const navigate = useNavigate();
+
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(datas.Store);
   // 팝업 스토어 필터된 리스트
@@ -163,7 +166,6 @@ const Search: React.FC = () => {
     } else {
       setSaveDatePickerList(datas.Store);
     }
-    // startFilter();
   };
 
   // 팝업 기간
@@ -203,15 +205,7 @@ const Search: React.FC = () => {
   // 지역 필터
   // 위치 모달 결과 - 전체리스트에서 LocationFilter에 true인 것만 가져온다.
   const locationFilterList = useRecoilValue(ModalButtonData);
-
-  // console.log(locationFilterList);
-  // 모달 필터 값 출력....전체만뜬다.
-  // const printModalResult = () => {
-  //   const filterList = locationFilterList.length;
-  //   const [modalResultList, setModalResultList] =  useState<string[]>([]);
-
-  // }
-
+  console.log('locationFilterList',locationFilterList);
   const locationFilterHandler = () => {
     if (locationFilterList[0].label === '전체') {
       setSaveLocationtList(datas.Store);
@@ -292,6 +286,17 @@ const Search: React.FC = () => {
   const modalClickHandler = (event: any) => {
     toggle(event);
   };
+
+  //현제 URL
+  // const currentUrl = window.location.href;
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const searchParam = urlParams.get('location');
+  if (searchParam != null) {
+  const decodedSearch = decodeURIComponent(searchParam); // "서울"
+      console.log(decodedSearch);
+
+  }
 
   return (
     <S.SearchPageContainer>
@@ -390,14 +395,33 @@ const Search: React.FC = () => {
       </S.FilterContainer>
       <S.FilterResultAndCalendarContainer>
         <S.FilterResult>
-          {storeList.map((store: any, index: any) => {
+          {storeList.map((popup: Store) => {
             return (
-              <S.StoreContainer key={index}>
-                <S.PosterImg src={store.imgURL[0]} />
-                <S.StoreTitle>{store.title}</S.StoreTitle>
-                <S.EventPeriod>
-                  {store.open} - {store.close}
-                </S.EventPeriod>
+              <S.StoreContainer key={popup.id} onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
+                <S.PosterImg src={popup.imgURL[0]} />
+                <S.StoreInformation>
+                  <S.StoreTitle>{popup.title}</S.StoreTitle>
+                  <S.EventPeriod>
+                    {popup.open} - {popup.close}
+                  </S.EventPeriod>
+                  <S.CategoryContainer>
+                  <S.Category onClick={(event) => { 
+                      event.stopPropagation(); 
+                      navigate(`/search?location=${popup.location}`);
+                    }}> 
+                    {popup.location} 
+                  </S.Category>
+                  <S.Category onClick={(event) => {
+                      event.stopPropagation();
+                      navigate(`/search?category=${popup.category}`);
+                    }}>{popup.category}
+                  </S.Category>
+                  <S.Category onClick={(event) => {
+                      event.stopPropagation();
+                      navigate(`/search?item=${popup.item}`);
+                    }}>{popup.item}</S.Category>
+                </S.CategoryContainer>
+                </S.StoreInformation>
               </S.StoreContainer>
             );
           })}

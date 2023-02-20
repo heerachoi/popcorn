@@ -20,7 +20,7 @@ const Banner: any = () => {
   return (
     <StyledSlider {...settings}>
       <IMG>
-        <Link to="/detail/${popup.id}">
+        <Link to="/detail">
           <img src={popcornBnr1} alt="배너1" />
         </Link>
       </IMG>
