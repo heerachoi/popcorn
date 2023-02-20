@@ -8,7 +8,7 @@ import { BsBookmarkFill } from 'react-icons/bs';
 interface Props {
   detailData: any;
 }
-const BookMarkList = ({ detailData }: Props) => {
+const BookmarkList = ({ detailData }: Props) => {
   const bookmarkList = data.BookMarkList;
 
   const navigate = useNavigate();
@@ -56,4 +56,4 @@ const BookMarkList = ({ detailData }: Props) => {
   );
 };
 
-export default BookMarkList;
+export default BookmarkList;
