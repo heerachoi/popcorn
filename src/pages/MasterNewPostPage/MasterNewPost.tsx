@@ -127,16 +127,16 @@ const MasterNewPost = () => {
     };
 
     //db에 추가
-    try {
-      axios.post('http://localhost:3010/Store', NewPost);
-      setNewPostInput(initialState);
-      setImgFile('');
+    // try {
+    //   axios.post('http://localhost:3010/Store', NewPost);
+    //   setNewPostInput(initialState);
+    //   setImgFile('');
 
-      alert('작성 완료!');
-      navigate('/master');
-    } catch (err) {
-      console.log(err);
-    }
+    //   alert('작성 완료!');
+    //   navigate('/master');
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
   return (

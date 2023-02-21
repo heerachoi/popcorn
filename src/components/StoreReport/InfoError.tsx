@@ -170,8 +170,14 @@ const InfoError: any = () => {
       </S.ReportGrid>
       <S.ReportGrid>
         <S.ReportTitle>정보 오류</S.ReportTitle>
+<<<<<<< HEAD
+        <S.ReportTitleInput
+          style={{ height: 100 }}
+          type="text"
+=======
         <S.TextArea
           style={{ height: 100 }}
+>>>>>>> 4a3cfadb8a1c2abc75ca37141beecfb46bbc9a2f
           name="infoErrContent"
           placeholder='정보 오류 내용을 입력해 주세요. 없을 시 "없음"으로 입력해 주세요.'
           required
@@ -181,8 +187,14 @@ const InfoError: any = () => {
       </S.ReportGrid>
       <S.ReportGrid>
         <S.ReportTitle>정보 수정</S.ReportTitle>
+<<<<<<< HEAD
+        <S.ReportTitleInput
+          style={{ height: 100 }}
+          type="text"
+=======
         <S.TextArea
           style={{ height: 100 }}
+>>>>>>> 4a3cfadb8a1c2abc75ca37141beecfb46bbc9a2f
           name="infoModifiContent"
           placeholder='정보 수정 내용을 입력해 주세요. 없을 시 "없음"으로 입력해 주세요.'
           required
