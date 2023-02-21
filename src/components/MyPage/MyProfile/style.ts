@@ -1,6 +1,19 @@
 import styled from 'styled-components';
 
-export const MyPageAll = styled.div``;
+export const MyPageAll = styled.div`
+/* max-width: 1040px;
+width: 100%;
+background-color: beige; */
+`;
+
+export const MyPageContainer = styled.div`
+background-color: beige;
+max-width: 1440px;
+width: 100%;
+height: 1621px;
+margin: 0 auto;
+`
+
 export const MyProfileBox = styled.div`
   /* Rectangle 304 */
   box-sizing: border-box;
@@ -8,8 +21,8 @@ export const MyProfileBox = styled.div`
   position: relative;
   width: 336px;
   height: 1084px;
-  left: 200px;
-  top: 142px;
+  left: 130px;
+  top: 80px;
 
   /* txt2 */
   border: 2px solid #ffeb62;
