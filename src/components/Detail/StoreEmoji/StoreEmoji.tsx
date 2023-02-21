@@ -6,6 +6,9 @@ import * as S from './style';
 
 const StoreEmoji: any = () => {
   const { data } = useQuery('newStores', getNewStoreReport)
+ 
+
+
 
   // 버튼 테스트
   const iconOnClick = () => {

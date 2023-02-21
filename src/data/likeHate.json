@@ -1,0 +1,10 @@
+{
+    "likeHate" : [
+        {
+            "id" : "uuid",
+            "storeId" : "",
+            "userId" : "",
+            "vote" : "like"
+        }
+    ]
+}

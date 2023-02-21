@@ -1148,7 +1148,7 @@
       "address": "서울특별시 마포구 홍익로6길 23 인생네컷 동교점",
       "open": "2023-01-20",
       "close": "2023-04-02",
-      "location": "",
+      "location": "서울",
       "item": "기타",
       "openingTime": [
         "10:00",
@@ -1177,7 +1177,7 @@
       ],
       "lat": "",
       "lon": "",
-      "category": "",
+      "category": "팝업스토어",
       "reserveURL": ""
     }
   ]
