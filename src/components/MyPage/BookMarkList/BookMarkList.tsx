@@ -1,14 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import data from '../../../data/bookmarkList.json';
+import data from '../../../data/bookMarkList.json';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { BsBookmarkFill } from 'react-icons/bs';
 
-
 const BookMarkList = () => {
-
-
   const bookmarkList = data.BookMarkList;
 
   const navigate = useNavigate();
