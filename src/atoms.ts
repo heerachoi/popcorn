@@ -62,6 +62,10 @@ export const isActiveMenu = atom<number>({
   default: 0,
 });
 
+export const globalBtn = atom<boolean>({
+  key: 'globalBtn',
+  default: false,
+});
 // export const mapCategorySelector = selector<any>({
 //   key: 'mapCategorySelector',
 //   get: async ({ get }) => {
