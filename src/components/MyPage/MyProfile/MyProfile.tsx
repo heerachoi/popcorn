@@ -7,6 +7,7 @@ import * as S from './style';
 import MyPageTab from '../MyPageTab/MyPageTab';
 import DeleteAccount from '../../Authentication/DeleteAccount/DeleteAccount';
 import React from 'react';
+import MyProfileEditModal from './MyProfileEditModal';
 const MyProfile = () => {
   const [nickname, setNickname] = useState<any>(''); // 닉네임
   // 현재 유저를 나타내며, 수정 완료 버튼을 누르기 전까지 currentUser의 displayName은 이전에 설정해두었던 닉네임을 가리킨다.
@@ -145,6 +146,7 @@ const MyProfile = () => {
         {/* 북마크/내가 쓴 제보 */}
         <MyPageTab />
       </S.MyPageContainer>
+
     </S.MyPageAll>
   );  
 };
