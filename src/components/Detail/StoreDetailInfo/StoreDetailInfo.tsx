@@ -146,14 +146,14 @@ const StoreDetailInfo = ({ detailData }: Props) => {
             <S.Title>{detailData?.title}</S.Title>
             <S.SideTitleWrap>
               <S.SideTitleIconText>
-                <S.SideTitleIcon>{detailData?.view.all}</S.SideTitleIcon>
-                <S.SideTitleText>조회수</S.SideTitleText>
+                <S.SideTitleIcon style={{marginBottom:'6px'}}>{detailData?.view.all}</S.SideTitleIcon>
+                <S.SideTitleText  style={{marginBottom:'8px'}}>조회수</S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>
-                  <TbClock />
+                  <S.ReserveImg src={require('../../../assets/Img/예약.png')} />
                 </S.SideTitleIcon>
-                <S.SideTitleText>
+                <S.SideTitleText style={{marginBottom:'8px'}}>
                   <Link
                     to={detailData?.reserveURL}
                     target="_blank"
@@ -165,11 +165,14 @@ const StoreDetailInfo = ({ detailData }: Props) => {
               </S.SideTitleIconText>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>
-                  <MdIosShare />
+                  <S.ReserveImg
+                    src={require('../../../assets/Img/State=Default.png')}
+                  />
                 </S.SideTitleIcon>
+
                 <S.SideTitleText>
-                  {/* 공유 */}
                   <KakaoShare detailData={detailData} />
+                  공유
                 </S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
@@ -277,7 +280,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
       {/* 하단 선 */}
       <S.Hr />
       {/* 좋아요/별로에요 이모티콘 컴포넌트 */}
-      <StoreEmoji />
+      <StoreEmoji detailData={detailData} />
     </S.StoreDetailInfoWrap>
   );
 };

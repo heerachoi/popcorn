@@ -1,0 +1,40 @@
+{
+  "likeHate": [
+    {
+      "id": "uuid",
+      "storeId": "",
+      "userId": "",
+      "vote": "like"
+    },
+    {
+      "id": "8fbef966-2cdc-4e11-9312-a4b67ca67815",
+      "storeId": "2",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "like"
+    },
+    {
+      "id": "33ebc001-f7e1-4126-b568-7237546cee96",
+      "storeId": "2",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "like"
+    },
+    {
+      "id": "47e903af-e680-4a3d-b121-5f5a5f62adf1",
+      "storeId": "2",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "like"
+    },
+    {
+      "id": "f7d9922c-f217-45c0-88e5-d191b632f6aa",
+      "storeId": "2",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "like"
+    },
+    {
+      "id": "c42f81d1-fa4b-485b-94c0-8cbb544afead",
+      "storeId": "2",
+      "userId": "",
+      "vote": "like"
+    }
+  ]
+}

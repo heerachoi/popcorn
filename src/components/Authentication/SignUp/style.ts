@@ -1,4 +1,3 @@
-import Select from 'react-select';
 import styled from 'styled-components';
 import arrow from '../../../assets/Logo/🦆 icon _circle chevron down_.png';
 import calendar from '../../../assets/Logo/🦆 icon _calendar_.png';

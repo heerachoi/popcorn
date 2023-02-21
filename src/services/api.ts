@@ -52,3 +52,8 @@ export const getUser = async () => {
   const { data } = await axios.get('http://localhost:4000/users');
   return data;
 };
+
+export const getLikeHate = async () => {
+  const { data} = await axios.get('http://localhost:3003/likeHate')
+  return data
+}
