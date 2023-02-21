@@ -1,0 +1,48 @@
+{
+  "BookMarkList": [
+    {
+      "id": "e9b874ef-aaff-4b78-80bc-65d455617c90",
+      "storeId": "4",
+      "userId": "qOW94Q60fyNvbvzLm7R2csHBRoe2",
+      "notification": false,
+      "title": "Gram Style Lab with Musinsa",
+      "open": "2023.02.19",
+      "close": "2023.02.06",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.37.16.png?alt=media&token=fd4c6878-16c8-4d18-bbd9-cae133fb4890",
+      "status": false
+    },
+    {
+      "id": "c38e73b6-e9fc-4a41-809b-bf5decc05686",
+      "storeId": "7",
+      "userId": "qOW94Q60fyNvbvzLm7R2csHBRoe2",
+      "notification": false,
+      "title": "PARTEZ! THE MUSEUM",
+      "open": "2023.01.26",
+      "close": "2023.02.21",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Partez%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.47.27.png?alt=media&token=aaf5057b-9447-4b34-83a0-c5c2c4105ee5",
+      "status": false
+    },
+    {
+      "id": "dad9630e-789b-407f-ad87-a12de0c7757e",
+      "storeId": "0",
+      "userId": "qOW94Q60fyNvbvzLm7R2csHBRoe2",
+      "notification": false,
+      "title": "Fluffy Keyring News",
+      "open": "2023.02.19",
+      "close": "2023.02.06",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b",
+      "status": false
+    },
+    {
+      "id": "d8d67887-1123-41ce-b020-14b220a445be",
+      "storeId": "0",
+      "userId": "qOW94Q60fyNvbvzLm7R2csHBRoe2",
+      "notification": false,
+      "title": "Fluffy Keyring News",
+      "open": "2023.02.19",
+      "close": "2023.02.06",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b",
+      "status": false
+    }
+  ]
+}

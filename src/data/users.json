@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "age": "1995-04-12",
+      "email": "abcwockd95@naver.com",
+      "gender": "men",
+      "nickName": null,
+      "phoneNumber": "01010111010",
+      "profileImg": null,
+      "id": "28ydef0rWWPfoH3Xd1pK7XlGcko1"
+    },
+    {
+      "age": "1995-04-12",
+      "email": "ewklfjewkf@naver.com",
+      "gender": "men",
+      "nickName": null,
+      "phoneNumber": "",
+      "profileImg": null,
+      "id": "PDXIa4NMVehSvPgQZV9SC5g4QNP2"
+    },
+    {
+      "age": "1995-04-12",
+      "email": "wockdwockd12@naver.com",
+      "gender": "men",
+      "nickName": "재창2",
+      "phoneNumber": "01063183932",
+      "profileImg": null,
+      "id": "ZIRyxRAFhsXadM45tJWeO5DAOD92"
+    }
+  ]
+}
