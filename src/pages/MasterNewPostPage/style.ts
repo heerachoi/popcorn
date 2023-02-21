@@ -14,7 +14,7 @@ export const TitleBackground = styled.div`
   box-sizing: border-box;
   padding-left: 20px;
   border-radius: 12px;
-  right: 858px;
+  right: 950px;
   top: 120px;
 `;
 
