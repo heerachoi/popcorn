@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import COLORS from '../../assets/CSS/colors';
 
 export const SearchPageContainer = styled.div`
   width: 80%;
@@ -15,31 +16,67 @@ export const FilterContainer = styled.div`
   gap:10px;
 `
 
-export const SearchItemContainer = styled.div`
-  border: 1px solid #A6A6A6;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: row;
-  box-sizing: border-box;
-  padding: 7px 20px;
-`
-
-export const SearchTagContainer = styled.div`
+export const SearchInputContainer = styled.div`
   display: flex; 
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #BDBDBD;
+  border-radius: 20px;
+  width: 420px;
+  height: 28px;
+  padding: 8px 16px;
   cursor:pointer;
+  gap: 4px;
 `
 
 export const FilterTitle = styled.div`
+  width: 45px;
+  font-weight: 700;
   font-size: 16px;
+  color: ${COLORS.orange1};
 `
 
 export const SearchInput = styled.input`
-  font-size: 13px;
   border: none;
   outline: none;
-  
-  border-radius: 3px;
+  font-size: 16px;
+  color: #9B9B9B;
+  width: 300px;
+`
+
+export const SearchItemContainer = styled.div`
+  /* border: 1px solid #BDBDBD;
+  border-radius: 20px;
+  width: 420px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  padding: 8px 16px; */
+`
+
+export const SearchTagContainer = styled.div`
+  /* border: 1px solid #BDBDBD;
+  border-radius: 20px;
+  width: 420px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  padding: 8px 16px; */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 16px 3px;
+
+  /* width: 120px; */
+  height: 28px;
+
+  background: #FFF9D2;
+
+  border: 1px solid #FFB321;
+  border-radius: 20px;
+  color: #F2901D;
 `
 
 export const SearchEventPeriod = styled.select`

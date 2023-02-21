@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../services/firebase';
+import { AiFillLeftCircle } from 'react-icons/ai';
+import styled from 'styled-components';
 interface SignInInput {
   email: string;
   password: string;
@@ -33,6 +35,13 @@ const Login = () => {
     setSignInInput({
       ...signInInput,
       [event.target.name]: event.target.value,
+    });
+  };
+
+  const signInInputReset = (event: React.MouseEvent<HTMLDivElement>) => {
+    setSignInInput({
+      ...signInInput,
+      [event.currentTarget.className]: '',
     });
   };
 
@@ -130,39 +139,66 @@ const Login = () => {
   return (
     <S.Wrap>
       <S.LoginImgWrap>
-        <S.LoginImg>이미지</S.LoginImg>
+        <S.LoginImg
+          src={require('../../../assets/Logo/Frame_59.png')}
+          alt="로그인 Logo"
+        />
       </S.LoginImgWrap>
       <S.TitleWrap>
-        <S.Title>로그인</S.Title>
+        <S.TextBackground>
+          <S.Title>로그인</S.Title>
+        </S.TextBackground>
       </S.TitleWrap>
       <S.FormWrap onSubmit={signInClickHandler}>
         <S.FormInput
+          placeholder="아이디를 입력해 주세요."
           value={signInInput.email}
           name="email"
           type="text"
           onChange={signInInputChangeHandler}
           onBlur={validateEmail}
         />
-        <S.HelperText style={{ color: 'red' }}>{helperText.email}</S.HelperText>
+        {signInInput.email && (
+          <div
+            style={{ cursor: 'pointer' }}
+            className="email"
+            onClick={signInInputReset}
+          >
+            <S.CancleIcon size={18} />
+          </div>
+        )}
+        <S.HelperText>{helperText.email}</S.HelperText>
         <S.FormInput
+          placeholder="비밀번호를 입력해 주세요."
           value={signInInput.password}
           name="password"
           type="password"
           onChange={signInInputChangeHandler}
           onBlur={validatePassword}
         />
-        <S.HelperText style={{ color: 'red' }}>
-          {helperText.password}
-        </S.HelperText>
-        <S.FormBtnWrap>
-          <S.NavigateBtn onClick={() => navigate('/signup')}>
-            회원가입 하러가기
-          </S.NavigateBtn>
-          <S.NavigateBtn onClick={() => navigate('/')}>
-            홈으로 이동하기
+        {signInInput.password && (
+          <div
+            style={{ cursor: 'pointer' }}
+            className="password"
+            onClick={signInInputReset}
+          >
+            <S.CancleIcon size={18} />
+          </div>
+        )}
+        <S.HelperText>{helperText.password}</S.HelperText>
+        <S.LoginBtn>로그인</S.LoginBtn>
+        <S.FormBtnWrap onClick={() => navigate('/')}>
+          <AiFillLeftCircle style={{ color: '#9b9b9b' }} size={18} />
+          <S.NavigateBtn style={{ cursor: 'pointer' }}>
+            홈으로 이동
           </S.NavigateBtn>
         </S.FormBtnWrap>
-        <S.LoginBtn>로그인</S.LoginBtn>
+        <S.FormSignWrap>
+          <S.NavigateBtn as="span" onClick={() => navigate('/signup')}>
+            아직 회원이 아니신가요?
+          </S.NavigateBtn>
+          <S.SignUpBtn>회원가입</S.SignUpBtn>
+        </S.FormSignWrap>
       </S.FormWrap>
     </S.Wrap>
   );
