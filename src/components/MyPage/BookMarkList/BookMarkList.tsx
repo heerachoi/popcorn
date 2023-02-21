@@ -5,10 +5,17 @@ import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { BsBookmarkFill } from 'react-icons/bs';
 
+<<<<<<< HEAD
+// interface Props {
+//   detailData: any;
+// }
+const BookMarkList = () => {
+=======
 interface Props {
   detailData: any;
 }
 const BookmarkList = ({ detailData }: Props) => {
+>>>>>>> 4a3cfadb8a1c2abc75ca37141beecfb46bbc9a2f
   const bookmarkList = data.BookMarkList;
 
   const navigate = useNavigate();
@@ -18,6 +25,7 @@ const BookmarkList = ({ detailData }: Props) => {
 
   // console.log('bookmarkList', bookmarkList);
   // console.log('detailData', detailData);
+  // button : disabled
   return (
     <>
       <S.BookMarkContainer>
@@ -27,6 +35,10 @@ const BookmarkList = ({ detailData }: Props) => {
           //         .filter((id) => detailData[0].id !== id.storeId)
 
           .map((bookmark) => {
+            console.log('bookmark', bookmark);
+            console.log('uid', uid);
+            console.log('bookmark.userId', bookmark.userId);
+
             if (uid === bookmark.userId) {
               return (
                 <S.BookMarkCard>
