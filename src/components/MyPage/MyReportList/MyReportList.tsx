@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from './style'
+import * as S from './style';
 import newStoreData from '../../../data/newStoreRequest.json';
 import errData from '../../../data/errorRequest.json';
 import { auth } from '../../../services/firebase';
@@ -15,7 +15,6 @@ const MyReportList = () => {
   // console.log('newStoreReport', newStoreReport);
   // console.log('uid', uid);
 
-
   return (
     <S.ReportWrap>
       <S.ReportContainer>
@@ -25,35 +24,48 @@ const MyReportList = () => {
             return (
               <S.ListBox key={li.id}>
                 <S.ListContent>
-                  <p>{li.title}</p>
-                  <p>{li.reportedDate}</p>
+                  <S.ReportTitleText>{li.title}</S.ReportTitleText>
+                  <S.ReportDateText>{li.reportedDate}</S.ReportDateText>
                 </S.ListContent>
-                <div>
-                  <p>{li.category}</p>
-                  <p>{li.status}</p>
-                </div>
+                <S.ListContent>
+                  <S.ReportCategory>{li.category}</S.ReportCategory>
+                  {/* li.status === 0 ? 진행중 : li.statue !== 0 ? 완료 : 거절 */}
+                  {li.status === 0 ? (
+                    <S.ReportStatusText>진행중</S.ReportStatusText>
+                  ) : li.status === 1 ? (
+                    <S.ReportStatusText style={{ color: 'black' }}>
+                      완료
+                    </S.ReportStatusText>
+                  ) : (
+                    <S.ReportCategory style={{ color: 'red' }}>{li.excuse}</S.ReportCategory>
+                  )}
+                </S.ListContent>
               </S.ListBox>
             );
           })}
-      </S.ReportContainer>
-      {/* <div style={{backgroundColor:'skyblue'}}>
         {newStoreReport
           .filter((item) => item.userId.uid === uid)
           .map((li) => {
             return (
-              <div>
-                <div>
-                  <p>{li.title}</p>
-                  <p>{li.reportedDate}</p>
-                </div>
-                <div>
-                  <p>{li.category}</p>
-                  <p>{li.status}</p>
-                </div>
-              </div>
+              <S.ListBox key={li.id}>
+                <S.ListContent>
+                  <S.ReportTitleText>{li.title}</S.ReportTitleText>
+                  <S.ReportDateText>{li.reportedDate}</S.ReportDateText>
+                </S.ListContent>
+                <S.ListContent>
+                  <S.ReportCategory>{li.category}</S.ReportCategory>
+                  {li.status === false ? (
+                    <S.ReportStatusText>진행중</S.ReportStatusText>
+                  ) : (
+                    <S.ReportStatusText style={{ color: 'black' }}>
+                      완료
+                    </S.ReportStatusText>
+                  )}
+                </S.ListContent>
+              </S.ListBox>
             );
           })}
-      </div> */}
+      </S.ReportContainer>
     </S.ReportWrap>
   );
 };

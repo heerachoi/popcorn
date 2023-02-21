@@ -104,7 +104,7 @@ const MyProfile = () => {
         <S.MyProfileBox>
           <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
             <S.ProfileImgLabelInputWrapper>
-              <S.ProfileImgLabel htmlFor="profileUploadImg">
+              <S.ProfileImgLabel htmlFor="profileUploadImg">             
                 <S.ProfileImgShow src={imgUploadUrl} />
               </S.ProfileImgLabel>
               <S.ProfileImgInput

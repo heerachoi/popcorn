@@ -8,7 +8,7 @@ interface Props {
 }
 const MyPageTab = ({ detailData }: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  
+
   const MyTabClick = (i: any) => {
     return setActiveIndex(i);
   };
@@ -16,7 +16,10 @@ const MyPageTab = ({ detailData }: Props) => {
   const myTabArr = [
     {
       tabTitle: (
-        <S.MyTitleTabBtn onClick={() => MyTabClick(0)}>
+        <S.MyTitleTabBtn
+          onClick={() => MyTabClick(0)}
+          className={activeIndex === 0 ? 'active' : ''}
+        >
           <p>북마크</p>
         </S.MyTitleTabBtn>
       ),
@@ -24,7 +27,7 @@ const MyPageTab = ({ detailData }: Props) => {
     },
     {
       tabTitle: (
-        <S.MyTitleTabBtn onClick={() => MyTabClick(1)}>
+        <S.MyTitleTabBtn onClick={() => MyTabClick(1)} className={activeIndex === 1 ? 'active' : ''}>
           <p>내가 쓴 제보</p>
         </S.MyTitleTabBtn>
       ),

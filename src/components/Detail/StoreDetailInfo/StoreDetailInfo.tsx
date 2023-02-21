@@ -14,6 +14,9 @@ import { useState } from 'react';
 import axios from 'axios';
 import { auth } from '../../../services/firebase';
 import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
+
+
+
 interface Props {
   detailData: any;
 }

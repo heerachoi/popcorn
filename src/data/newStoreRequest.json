@@ -37,7 +37,7 @@
       "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2FKakaoTalk_20230131_153052121_03.jpg?alt=media&token=32e08744-f10e-4343-8173-ea29d82390e3",
       "reportedDate": "2023. 2. 12. 오후 9:38:48",
       "category": "신규",
-      "status": false
+      "status": true
     },
     {
       "id": "4d8acfcd-fbc0-4635-aab1-39e87e61ab80",
@@ -115,7 +115,7 @@
       "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2Fl_2023021502000145300053731.jpg?alt=media&token=bf26fa34-8de6-4f33-bce4-c1c941a3d527",
       "reportedDate": "2023. 2. 16. 오후 8:01:52",
       "category": "신규",
-      "status": true
+      "status": false
     },
     {
       "id": "49c1b639-6926-4b40-99e2-06abd22e950e",

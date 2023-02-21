@@ -7,7 +7,7 @@ background-color: beige; */
 `;
 
 export const MyPageContainer = styled.div`
-/* background-color: beige; */
+background-color: beige;
 max-width: 1440px;
 width: 100%;
 height: 1621px;
@@ -21,7 +21,7 @@ export const MyProfileBox = styled.div`
   position: relative;
   width: 336px;
   height: 1084px;
-  left: 200px;
+  left: 130px;
   top: 80px;
 
   /* txt2 */

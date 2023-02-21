@@ -73,7 +73,8 @@
       "errImg": "",
       "reportedDate": "2023. 2. 20. 오전 11:38:58",
       "category": "오류&수정",
-      "status": false
+      "status": 2,
+      "excuse" : "허위정보로 제보가 거절되었습니다."
     }
   ]
 }

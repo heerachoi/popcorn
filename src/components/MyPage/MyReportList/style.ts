@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
-export const ReportWrap = styled.div``;
-export const ReportContainer = styled.div`
-background-color: beige;
-width: 100%;
+export const ReportWrap = styled.div`
+  width: 100%;
+`;
+export const ReportContainer = styled.div` 
+margin-top: 24px;
 `;
 
 export const ListBox = styled.div`
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  &:hover {
-    cursor: pointer;
-  }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
+  margin-bottom: 10px;
 `;
 
 export const ListContent = styled.div`
@@ -18,7 +17,8 @@ export const ListContent = styled.div`
   justify-content: space-between;
   align-items: baseline;
   padding: 0 10px;
-  height: 40px;
+  /* margin-top: 10px; */
+  height: 30px;
 
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;

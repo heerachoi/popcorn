@@ -16,6 +16,7 @@ export const ContentWrap = styled.div`
 export const ListContainer = styled.div``;
 
 export const ListBox = styled.div`
+margin-bottom: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   &:hover {
     cursor: pointer;
@@ -26,7 +27,7 @@ export const ListContent = styled.div`
   justify-content: space-between;
   align-items: baseline;
   padding: 0 10px;
-  height: 40px;
+  height: 35px;
 
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
