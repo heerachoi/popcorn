@@ -26,11 +26,11 @@ const CategorySwiper:React.FC = () => {
   
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 3,
-    arrow: true,
+    slidesToScroll: 1,
+    arrow: false,
     variableWidth: true, // 넓이 조정
     responsive: [
       {
@@ -66,30 +66,32 @@ const CategorySwiper:React.FC = () => {
               key={popup.id}
               onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
             >
-            <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"></S.PopupImg>
+            <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
             <S.StoreInformation>
-            <S.PopupTitle>{popup.title}</S.PopupTitle>
-            <S.PopupDate>
-            {popup.open} - {popup.close}
-            </S.PopupDate>
-            <S.PopupAddress>{popup.address}</S.PopupAddress>
-            <S.CategoryContainer>
-              <S.Category onClick={(event) => { 
-                  event.stopPropagation(); 
-                  navigate(`/search?search=${popup.location}`);
-                }}> 
-                {popup.location} 
-              </S.Category>
-              <S.Category onClick={(event) => {
-                  event.stopPropagation();
-                  navigate(`/search?search=${popup.category}`);
-                }}>{popup.category}
-              </S.Category>
-              <S.Category onClick={(event) => {
-                  event.stopPropagation();
-                  navigate(`/search?search=${popup.item}`);
-                }}>{popup.item}</S.Category>
-            </S.CategoryContainer>
+              <S.InformationContainer>
+                <S.PopupTitle>{popup.title}</S.PopupTitle>
+                <S.PopupDate>
+                {popup.open} - {popup.close}
+                </S.PopupDate>
+                {/* <S.PopupAddress>{popup.address}</S.PopupAddress> */}
+              </S.InformationContainer>
+              <S.CategoryContainer>
+                <S.Category onClick={(event) => { 
+                    event.stopPropagation(); 
+                    navigate(`/search?search=${popup.location}`);
+                  }}> 
+                  {popup.location} 
+                </S.Category>
+                <S.Category onClick={(event) => {
+                    event.stopPropagation();
+                    navigate(`/search?search=${popup.category}`);
+                  }}>{popup.category}
+                </S.Category>
+                <S.Category onClick={(event) => {
+                    event.stopPropagation();
+                    navigate(`/search?search=${popup.item}`);
+                  }}>{popup.item}</S.Category>
+              </S.CategoryContainer>
             </S.StoreInformation>
             </S.StoreContainer>
           ))}
