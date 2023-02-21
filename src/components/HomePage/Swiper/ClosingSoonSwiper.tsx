@@ -75,9 +75,21 @@ const ClosingSoonSwiper: React.FC = () => {
             </S.PopupDate>
             <S.PopupAddress>{popup.address}</S.PopupAddress>
             <S.CategoryContainer>
-              <S.Category onClick={() => navigate(`/search`)}>{popup.location}</S.Category>
-              <S.Category onClick={() => navigate(`/search`)}>{popup.category}</S.Category>
-              <S.Category onClick={() => navigate(`/search`)}>{popup.item}</S.Category>
+              <S.Category onClick={(event) => { 
+                  event.stopPropagation(); 
+                  navigate(`/search?search=${popup.location}`);
+                }}> 
+                {popup.location} 
+              </S.Category>
+              <S.Category onClick={(event) => {
+                  event.stopPropagation();
+                  navigate(`/search?search=${popup.category}`);
+                }}>{popup.category}
+              </S.Category>
+              <S.Category onClick={(event) => {
+                  event.stopPropagation();
+                  navigate(`/search?search=${popup.item}`);
+                }}>{popup.item}</S.Category>
             </S.CategoryContainer>
             </S.StoreInformation>
             </S.StoreContainer>

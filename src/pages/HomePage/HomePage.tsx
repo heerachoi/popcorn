@@ -4,11 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import CategorySwiper from '../../components/HomePage/Swiper/CategorySwiper';
 import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwiper';
 import { PopularToMen, PopularToWomen } from '../../utils/Filter';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const HomePage: any = () => {
   const navigate = useNavigate();
   const womenTopTwo = PopularToWomen();
   const menTopTwo = PopularToMen(); 
+
+  const [storeData, setStoreData] = useState<any>('');
+  const fetchTodos = async () => {
+    const { data } = await axios.get("http://localhost:3010/Store");
+    console.log({data});
+  };
+  useEffect(() => {
+    fetchTodos();
+  }, [storeData]);
 
   return (
     <>
@@ -54,9 +65,21 @@ const HomePage: any = () => {
                   </S.PopupDate>
                   <S.PopupAddress>{popup.address}</S.PopupAddress>
                   <S.CategoryContainer>
-                    <S.Category onClick={() => navigate(`/search`)}>{popup.location}</S.Category>
-                    <S.Category onClick={() => navigate(`/search`)}>{popup.category}</S.Category>
-                    <S.Category onClick={() => navigate(`/search`)}>{popup.item}</S.Category>
+                    <S.Category onClick={(event) => { 
+                        event.stopPropagation(); 
+                        navigate(`/search?search=${popup.location}`);
+                      }}> 
+                      {popup.location} 
+                    </S.Category>
+                    <S.Category onClick={(event) => {
+                        event.stopPropagation();
+                        navigate(`/search?search=${popup.category}`);
+                      }}>{popup.category}
+                    </S.Category>
+                    <S.Category onClick={(event) => {
+                        event.stopPropagation();
+                        navigate(`/search?search=${popup.item}`);
+                      }}>{popup.item}</S.Category>
                   </S.CategoryContainer>
                   </S.StoreInformation>
                 </S.StoreContainer>
@@ -86,9 +109,21 @@ const HomePage: any = () => {
                   </S.PopupDate>
                   <S.PopupAddress>{popup.address}</S.PopupAddress>
                   <S.CategoryContainer>
-                    <S.Category onClick={() => navigate(`/search`)}>{popup.location}</S.Category>
-                    <S.Category onClick={() => navigate(`/search`)}>{popup.category}</S.Category>
-                    <S.Category onClick={() => navigate(`/search`)}>{popup.item}</S.Category>
+                    <S.Category onClick={(event) => { 
+                        event.stopPropagation(); 
+                        navigate(`/search?search=${popup.location}`);
+                      }}> 
+                      {popup.location} 
+                    </S.Category>
+                    <S.Category onClick={(event) => {
+                        event.stopPropagation();
+                        navigate(`/search?search=${popup.category}`);
+                      }}>{popup.category}
+                    </S.Category>
+                    <S.Category onClick={(event) => {
+                        event.stopPropagation();
+                        navigate(`/search?search=${popup.item}`);
+                      }}>{popup.item}</S.Category>
                   </S.CategoryContainer>
                   </S.StoreInformation>
                 </S.StoreContainer>

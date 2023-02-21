@@ -12,15 +12,23 @@ import * as S from './style';
 interface InfoErrInput {
   title: string;
   storeName: string;
+}
+
+interface ErrContent {
   infoErrContent: string;
   infoModifiContent: string;
 }
 
 // 정보 오류/수정 제보
 const InfoError: any = () => {
+  // input 초기값
   const initInfoErrModifiInput = {
     title: '',
     storeName: '',
+  };
+
+  // 오류, 수정 내용 적는 textarea 초기값
+  const initErrContent = {
     infoErrContent: '',
     infoModifiContent: '',
   };
@@ -28,6 +36,7 @@ const InfoError: any = () => {
   const [infoErrModifiInput, setInfoErrModifiInput] = useState<InfoErrInput>(
     initInfoErrModifiInput,
   );
+  const [errContent, setErrContent] = useState<ErrContent>(initErrContent);
   const [errImgFile, setErrImgFile] = useState(''); // 이미지 파일
   const [errFileName, setErrFileName] = useState(''); //이미지 파일 이름
 
@@ -39,6 +48,15 @@ const InfoError: any = () => {
   ) => {
     setInfoErrModifiInput({
       ...infoErrModifiInput,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const errContentOnchangeHandler = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    setErrContent({
+      ...errContent,
       [event.target.name]: event.target.value,
     });
   };
@@ -89,10 +107,11 @@ const InfoError: any = () => {
       userId,
       title: infoErrModifiInput.title,
       storeName: infoErrModifiInput.storeName,
-      infoErrContent: infoErrModifiInput.infoErrContent,
-      infoModifiContent: infoErrModifiInput.infoModifiContent,
+      infoErrContent: errContent.infoErrContent,
+      infoModifiContent: errContent.infoModifiContent,
       errImg: downloadImgUrl,
       reportedDate: today.toLocaleString(),
+      category: '오류&수정',
       status: false,
     };
 
@@ -104,6 +123,7 @@ const InfoError: any = () => {
       );
       setInfoErrModifiInput(initInfoErrModifiInput);
       setErrImgFile('');
+      setErrContent(initErrContent);
 
       alert('제보 완료!');
     } catch (err) {
@@ -140,26 +160,36 @@ const InfoError: any = () => {
       </S.ReportGrid>
       <S.ReportGrid>
         <S.ReportTitle>정보 오류</S.ReportTitle>
+<<<<<<< HEAD
         <S.ReportTitleInput
           style={{ height: 100 }}
           type="text"
+=======
+        <S.TextArea
+          style={{ height: 100 }}
+>>>>>>> 4a3cfadb8a1c2abc75ca37141beecfb46bbc9a2f
           name="infoErrContent"
           placeholder='정보 오류 내용을 입력해 주세요. 없을 시 "없음"으로 입력해 주세요.'
           required
-          onChange={infoErrModifiOnChangeHandler}
-          value={infoErrModifiInput.infoErrContent}
+          onChange={errContentOnchangeHandler}
+          value={errContent.infoErrContent}
         />
       </S.ReportGrid>
       <S.ReportGrid>
         <S.ReportTitle>정보 수정</S.ReportTitle>
+<<<<<<< HEAD
         <S.ReportTitleInput
           style={{ height: 100 }}
           type="text"
+=======
+        <S.TextArea
+          style={{ height: 100 }}
+>>>>>>> 4a3cfadb8a1c2abc75ca37141beecfb46bbc9a2f
           name="infoModifiContent"
           placeholder='정보 수정 내용을 입력해 주세요. 없을 시 "없음"으로 입력해 주세요.'
           required
-          onChange={infoErrModifiOnChangeHandler}
-          value={infoErrModifiInput.infoModifiContent}
+          onChange={errContentOnchangeHandler}
+          value={errContent.infoModifiContent}
         />
       </S.ReportGrid>
       <S.ReportGrid>
@@ -178,7 +208,7 @@ const InfoError: any = () => {
           style={{ display: 'none' }}
         />
       </S.ReportGrid>
-      <S.ButtonBox>
+      <S.ButtonBox style={{paddingTop:'22px'}}>
         <S.CancleAddButton
           style={{ backgroundColor: 'white', color: '#9B9B9B' }}
         >

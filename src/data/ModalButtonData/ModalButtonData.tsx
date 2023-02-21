@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 export const ModalButtonData = atom({
-  key: 'locatioButtonState',
+  key: 'locationButtonState',
   default: [
     { id: 1, label: '전체', active: false },
     { id: 2, label: '서울', active: false },

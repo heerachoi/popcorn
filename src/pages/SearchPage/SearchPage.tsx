@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style';
+import axios from "axios";
 
 // Data
 import datas from '../../data/popupStore.json';
@@ -13,7 +14,7 @@ import { BsCalendarRange } from 'react-icons/bs';
 import { RiProductHuntLine } from 'react-icons/ri';
 import { BiCalendar, BiCategoryAlt } from 'react-icons/bi';
 // Recoil
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 // Hooks
 import useLocationModal from '../../hooks/useLocationModal';
 import useItemModal from '../../hooks/useItemModal';
@@ -22,8 +23,15 @@ import useOtherModal from '../../hooks/useOtherModal';
 import Modal from '../../components/SearchPage/SearchModal/SearchModal';
 import { ModalButtonData } from '../../data/ModalButtonData/ModalButtonData';
 import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
 
 const Search: React.FC = () => {
+  const navigate = useNavigate();
+
+
+
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(datas.Store);
   // 팝업 스토어 필터된 리스트
@@ -34,6 +42,7 @@ const Search: React.FC = () => {
   const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
   // 검색어
   const [searchTerm, setSearchTerm] = useState<any>('');
+  console.log('searchTerm', searchTerm);
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(datas.Store);
   // Date Picker
   const [dateSelected, setDateSelected] = useState<any>();
@@ -69,6 +78,7 @@ const Search: React.FC = () => {
   // 눌린 키가 enter인지 체크
   const checkKeypress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     event.preventDefault();
+    console.log('---------------- searchTerm',searchTerm);
     if (event.key === 'Enter') {
       setEnterKeyPressed(true);
       searchFilterHandler();
@@ -77,21 +87,29 @@ const Search: React.FC = () => {
     }
   };
 
+  // 검색필터가 둘기전에 서치 단어가 안들어가나?
   // 검색 필터
   const searchFilterHandler = () => {
+    console.log('searchFilterHandler *********');
+    console.log('searchTerm *****', searchTerm);
     datas.Store.forEach((store: Store) => {
       if (
         store.title === searchTerm ||
         store.address === searchTerm ||
         store.location === searchTerm ||
-        store.item === searchTerm
+        store.item === searchTerm ||
+        store.category === searchTerm
       ) {
         searchList.push(store);
       }
     });
     if (searchTerm.length === 0) {
+      console.log('if');
       setSaveSearchList(datas.Store);
     } else {
+      console.log('else');
+          console.log('searchList',searchList);
+
       setSaveSearchList(searchList);
     }
     startFilter();
@@ -163,7 +181,6 @@ const Search: React.FC = () => {
     } else {
       setSaveDatePickerList(datas.Store);
     }
-    // startFilter();
   };
 
   // 팝업 기간
@@ -203,15 +220,7 @@ const Search: React.FC = () => {
   // 지역 필터
   // 위치 모달 결과 - 전체리스트에서 LocationFilter에 true인 것만 가져온다.
   const locationFilterList = useRecoilValue(ModalButtonData);
-
-  // console.log(locationFilterList);
-  // 모달 필터 값 출력....전체만뜬다.
-  // const printModalResult = () => {
-  //   const filterList = locationFilterList.length;
-  //   const [modalResultList, setModalResultList] =  useState<string[]>([]);
-
-  // }
-
+  // console.log('locationFilterList',locationFilterList);
   const locationFilterHandler = () => {
     if (locationFilterList[0].label === '전체') {
       setSaveLocationtList(datas.Store);
@@ -227,10 +236,41 @@ const Search: React.FC = () => {
       locationList = [];
     }
   };
+
+
+
+  // ModalButtonData에서 찾아서 active True
+  // locationFilterList에 추가하면
+  // locationFilterHandler 실행되고
+  // 필터 리스트 리프레시
+
+  const [currentURL, setCurrentURL] = useState<any>();
+
+  const getURLInfo = () => {
+    //현제 URL
+    // setCurrentURL()
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    if (searchParam != null) {
+      const decodedSearch = decodeURIComponent(searchParam); // "서울"
+      console.log('decodedSearch', decodedSearch);
+      setSearchTerm(decodedSearch);
+    }
+  };
+
+    useEffect(() => {
+    getURLInfo();
+  }, [currentURL]);
+
+
+
+
+
   // 검색
   useEffect(() => {
+    console.log('search filter started');
     searchFilterHandler();
-  }, [searchTerm]);
+  }, [searchTerm, saveSearchList]);
 
   // 위치
   useEffect(() => {
@@ -254,6 +294,7 @@ const Search: React.FC = () => {
   useEffect(() => {
     startFilter();
   }, [
+    saveSearchList,
     saveDatePickerList,
     savePopupDurationList,
     saveDepartmentList,
@@ -264,6 +305,8 @@ const Search: React.FC = () => {
   const startFilter = () => {
     let result: Store[] = [];
     // 1. 검색 & 기간 필터
+    console.log('search', saveSearchList);
+    // console.log('savePopupDurationList', savePopupDurationList);
     result = saveSearchList.filter((store: Store) =>
       savePopupDurationList.includes(store),
     );
@@ -292,13 +335,13 @@ const Search: React.FC = () => {
   const modalClickHandler = (event: any) => {
     toggle(event);
   };
+  
 
   return (
     <S.SearchPageContainer>
       <S.FilterContainer>
-        <S.SearchItemContainer>
-          <ImSearch />
-          <S.SearchTagContainer>
+          <S.SearchInputContainer>
+            <ImSearch />
             <S.FilterTitle>키워드</S.FilterTitle>
             <S.SearchInput
               type="text"
@@ -307,14 +350,12 @@ const Search: React.FC = () => {
               onChange={(event) => setSearchTerm(event.target.value)}
               onKeyPress={checkKeypress}
             />
-          </S.SearchTagContainer>
-        </S.SearchItemContainer>
+          </S.SearchInputContainer>
         <S.SearchItemContainer>
-          <BiCalendar />
           <S.SearchTagContainer>
-            <S.FilterTitle>진행중인 팝업스토어</S.FilterTitle>
+            <BiCalendar />
+            <S.FilterTitle>진행중</S.FilterTitle>
             <S.DatePickerWrapper>
-              {/* 팝업스토어 시작 날짜 선택 */}
               <S.DatePickerContainer
                 selected={dateSelected}
                 locale={ko}
@@ -345,23 +386,23 @@ const Search: React.FC = () => {
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <ImLocation />
+          {/* <ImLocation /> */}
           <S.SearchTagContainer>
             <S.FilterTitle
               className="button-default"
               onClick={modalClickHandler}
             >
-              위치 카테고리
+              위치
             </S.FilterTitle>
             <Modal isShowing={isShowing} hide={toggle} value={'위치'} />
             {/* <S.FilterItemHolder>전체</S.FilterItemHolder> */}
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <RiProductHuntLine />
+          {/* <RiProductHuntLine /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={itemToggle}>
-              제품 카테고리
+              제품
             </S.FilterTitle>
             <Modal
               isShowing={isItemModalShowing}
@@ -372,10 +413,10 @@ const Search: React.FC = () => {
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <BiCategoryAlt />
+          {/* <BiCategoryAlt /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={otherToggle}>
-              기타 카테고리
+              기타
             </S.FilterTitle>
             <Modal
               isShowing={isOtherModalShowing}
@@ -390,14 +431,33 @@ const Search: React.FC = () => {
       </S.FilterContainer>
       <S.FilterResultAndCalendarContainer>
         <S.FilterResult>
-          {storeList.map((store: any, index: any) => {
+          {storeList.map((popup: Store) => {
             return (
-              <S.StoreContainer key={index}>
-                <S.PosterImg src={store.imgURL[0]} />
-                <S.StoreTitle>{store.title}</S.StoreTitle>
-                <S.EventPeriod>
-                  {store.open} - {store.close}
-                </S.EventPeriod>
+              <S.StoreContainer key={popup.id} onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
+                <S.PosterImg src={popup.imgURL[0]} />
+                <S.StoreInformation>
+                  <S.StoreTitle>{popup.title}</S.StoreTitle>
+                  <S.EventPeriod>
+                    {popup.open} - {popup.close}
+                  </S.EventPeriod>
+                  <S.CategoryContainer>
+                  <S.Category onClick={(event) => { 
+                      event.stopPropagation(); 
+                      navigate(`/search?search=${popup.location}`);
+                    }}> 
+                    {popup.location} 
+                  </S.Category>
+                  <S.Category onClick={(event) => {
+                      event.stopPropagation();
+                      navigate(`/search?search=${popup.category}`);
+                    }}>{popup.category}
+                  </S.Category>
+                  <S.Category onClick={(event) => {
+                      event.stopPropagation();
+                      // setSearchTerm(event.target.value);
+                    }}>{popup.item}</S.Category>
+                </S.CategoryContainer>
+                </S.StoreInformation>
               </S.StoreContainer>
             );
           })}

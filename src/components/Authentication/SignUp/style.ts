@@ -42,6 +42,17 @@ export const FormInput = styled.input`
   width: 400px;
   height: 50px;
   padding: 0 20px 0 20px;
+
+  &::before {
+    content: attr(data-placeholder);
+    width: 100%;
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    color: gray;
+  }
+  &:valid::before {
+    display: none;
+  }
 `;
 
 export const FormSelect = styled(FormInput)`

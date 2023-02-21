@@ -26,70 +26,72 @@ const Header = () => {
   return (
     <>
       <S.Wrap>
-        <S.Title onClick={() => navigate('/')}>POPCORN</S.Title>
+        <HoverBox>
+          <S.Title
+            className="title"
+            src={require('../../../assets/Logo/popcorn_logo.png')}
+            alt="타이틀"
+            onClick={() => navigate('/')}
+          />
+          <TitleImg
+            className="TitleImg"
+            src={require('../../../assets/Logo/State=Hovered.png')}
+            alt="타이틀"
+            onClick={() => navigate('/')}
+          />
+        </HoverBox>
         <S.BtnWrap>
           {user.isLogin && (
-            <>
-              <BtnBox>
-                <TextBackground style={{ width: 33 }} />
-                <S.CategoryBtn onClick={notification}>
-                  <BsBellFill className="button-default" onClick={toggle} />
-                  <AlertModal isShowing={isShowing} hide={toggle} />
-                </S.CategoryBtn>
-              </BtnBox>
-            </>
+            <MenuImageBackground>
+              <MenuImage
+                src={require('../../../assets/Logo/Bell.png')}
+                alt="타이틀"
+                onClick={toggle}
+              />
+              <AlertModal isShowing={isShowing} hide={toggle} />
+            </MenuImageBackground>
           )}
-          <BtnBox>
-            <TextBackground style={{ width: 140 }} />
+          <TextBackground>
             <S.CategoryBtn onClick={() => navigate('/report')}>
               팝업스토어 제보
             </S.CategoryBtn>
-          </BtnBox>
+          </TextBackground>
           {!user.isLogin && (
-            <>
-              <BtnBox>
-                <TextBackground />
-                <S.CategoryBtn onClick={() => navigate('/signup')}>
-                  회원가입
-                </S.CategoryBtn>
-              </BtnBox>
-            </>
+            <TextBackground style={{ width: 110 }}>
+              <S.CategoryBtn onClick={() => navigate('/signup')}>
+                회원가입
+              </S.CategoryBtn>
+            </TextBackground>
           )}
-          <BtnBox>
-            {user.isLogin ? (
-              <>
-                <TextBackground />
-                <Logout />
-              </>
-            ) : (
-              <>
-                <TextBackground style={{ width: 65 }} />
-                <S.CategoryBtn onClick={() => navigate('/login')}>
-                  로그인
-                </S.CategoryBtn>
-              </>
-            )}
-          </BtnBox>
-          <BtnBox>
-            <TextBackground style={{ width: 48 }} />
-            <S.MapBtn onClick={() => navigate('/map')}>지도</S.MapBtn>
-          </BtnBox>
+          {user.isLogin ? (
+            <Logout />
+          ) : (
+            <TextBackground style={{ width: 100 }}>
+              <S.CategoryBtn onClick={() => navigate('/login')}>
+                로그인
+              </S.CategoryBtn>
+            </TextBackground>
+          )}
           {user.isLogin && (
-            <>
-              <BtnBox>
-                <TextBackground style={{ width: 100 }} />
-                <S.CategoryBtn
-                  onClick={() => {
-                    user.userInfomation.email === 'master@gmail.com'
-                      ? navigate('/master')
-                      : navigate('/my');
-                  }}
-                >
-                  마이페이지
-                </S.CategoryBtn>
-              </BtnBox>
-            </>
+            <TextBackground style={{ width: 120 }}>
+              <S.CategoryBtn
+                onClick={() => {
+                  user.userInfomation.email === 'master@gmail.com'
+                    ? navigate('/master')
+                    : navigate('/my');
+                }}
+              >
+                마이페이지
+              </S.CategoryBtn>
+            </TextBackground>
           )}
+          <MenuImageBackground>
+            <MenuImage
+              src={require('../../../assets/Logo/Spot.png')}
+              alt="타이틀"
+              onClick={() => navigate('/map')}
+            />
+          </MenuImageBackground>
         </S.BtnWrap>
       </S.Wrap>
     </>
@@ -97,15 +99,65 @@ const Header = () => {
 };
 
 export default Header;
+const HoverBox = styled.div`
+  width: 100px;
+  position: relative;
+  transition: opacity 0.2s linear;
+  transition: transform 0.3s ease-out;
+  &:hover .TitleImg {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  &:hover .title {
+    opacity: 0;
+  }
+`;
 
-export const BtnBox = styled.div``;
+const TitleImg = styled(S.Title)`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 40px;
+  opacity: 0;
+`;
+
+export const BtnBox = styled.div`
+  position: relative;
+`;
 
 export const TextBackground = styled.div`
-  width: 80px;
+  cursor: pointer;
+  width: 150px;
   height: 20px;
   background-color: #ffeb62;
-  position: absolute;
+  /* position: absolute; */
   box-sizing: border-box;
   padding-left: 20px;
   border-radius: 12px;
+  &:hover {
+    background-color: #ffb321;
+  }
+`;
+
+export const MenuImageBackground = styled(TextBackground)`
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  top: 30px;
+`;
+
+export const MenuImage = styled.img`
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  /* left: 8px; */
+  right: 12px;
+  top: 5px;
+  border: none;
+`;
+
+export const MenuBtn = styled(MenuImage)`
+  background-color: transparent;
+  right: 20px;
 `;

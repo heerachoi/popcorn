@@ -14,7 +14,6 @@ interface NewStoreInput {
   storeAddress: string;
   startDate: string;
   endDate: string;
-  etcContent: string;
 }
 
 const NewStoreReport: any = () => {
@@ -24,14 +23,13 @@ const NewStoreReport: any = () => {
     storeAddress: '',
     startDate: '',
     endDate: '',
-    etcContent: '',
   };
 
   const [newStoreInput, setNewStoreInput] =
     useState<NewStoreInput>(initNewStoreInput);
   const [imgFile, setImgFile] = useState(''); // 이미지 파일
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
-
+  const [etcContent, setEtcContent] = useState('')
   const userId = auth?.currentUser;
 
   // input onChange 함수
@@ -96,9 +94,10 @@ const NewStoreReport: any = () => {
       storeAddress: newStoreInput.storeAddress,
       startDate: newStoreInput.startDate,
       endDate: newStoreInput.endDate,
-      etcContent: newStoreInput.etcContent,
+      etcContent: etcContent,
       infoImg: downloadImageUrl,
       reportedDate: today.toLocaleString(),
+      category: '신규',
       status: false,
     };
 
@@ -107,6 +106,7 @@ const NewStoreReport: any = () => {
       axios.post('http://localhost:3002/newStores', newStore);
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
+      setEtcContent('')
 
       alert('제보 완료!');
     } catch (err) {
@@ -176,14 +176,13 @@ const NewStoreReport: any = () => {
       </S.ThreeGrid>
       <S.ReportGrid>
         <S.ReportTitle>제보 내용</S.ReportTitle>
-        <S.ReportTitleInput
+        <S.TextArea
           style={{ height: 100 }}
-          type="text"
           name="etcContent"
           placeholder='제보 내용을 입력해 주세요. 없을 시 "없음"으로 입력해 주세요.'
           required
-          onChange={newStoreInputonChangeHandler}
-          value={newStoreInput.etcContent}
+          onChange={(e) => setEtcContent(e.target.value)}
+          value={etcContent}
         />
       </S.ReportGrid>
       <S.ReportGrid>

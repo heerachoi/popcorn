@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 import React from 'react';
 
+
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
