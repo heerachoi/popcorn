@@ -2,7 +2,7 @@ import * as S from './style';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../../services/firebase';
 import { AiFillLeftCircle } from 'react-icons/ai';
 import styled from 'styled-components';
@@ -13,9 +13,10 @@ interface SignInInput {
 
 const Login = () => {
   const navigate = useNavigate();
+  const { state: signUpEmail } = useLocation();
 
   const initSignInInput = {
-    email: '',
+    email: signUpEmail,
     password: '',
   };
 
@@ -175,6 +176,7 @@ const Login = () => {
           type="password"
           onChange={signInInputChangeHandler}
           onBlur={validatePassword}
+          autoFocus={signInInput.email ? true : false}
         />
         {signInInput.password && (
           <div
@@ -194,10 +196,10 @@ const Login = () => {
           </S.NavigateBtn>
         </S.FormBtnWrap>
         <S.FormSignWrap>
-          <S.NavigateBtn as="span" onClick={() => navigate('/signup')}>
-            아직 회원이 아니신가요?
-          </S.NavigateBtn>
-          <S.SignUpBtn>회원가입</S.SignUpBtn>
+          <S.NavigateBtn as="span">아직 회원이 아니신가요?</S.NavigateBtn>
+          <S.SignUpBtn onClick={() => navigate('/signup')}>
+            회원가입
+          </S.SignUpBtn>
         </S.FormSignWrap>
       </S.FormWrap>
     </S.Wrap>

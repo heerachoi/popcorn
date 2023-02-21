@@ -51,7 +51,11 @@ const Footer = () => {
         {menuArr.map((item: any, i: any) => {
           return (
             <TextBackground>
-              <FooterMenu key={item.id} onClick={() => tabClickHandler(i)}>
+              <FooterMenu
+                key={item.id}
+                id={item.id}
+                onClick={() => tabClickHandler(i)}
+              >
                 {item.tabTitle}
               </FooterMenu>
             </TextBackground>

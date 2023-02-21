@@ -88,6 +88,7 @@ export const LoginBtn = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #676767;
+    border: 1px dashed #9747ff;
   }
 `;
 
@@ -98,7 +99,7 @@ export const SignUpBtn = styled(LoginBtn)`
   color: #f2901d;
   &:hover {
     color: #ffffff;
-    background-color: #ffb321;
+    border: 1px solid #323232;
   }
 `;
 
