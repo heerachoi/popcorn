@@ -69,7 +69,7 @@ export default Footer;
 // 2. ${} 안에 import 한 값을 넣어준다.
 const FooterWrap = styled.div`
   height: 250px;
-  margin-top: 50px;
+  margin-top: 150px;
   display: flex;
   justify-content: space-around;
   background-image: url(${Vector});

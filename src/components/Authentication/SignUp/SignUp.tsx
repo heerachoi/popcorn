@@ -375,17 +375,9 @@ const SignUp = () => {
             onChange={signUpInputChangeHandler}
             onBlur={validateAge}
             type="date"
+            required
+            data-placeholder="생년월일을 입력해 주세요."
           />
-          {/* <option value="">연령을 선택해 주세요</option>
-            <option value="10대">10대</option>
-            <option value="20대">20대</option>
-            <option value="30대">30대</option>
-            <option value="40대">40대</option>
-            <option value="50대">50대</option>
-            <option value="60대">60대</option>
-            <option value="70대">70대</option>
-            <option value="선택안함">선택안함</option> */}
-
           <S.HelperText>{helperText.age}</S.HelperText>
         </S.FormItemWrap>
         <S.FormItemWrap>
