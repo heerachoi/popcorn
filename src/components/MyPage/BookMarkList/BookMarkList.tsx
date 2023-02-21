@@ -5,10 +5,8 @@ import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { BsBookmarkFill } from 'react-icons/bs';
 
-interface Props {
-  detailData: any;
-}
-const BookmarkList = ({ detailData }: Props) => {
+const BookMarkList = () => {
+
   const bookmarkList = data.BookMarkList;
 
   const navigate = useNavigate();
@@ -56,4 +54,4 @@ const BookmarkList = ({ detailData }: Props) => {
   );
 };
 
-export default BookmarkList;
+export default BookMarkList;

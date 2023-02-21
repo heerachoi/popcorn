@@ -1,5 +1,5 @@
 import * as S from './style';
-import BookmarkList from '../BookMarkList/BookMarkList';
+import BookMarkList from '../BookMarkList/BookMarkList';
 import { useState } from 'react';
 
 interface Props {
@@ -17,7 +17,9 @@ const MyPageTab = ({ detailData }: Props) => {
           <p>북마크</p>
         </S.MyTitleTabBtn>
       ),
-      tabContent: <BookmarkList detailData={detailData} />,
+
+      tabContent: <BookMarkList />,
+
     },
     {
       tabTitle: (
