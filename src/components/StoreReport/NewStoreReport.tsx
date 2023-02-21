@@ -6,6 +6,7 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { auth } from '../../services/firebase';
+import * as S from './style';
 
 interface NewStoreInput {
   title: string;
@@ -13,7 +14,7 @@ interface NewStoreInput {
   storeAddress: string;
   startDate: string;
   endDate: string;
-  etcContent: string;  
+  etcContent: string;
 }
 
 const NewStoreReport: any = () => {
@@ -103,7 +104,7 @@ const NewStoreReport: any = () => {
 
     // db에 추가
     try {
-      axios.post('http://localhost:3010/newStores', newStore);
+      axios.post('http://localhost:3002/newStores', newStore);
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
 
@@ -115,74 +116,98 @@ const NewStoreReport: any = () => {
 
   return (
     <NewStoreForm onSubmit={newStoreInfoAddHandler}>
-      <div>
-        <h2>제보 제목</h2>
-        <input
+      <S.ReportGrid>
+        <S.ReportTitle>제보 제목</S.ReportTitle>
+        <S.ReportTitleInput
           type="text"
           name="title"
+          placeholder="제목을 입력해 주세요."
+          required
           onChange={newStoreInputonChangeHandler}
           value={newStoreInput.title}
         />
-        <div>
-          <h2>브랜드명 (스토어 이름)</h2>
-          <input
-            type="text"
-            name="storeName"
-            onChange={newStoreInputonChangeHandler}
-            value={newStoreInput.storeName}
-          />
-          <h2>주소</h2>
-          <input
-            type="text"
-            name="storeAddress"
-            onChange={newStoreInputonChangeHandler}
-            value={newStoreInput.storeAddress}
-          />
-        </div>
-        <div>
-          <h2>기간</h2>
-          <label htmlFor="">시작 날짜</label>
-          <input
-            type="date"
-            name="startDate"
-            onChange={newStoreInputonChangeHandler}
-            value={newStoreInput.startDate}
-          />
-          <label htmlFor="">종료 날짜</label>
-          <input
-            type="date"
-            name="endDate"
-            onChange={newStoreInputonChangeHandler}
-            value={newStoreInput.endDate}
-          />
-        </div>
-        <h2>기타 내용</h2>
-        <input
+      </S.ReportGrid>
+      <S.ReportGrid>
+        <S.ReportTitle>
+          브랜드명
+          <div>(스토어 이름)</div>
+        </S.ReportTitle>
+        <S.ReportTitleInput
+          type="text"
+          name="storeName"
+          placeholder="스토어 이름을 입력해 주세요."
+          required
+          onChange={newStoreInputonChangeHandler}
+          value={newStoreInput.storeName}
+        />
+      </S.ReportGrid>
+      <S.ReportGrid>
+        <S.ReportTitle>주소</S.ReportTitle>
+        <S.ReportTitleInput
+          type="text"
+          name="storeAddress"
+          placeholder="(ex: 서울특별시 성동구 성수동) "
+          required
+          onChange={newStoreInputonChangeHandler}
+          value={newStoreInput.storeAddress}
+        />
+      </S.ReportGrid>
+
+      <S.ThreeGrid>
+        <S.ReportTitle>기간</S.ReportTitle>
+        <S.ReportTitleInput
+          style={{ width: 200 }}
+          type="date"
+          data-placeholder="시작 일자"
+          required
+          name="startDate"
+          onChange={newStoreInputonChangeHandler}
+          value={newStoreInput.startDate}
+        />
+        <S.ReportTitleInput
+          style={{ width: 200 }}
+          type="date"
+          data-placeholder="종료 일자"
+          required
+          name="endDate"
+          onChange={newStoreInputonChangeHandler}
+          value={newStoreInput.endDate}
+        />
+      </S.ThreeGrid>
+      <S.ReportGrid>
+        <S.ReportTitle>제보 내용</S.ReportTitle>
+        <S.ReportTitleInput
+          style={{ height: 100 }}
           type="text"
           name="etcContent"
+          placeholder='제보 내용을 입력해 주세요. 없을 시 "없음"으로 입력해 주세요.'
+          required
           onChange={newStoreInputonChangeHandler}
           value={newStoreInput.etcContent}
         />
-        <div style={{ marginTop: 20 }}>
-          <StoreImgLabel htmlFor="storeInfoImg">
-            <BiImageAdd />
-            {imgFile && (
-              <img src={imgFile} style={{ width: 150, height: 150 }} />
-            )}
-          </StoreImgLabel>
-          <input
-            type="file"
-            accept="image/*"
-            id="storeInfoImg"
-            onChange={newStoreInfoImgoOnChangeHandler}
-            style={{ display: 'none' }}
-          />
-        </div>
-        <div>
-          <button>취소</button>
-          <button type="submit">제보하기</button>
-        </div>
-      </div>
+      </S.ReportGrid>
+      <S.ReportGrid>
+        <S.ReportTitle>이미지</S.ReportTitle>
+        <StoreImgLabel htmlFor="storeInfoImg">
+          <BiImageAdd style={{ fontSize: '60px' }} />
+          {imgFile && <img src={imgFile} style={{ width: 150, height: 150 }} />}
+        </StoreImgLabel>
+        <input
+          type="file"
+          accept="image/*"
+          id="storeInfoImg"
+          onChange={newStoreInfoImgoOnChangeHandler}
+          style={{ display: 'none' }}
+        />
+      </S.ReportGrid>
+      <S.ButtonBox>
+        <S.CancleAddButton
+          style={{ backgroundColor: 'white', color: '#9B9B9B' }}
+        >
+          취소
+        </S.CancleAddButton>
+        <S.CancleAddButton type="submit">제보하기</S.CancleAddButton>
+      </S.ButtonBox>
     </NewStoreForm>
   );
 };

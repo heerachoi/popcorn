@@ -1,9 +1,3 @@
-const FormatDate = () => {
-  return <div></div>;
-};
-
-export default FormatDate;
-
 export const getTodayDate = () => {
   const currentDate = new Date();
   const year = String(currentDate.getFullYear());
