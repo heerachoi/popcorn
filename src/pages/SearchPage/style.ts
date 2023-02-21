@@ -8,6 +8,7 @@ export const SearchPageContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 40px;
+  
 `
 export const FilterContainer = styled.div`
   display: flex;
@@ -20,82 +21,83 @@ export const SearchInputContainer = styled.div`
   display: flex; 
   flex-direction: row;
   align-items: center;
-  border: 1px solid #BDBDBD;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 20px;
-  width: 420px;
-  height: 28px;
+  width: 293px;
+  height: 30px;
   padding: 8px 16px;
   cursor:pointer;
   gap: 4px;
 `
 
-export const FilterTitle = styled.div`
-  width: 45px;
+export const InputTitle = styled.div`
   font-weight: 700;
   font-size: 16px;
-  color: ${COLORS.orange1};
+  min-width: 54px;
+  display: flex;  
+  justify-content: center;
+`
+
+export const FilterTitle = styled(InputTitle)`
+   &:hover{
+    color: ${COLORS.white}; 
+  }
 `
 
 export const SearchInput = styled.input`
   border: none;
   outline: none;
   font-size: 16px;
-  color: #9B9B9B;
+  color: ${COLORS.gray6};
   width: 300px;
 `
 
 export const SearchItemContainer = styled.div`
-  /* border: 1px solid #BDBDBD;
-  border-radius: 20px;
-  width: 420px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  padding: 8px 16px; */
 `
 
 export const SearchTagContainer = styled.div`
-  /* border: 1px solid #BDBDBD;
-  border-radius: 20px;
-  width: 420px;
-  height: 40px;
-  display: flex;
-  flex-direction: row;
-  padding: 8px 16px; */
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 4px 16px 3px;
-
-  /* width: 120px; */
-  height: 28px;
-
-  background: #FFF9D2;
-
-  border: 1px solid #FFB321;
+  gap: 4px;
+  height: 40px;
+  background: ${COLORS.orange4};
+  border: 1px solid ${COLORS.orange2};
   border-radius: 20px;
-  color: #F2901D;
+  color: ${COLORS.orange1}; 
+  &:hover{
+    background: ${COLORS.orange2};
+    color: ${COLORS.white}; 
+  }
 `
 
 export const SearchEventPeriod = styled.select`
   outline: none;
-  
-  border-radius: 3px;
+  border: none;
+  background-color: transparent; 
+`;
+
+export const Option = styled.option`
+background: #fff;
+  color: #fff;
+  padding: 3px 0;
+  font-size: 16px;
 `
 
 export const DatePickerWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-`
+  flex-direction: row;
+`;
 
 export const DatePickerContainer = styled(DatePicker)`
   outline: none;
+  border: none;
   display: flex;
-  flex-direction: column;
-  
-  
+  flex-direction: row;
+  background-color: transparent;
+  width: 100px;
 `
 
 export const ToggleCalendar = styled.div`
@@ -108,7 +110,13 @@ export const ToggleCalendar = styled.div`
 export const DepartmentStoreCategory = styled.select`
   outline: none;
   box-sizing: border-box;
+  height: 100px;
 `
+// export const Option = styled.option`
+//   color: blue;
+//   background-color: yellow;
+//   /* width: 100px; */
+// `;
 
 export const ItemCategory = styled.div`
   
@@ -131,6 +139,8 @@ export const FilterTypes = styled.div`
 
 export const SelectDate = styled.div`
 `
+export const InformationContainer = styled.div`
+`
 
 export const PosterImg = styled.img`
   width: 175px;
@@ -142,7 +152,7 @@ export const StoreTitle = styled.div`
   font-weight: 800;
   font-size: 17px;
   line-height: 29px;
-  color: #323232;
+  color: ${COLORS.gray1};
 `
 
 export const EventPeriod = styled.div`
@@ -153,28 +163,34 @@ color: #A6A6A6;
 `
 export const FilterResult = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  width: 50%;
+  flex-direction: column;
+  width: 100%;
+  gap:16px;
 `
 
 export const StoreContainer = styled.div`
-  border: 1px solid #A6A6A6;
+  border: 1px solid ${COLORS.gray7};
+  background-color: ${COLORS.gray8};
   border-radius: 8px;
   display: flex;
   flex-direction: row;
   width: 600px;
   height: 175px;
+  &:hover{
+    border: 1px solid ${COLORS.orange3};
+    background-color: ${COLORS.orange4}; 
+  }
 `
 
 export const StoreInformation = styled.div`
   display:flex;
   flex-direction: column;
   padding: 16px;
+  justify-content: space-between;
 `
 
 export const CalendarContainer = styled.div`
-  width: 50%;
+  width: 100%;
 `
 
 export const FilterItemHolder = styled.div`
@@ -185,18 +201,21 @@ export const FilterItemHolder = styled.div`
 export const FilterResultAndCalendarContainer = styled.div`
   display: flex;
   flex-direction: row;
+  gap:14px;
 `
 
 export const CategoryContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 12px;
+
+  float: right;
 `;
 
 export const Category = styled.div`
   padding: 4px 16px 3px;
   height: 21px;
-  background: #676767;
+  background:${COLORS.gray3};
   border-radius: 20px;
   color: white;
   font-weight: 700;
@@ -204,6 +223,6 @@ export const Category = styled.div`
   display: flex;
   align-items: center;
   &:hover{
-    background-color: #FFB321;
+    background-color: ${COLORS.orange2};
   }
 `;

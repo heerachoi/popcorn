@@ -1,11 +1,17 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import ArrowBackgroundOff from '../../../assets/Img/arrowBackgroundOff.png';
+import ArrowBackgroundOn from '../../../assets/Img/arrowBackgroundOn.png';
+
+
 
 export const SwiperContainer = styled(Slider)`
   width: 1100px;
-  height: 516px;
+  height: 506px;
+
   img {
     cursor: pointer;
     height: 334px;
@@ -13,9 +19,9 @@ export const SwiperContainer = styled(Slider)`
   }
 
   .slick-arrow {
-    display: flex;
-    z-index: 999;
-    background-color: black;
+    /* display: flex; */
+    /* z-index: 999; */
+    /* background-color: aliceblue; */
   }
 
   li {
@@ -24,32 +30,45 @@ export const SwiperContainer = styled(Slider)`
   }
 
   .slick-track:before {
-    height: 100%;
     background-color: aliceblue;
   }
 
-.slick-slide {
+  .slick-slide {
     width: 334px;
-    height: 516px;
     margin-right: 18px;
-}
-
-.slick-slide:not(.slick-active) {
-  display: none;
-}
-
+  }
+  .slick-next {
+    z-index: 999;
+    background-color: white;
+    width: 52px;
+    height: 59px;
+    background:url(${ArrowBackgroundOff});
+     &:hover {
+      background:url(${ArrowBackgroundOn});
+    }
+  }
+  .slick-prev {
+    z-index: 999;
+    background:url(${ArrowBackgroundOff});
+    width: 55px;
+    height: 59px;
+    object-fit: cover;
+    /* background-color: black; */
+    &:hover {
+      background:url(${ArrowBackgroundOn});
+    }
+  }
 `;
 
 // Popup Store 포스터 카드
 export const StoreContainer = styled.div`
-  height: 516px;
-  border: 1px solid #D9D9D9;
-  background-color: #F5F5F5;
+  border: 1px solid ${COLORS.gray7};
+  background-color: ${COLORS.gray8};
   border-radius: 8px;
   cursor: pointer;
   &:hover{
-    background-color: #FFF9D2;
-    border: 1px solid #FFB321;
+    background-color: ${COLORS.orange4};
+    border: 1px solid ${COLORS.orange2};
   }
 `;
 
@@ -59,16 +78,28 @@ export const PopupImg = styled.img`
   border-radius: 8px 8px 0px 0px;
 `;
 
+export const InformationContainer = styled.div`
+`;
+
+
 export const StoreInformation = styled.div`
-  box-sizing: border-box;
-  padding: 0px 20px;
-  width: 334px;
+  padding: 16px;
+  height: 122px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
-export const PopupTitle = styled.h3`
+export const PopupTitle = styled.p`
+  font-weight: 700;
+  font-size: 16px;
+  color: ${COLORS.gray1};
+  margin-bottom: 20px;
 `;
 
-export const PopupDate = styled.p``;
+export const PopupDate = styled.p`
+  color: ${COLORS.gray5};
+`;
 
 export const PopupAddress = styled.p`
   width: 300px;
@@ -86,7 +117,7 @@ export const CategoryContainer = styled.div`
 export const Category = styled.div`
   padding: 4px 16px 3px;
   height: 21px;
-  background: #676767;
+  background: ${COLORS.gray3};
   border-radius: 20px;
   color: white;
   font-weight: 700;
@@ -94,6 +125,6 @@ export const Category = styled.div`
   display: flex;
   align-items: center;
   &:hover{
-    background-color: #FFB321;
+    background-color: ${COLORS.orange2};
   }
 `;

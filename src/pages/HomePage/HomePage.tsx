@@ -15,8 +15,9 @@ const HomePage: any = () => {
   const [storeData, setStoreData] = useState<any>('');
   const fetchTodos = async () => {
     const { data } = await axios.get("http://localhost:3010/Store");
-    console.log({data});
+    console.log(data);
   };
+
   useEffect(() => {
     fetchTodos();
   }, [storeData]);
@@ -28,7 +29,7 @@ const HomePage: any = () => {
         <S.CategoryWrapper>
           <S.ListTitleContainer>
           <S.CategoryTitleBackgroundOne/>
-          <S.ListTitle>최근 오픈했어요</S.ListTitle>
+          <S.ListTitle>최근 오픈했어요!</S.ListTitle>
         </S.ListTitleContainer>
         <S.CategoryListContainer>
           <S.FilterStoreList>
@@ -57,13 +58,15 @@ const HomePage: any = () => {
             {womenTopTwo?.map((popup:any) => {
               return (
                 <S.StoreContainer key={popup.id} onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
-                   <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
+                  <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
                   <S.StoreInformation>
-                    <S.PopupTitle>{popup.title}</S.PopupTitle>
-                  <S.PopupDate>
-                    {popup.open} - {popup.close}
-                  </S.PopupDate>
-                  <S.PopupAddress>{popup.address}</S.PopupAddress>
+                    <S.InformationContainer>
+                      <S.PopupTitle>{popup.title}</S.PopupTitle>
+                      <S.PopupDate>
+                      {popup.open} - {popup.close}
+                      </S.PopupDate>
+                      {/* <S.PopupAddress>{popup.address}</S.PopupAddress> */}
+                    </S.InformationContainer>
                   <S.CategoryContainer>
                     <S.Category onClick={(event) => { 
                         event.stopPropagation(); 
@@ -86,7 +89,8 @@ const HomePage: any = () => {
               )
             }) }
             <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
-              더 많은 팝업스토어 보기
+              <S.SeeMoreImage src={require('../../assets/Img/SeeMore.jpg')} />
+              <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
             </S.SeeMoreContainer>
           </S.FilterStoreList>
         </S.CategoryListContainer>
@@ -101,13 +105,15 @@ const HomePage: any = () => {
             {menTopTwo?.map((popup:any) => {
               return (
                 <S.StoreContainer key={popup.id} onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
-                   <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
+                  <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
                   <S.StoreInformation>
-                    <S.PopupTitle>{popup.title}</S.PopupTitle>
-                  <S.PopupDate>
-                    {popup.open} - {popup.close}
-                  </S.PopupDate>
-                  <S.PopupAddress>{popup.address}</S.PopupAddress>
+                    <S.InformationContainer>
+                      <S.PopupTitle>{popup.title}</S.PopupTitle>
+                      <S.PopupDate>
+                      {popup.open} - {popup.close}
+                      </S.PopupDate>
+                      {/* <S.PopupAddress>{popup.address}</S.PopupAddress> */}
+                    </S.InformationContainer>
                   <S.CategoryContainer>
                     <S.Category onClick={(event) => { 
                         event.stopPropagation(); 
@@ -130,8 +136,11 @@ const HomePage: any = () => {
               )
             }) }
             <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
-              더 많은 팝업스토어 보기
+              <S.SeeMoreImage src={require('../../assets/Img/SeeMore.jpg')} />
+              <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
+              
             </S.SeeMoreContainer>
+            
           </S.FilterStoreList>
         </S.CategoryListContainer>
         </S.CategoryWrapper>
