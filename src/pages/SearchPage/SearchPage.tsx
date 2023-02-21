@@ -340,9 +340,8 @@ const Search: React.FC = () => {
   return (
     <S.SearchPageContainer>
       <S.FilterContainer>
-        <S.SearchItemContainer>
-          <ImSearch />
-          <S.SearchTagContainer>
+          <S.SearchInputContainer>
+            <ImSearch />
             <S.FilterTitle>키워드</S.FilterTitle>
             <S.SearchInput
               type="text"
@@ -351,14 +350,12 @@ const Search: React.FC = () => {
               onChange={(event) => setSearchTerm(event.target.value)}
               onKeyPress={checkKeypress}
             />
-          </S.SearchTagContainer>
-        </S.SearchItemContainer>
+          </S.SearchInputContainer>
         <S.SearchItemContainer>
-          <BiCalendar />
           <S.SearchTagContainer>
-            <S.FilterTitle>진행중인 팝업스토어</S.FilterTitle>
+            <BiCalendar />
+            <S.FilterTitle>진행중</S.FilterTitle>
             <S.DatePickerWrapper>
-              {/* 팝업스토어 시작 날짜 선택 */}
               <S.DatePickerContainer
                 selected={dateSelected}
                 locale={ko}
@@ -389,7 +386,7 @@ const Search: React.FC = () => {
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <ImLocation />
+          {/* <ImLocation /> */}
           <S.SearchTagContainer>
             <S.FilterTitle
               className="button-default"
@@ -402,10 +399,10 @@ const Search: React.FC = () => {
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <RiProductHuntLine />
+          {/* <RiProductHuntLine /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={itemToggle}>
-              제품 카테고리
+              제품
             </S.FilterTitle>
             <Modal
               isShowing={isItemModalShowing}
@@ -416,10 +413,10 @@ const Search: React.FC = () => {
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <BiCategoryAlt />
+          {/* <BiCategoryAlt /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={otherToggle}>
-              기타 카테고리
+              기타
             </S.FilterTitle>
             <Modal
               isShowing={isOtherModalShowing}
