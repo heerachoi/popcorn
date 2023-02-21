@@ -395,7 +395,7 @@ const Search: React.FC = () => {
               className="button-default"
               onClick={modalClickHandler}
             >
-              위치 카테고리
+              위치
             </S.FilterTitle>
             <Modal isShowing={isShowing} hide={toggle} value={'위치'} />
             {/* <S.FilterItemHolder>전체</S.FilterItemHolder> */}
