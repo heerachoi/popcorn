@@ -3,7 +3,7 @@ import * as S from './style';
 import { auth } from '../../../services/firebase';
 import Logout from '../../Authentication/Logout/Logout';
 import { useRecoilValue } from 'recoil';
-import { userInfo } from '../../../atoms';
+import { globalBtn, userInfo } from '../../../atoms';
 import { BsBellFill } from 'react-icons/bs';
 import useModal from '../../../hooks/useModal';
 import Modal from '../../SearchPage/SearchModal/SearchModal';
@@ -13,15 +13,17 @@ import styled from 'styled-components';
 const Header = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userInfo);
+  const globalButton = useRecoilValue(globalBtn);
 
   console.log(auth?.currentUser?.email); //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
   // 해결 : Router에서 auth.onAuthStateChanged 메서드를 사용해서 파이어베이스에서 DB정보를 참조해서 변경 사항 가져옴
 
-  const notification = () => {
-    console.log('alert');
-  };
-
   const { isShowing, toggle } = useModal();
+
+  const GlobalBtnChangehandler = (page: string) => {
+    if (globalButton) return alert('멈춰!');
+    navigate(page);
+  };
 
   return (
     <>
@@ -31,13 +33,13 @@ const Header = () => {
             className="title"
             src={require('../../../assets/Logo/popcorn_logo.png')}
             alt="타이틀"
-            onClick={() => navigate('/')}
+            onClick={() => GlobalBtnChangehandler('/')}
           />
           <TitleImg
             className="TitleImg"
             src={require('../../../assets/Logo/State=Hovered.png')}
             alt="타이틀"
-            onClick={() => navigate('/')}
+            onClick={() => GlobalBtnChangehandler('/')}
           />
         </HoverBox>
         <S.BtnWrap>
@@ -52,13 +54,13 @@ const Header = () => {
             </MenuImageBackground>
           )}
           <TextBackground>
-            <S.CategoryBtn onClick={() => navigate('/report')}>
+            <S.CategoryBtn onClick={() => GlobalBtnChangehandler('/report')}>
               팝업스토어 제보
             </S.CategoryBtn>
           </TextBackground>
           {!user.isLogin && (
             <TextBackground style={{ width: 110 }}>
-              <S.CategoryBtn onClick={() => navigate('/signup')}>
+              <S.CategoryBtn onClick={() => GlobalBtnChangehandler('/signup')}>
                 회원가입
               </S.CategoryBtn>
             </TextBackground>
@@ -67,7 +69,7 @@ const Header = () => {
             <Logout />
           ) : (
             <TextBackground style={{ width: 100 }}>
-              <S.CategoryBtn onClick={() => navigate('/login')}>
+              <S.CategoryBtn onClick={() => GlobalBtnChangehandler('/login')}>
                 로그인
               </S.CategoryBtn>
             </TextBackground>
@@ -77,8 +79,8 @@ const Header = () => {
               <S.CategoryBtn
                 onClick={() => {
                   user.userInfomation.email === 'master@gmail.com'
-                    ? navigate('/master')
-                    : navigate('/my');
+                    ? GlobalBtnChangehandler('/master')
+                    : GlobalBtnChangehandler('/my');
                 }}
               >
                 마이페이지
@@ -89,7 +91,7 @@ const Header = () => {
             <MenuImage
               src={require('../../../assets/Logo/Spot.png')}
               alt="타이틀"
-              onClick={() => navigate('/map')}
+              onClick={() => GlobalBtnChangehandler('/map')}
             />
           </MenuImageBackground>
         </S.BtnWrap>
