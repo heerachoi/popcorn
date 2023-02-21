@@ -5,10 +5,7 @@ import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { BsBookmarkFill } from 'react-icons/bs';
 
-
 const BookMarkList = () => {
-
-
   const bookmarkList = data.BookMarkList;
 
   const navigate = useNavigate();

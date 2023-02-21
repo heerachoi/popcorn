@@ -20,19 +20,16 @@ const Header = () => {
 
   const { isShowing, toggle } = useModal();
 
-
   const GlobalBtnChangehandler = (page: string) => {
     if (globalButton) return alert('멈춰!');
     navigate(page);
   };
 
-  const reportClickHandler = () => {
-    if(user.isLogin) {
-      navigate('/report')
-    } else {
-      alert('로그인 후 이용 가능합니다.')
-    }
-  }
+  const reportClickHandler = (page: string) => {
+    if (globalButton) return alert('멈춰!');
+    if (!user.isLogin) return alert('로그인 후 이용 가능합니다.');
+    navigate(page);
+  };
 
   return (
     <>
@@ -63,8 +60,7 @@ const Header = () => {
             </MenuImageBackground>
           )}
           <TextBackground>
-            <S.CategoryBtn onClick={() => {GlobalBtnChangehandler('/report')}}>
-            <S.CategoryBtn onClick={reportClickHandler}>
+            <S.CategoryBtn onClick={() => reportClickHandler('/report')}>
               팝업스토어 제보
             </S.CategoryBtn>
           </TextBackground>
