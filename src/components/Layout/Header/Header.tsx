@@ -2,33 +2,41 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 import { auth } from '../../../services/firebase';
 import Logout from '../../Authentication/Logout/Logout';
-import { useRecoilValue } from 'recoil';
-import { globalBtn, userInfo } from '../../../atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { globalBtn, modalStatus, userInfo } from '../../../atoms';
 import { BsBellFill } from 'react-icons/bs';
 import useModal from '../../../hooks/useModal';
 import Modal from '../../SearchPage/SearchModal/SearchModal';
 import AlertModal from './Notification/NotificationModal';
 import styled from 'styled-components';
+import CustomModal from '../../../shared/CustomModal';
 
 const Header = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userInfo);
   const globalButton = useRecoilValue(globalBtn);
+  const [isModal, setIsModal] = useRecoilState(modalStatus);
 
   console.log(auth?.currentUser?.email); //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
   // 해결 : Router에서 auth.onAuthStateChanged 메서드를 사용해서 파이어베이스에서 DB정보를 참조해서 변경 사항 가져옴
-
+  console.log('isModal', isModal);
   const { isShowing, toggle } = useModal();
 
+  // input 창에 value 가 있으면 alert로 이동을 막아주는 함수
   const GlobalBtnChangehandler = (page: string) => {
     if (globalButton) return alert('멈춰!');
     navigate(page);
   };
 
-  const reportClickHandler = (page: string) => {
+  const reportClickHandler = () => {
+    setIsModal({ ...isModal, master: !isModal.master });
     if (globalButton) return alert('멈춰!');
-    if (!user.isLogin) return alert('로그인 후 이용 가능합니다.');
-    navigate(page);
+    if (!user.isLogin) navigate('/login');
+  };
+
+  // 모달 상태 변경
+  const modalStatusChangeHandler = () => {
+    setIsModal({ ...isModal, master: !isModal.master });
   };
 
   return (
@@ -60,9 +68,24 @@ const Header = () => {
             </MenuImageBackground>
           )}
           <TextBackground>
-            <S.CategoryBtn onClick={() => reportClickHandler('/report')}>
+            <S.CategoryBtn
+              onClick={
+                user.isLogin
+                  ? () => navigate('/report')
+                  : modalStatusChangeHandler
+              }
+            >
               팝업스토어 제보
             </S.CategoryBtn>
+            {isModal.master && (
+              <CustomModal
+                title="로그인하시겠습니까?"
+                text="로그인하셔야 이용 가능한 서비스입니다."
+                cancel="취소"
+                submit="로그인"
+                fnc={reportClickHandler}
+              />
+            )}
           </TextBackground>
           {!user.isLogin && (
             <TextBackground style={{ width: 110 }}>
