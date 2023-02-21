@@ -23,14 +23,6 @@ const Header = () => {
 
   const { isShowing, toggle } = useModal();
 
-  const reportClickHandler = () => {
-    if(user.isLogin) {
-      navigate('/report')
-    } else {
-      alert('로그인 후 이용 가능합니다.')
-    }
-  }
-
   return (
     <>
       <S.Wrap>
@@ -60,7 +52,7 @@ const Header = () => {
             </MenuImageBackground>
           )}
           <TextBackground>
-            <S.CategoryBtn onClick={reportClickHandler}>
+            <S.CategoryBtn onClick={() => navigate('/report')}>
               팝업스토어 제보
             </S.CategoryBtn>
           </TextBackground>

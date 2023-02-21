@@ -3,13 +3,10 @@ import NewStoreReportList from '../../components/MasterPage/NewStoreReportList';
 import ErrReportList from '../../components/MasterPage/ErrReportList';
 import * as S from './style';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import { isActiveMenu } from '../../atoms';
 
 const MasterPage: any = () => {
   const navigate = useNavigate();
-  const [activeIndex, setActiveIndex] = useRecoilState(isActiveMenu);
- 
+  const [index, setIndex] = useState(0);
 
   const tabMenuArr = [
     {
@@ -25,7 +22,7 @@ const MasterPage: any = () => {
   ];
 
   const tabMenuClickHandler = (idx: any) => {
-    setActiveIndex(idx);
+    setIndex(idx);
   };
   return (
     <>
@@ -33,10 +30,11 @@ const MasterPage: any = () => {
         <S.ReportListContainer>
           <S.TabMenu>
             {tabMenuArr.map((item: any, idx: any) => {
+              // console.log('item',item);
               return (
                 <S.MenuTitleBox key={item.id}>
                   <S.MenuTitleTabBtn
-                    className={activeIndex === idx ? 'active' : ''}
+                    className={index === idx ? 'active' : ''}
                     onClick={() => tabMenuClickHandler(idx)}
                   >
                     {item.tabTitle}
@@ -45,7 +43,7 @@ const MasterPage: any = () => {
               );
             })}
           </S.TabMenu>
-          <S.ContentBox>{tabMenuArr[activeIndex].content}</S.ContentBox>
+          <S.ContentBox>{tabMenuArr[index].content}</S.ContentBox>
         </S.ReportListContainer>
       </S.MasterPageWrap>
       <S.NewPostWriteBtnBox>

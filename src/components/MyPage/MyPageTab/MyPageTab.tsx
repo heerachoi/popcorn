@@ -1,22 +1,16 @@
 import * as S from './style';
 import BookmarkList from '../BookMarkList/BookMarkList';
 import { useState } from 'react';
-import MyReportList from '../MyReportList/MyReportList';
 
 const MyPageTab = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const MyTabClick = (i: any) => {
     return setActiveIndex(i);
   };
-
   const myTabArr = [
     {
       tabTitle: (
-        <S.MyTitleTabBtn
-          onClick={() => MyTabClick(0)}
-          className={activeIndex === 0 ? 'active' : ''}
-        >
+        <S.MyTitleTabBtn onClick={() => MyTabClick(0)}>
           <p>북마크</p>
         </S.MyTitleTabBtn>
       ),
@@ -28,11 +22,11 @@ const MyPageTab = () => {
     },
     {
       tabTitle: (
-        <S.MyTitleTabBtn onClick={() => MyTabClick(1)} className={activeIndex === 1 ? 'active' : ''}>
+        <S.MyTitleTabBtn onClick={() => MyTabClick(1)}>
           <p>내가 쓴 제보</p>
         </S.MyTitleTabBtn>
       ),
-      tabContent: <MyReportList />,
+      tabContent: <div>내가 쓴 제보 리스트</div>,
     },
   ];
 

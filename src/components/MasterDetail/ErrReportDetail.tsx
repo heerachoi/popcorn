@@ -49,9 +49,7 @@ const ErrReportDetail = () => {
     <S.ReportListWrap>
       <S.ReportListContainer>
         <S.ReportTitleBox>
-          <S.TitleBackground>
-            <S.TitleText>정보 오류&수정 제보</S.TitleText>
-          </S.TitleBackground>
+          <h2>정보 오류&수정 제보</h2>
         </S.ReportTitleBox>
 
         <S.ReportContentListWrap>
@@ -93,9 +91,9 @@ const ErrReportDetail = () => {
                   </S.ReportContentText>
                 </S.Grid>
                 <S.ButtonBox>
-                  <S.CancleBtn onClick={() => navigate('/master')}>
+                  <S.CheckBtn style={{ backgroundColor: 'white', color: '#9B9B9B' }} onClick={() => navigate('/master')}>
                     취소
-                  </S.CancleBtn>
+                  </S.CheckBtn>
                   <S.CheckBtn onClick={checkHandler}>확인</S.CheckBtn>
                 </S.ButtonBox>
               </S.GridBox>
