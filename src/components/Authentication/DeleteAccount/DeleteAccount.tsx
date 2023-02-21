@@ -1,60 +1,62 @@
 import { deleteUser } from 'firebase/auth';
-import { deleteDoc, doc } from 'firebase/firestore';
 import React from 'react';
-import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
-import { auth, db } from '../../../services/firebase';
+import { auth } from '../../../services/firebase';
 import styled from 'styled-components';
+import { modalStatus } from '../../../atoms';
+import { useRecoilState } from 'recoil';
+import CustomModal from '../../../shared/CustomModal';
+import axios from 'axios';
 
 const DeleteAccount = () => {
+  const [isModal, setIsModal] = useRecoilState(modalStatus);
   const navigate = useNavigate();
   const user = auth.currentUser;
 
-  // 회원탈퇴 할 때 데이터베이스에서 삭제해야하기 때문에 함수를 만듦
-  const deleteDocUser = async (id: any) => {
+  // 회원탈퇴 할 때 json-server에서 삭제해야하기 때문에 함수를 만듬
+  const deleteDBUser = async () => {
+    if (user) await axios.delete(`http://localhost:4000/users/${user.uid}`);
     try {
-      await deleteDoc(doc(db, 'users', id));
+      console.log('감사합니다.');
     } catch (error) {
-      alert(error);
+      console.log('알 수 없는 오류 발생');
     }
   };
 
   // 회원탈퇴 이벤트
-  const deleteAccountClickHandler = (
-    event: React.FormEvent<HTMLFormElement>,
-  ) => {
-    event.preventDefault();
+  const deleteAccountClickHandler = async () => {
     if (user) {
+      await deleteUser(user);
       try {
-        confirmAlert({
-          title: '회원탈퇴',
-          message:
-            '회원탈퇴를 하면 정보를 되돌릴 수 없습니다. 정말로 하시겠습니까?',
-          buttons: [
-            {
-              label: '확인',
-              onClick: () => {
-                deleteUser(user);
-                deleteDocUser(user.uid);
-                navigate('/');
-              },
-            },
-            {
-              label: '취소',
-              onClick: () => {},
-            },
-          ],
-        });
+        deleteDBUser();
+        navigate('/');
       } catch (error) {
         console.log(error);
       }
     }
   };
 
+  const modalStatusChangeHandler = () => {
+    setIsModal({ ...isModal, signout: !isModal.signout });
+  };
+
   return (
-    <form onSubmit={deleteAccountClickHandler}>
-      <DeleteAccountBtn>회원탈퇴</DeleteAccountBtn>
-    </form>
+    <>
+      {isModal.signout && (
+        <CustomModal
+          title="회원탈퇴"
+          text="회원탈퇴를 하면 정보를 되돌릴 수 없습니다. 정말로 하시겠습니까?"
+          cancel="취소"
+          submit="회원탈퇴"
+          fnc={deleteAccountClickHandler}
+        />
+      )}
+      <div>
+        <DeleteAccountBtn onClick={modalStatusChangeHandler}>
+          회원탈퇴
+        </DeleteAccountBtn>
+      </div>
+    </>
   );
 };
 

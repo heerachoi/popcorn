@@ -326,6 +326,7 @@ const SignUp = () => {
       signUpInput.phoneCode === ''
     )
       setGlobalButton(false);
+    return () => setGlobalButton(false);
   }, [
     signUpInput.nickName,
     signUpInput.email,
