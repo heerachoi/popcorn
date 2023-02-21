@@ -5,7 +5,6 @@ import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../services/firebase';
 import { AiFillLeftCircle } from 'react-icons/ai';
-import { MdCancel } from 'react-icons/md';
 import styled from 'styled-components';
 interface SignInInput {
   email: string;
@@ -165,10 +164,10 @@ const Login = () => {
             className="email"
             onClick={signInInputReset}
           >
-            <CancleIcon size={18} />
+            <S.CancleIcon size={18} />
           </div>
         )}
-        <S.HelperText style={{ color: 'red' }}>{helperText.email}</S.HelperText>
+        <S.HelperText>{helperText.email}</S.HelperText>
         <S.FormInput
           placeholder="비밀번호를 입력해 주세요."
           value={signInInput.password}
@@ -183,16 +182,16 @@ const Login = () => {
             className="password"
             onClick={signInInputReset}
           >
-            <CancleIcon size={18} />
+            <S.CancleIcon size={18} />
           </div>
         )}
-        <S.HelperText style={{ color: 'red' }}>
-          {helperText.password}
-        </S.HelperText>
+        <S.HelperText>{helperText.password}</S.HelperText>
         <S.LoginBtn>로그인</S.LoginBtn>
         <S.FormBtnWrap onClick={() => navigate('/')}>
           <AiFillLeftCircle style={{ color: '#9b9b9b' }} size={18} />
-          <S.NavigateBtn>홈으로 이동</S.NavigateBtn>
+          <S.NavigateBtn style={{ cursor: 'pointer' }}>
+            홈으로 이동
+          </S.NavigateBtn>
         </S.FormBtnWrap>
         <S.FormSignWrap>
           <S.NavigateBtn as="span" onClick={() => navigate('/signup')}>
@@ -206,10 +205,3 @@ const Login = () => {
 };
 
 export default Login;
-
-export const CancleIcon = styled(MdCancel)`
-  position: relative;
-  left: 370px;
-  bottom: 60px;
-  color: #676767;
-`;

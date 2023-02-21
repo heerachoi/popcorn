@@ -1,3 +1,4 @@
+import { MdCancel } from 'react-icons/md';
 import styled from 'styled-components';
 
 export const Wrap = styled.div`
@@ -102,9 +103,13 @@ export const SignUpBtn = styled(LoginBtn)`
 `;
 
 export const HelperText = styled.span`
-  color: red;
+  color: #f4533d;
   margin-top: -10px;
   margin-bottom: 10px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
 `;
 
 export const TextBackground = styled.div`
@@ -112,10 +117,13 @@ export const TextBackground = styled.div`
   width: 110px;
   height: 30px;
   background-color: #ffeb62;
-  /* position: absolute; */
   box-sizing: border-box;
   border-radius: 20px;
-  &:hover {
-    background-color: #ffb321;
-  }
+`;
+
+export const CancleIcon = styled(MdCancel)`
+  position: relative;
+  left: 370px;
+  bottom: 60px;
+  color: #676767;
 `;
