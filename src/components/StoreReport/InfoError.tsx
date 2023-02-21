@@ -8,6 +8,7 @@ import { auth } from '../../services/firebase';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import * as S from './style';
+import { useNavigate } from 'react-router-dom';
 
 interface InfoErrInput {
   title: string;
@@ -21,6 +22,8 @@ interface ErrContent {
 
 // 정보 오류/수정 제보
 const InfoError: any = () => {
+  const navigate = useNavigate()
+
   // input 초기값
   const initInfoErrModifiInput = {
     title: '',
@@ -76,6 +79,13 @@ const InfoError: any = () => {
       setErrImgFile(finishedEvent.currentTarget.result);
     };
   };
+
+  // 취소 버튼 방지
+  const cancleHandler = () => {
+    if(window.confirm('작성을 취소하시겠습니까?')) {
+      navigate('/')
+    }
+  }
 
   // // 제보하기 버튼 onSubmit 함수 (json db 추가)
   const errModifiInfoAddHandler = async (
@@ -196,13 +206,9 @@ const InfoError: any = () => {
           style={{ display: 'none' }}
         />
       </S.ReportGrid>
-      <S.ButtonBox style={{paddingTop:'22px'}}>
-        <S.CancleAddButton
-          style={{ backgroundColor: 'white', color: '#9B9B9B' }}
-        >
-          취소
-        </S.CancleAddButton>
-        <S.CancleAddButton type="submit">제보하기</S.CancleAddButton>
+      <S.ButtonBox>
+        <S.CancleBtn onClick={cancleHandler}>취소</S.CancleBtn>
+        <S.AddBtn type="submit">제보하기</S.AddBtn>
       </S.ButtonBox>
     </S.InfoErrorForm>
   );

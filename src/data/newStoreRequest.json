@@ -36,7 +36,8 @@
       "etcContent": "기타내용",
       "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2FKakaoTalk_20230131_153052121_03.jpg?alt=media&token=32e08744-f10e-4343-8173-ea29d82390e3",
       "reportedDate": "2023. 2. 12. 오후 9:38:48",
-      "status": false
+      "category": "신규",
+      "status": true
     },
     {
       "id": "4d8acfcd-fbc0-4635-aab1-39e87e61ab80",
@@ -74,6 +75,7 @@
       "etcContent": "아티스트 '부원'의 시그니처 캐릭터 오브제 만날 수 있습니다",
       "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2Fsec3_img3_3.jpg?alt=media&token=0b65dd5a-6e6d-402b-bb2b-a583b3846e93",
       "reportedDate": "2023. 2. 16. 오후 7:43:16",
+      "category": "신규",
       "status": false
     },
     {
@@ -112,7 +114,8 @@
       "etcContent": "특급호텔 & 미슐랭 원스타 레스토랑 출신 셰프 요리 맛보기",
       "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2Fl_2023021502000145300053731.jpg?alt=media&token=bf26fa34-8de6-4f33-bce4-c1c941a3d527",
       "reportedDate": "2023. 2. 16. 오후 8:01:52",
-      "status": true
+      "category": "신규",
+      "status": false
     },
     {
       "id": "49c1b639-6926-4b40-99e2-06abd22e950e",
@@ -152,7 +155,7 @@
       "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2F215150729_1_1676565790_w360.jpg?alt=media&token=6c63d88e-fe19-42a8-9d9d-0ce442325806",
       "reportedDate": "2023. 2. 20. 오후 4:12:34",
       "category": "신규",
-      "status": false
+      "status": true
     }
   ]
 }
