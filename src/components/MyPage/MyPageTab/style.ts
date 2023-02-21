@@ -4,28 +4,25 @@ export const MyBookmarkReportWrap = styled.div``;
 
 export const MyBookmarkReportContainer = styled.div`
   /* box-sizing: border-box; */
-  max-width: 1040px;
+  /* max-width: 1040px;
   width: 100%;
   height: 620px;
-  margin: 0 auto;
+  margin: 0 auto; */
 `;
 
 export const MyBookmarkReportBox = styled.div`
-  /* Rectangle 303 */
-
-  box-sizing: border-box;
-
   position: absolute;
   /* width: 60%; */
   width: 688px;
   height: 1084px;
-  left: 580px;
-  top: 220px;
+  left: 800px;
+  top: 150px;
 
-  /* Grayscale/Gray3 */
-
-  border: 1px solid #9b9b9b;
+  background: #f5f5f5;
+  border: 1px solid #d9d9d9;
   border-radius: 8px;
+
+  padding: 0 40px;
 `;
 export const MyBookmarkReportTabMenu = styled.ul`
   padding: 0;
@@ -35,6 +32,7 @@ export const MyBookmarkReportTabMenu = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
+  border-bottom: 2px solid #9b9b9b;
 `;
 
 export const MyTitleTabBtn = styled.button`
@@ -45,15 +43,15 @@ export const MyTitleTabBtn = styled.button`
   display: block;
   border: none;
   color: black;
-  padding: 6px 18px;
-  margin: 0 5px -1px 0;
-
+  padding-bottom: 10px;
+  margin-top: 13px;
   text-decoration: none;
 
   cursor: pointer;
-  width: 45%;
-  &:hover {
-    border-bottom: 3px solid #323232;
+  width: 50%;
+  &.active {
+    color: #f2901d;
+    border-bottom: 2px solid #f2901d;
   }
 `;
 
@@ -61,6 +59,4 @@ export const MyContentBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* background-color: beige; */
 `;

@@ -19,9 +19,9 @@ export const ThreeGrid = styled.div`
 export const ReportTitle = styled.div`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 19px;
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 24px;
   text-align: center;
 
   div {
@@ -31,18 +31,33 @@ export const ReportTitle = styled.div`
 `;
 
 export const ReportTitleInput = styled.input`
-  width: 500px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  width: 720px;
   height: 30px;
   padding: 10px;
-  border: 1px solid #9b9b9b;
   border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  background-color: #ffffff;
+
+  &:active,
+  &:focus {
+    outline-color: #676767;
+    color: #323232;
+  }
+
+  &::placeholder {
+    color: #9b9b9b;
+  }
 
   &::before {
     content: attr(data-placeholder);
     width: 100%;
     font-family: 'Apple SD Gothic Neo';
     font-style: normal;
-    color: gray;
+    color: #9b9b9b;
   }
   &:valid::before {
     display: none;
@@ -50,14 +65,26 @@ export const ReportTitleInput = styled.input`
 `;
 
 export const TextArea = styled.textarea`
-  width: 500px;
+  width: 720px;
   height: 30px;
   padding: 10px;
   border: 1px solid #9b9b9b;
   border-radius: 8px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
   resize: none;
+
+  &::placeholder {
+    color: #9b9b9b;
+  }
+
+  &:active,
+  &:focus {
+    outline-color: #676767;
+    color: #323232;
+  }
 `;
 
 export const StoreImgLabel = styled.label`
@@ -78,14 +105,37 @@ export const ButtonBox = styled.div`
   align-items: center;
 `;
 
-export const CancleAddButton = styled.button`
+export const CancleBtn = styled.button`
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  margin-right: 15px;
+  margin-bottom: 48px;
+  width: 200px;
+  height: 60px;
+
+  background-color: #f5f5f5;
+  color: #9b9b9b;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+
+  cursor: pointer;
+
+  &:hover {
+    color: #9b9b9b;
+    background-color: #d9d9d9;
+  }
+`;
+
+export const AddBtn = styled.button`
   border: 1px solid #9b9b9b;
   border-radius: 8px;
-  margin: 0 15px;
+  width: 200px;
+  height: 60px;
   margin-bottom: 48px;
-  width: 150px;
-  height: 50px;
-
   background-color: #bdbdbd;
   color: white;
   font-family: 'Apple SD Gothic Neo';
@@ -98,7 +148,7 @@ export const CancleAddButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #9b9b9b;
+    background-color: #676767;
   }
 `;
 

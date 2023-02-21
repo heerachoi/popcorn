@@ -22,17 +22,9 @@ const NewStoreReportDetail = () => {
     return <p>Error!!!</p>;
   }
 
-  // console.log('paramId', paramId);
-
-  // useEffect(() => {
-  //   getNewStoreReport();
-  // }, []);
-
   const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
-  // console.log('selectedDetail', selectedDetail);
 
   const currentState = selectedDetail[0].status;
-  // console.log('currentState', currentState);
 
   const checkHandler = () => {
     alert('확인');
@@ -46,7 +38,9 @@ const NewStoreReportDetail = () => {
     <S.ReportListWrap>
       <S.ReportListContainer>
         <S.ReportTitleBox>
-          <h2>신규 팝업스토어 신청 제보</h2>
+        <S.TitleBackground style={{width: 420, right:'750px'}}>
+          <S.TitleText>신규 팝업스토어 신청 제보</S.TitleText>
+          </S.TitleBackground>
         </S.ReportTitleBox>
 
         <S.ReportContentListWrap>
@@ -94,9 +88,9 @@ const NewStoreReportDetail = () => {
                   </S.ReportContentText>
                 </S.Grid>
                 <S.ButtonBox>
-                  <S.CheckBtn style={{ backgroundColor: 'white', color: '#9B9B9B' }} onClick={() => navigate('/master')}>
+                  <S.CancleBtn onClick={() => navigate('/master')}>
                     취소
-                  </S.CheckBtn>
+                  </S.CancleBtn>
                   <S.CheckBtn onClick={checkHandler}>확인</S.CheckBtn>
                 </S.ButtonBox>
               </S.GridBox>

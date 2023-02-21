@@ -10,7 +10,7 @@ import { Store } from '../../types/data/storeInterface';
 import { ko } from 'date-fns/esm/locale';
 // React-icons
 import { ImLocation, ImSearch } from 'react-icons/im';
-import { BsCalendarRange } from 'react-icons/bs';
+import { BsFillCalendarFill } from 'react-icons/bs';
 import { RiProductHuntLine } from 'react-icons/ri';
 import { BiCalendar, BiCategoryAlt } from 'react-icons/bi';
 // Recoil
@@ -87,11 +87,8 @@ const Search: React.FC = () => {
     }
   };
 
-  // 검색필터가 둘기전에 서치 단어가 안들어가나?
   // 검색 필터
   const searchFilterHandler = () => {
-    console.log('searchFilterHandler *********');
-    console.log('searchTerm *****', searchTerm);
     datas.Store.forEach((store: Store) => {
       if (
         store.title === searchTerm ||
@@ -340,10 +337,9 @@ const Search: React.FC = () => {
   return (
     <S.SearchPageContainer>
       <S.FilterContainer>
-        <S.SearchItemContainer>
-          <ImSearch />
-          <S.SearchTagContainer>
-            <S.FilterTitle>키워드</S.FilterTitle>
+          <S.SearchInputContainer>
+            <ImSearch />
+            <S.InputTitle>키워드</S.InputTitle>
             <S.SearchInput
               type="text"
               value={searchTerm}
@@ -351,14 +347,12 @@ const Search: React.FC = () => {
               onChange={(event) => setSearchTerm(event.target.value)}
               onKeyPress={checkKeypress}
             />
-          </S.SearchTagContainer>
-        </S.SearchItemContainer>
+          </S.SearchInputContainer>
         <S.SearchItemContainer>
-          <BiCalendar />
           <S.SearchTagContainer>
-            <S.FilterTitle>진행중인 팝업스토어</S.FilterTitle>
+            <BsFillCalendarFill />
+            <S.FilterTitle>진행중</S.FilterTitle>
             <S.DatePickerWrapper>
-              {/* 팝업스토어 시작 날짜 선택 */}
               <S.DatePickerContainer
                 selected={dateSelected}
                 locale={ko}
@@ -367,15 +361,15 @@ const Search: React.FC = () => {
                 minDate={new Date()}
                 showPopperArrow={false}
                 isClearable={true}
-                placeholderText="진행중인 팝업스토어"
+                placeholderText="날짜 선택"
                 closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
               />
             </S.DatePickerWrapper>
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <BsCalendarRange />
           <S.SearchTagContainer>
+            <BsFillCalendarFill />
             <S.FilterTitle>팝업 기간</S.FilterTitle>
             <S.SearchEventPeriod
               onChange={(event) => setPopupDurationFilter(event.target.value)}
@@ -389,7 +383,7 @@ const Search: React.FC = () => {
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <ImLocation />
+          {/* <ImLocation /> */}
           <S.SearchTagContainer>
             <S.FilterTitle
               className="button-default"
@@ -402,7 +396,7 @@ const Search: React.FC = () => {
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <RiProductHuntLine />
+          {/* <RiProductHuntLine /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={itemToggle}>
               제품 카테고리
@@ -416,7 +410,7 @@ const Search: React.FC = () => {
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <BiCategoryAlt />
+          {/* <BiCategoryAlt /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={otherToggle}>
               기타 카테고리
@@ -439,10 +433,12 @@ const Search: React.FC = () => {
               <S.StoreContainer key={popup.id} onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
                 <S.PosterImg src={popup.imgURL[0]} />
                 <S.StoreInformation>
-                  <S.StoreTitle>{popup.title}</S.StoreTitle>
+                  <S.InformationContainer>
+                    <S.StoreTitle>{popup.title}</S.StoreTitle>
                   <S.EventPeriod>
                     {popup.open} - {popup.close}
                   </S.EventPeriod>
+                  </S.InformationContainer>
                   <S.CategoryContainer>
                   <S.Category onClick={(event) => { 
                       event.stopPropagation(); 
@@ -459,7 +455,7 @@ const Search: React.FC = () => {
                       event.stopPropagation();
                       // setSearchTerm(event.target.value);
                     }}>{popup.item}</S.Category>
-                </S.CategoryContainer>
+                  </S.CategoryContainer>
                 </S.StoreInformation>
               </S.StoreContainer>
             );
