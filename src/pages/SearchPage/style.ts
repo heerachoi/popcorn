@@ -27,6 +27,7 @@ export const SearchItemContainer = styled.div`
 export const SearchTagContainer = styled.div`
   display: flex; 
   flex-direction: column;
+  cursor:pointer;
 `
 
 export const FilterTitle = styled.div`
