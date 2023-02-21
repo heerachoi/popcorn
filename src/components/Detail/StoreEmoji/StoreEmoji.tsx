@@ -1,30 +1,27 @@
 import React from 'react';
-import { useQuery } from 'react-query';
-import { getNewStoreReport } from '../../../services/api';
 import * as S from './style';
+import { BsEmojiSmile, BsEmojiFrown } from 'react-icons/bs';
 
-
-const StoreEmoji: any = () => {
-  const { data } = useQuery('newStores', getNewStoreReport)
+const StoreEmoji = () => {
 
   // 버튼 테스트
   const iconOnClick = () => {
-    alert('좋아요');
-  };
+    alert('좋아요')
+  }
 
   return (
     <S.EmojiWrap>
       <S.EmojiContainer>
         <S.EmojiDiv>
           <S.EmojiIconBtn onClick={iconOnClick}>
-            <S.LikeImg src={require('../../../assets/Logo/like.png')} />
+            <BsEmojiSmile />
           </S.EmojiIconBtn>
           <S.EmojiText>좋아요</S.EmojiText>
           <S.EmojiText>32</S.EmojiText>
         </S.EmojiDiv>
         <S.EmojiDiv>
           <S.EmojiIconBtn>
-            <S.LikeImg src={require('../../../assets/Logo/hate.png')} />
+            <BsEmojiFrown />
           </S.EmojiIconBtn>
           <S.EmojiText>별로에요</S.EmojiText>
           <S.EmojiText>5</S.EmojiText>

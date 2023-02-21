@@ -15,9 +15,8 @@ export const TitleBackground = styled.div`
   padding-left: 20px;
   border-radius: 12px;
   right: 858px;
-  top: 120px;
+  top: 140px;
 `;
-
 export const NewPostTitle = styled.div`
   position: relative;
   text-align: center;
@@ -26,7 +25,6 @@ export const NewPostTitle = styled.div`
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  line-height: 38px;
 `;
 
 export const NewPostContainer = styled.form`
@@ -46,42 +44,29 @@ export const PostGrid = styled.div`
 export const PostTitle = styled.div`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
-  font-weight: bold;
-  font-size: 17px;
-  line-height: 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
   text-align: center;
-  margin-right:10px;
 
+  div {
+    font-size: 12px;
+    color: #9b9b9b;
+  }
 `;
 export const TitleInput = styled.input`
   width: 500px;
   height: 30px;
   padding: 10px;
-  border: 1px solid #bdbdbd;
-  background-color: #ffffff;
+  border: 1px solid #9b9b9b;
   border-radius: 8px;
-
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-
-  &:active,
-  &:focus {
-    outline-color: #676767;
-    color: #323232;
-  }
-
-  &::placeholder {
-    color: #9b9b9b;
-  }
 
   &::before {
     content: attr(data-placeholder);
     width: 100%;
     font-family: 'Apple SD Gothic Neo';
     font-style: normal;
-    color: #9b9b9b;
+    color: gray;
   }
   &:valid::before {
     display: none;
@@ -96,19 +81,7 @@ export const TextArea = styled.textarea`
   border-radius: 8px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
   resize: none;
-
-  &::placeholder {
-    color: #9b9b9b;
-  }
-
-  &:active,
-  &:focus {
-    outline-color: #676767;
-    color: #323232;
-  }
 `;
 
 export const TreeGridBox = styled.div`

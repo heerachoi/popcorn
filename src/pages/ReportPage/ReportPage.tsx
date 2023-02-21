@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useRecoilState } from 'recoil';
-import { isActiveMenu } from '../../atoms';
 import InfoError from '../../components/StoreReport/InfoError';
 import NewStoreReport from '../../components/StoreReport/NewStoreReport';
 import * as S from './style';
 
 const ReportPage = () => {
-  const [activeIndex, setActiveIndex] = useRecoilState(isActiveMenu);
+  const [idx, setIdx] = useState(0);
 
   const tabMenu = [
     {
@@ -23,7 +21,7 @@ const ReportPage = () => {
   ];
 
   const tabSelectHandler = (i: any) => {
-    setActiveIndex(i);
+    setIdx(i);
   };
 
   return (
@@ -34,7 +32,7 @@ const ReportPage = () => {
             return (
               <S.TitleBox>
                 <S.TitleBtn
-                  className={activeIndex === i ? 'active' : ''}
+                  className={idx === i ? 'active' : ''}
                   onClick={() => tabSelectHandler(i)}
                 >
                   {item.title}
@@ -43,7 +41,7 @@ const ReportPage = () => {
             );
           })}
         </S.TabTitle>
-        <S.Content>{tabMenu[activeIndex].content}</S.Content>
+        <S.Content>{tabMenu[idx].content}</S.Content>
       </S.ReportContainer>
     </S.ReportWrap>
   );
