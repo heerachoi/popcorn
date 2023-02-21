@@ -206,6 +206,7 @@ const InfoError: any = () => {
           style={{ display: 'none' }}
         />
       </S.ReportGrid>
+
       <S.ButtonBox>
         <S.CancleBtn onClick={cancleHandler}>취소</S.CancleBtn>
         <S.AddBtn type="submit">제보하기</S.AddBtn>
