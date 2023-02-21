@@ -1,4 +1,3 @@
-import { uuidv4 } from '@firebase/util';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import StoreDetailImg from '../StoreDetailImg/StoreDetailImg';
@@ -10,10 +9,12 @@ import { MdIosShare } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa';
 import { BsInstagram, BsGlobe, BsFillSunFill } from 'react-icons/bs';
 import StoreEmoji from '../StoreEmoji/StoreEmoji';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { auth } from '../../../services/firebase';
 import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
+import { v4 as uuidv4 } from 'uuid';
+
 interface Props {
   detailData: any;
 }
@@ -21,7 +22,7 @@ interface Props {
 // detailData = popupStore.json 데이터 객체 하나
 const StoreDetailInfo = ({ detailData }: Props) => {
   const initialState = {
-    id: 123,
+    id: '',
     storeId: '',
     userId: '',
     notification: false,
@@ -37,11 +38,11 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   // 북마크 true, false 상태값
   const [bookmarkDeleteBtnClick, setBookmarkDeleteBtnClick] = useState(true);
   // 북마크 삭제하고 삭제된 북마크 빼고 리스트 불러오기
-  const [bookmarkDeleteClickList, setBookmarkDeleteClickList] =
-    useState(initialState);
+  // const [bookmarkDeleteClickList, setBookmarkDeleteClickList] =
+  //   useState(initialState);
 
   const NewBookmark = {
-    id: '',
+    id: uuidv4(),
     storeId: detailData.id,
     userId: auth.currentUser?.uid,
     notification: false,
@@ -49,39 +50,91 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     open: detailData.open,
     close: detailData.close,
     imgURL: detailData.imgURL[0],
-    status: bookmarkDeleteBtnClick, // 북마크의 바뀐 상태 true, false
+    status: false, // 북마크의 바뀐 상태 true, false
   };
 
-  // // 리스트에 있는 storeId값과 지금 선택한 detailData.id값 일치하면 출력 금지
-  //         .filter((id) => detailData[0].id !== id.storeId)
+  // 북마크 리스트에 있는 북마크 db
+  // bookmarkData.id = 북마크 리스트에 있는 스토어의 아이디
+  const [bookmarkData, setBookmarkData] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  console.log('bookmarkData', bookmarkData);
 
-  // 클릭했을 때 북마크에 추가 + 삭제?
-  const postBookmarkHandler = async () => {
-    // json서버를 열어야함
-    await axios.post(`http://localhost:3011/BookMarkList`, NewBookmark);
-    setNewBookmarkClick(initialState);
-    // setBookmarkDeleteBtnClick(!bookmarkDeleteBtnClick);
-    setBookmarkDeleteBtnClick(!NewBookmark.status);
-    // true면 북마크 추가 false(bookmarkDeleteBtnClick랑 굳이 비교할 필요가 없음)
-    if (NewBookmark.status) {
-      alert('북마크에 추가됐어요!');
-    } else {
-      console.log('북마크 해제됐어요!');
-    }
-
-    console.log('detailData', detailData);
-    console.log(
-      '================bookmarkDeleteBtnClick',
-      bookmarkDeleteBtnClick,
-    );
-    console.log('================NewBookmark.status', NewBookmark.status);
+  const fetchBookmarks = async () => {
+    const { data } = await axios.get('http://localhost:3011/BookMarkList');
+    setBookmarkData(data);
+    setIsLoading(false);
   };
-  // const bookmarkDeleteBtn = () => {
-  //   setBookmarkDeleteBtnClick(!bookmarkDeleteBtnClick);
 
-  //   console.log('bookmarkDeleteBtnClick', bookmarkDeleteBtnClick);
+  useEffect(() => {
+    fetchBookmarks();
+  }, []);
+
+  // const bookmark = bookmarkData?.find((bm: any) => {
+  //   return bm.storeId === detailData.id && bm.userId === auth.currentUser?.uid;
+  // });
+  // console.log('bookmark!!!!!!!!!!!!!!!!!!!!', bookmark);
+
+  // const bookmatkListStatusChangeHandler = async () => {
+  //   await axios.patch(`http://localhost:3011/BookMarkList/${bookmark.id}`, {
+  //     status: !bookmark.status,
+  //   });
+
+  //   axios.get('http://localhost:3011/BookMarkList');
   // };
 
+  // 클릭했을 때 북마크에 추가 + 삭제
+  // bookmarkData.id = 북마크리스트에 있는 스토어의 uuid
+  // detailData.id = 현재 보고 있는 스토어 아이디
+  const postBookmarkHandler = async () => {
+    // auth.currentUser?.uid 얘가 있으면
+    if (auth.currentUser?.uid) {
+      bookmarkData.map((bookmark: any) => {
+        console.log('bookmark.storeId', bookmark.storeId);
+        console.log('detailData.id', detailData.id);
+        console.log('bookmark.userId', bookmark.userId);
+        console.log('auth.currentUser?.uid', auth.currentUser?.uid);
+        if (bookmark.storeId !== detailData.id) {
+          axios.post(`http://localhost:3011/BookMarkList`, NewBookmark);
+          try {
+            setNewBookmarkClick(initialState);
+          } catch (err) {
+            console.log('92번!!!!!!!');
+            console.log('err', err);
+          }
+        } else {
+          if (bookmark.userId !== auth.currentUser?.uid) {
+            axios.post(`http://localhost:3011/BookMarkList`, NewBookmark);
+            try {
+              setNewBookmarkClick(initialState);
+            } catch (err) {
+              console.log('92번!!!!!!!');
+              console.log('err', err);
+            }
+          } else {
+            // const bookmark = bookmarkData?.find((bm: any) => {
+            //   return (
+            //     bm.storeId === detailData.id &&
+            //     bm.userId === auth.currentUser?.uid
+            //   );
+            // });
+            axios.delete(`http://localhost:3011/BookMarkList/${bookmark.id}`);
+            try {
+              console.log('뭐양');
+            } catch (err) {
+              console.log('err', err);
+            }
+          }
+        }
+      });
+    } else {
+      alert('로그인이 필요합니다!');
+    }
+  };
+  // 보내면 이 유저가 쓴것 , 유저가 쓴 북마크데이터
+  // 그 중에서 detail아이디랑 일치하는 게 있는지 확인하고
+  // 없으면 추가, 있으면 제거
+  // axios.post(`http://localhost:3011/BookMarkList`, NewBookmark);
+  //   추가를 해주면 set을 해줘야함
   return (
     <S.StoreDetailInfoWrap>
       <S.DetailContainer>
@@ -137,9 +190,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                       <BsBookmarkFill />
                     )}
                   </S.SideTitleText>
-
                 </S.BookmarkClick>
-                  <S.SideTitleText>북마크</S.SideTitleText>
               </S.SideTitleIconText>
             </S.SideTitleWrap>
           </S.TitleWrap>
