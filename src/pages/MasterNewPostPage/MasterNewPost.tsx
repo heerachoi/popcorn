@@ -273,6 +273,7 @@ const MasterNewPost = () => {
         <S.BtnBox>
           <S.CancleAddBtn
             style={{ backgroundColor: 'white', color: '#9B9B9B' }}
+            onClick={() => navigate('/master')}
           >
             취소
           </S.CancleAddBtn>

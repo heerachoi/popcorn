@@ -100,47 +100,51 @@ const MyProfile = () => {
 
   return (
     <S.MyPageAll>
-      <S.MyProfileBox>
-        <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
-          <S.ProfileImgLabelInputWrapper>
-            <S.ProfileImgLabel htmlFor="profileUploadImg">
-              <S.ProfileImgShow src={imgUploadUrl} />
-            </S.ProfileImgLabel>
-            <S.ProfileImgInput
-              type="file"
-              accept="image/*"
-              id="profileUploadImg"
-              onChange={newProfileImgOnChangeHandler}
-              style={{ display: 'none' }}
-            />
-          </S.ProfileImgLabelInputWrapper>
-          <S.MyProfileNickname>{currentUser.displayName}</S.MyProfileNickname>
+      <S.MyPageContainer>
+        <S.MyProfileBox>
+          <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
+            <S.ProfileImgLabelInputWrapper>
+              <S.ProfileImgLabel htmlFor="profileUploadImg">             
+                <S.ProfileImgShow src={imgUploadUrl} />
+              </S.ProfileImgLabel>
+              <S.ProfileImgInput
+                type="file"
+                accept="image/*"
+                id="profileUploadImg"
+                onChange={newProfileImgOnChangeHandler}
+                style={{ display: 'none' }}
+              />
+            </S.ProfileImgLabelInputWrapper>
+            <S.MyProfileNickname>{currentUser.displayName}</S.MyProfileNickname>
 
-          <S.NicknameInputWrapper>
-            <S.NicknameText>닉네임</S.NicknameText>
-            <S.NicknameInput
-              type="text"
-              placeholder={currentUser.displayName}
-              onChange={ToChangeNicknameInput}
-              value={nickname}
-            />
-          </S.NicknameInputWrapper>
-          <S.EmailInputWrpper>
-            <S.EmailText>이메일</S.EmailText>
-            <S.EmailInput placeholder={currentUser.email} readOnly />
-          </S.EmailInputWrpper>
-          {/* <S.PhoneNumInputWrpper>
+            <S.NicknameInputWrapper>
+              <S.NicknameText>닉네임</S.NicknameText>
+              <S.NicknameInput
+                type="text"
+                placeholder={currentUser.displayName}
+                onChange={ToChangeNicknameInput}
+                value={nickname}
+              />
+            </S.NicknameInputWrapper>
+            <S.EmailInputWrpper>
+              <S.EmailText>이메일</S.EmailText>
+              <S.EmailInput placeholder={currentUser.email} readOnly />
+            </S.EmailInputWrpper>
+            {/* <S.PhoneNumInputWrpper>
             <S.PhoneNumText>휴대전화</S.PhoneNumText>
             <S.PhoneNumInput placeholder={currentUser.phoneNumber} />
           </S.PhoneNumInputWrpper> */}
 
-          <S.ModifyCompleteButton type="submit">
-            수정완료
-          </S.ModifyCompleteButton>
-        </S.NewProfileSubmitForm>
-        <DeleteAccount />
-      </S.MyProfileBox>
-      <MyPageTab />
+            <S.ModifyCompleteButton type="submit">
+              수정완료
+            </S.ModifyCompleteButton>
+          </S.NewProfileSubmitForm>
+          <DeleteAccount />
+        </S.MyProfileBox>
+
+        {/* 북마크/내가 쓴 제보 */}
+        <MyPageTab />
+      </S.MyPageContainer>
     </S.MyPageAll>
   );
 };

@@ -7,29 +7,38 @@ export const EmojiWrap = styled.div`
 `;
 
 export const EmojiContainer = styled.div`
-display: flex;
-justify-content:center;
-align-items: center;
-flex-direction: row;
-margin-top: 30px;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-bottom: 52px
+`;
 
 export const EmojiDiv = styled.div`
-margin: 0 8%;
+  margin: 0 8%;
 
-display: flex;
-justify-content:center;
-align-items: center;
-flex-direction: column;
-`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const LikeImg = styled.img`
+  width: 128px;
+`;
 
 export const EmojiIconBtn = styled.button`
-font-size: 40px;
-cursor: pointer;
-background-color: transparent;
-border: none;
-`
+  font-size: 40px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+`;
 
 export const EmojiText = styled.span`
-font-size: 10px;
-`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+`;
