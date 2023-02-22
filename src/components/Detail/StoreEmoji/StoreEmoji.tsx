@@ -6,7 +6,7 @@ import * as S from './style';
 
 const StoreEmoji: any = () => {
   const { data } = useQuery('newStores', getNewStoreReport)
-
+  console.log('data',data);
   // 버튼 테스트
   const iconOnClick = () => {
     alert('좋아요');

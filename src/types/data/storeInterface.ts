@@ -21,3 +21,15 @@ export interface Store {
   category: string;
   reserveURL: string;
 }
+
+export interface BookMark {
+  id: string,
+  storeId: string,
+  userId: string,
+  notification: boolean,
+  title: string,
+  open: string,
+  close: string,
+  imgURL: string,
+  status: boolean,
+}
