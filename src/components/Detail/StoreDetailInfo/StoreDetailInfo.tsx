@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import KakaoShare from './KakaoShare';
 import StoreDetailImg from '../StoreDetailImg/StoreDetailImg';
 /* icons */
-import { BsBookmarkHeart} from 'react-icons/bs';
+import { BsBookmarkHeart } from 'react-icons/bs';
 import { TbClock } from 'react-icons/tb';
 import { MdIosShare } from 'react-icons/md';
 import { BsInstagram, BsGlobe, BsFillSunFill } from 'react-icons/bs';
@@ -42,7 +42,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   }, [currentUser]);
 
   // 북마크 상태 업데이트
-    useEffect(() => {
+  useEffect(() => {
     fetchBookmarks();
   }, [bookMarkState, changeColor]);
 
@@ -60,30 +60,39 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   // 페이지 렌딩시 유저의 북마크 유무 확인
   const fetchBookmarks = async () => {
     const { data } = await axios.get('http://localhost:3011/BookMarkList'); // 북마크 리스트
-    data.map((bookmark:BookMark) => {    
-      if ((bookmark.userId === currentUser.uid) && (bookmark.storeId === detailData.id)) { // 유저가 북마크를 했음
+    data.map((bookmark: BookMark) => {
+      if (
+        bookmark.userId === currentUser.uid &&
+        bookmark.storeId === detailData.id
+      ) {
+        // 유저가 북마크를 했음
         setChangeColor(`${COLORS.orange2}`);
         setBookMarkState(true);
         setCurrentBookMarkId(bookmark.id);
-      } else { // 북마크안했음
+      } else {
+        // 북마크안했음
         setChangeColor(`${COLORS.black}`);
         setBookMarkState(false);
       }
-    })
+    });
   };
 
   // 클릭했을 때 북마크에 추가 + 삭제
   const postBookmarkHandler = async () => {
-    if (currentUser) { 
-      if (bookMarkState) { // 북마크가 있을 경우 삭제
+    if (currentUser) {
+      if (bookMarkState) {
+        // 북마크가 있을 경우 삭제
         try {
-          axios.delete(`http://localhost:3011/BookMarkList/${currentBookMarkId}`);
+          axios.delete(
+            `http://localhost:3011/BookMarkList/${currentBookMarkId}`,
+          );
           setChangeColor(`${COLORS.black}`);
           setBookMarkState(false);
         } catch (error) {
           console.log('error', error);
         }
-      } else { //북마크가 없을 경우 추가
+      } else {
+        //북마크가 없을 경우 추가
         try {
           axios.post(`http://localhost:3011/BookMarkList`, NewBookmark);
           setChangeColor(`${COLORS.orange2}`);
@@ -144,7 +153,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                   }}
                 >
                   <S.SideTitleText>
-                    <BsBookmarkHeart style={{ color: changeColor }}/>                 
+                    <BsBookmarkHeart style={{ color: changeColor }} />
                   </S.SideTitleText>
                 </S.BookmarkClick>
               </S.SideTitleIconText>

@@ -32,7 +32,7 @@ const MyProfileEditModal = () => {
   const ToChangeNicknameInput = () => {
     setNickname(user.userInfomation.displayName);
   };
-
+  console.log('nickname', nickname);
   // const [nickname, setNickname] = useState<any>(''); // 닉네임
   // const [currentUser, setCurrentUser] = useState<any>('');
   // const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름

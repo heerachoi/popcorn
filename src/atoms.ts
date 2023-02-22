@@ -96,8 +96,19 @@ export const modalStatus = atom<ModalStatus>({
 
 export const editModal = atom<boolean>({
   key: 'editModalStatus',
-  default: false})
-  
+  default: false,
+});
+
+export const likeCount = atom<number>({
+  key: 'likeCount',
+  default: 0,
+});
+
+export const hateCount = atom<number>({
+  key: 'hateCount',
+  default: 0,
+});
+
 export const modalPage = atom<string>({
   key: 'modalPage',
   default: '',

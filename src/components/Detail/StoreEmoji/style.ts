@@ -24,8 +24,13 @@ export const EmojiDiv = styled.div`
   flex-direction: column;
 `;
 
-export const LikeImg = styled.img`
+export const LikeHateImg = styled.img`
   width: 128px;
+
+  &:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.2);
+  }
 `;
 
 export const EmojiIconBtn = styled.button`
@@ -35,7 +40,22 @@ export const EmojiIconBtn = styled.button`
   border: none;
 `;
 
+export const TextBackground = styled.div`
+  width: 70px;
+  height: 12px;
+  background-color: #ffeb62;
+  position: absolute;
+  box-sizing: border-box;
+  padding-left: 18px;
+  border-radius: 12px;
+  top: 1260px;
+  /* right: 808px;
+  top: 110px; */
+`;
+
 export const EmojiText = styled.span`
+  margin-top: 12px;
+  position: relative;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
