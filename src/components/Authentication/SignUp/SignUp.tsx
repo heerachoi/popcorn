@@ -82,6 +82,7 @@ const SignUp = () => {
 
   const signUpSelectChanchHandler = (event: any) => {
     event.target.style.color = '#323232';
+    setGlobalButton(true);
     setSignUpInput({
       ...signUpInput,
       gender: event.value,
@@ -281,7 +282,7 @@ const SignUp = () => {
       signUpInput.phoneCode === ''
     )
       setGlobalButton(false);
-    return () => setGlobalButton(false);
+    // return () => setGlobalButton(false); ///////// setGlobalButton이 false 자꾸 바뀐다. 잘못된 코드.
   }, [
     signUpInput.nickName,
     signUpInput.email,

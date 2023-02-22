@@ -88,7 +88,13 @@ export const modalStatus = atom<ModalStatus>({
     loginError: false,
     userNotFound: false,
     wrongPassword: false,
+    globalBtn: false,
   },
+});
+
+export const modalPage = atom<string>({
+  key: 'modalPage',
+  default: '',
 });
 
 // export const mapCategorySelector = selector<any>({
