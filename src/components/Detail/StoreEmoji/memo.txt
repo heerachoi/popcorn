@@ -1,0 +1,196 @@
+ if (user.isLogin === false) {
+      if (window.confirm('로그인 후 이용 가능합니다.')) {
+        navigate('/login');
+      }
+      if (user.userInfomation.uid === data.userId) {
+        alert('이미 클릭됨');
+      } else {
+        const newLike = {
+          id: uuidv4(),
+          storeId: detailData.id,
+          userId: user.userInfomation.uid,
+          vote: 'like',
+        };
+        try {
+          axios.post('http://localhost:3003/likeHate', newLike);
+          setLike(like + 1);
+          alert('좋아요!');
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    }
+
+==================================================================
+ if (user.isLogin && user.userInfomation.uid === dataUserId) {
+      alert('이미클릭됨');
+    } else {
+      const newLike = {
+        id: uuidv4(),
+        storeId: detailData.id,
+        userId: user.userInfomation.uid,
+        vote: 'like',
+      };
+      try {
+        axios.post('http://localhost:3003/likeHate', newLike);
+        setLike(like + 1);
+        alert('좋아요!');
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    if (user.isLogin === false) {
+      alert('로그인 후 이용 가능합니다.');
+    }
+==================================================================
+if (user.isLogin) {
+      const newLike = {
+        id: uuidv4(),
+        storeId: detailData.id,
+        userId: user.userInfomation.uid,
+        vote: 'like',
+      };
+      try {
+        axios.post('http://localhost:3003/likeHate', newLike);
+        setLike(like + 1);
+        alert('좋아요!');
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      alert('로그인 후 이용 가능합니다.');
+    }
+    if (user.userInfomation.uid === newData.userId) {
+      try {
+        axios.delete(`http://localhost:3003/likeHate/${newData.id}`);
+        setLike(like - 1);
+        alert('삭제함');
+      } catch (err) {
+        console.log(err);
+      }
+    }
+=====================================================================
+if (user.isLogin) {
+      const newLike = {
+        id: uuidv4(),
+        storeId: detailData.id,
+        userId: user.userInfomation.uid,
+        vote: 'like',
+      };
+      try {
+        axios.post('http://localhost:3003/likeHate', newLike);
+        setLike(like + 1);
+        alert('좋아요!');
+      } catch (err) {
+        console.log(err);
+      }
+    } else if (user.userInfomation.uid === newData.userId) {
+      try {
+        axios.delete(`http://localhost:3003/likeHate/${newData.id}`);
+        setLike(like - 1);
+        alert('삭제함');
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      alert('로그인 후 이용 가능합니다.');
+    }
+=========================================================================
+try {
+          if (user.userInfomation.uid === newData.userId) {
+            axios.delete(`http://localhost:3003/likeHate${detailData.id}`);
+            setLike(likes - 1)
+            alert('이미 클릭됨')
+          }
+        } catch (err) {
+          console.log(err);
+        }
+=======================================================================
+  if (user.userInfomation.uid === newData.userId) {
+      try {
+        axios.delete(`http://localhost:3003/likeHate/${newData.id}`);
+        setLike(likes - 1);
+        alert('이미 클릭됨');
+        console.log('newData.id', newData.id);
+        
+      } catch (err) {
+        console.log(err);
+      }
+    } 
+========================================================================
+if(user.userInfomation.uid === likes.userId) {
+      alert('이미 클릭되었습니다.')
+      return
+    }
+==========================================================================
+ if (user.isLogin && clicked === false) {
+      const newLike = {
+        id: uuidv4(),
+        storeId: detailData.id,
+        userId: user.userInfomation.uid,
+        vote: 'like',
+      };
+      try {
+        axios.post('http://localhost:3003/likeHate', newLike);
+        setLike(likes + 1);
+        setClicked(!clicked);
+        alert('좋아요!');
+      } catch (err) {
+        console.log(err);
+      }
+    } else if (user.userInfomation.uid === likes.userId && clicked === true) {
+      try {
+        axios.delete(`http://localhost:3003/likeHate/${likes.id}`);
+        setLike((prev) => prev - 1);
+      } catch (err) {
+        console.log(err);
+      }
+    } else {
+      alert('로그인 후 이용 가능합니다.');
+      navigate('/login');
+    }
+  };
+
+  ==================================================================
+  else if (user.userInfomation.uid === likes.userId && clicked === true) {
+      try {
+        axios.delete(`http://localhost:3003/likeHate/${likes.id}`);
+        setLike((prev) => prev - 1);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+=====================================================================
+
+  // 1. likeHate db 불러오기
+  // const { isLoading, isError, data, error } = useQuery('likeHate', getLikeHate);
+  // // console.log('data', data);
+  // if (isLoading) {
+  //   console.log('로딩중');
+  //   return <p>Loading...</p>;
+  // }
+  // if (isError) {
+  //   console.log('오류내용', error);
+  //   return <p>Error!!!</p>;
+  // }
+
+  // likeHate DB에 있는 storeId와 현재 페이지 storeId가 같으면서
+  // 현재 userId와 DB에 있는 userID가 같은 데이터 뽑아옴
+  // const newData = data.filter(
+  //   (item: any) =>
+  //     item.storeId === detailData.id && user.userInfomation.uid === item.userId,
+  // );
+  // console.log('newData', newData);
+
+  // // likeHate DB에 있는 storeId와 현재 페이지 storeId가 같으면서
+  // // vote가 like인 데이터만 뽑아옴
+  // const likes = data.filter(
+  //   (item: any) => item.storeId === detailData.id && item.vote === 'like',
+  // );
+  // console.log('likes', likes);
+
+  // const hates = data.filter(
+  //   (item: any) => item.storeId === detailData.id && item.vote === 'hate',
+  // );
+  // console.log('hates', hates);

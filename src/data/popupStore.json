@@ -1086,6 +1086,57 @@
       "lon": "127.060485",
       "category": "팝업스토어",
       "reserveURL": ""
+    },
+    {
+      "id": "21",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "women": 0,
+        "men": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "like": 0,
+      "hate": 0,
+      "title": "인생네컷 X 최고심",
+      "address": "서울특별시 마포구 홍익로6길 23 인생네컷 동교점",
+      "open": "2023-01-20",
+      "close": "2023-04-02",
+      "location": "서울",
+      "item": "기타",
+      "openingTime": [
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00"
+      ],
+      "significantContent": "",
+      "explain": "인생네컷 X 최고심 팝업 포토 매장! 다양한 온오프라인 이벤트와 오직 고심랜드에서만 만날 수 있는 특별한 프레임까지! 올해도 고심이 잘 부탁해 plz~!",
+      "sns": "https://www.instagram.com/life4cut",
+      "web": "",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(1).jpg?alt=media&token=e53c80c1-efd5-495d-821d-3d7730e0f0b9"
+      ],
+      "lat": "",
+      "lon": "",
+      "category": "팝업스토어",
+      "reserveURL": ""
     }
   ]
 }

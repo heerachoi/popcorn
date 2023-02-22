@@ -14,28 +14,20 @@ export const DetailContainer = styled.div`
 `;
 
 export const ImgWrap = styled.div``;
-// export const Img = styled.img`
-//   width: 300px;
-//   height: 300px;
-// `;
 
-export const DetailInfoContent = styled.section`
-  /* max-width: 1040px;
-  width: 100%;
-  margin: 0 auto; */
-`;
+export const DetailInfoContent = styled.section``;
 
 export const TitleWrap = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
+  margin-top: 48px;
+  background-color: beige;
 `;
 
 export const Title = styled.span`
   font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
   font-weight: 800;
-  font-size: 26px;
+  font-size: 28px;
   line-height: 38px;
 `;
 
@@ -65,13 +57,16 @@ export const SideTitleIcon = styled.span`
   font-style: normal;
   font-weight: 800;
   font-size: 13px;
+ 
 `;
+export const ReserveImg = styled.img`
+width: 20px;
 
+`
 export const SideTitleText = styled.span`
   font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 13px;
+  font-weight: 700;
+  font-size: 16px;
 `;
 
 export const InfoContentWrap = styled.div`
