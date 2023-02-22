@@ -3,7 +3,7 @@ import * as S from './style';
 import { auth } from '../../../services/firebase';
 import Logout from '../../Authentication/Logout/Logout';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { globalBtn, modalStatus, userInfo } from '../../../atoms';
+import { globalBtn, modalPage, modalStatus, userInfo } from '../../../atoms';
 import { BsBellFill } from 'react-icons/bs';
 import useModal from '../../../hooks/useModal';
 import Modal from '../../SearchPage/SearchModal/SearchModal';
@@ -14,46 +14,65 @@ import CustomModal from '../../../shared/CustomModal';
 const Header = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userInfo);
-  const globalButton = useRecoilValue(globalBtn);
+  const [globalButton, setGlobalButton] = useRecoilState(globalBtn);
   const [isModal, setIsModal] = useRecoilState(modalStatus);
+  const [pageChange, setPageChange] = useRecoilState(modalPage);
 
   // console.log(auth?.currentUser?.email); //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
   // 해결 : Router에서 auth.onAuthStateChanged 메서드를 사용해서 파이어베이스에서 DB정보를 참조해서 변경 사항 가져옴
-  // console.log('isModal', isModal);
   const { isShowing, toggle } = useModal();
 
   // input 창에 value 가 있으면 alert로 이동을 막아주는 함수
-  const GlobalBtnChangehandler = (page: string) => {
-    if (globalButton) return alert('멈춰!');
-    navigate(page);
+  const globalBtnClickHandler = () => {
+    navigate(pageChange);
+    setGlobalButton(false);
+    setIsModal({ ...isModal, globalBtn: !isModal.globalBtn });
   };
 
   const reportClickHandler = () => {
     setIsModal({ ...isModal, master: !isModal.master });
-    if (globalButton) return alert('멈춰!');
     if (!user.isLogin) navigate('/login');
   };
 
   // 모달 상태 변경
-  const modalStatusChangeHandler = () => {
+  const masterModalStatusChangeHandler = () => {
     setIsModal({ ...isModal, master: !isModal.master });
   };
 
+  const globalBtnModalStatusChangeHandler = (page: string) => {
+    if (globalButton) {
+      setPageChange(page);
+      return setIsModal({ ...isModal, globalBtn: !isModal.globalBtn });
+    }
+    navigate(page);
+  };
+
+  // globalButton이 true일 때 모달창이 뜬다.
+  // 취소를 누르면 홈페이지에 그대로 있고, 확인을 해당 페이지로 이동한다.
   return (
     <>
       <S.Wrap>
+        {isModal.globalBtn && (
+          <CustomModal
+            title="이동하시겠습니까?"
+            text="작성했던 내용이 사라집니다. 정말로 이동하시겠습니까?"
+            cancel="취소"
+            submit="이동"
+            fnc={globalBtnClickHandler}
+          />
+        )}
         <HoverBox>
           <S.Title
             className="title"
             src={require('../../../assets/Logo/popcorn_logo.png')}
             alt="타이틀"
-            onClick={() => GlobalBtnChangehandler('/')}
+            onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
           <TitleImg
             className="TitleImg"
             src={require('../../../assets/Logo/State=Hovered.png')}
             alt="타이틀"
-            onClick={() => GlobalBtnChangehandler('/')}
+            onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
         </HoverBox>
         <S.BtnWrap>
@@ -72,7 +91,7 @@ const Header = () => {
               onClick={
                 user.isLogin
                   ? () => navigate('/report')
-                  : modalStatusChangeHandler
+                  : masterModalStatusChangeHandler
               }
             >
               팝업스토어 제보
@@ -89,7 +108,9 @@ const Header = () => {
           </TextBackground>
           {!user.isLogin && (
             <TextBackground style={{ width: 110 }}>
-              <S.CategoryBtn onClick={() => GlobalBtnChangehandler('/signup')}>
+              <S.CategoryBtn
+                onClick={() => globalBtnModalStatusChangeHandler('/signup')}
+              >
                 회원가입
               </S.CategoryBtn>
             </TextBackground>
@@ -98,7 +119,9 @@ const Header = () => {
             <Logout />
           ) : (
             <TextBackground style={{ width: 100 }}>
-              <S.CategoryBtn onClick={() => GlobalBtnChangehandler('/login')}>
+              <S.CategoryBtn
+                onClick={() => globalBtnModalStatusChangeHandler('/login')}
+              >
                 로그인
               </S.CategoryBtn>
             </TextBackground>
@@ -106,11 +129,11 @@ const Header = () => {
           {user.isLogin && (
             <TextBackground style={{ width: 120 }}>
               <S.CategoryBtn
-                onClick={() => {
+                onClick={
                   user.userInfomation.email === 'master@gmail.com'
-                    ? GlobalBtnChangehandler('/master')
-                    : GlobalBtnChangehandler('/my');
-                }}
+                    ? () => globalBtnModalStatusChangeHandler('/master')
+                    : () => globalBtnModalStatusChangeHandler('/my')
+                }
               >
                 마이페이지
               </S.CategoryBtn>
@@ -120,7 +143,7 @@ const Header = () => {
             <MenuImage
               src={require('../../../assets/Logo/Spot.png')}
               alt="타이틀"
-              onClick={() => GlobalBtnChangehandler('/map')}
+              onClick={() => globalBtnModalStatusChangeHandler('/map')}
             />
           </MenuImageBackground>
         </S.BtnWrap>

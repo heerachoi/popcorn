@@ -78,12 +78,28 @@ export const modalStatus = atom<ModalStatus>({
     master: false,
     logout: false,
     singout: false,
+    validPhoneNumber: false,
+    phoneValidComplete: false,
+    invalidVerificationCode: false,
+    codeExpired: false,
+    signUpComplete: false,
+    emailAlreadyInUse: false,
+    signoutComplete: false,
+    login: false,
+    loginError: false,
+    userNotFound: false,
+    wrongPassword: false,
+    globalBtn: false,
   },
 });
 
 export const editModal = atom<boolean>({
   key: 'editModalStatus',
-  default: false,
+  default: false})
+  
+export const modalPage = atom<string>({
+  key: 'modalPage',
+  default: '',
 });
 
 // export const mapCategorySelector = selector<any>({
