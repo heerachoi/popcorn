@@ -14,8 +14,6 @@ const MasterNewPost = () => {
   const initialState: Store = {
     id: '',
     view: {},
-    like: 0,
-    hate: 0,
     title: '',
     address: '',
     open: '',
@@ -105,8 +103,6 @@ const MasterNewPost = () => {
         성별모름: 0,
         all: 0,
       },
-      like: 0,
-      hate: 0,
       title: newPostInput.title,
       address: newPostInput.address,
       open: newPostInput.open,

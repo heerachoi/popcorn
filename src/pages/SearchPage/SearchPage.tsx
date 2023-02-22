@@ -21,16 +21,15 @@ import useItemModal from '../../hooks/useItemModal';
 import useOtherModal from '../../hooks/useOtherModal';
 // Component
 import Modal from '../../components/SearchPage/SearchModal/SearchModal';
-import { ModalButtonData } from '../../data/ModalButtonData/ModalButtonData';
+import { ModalButtonData } from '../../utils/ModalButtonData/ModalButtonData';
+import { ItemModalButtonData } from '../../utils/ModalButtonData/ItemModalButtonData';
+import { OtherModalButtonData } from '../../utils/ModalButtonData/OtherModalButtonData';
+
 import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
 import { useNavigate } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
-
 
 const Search: React.FC = () => {
   const navigate = useNavigate();
-
-
 
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(datas.Store);
@@ -38,11 +37,13 @@ const Search: React.FC = () => {
   let searchList: Store[] = [];
   let durationList: Store[] = [];
   let locationList: Store[] = [];
+  let itemList: Store[] = [];
+  let otherList: Store[] = [];
+
   // keyEnter
   const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
   // 검색어
   const [searchTerm, setSearchTerm] = useState<any>('');
-  console.log('searchTerm', searchTerm);
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(datas.Store);
   // Date Picker
   const [dateSelected, setDateSelected] = useState<any>();
@@ -59,9 +60,7 @@ const Search: React.FC = () => {
     datas.Store,
   );
   // 지역 필터
-  const [saveLocationList, setSaveLocationtList] = useState<Store[]>(
-    datas.Store,
-  );
+  const [saveLocationList, setSaveLocationtList] = useState<Store[]>(datas.Store);
   //  제품 필터
   const [saveItemList, setSaveItemList] = useState<Store[]>(datas.Store);
   // 기타 필터
@@ -78,7 +77,6 @@ const Search: React.FC = () => {
   // 눌린 키가 enter인지 체크
   const checkKeypress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     event.preventDefault();
-    console.log('---------------- searchTerm',searchTerm);
     if (event.key === 'Enter') {
       setEnterKeyPressed(true);
       searchFilterHandler();
@@ -101,12 +99,8 @@ const Search: React.FC = () => {
       }
     });
     if (searchTerm.length === 0) {
-      console.log('if');
       setSaveSearchList(datas.Store);
     } else {
-      console.log('else');
-          console.log('searchList',searchList);
-
       setSaveSearchList(searchList);
     }
     startFilter();
@@ -173,7 +167,6 @@ const Search: React.FC = () => {
           datePickerList.push(store);
         }
       });
-      console.log(datePickerList);
       setSaveDatePickerList(datePickerList);
     } else {
       setSaveDatePickerList(datas.Store);
@@ -217,13 +210,16 @@ const Search: React.FC = () => {
   // 지역 필터
   // 위치 모달 결과 - 전체리스트에서 LocationFilter에 true인 것만 가져온다.
   const locationFilterList = useRecoilValue(ModalButtonData);
-  // console.log('locationFilterList',locationFilterList);
   const locationFilterHandler = () => {
     if (locationFilterList[0].label === '전체') {
       setSaveLocationtList(datas.Store);
     } else {
       for (let i = 0; i < locationFilterList.length; i++) {
         datas.Store.filter((store) => {
+          //서울특별시는 서울로 확인
+          // if (locationFilterList[i].label === '서울특별시') {
+          //   locationFilterList[i].label = '서울';
+          // }
           if (store.location === locationFilterList[i].label) {
             locationList.push(store);
           }
@@ -234,44 +230,78 @@ const Search: React.FC = () => {
     }
   };
 
+  //제품 필터
+  const itemFilterList = useRecoilValue(ItemModalButtonData);
+  const itemFilterHandler = () => {
+    if (itemFilterList[0].label === '전체') {
+      setSaveItemList(datas.Store);
+    } else {
+      for (let i = 0; i < itemFilterList.length; i++) {
+        datas.Store.filter((store) => {
+          if (store.item === itemFilterList[i].label) {
+              itemList.push(store);
+          }
+        })
+      }
+      setSaveItemList(itemList);
+      itemList = [];
+    }
+  }
+
+  //기타 필터
+  const otherFilterList = useRecoilValue(OtherModalButtonData);
+  const otherFilterHandler = () => {
+    // otherFilterList에 있는 값들 중에
+    // store view안에 otherFilterList에 선택된 애들이 10,20일경우
+    // 10,20이 0 이상인 경우 출력
+    datas.Store.map((store:Store)=> {
+      otherFilterList.map((other) => {
+        // store.view[10]은 알아서 뽑아낸다 -> 0이 아닐때
+        let viewValue:string = other.label;
+        if (store.view[viewValue] > 0) { // view가 0이상일때
+          // 현제 otherList에 없다면 추가
+          const checkDuplication = otherList.find((current) => current.id === store.id);
+          if (checkDuplication === undefined) {
+          otherList.push(store);
+          }
+        }
+      })
+    
+    })
+    setSaveOtherList(otherList);
+    otherList = [];
+  }
+  
+
+
 
 
   // ModalButtonData에서 찾아서 active True
   // locationFilterList에 추가하면
   // locationFilterHandler 실행되고
   // 필터 리스트 리프레시
-
-  const [currentURL, setCurrentURL] = useState<any>();
-
   const getURLInfo = () => {
     //현제 URL
-    // setCurrentURL()
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get('search');
     if (searchParam != null) {
       const decodedSearch = decodeURIComponent(searchParam); // "서울"
-      console.log('decodedSearch', decodedSearch);
       setSearchTerm(decodedSearch);
     }
   };
 
-    useEffect(() => {
-    getURLInfo();
-  }, [currentURL]);
-
-
-
+  // useEffect(() => {
+  //   getURLInfo();
+  // }, []);
 
 
   // 검색
   useEffect(() => {
-    console.log('search filter started');
     searchFilterHandler();
   }, [searchTerm, saveSearchList]);
 
   // 위치
   useEffect(() => {
-    // printModalResult();
     if (locationFilterList.length != 0) {
       locationFilterHandler();
     }
@@ -287,6 +317,20 @@ const Search: React.FC = () => {
     durationHandler();
   }, [popupDurationFilter]);
 
+  // 제품
+  useEffect(() => {
+    if (itemFilterList.length != 0) {
+      itemFilterHandler();
+    }
+  }, [itemFilterList]);
+
+  // 기타
+  useEffect(() => {
+    if (otherFilterList.length != 0) {
+      otherFilterHandler();
+    }
+  }, [otherFilterList]);
+
   // list를 확인해줘야 필터링 리스트에 바로 적용된다.
   useEffect(() => {
     startFilter();
@@ -296,14 +340,14 @@ const Search: React.FC = () => {
     savePopupDurationList,
     saveDepartmentList,
     saveLocationList,
+    saveItemList,
+    saveOtherList,
   ]);
 
   // 지역, 날짜, 기타 사항 필터
   const startFilter = () => {
     let result: Store[] = [];
     // 1. 검색 & 기간 필터
-    console.log('search', saveSearchList);
-    // console.log('savePopupDurationList', savePopupDurationList);
     result = saveSearchList.filter((store: Store) =>
       savePopupDurationList.includes(store),
     );
@@ -325,7 +369,25 @@ const Search: React.FC = () => {
         }
       }
     });
-    setStoreList(result3);
+    // 4. #3에서 나온 목록에서 제품 필터
+    let result4: Store[] = [];
+    result3.map((store: Store, index) => {
+      for (let i = 0; i < saveItemList.length; i++) {
+        if (saveItemList[i].id === store.id) {
+          result4.push(store);
+        }
+      }
+    });
+    // 5. #4에서 나온 목록에서 제품 필터
+    let result5: Store[] = [];
+    result4.map((store: Store, index) => {
+      for (let i = 0; i < saveOtherList.length; i++) {
+        if (saveOtherList[i].id === store.id) {
+          result5.push(store);
+        }
+      }
+    });
+    setStoreList(result5);
   };
 
   // 모달 클릭 값

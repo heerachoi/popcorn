@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 import { CategoryItemProps } from '../../../types/modal/modalInterface';
 
 
@@ -9,7 +10,7 @@ export const ModalContainer = styled.div`
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: ${COLORS.black};
   opacity: .8;
 `
 
@@ -29,11 +30,12 @@ export const ModalHolder = styled.div`
   z-index: 100;
   background: white;
   position: relative;
-  margin: .5rem auto;
+  margin: 4.5rem auto;
   border-radius: 3px;
-  max-width: 500px;
+  max-width: 700px;
   padding: 2rem;
-  background-color: aliceblue;
+  background-color: ${COLORS.gray8};
+  border: 1px solid ${COLORS.gray7};
 `
 
 // Modal 
@@ -49,15 +51,19 @@ export const CloseModal = styled.div`
   cursor: pointer;
   
 `
-export const FilterTitle = styled.h2`
+export const FilterTitle = styled.p`
   display: flex;
   justify-content: center;
-  margin-top: -0.8rem;  
+  margin-top: -24px; 
+  margin-bottom: 39px;
+  font-weight: 800;
+  font-size: 32px;
+  color: ${COLORS.gray1};
 `
 
 export const FilterContainer = styled.div`
   padding: 20px 30px 30px;
-  box-sizing: border-box;
+  margin-bottom: 52px;
 `
 
 export const CategoryItemTitle = styled.h3`
@@ -68,7 +74,6 @@ export const CategoryItemContainer = styled.div`
   flex-direction: row;
   flex-wrap:wrap;
   gap: 20px;
-  /* justify-content: space-between; */
 `
 
 export const CategoryButton = styled.div<CategoryItemProps>`
@@ -77,18 +82,19 @@ export const CategoryButton = styled.div<CategoryItemProps>`
   padding: 4px 16px 3px;
   gap: 8px;
   font-weight: 700;
-  color: #fff;
+  color: ${COLORS.white};
   font-size: 16px;
   border-radius: 20px;
-  background-color: ${props => props.active ? '#FFB321':'#676767'  };
-  cursor : pointer ;
+  height: 40px;
+  background-color: ${props => props.active ? `${COLORS.orange2}`:`${COLORS.gray3}` };
+  cursor : pointer;
 `
 
 export const CloseButton = styled.button`
   border: none;
   font-size: 30px;
   background-color: transparent;
-  color: #9B9B9B;
+  color: ${COLORS.gray5};
   cursor : pointer ;
   &:hover {
     color: #000;
@@ -100,46 +106,30 @@ export const ButtonContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 `
 
 export const CancelButton = styled.button`
-  width: 200px;
-  height: 60px;
-  border: 1px solid #323232;
+  width: 160px;
+  height: 40px;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 8px;
   font-size: 16px;
-  background-color: transparent;
+  background-color: ${COLORS.white};
+  color: ${COLORS.gray5};
   cursor : pointer ;
+  padding: 8px;
   &:hover {
-   background-color: #323232;
-   color: #fff;
+   background-color:${COLORS.gray7};
   }
 `
 
 export const SubmitButton = styled(CancelButton)`
-  box-sizing: border-box;
-
-/* Auto layout */
-
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 8px;
-gap: 8px;
-
-position: absolute;
-width: 160px;
-height: 40px;
-left: calc(50% - 160px/2 + 88px);
-bottom: 48px;
-
-/* Grayscale/Gray4 */
-
-background: #BDBDBD;
-/* Grayscale/Gray3 */
-
-border: 1px solid #9B9B9B;
-border-radius: 8px;
+  border: 1px solid ${COLORS.gray5};
+  color: ${COLORS.white};
+  background: ${COLORS.gray6};
+   &:hover {
+   background-color:${COLORS.gray2};
+   border: 1px solid ${COLORS.gray1};
+  }
 `
