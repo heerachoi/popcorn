@@ -3,8 +3,6 @@ export interface Store {
   view: {
     [key: string]: number;
   };
-  like: number;
-  hate: number;
   title: string;
   address: string;
   open: string;
