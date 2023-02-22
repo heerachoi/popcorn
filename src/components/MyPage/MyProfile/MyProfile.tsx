@@ -1,3 +1,5 @@
+// 여기는 profile ui만
+
 import { useEffect, useState, useRef } from 'react';
 import { auth, storage } from '../../../services/firebase';
 import { updateProfile, onAuthStateChanged } from 'firebase/auth';
@@ -8,6 +10,7 @@ import MyPageTab from '../MyPageTab/MyPageTab';
 import DeleteAccount from '../../Authentication/DeleteAccount/DeleteAccount';
 import React from 'react';
 import MyProfileEditModal from './MyProfileEditModal';
+
 const MyProfile = () => {
   const [nickname, setNickname] = useState<any>(''); // 닉네임
   // 현재 유저를 나타내며, 수정 완료 버튼을 누르기 전까지 currentUser의 displayName은 이전에 설정해두었던 닉네임을 가리킨다.
@@ -131,21 +134,32 @@ const MyProfile = () => {
               <S.EmailText>이메일</S.EmailText>
               <S.EmailInput placeholder={currentUser.email} readOnly />
             </S.EmailInputWrpper>
-            {/* <S.PhoneNumInputWrpper>
-            <S.PhoneNumText>휴대전화</S.PhoneNumText>
-            <S.PhoneNumInput placeholder={currentUser.phoneNumber} />
-          </S.PhoneNumInputWrpper> */}
+            <S.PhoneNumInputWrpper>
+              <S.PhoneNumText>휴대전화</S.PhoneNumText>
+              <S.PhoneNumInput placeholder={currentUser.phoneNumber} readOnly />
+            </S.PhoneNumInputWrpper>
+            <S.GenderInputWrpper>
+              <S.GenderText>성별</S.GenderText>
+              <S.GenderInput placeholder={currentUser.phoneNumber} readOnly />
+            </S.GenderInputWrpper>
+            <S.AgeInputWrpper>
+              <S.AgeText>연령</S.AgeText>
+              <S.AgeInput placeholder={currentUser.phoneNumber} readOnly />
+            </S.AgeInputWrpper>
 
-            <S.ModifyCompleteButton type="submit">
-              수정완료
+            {/* <S.ModifyCompleteButton type="submit">
+              <MyProfileEditModal />
+            </S.ModifyCompleteButton> */}
+            <S.ModifyCompleteButton type="button">
+              <MyProfileEditModal />
             </S.ModifyCompleteButton>
           </S.NewProfileSubmitForm>
           <DeleteAccount />
         </S.MyProfileBox>
 
         {/* 북마크/내가 쓴 제보 */}
-        <MyPageTab />
       </S.MyPageContainer>
+      <MyPageTab />
     </S.MyPageAll>
   );
 };

@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const MyPageAll = styled.div`
-/* max-width: 1040px;
+  /* max-width: 1040px;
 width: 100%;
 background-color: beige; */
 `;
 
 export const MyPageContainer = styled.div`
-background-color: beige;
-max-width: 1440px;
-width: 100%;
-height: 1621px;
-margin: 0 auto;
-`
+  background-color: beige;
+  max-width: 1440px;
+  width: 100%;
+  height: 1621px;
+  margin: 0 auto;
+`;
 
 export const MyProfileBox = styled.div`
   /* Rectangle 304 */
@@ -51,7 +51,7 @@ export const MyProfileNickname = styled.h3`
 `;
 
 export const NicknameInputWrapper = styled.div`
-  margin: 8vh 0vh 3vh 5vh;
+  margin: 5vh 0vh 2vh 5vh;
 `;
 
 export const NicknameText = styled.p`
@@ -179,7 +179,7 @@ export const EmailInput = styled.input`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
-  background-color: #d9d9d9;
+  /* background-color: #d9d9d9; */
 `;
 
 // =======휴대전화 묶음
@@ -211,32 +211,241 @@ export const PhoneNumInput = styled.input`
   gap: 8px;
 `;
 
-//====================================여기서부터 북마크리스트
+// ==============성별
+export const GenderInputWrpper = styled.div`
+  margin: 3vh 0vh 3vh 5vh;
+`;
+
+export const GenderText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #323232;
+`;
+
+export const GenderInput = styled.input`
+  width: 80%;
+  height: 48px;
+  border: 1px solid #a6a6a6;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+`;
+
+export const AgeInputWrpper = styled.div`
+  margin: 3vh 0vh 3vh 5vh;
+`;
+
+export const AgeText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #323232;
+`;
+
+export const AgeInput = styled.input`
+  width: 80%;
+  height: 48px;
+  border: 1px solid #a6a6a6;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+`;
 
 export const MyBookmarkReportWrap = styled.div``;
 
-// export const MyBookmarkReportContainer = styled.div`
-//   /* box-sizing: border-box; */
-//   max-width: 1040px;
-//   width: 100%;
-//   height: 620px;
-//   margin: 0 auto;
+// =================================여기서부터 프로필 모달창
+export const EditModalAll = styled.div``;
+
+export const EditModalTitleText = styled.p`
+  /* 타이틀 */
+
+  width: 190px;
+  height: 38px;
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center; */
+  /* Title1 */
+
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 27px;
+  line-height: 5rem;
+  margin-left: 13rem;
+
+  /* Grayscale/Gray1 */
+
+  color: #323232;
+`;
+
+export const EditModalImgLabelInputWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 11%;
+`;
+
+export const EditModalProfileImgLabel = styled.label`
+  width: 200px;
+  height: 200px;
+  border-radius: 70%;
+  border: 1px solid #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const EditModalProfileImgShow = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 70%;
+  border: 1px solid #d9d9d9;
+`;
+
+export const EditModalProfileImgInput = styled.input`
+  /* margin: 1vh 15vh 1vh 15vh; */
+`;
+// 얘는 모달창에선 안보여줘도 될듯
+// export const EditModalMyProfileNickname = styled.h3`
+//   font-family: 'Apple SD Gothic Neo';
+//   font-style: normal;
+//   font-weight: 700;
+//   font-size: 32px;
+//   line-height: 32px;
+//   color: black;
+//   /* or 100% */
+//   margin: 5vh;
+
+//   text-align: center;
 // `;
 
-// export const MyBookmarkReportBox = styled.div`
-//   /* Rectangle 303 */
+export const EditModalNicknameInputWrapper = styled.div`
+  margin: 5vh 0vh 2vh 8vh;
+`;
 
-//   box-sizing: border-box;
+export const EditModalNicknameText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 0.4rem;
 
-//   position: absolute;
-//   width: 688px;
-//   height: 1084px;
-//   left: 580px;
-//   top: 220px;
+  /* txt1 */
 
-//   /* Grayscale/Gray3 */
+  color: #323232;
+`;
 
-//   border: 1px solid #9b9b9b;
-//   border-radius: 8px;
-// `;
-// export const MyBookmarkReportTab = styled.div``;
+export const EditModalNicknameInput = styled.input`
+  width: 80%;
+  height: 48px;
+  border: 1px solid #a6a6a6;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+`;
+
+// =======이메일 묶음
+export const EditModalEmailInputWrpper = styled.div`
+  margin: 2vh 0vh 2vh 8vh;
+`;
+
+export const EditModalEmailText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 0.4rem;
+  color: #323232;
+`;
+
+// 모달창 버튼
+
+export const EditModalBtnWrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  margin-top: 4rem;
+`;
+
+export const EditModalCanceleButton = styled.button`
+  cursor: pointer;
+
+  display: inline-block;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  width: 200px;
+  height: 60px;
+  /* margin-left: 9%;
+  margin-bottom: 1rem; */
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+
+  /* Title Text */
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #9b9b9b;
+`;
+
+export const EditModalCompleteButton = styled.button`
+  cursor: pointer;
+
+  display: inline-block;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  width: 200px;
+  height: 60px;
+  left: 724px;
+  top: 1149px;
+  background: #bdbdbd;
+  border: 1px solid #9b9b9b;
+  border-radius: 8px;
+  /* margin-top: 2rem; */
+  /* margin-left: 17rem;
+  margin-bottom: 15rem; */
+  /* margin-left: 9%; */
+  /* Title Text */
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`;
