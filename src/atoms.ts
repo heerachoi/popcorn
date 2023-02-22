@@ -18,6 +18,10 @@ interface UserInfomation {
   phoneNumber: string | null;
 }
 
+interface ModalStatus {
+  [key: string]: boolean;
+}
+
 type MapSearchValue = string;
 type MapCategoryValue = string | null;
 
@@ -60,6 +64,20 @@ export const popupList = atom<any>({
 export const isActiveMenu = atom<number>({
   key: 'isActiveMenu',
   default: 0,
+});
+
+export const globalBtn = atom<boolean>({
+  key: 'globalBtn',
+  default: false,
+});
+
+export const modalStatus = atom<ModalStatus>({
+  key: 'modal',
+  default: {
+    master: false,
+    logout: false,
+    singout: false,
+  },
 });
 
 // export const mapCategorySelector = selector<any>({

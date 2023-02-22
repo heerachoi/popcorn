@@ -69,7 +69,6 @@ export const NavigateBtn = styled.button`
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-
   border: none;
   background-color: white;
 `;
@@ -88,6 +87,7 @@ export const LoginBtn = styled.button`
   cursor: pointer;
   &:hover {
     background-color: #676767;
+    border: 1px solid #9b9b9b;
   }
 `;
 
@@ -98,7 +98,8 @@ export const SignUpBtn = styled(LoginBtn)`
   color: #f2901d;
   &:hover {
     color: #ffffff;
-    background-color: #ffb321;
+    background: #ffb321;
+    border: 1px solid #ffb321;
   }
 `;
 

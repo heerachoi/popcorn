@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { auth, db } from '../../../services/firebase';
+import { useEffect, useState } from 'react';
+import { auth } from '../../../services/firebase';
 import {
   createUserWithEmailAndPassword,
   RecaptchaVerifier,
@@ -10,12 +10,12 @@ import {
   PhoneAuthProvider,
   signInWithCredential,
 } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
 import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 import axios from 'axios';
-
+import { globalBtn } from '../../../atoms';
+import { useSetRecoilState } from 'recoil';
 interface SignUpInput {
   nickName: string;
   email: string;
@@ -29,6 +29,7 @@ interface SignUpInput {
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const setGlobalButton = useSetRecoilState(globalBtn);
 
   const initSignUpInput = {
     nickName: '',
@@ -54,18 +55,18 @@ const SignUp = () => {
   const signUpInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    setGlobalButton(true);
     setSignUpInput({
       ...signUpInput,
       [event.target.name]: event.target.value,
     });
   };
 
-  const signUpSelectChanchHandler = (
-    event: React.ChangeEvent<HTMLSelectElement>,
-  ) => {
+  const signUpSelectChanchHandler = (event: any) => {
+    event.target.style.color = '#323232';
     setSignUpInput({
       ...signUpInput,
-      [event.target.name]: event.target.value,
+      gender: event.value,
     });
   };
 
@@ -136,6 +137,7 @@ const SignUp = () => {
   // 회원가입 클릭 이벤트
   const singUpHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log('ekfefkwejfwlkefjweklfjwk');
 
     if (
       signUpInput.nickName === '' ||
@@ -204,7 +206,8 @@ const SignUp = () => {
                 label: '확인',
                 onClick: async () => {
                   await signOut(auth);
-                  navigate('/login');
+                  setGlobalButton(false);
+                  navigate('/login', { state: signUpInput.email });
                 },
               },
             ],
@@ -311,10 +314,36 @@ const SignUp = () => {
   };
   /////////// 유효성 검사 ////////////
 
+  useEffect(() => {
+    if (
+      signUpInput.nickName === '' &&
+      signUpInput.email === '' &&
+      signUpInput.password === '' &&
+      signUpInput.passwordCheck === '' &&
+      signUpInput.gender === '' &&
+      signUpInput.age === '' &&
+      signUpInput.phoneNumber === '' &&
+      signUpInput.phoneCode === ''
+    )
+      setGlobalButton(false);
+    return () => setGlobalButton(false);
+  }, [
+    signUpInput.nickName,
+    signUpInput.email,
+    signUpInput.password,
+    signUpInput.passwordCheck,
+    signUpInput.gender,
+    signUpInput.age,
+    signUpInput.phoneNumber,
+    signUpInput.phoneCode,
+  ]);
+
   return (
     <S.Wrap>
       <S.TitleWrap>
-        <S.Title>회원가입</S.Title>
+        <S.TextBackground>
+          <S.Title>회원가입</S.Title>
+        </S.TextBackground>
       </S.TitleWrap>
       <S.FormWrap onSubmit={singUpHandler}>
         <S.FormItemWrap>
@@ -339,9 +368,9 @@ const SignUp = () => {
             type="email"
             onBlur={validateEmail}
           />
+          <S.HelperText>{helperText.email}</S.HelperText>
         </S.FormItemWrap>
         <S.FormItemWrap>
-          <S.HelperText>{helperText.email}</S.HelperText>
           <S.FormText>
             비밀번호 (대문자, 소문자+숫자+특수문자 8자 이상)
           </S.FormText>
@@ -369,7 +398,7 @@ const SignUp = () => {
         </S.FormItemWrap>
         <S.FormItemWrap>
           <S.FormText>생년월일</S.FormText>
-          <S.FormInput
+          <S.FormDate
             value={signUpInput.age}
             name="age"
             onChange={signUpInputChangeHandler}
@@ -382,6 +411,7 @@ const SignUp = () => {
         </S.FormItemWrap>
         <S.FormItemWrap>
           <S.FormText>성별</S.FormText>
+          {/* 선택 항목을 선택하지 않았는데도 폼이 전송되는 것은 문제가 되므로 선택 태그의 값을 선택하지 않으면 폼이 전송되지 않도록 required 속성을 셀렉트 박스 태그에 추가합니다. */}
           <S.FormSelect
             as="select"
             value={signUpInput.gender}
@@ -389,7 +419,9 @@ const SignUp = () => {
             onChange={signUpSelectChanchHandler}
             onBlur={validateGender}
           >
-            <option value="">성별을 선택해 주세요</option>
+            <option value="" disabled selected>
+              성별을 선택해 주세요.
+            </option>
             <option value="men">남자</option>
             <option value="women">여자</option>
             <option value="선택안함">선택안함</option>
@@ -430,7 +462,21 @@ const SignUp = () => {
         </S.FormItemWrap>
         <S.FormBtnWrap>
           <S.CancleBtn onClick={() => navigate('/login')}>취소</S.CancleBtn>
-          <S.SignUpBtn>회원가입</S.SignUpBtn>
+          <S.SignUpBtn
+            disabled={
+              helperText.nickName === '' &&
+              helperText.email === '' &&
+              helperText.password === '' &&
+              helperText.passwordCheck === '' &&
+              helperText.age === '' &&
+              helperText.gender === '' &&
+              phoneVerify
+                ? false
+                : true
+            }
+          >
+            회원가입
+          </S.SignUpBtn>
         </S.FormBtnWrap>
       </S.FormWrap>
     </S.Wrap>

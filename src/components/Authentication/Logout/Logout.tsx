@@ -4,6 +4,9 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import CustomModal from '../../../shared/CustomModal';
+import { useRecoilState } from 'recoil';
+import { modalStatus } from '../../../atoms';
 
 const SignUpBtn = styled.button`
   cursor: pointer;
@@ -32,37 +35,33 @@ export const TextBackground = styled.div`
 
 const Logout = () => {
   const navigate = useNavigate();
+  const [isModal, setIsModal] = useRecoilState(modalStatus);
 
   // 로그아웃 이벤트
   const SignOutClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    try {
-      confirmAlert({
-        title: '로그아웃',
-        message: '정말 로그아웃 하시겠습니까?',
-        buttons: [
-          {
-            label: '확인',
-            onClick: async () => {
-              await signOut(auth);
-              navigate('/');
-            },
-          },
-          {
-            label: '취소',
-            onClick: () => {},
-          },
-        ],
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    signOut(auth);
+    setIsModal({ ...isModal, logout: !isModal.logout });
+  };
+
+  const modalStatusChangeHandler = () => {
+    setIsModal({ ...isModal, logout: !isModal.logout });
   };
 
   return (
-    <TextBackground>
-      <SignUpBtn onClick={SignOutClickHandler}>로그아웃</SignUpBtn>
-    </TextBackground>
+    <>
+      {isModal.logout && (
+        <CustomModal
+          title="로그아웃"
+          text="정말 로그아웃 하시겠습니까?"
+          cancel="취소"
+          submit="로그아웃"
+          fnc={SignOutClickHandler}
+        />
+      )}
+      <TextBackground>
+        <SignUpBtn onClick={modalStatusChangeHandler}>로그아웃</SignUpBtn>
+      </TextBackground>
+    </>
   );
 };
 
