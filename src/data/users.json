@@ -1,96 +1,24 @@
 {
   "users": [
     {
-      "age": "1995-04-12",
-      "email": "abcwockd95@naver.com",
+      "age": "2023-02-20",
+      "email": "ewfwfk@naver.com",
       "gender": "men",
-      "nickName": null,
-      "phoneNumber": "01010111010",
+      "nickName": "재창이",
+      "phoneNumber": "01063183932",
       "profileImg": null,
-      "id": "28ydef0rWWPfoH3Xd1pK7XlGcko1"
-    },
-    {
-      "age": "1995-04-12",
-      "email": "ewklfjewkf@naver.com",
-      "gender": "men",
-      "nickName": null,
-      "phoneNumber": "",
-      "profileImg": null,
-      "id": "PDXIa4NMVehSvPgQZV9SC5g4QNP2"
+      "uid": "XkFbaedOBDMumF6mC4gZ8YS6g082",
+      "id": "59b19ef9-b136-4f0e-8d2e-31ce6b84cd17"
     },
     {
       "age": "1995-04-12",
       "email": "wockdwockd12@naver.com",
       "gender": "men",
-      "nickName": "재창2",
-      "phoneNumber": "01063183932",
-      "profileImg": null,
-      "id": "ZIRyxRAFhsXadM45tJWeO5DAOD92"
-    },
-    {
-      "age": "2023-02-01",
-      "email": "abkjfklew@naver.com",
-      "gender": "men",
-      "nickName": "wfefwkj",
-      "phoneNumber": "01063183932",
-      "profileImg": null,
-      "id": "lwdHD0Fjn2YjRWSLRy19z485AFC2"
-    },
-    {
-      "age": "2023-02-20",
-      "email": "wifjewiofj@naver.com",
       "nickName": "재창이",
       "phoneNumber": "01063183932",
       "profileImg": null,
-      "id": "mEipMvBVRSVsOaQOqzhCXqJsE7B3"
-    },
-    {
-      "age": "2023-02-07",
-      "email": "wekfjwel11f@naver.com",
-      "nickName": "재창이",
-      "phoneNumber": "01063183932",
-      "profileImg": null,
-      "id": "v2v65oIdumbUOlWU17HDVZigMRE2"
-    },
-    {
-      "age": "2023-02-14",
-      "email": "WWWWoco@naver.com",
-      "nickName": "재창이",
-      "phoneNumber": "01063183932",
-      "profileImg": null,
-      "id": "dXeLklWityQ1ioNK1Kd2VKhH4kI3"
-    },
-    {
-      "age": "2023-02-13",
-      "email": "eoifejdsk@naver.com",
-      "nickName": "재창이",
-      "phoneNumber": "01063183932",
-      "profileImg": null,
-      "id": "6rJAcRfCHdQ3l5KL8XteXnMQ8bo2"
-    },
-    {
-      "age": "2023-02-12",
-      "email": "wlkfewmncn@naver.com",
-      "nickName": "재창이",
-      "phoneNumber": "01063183932",
-      "profileImg": null,
-      "id": "l6LOl7zVKigoxCib0VsqTKypfW22"
-    },
-    {
-      "age": "2023-02-12",
-      "email": "abcwockd12295@naver.com",
-      "nickName": "재창이",
-      "phoneNumber": "01063183932",
-      "profileImg": null,
-      "id": "FBrlJ0OD6zfZsdW32zJLNj1h8fS2"
-    },
-    {
-      "age": "2023-02-20",
-      "email": "wwwwoooo@naver.com",
-      "nickName": "삭제",
-      "phoneNumber": "01063183932",
-      "profileImg": null,
-      "id": "uavKbg3YepPu540gsA8Bv7HAZlj2"
+      "uid": "mMuouk0EKfSJulDQLNQMgtETBMJ3",
+      "id": "59082783-bf8a-423c-bc0a-8288795682c2"
     }
   ]
 }
