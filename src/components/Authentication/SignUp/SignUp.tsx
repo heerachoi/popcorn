@@ -16,6 +16,7 @@ import axios from 'axios';
 import { globalBtn, modalStatus } from '../../../atoms';
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 import CustomModal from '../../../shared/CustomModal';
+import { v4 as uuidv4 } from 'uuid';
 interface SignUpInput {
   nickName: string;
   email: string;
@@ -85,7 +86,7 @@ const SignUp = () => {
     setGlobalButton(true);
     setSignUpInput({
       ...signUpInput,
-      gender: event.value,
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -155,7 +156,6 @@ const SignUp = () => {
   // 회원가입 클릭 이벤트
   const singUpHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     await createUserWithEmailAndPassword(
       auth,
       signUpInput.email,
@@ -174,7 +174,8 @@ const SignUp = () => {
           nickName: signUpInput.nickName,
           phoneNumber: signUpInput.phoneNumber,
           profileImg: user.photoURL,
-          id: user.uid,
+          uid: user.uid,
+          id: uuidv4(),
         };
         axios.post('http://localhost:4000/users', userInfo).then(() => {
           return modalStatusChangeHandler('signUpComplete');
@@ -282,7 +283,6 @@ const SignUp = () => {
       signUpInput.phoneCode === ''
     )
       setGlobalButton(false);
-    // return () => setGlobalButton(false); ///////// setGlobalButton이 false 자꾸 바뀐다. 잘못된 코드.
   }, [
     signUpInput.nickName,
     signUpInput.email,

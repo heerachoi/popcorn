@@ -11,7 +11,7 @@ export interface Store {
   item: string;
   openingTime: string[];
   closeTime: string[];
-  significantContent:string;
+  significantContent: string;
   explain: string;
   sns: string;
   web: string;
@@ -45,3 +45,4 @@ export interface View {
   성별모름: number,
   all: number
 }
+

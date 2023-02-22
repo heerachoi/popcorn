@@ -7,95 +7,168 @@ import { getLikeHate, getNewStoreReport } from '../../../services/api';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { v4 as uuidv4 } from 'uuid';
-import { useNavigate } from 'react-router-dom';
+import COLORS from '../../../assets/CSS/colors';
 
 interface Props {
   detailData: any;
 }
 
-// 1. user 정보 불러와서 로그인 유무 확인
-// 2. 로그인 O -> 버튼 활성화, 로그인 X -> 로그인 후 이용 안내
-// 3. 좋아요 / 별로에요 둘 중 하나만 클릭 가능 -> 클릭한 이미지 효과 주기
-// 4. 버튼 클릭 시 db에 현재 디테일 페이지의 스토어 id와 클릭한 user id, 좋아요인지 싫어요인지 올라감
-// 5. 버튼 클릭 횟수 이미지 밑에 카운트 하기
-// 6. 클릭한 이미지 한 번 더 클릭 시 취소하시겠습니까 안내 띄우고 db에서 삭제
-
 const StoreEmoji: any = ({ detailData }: Props) => {
-  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState<any>('');
   const [like, setLike] = useRecoilState(likeCount);
-  // const setLike = useSetRecoilState(likeCount);
-  const setHate = useSetRecoilState(hateCount);
-  const user = useRecoilValue(userInfo);
-  const [clicked, setClicked] = useState(false);
+  const [hate, setHate] = useRecoilState(hateCount);
+  const [color, setColor] = useState(`${COLORS.black}`);
+  const [likeClicked, setLikeClicked] = useState(false);
+  const [hateClicked, setHateClicked] = useState(false);
+  const [currentLikeId, setCurrentLikeId] = useState('');
 
-  // 화면 렌더링 됐을 떄 유저가 클릭한게 있는지 없는지
-  const fetchUserSelected = async () => {
-    const { data } = await axios.get('http://localhost:3003/likeHate');
-    data.map((item: any) => {
-      console.log('!!!!!!!!item', item);
-      if (item.userId === user.userInfomation.uid && item.storeId) {
-        setClicked(true);
+  // 화면 렌더링 시 로그인 상태 확인
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentUser(auth.currentUser);
+        fetchLikeHate();
       } else {
-        setClicked(false);
+        return console.log('로그인 안됨');
       }
     });
+  }, [currentUser]);
 
-    // const likes = data.filter((item: any) => {
-    //   item.storeId === detailData.id && item.vote === 'like';
-    // });
-    // console.log('likesitem!!!!!!!', likes);
-  };
+  console.log('currentUser', currentUser);
 
   useEffect(() => {
-    fetchUserSelected();
-  }, []);
+    fetchLikeHate();
+    likeCountHandler();
+    hateCountHandler();
+  }, [likeClicked, hateClicked]);
 
-  console.log('user.userInfomation.uid', user.userInfomation.uid);
+  const newLike = {
+    id: uuidv4(),
+    storeId: detailData.id,
+    userId: currentUser.uid,
+    vote: 'like',
+  };
 
-  const likeHandler = async () => {
-    if (user.isLogin && clicked === false) {
-      const newLike = {
-        id: uuidv4(),
-        storeId: detailData.id,
-        userId: user.userInfomation.uid,
-        vote: 'like',
-      };
-      try {
-        axios.post('http://localhost:3003/likeHate', newLike);
-        setLike(like + 1);
-        setClicked(!clicked);
-        alert('좋아요!');
-      } catch (err) {
-        console.log(err);
+  const hateLike = {
+    id: uuidv4(),
+    storeId: detailData.id,
+    userId: currentUser.uid,
+    vote: 'hate',
+  };
+
+  const fetchLikeHate = async () => {
+    const { data } = await axios.get('http://localhost:3003/likeHate');
+    console.log('data!!!!!!!!', data);
+
+    // console.log('likes', likes);
+
+    data.map((item: any) => {
+      // 좋아요, 별로에요 숫자
+
+      if (item.userId === currentUser.uid && item.storeId === detailData.id) {
+        if (item.vote === 'like') {
+          // setColor(`${COLORS.red}`);
+          setLikeClicked(true);
+          setCurrentLikeId(item.id);
+        } else if (item.vote === 'hate') {
+          // setColor(`${COLORS.black}`);
+          setHateClicked(true);
+          setCurrentLikeId(item.id);
+        }
+      } else {
+        setColor(`${COLORS.black}`);
       }
-    } else if (clicked === true) {
-      alert('이미 클릭함');
+      // console.log('item', item);
+      // console.log('itemId', item.id);
+      // console.log('item.storeId', item.storeId);
+      // console.log('detailData.id', detailData.id);
+    });
+  };
+
+  const likeCountHandler = async () => {
+    const { data } = await axios.get('http://localhost:3003/likeHate');
+
+    const likes = data.filter((item: any) => {
+      if (item.storeId === detailData.id && item.vote === 'like') {
+        return true;
+      }
+    });
+    setLike(likes.length);
+  };
+
+  const hateCountHandler = async () => {
+    const { data } = await axios.get('http://localhost:3003/likeHate');
+    const hates = data.filter((item: any) => {
+      if (item.storeId === detailData.id && item.vote === 'hate') {
+        return true;
+      }
+    });
+    setHate(hates.length);
+  };
+
+  // 좋아요 버튼
+  const likeHandler = async () => {
+    if (currentUser) {
+      if (likeClicked) {
+        // 좋아요 눌린 상태
+        try {
+          axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
+          setColor(`${COLORS.black}`);
+          setLikeClicked(false);
+          // setLike(like + 1);          
+        } catch (err) {
+          console.log('err', err);
+        }
+      } else if (hateClicked) {
+        alert('좋아요, 별로에요 둘 중 하나만 가능합니다.');
+      } else if (!likeClicked) {
+        // 좋아요가 안눌린 상태
+        try {
+          axios.post('http://localhost:3003/likeHate', newLike);
+          // setLike(like + 1);
+          setColor(`${COLORS.red}`);
+          setLikeClicked(true);
+          
+        } catch (err) {
+          console.log('err', err);
+        }
+      }
     } else {
-      alert('로그인 후 이용 가능합니다.');
-      navigate('/login');
+      alert('로그인이 필요합니다.');
     }
   };
 
-  // const hateHandler = () => {
-  //   if (user.isLogin) {
-  //     const newHate = {
-  //       id: uuidv4(),
-  //       storeId: detailData.id,
-  //       userId: user.userInfomation.uid,
-  //       vote: 'hate',
-  //     };
-  //     try {
-  //       axios.post('http://localhost:3003/likeHate/', newHate);
-  //       setHate(hates + 1);
-  //       alert('별로에요');
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   } else {
-  //     alert('로그인 후 이용 가능합니다.');
-  //     navigate('/login');
-  //   }
-  // };
+  const hateHandler = async  () => {
+    if (currentUser) {
+      if (hateClicked) {
+        // 별로에요 눌린 상태
+        try {
+          axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
+          setColor(`${COLORS.black}`);
+          setHateClicked(false);
+          // setLike(like + 1);
+          // alert('이미 클릭함');
+        } catch (err) {
+          console.log('err', err);
+        }
+      } else if (likeClicked) {
+        alert('둘 중 하나만 클릭하세요.');
+      } else if (!hateClicked) {
+        // 별로에요 안눌린 상태
+        try {
+          axios.post('http://localhost:3003/likeHate', hateLike);
+          // setLike(like + 1);
+          setColor(`${COLORS.red}`);
+          setHateClicked(true);
+          alert('별로에요');
+        } catch (err) {
+          console.log('err', err);
+        }
+      }
+    } else {
+      alert('로그인이 필요합니다.');
+    }
+  };
 
   return (
     <S.EmojiWrap>
@@ -105,22 +178,18 @@ const StoreEmoji: any = ({ detailData }: Props) => {
             <S.LikeHateImg src={require('../../../assets/Logo/like.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground>
-            {clicked === true ? (
-              <S.EmojiText>좋아요</S.EmojiText>
-            ) : (
-              <S.EmojiText>이미클릭함</S.EmojiText>
-            )}
+            <S.EmojiText style={{ color: color }}>좋아요</S.EmojiText>
           </S.TextBackground>
-          {/* <S.EmojiText>{likes.length}</S.EmojiText> */}
+          <S.EmojiText>{like}</S.EmojiText>
         </S.EmojiDiv>
         <S.EmojiDiv>
-          <S.EmojiIconBtn>
+          <S.EmojiIconBtn onClick={hateHandler}>
             <S.LikeHateImg src={require('../../../assets/Logo/hate.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground style={{ width: '85px' }}>
             <S.EmojiText>별로에요</S.EmojiText>
           </S.TextBackground>
-          {/* <S.EmojiText>{hates.length}</S.EmojiText> */}
+          <S.EmojiText>{hate}</S.EmojiText>
         </S.EmojiDiv>
       </S.EmojiContainer>
     </S.EmojiWrap>
