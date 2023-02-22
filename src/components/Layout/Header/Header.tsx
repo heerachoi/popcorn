@@ -61,6 +61,15 @@ const Header = () => {
             fnc={globalBtnClickHandler}
           />
         )}
+        {isModal.master && (
+          <CustomModal
+            title="로그인하시겠습니까?"
+            text="로그인하셔야 이용 가능한 서비스입니다."
+            cancel="취소"
+            submit="로그인"
+            fnc={reportClickHandler}
+          />
+        )}
         <HoverBox>
           <S.Title
             className="title"
@@ -90,21 +99,12 @@ const Header = () => {
             <S.CategoryBtn
               onClick={
                 user.isLogin
-                  ? () => navigate('/report')
-                  : masterModalStatusChangeHandler
+                  ? () => globalBtnModalStatusChangeHandler('/report')
+                  : () => masterModalStatusChangeHandler()
               }
             >
               팝업스토어 제보
             </S.CategoryBtn>
-            {isModal.master && (
-              <CustomModal
-                title="로그인하시겠습니까?"
-                text="로그인하셔야 이용 가능한 서비스입니다."
-                cancel="취소"
-                submit="로그인"
-                fnc={reportClickHandler}
-              />
-            )}
           </TextBackground>
           {!user.isLogin && (
             <TextBackground style={{ width: 110 }}>

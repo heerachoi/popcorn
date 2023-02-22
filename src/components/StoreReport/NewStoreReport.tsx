@@ -7,6 +7,8 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { auth } from '../../services/firebase';
 import * as S from './style';
+import { globalBtn, modalStatus } from '../../atoms';
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 interface NewStoreInput {
@@ -18,7 +20,10 @@ interface NewStoreInput {
 }
 
 const NewStoreReport: any = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const setGlobalButton = useSetRecoilState(globalBtn);
+  const [isModal, setIsModal] = useRecoilState(modalStatus);
+  const modalStatusReset = useResetRecoilState(modalStatus);
 
   const initNewStoreInput = {
     title: '',
@@ -35,10 +40,19 @@ const NewStoreReport: any = () => {
   const [etcContent, setEtcContent] = useState('');
   const userId = auth?.currentUser;
 
+  // 모달
+  const modalStatusChangeHandler = (error: string) => {
+    setIsModal({ ...isModal, [error]: !isModal.error });
+  };
+  const modalReset = () => {
+    modalStatusReset();
+  };
+
   // input onChange 함수
   const newStoreInputonChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    setGlobalButton(true);
     setNewStoreInput({
       ...newStoreInput,
       [event.target.name]: event.target.value,
@@ -49,6 +63,7 @@ const NewStoreReport: any = () => {
   const newStoreInfoImgoOnChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    setGlobalButton(true);
     const target = event.currentTarget;
     console.log('target', target);
 
@@ -69,17 +84,17 @@ const NewStoreReport: any = () => {
   };
 
   const cancleHandler = () => {
-    if(window.confirm('작성을 취소하시겠습니까?')) {
-      navigate('/')
+    if (window.confirm('작성을 취소하시겠습니까?')) {
+      navigate('/');
     }
-  }
+  };
 
   // 제보하기 버튼 onSubmit 함수(json db 추가)
   const newStoreInfoAddHandler = async (
     event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
-
+    setGlobalButton(false);
     // firebase storage에 이미지 업로드
     const imgRef = ref(storage, `storeInfoImg/${fileName}`);
 
@@ -122,7 +137,6 @@ const NewStoreReport: any = () => {
       console.log(err);
     }
   };
-
 
   return (
     <NewStoreForm onSubmit={newStoreInfoAddHandler}>
