@@ -48,7 +48,7 @@ export const TextBackground = styled.div`
   box-sizing: border-box;
   padding-left: 18px;
   border-radius: 12px;
-  top: 1250px;
+  top: 1260px;
   /* right: 808px;
   top: 110px; */
 `;

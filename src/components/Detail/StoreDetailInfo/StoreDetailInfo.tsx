@@ -14,6 +14,9 @@ import axios from 'axios';
 import { auth } from '../../../services/firebase';
 import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 import { v4 as uuidv4 } from 'uuid';
+import { useSetRecoilState } from 'recoil';
+import { likeCount } from '../../../atoms';
+import { getLikeHate } from '../../../services/api';
 
 interface Props {
   detailData: any;
@@ -21,6 +24,7 @@ interface Props {
 // detailData로 이미 store의 데이터를 불러오고 있다.
 // detailData = popupStore.json 데이터 객체 하나
 const StoreDetailInfo = ({ detailData }: Props) => {
+  const setLike = useSetRecoilState(likeCount)
   const initialState = {
     id: '',
     storeId: '',
@@ -65,8 +69,10 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     setIsLoading(false);
   };
 
+
   useEffect(() => {
-    fetchBookmarks();
+    console.log('마운트!!!!!!!!!!!!!!!');    
+    fetchBookmarks();    
   }, []);
 
   // const bookmark = bookmarkData?.find((bm: any) => {
@@ -280,7 +286,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
       {/* 하단 선 */}
       <S.Hr />
       {/* 좋아요/별로에요 이모티콘 컴포넌트 */}
-      <StoreEmoji detailData={detailData} />
+      <StoreEmoji detailData={detailData}  />
     </S.StoreDetailInfoWrap>
   );
 };

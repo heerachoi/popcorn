@@ -22,48 +22,38 @@ interface Props {
 
 const StoreEmoji: any = ({ detailData }: Props) => {
   const navigate = useNavigate();
-  const setLike = useSetRecoilState(likeCount);
+  const [like, setLike] = useRecoilState(likeCount)
+  // const setLike = useSetRecoilState(likeCount);
   const setHate = useSetRecoilState(hateCount);
   const user = useRecoilValue(userInfo);
+  const [clicked, setClicked] = useState(false);
 
-  // likeHate db 불러오기
-  const { isLoading, isError, data, error } = useQuery('likeHate', getLikeHate);
-  // console.log('data', data);
+  // 화면 렌더링 됐을 떄 유저가 클릭한게 있는지 없는지
+  const fetchUserSelected = async () => {
+    const { data } = await axios.get('http://localhost:3003/likeHate');
+    data.map((item: any) => {
+      console.log('!!!!!!!!item', item);
+      if (item.userId === user.userInfomation.uid && item.storeId) {
+        setClicked(true);
+      } else {
+        setClicked(false);
+      }
+    });
 
-  if (isLoading) {
-    console.log('로딩중');
-    return <p>Loading...</p>;
-  }
-  if (isError) {
-    console.log('오류내용', error);
-    return <p>Error!!!</p>;
-  }
-  // console.log('user.userInfomation.uid', user.userInfomation.uid);
+    // const likes = data.filter((item: any) => {
+    //   item.storeId === detailData.id && item.vote === 'like';
+    // });
+    // console.log('likesitem!!!!!!!', likes);
+  };
 
-  // likeHate DB에 있는 storeId와 현재 페이지 storeId가 같으면서
-  // 현재 userId와 DB에 있는 userID가 같은 데이터 뽑아옴
-  const newData = data.filter(
-    (item: any) =>
-      item.storeId === detailData.id && user.userInfomation.uid === item.userId,
-  );
-  console.log('newData', newData);
+  useEffect(() => {
+    fetchUserSelected();
+  }, []);
 
-  // likeHate DB에 있는 storeId와 현재 페이지 storeId가 같으면서
-  // vote가 like인 데이터만 뽑아옴
-  const likes = data.filter(
-    (item: any) => item.storeId === detailData.id && item.vote === 'like',
-  );
-  console.log('likes', likes);
-
-  const hates = data.filter(
-    (item: any) => item.storeId === detailData.id && item.vote === 'hate',
-  );
-  console.log('hates', hates);
-
-
-
-  const likeHandler = async () => {       
-    if (user.isLogin) {
+  console.log('user.userInfomation.uid', user.userInfomation.uid);
+ 
+  const likeHandler = async () => {
+    if (user.isLogin && clicked === false) {
       const newLike = {
         id: uuidv4(),
         storeId: detailData.id,
@@ -72,37 +62,40 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       };
       try {
         axios.post('http://localhost:3003/likeHate', newLike);
-        setLike(likes + 1);
+        setLike(like + 1);
+        setClicked(!clicked);
         alert('좋아요!');
       } catch (err) {
         console.log(err);
       }
+    } else if (clicked === true){
+      alert('이미 클릭함')
     } else {
       alert('로그인 후 이용 가능합니다.');
       navigate('/login');
     }
   };
 
-  const hateHandler = () => {
-    if (user.isLogin) {
-      const newHate = {
-        id: uuidv4(),
-        storeId: detailData.id,
-        userId: user.userInfomation.uid,
-        vote: 'hate',
-      };
-      try {
-        axios.post('http://localhost:3003/likeHate/', newHate);
-        setHate(hates + 1);
-        alert('별로에요');
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      alert('로그인 후 이용 가능합니다.');
-      navigate('/login');
-    }
-  };
+  // const hateHandler = () => {
+  //   if (user.isLogin) {
+  //     const newHate = {
+  //       id: uuidv4(),
+  //       storeId: detailData.id,
+  //       userId: user.userInfomation.uid,
+  //       vote: 'hate',
+  //     };
+  //     try {
+  //       axios.post('http://localhost:3003/likeHate/', newHate);
+  //       setHate(hates + 1);
+  //       alert('별로에요');
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   } else {
+  //     alert('로그인 후 이용 가능합니다.');
+  //     navigate('/login');
+  //   }
+  // };
 
   return (
     <S.EmojiWrap>
@@ -112,18 +105,22 @@ const StoreEmoji: any = ({ detailData }: Props) => {
             <S.LikeHateImg src={require('../../../assets/Logo/like.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground>
-            <S.EmojiText>좋아요</S.EmojiText>
+            {clicked === true ? (
+              <S.EmojiText>좋아요</S.EmojiText>
+            ) : (
+              <S.EmojiText>이미클릭함</S.EmojiText>
+            )}
           </S.TextBackground>
-          <S.EmojiText>{likes.length}</S.EmojiText>
+          {/* <S.EmojiText>{likes.length}</S.EmojiText> */}
         </S.EmojiDiv>
         <S.EmojiDiv>
-          <S.EmojiIconBtn onClick={hateHandler}>
+          <S.EmojiIconBtn>
             <S.LikeHateImg src={require('../../../assets/Logo/hate.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground style={{ width: '85px' }}>
             <S.EmojiText>별로에요</S.EmojiText>
           </S.TextBackground>
-          <S.EmojiText>{hates.length}</S.EmojiText>
+          {/* <S.EmojiText>{hates.length}</S.EmojiText> */}
         </S.EmojiDiv>
       </S.EmojiContainer>
     </S.EmojiWrap>
