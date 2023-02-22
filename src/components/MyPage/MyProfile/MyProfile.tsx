@@ -144,18 +144,15 @@ const MyProfile = () => {
             </S.EmailInputWrpper>
             <S.PhoneNumInputWrpper>
               <S.PhoneNumText>휴대전화</S.PhoneNumText>
-              {/* <S.PhoneNumInput
-                placeholder={userInfos[0].phoneNumber}
-                readOnly
-              /> */}
+              <S.PhoneNumInput readOnly />
             </S.PhoneNumInputWrpper>
             <S.GenderInputWrpper>
               <S.GenderText>성별</S.GenderText>
-              {/* <S.GenderInput placeholder={userInfos[0].gender} readOnly /> */}
+              <S.GenderInput readOnly />
             </S.GenderInputWrpper>
             <S.AgeInputWrpper>
               <S.AgeText>생일</S.AgeText>
-              {/* <S.AgeInput placeholder={userInfos[0].age} readOnly /> */}
+              <S.AgeInput readOnly />
             </S.AgeInputWrpper>
 
             {/* <S.ModifyCompleteButton type="submit">

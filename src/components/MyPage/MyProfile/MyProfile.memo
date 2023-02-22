@@ -2141,3 +2141,39 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+
+==============================
+
+  // const submitNicknameImgChange = async (e: any) => {
+  //   e.preventDefault();
+  //   if (imgFile.length !== 0) {
+  //     const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
+
+  //     const response = await uploadString(imgRef, imgFile, 'data_url');
+  //     const downloadImageUrl = await getDownloadURL(response.ref);
+  //     setImgUploadUrl(downloadImageUrl);
+
+  //     await updateProfile(currentUser, {
+  //       displayName: nickname,
+  //       photoURL: downloadImageUrl,
+  //     })
+  //       .then(() => {
+  //         alert('Profile updated!');
+  //         setNickname('');
+  //       })
+  //       .catch((error: any) => {});
+  //   } else {
+  //     await updateProfile(currentUser, {
+  //       displayName: nickname,
+  //     })
+  //       .then(() => {
+  //         alert('Profile updated!');
+  //         setNickname('');
+  //       })
+  //       .catch((error: any) => {});
+  //   }
+  // };
+
+
+  

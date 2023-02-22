@@ -21,7 +21,17 @@ const MyProfileEditModal = () => {
 
   const user = useRecoilValue(userInfo);
 
-  console.log('user', user);
+  console.log(
+    'user.userInfomation.displayName',
+    user.userInfomation.displayName,
+  );
+
+  // 닉네임 변경하기 (user.displayName)
+  const [nickname, setNickname] = useState<any>(''); // 현재 닉네임 상태변경
+
+  const ToChangeNicknameInput = () => {
+    setNickname(user.userInfomation.displayName);
+  };
 
   // const [nickname, setNickname] = useState<any>(''); // 닉네임
   // const [currentUser, setCurrentUser] = useState<any>('');
@@ -117,9 +127,10 @@ const MyProfileEditModal = () => {
       >
         <S.EditModalAll>
           <Box sx={style}>
-            {/* <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
-              <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
-              <S.EditModalImgLabelInputWrapper>
+            {/* <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}> */}
+            {/* <S.NewProfileSubmitForm> */}
+            <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
+            {/* <S.EditModalImgLabelInputWrapper>
                 <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
                   {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
                 </S.EditModalProfileImgLabel>
@@ -130,18 +141,18 @@ const MyProfileEditModal = () => {
                   onChange={saveNewProfileImg}
                   style={{ display: 'none' }}
                 />
-              </S.EditModalImgLabelInputWrapper>
+              </S.EditModalImgLabelInputWrapper> */}
 
-              <S.EditModalNicknameInputWrapper>
-                <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
-                <S.EditModalNicknameInput
-                  type="text"
-                  placeholder={currentUser.displayName}
-                  onChange={ToChangeNicknameInput}
-                  value={nickname}
-                />
-              </S.EditModalNicknameInputWrapper>
-              <S.EditModalEmailInputWrpper>
+            <S.EditModalNicknameInputWrapper>
+              <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
+              <S.EditModalNicknameInput
+                type="text"
+                placeholder={nickname}
+                onChange={ToChangeNicknameInput}
+                value={nickname}
+              />
+            </S.EditModalNicknameInputWrapper>
+            {/* <S.EditModalEmailInputWrpper>
                 <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
                 <S.EmailInput placeholder={currentUser.email} readOnly />
               </S.EditModalEmailInputWrpper>
@@ -153,8 +164,8 @@ const MyProfileEditModal = () => {
                 <S.EditModalCompleteButton type="submit">
                   수정완료
                 </S.EditModalCompleteButton>
-              </S.EditModalBtnWrapper>
-            </S.NewProfileSubmitForm> */}
+              </S.EditModalBtnWrapper> */}
+            {/* </S.NewProfileSubmitForm> */}
           </Box>
           {/* 북마크/내가 쓴 제보 */}
         </S.EditModalAll>
