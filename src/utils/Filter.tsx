@@ -28,14 +28,14 @@ export const MostViews = () => {
 export const PopularToWomen = () => {
   // const open =  CurrentlyOpen();
   // console.log(open);
-  const womenViewSort = data.Store.sort((a,b) => b.view.여성 - a.view.여성);
+  const womenViewSort = data.Store.sort((a,b) => b.view.women - a.view.women);
   const womenTopTwo = womenViewSort.slice(0, 2); 
   return womenTopTwo;
 }
 
 // 남성 인기 팝업스토어
 export const PopularToMen = () => {
-  const menViewSort = data.Store.sort((a,b) => b.view.남성 - a.view.남성);
+  const menViewSort = data.Store.sort((a,b) => b.view.men - a.view.men);
   const menTopTwo = menViewSort.slice(0, 2); 
   return menTopTwo;
 }

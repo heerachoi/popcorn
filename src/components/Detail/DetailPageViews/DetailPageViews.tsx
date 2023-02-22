@@ -11,8 +11,8 @@ const DetailPageViews = ({ detailData }: Props) => {
   const thirtyPercent = detailData.view[30];
   const fortyPercent = detailData.view['40+'];
   const unknownAgePercent = detailData.view['연령모름'];
-  const menPercent = detailData.view['남성'];
-  const womenPercent = detailData.view['여성'];
+  const menPercent = detailData.view['men'];
+  const womenPercent = detailData.view['women'];
   const unknownGenderPercent = detailData.view['성별모름'];
 
   return (
@@ -68,7 +68,7 @@ export default DetailPageViews;
 //   (detailData.view['연령모름'] / detailData.view['all']) * 100;
 // const menPercent = (detailData.view['men'] / detailData.view['all']) * 100;
 // const womenPercent =
-//   (detailData.view['여성'] / detailData.view['all']) * 100;
+//   (detailData.view['women'] / detailData.view['all']) * 100;
 // const unknownGenderPercent =
 //   (detailData.view['성별모름'] / detailData.view['all']) * 100;
 
