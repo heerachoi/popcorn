@@ -6,6 +6,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../../services/firebase';
 import { AiFillLeftCircle } from 'react-icons/ai';
 import styled from 'styled-components';
+import { useRecoilState, useResetRecoilState } from 'recoil';
+import { modalStatus } from '../../../atoms';
+import CustomModal from '../../../shared/CustomModal';
 interface SignInInput {
   email: string;
   password: string;
@@ -14,6 +17,8 @@ interface SignInInput {
 const Login = () => {
   const navigate = useNavigate();
   const { state: signUpEmail } = useLocation();
+  const [isModal, setIsModal] = useRecoilState(modalStatus);
+  const modalStatusReset = useResetRecoilState(modalStatus);
 
   const initSignInInput = {
     email: signUpEmail,
@@ -29,6 +34,19 @@ const Login = () => {
   const [helperText, setHelperText] = useState<SignInInput>(
     initHelperTextSignUpInput,
   );
+
+  // 모달
+  const modalStatusChangeHandler = (error: string) => {
+    setIsModal({ ...isModal, [error]: !isModal.error });
+  };
+  const modalReset = () => {
+    modalStatusReset();
+  };
+
+  const loginComplete = async () => {
+    navigate('/');
+    modalStatusReset();
+  };
 
   const signInInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -52,21 +70,7 @@ const Login = () => {
   ) => {
     event.preventDefault();
     if (signInInput.email === '' || signInInput.password === '')
-      confirmAlert({
-        title: '오류',
-        message: '빈 칸을 입력해 주세요.',
-        buttons: [
-          {
-            label: '확인',
-            onClick: () => {},
-          },
-          {
-            label: '취소',
-            onClick: () => {},
-          },
-        ],
-      });
-
+      modalStatusChangeHandler('loginError');
     await signInWithEmailAndPassword(
       auth,
       signInInput.email,
@@ -74,39 +78,13 @@ const Login = () => {
     )
       .then((res) => {
         console.log('res', res); // res.idtoken을 크롬 브라우저 쿠키에 set해주고, 토큰 아이디가 쿠키에 남아있으면 로그인 상태를 확인해줌
-        navigate('/');
+        modalStatusChangeHandler('login');
       })
       .catch((error: any) => {
         if (error.message.includes('user-not-found'))
-          confirmAlert({
-            title: '오류',
-            message: '회원가입이 되지 않은 이메일입니다.',
-            buttons: [
-              {
-                label: '확인',
-                onClick: () => {},
-              },
-              {
-                label: '취소',
-                onClick: () => {},
-              },
-            ],
-          });
+          modalStatusChangeHandler('userNotFound');
         if (error.message.includes('wrong-password'))
-          confirmAlert({
-            title: '오류',
-            message: '비밀번호가 틀렸습니다. 다시 확인해주세요.',
-            buttons: [
-              {
-                label: '확인',
-                onClick: () => {},
-              },
-              {
-                label: '취소',
-                onClick: () => {},
-              },
-            ],
-          });
+          modalStatusChangeHandler('wrongPassword');
       });
   };
 
@@ -202,6 +180,42 @@ const Login = () => {
           </S.SignUpBtn>
         </S.FormSignWrap>
       </S.FormWrap>
+      {isModal.login && (
+        <CustomModal
+          title="로그인"
+          text="로그인이 완료되었습니다."
+          cancel="취소"
+          submit="확인"
+          fnc={loginComplete}
+        />
+      )}
+      {isModal.loginError && (
+        <CustomModal
+          title="오류"
+          text="빈 칸을 입력해 주세요."
+          cancel="취소"
+          submit="확인"
+          fnc={modalReset}
+        />
+      )}
+      {isModal.userNotFound && (
+        <CustomModal
+          title="오류"
+          text="회원가입이 되지 않은 이메일입니다."
+          cancel="취소"
+          submit="확인"
+          fnc={modalReset}
+        />
+      )}
+      {isModal.wrongPassword && (
+        <CustomModal
+          title="오류"
+          text="비밀번호가 틀렸습니다. 다시 확인해주세요."
+          cancel="취소"
+          submit="확인"
+          fnc={modalReset}
+        />
+      )}
     </S.Wrap>
   );
 };
