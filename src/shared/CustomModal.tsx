@@ -14,6 +14,19 @@ const CustomModal = ({ title, text, cancel, submit, fnc }: Props) => {
   const modalStatusReset = useResetRecoilState(modalStatus);
   const isModal = useRecoilValue(modalStatus);
 
+  const condition =
+    isModal.validPhoneNumber ||
+    isModal.phoneValidComplete ||
+    isModal.invalidVerificationCode ||
+    isModal.codeExpired ||
+    isModal.signUpComplete ||
+    isModal.emailAlreadyInUse ||
+    isModal.signoutComplete ||
+    isModal.login ||
+    isModal.loginError ||
+    isModal.userNotFound ||
+    isModal.wrongPassword;
+
   const modalStatusChangeHandler = () => {
     modalStatusReset();
   };
@@ -31,7 +44,7 @@ const CustomModal = ({ title, text, cancel, submit, fnc }: Props) => {
           <TextWrap>
             <Text>{text}</Text>
           </TextWrap>
-          {!isModal.login ? (
+          {!condition ? (
             <ButtonWrap>
               <CancelButton onClick={modalStatusChangeHandler}>
                 {cancel}
@@ -59,7 +72,7 @@ export const ModalContainer = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #000;
-  opacity: 0.8;
+  opacity: 0.5;
 `;
 
 export const ModalWrapper = styled.div`

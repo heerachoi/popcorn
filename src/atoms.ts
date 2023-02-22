@@ -88,6 +88,7 @@ export const modalStatus = atom<ModalStatus>({
     loginError: false,
     userNotFound: false,
     wrongPassword: false,
+    globalBtn: false,
   },
 });
 
@@ -99,6 +100,11 @@ export const likeCount = atom<number>({
 export const hateCount = atom<number>({
   key: 'hateCount',
   default: 0,
+});
+
+export const modalPage = atom<string>({
+  key: 'modalPage',
+  default: '',
 });
 
 // export const mapCategorySelector = selector<any>({
