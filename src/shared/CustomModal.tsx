@@ -1,4 +1,4 @@
-import { useResetRecoilState } from 'recoil';
+import { useResetRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { modalStatus } from '../atoms';
 
@@ -12,6 +12,7 @@ type Props = {
 
 const CustomModal = ({ title, text, cancel, submit, fnc }: Props) => {
   const modalStatusReset = useResetRecoilState(modalStatus);
+  const isModal = useRecoilValue(modalStatus);
 
   const modalStatusChangeHandler = () => {
     modalStatusReset();
@@ -30,12 +31,18 @@ const CustomModal = ({ title, text, cancel, submit, fnc }: Props) => {
           <TextWrap>
             <Text>{text}</Text>
           </TextWrap>
-          <ButtonWrap>
-            <CancelButton onClick={modalStatusChangeHandler}>
-              {cancel}
-            </CancelButton>
-            <SubmitButton onClick={fnc}>{submit}</SubmitButton>
-          </ButtonWrap>
+          {!isModal.login ? (
+            <ButtonWrap>
+              <CancelButton onClick={modalStatusChangeHandler}>
+                {cancel}
+              </CancelButton>
+              <SubmitButton onClick={fnc}>{submit}</SubmitButton>
+            </ButtonWrap>
+          ) : (
+            <OnlyButtonWrap>
+              <OnlySubmitButton onClick={fnc}>{submit}</OnlySubmitButton>
+            </OnlyButtonWrap>
+          )}
         </ModalHolder>
       </ModalWrapper>
     </>
@@ -149,4 +156,13 @@ export const SubmitButton = styled(CancelButton)`
     background-color: #676767;
     border: 1px solid #323232;
   }
+`;
+
+export const OnlyButtonWrap = styled(ButtonWrap)`
+  justify-content: center;
+`;
+
+export const OnlySubmitButton = styled(SubmitButton)`
+  width: 200px;
+  height: 40px;
 `;

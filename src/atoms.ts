@@ -77,6 +77,17 @@ export const modalStatus = atom<ModalStatus>({
     master: false,
     logout: false,
     singout: false,
+    validPhoneNumber: false,
+    phoneValidComplete: false,
+    invalidVerificationCode: false,
+    codeExpired: false,
+    signUpComplete: false,
+    emailAlreadyInUse: false,
+    signoutComplete: false,
+    login: false,
+    loginError: false,
+    userNotFound: false,
+    wrongPassword: false,
   },
 });
 

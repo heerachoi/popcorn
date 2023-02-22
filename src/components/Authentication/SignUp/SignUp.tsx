@@ -10,12 +10,12 @@ import {
   PhoneAuthProvider,
   signInWithCredential,
 } from 'firebase/auth';
-import { confirmAlert } from 'react-confirm-alert';
 import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 import axios from 'axios';
-import { globalBtn } from '../../../atoms';
-import { useSetRecoilState } from 'recoil';
+import { globalBtn, modalStatus } from '../../../atoms';
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
+import CustomModal from '../../../shared/CustomModal';
 interface SignUpInput {
   nickName: string;
   email: string;
@@ -30,6 +30,8 @@ interface SignUpInput {
 const SignUp = () => {
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
+  const [isModal, setIsModal] = useRecoilState(modalStatus);
+  const modalStatusReset = useResetRecoilState(modalStatus);
 
   const initSignUpInput = {
     nickName: '',
@@ -52,6 +54,22 @@ const SignUp = () => {
   const [requestedPV, setRequestedPV] = useState(false);
   const [dataId, setDataId] = useState('');
 
+  // 모달
+  const modalStatusChangeHandler = (error: string) => {
+    setIsModal({ ...isModal, [error]: !isModal.error });
+  };
+  const modalReset = () => {
+    modalStatusReset();
+  };
+
+  // 회원가입 완료
+  const signUpCompleteAlert = async () => {
+    await signOut(auth);
+    setGlobalButton(false);
+    modalStatusReset();
+    navigate('/login', { state: signUpInput.email });
+  };
+
   const signUpInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
@@ -71,7 +89,6 @@ const SignUp = () => {
   };
 
   // 전역에 선언되서 phone라는 아이디를 읽기 전에 먼저 렌더링됨
-
   // 인증번호 보내는 이벤트
   const phoneNumberPostHandler = (
     event: React.MouseEvent<HTMLButtonElement>,
@@ -109,7 +126,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         if (error.message.includes('invalid-phone-number'))
-          return alert('알맞은 휴대폰 번호를 입력해 주세요.');
+          return modalStatusChangeHandler('validPhoneNumber');
       });
   };
 
@@ -124,59 +141,20 @@ const SignUp = () => {
         signOut(auth);
         setPhoneVerify(true);
         setRequestedPV(false);
-        alert('인증이 완료되었습니다.');
+        modalStatusChangeHandler('phoneValidComplete');
       })
       .catch((error: any) => {
         if (error.message.includes('invalid-verification-code'))
-          return alert('인증번호를 입력해 주세요.');
+          return modalStatusChangeHandler('invalidVerificationCode');
         if (error.message.includes('code-expired'))
-          return alert('인증번호가 틀립니다. 다시 입력해 주세요.');
+          return modalStatusChangeHandler('codeExpired');
       });
   };
 
   // 회원가입 클릭 이벤트
   const singUpHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('ekfefkwejfwlkefjweklfjwk');
 
-    if (
-      signUpInput.nickName === '' ||
-      signUpInput.email === '' ||
-      signUpInput.password === '' ||
-      signUpInput.passwordCheck === '' ||
-      signUpInput.password === '' ||
-      signUpInput.password === ''
-    )
-      return confirmAlert({
-        title: '오류',
-        message: '빈칸을 입력해 주세요.',
-        buttons: [
-          {
-            label: '확인',
-            onClick: () => {},
-          },
-          {
-            label: '취소',
-            onClick: () => {},
-          },
-        ],
-      });
-    if (signUpInput.gender === '' || signUpInput.age === '')
-      return confirmAlert({
-        title: '오류',
-        message: '카테고리를 선택해 주세요.',
-        buttons: [
-          {
-            label: '확인',
-            onClick: () => {},
-          },
-          {
-            label: '취소',
-            onClick: () => {},
-          },
-        ],
-      });
-    if (!phoneVerify || requestedPV) return alert('휴대폰 인증이 필요합니다.');
     await createUserWithEmailAndPassword(
       auth,
       signUpInput.email,
@@ -198,35 +176,12 @@ const SignUp = () => {
           id: user.uid,
         };
         axios.post('http://localhost:4000/users', userInfo).then(() => {
-          return confirmAlert({
-            title: '가입완료',
-            message: '회원가입이 완료되었습니다.',
-            buttons: [
-              {
-                label: '확인',
-                onClick: async () => {
-                  await signOut(auth);
-                  setGlobalButton(false);
-                  navigate('/login', { state: signUpInput.email });
-                },
-              },
-            ],
-          });
+          return modalStatusChangeHandler('signUpComplete');
         });
       })
       .catch((error) => {
-        console.log(error.message);
         if (error.message.includes('email-already-in-use'))
-          return confirmAlert({
-            title: '오류',
-            message: '이미 등록된 회원입니다. 이메일을 다시 입력해주세요.',
-            buttons: [
-              {
-                label: '확인',
-                onClick: () => {},
-              },
-            ],
-          });
+          return modalStatusChangeHandler('emailAlreadyInUse');
       });
   };
 
@@ -479,6 +434,60 @@ const SignUp = () => {
           </S.SignUpBtn>
         </S.FormBtnWrap>
       </S.FormWrap>
+      {isModal.validPhoneNumber && (
+        <CustomModal
+          title="알림"
+          text="알맞은 휴대폰 번호를 입력해 주세요."
+          cancel="취소"
+          submit="확인"
+          fnc={modalReset}
+        />
+      )}
+      {isModal.phoneValidComplete && (
+        <CustomModal
+          title="알림"
+          text="인증이 완료되었습니다."
+          cancel="취소"
+          submit="확인"
+          fnc={modalReset}
+        />
+      )}
+      {isModal.invalidVerificationCode && (
+        <CustomModal
+          title="알림"
+          text="인증번호를 입력해 주세요."
+          cancel="취소"
+          submit="확인"
+          fnc={modalReset}
+        />
+      )}
+      {isModal.codeExpired && (
+        <CustomModal
+          title="오류"
+          text="인증번호가 틀립니다. 다시 입력해 주세요."
+          cancel="취소"
+          submit="확인"
+          fnc={modalReset}
+        />
+      )}
+      {isModal.signUpComplete && (
+        <CustomModal
+          title="가입완료"
+          text="회원가입이 완료되었습니다."
+          cancel="취소"
+          submit="확인"
+          fnc={signUpCompleteAlert}
+        />
+      )}
+      {isModal.emailAlreadyInUse && (
+        <CustomModal
+          title="오류"
+          text="이미 등록된 회원입니다. 이메일을 다시 입력해주세요."
+          cancel="취소"
+          submit="확인"
+          fnc={modalReset}
+        />
+      )}
     </S.Wrap>
   );
 };
