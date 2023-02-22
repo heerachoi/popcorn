@@ -68,7 +68,7 @@ const DetailPage: any = () => {
   // 연령대가 설정되면 Json 서버 데이터 업데이트 하기
   useEffect(() => {
     if (userAge !== '') {
-      upDateViews();
+      // upDateViews();
     }
   }, [userAge]);
 
