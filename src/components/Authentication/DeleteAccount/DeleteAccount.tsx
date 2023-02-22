@@ -1,15 +1,15 @@
 import { deleteUser } from 'firebase/auth';
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../services/firebase';
 import styled from 'styled-components';
 import { modalStatus } from '../../../atoms';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import CustomModal from '../../../shared/CustomModal';
 import axios from 'axios';
 
 const DeleteAccount = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
+  const modalStatusReset = useResetRecoilState(modalStatus);
   const navigate = useNavigate();
   const user = auth.currentUser;
 
@@ -17,7 +17,7 @@ const DeleteAccount = () => {
   const deleteDBUser = async () => {
     if (user) await axios.delete(`http://localhost:4000/users/${user.uid}`);
     try {
-      console.log('감사합니다.');
+      modalStatusChangeHandler('signoutComplete');
     } catch (error) {
       console.log('알 수 없는 오류 발생');
     }
@@ -26,6 +26,7 @@ const DeleteAccount = () => {
   // 회원탈퇴 이벤트
   const deleteAccountClickHandler = async () => {
     if (user) {
+      modalStatusReset();
       await deleteUser(user);
       try {
         deleteDBUser();
@@ -35,9 +36,8 @@ const DeleteAccount = () => {
       }
     }
   };
-
-  const modalStatusChangeHandler = () => {
-    setIsModal({ ...isModal, signout: !isModal.signout });
+  const modalStatusChangeHandler = (error: string) => {
+    setIsModal({ ...isModal, [error]: !isModal.error });
   };
 
   return (
@@ -51,8 +51,17 @@ const DeleteAccount = () => {
           fnc={deleteAccountClickHandler}
         />
       )}
+      {isModal.signoutComplete && (
+        <CustomModal
+          title="알림"
+          text="지금까지 팝콘을 이용해주셔서 감사합니다."
+          cancel="취소"
+          submit="확인"
+          fnc={modalStatusChangeHandler}
+        />
+      )}
       <div>
-        <DeleteAccountBtn onClick={modalStatusChangeHandler}>
+        <DeleteAccountBtn onClick={() => modalStatusChangeHandler('signout')}>
           회원탈퇴
         </DeleteAccountBtn>
       </div>

@@ -45,7 +45,11 @@ const DetailPage: any = () => {
         },
       },
     );
-    setViewCountData(data);
+    try {
+      setViewCountData(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   // age 값이 변하면 연령대 설정하기
