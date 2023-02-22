@@ -13,9 +13,9 @@ export const MyBookmarkReportContainer = styled.div`
 export const MyBookmarkReportBox = styled.div`
   position: absolute;
   /* width: 60%; */
-  width: 688px;
+  width: 900px;
   height: 1084px;
-  left: 800px;
+  left: 37%;
   top: 150px;
 
   background: #f5f5f5;

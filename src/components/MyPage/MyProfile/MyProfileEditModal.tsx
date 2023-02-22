@@ -9,9 +9,12 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import * as S from './style';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
+import { AnyARecord } from 'dns';
+import { useRecoilState } from 'recoil';
+import { editModal } from '../../../atoms';
 
 const MyProfileEditModal = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useRecoilState(editModal);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -22,12 +25,12 @@ const MyProfileEditModal = () => {
   const [imgUploadUrl, setImgUploadUrl] = useState<any>(
     auth.currentUser?.photoURL,
   );
-
+  console.log('🔥🔥🔥🔥🔥🔥nickname🔥🔥🔥🔥🔥🔥', nickname);
   // 변경할 이미지를 input창에 넣으면 변경됨
-  const newProfileImgOnChangeHandler = (
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
+  const saveNewProfileImg = (event: any) => {
+    console.log('🔥🔥🔥🔥🔥🔥event🔥🔥🔥🔥🔥🔥', event);
     const target = event.currentTarget;
+
     // 이벤트로부터 파일을 얻어와서 첫번째 파일만 받음
     const theFile = (target.files as FileList)[0];
     console.log('theFile', theFile);
@@ -39,6 +42,7 @@ const MyProfileEditModal = () => {
     // 파일 읽기를 끝내면 state로 만들어둔 setImgFile에 값을 넣어줌
     reader.onloadend = (finishedEvent: any) => {
       setImgFile(finishedEvent.currentTarget.result);
+      console.log('❤️❤️❤️❤️❤️❤️finishedEvent', finishedEvent);
       console.log(
         '❤️❤️❤️❤️❤️❤️finishedEvent.currentTarget.result',
         finishedEvent.currentTarget.result,
@@ -97,28 +101,30 @@ const MyProfileEditModal = () => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>회원정보수정</Button>
+      <Button onClick={handleOpen}>
+        <S.EditModalBtnText>회원정보수정</S.EditModalBtnText>
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <S.EditModalAll>
+        <S.EditModalAll>
+          <Box sx={style}>
             <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
               <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
 
               <S.EditModalImgLabelInputWrapper>
-                <S.EditModalProfileImgLabel htmlFor="profileUploadImg">
+                <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
                   {/* // 미리보기를 하면 수정완료를 눌렀을때 사진이 사라짐..... */}
                   {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
                 </S.EditModalProfileImgLabel>
                 <S.EditModalProfileImgInput
                   type="file"
                   accept="image/*"
-                  id="profileUploadImg"
-                  onChange={newProfileImgOnChangeHandler}
+                  id="modalProfileUploadImg"
+                  onChange={saveNewProfileImg}
                   style={{ display: 'none' }}
                 />
               </S.EditModalImgLabelInputWrapper>
@@ -149,10 +155,9 @@ const MyProfileEditModal = () => {
                 </S.EditModalCompleteButton>
               </S.EditModalBtnWrapper>
             </S.NewProfileSubmitForm>
-
-            {/* 북마크/내가 쓴 제보 */}
-          </S.EditModalAll>
-        </Box>
+          </Box>
+          {/* 북마크/내가 쓴 제보 */}
+        </S.EditModalAll>
       </Modal>
     </div>
   );

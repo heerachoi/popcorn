@@ -17,9 +17,9 @@ const Header = () => {
   const globalButton = useRecoilValue(globalBtn);
   const [isModal, setIsModal] = useRecoilState(modalStatus);
 
-  console.log(auth?.currentUser?.email); //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
+  // console.log(auth?.currentUser?.email); //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
   // 해결 : Router에서 auth.onAuthStateChanged 메서드를 사용해서 파이어베이스에서 DB정보를 참조해서 변경 사항 가져옴
-  console.log('isModal', isModal);
+  // console.log('isModal', isModal);
   const { isShowing, toggle } = useModal();
 
   // input 창에 value 가 있으면 alert로 이동을 막아주는 함수

@@ -25,6 +25,7 @@ interface ModalStatus {
 type MapSearchValue = string;
 type MapCategoryValue = string | null;
 
+// userInfo.id uid가 같으면? 현재유저!
 export const userInfo = atom<UserInfoState>({
   key: 'user',
   default: {
@@ -78,6 +79,11 @@ export const modalStatus = atom<ModalStatus>({
     logout: false,
     singout: false,
   },
+});
+
+export const editModal = atom<boolean>({
+  key: 'editModalStatus',
+  default: false,
 });
 
 // export const mapCategorySelector = selector<any>({

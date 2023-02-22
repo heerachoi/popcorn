@@ -7,7 +7,7 @@ background-color: beige; */
 `;
 
 export const MyPageContainer = styled.div`
-  background-color: beige;
+  /* background-color: beige; */
   max-width: 1440px;
   width: 100%;
   height: 1621px;
@@ -19,9 +19,9 @@ export const MyProfileBox = styled.div`
   box-sizing: border-box;
 
   position: relative;
-  width: 336px;
+  width: 400px;
   height: 1084px;
-  left: 130px;
+  left: 3%;
   top: 80px;
 
   /* txt2 */
@@ -271,7 +271,32 @@ export const AgeInput = styled.input`
 export const MyBookmarkReportWrap = styled.div``;
 
 // =================================여기서부터 프로필 모달창
+
 export const EditModalAll = styled.div``;
+
+export const EditModalBtnText = styled.p`
+  /* 버튼 */
+
+  width: 88px;
+  height: 24px;
+
+  /* Title4 */
+
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  text-align: center;
+
+  /* Grayscale/Gray3 */
+
+  color: #9b9b9b;
+`;
+
+// export const EditModalButton = styled.button``;
 
 export const EditModalTitleText = styled.p`
   /* 타이틀 */

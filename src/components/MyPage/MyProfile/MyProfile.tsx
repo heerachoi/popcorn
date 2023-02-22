@@ -10,8 +10,18 @@ import MyPageTab from '../MyPageTab/MyPageTab';
 import DeleteAccount from '../../Authentication/DeleteAccount/DeleteAccount';
 import React from 'react';
 import MyProfileEditModal from './MyProfileEditModal';
+import { useRecoilState } from 'recoil';
+import { editModal } from '../../../atoms';
+import { useQuery } from 'react-query';
+import { getUser } from '../../../services/api';
 
 const MyProfile = () => {
+  const { data } = useQuery('users', getUser);
+
+  const [open, setOpen] = useRecoilState(editModal);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const [nickname, setNickname] = useState<any>(''); // 닉네임
   // 현재 유저를 나타내며, 수정 완료 버튼을 누르기 전까지 currentUser의 displayName은 이전에 설정해두었던 닉네임을 가리킨다.
   // 쉽게 이야기하자면 Jane을 가리킴
@@ -22,9 +32,6 @@ const MyProfile = () => {
   const [imgUploadUrl, setImgUploadUrl] = useState<any>(
     auth.currentUser?.photoURL,
   ); // 업로드한 이미지 url
-  console.log('=================================시작');
-  console.log('currentUser', currentUser);
-  console.log('imgUploadUrl ', imgUploadUrl);
 
   // 변경할 이미지를 input창에 넣으면 변경됨
   const newProfileImgOnChangeHandler = (
@@ -33,11 +40,14 @@ const MyProfile = () => {
     // onChange 이벤트를 활용하려하기 때문에 이벤트 타입 목록 중에서 changeEvent를 씀
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    console.log('🔥🔥🔥🔥🔥🔥event🔥🔥🔥🔥🔥🔥', event);
+    // console.log(
+    //   '🔥🔥🔥🔥🔥🔥event.currentTarget🔥🔥🔥🔥🔥🔥',
+    //   event.currentTarget,
+    // );
     const target = event.currentTarget;
     // 이벤트로부터 파일을 얻어와서 첫번째 파일만 받음
     const theFile = (target.files as FileList)[0];
-    console.log('target', target);
-    console.log('theFile', theFile);
     setImgFileName(theFile.name);
 
     const reader = new FileReader();
@@ -95,8 +105,6 @@ const MyProfile = () => {
     }
   };
 
-  console.log('currentUser', currentUser);
-  console.log('===================================');
   // 변경할 닉네임을 입력하면 실시간으로 받아오는 함수
   const ToChangeNicknameInput = (event: any) => {
     setNickname(event.target.value);
@@ -109,10 +117,9 @@ const MyProfile = () => {
           <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
             <S.ProfileImgLabelInputWrapper>
               <S.ProfileImgLabel htmlFor="profileUploadImg">
-                <S.ProfileImgShow src={imgUploadUrl} />
+                <S.ProfileImgShow src={imgUploadUrl} onClick={handleOpen} />
               </S.ProfileImgLabel>
               <S.ProfileImgInput
-                type="file"
                 accept="image/*"
                 id="profileUploadImg"
                 onChange={newProfileImgOnChangeHandler}
@@ -136,15 +143,15 @@ const MyProfile = () => {
             </S.EmailInputWrpper>
             <S.PhoneNumInputWrpper>
               <S.PhoneNumText>휴대전화</S.PhoneNumText>
-              <S.PhoneNumInput placeholder={currentUser.phoneNumber} readOnly />
+              <S.PhoneNumInput placeholder={data[0].phoneNumber} readOnly />
             </S.PhoneNumInputWrpper>
             <S.GenderInputWrpper>
               <S.GenderText>성별</S.GenderText>
-              <S.GenderInput placeholder={currentUser.phoneNumber} readOnly />
+              <S.GenderInput placeholder={data[0].gender} readOnly />
             </S.GenderInputWrpper>
             <S.AgeInputWrpper>
-              <S.AgeText>연령</S.AgeText>
-              <S.AgeInput placeholder={currentUser.phoneNumber} readOnly />
+              <S.AgeText>생일</S.AgeText>
+              <S.AgeInput placeholder={data[0].age} readOnly />
             </S.AgeInputWrpper>
 
             {/* <S.ModifyCompleteButton type="submit">
