@@ -62,47 +62,47 @@ const Modal = ({ isShowing, hide, value }: { isShowing: boolean, hide: () => voi
   ];
 } 
 
-  // 모달창 내부 값 설정
-  const [buttons, setButtons] = useState<ButtonValue[]>(buttonValues);
+// 모달창 내부 값 설정
+const [buttons, setButtons] = useState<ButtonValue[]>(buttonValues);
 
-  // 만약 전체가 true 일 경우 모두 true로 set
-  // 전체 버튼이 아닌 다른 버튼이 click 될때 false로 되면 전체도 false
+// 만약 전체가 true 일 경우 모두 true로 set
+// 전체 버튼이 아닌 다른 버튼이 click 될때 false로 되면 전체도 false
 const buttonClickHandler = (id:number) => {
-    if (id === 1 && buttons[0].active === false) {
-       const updateFilter = buttons.map(button => {
-        return {
-          ...button,
-          active: true
-        };
-    })
-    setButtons(updateFilter);
-    } else if (id === 1 && buttons[0].active === true) {
-       const updateFilter = buttons.map(button => {
+  if (id === 1 && buttons[0].active === false) {
+    const updateFilter = buttons.map(button => {
+    return {
+      ...button,
+      active: true
+    };
+  })
+  setButtons(updateFilter);
+  } else if (id === 1 && buttons[0].active === true) {
+    const updateFilter = buttons.map(button => {
+    return {
+      ...button,
+      active: false
+    };
+  })
+  setButtons(updateFilter);
+  }
+  else {
+    const updateFilter = buttons.map(button => {
+      if (button.id === 1) {
         return {
           ...button,
           active: false
-        };
-    })
-    setButtons(updateFilter);
-    }
-    else {
-      const updateFilter = buttons.map(button => {
-        if (button.id === 1) {
-          return {
-            ...button,
-            active: false
-          }
         }
-        else if (button.id === id) {
-          return {
-            ...button,
-            active: !button.active
-          };
-        } 
-        checkForAllButton(buttonValues);
-        return button;
-      })
-      setButtons(updateFilter)
+      }
+      else if (button.id === id) {
+        return {
+          ...button,
+          active: !button.active
+        };
+      } 
+      checkForAllButton(buttonValues);
+      return button;
+    })
+    setButtons(updateFilter)
   }
 }
 
