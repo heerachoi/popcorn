@@ -8,8 +8,8 @@ import axios from 'axios';
 import { Store } from '../../types/data/storeInterface';
 import datas from '../../data/popupStore.json';
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState, useRecoilState, useResetRecoilState } from 'recoil';
-import { globalBtn, modalStatus } from '../../atoms';
+import { useSetRecoilState } from 'recoil';
+import { globalBtn } from '../../atoms';
 
 const MasterNewPost = () => {
   const navigate = useNavigate();

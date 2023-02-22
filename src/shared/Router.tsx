@@ -1,4 +1,4 @@
-import SignupPage from '../pages/SignupPage/SignupPage';
+import SignupPage from '../pages/SignUpPage/SignupPage';
 import MyPage from '../pages/MyPage/MyPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import HomePage from '../pages/HomePage/HomePage';
@@ -8,7 +8,7 @@ import LogInPage from '../pages/LogInPage/LogInPage';
 import MapPage from '../pages/MapPage/MapPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { auth } from '../services/firebase';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { userInfo } from '../atoms';
 import NewStoreReportDetailPage from '../pages/MasterDetailPage/NewStoreReportDetailPage';
@@ -40,6 +40,7 @@ const Router = () => {
             age: '',
             gender: '',
             phoneNumber: '',
+            id: '',
           },
         });
       } else {
@@ -50,7 +51,7 @@ const Router = () => {
 
   useEffect(() => {
     const myUser = userDataFromJson?.filter(
-      (user: any) => users.userInfomation.uid === user.id,
+      (user: any) => users.userInfomation.uid === user.uid,
     )[0];
 
     // myUser가 빈 값이 아닐 때
@@ -62,7 +63,8 @@ const Router = () => {
         },
       });
     }
-  }, [users]);
+    // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
+  }, [users.isLogin]);
 
   return (
     <BrowserRouter>
