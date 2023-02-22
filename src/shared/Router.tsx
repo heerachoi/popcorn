@@ -1,11 +1,10 @@
-import SignupPage from '../pages/SignupPage/SignupPage';
+import SignupPage from '../pages/SignUpPage/SignupPage';
 import MyPage from '../pages/MyPage/MyPage';
 import DetailPage from '../pages/DetailPage/DetailPage';
 import HomePage from '../pages/HomePage/HomePage';
 import CustomerCenterPage from '../pages/CustomerCenterPage/CustomerCenterPage';
 import SearchPage from '../pages/SearchPage/SearchPage';
 import LogInPage from '../pages/LogInPage/LogInPage';
-import Header from '../components/Layout/Header/Header';
 import MapPage from '../pages/MapPage/MapPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { auth } from '../services/firebase';
