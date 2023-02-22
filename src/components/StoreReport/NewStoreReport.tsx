@@ -72,6 +72,8 @@ const NewStoreReport: any = () => {
       );
     };
   };
+  console.log('imgFile',imgFile);
+  
 
   const cancleHandler = () => {
     if (window.confirm('작성을 취소하시겠습니까?')) {

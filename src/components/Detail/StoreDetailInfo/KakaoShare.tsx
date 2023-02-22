@@ -45,7 +45,7 @@ const KakaoShare = ({ detailData }: Props) => {
 
   return (
     <div id="KakaoShareBtn">
-      <KakaoImgBtn onClick={shareKakao}>공유</KakaoImgBtn>
+      <KakaoImgBtn onClick={shareKakao}></KakaoImgBtn>
     </div>
   );
 };
