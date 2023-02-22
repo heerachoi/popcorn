@@ -38,6 +38,7 @@ export const getDetailAirPollutionData = async ({
 
 export const getNewStoreReport = async () => {
   const { data } = await axios.get('http://localhost:3002/newStores');
+  console.log(data);
   return data;
 };
 

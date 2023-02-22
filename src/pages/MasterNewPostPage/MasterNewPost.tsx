@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './style';
 import { BiImageAdd } from 'react-icons/bi';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
@@ -8,6 +8,8 @@ import axios from 'axios';
 import { Store } from '../../types/data/storeInterface';
 import datas from '../../data/popupStore.json';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState, useRecoilState, useResetRecoilState } from 'recoil';
+import { globalBtn, modalStatus } from '../../atoms';
 
 const MasterNewPost = () => {
   const navigate = useNavigate();
@@ -35,10 +37,12 @@ const MasterNewPost = () => {
   const [newPostInput, setNewPostInput] = useState<Store>(initialState);
   const [imgFile, setImgFile] = useState(''); // 이미지 파일
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
+  const setGlobalButton = useSetRecoilState(globalBtn);
 
   const newPostInputChangeHandler: any = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    setGlobalButton(true);
     setNewPostInput({
       ...newPostInput,
       [event.target.name]: event.target.value,
@@ -49,6 +53,7 @@ const MasterNewPost = () => {
   const newPostImgOnChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    setGlobalButton(true);
     const target = event.currentTarget;
 
     const theFile = (target.files as FileList)[0]; // 이벤트로부터 파일을 얻어와서 첫 번째 파일만 받음
@@ -65,7 +70,7 @@ const MasterNewPost = () => {
   // 작성하기 버튼 클릭 시 새 게시물 db에 추가
   const newPostAddHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    setGlobalButton(false);
     // firebase storage에 이미지 업로드
     const imgRef = ref(storage, `masterNewPostImg/${fileName}`);
 
@@ -134,6 +139,45 @@ const MasterNewPost = () => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    if (
+      newPostInput.title === '' &&
+      newPostInput.address === '' &&
+      newPostInput.open === '' &&
+      newPostInput.close === '' &&
+      newPostInput.location === '' &&
+      newPostInput.item === '' &&
+      // newPostInput.openingTime === [] &&
+      // newPostInput.closeTime === [] &&
+      newPostInput.significantContent === '' &&
+      newPostInput.explain === '' &&
+      newPostInput.sns === '' &&
+      newPostInput.web === '' &&
+      newPostInput.lat === '' &&
+      newPostInput.lon === '' &&
+      newPostInput.category === '' &&
+      newPostInput.reserveURL === ''
+    )
+      setGlobalButton(false);
+  }, [
+    newPostInput.title,
+    newPostInput.address,
+    newPostInput.open,
+    newPostInput.close,
+    newPostInput.location,
+    newPostInput.item,
+    newPostInput.openingTime,
+    newPostInput.closeTime,
+    newPostInput.significantContent,
+    newPostInput.explain,
+    newPostInput.sns,
+    newPostInput.web,
+    newPostInput.lat,
+    newPostInput.lon,
+    newPostInput.category,
+    newPostInput.reserveURL,
+  ]);
 
   return (
     <S.NewPostWrap>

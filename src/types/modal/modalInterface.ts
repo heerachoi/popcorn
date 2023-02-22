@@ -6,4 +6,4 @@ export interface ButtonValue {
     id: number;
     label: string;
     active: boolean;
-  }
+ }
