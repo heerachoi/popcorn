@@ -1,39 +1,63 @@
 {
   "likeHate": [
     {
-      "id": "uuid",
-      "storeId": "",
-      "userId": "",
-      "vote": "like"
-    },
-    {
       "id": "8fbef966-2cdc-4e11-9312-a4b67ca67815",
       "storeId": "2",
       "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
       "vote": "like"
     },
     {
-      "id": "33ebc001-f7e1-4126-b568-7237546cee96",
-      "storeId": "2",
+      "id": "07d58c54-e67c-4dfa-a87e-4b56d8529552",
+      "storeId": "6",
       "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
       "vote": "like"
     },
     {
-      "id": "47e903af-e680-4a3d-b121-5f5a5f62adf1",
-      "storeId": "2",
+      "id": "ee7e0d37-4348-4bf1-8b98-23f659f7796a",
+      "storeId": "6",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "hate"
+    },
+    {
+      "id": "0e8e5c56-a049-43e7-b145-97f98ffe9005",
+      "storeId": "6",
       "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
       "vote": "like"
     },
     {
-      "id": "f7d9922c-f217-45c0-88e5-d191b632f6aa",
-      "storeId": "2",
+      "id": "8589b455-2c4e-47d0-803e-f547a8663a0e",
+      "storeId": "6",
       "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
       "vote": "like"
     },
     {
-      "id": "c42f81d1-fa4b-485b-94c0-8cbb544afead",
-      "storeId": "2",
-      "userId": "",
+      "id": "36115044-5b4c-47e4-bd27-582d91f751ad",
+      "storeId": "6",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "like"
+    },
+    {
+      "id": "e74bc43a-c404-4e5a-93e1-755a3c363ad3",
+      "storeId": "4",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "like"
+    },
+    {
+      "id": "0b8aed1a-a149-44a1-af74-fde4603f1ae9",
+      "storeId": "4",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "like"
+    },
+    {
+      "id": "dcc0cdf8-9d51-443f-92e6-40c61dd30379",
+      "storeId": "4",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "vote": "like"
+    },
+    {
+      "id": "4da6b988-5efb-4ce3-9cb7-caf721658658",
+      "storeId": "4",
+      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
       "vote": "like"
     }
   ]

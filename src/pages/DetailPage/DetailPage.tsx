@@ -34,7 +34,7 @@ const DetailPage: any = () => {
   // 연령대 + 1, 성별 + 1 전체 수 + 1,
   const upDateViews = async () => {
     const { data } = await axios.patch(
-      `http://localhost:3002/Store/${viewCountData.id}`,
+      `http://localhost:3010/Store/${viewCountData.id}`,
       {
         view: {
           ...viewCountData.view,
