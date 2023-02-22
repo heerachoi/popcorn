@@ -14,6 +14,19 @@ const CustomModal = ({ title, text, cancel, submit, fnc }: Props) => {
   const modalStatusReset = useResetRecoilState(modalStatus);
   const isModal = useRecoilValue(modalStatus);
 
+  const condition =
+    isModal.validPhoneNumber ||
+    isModal.phoneValidComplete ||
+    isModal.invalidVerificationCode ||
+    isModal.codeExpired ||
+    isModal.signUpComplete ||
+    isModal.emailAlreadyInUse ||
+    isModal.signoutComplete ||
+    isModal.login ||
+    isModal.loginError ||
+    isModal.userNotFound ||
+    isModal.wrongPassword;
+
   const modalStatusChangeHandler = () => {
     modalStatusReset();
   };
@@ -31,7 +44,7 @@ const CustomModal = ({ title, text, cancel, submit, fnc }: Props) => {
           <TextWrap>
             <Text>{text}</Text>
           </TextWrap>
-          {!isModal.login ? (
+          {!condition ? (
             <ButtonWrap>
               <CancelButton onClick={modalStatusChangeHandler}>
                 {cancel}
