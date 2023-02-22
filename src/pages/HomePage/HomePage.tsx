@@ -15,7 +15,7 @@ const HomePage: any = () => {
   const [storeData, setStoreData] = useState<any>('');
   const fetchTodos = async () => {
     const { data } = await axios.get("http://localhost:3010/Store");
-    console.log(data);
+    // console.log(data);
   };
 
   useEffect(() => {
