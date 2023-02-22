@@ -10,94 +10,99 @@ import { v4 as uuidv4 } from 'uuid';
 import * as S from './style';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
 import { AnyARecord } from 'dns';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { editModal } from '../../../atoms';
+import { userInfo } from '../../../atoms';
 
 const MyProfileEditModal = () => {
   const [open, setOpen] = useRecoilState(editModal);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [nickname, setNickname] = useState<any>(''); // 닉네임
-  const [currentUser, setCurrentUser] = useState<any>('');
-  const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름
-  const [imgFileName, setImgFileName] = useState(''); // 이미지 파일 이름.jpg
-  const [imgUploadUrl, setImgUploadUrl] = useState<any>(
-    auth.currentUser?.photoURL,
-  );
-  console.log('🔥🔥🔥🔥🔥🔥nickname🔥🔥🔥🔥🔥🔥', nickname);
-  // 변경할 이미지를 input창에 넣으면 변경됨
-  const saveNewProfileImg = (event: any) => {
-    console.log('🔥🔥🔥🔥🔥🔥event🔥🔥🔥🔥🔥🔥', event);
-    const target = event.currentTarget;
+  const user = useRecoilValue(userInfo);
 
-    // 이벤트로부터 파일을 얻어와서 첫번째 파일만 받음
-    const theFile = (target.files as FileList)[0];
-    console.log('theFile', theFile);
-    setImgFileName(theFile.name);
+  console.log('user', user);
 
-    const reader = new FileReader();
-    reader.readAsDataURL(theFile); // file객체를 data url로 바꿔줌
+  // const [nickname, setNickname] = useState<any>(''); // 닉네임
+  // const [currentUser, setCurrentUser] = useState<any>('');
+  // const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름
+  // const [imgFileName, setImgFileName] = useState(''); // 이미지 파일 이름.jpg
+  // const [imgUploadUrl, setImgUploadUrl] = useState<any>(
+  //   auth.currentUser?.photoURL,
+  // );
+  // console.log('🔥🔥🔥🔥🔥🔥nickname🔥🔥🔥🔥🔥🔥', nickname);
+  // // 변경할 이미지를 input창에 넣으면 변경됨
+  // const saveNewProfileImg = (event: any) => {
+  //   console.log('🔥🔥🔥🔥🔥🔥event🔥🔥🔥🔥🔥🔥', event);
+  //   const target = event.currentTarget;
 
-    // 파일 읽기를 끝내면 state로 만들어둔 setImgFile에 값을 넣어줌
-    reader.onloadend = (finishedEvent: any) => {
-      setImgFile(finishedEvent.currentTarget.result);
-      console.log('❤️❤️❤️❤️❤️❤️finishedEvent', finishedEvent);
-      console.log(
-        '❤️❤️❤️❤️❤️❤️finishedEvent.currentTarget.result',
-        finishedEvent.currentTarget.result,
-      );
-    };
-  };
+  //   // 이벤트로부터 파일을 얻어와서 첫번째 파일만 받음
+  //   const theFile = (target.files as FileList)[0];
+  //   console.log('theFile', theFile);
+  //   setImgFileName(theFile.name);
 
-  console.log('❤️❤️❤️❤️❤️❤️imgFile', imgFile);
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(theFile); // file객체를 data url로 바꿔줌
 
-  // 현재 로그인한 사용자 가져오기
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setCurrentUser(auth.currentUser);
-        setImgUploadUrl(user.photoURL);
-      } else {
-        return console.log('로그인 안됨');
-      }
-    });
-  }, [currentUser]);
+  //   // 파일 읽기를 끝내면 state로 만들어둔 setImgFile에 값을 넣어줌
+  //   reader.onloadend = (finishedEvent: any) => {
+  //     setImgFile(finishedEvent.currentTarget.result);
+  //     console.log('❤️❤️❤️❤️❤️❤️finishedEvent', finishedEvent);
+  //     console.log(
+  //       '❤️❤️❤️❤️❤️❤️finishedEvent.currentTarget.result',
+  //       finishedEvent.currentTarget.result,
+  //     );
+  //   };
+  // };
 
-  const submitNicknameImgChange = async (e: any) => {
-    e.preventDefault();
-    if (imgFile.length !== 0) {
-      const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
+  // console.log('❤️❤️❤️❤️❤️❤️imgFile', imgFile);
 
-      const response = await uploadString(imgRef, imgFile, 'data_url');
-      const downloadImageUrl = await getDownloadURL(response.ref);
-      setImgUploadUrl(downloadImageUrl);
+  // // 현재 로그인한 사용자 가져오기
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setCurrentUser(auth.currentUser);
+  //       setImgUploadUrl(user.photoURL);
+  //     } else {
+  //       return console.log('로그인 안됨');
+  //     }
+  //   });
+  // }, [currentUser]);
 
-      await updateProfile(currentUser, {
-        displayName: nickname,
-        photoURL: downloadImageUrl,
-      })
-        .then(() => {
-          alert('Profile updated!');
-          setNickname('');
-        })
-        .catch((error: any) => {});
-    } else {
-      await updateProfile(currentUser, {
-        displayName: nickname,
-      })
-        .then(() => {
-          alert('Profile updated!');
-          setNickname('');
-        })
-        .catch((error: any) => {});
-    }
-  };
+  // const submitNicknameImgChange = async (e: any) => {
+  //   e.preventDefault();
+  //   if (imgFile.length !== 0) {
+  //     const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
 
-  // 변경할 닉네임을 입력하면 실시간으로 받아오는 함수
-  const ToChangeNicknameInput = (event: any) => {
-    setNickname(event.target.value);
-  };
+  //     const response = await uploadString(imgRef, imgFile, 'data_url');
+  //     const downloadImageUrl = await getDownloadURL(response.ref);
+  //     setImgUploadUrl(downloadImageUrl);
+
+  //     await updateProfile(currentUser, {
+  //       displayName: nickname,
+  //       photoURL: downloadImageUrl,
+  //     })
+  //       .then(() => {
+  //         alert('Profile updated!');
+  //         setNickname('');
+  //       })
+  //       .catch((error: any) => {});
+  //   } else {
+  //     await updateProfile(currentUser, {
+  //       displayName: nickname,
+  //     })
+  //       .then(() => {
+  //         alert('Profile updated!');
+  //         setNickname('');
+  //       })
+  //       .catch((error: any) => {});
+  //   }
+  // };
+
+  // // 변경할 닉네임을 입력하면 실시간으로 받아오는 함수
+  // const ToChangeNicknameInput = (event: any) => {
+  //   setNickname(event.target.value);
+  // };
 
   return (
     <div>
@@ -112,12 +117,10 @@ const MyProfileEditModal = () => {
       >
         <S.EditModalAll>
           <Box sx={style}>
-            <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
+            {/* <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
               <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
-
               <S.EditModalImgLabelInputWrapper>
                 <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
-                  {/* // 미리보기를 하면 수정완료를 눌렀을때 사진이 사라짐..... */}
                   {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
                 </S.EditModalProfileImgLabel>
                 <S.EditModalProfileImgInput
@@ -128,9 +131,6 @@ const MyProfileEditModal = () => {
                   style={{ display: 'none' }}
                 />
               </S.EditModalImgLabelInputWrapper>
-              {/* <S.EditModalMyProfileNickname>
-                {currentUser.displayName}
-              </S.EditModalMyProfileNickname> */}
 
               <S.EditModalNicknameInputWrapper>
                 <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
@@ -154,7 +154,7 @@ const MyProfileEditModal = () => {
                   수정완료
                 </S.EditModalCompleteButton>
               </S.EditModalBtnWrapper>
-            </S.NewProfileSubmitForm>
+            </S.NewProfileSubmitForm> */}
           </Box>
           {/* 북마크/내가 쓴 제보 */}
         </S.EditModalAll>

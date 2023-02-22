@@ -1,4 +1,4 @@
- import axios from 'axios';
+import axios from 'axios';
 
 interface getDetailWeatherData {
   lat: string;
@@ -49,6 +49,6 @@ export const getInfoErrReport = async () => {
 };
 
 export const getUser = async () => {
-  const { data } = await axios.get('http://localhost:4000/users');
-  return data;
+  const { data: userInfos } = await axios.get('http://localhost:4000/users');
+  return userInfos;
 };
