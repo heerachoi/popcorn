@@ -25,7 +25,7 @@ const DetailPage: any = () => {
   console.log(age);
   // 나이에 따른 연령대를 셋팅해주는 함수
   const generation = () => {
-    if (age > 0 && age < 10) setUserAge('연령모름');
+    if (age < 0 && age >= 0 && age < 10) setUserAge('연령모름');
     if (age >= 10 && age < 20) setUserAge('10');
     if (age >= 20 && age < 30) setUserAge('20');
     if (age >= 30 && age < 40) setUserAge('40');

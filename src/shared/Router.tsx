@@ -7,65 +7,14 @@ import SearchPage from '../pages/SearchPage/SearchPage';
 import LogInPage from '../pages/LogInPage/LogInPage';
 import MapPage from '../pages/MapPage/MapPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { auth } from '../services/firebase';
-import { useEffect, useState } from 'react';
-import { useRecoilState, useResetRecoilState } from 'recoil';
-import { userInfo } from '../atoms';
 import NewStoreReportDetailPage from '../pages/MasterDetailPage/NewStoreReportDetailPage';
 import MasterPage from '../pages/MasterPage/MasterPage';
 import ReportPage from '../pages/ReportPage/ReportPage';
-import { useQuery } from 'react-query';
-import { getUser } from '../services/api';
 import ErrReportDetailPage from '../pages/MasterDetailPage/ErrReportDetailPage';
 import MasterNewPost from '../pages/MasterNewPostPage/MasterNewPost';
 import Layout from '../components/Layout/Layout';
 
 const Router = () => {
-  const [users, setUsers] = useRecoilState(userInfo);
-  const reset = useResetRecoilState(userInfo);
-  const { data: userDataFromJson } = useQuery('user', getUser);
-
-  // 로그인 상태를 전역적으로 관리해주는 함수
-  // 로그아웃이 된 상태에서만 Header가 바뀐다.
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUsers({
-          isLogin: true,
-          userInfomation: {
-            displayName: user.displayName,
-            email: user.email,
-            photoURL: user.photoURL,
-            uid: user.uid,
-            age: '',
-            gender: '',
-            phoneNumber: '',
-            id: '',
-          },
-        });
-      } else {
-        reset();
-      }
-    });
-  }, [auth]);
-
-  useEffect(() => {
-    const myUser = userDataFromJson?.filter(
-      (user: any) => users.userInfomation.uid === user.uid,
-    )[0];
-
-    // myUser가 빈 값이 아닐 때
-    if (!!myUser) {
-      setUsers({
-        isLogin: true,
-        userInfomation: {
-          ...myUser,
-        },
-      });
-    }
-    // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
-  }, [users.isLogin]);
-
   return (
     <BrowserRouter>
       <Layout>
