@@ -38,8 +38,6 @@ const MasterNewPost = () => {
   const [imgFile, setImgFile] = useState(''); // 이미지 파일
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
   const setGlobalButton = useSetRecoilState(globalBtn);
-  const [isModal, setIsModal] = useRecoilState(modalStatus);
-  const modalStatusReset = useResetRecoilState(modalStatus);
 
   const newPostInputChangeHandler: any = (
     event: React.ChangeEvent<HTMLInputElement>,

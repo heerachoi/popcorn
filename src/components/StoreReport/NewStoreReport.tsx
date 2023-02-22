@@ -7,8 +7,8 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { auth } from '../../services/firebase';
 import * as S from './style';
-import { globalBtn, modalStatus } from '../../atoms';
-import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
+import { globalBtn } from '../../atoms';
+import { useSetRecoilState } from 'recoil';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 interface NewStoreInput {
@@ -22,8 +22,6 @@ interface NewStoreInput {
 const NewStoreReport: any = () => {
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
-  const [isModal, setIsModal] = useRecoilState(modalStatus);
-  const modalStatusReset = useResetRecoilState(modalStatus);
 
   const initNewStoreInput = {
     title: '',
@@ -39,14 +37,6 @@ const NewStoreReport: any = () => {
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
   const [etcContent, setEtcContent] = useState('');
   const userId = auth?.currentUser;
-
-  // 모달
-  const modalStatusChangeHandler = (error: string) => {
-    setIsModal({ ...isModal, [error]: !isModal.error });
-  };
-  const modalReset = () => {
-    modalStatusReset();
-  };
 
   // input onChange 함수
   const newStoreInputonChangeHandler = (

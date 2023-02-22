@@ -22,7 +22,7 @@ interface Props {
 
 const StoreEmoji: any = ({ detailData }: Props) => {
   const navigate = useNavigate();
-  const [like, setLike] = useRecoilState(likeCount)
+  const [like, setLike] = useRecoilState(likeCount);
   // const setLike = useSetRecoilState(likeCount);
   const setHate = useSetRecoilState(hateCount);
   const user = useRecoilValue(userInfo);
@@ -51,7 +51,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   }, []);
 
   console.log('user.userInfomation.uid', user.userInfomation.uid);
- 
+
   const likeHandler = async () => {
     if (user.isLogin && clicked === false) {
       const newLike = {
@@ -68,8 +68,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       } catch (err) {
         console.log(err);
       }
-    } else if (clicked === true){
-      alert('이미 클릭함')
+    } else if (clicked === true) {
+      alert('이미 클릭함');
     } else {
       alert('로그인 후 이용 가능합니다.');
       navigate('/login');

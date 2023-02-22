@@ -89,6 +89,7 @@ export const modalStatus = atom<ModalStatus>({
     userNotFound: false,
     wrongPassword: false,
     globalBtn: false,
+    newStoreReport: false,
   },
 });
 
