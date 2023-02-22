@@ -16,6 +16,7 @@ interface UserInfomation {
   age: string;
   gender: string;
   phoneNumber: string | null;
+  id: string | null;
 }
 
 interface ModalStatus {
@@ -37,6 +38,7 @@ export const userInfo = atom<UserInfoState>({
       age: '',
       gender: '',
       phoneNumber: '',
+      id: '',
     },
   },
 });

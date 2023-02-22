@@ -11,7 +11,7 @@ export interface Store {
   item: string;
   openingTime: string[];
   closeTime: string[];
-  significantContent:string;
+  significantContent: string;
   explain: string;
   sns: string;
   web: string;
@@ -23,13 +23,13 @@ export interface Store {
 }
 
 export interface BookMark {
-  id: string,
-  storeId: string,
-  userId: string,
-  notification: boolean,
-  title: string,
-  open: string,
-  close: string,
-  imgURL: string,
-  status: boolean,
+  id: string;
+  storeId: string;
+  userId: string;
+  notification: boolean;
+  title: string;
+  open: string;
+  close: string;
+  imgURL: string;
+  status: boolean;
 }
