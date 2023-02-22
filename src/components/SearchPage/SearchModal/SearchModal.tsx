@@ -7,7 +7,9 @@ import { ButtonValue } from '../../../types/modal/modalInterface';
 //Recoil
 import { atom, useSetRecoilState } from 'recoil';
 // Component
-import { ModalButtonData } from '../../../data/ModalButtonData/ModalButtonData';
+import { ModalButtonData } from '../../../utils/ModalButtonData/ModalButtonData';
+import { ItemModalButtonData } from '../../../utils/ModalButtonData/ItemModalButtonData';
+import { OtherModalButtonData } from '../../../utils/ModalButtonData/OtherModalButtonData';
 // React Icons
 import {CgClose} from 'react-icons/cg';
 // util
@@ -19,7 +21,7 @@ const Modal = ({ isShowing, hide, value }: { isShowing: boolean, hide: () => voi
   if (value === '위치') {
     buttonValues = [
     { id: 1, label: '전체', active: false },
-    { id: 2, label: '서울특별시', active: false },
+    { id: 2, label: '서울', active: false },
     { id: 3, label: '인천광역시', active: false },
     { id: 4, label: '울산광역시', active: false },
     { id: 5, label: '대전광역시', active: false },
@@ -49,14 +51,17 @@ const Modal = ({ isShowing, hide, value }: { isShowing: boolean, hide: () => voi
     { id: 3, label: '20', active: false },
     { id: 4, label: '30', active: false },
     { id: 5, label: '40+', active: false },
-    { id: 6, label: '여성', active: false },
-    { id: 7, label: '남성', active: false }
+    { id: 6, label: 'women', active: false },
+    { id: 7, label: 'men', active: false },
+    { id: 8, label: '연령모름', active: false },
+    { id: 9, label: '성별모름', active: false },
   ],[
     { id: 1, label: '전체', active: false },
     { id: 2, label: '백화점', active: false },
     { id: 3, label: '상권', active: false },
   ];
 } 
+
   // 모달창 내부 값 설정
   const [buttons, setButtons] = useState<ButtonValue[]>(buttonValues);
 
@@ -81,9 +86,14 @@ const buttonClickHandler = (id:number) => {
     setButtons(updateFilter);
     }
     else {
-      
       const updateFilter = buttons.map(button => {
-        if (button.id === id) {
+        if (button.id === 1) {
+          return {
+            ...button,
+            active: false
+          }
+        }
+        else if (button.id === id) {
           return {
             ...button,
             active: !button.active
@@ -97,10 +107,18 @@ const buttonClickHandler = (id:number) => {
 }
 
 const setLocationButtonData = useSetRecoilState(ModalButtonData);
+const setItemButtonData = useSetRecoilState(ItemModalButtonData);
+const setOtherButtonData = useSetRecoilState(OtherModalButtonData);
 
 const closeModal = () => {
   const selectedButtons = buttons.filter((button) => button.active);
-  setLocationButtonData(selectedButtons);
+  if (value === '위치') {
+    setLocationButtonData(selectedButtons);
+  } else if(value === '제품') {
+    setItemButtonData(selectedButtons);
+  } else if (value === '기타') {
+    setOtherButtonData(selectedButtons);
+  }
   hide();
 };
 
@@ -115,7 +133,7 @@ const closeModal = () => {
           </S.CloseButton>
         </S.ModalHeader>
         <S.FilterTitle>
-          {value} 선택
+          {value} 카테고리
         </S.FilterTitle>
         <S.FilterContainer>        
           <S.CategoryItemContainer>
