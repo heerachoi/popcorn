@@ -5,7 +5,7 @@ import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o',
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: 'popcorn1-4b47e.firebaseapp.com',
   projectId: 'popcorn1-4b47e',
   storageBucket: 'popcorn1-4b47e.appspot.com',
