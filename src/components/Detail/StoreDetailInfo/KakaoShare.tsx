@@ -7,17 +7,20 @@ interface Props {
 
 const KakaoShare = ({ detailData }: Props) => {
   useEffect(() => {
+    // 공유하기 위해서 Kakao.init()을 해줘야 함
     if (!window.Kakao.isInitialized()) {
       window.Kakao.init('89784cc6b64373d03c202e76af427626');
       window.Kakao.isInitialized(); // init되면 true, 아니면 false를 반환한다
     }
   }, []);
 
+  // 공유하는 함수
   const shareKakao = () => {
     window.Kakao.Share.createDefaultButton({
-      container: '#KakaoShareBtn',
-      objectType: 'feed',
+      container: '#KakaoShareBtn', // 공유하려고 누르는 태그의 id
+      objectType: 'feed', // 공유 타입
       content: {
+        // 필수로 보낼 값
         title: detailData.title,
         description: '#' + detailData.item,
         imageUrl: detailData.imgURL[0],
@@ -57,7 +60,7 @@ export const KakaoImgBtn = styled.button`
   background-color: transparent;
   cursor: pointer;
   img {
-    width: 20px;
-    height: 20px;
+    width: 100px;
+    height: 100px;
   }
 `;

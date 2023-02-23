@@ -195,6 +195,86 @@
       "reportedDate": "2023. 2. 23. 오후 4:13:41",
       "category": "신규",
       "status": false
+    },
+    {
+      "id": "dfe5ee23-5383-43c7-978a-7905cdd311bc",
+      "userId": {
+        "uid": "mMuouk0EKfSJulDQLNQMgtETBMJ3",
+        "email": "wockdwockd12@naver.com",
+        "emailVerified": false,
+        "displayName": "dd",
+        "isAnonymous": false,
+        "photoURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/profileUploadImg%2Fd102f03a-6eb2-4c52-a77d-c7b507f6dc84?alt=media&token=8a3a8db1-e419-4641-ac5d-87dfe0e4964a",
+        "providerData": [
+          {
+            "providerId": "password",
+            "uid": "wockdwockd12@naver.com",
+            "displayName": "dd",
+            "email": "wockdwockd12@naver.com",
+            "phoneNumber": null,
+            "photoURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/profileUploadImg%2Fd102f03a-6eb2-4c52-a77d-c7b507f6dc84?alt=media&token=8a3a8db1-e419-4641-ac5d-87dfe0e4964a"
+          }
+        ],
+        "stsTokenManager": {
+          "refreshToken": "APJWN8fOmr-Ht0C9Qz3-2uK8lZYUhFVnfcGk1N_xqKsuscxSEvbSFujZ1joirHyUzM4yiIchuCzyu-2ambpcA-W-jssrJbMwmLMMlbFCFZUgpRdpD_vzlNe7MvfKaQlKxCnKgMla0htoolsYJGi0newe3ii-bMO99CO4aOveWuXU7jo2f6SqNVQG2Js-BnoWpoxmNM3ZJcb6OpyAdlwqqHVhbUaWUO6HXcZIfPsCdv1eEE_slI9TkTU",
+          "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE1YzJiNDBhYTJmMzIyNzk4NjY2YTZiMzMyYWFhMDNhNjc3MzAxOWIiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi7J6s7LC97J20IiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3BvcGNvcm4xLTRiNDdlIiwiYXVkIjoicG9wY29ybjEtNGI0N2UiLCJhdXRoX3RpbWUiOjE2NzcxNTk3MTUsInVzZXJfaWQiOiJtTXVvdWswRUtmU0p1bERRTE5RTWd0RVRCTUozIiwic3ViIjoibU11b3VrMEVLZlNKdWxEUUxOUU1ndEVUQk1KMyIsImlhdCI6MTY3NzE1OTcxNSwiZXhwIjoxNjc3MTYzMzE1LCJlbWFpbCI6IndvY2tkd29ja2QxMkBuYXZlci5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsid29ja2R3b2NrZDEyQG5hdmVyLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.jN-gqfnbHBFBqA43o_7LhsvXyqWMKs7LectyiBctoyHwcT7_mc26-qSj87UxJuLaS1myp-JOiJH_CHqgCYsAbzL0NF42bCbuyCsPZGjOi-aYe_dN44_RQJzvwFxgeXR5IGY5RXA9GxjlfqvHmLAzpcf97tI_D0N8qNZyZk3TxaGcYMva9kOpkN81QBKmxsqnW_SMFYMni0FINdJxpCxWg1GS79SY6FCMCp9sOv2FOTz9GafNbOUhqFwlNEobiVmnNBQ1NOr_zZWX7iat8HjhvfozxsqZFDL9CnUBTnRMR1PrxPHjMwUQZ3zh_aVUm4giqjmKjbmhRv8LXSJ7TXrxOg",
+          "expirationTime": 1677163315568
+        },
+        "createdAt": "1677057363283",
+        "lastLoginAt": "1677159711063",
+        "apiKey": "AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o",
+        "appName": "[DEFAULT]"
+      },
+      "title": "d",
+      "storeName": "d",
+      "storeAddress": "d",
+      "startDate": "2023-02-10",
+      "endDate": "2023-02-27",
+      "etcContent": "d",
+      "infoImg": "",
+      "reportedDate": "2023. 2. 23. 오후 10:42:24",
+      "category": "신규",
+      "status": false
+    },
+    {
+      "id": "ffc31784-2994-4c99-9f20-2d5cccdd64cc",
+      "userId": {
+        "uid": "mMuouk0EKfSJulDQLNQMgtETBMJ3",
+        "email": "wockdwockd12@naver.com",
+        "emailVerified": false,
+        "displayName": "앙ㅇㅇ",
+        "isAnonymous": false,
+        "photoURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/profileUploadImg%2F3c5f70ec-d090-49b4-8566-b9e53f069308?alt=media&token=81d3260b-2344-490e-bf06-b01378d4def7",
+        "providerData": [
+          {
+            "providerId": "password",
+            "uid": "wockdwockd12@naver.com",
+            "displayName": "앙ㅇㅇ",
+            "email": "wockdwockd12@naver.com",
+            "phoneNumber": null,
+            "photoURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/profileUploadImg%2F3c5f70ec-d090-49b4-8566-b9e53f069308?alt=media&token=81d3260b-2344-490e-bf06-b01378d4def7"
+          }
+        ],
+        "stsTokenManager": {
+          "refreshToken": "APJWN8fOmr-Ht0C9Qz3-2uK8lZYUhFVnfcGk1N_xqKsuscxSEvbSFujZ1joirHyUzM4yiIchuCzyu-2ambpcA-W-jssrJbMwmLMMlbFCFZUgpRdpD_vzlNe7MvfKaQlKxCnKgMla0htoolsYJGi0newe3ii-bMO99CO4aOveWuXU7jo2f6SqNVQG2Js-BnoWpoxmNM3ZJcb6OpyAdlwqqHVhbUaWUO6HXcZIfPsCdv1eEE_slI9TkTU",
+          "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE1YzJiNDBhYTJmMzIyNzk4NjY2YTZiMzMyYWFhMDNhNjc3MzAxOWIiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi7J6s7LC97J20IiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3BvcGNvcm4xLTRiNDdlIiwiYXVkIjoicG9wY29ybjEtNGI0N2UiLCJhdXRoX3RpbWUiOjE2NzcxNTk3MTUsInVzZXJfaWQiOiJtTXVvdWswRUtmU0p1bERRTE5RTWd0RVRCTUozIiwic3ViIjoibU11b3VrMEVLZlNKdWxEUUxOUU1ndEVUQk1KMyIsImlhdCI6MTY3NzE1OTcxNSwiZXhwIjoxNjc3MTYzMzE1LCJlbWFpbCI6IndvY2tkd29ja2QxMkBuYXZlci5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsid29ja2R3b2NrZDEyQG5hdmVyLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.jN-gqfnbHBFBqA43o_7LhsvXyqWMKs7LectyiBctoyHwcT7_mc26-qSj87UxJuLaS1myp-JOiJH_CHqgCYsAbzL0NF42bCbuyCsPZGjOi-aYe_dN44_RQJzvwFxgeXR5IGY5RXA9GxjlfqvHmLAzpcf97tI_D0N8qNZyZk3TxaGcYMva9kOpkN81QBKmxsqnW_SMFYMni0FINdJxpCxWg1GS79SY6FCMCp9sOv2FOTz9GafNbOUhqFwlNEobiVmnNBQ1NOr_zZWX7iat8HjhvfozxsqZFDL9CnUBTnRMR1PrxPHjMwUQZ3zh_aVUm4giqjmKjbmhRv8LXSJ7TXrxOg",
+          "expirationTime": 1677163315568
+        },
+        "createdAt": "1677057363283",
+        "lastLoginAt": "1677159711063",
+        "apiKey": "AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o",
+        "appName": "[DEFAULT]"
+      },
+      "title": "서울 핫플레이스 신사동 뉴 팝업스토어",
+      "storeName": "안녕",
+      "storeAddress": "서울시 신사동",
+      "startDate": "2023-02-16",
+      "endDate": "2023-02-15",
+      "etcContent": "? 그냥해주세요",
+      "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-03%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%205.50.19.png?alt=media&token=3abfa686-dfd4-4df2-a04c-1597a8ee83d1",
+      "reportedDate": "2023. 2. 23. 오후 10:45:41",
+      "category": "신규",
+      "status": true
     }
   ]
 }

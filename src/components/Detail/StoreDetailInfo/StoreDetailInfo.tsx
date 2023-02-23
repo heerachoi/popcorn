@@ -137,10 +137,10 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                 <S.SideTitleIcon>
                   <MdIosShare />
                 </S.SideTitleIcon>
-                <S.SideTitleText>
-                  {/* 공유 */}
-                  <KakaoShare detailData={detailData} />
-                </S.SideTitleText>
+                {/* <S.SideTitleText> */}
+                {/* 공유 */}
+                <KakaoShare detailData={detailData} />
+                {/* </S.SideTitleText> */}
               </S.SideTitleIconText>
               <S.SideTitleIconText>
                 {/* 북마크 */}
