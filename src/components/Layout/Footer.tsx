@@ -73,8 +73,6 @@ const Footer = () => {
       )}
       <FooterTitleWrap>
         <FooterTitle
-          // src={require('../../assets/Logo/State=Default.png')}
-          // alt="타이틀"
           onClick={() => globalBtnModalStatusChangeHandler('/', 0)}
         ></FooterTitle>
       </FooterTitleWrap>

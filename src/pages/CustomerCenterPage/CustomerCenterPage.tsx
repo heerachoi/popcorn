@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { isActiveMenu } from '../../atoms';
 import Faq from '../../components/CustomerCenter/FAQ/Faq';
 import * as S from './style';

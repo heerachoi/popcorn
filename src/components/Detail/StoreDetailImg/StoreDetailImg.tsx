@@ -10,8 +10,6 @@ const TestImgSlide = () => {
   const { state: detailData } = useLocation();
 
   const img = detailData?.imgURL;
-  //   console.log('detailData', detailData);
-  //   console.log('detailData,imgURL', img);
 
   const [nav1, setNav1] = useState<any>(null);
   const [nav2, setNav2] = useState<any>(null);
@@ -34,8 +32,7 @@ const TestImgSlide = () => {
   };
 
   // 썸네일 이미지 슬라이드 세팅
-  const settingsThumbs: any = {
-    // img.length
+  const settingsThumbs: any = { 
     slidesToShow: img?.length < 3 ? img?.length : 3,
     slidesToScroll: 1,
     asNavFor: '.slider-for',

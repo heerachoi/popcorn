@@ -3,10 +3,8 @@ import * as S from './style';
 import { BiImageAdd } from 'react-icons/bi';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { storage } from '../../services/firebase';
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { Store } from '../../types/data/storeInterface';
-import datas from '../../data/popupStore.json';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { globalBtn } from '../../atoms';
@@ -39,6 +37,7 @@ const MasterNewPost = () => {
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
   const setGlobalButton = useSetRecoilState(globalBtn);
 
+  // input onChange 함수
   const newPostInputChangeHandler: any = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {

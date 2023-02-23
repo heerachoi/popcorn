@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { hateCount, likeCount} from '../../../atoms';
+import { hateCount, likeCount } from '../../../atoms';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { v4 as uuidv4 } from 'uuid';
@@ -15,7 +15,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
   const [like, setLike] = useRecoilState(likeCount);
   const [hate, setHate] = useRecoilState(hateCount);
-  const [color, setColor] = useState(`${COLORS.black}`);
+  const [likeColor, likeSetColor] = useState(`${COLORS.black}`);
+  const [hateColor, hateSetColor] = useState(`${COLORS.black}`);
   const [likeClicked, setLikeClicked] = useState(false);
   const [hateClicked, setHateClicked] = useState(false);
   const [currentLikeId, setCurrentLikeId] = useState('');
@@ -32,14 +33,11 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     });
   }, [currentUser]);
 
-  console.log('currentUser', currentUser);
-
   useEffect(() => {
     fetchLikeHate();
     likeCountHandler();
     hateCountHandler();
   }, [likeClicked, hateClicked]);
-
 
   // 좋아요 추가
   const newLike = {
@@ -60,21 +58,21 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   // 렌더링 시 유저 클릭 유무 확인
   const fetchLikeHate = async () => {
     const { data } = await axios.get('http://localhost:3003/likeHate');
-   
-    data.map((item: any) => {     
 
+    data.map((item: any) => {
       if (item.userId === currentUser.uid && item.storeId === detailData.id) {
         if (item.vote === 'like') {
-          // setColor(`${COLORS.red}`);
+          likeSetColor(`${COLORS.red}`);
           setLikeClicked(true);
           setCurrentLikeId(item.id);
         } else if (item.vote === 'hate') {
-          // setColor(`${COLORS.black}`);
+          hateSetColor(`${COLORS.red}`);
           setHateClicked(true);
           setCurrentLikeId(item.id);
         }
       } else {
-        setColor(`${COLORS.black}`);
+        likeSetColor(`${COLORS.black}`);
+        hateSetColor(`${COLORS.black}`);
       }
     });
   };
@@ -109,9 +107,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         // 좋아요 눌린 상태
         try {
           axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
-          setColor(`${COLORS.black}`);
+          likeSetColor(`${COLORS.black}`);
           setLikeClicked(false);
-          // setLike(like + 1);          
         } catch (err) {
           console.log('err', err);
         }
@@ -121,10 +118,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         // 좋아요가 안눌린 상태
         try {
           axios.post('http://localhost:3003/likeHate', newLike);
-          // setLike(like + 1);
-          setColor(`${COLORS.red}`);
+          likeSetColor(`${COLORS.red}`);
           setLikeClicked(true);
-          
         } catch (err) {
           console.log('err', err);
         }
@@ -135,29 +130,25 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   };
 
   // 별로에요 버튼
-  const hateHandler = async  () => {
+  const hateHandler = async () => {
     if (currentUser) {
       if (hateClicked) {
         // 별로에요 눌린 상태
         try {
           axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
-          setColor(`${COLORS.black}`);
+          hateSetColor(`${COLORS.black}`);
           setHateClicked(false);
-          // setLike(like + 1);
-          // alert('이미 클릭함');
         } catch (err) {
           console.log('err', err);
         }
       } else if (likeClicked) {
-        alert('둘 중 하나만 클릭하세요.');
+        alert('좋아요, 별로에요 둘 중 하나만 가능합니다.');
       } else if (!hateClicked) {
         // 별로에요 안눌린 상태
         try {
           axios.post('http://localhost:3003/likeHate', hateLike);
-          // setLike(like + 1);
-          setColor(`${COLORS.red}`);
+          hateSetColor(`${COLORS.red}`);
           setHateClicked(true);
-          alert('별로에요');
         } catch (err) {
           console.log('err', err);
         }
@@ -167,7 +158,6 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     }
   };
 
-  
   return (
     <S.EmojiWrap>
       <S.EmojiContainer>
@@ -176,7 +166,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
             <S.LikeHateImg src={require('../../../assets/Logo/like.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground>
-            <S.EmojiText style={{ color: color }}>좋아요</S.EmojiText>
+            <S.EmojiText style={{ color: likeColor }}>좋아요</S.EmojiText>
           </S.TextBackground>
           <S.EmojiText>{like}</S.EmojiText>
         </S.EmojiDiv>
@@ -185,7 +175,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
             <S.LikeHateImg src={require('../../../assets/Logo/hate.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground style={{ width: '85px' }}>
-            <S.EmojiText>별로에요</S.EmojiText>
+            <S.EmojiText style={{ color: hateColor }}>별로에요</S.EmojiText>
           </S.TextBackground>
           <S.EmojiText>{hate}</S.EmojiText>
         </S.EmojiDiv>
