@@ -48,13 +48,13 @@ const StoreDetailInfo = ({ detailData }: Props) => {
 
   const NewBookmark = {
     id: uuidv4(),
-    storeId: detailData.id,
+    storeId: detailData?.id,
     userId: auth.currentUser?.uid,
     notification: false,
-    title: detailData.title,
-    open: detailData.open,
-    close: detailData.close,
-    imgURL: detailData.imgURL[0],
+    title: detailData?.title,
+    open: detailData?.open,
+    close: detailData?.close,
+    imgURL: detailData?.imgURL[0],
   };
 
   // 페이지 렌딩시 유저의 북마크 유무 확인

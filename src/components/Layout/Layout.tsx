@@ -18,6 +18,8 @@ const Layout = ({ children }: Props) => {
 
   // 로그인 상태를 전역적으로 관리해주는 함수
   // 로그아웃이 된 상태에서만 Header가 바뀐다.
+  // Router.tsx에서 유저 상태관리를 해주었는데, 페이지 이동시 첫번째 useEffect가 다시 실행됨
+  // Layout.tsx로 옮겨주니 해결되었다.
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -57,6 +59,7 @@ const Layout = ({ children }: Props) => {
     // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
   }, [users.isLogin]);
 
+  console.log(users, 'users');
   return (
     <>
       <Header />

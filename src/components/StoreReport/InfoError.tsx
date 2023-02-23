@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { InfoErrorForm, ErrorImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
@@ -9,6 +9,8 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import * as S from './style';
 import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { globalBtn } from '../../atoms';
 
 interface InfoErrInput {
   title: string;
@@ -23,6 +25,8 @@ interface ErrContent {
 // 정보 오류/수정 제보
 const InfoError: any = () => {
   const navigate = useNavigate();
+  const setGlobalButton = useSetRecoilState(globalBtn);
+
 
   // input 초기값
   const initInfoErrModifiInput = {
@@ -49,6 +53,7 @@ const InfoError: any = () => {
   const infoErrModifiOnChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    setGlobalButton(true);
     setInfoErrModifiInput({
       ...infoErrModifiInput,
       [event.target.name]: event.target.value,
@@ -58,6 +63,7 @@ const InfoError: any = () => {
   const errContentOnchangeHandler = (
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
+    setGlobalButton(true);
     setErrContent({
       ...errContent,
       [event.target.name]: event.target.value,
@@ -68,6 +74,7 @@ const InfoError: any = () => {
   const errModifiImgOnChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
+    setGlobalButton(true);
     const target = event.currentTarget;
     const theFile = (target.files as FileList)[0]; // 이벤트로부터 파일을 얻어와서 첫 번째 파일만 받음
     setErrFileName(theFile.name);
@@ -92,6 +99,7 @@ const InfoError: any = () => {
     event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
+    setGlobalButton(false);
 
     // firebase storage에 이미지 업로드
     const errInfoImgRef = ref(storage, `errInfoImg/${errFileName}`);
@@ -140,6 +148,21 @@ const InfoError: any = () => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    if (
+      infoErrModifiInput.title === '' &&
+      infoErrModifiInput.storeName === '' &&
+      errContent.infoErrContent === '' &&
+      errContent.infoModifiContent === ''
+    )
+      setGlobalButton(false);
+  }, [
+    infoErrModifiInput.title,
+    infoErrModifiInput.storeName,
+    errContent.infoErrContent,
+    errContent.infoModifiContent,
+  ]);
 
   return (
     <S.InfoErrorForm onSubmit={errModifiInfoAddHandler}>

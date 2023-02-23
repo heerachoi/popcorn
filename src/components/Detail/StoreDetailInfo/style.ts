@@ -57,12 +57,10 @@ export const SideTitleIcon = styled.span`
   font-style: normal;
   font-weight: 800;
   font-size: 13px;
- 
 `;
 export const ReserveImg = styled.img`
-width: 20px;
-
-`
+  width: 20px;
+`;
 export const SideTitleText = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;

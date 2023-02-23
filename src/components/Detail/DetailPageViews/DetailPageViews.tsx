@@ -6,14 +6,14 @@ interface Props {
 }
 
 const DetailPageViews = ({ detailData }: Props) => {
-  const teenagerPercent = detailData.view[10];
-  const twentyPercent = detailData.view[20];
-  const thirtyPercent = detailData.view[30];
-  const fortyPercent = detailData.view['40+'];
-  const unknownAgePercent = detailData.view['연령모름'];
-  const menPercent = detailData.view['men'];
-  const womenPercent = detailData.view['women'];
-  const unknownGenderPercent = detailData.view['성별모름'];
+  const teenagerPercent = detailData?.view[10];
+  const twentyPercent = detailData?.view[20];
+  const thirtyPercent = detailData?.view[30];
+  const fortyPercent = detailData?.view['40+'];
+  const unknownAgePercent = detailData?.view['연령모름'];
+  const menPercent = detailData?.view['men'];
+  const womenPercent = detailData?.view['women'];
+  const unknownGenderPercent = detailData?.view['성별모름'];
 
   return (
     <GrapfWrap>
@@ -75,6 +75,7 @@ export default DetailPageViews;
 const GrapfWrap = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 200px;
 `;
 
 export const GrapfBox = styled.div`

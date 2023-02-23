@@ -69,6 +69,11 @@ export const isActiveMenu = atom<number>({
   default: 0,
 });
 
+export const footerActiveMenu = atom<number>({
+  key: 'footerActiveMenu',
+  default: 0,
+});
+
 export const globalBtn = atom<boolean>({
   key: 'globalBtn',
   default: false,

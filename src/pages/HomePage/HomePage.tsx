@@ -6,12 +6,26 @@ import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwipe
 import { PopularToMen, PopularToWomen } from '../../utils/Filter';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import { getPopupData } from '../../services/api';
 import { Store } from '../../types/data/storeInterface';
 
 const HomePage:React.FC = () => {
   const navigate = useNavigate();
   const womenTopTwo = PopularToWomen();
-  const menTopTwo = PopularToMen(); 
+  const menTopTwo = PopularToMen();
+
+  const [storeData, setStoreData] = useState<any>('');
+   const fetchTodos = async () => {
+     const { data } = await axios.get('http://localhost:3010/Store');
+     return data;
+   };
+
+  const { data } = useQuery('popup', getPopupData);
+
+  useEffect(() => {
+     fetchTodos();
+  }, [storeData]);
 
   return (
     <>
@@ -19,25 +33,25 @@ const HomePage:React.FC = () => {
       <S.HomePageContentContainer>
         <S.CategoryWrapper>
           <S.ListTitleContainer>
-          <S.CategoryTitleBackgroundOne/>
-          <S.ListTitle>최근 오픈했어요!</S.ListTitle>
-        </S.ListTitleContainer>
-        <S.CategoryListContainer>
-          <S.FilterStoreList>
-            <CategorySwiper/>
-          </S.FilterStoreList>
-        </S.CategoryListContainer>
+            <S.CategoryTitleBackgroundOne />
+            <S.ListTitle>최근 오픈했어요!</S.ListTitle>
+          </S.ListTitleContainer>
+          <S.CategoryListContainer>
+            <S.FilterStoreList>
+              <CategorySwiper />
+            </S.FilterStoreList>
+          </S.CategoryListContainer>
         </S.CategoryWrapper>
         <S.CategoryWrapper>
           <S.ListTitleContainer>
-          <S.CategoryTitleBackgroundTwo/>
-          <S.ListTitle>곧 마감해요</S.ListTitle>
-        </S.ListTitleContainer>
-        <S.CategoryListContainer>
-          <S.FilterStoreList>
-            <ClosingSoonSwiper/>
-          </S.FilterStoreList>
-        </S.CategoryListContainer>
+            <S.CategoryTitleBackgroundTwo />
+            <S.ListTitle>곧 마감해요</S.ListTitle>
+          </S.ListTitleContainer>
+          <S.CategoryListContainer>
+            <S.FilterStoreList>
+              <ClosingSoonSwiper />
+            </S.FilterStoreList>
+          </S.CategoryListContainer>
         </S.CategoryWrapper>
         <S.CategoryWrapper>
            <S.ListTitleContainer>
@@ -140,7 +154,6 @@ const HomePage:React.FC = () => {
         </S.CategoryListContainer>
         </S.CategoryWrapper>
       </S.HomePageContentContainer>
-      
     </>
   );
 };
