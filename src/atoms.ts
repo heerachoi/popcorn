@@ -123,3 +123,8 @@ export const modalPage = atom<string>({
 //     return data;
 //   },
 // });
+
+export const profileState = atom({
+  key: 'profileState', // unique ID (with respect to other atoms/selectors)
+  default: '', // default value (aka initial value)
+});

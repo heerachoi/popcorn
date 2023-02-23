@@ -7,7 +7,7 @@ export const EnterInputPasswordWrapper = styled.div`
 
 export const EnterInputPassword = styled.input`
   width: 80%;
-  height: 48px;
+  height: 30px;
   border: 1px solid #a6a6a6;
   border-radius: 8px;
   font-size: 16px;
@@ -25,7 +25,7 @@ export const EnterInputPasswordText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   /* txt1 */
 
   color: #323232;
@@ -40,7 +40,7 @@ export const EnterInputChangePasswordText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   /* txt1 */
 
   color: #323232;
@@ -48,7 +48,7 @@ export const EnterInputChangePasswordText = styled.p`
 
 export const EnterInputChangePasswordInput = styled.input`
   width: 80%;
-  height: 48px;
+  height: 30px;
   border: 1px solid #a6a6a6;
   border-radius: 8px;
   font-size: 16px;
@@ -66,7 +66,7 @@ export const EnterInputCheckPasswordWrapper = styled.div`
 
 export const EnterInputCheckPasswordInput = styled.input`
   width: 80%;
-  height: 48px;
+  height: 30px;
   border: 1px solid #a6a6a6;
   border-radius: 8px;
   font-size: 16px;
@@ -84,7 +84,7 @@ export const EnterInputCheckPasswordText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   /* txt1 */
 
   color: #323232;

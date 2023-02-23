@@ -1,3 +1,4 @@
+import { border } from '@mui/system';
 import {
   EmailAuthProvider,
   reauthenticateWithCredential,
@@ -129,8 +130,18 @@ const UpdatePassword = () => {
           type="password"
           name="password"
           onChange={passwordChangeHandler}
+          placeholder={'현재 비밀번호를 입력하세요'}
         />
-        <button onClick={firstPasswordCheck}>비밀번호 확인</button>
+        <button
+          onClick={firstPasswordCheck}
+          style={{
+            backgroundColor: 'transparent',
+            cursor: 'pointer',
+            border: '1px solid black',
+          }}
+        >
+          비밀번호 확인
+        </button>
       </S.EnterInputPasswordWrapper>
       <S.EnterInputChangePasswordWrapper>
         <S.EnterInputChangePasswordText>
@@ -142,6 +153,7 @@ const UpdatePassword = () => {
           name="updatePassword"
           onChange={passwordChangeHandler}
           onBlur={validatePasswordHandler}
+          placeholder={'새 비밀번호를 입력하세요'}
         />
         <div>{helperPasswordInput.updatePassword}</div>
       </S.EnterInputChangePasswordWrapper>
@@ -156,9 +168,19 @@ const UpdatePassword = () => {
           name="updatePasswordCheck"
           onChange={passwordChangeHandler}
           onBlur={validatePasswordCheckHandler}
+          placeholder={'새 비밀번호를 한번 더 확인하세요'}
         />
         <div>{helperPasswordInput.updatePasswordCheck}</div>
-        <button onClick={passwordCheckHandler}>비밀번호 변경</button>
+        <button
+          onClick={passwordCheckHandler}
+          style={{
+            backgroundColor: 'transparent',
+            cursor: 'pointer',
+            border: '1px solid black',
+          }}
+        >
+          비밀번호 변경
+        </button>
       </S.EnterInputCheckPasswordWrapper>
     </div>
   );

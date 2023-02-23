@@ -2176,4 +2176,809 @@ const style = {
   // };
 
 
+  ===================
+
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import { useEffect, useState } from 'react';
+import { auth, storage } from '../../../services/firebase';
+import { updateProfile } from 'firebase/auth';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
+import { v4 as uuidv4 } from 'uuid';
+import * as S from './style';
+import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
+import { AnyARecord } from 'dns';
+import { useRecoilState } from 'recoil';
+import { editModal } from '../../../atoms';
+
+const MyProfileEditModal = () => {
+  const [open, setOpen] = useRecoilState(editModal);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [nickname, setNickname] = useState<any>(''); // 닉네임
+  const [currentUser, setCurrentUser] = useState<any>('');
+  const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름
+  const [imgFileName, setImgFileName] = useState(''); // 이미지 파일 이름.jpg
+  const [imgUploadUrl, setImgUploadUrl] = useState<any>(
+    auth.currentUser?.photoURL,
+  );
   
+
+
+  // 현재 로그인한 사용자 가져오기
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentUser(auth.currentUser);
+        setImgUploadUrl(user.photoURL);
+      } else {
+        return console.log('로그인 안됨');
+      }
+    });
+  }, [currentUser]);
+
+
+  // 변경할 닉네임을 입력하면 실시간으로 받아오는 함수
+  const ToChangeNicknameInput = (event: any) => {
+    setNickname(event.target.value);
+  };
+
+  // 변경할 이미지를 input창에 넣으면 변경됨
+  const saveNewProfileImg = (event: any) => {
+    console.log('🔥🔥🔥🔥🔥🔥event🔥🔥🔥🔥🔥🔥', event);
+    const target = event.currentTarget;
+
+    // 이벤트로부터 파일을 얻어와서 첫번째 파일만 받음
+    const theFile = (target.files as FileList)[0];
+    console.log('theFile', theFile);
+    setImgFileName(theFile.name);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(theFile); // file객체를 data url로 바꿔줌
+
+    // 파일 읽기를 끝내면 state로 만들어둔 setImgFile에 값을 넣어줌
+    reader.onloadend = (finishedEvent: any) => {
+      setImgFile(finishedEvent.currentTarget.result);
+      console.log('❤️❤️❤️❤️❤️❤️finishedEvent', finishedEvent);
+      console.log(
+        '❤️❤️❤️❤️❤️❤️finishedEvent.currentTarget.result',
+        finishedEvent.currentTarget.result,
+      );
+    };
+  };
+
+
+
+
+
+  const submitNicknameImgChange = async (e: any) => {
+    e.preventDefault();
+    if (imgFile.length !== 0) {
+      const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
+
+      const response = await uploadString(imgRef, imgFile, 'data_url');
+      const downloadImageUrl = await getDownloadURL(response.ref);
+      setImgUploadUrl(downloadImageUrl);
+
+      await updateProfile(currentUser, {
+        displayName: nickname,
+        photoURL: downloadImageUrl,
+      })
+        .then(() => {
+          alert('Profile updated!');
+          setNickname('');
+        })
+        .catch((error: any) => {});
+    } else {
+      await updateProfile(currentUser, {
+        displayName: nickname,
+      })
+        .then(() => {
+          alert('Profile updated!');
+          setNickname('');
+        })
+        .catch((error: any) => {});
+    }
+  };
+
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>
+        <S.EditModalBtnText>회원정보수정</S.EditModalBtnText>
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <S.EditModalAll>
+          <Box sx={style}>
+            <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
+              <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
+
+              <S.EditModalImgLabelInputWrapper>
+                <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
+                  {/* // 미리보기를 하면 수정완료를 눌렀을때 사진이 사라짐..... */}
+                  {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
+                </S.EditModalProfileImgLabel>
+                <S.EditModalProfileImgInput
+                  type="file"
+                  accept="image/*"
+                  id="modalProfileUploadImg"
+                  onChange={saveNewProfileImg}
+                  style={{ display: 'none' }}
+                />
+              </S.EditModalImgLabelInputWrapper>
+              {/* <S.EditModalMyProfileNickname>
+                {currentUser.displayName}
+              </S.EditModalMyProfileNickname> */}
+
+              <S.EditModalNicknameInputWrapper>
+                <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
+                <S.EditModalNicknameInput
+                  type="text"
+                  placeholder={currentUser.displayName}
+                  onChange={ToChangeNicknameInput}
+                  value={nickname}
+                />
+              </S.EditModalNicknameInputWrapper>
+              <S.EditModalEmailInputWrpper>
+                <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
+                <S.EmailInput placeholder={currentUser.email} readOnly />
+              </S.EditModalEmailInputWrpper>
+              <UpdatePassword />
+              <S.EditModalBtnWrapper>
+                <S.EditModalCanceleButton onClick={handleClose}>
+                  취소
+                </S.EditModalCanceleButton>
+                <S.EditModalCompleteButton type="submit">
+                  수정완료
+                </S.EditModalCompleteButton>
+              </S.EditModalBtnWrapper>
+            </S.NewProfileSubmitForm>
+          </Box>
+          {/* 북마크/내가 쓴 제보 */}
+        </S.EditModalAll>
+      </Modal>
+    </div>
+  );
+};
+export default MyProfileEditModal;
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '30%',
+  height: '1000px',
+  bgcolor: 'background.paper',
+  border: '2px solid transparent',
+  boxShadow: 24,
+  p: 4,
+};
+
+
+
+====================================
+
+
+// 닉네임, 이미지 따로 뺀거... 
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import { useEffect, useState } from 'react';
+import { auth, storage } from '../../../services/firebase';
+import { updateProfile } from 'firebase/auth';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
+import { v4 as uuidv4 } from 'uuid';
+import * as S from './style';
+import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
+import { AnyARecord } from 'dns';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { editModal } from '../../../atoms';
+import { userInfo } from '../../../atoms';
+import { async } from '@firebase/util';
+
+const MyProfileEditModal = () => {
+  // 모달 관련
+  const [open, setOpen] = useRecoilState(editModal);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // 닉네임 관련
+  const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기
+  const currentUserInfos = auth.currentUser; // 현재 로그인한 사용자의 정보들
+  const [nickname, setNickname] = useState<any>(''); // 현재 닉네임 상태변경
+  console.log('nickname', nickname);
+
+  // 이미지 관련
+  const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름
+  const [imgFileName, setImgFileName] = useState(''); // 이미지 파일 이름.jpg
+  const [imgUploadUrl, setImgUploadUrl] = useState<any>(
+    currentUserInfos?.photoURL,
+  );
+
+  // 현재 로그인한 사용자 가져오기
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentUser(currentUserInfos);
+        // setImgUploadUrl(user.photoURL);
+      } else {
+        return console.log('로그인 안됨');
+      }
+    });
+  }, [currentUser]);
+  console.log('currentUser❤️', currentUser);
+  console.log('currentUserInfos❤️', currentUserInfos);
+  console.log('currentUserInfos.displayName🐣', currentUserInfos?.displayName);
+
+  // 변경할 닉네임 받아오는 함수
+  const ToChangeNicknameInput = (event: any) => {
+    setNickname(event.target.value);
+  };
+  console.log('nickname🐥', nickname);
+
+  // 닉네임 변경해주는 함수
+  const nicknameChangeOnClick = async (e: any) => {
+    // if (nickname.length >= 2 && (nickname.length <= 5 || imgFile.length > 0))
+    if (nickname.length >= 2 && nickname.length <= 5) {
+      await updateProfile(currentUser, {
+        displayName: nickname,
+      })
+        .then(() => {
+          alert('프로필 업데이트!');
+          setNickname(''); // 이걸 왜 빈값으로 해야할까? 이따가 nickname으로 받아와보자
+          console.log('nickname🐥❓', nickname);
+          setOpen(false);
+        })
+        .catch((error: any) => {
+          console.log(error);
+        });
+    } else {
+      alert('2글자 이상 5글자 이하로 입력해주세요.');
+    }
+  };
+
+  // 변경할 이미지 입력받는 함수
+  const saveNewProfileImg = (event: any) => {
+    const target = event.currentTarget;
+    const theFile = (target.files as FileList)[0];
+    setImgFile(theFile.name);
+    const reader = new FileReader();
+    reader.readAsDataURL(theFile);
+    reader.onloadend = (finishedEvent: any) => {
+      setImgFile(finishedEvent.currentTarget.result);
+    };
+  };
+
+  // 이미지 변경해주는 함수
+  const imgChangeSubmit = async (e: any) => {
+    e.preventDefault();
+    if (imgFile.length > 0) {
+      const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
+      const response = await uploadString(imgRef, imgFile, 'data_url');
+      const downloadImageUrl = await getDownloadURL(response.ref);
+      setImgUploadUrl(downloadImageUrl);
+      await updateProfile(currentUser, {
+        photoURL: downloadImageUrl,
+      }).then(() => {
+        alert('이미지 업데이트!');
+      });
+    } else {
+      alert('이미지를 업로드 해주세요!');
+    }
+  };
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>
+        <S.EditModalBtnText>회원정보수정</S.EditModalBtnText>
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <S.EditModalAll>
+          <Box sx={style}>
+            <S.NewProfileSubmitForm onSubmit={imgChangeSubmit}>
+              <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
+              <S.EditModalImgLabelInputWrapper>
+                <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
+                  {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
+                </S.EditModalProfileImgLabel>
+                <S.EditModalProfileImgInput
+                  type="file"
+                  accept="image/*"
+                  id="modalProfileUploadImg"
+                  onChange={saveNewProfileImg}
+                  style={{ display: 'none' }}
+                />
+              </S.EditModalImgLabelInputWrapper>
+
+              <S.EditModalNicknameInputWrapper>
+                <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
+                <S.EditModalNicknameInput
+                  type="text"
+                  placeholder={'닉네임을 입력해주세요'}
+                  onChange={ToChangeNicknameInput}
+                  value={nickname}
+                />
+              </S.EditModalNicknameInputWrapper>
+              <S.EditModalEmailInputWrpper>
+                <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
+                <S.EmailInput placeholder={currentUser.email} readOnly />
+              </S.EditModalEmailInputWrpper>
+              {/* <UpdatePassword /> */}
+              <S.EditModalBtnWrapper>
+                <S.EditModalCanceleButton onClick={handleClose}>
+                  취소
+                </S.EditModalCanceleButton>
+              </S.EditModalBtnWrapper>
+            </S.NewProfileSubmitForm>
+            <S.EditModalCompleteButton onClick={nicknameChangeOnClick}>
+              수정완료
+            </S.EditModalCompleteButton>
+          </Box>
+          {/* 북마크/내가 쓴 제보 */}
+        </S.EditModalAll>
+      </Modal>
+    </div>
+  );
+};
+export default MyProfileEditModal;
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '30%',
+  height: '800px',
+  bgcolor: 'background.paper',
+  border: '2px solid transparent',
+  boxShadow: 24,
+  p: 4,
+};
+
+
+
+
+================================합쳤더니 닉네임 변경이 안됨;;
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import { useEffect, useState } from 'react';
+import { auth, storage } from '../../../services/firebase';
+import { updateProfile } from 'firebase/auth';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
+import { v4 as uuidv4 } from 'uuid';
+import * as S from './style';
+import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
+import { AnyARecord } from 'dns';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { editModal } from '../../../atoms';
+
+const MyProfileEditModal = () => {
+  // 모달 관련
+  const [open, setOpen] = useRecoilState(editModal);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // 닉네임 관련
+  const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기
+  const currentUserInfos = auth.currentUser; // 현재 로그인한 사용자의 정보들
+  const [nickname, setNickname] = useState<any>(''); // 현재 닉네임 상태변경
+  console.log('nickname', nickname);
+
+  // 이미지 관련
+  const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름
+  const [imgFileName, setImgFileName] = useState(''); // 이미지 파일 이름.jpg
+  const [imgUploadUrl, setImgUploadUrl] = useState<any>(
+    currentUserInfos?.photoURL,
+  );
+
+  // 현재 로그인한 사용자 가져오기
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setCurrentUser(currentUserInfos);
+        // setImgUploadUrl(user.photoURL);
+      } else {
+        return console.log('로그인 안됨');
+      }
+    });
+  }, [currentUser]);
+  console.log('currentUser❤️', currentUser);
+  console.log('currentUserInfos❤️', currentUserInfos);
+  console.log('currentUserInfos.displayName🐣', currentUserInfos?.displayName);
+
+  // 변경할 닉네임 받아오는 함수
+  const ToChangeNicknameInput = (event: any) => {
+    setNickname(event.target.value);
+  };
+  console.log('nickname🐥', nickname);
+
+  // 변경할 이미지 입력받는 함수
+  const saveNewProfileImg = (event: any) => {
+    const target = event.currentTarget;
+    const theFile = (target.files as FileList)[0];
+    setImgFile(theFile.name);
+    const reader = new FileReader();
+    reader.readAsDataURL(theFile);
+    reader.onloadend = (finishedEvent: any) => {
+      setImgFile(finishedEvent.currentTarget.result);
+    };
+  };
+
+  // // 닉네임 변경해주는 함수
+  // const nicknameChangeOnClick = async (e: any) => {
+  //   // if (nickname.length >= 2 && (nickname.length <= 5 || imgFile.length > 0))
+  //   if (nickname.length >= 2 && nickname.length <= 5) {
+  //     await updateProfile(currentUser, {
+  //       displayName: nickname,
+  //     })
+  //       .then(() => {
+  //         alert('프로필 업데이트!');
+  //         setNickname(''); // 이걸 왜 빈값으로 해야할까? 이따가 nickname으로 받아와보자
+  //         console.log('nickname🐥❓', nickname);
+  //         setOpen(false);
+  //       })
+  //       .catch((error: any) => {
+  //         console.log(error);
+  //       });
+  //   } else {
+  //     alert('2글자 이상 5글자 이하로 입력해주세요.');
+  //   }
+  // };
+
+  // // 이미지 변경해주는 함수
+  // 파베에서 set닉네임 가져오기 
+  // 수정이 일어나면 알아서 닉네임이 업뎃하게 
+  // 버튼 누를 때 유효성검사 확인만 
+  // 변경눌렀을 때 마이페이지 업뎃되면 닉네임은 끝난거 
+
+
+  // const imgChangeSubmit = async (e: any) => {
+  //   e.preventDefault();
+  //   if (imgFile.length > 0) {
+  //     const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
+  //     const response = await uploadString(imgRef, imgFile, 'data_url');
+  //     const downloadImageUrl = await getDownloadURL(response.ref);
+  //     setImgUploadUrl(downloadImageUrl);
+  //     await updateProfile(currentUser, {
+  //       photoURL: downloadImageUrl,
+  //     }).then(() => {
+  //       alert('이미지 업데이트!');
+  //     });
+  //   } else {
+  //     alert('이미지를 업로드 해주세요!');
+  //   }
+  // };
+
+// 수정하는 칸에 가지고 오기 
+
+  const submitNicknameImgChange = async (event: any) => {
+    event.preventDefault();
+    if (imgFile.length !== 0 && (nickname.length >= 2 && nickname.length <= 5)) {
+      // 여기서 두개 다 수정 
+      const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
+      const response = await uploadString(imgRef, imgFile, 'data_url');
+      const downloadImageUrl = await getDownloadURL(response.ref);
+      console.log('imgRef', imgRef);
+
+      setImgUploadUrl(downloadImageUrl);
+      await updateProfile(currentUser, {
+        photoURL: downloadImageUrl,
+        // displayName: currentUserInfos?.displayName,
+      });
+      setOpen(false);
+    } else if (nickname.length >= 2 && nickname.length <= 5) {
+      await updateProfile(currentUser, {
+        displayName: nickname,
+      })
+        .then(() => {
+          alert('프로필 업데이트!');
+          setNickname(''); // 이걸 왜 빈값으로 해야할까? 이따가 nickname으로 받아와보자
+          console.log('nickname🐥❓', nickname);
+          setOpen(false);
+        })
+        .catch((error: any) => {
+          console.log(error);
+        });
+        // else if(이미지 파일 length가 영이 아닐때)
+    } else {
+      alert('수정을 안하실 건가요?');
+    }
+  };
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>
+        <S.EditModalBtnText>회원정보수정</S.EditModalBtnText>
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <S.EditModalAll>
+          <Box sx={style}>
+            <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
+              <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
+              <S.EditModalImgLabelInputWrapper>
+                <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
+                  {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
+                </S.EditModalProfileImgLabel>
+                <S.EditModalProfileImgInput
+                  type="file"
+                  accept="image/*"
+                  id="modalProfileUploadImg"
+                  onChange={saveNewProfileImg}
+                  style={{ display: 'none' }}
+                />
+              </S.EditModalImgLabelInputWrapper>
+              <S.EditModalNicknameInputWrapper>
+                <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
+                <S.EditModalNicknameInput
+                  type="text"
+                  placeholder={'닉네임을 입력해주세요'}
+                  onChange={ToChangeNicknameInput}
+                  value={nickname}
+                />
+              </S.EditModalNicknameInputWrapper>
+              <S.EditModalEmailInputWrpper>
+                <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
+                <S.EmailInput placeholder={currentUser.email} readOnly />
+              </S.EditModalEmailInputWrpper>
+              {/* <UpdatePassword /> */}
+              <S.EditModalBtnWrapper>
+                <S.EditModalCanceleButton onClick={handleClose}>
+                  취소
+                </S.EditModalCanceleButton>
+              </S.EditModalBtnWrapper>
+              <S.EditModalCompleteButton type="submit">
+                수정완료
+              </S.EditModalCompleteButton>
+            </S.NewProfileSubmitForm>
+          </Box>
+          {/* 북마크/내가 쓴 제보 */}
+        </S.EditModalAll>
+      </Modal>
+    </div>
+  );
+};
+export default MyProfileEditModal;
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '30%',
+  height: '800px',
+  bgcolor: 'background.paper',
+  border: '2px solid transparent',
+  boxShadow: 24,
+  p: 4,
+};
+
+=========================================== 희라님이 가르쳐준대로 하는중
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+import { useEffect, useState } from 'react';
+import { auth, storage } from '../../../services/firebase';
+import { updateProfile } from 'firebase/auth';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
+import { v4 as uuidv4 } from 'uuid';
+import * as S from './style';
+import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
+import { AnyARecord } from 'dns';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { editModal } from '../../../atoms';
+
+const MyProfileEditModal = () => {
+  // 모달 관련
+  const [open, setOpen] = useRecoilState(editModal);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // 닉네임 관련
+  const currentUserInfos = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
+  const [nickname, setNickname] = useState<any>(''); // 현재 닉네임 상태변경
+  const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기 및 변경 전 데이터
+  console.log('nickname🏃🏻‍♀️', nickname);
+  console.log('currentUser❤️', currentUser);
+  console.log('currentUserInfos❤️', currentUserInfos);
+  console.log(
+    'currentUserInfos.displayName❤️🐣',
+    currentUserInfos?.displayName,
+  );
+
+  // 이미지 관련
+  const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름
+  const [imgFileName, setImgFileName] = useState(''); // 이미지 파일 이름.jpg
+  const [imgUploadUrl, setImgUploadUrl] = useState<any>(
+    currentUserInfos?.photoURL,
+  );
+  console.log('imgFile🏃🏻‍♀️🌃', imgFile);
+  console.log('currentUserInfos❤️🌃', currentUserInfos);
+  console.log('currentUserInfos?.photoURL❤️🌃🐣', currentUserInfos?.photoURL);
+
+  // 현재 로그인한 사용자 가져오기
+  // 파베에서 이미지url 가져와서 set해줌
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      console.log('user❤️', user);
+      if (user) {
+        setCurrentUser(currentUserInfos);
+        setImgUploadUrl(currentUserInfos?.photoURL); // 인풋창 만들고나서 확인제대로 해보기
+        console.log(
+          'currentUserInfos?.photoURL❤️🌃🐣',
+          currentUserInfos?.photoURL,
+        );
+      } else {
+        return console.log('로그인 안됨');
+      }
+    });
+  }, [currentUser, imgUploadUrl]);
+
+  // 수정이 일어나면 알아서 닉네임 업뎃
+  useEffect(() => {}, [nickname, imgFile, imgUploadUrl]);
+
+  // 변경할 닉네임 받아오는 함수
+  // 변경눌렀을 때 마이페이지 업뎃되면 닉네임은 끝난거
+  const ToChangeNicknameInput = (event: any) => {
+    setNickname(event.target.value);
+  };
+  console.log('nickname🏃🏻‍♀️', nickname);
+
+  // 수정완료 버튼 누를 때 유효성 검사 확인만
+  const nicknameChangeOnClick = async (e: any) => {
+    if (nickname.length >= 2 && nickname.length <= 5) {
+      await updateProfile(currentUser, {
+        displayName: nickname,
+      })
+        .then(() => {
+          alert('프로필 업데이트!');
+          setNickname(nickname);
+          console.log('nickname🐥❓', nickname);
+          setOpen(false);
+        })
+        .catch((error: any) => {
+          console.log(error);
+        });
+    } else {
+      alert('2글자 이상 5글자 이하로 입력해주세요.');
+    }
+  };
+
+  // 모달키면 이미지가 켜있는데
+  // 유저가 클릭하면 업데이트
+  const saveNewProfileImg = (event: any) => {
+    const target = event.currentTarget;
+    const theFile = (target.files as FileList)[0]; // 이미지 인풋창에서 클릭하면 이미지
+    console.log('theFile🌃🏃🏻‍♀️', theFile);
+    setImgFile(theFile.name);
+    const reader = new FileReader();
+    reader.readAsDataURL(theFile);
+    reader.onloadend = (finishedEvent: any) => {
+      setImgFile(finishedEvent.currentTarget.result);
+      console.log('finishedEvent❓❓❓❓❓', finishedEvent);
+    };
+  };
+
+  // 저장하기를 누르면 화면에도 업뎃이 돼야함
+  const imgChangeSubmit = async (e: any) => {
+    if (imgFile.length !== 0) {
+      const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
+      const response = await uploadString(imgRef, imgFile, 'data_url');
+      const downloadImageUrl = await getDownloadURL(response.ref);
+      setImgUploadUrl(downloadImageUrl);
+      console.log('downloadImageUrl🌃🌃🌃🌃🌃🖥️🖥️🖥️🖥️🖥️', downloadImageUrl);
+      await updateProfile(currentUser, {
+        // displayName: nickname,
+        photoURL: downloadImageUrl,
+      })
+        .then(() => {
+          alert('이미지 수정 완료!');
+          setOpen(false);
+          // setNickname('');
+        })
+        .catch((error: any) => {});
+    } else {
+      await updateProfile(currentUser, {
+        displayName: nickname, // 만약 이미지 수정을 안한다면? 닉네임은 현재 닉네임으로 받아와라?
+      });
+    }
+  };
+  // 사진을 변경하지 않고 닉네임만 변경하게 되면? 원래 사진이 날라가지 않고 들어감
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>
+        <S.EditModalBtnText>회원정보수정</S.EditModalBtnText>
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <S.EditModalAll>
+          <Box sx={style}>
+            {/* <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}> */}
+            <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
+            <S.EditModalImgLabelInputWrapper>
+              <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
+                {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
+              </S.EditModalProfileImgLabel>
+              <S.EditModalProfileImgInput
+                type="file"
+                accept="image/*"
+                id="modalProfileUploadImg"
+                onChange={saveNewProfileImg}
+                style={{ display: 'none' }}
+              />
+            </S.EditModalImgLabelInputWrapper>
+            <S.EditModalNicknameInputWrapper>
+              <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
+              <S.EditModalNicknameInput
+                type="text"
+                placeholder={'닉네임을 입력해주세요'}
+                onChange={ToChangeNicknameInput}
+                value={nickname}
+              />
+            </S.EditModalNicknameInputWrapper>
+            {/* <S.EditModalEmailInputWrpper>
+                <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
+                <S.EmailInput placeholder={currentUser.email} readOnly />
+              </S.EditModalEmailInputWrpper> */}
+            {/* <UpdatePassword /> */}
+            <S.EditModalBtnWrapper>
+              <S.EditModalCanceleButton onClick={handleClose}>
+                취소
+              </S.EditModalCanceleButton>
+            </S.EditModalBtnWrapper>
+            <S.EditModalCompleteButton
+              onClick={nicknameChangeOnClick}
+              type="submit"
+            >
+              수정완료
+            </S.EditModalCompleteButton>
+            {/* </S.NewProfileSubmitForm> */}
+          </Box>
+          {/* 북마크/내가 쓴 제보 */}
+        </S.EditModalAll>
+      </Modal>
+    </div>
+  );
+};
+export default MyProfileEditModal;
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '30%',
+  height: '800px',
+  bgcolor: 'background.paper',
+  border: '2px solid transparent',
+  boxShadow: 24,
+  p: 4,
+};

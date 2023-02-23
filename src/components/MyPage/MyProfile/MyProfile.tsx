@@ -11,59 +11,38 @@ import DeleteAccount from '../../Authentication/DeleteAccount/DeleteAccount';
 import React from 'react';
 import MyProfileEditModal from './MyProfileEditModal';
 import { useRecoilState } from 'recoil';
-import { editModal } from '../../../atoms';
+import { editModal, profileState } from '../../../atoms';
 import { useQuery } from 'react-query';
 import { getUser } from '../../../services/api';
+import { atom, useSetRecoilState, useRecoilValue } from 'recoil';
 
 const MyProfile = () => {
-  // data를 userInfos로 바꿔준다는 뜻
-  const { data: userInfos } = useQuery('users', getUser);
-
   const [open, setOpen] = useRecoilState(editModal);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
+  const profileRef = useRef();
   const [nickname, setNickname] = useState<any>(''); // 닉네임
-  // 현재 유저를 나타내며, 수정 완료 버튼을 누르기 전까지 currentUser의 displayName은 이전에 설정해두었던 닉네임을 가리킨다.
-  // 쉽게 이야기하자면 Jane을 가리킴
   const [currentUser, setCurrentUser] = useState<any>('');
+  console.log('currentUser', currentUser);
+  const imgProfileUrl = useRecoilValue(profileState);
 
-  const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름
-  const [imgFileName, setImgFileName] = useState(''); // 이미지 파일 이름.jpg
-  const [imgUploadUrl, setImgUploadUrl] = useState<any>(
-    auth.currentUser?.photoURL,
-  ); // 업로드한 이미지 url
-
-  // 변경할 이미지를 input창에 넣으면 변경됨
-  const newProfileImgOnChangeHandler = (
-    // event의 타입을 나타냄
-    // 클릭, 누르기 등등의 이벤트 중에서 사용할 이벤트와 일치하는 이벤트를 선택하면 됨
-    // onChange 이벤트를 활용하려하기 때문에 이벤트 타입 목록 중에서 changeEvent를 씀
-    event: React.ChangeEvent<HTMLInputElement>,
-  ) => {
-    console.log('🔥🔥🔥🔥🔥🔥event🔥🔥🔥🔥🔥🔥', event);
-    // console.log(
-    //   '🔥🔥🔥🔥🔥🔥event.currentTarget🔥🔥🔥🔥🔥🔥',
-    //   event.currentTarget,
-    // );
-    const target = event.currentTarget;
-    // 이벤트로부터 파일을 얻어와서 첫번째 파일만 받음
-    const theFile = (target.files as FileList)[0];
-    setImgFileName(theFile.name);
-
-    const reader = new FileReader();
-    reader.readAsDataURL(theFile); // file객체를 data url로 바꿔줌
-    console.log('reader', reader);
-    // 파일 읽기를 끝내면 state로 만들어둔 setImgFile에 값을 넣어줌
-    reader.onloadend = (finishedEvent: any) => {
-      setImgFile(finishedEvent.currentTarget.result);
-    };
-  };
+  // const [imgFile, setImgFile] = useState(''); // 이미지 파일 엄청 긴 이름
+  // const [imgFileName, setImgFileName] = useState(''); // 이미지 파일 이름.jpg
+  const [imgUploadUrl, setImgUploadUrl] = useState<any>(); // 업로드한 이미지 url
+  console.log('imgUploadUrlimgUploadUrlimgUploadUrlimgUploadUrl', imgUploadUrl);
+  useEffect(() => {
+    auth.currentUser?.photoURL;
+    if (currentUser?.photoURL) {
+      setImgUploadUrl(currentUser.photoURL);
+      console.log('currentUser.photoURL', currentUser.photoURL);
+    }
+  }, [currentUser, nickname]);
 
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        console.log('useEffect user.photoURL', user.photoURL);
         setCurrentUser(auth.currentUser);
         setImgUploadUrl(user.photoURL);
       } else {
@@ -72,58 +51,63 @@ const MyProfile = () => {
     });
   }, [currentUser]);
 
-  // 닉네임, 이미지 파이어베이스에 업로드해주고 불러오는 코드
-  // 바꾸려는 닉네임과 이미지를 파이어베이스에 업데이트해주는 코드
-  const submitNicknameImgChange = async (e: any) => {
-    e.preventDefault();
-    if (imgFile.length !== 0) {
-      const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
-      // 이벤트에 응답을 받아서
-      // imgRef, imgFile, 'data_url'를 문자열로 변환해준다는 뜻인듯?
-
-      const response = await uploadString(imgRef, imgFile, 'data_url');
-      const downloadImageUrl = await getDownloadURL(response.ref);
-      setImgUploadUrl(downloadImageUrl);
-
-      await updateProfile(currentUser, {
-        displayName: nickname,
-        photoURL: downloadImageUrl,
-      })
-        .then(() => {
-          alert('Profile updated!');
-          setNickname('');
-        })
-        .catch((error: any) => {});
-    } else {
-      await updateProfile(currentUser, {
-        displayName: nickname,
-      })
-        .then(() => {
-          alert('Profile updated!');
-          setNickname('');
-        })
-        .catch((error: any) => {});
-    }
-  };
+  useEffect(() => {
+    console.log('user.photoURL', currentUser?.photoURL);
+    setImgUploadUrl(currentUser.photoURL);
+  }, []);
 
   // 변경할 닉네임을 입력하면 실시간으로 받아오는 함수
   const ToChangeNicknameInput = (event: any) => {
     setNickname(event.target.value);
   };
 
+  // 닉네임, 이미지 파이어베이스에 업로드해주고 불러오는 코드
+  // 바꾸려는 닉네임과 이미지를 파이어베이스에 업데이트해주는 코드
+  // const submitNicknameImgChange = async (e: any) => {
+  //   e.preventDefault();
+  //   if (imgFile.length !== 0) {
+  //     const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
+  //     // 이벤트에 응답을 받아서
+  //     // imgRef, imgFile, 'data_url'를 문자열로 변환해준다는 뜻인듯?
+
+  //     const response = await uploadString(imgRef, imgFile, 'data_url');
+  //     const downloadImageUrl = await getDownloadURL(response.ref);
+  //     setImgUploadUrl(downloadImageUrl);
+
+  //     await updateProfile(currentUser, {
+  //       displayName: nickname,
+  //       photoURL: downloadImageUrl,
+  //     })
+  //       .then(() => {
+  //         alert('Profile updated!');
+  //         setNickname('');
+  //       })
+  //       .catch((error: any) => {});
+  //   } else {
+  //     await updateProfile(currentUser, {
+  //       displayName: nickname,
+  //     })
+  //       .then(() => {
+  //         alert('Profile updated!');
+  //         setNickname('');
+  //       })
+  //       .catch((error: any) => {});
+  //   }
+  // };
+
   return (
     <S.MyPageAll>
       <S.MyPageContainer>
         <S.MyProfileBox>
-          <S.NewProfileSubmitForm onSubmit={submitNicknameImgChange}>
+          <S.NewProfileSubmitForm>
             <S.ProfileImgLabelInputWrapper>
               <S.ProfileImgLabel htmlFor="profileUploadImg">
-                <S.ProfileImgShow src={imgUploadUrl} onClick={handleOpen} />
+                <S.ProfileImgShow src={imgProfileUrl} onClick={handleOpen} />
               </S.ProfileImgLabel>
               <S.ProfileImgInput
                 accept="image/*"
                 id="profileUploadImg"
-                onChange={newProfileImgOnChangeHandler}
+                // onChange={newProfileImgOnChangeHandler}
                 style={{ display: 'none' }}
               />
             </S.ProfileImgLabelInputWrapper>
@@ -134,7 +118,6 @@ const MyProfile = () => {
               <S.NicknameInput
                 type="text"
                 placeholder={currentUser.displayName}
-                onChange={ToChangeNicknameInput}
                 value={nickname}
               />
             </S.NicknameInputWrapper>
@@ -144,15 +127,17 @@ const MyProfile = () => {
             </S.EmailInputWrpper>
             <S.PhoneNumInputWrpper>
               <S.PhoneNumText>휴대전화</S.PhoneNumText>
-              <S.PhoneNumInput readOnly />
+              <S.PhoneNumInputDiv>
+                {/* {userInfos[0].phoneNumber} */}
+              </S.PhoneNumInputDiv>
             </S.PhoneNumInputWrpper>
             <S.GenderInputWrpper>
               <S.GenderText>성별</S.GenderText>
-              <S.GenderInput readOnly />
+              <S.GenderInput />
             </S.GenderInputWrpper>
             <S.AgeInputWrpper>
               <S.AgeText>생일</S.AgeText>
-              <S.AgeInput readOnly />
+              <S.AgeInput />
             </S.AgeInputWrpper>
 
             {/* <S.ModifyCompleteButton type="submit">

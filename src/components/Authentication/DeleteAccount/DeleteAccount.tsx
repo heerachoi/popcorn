@@ -84,7 +84,7 @@ const DeleteAccountBtn = styled.button`
   gap: 8px;
 
   position: absolute;
-  width: 122px;
+  width: 33%;
   height: 48px;
   left: 53%;
   top: 971px;

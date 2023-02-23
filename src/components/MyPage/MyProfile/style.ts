@@ -19,9 +19,9 @@ export const MyProfileBox = styled.div`
   box-sizing: border-box;
 
   position: relative;
-  width: 400px;
+  width: 25%;
   height: 1084px;
-  left: 3%;
+  left: 5%;
   top: 80px;
 
   /* txt2 */
@@ -60,7 +60,7 @@ export const NicknameText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-
+  margin-bottom: 0.2rem;
   /* txt1 */
 
   color: #323232;
@@ -163,7 +163,7 @@ export const EmailText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-
+  margin-bottom: 0.2rem;
   color: #323232;
 `;
 
@@ -193,11 +193,11 @@ export const PhoneNumText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-
+  margin-bottom: 0.2rem;
   color: #323232;
 `;
 
-export const PhoneNumInput = styled.input`
+export const PhoneNumInputDiv = styled.div`
   width: 80%;
   height: 48px;
   border: 1px solid #a6a6a6;
@@ -209,6 +209,7 @@ export const PhoneNumInput = styled.input`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
+  background-color: #ffffff;
 `;
 
 // ==============성별
@@ -222,11 +223,11 @@ export const GenderText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-
+  margin-bottom: 0.2rem;
   color: #323232;
 `;
 
-export const GenderInput = styled.input`
+export const GenderInput = styled.div`
   width: 80%;
   height: 48px;
   border: 1px solid #a6a6a6;
@@ -238,6 +239,7 @@ export const GenderInput = styled.input`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
+  background-color: #ffffff;
 `;
 
 export const AgeInputWrpper = styled.div`
@@ -250,11 +252,11 @@ export const AgeText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-
+  margin-bottom: 0.2rem;
   color: #323232;
 `;
 
-export const AgeInput = styled.input`
+export const AgeInput = styled.div`
   width: 80%;
   height: 48px;
   border: 1px solid #a6a6a6;
@@ -266,6 +268,7 @@ export const AgeInput = styled.input`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
+  background-color: #ffffff;
 `;
 
 export const MyBookmarkReportWrap = styled.div``;
@@ -306,17 +309,12 @@ export const EditModalTitleText = styled.p`
   /* display: flex;
   justify-content: center; */
   /* align-items: center; */
-  /* Title1 */
-
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 800;
-  font-size: 27px;
+  font-size: 23px;
   line-height: 5rem;
-  margin-left: 13rem;
-
-  /* Grayscale/Gray1 */
-
+  margin-left: 35%;
   color: #323232;
 `;
 
@@ -328,8 +326,8 @@ export const EditModalImgLabelInputWrapper = styled.div`
 `;
 
 export const EditModalProfileImgLabel = styled.label`
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   border-radius: 70%;
   border: 1px solid #d9d9d9;
   display: flex;
@@ -339,8 +337,8 @@ export const EditModalProfileImgLabel = styled.label`
 `;
 
 export const EditModalProfileImgShow = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   border-radius: 70%;
   border: 1px solid #d9d9d9;
 `;
@@ -363,7 +361,7 @@ export const EditModalProfileImgInput = styled.input`
 // `;
 
 export const EditModalNicknameInputWrapper = styled.div`
-  margin: 5vh 0vh 2vh 8vh;
+  margin: 4vh 0vh 2vh 8vh;
 `;
 
 export const EditModalNicknameText = styled.p`
@@ -381,7 +379,7 @@ export const EditModalNicknameText = styled.p`
 
 export const EditModalNicknameInput = styled.input`
   width: 80%;
-  height: 48px;
+  height: 30px;
   border: 1px solid #a6a6a6;
   border-radius: 8px;
   font-size: 16px;
@@ -454,7 +452,7 @@ export const EditModalCompleteButton = styled.button`
   width: 200px;
   height: 60px;
   left: 724px;
-  top: 1149px;
+  top: 849px;
   background: #bdbdbd;
   border: 1px solid #9b9b9b;
   border-radius: 8px;
@@ -473,4 +471,19 @@ export const EditModalCompleteButton = styled.button`
   flex: none;
   order: 0;
   flex-grow: 0;
+`;
+
+export const EditModalEmailInput = styled.input`
+  width: 80%;
+  height: 30px;
+  border: 1px solid #a6a6a6;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+  /* background-color: #d9d9d9; */
 `;
