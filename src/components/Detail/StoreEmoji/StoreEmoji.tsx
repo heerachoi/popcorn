@@ -47,7 +47,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     vote: 'like',
   };
 
-  // 별로에요 추가
+  // 별로예요 추가
   const hateLike = {
     id: uuidv4(),
     storeId: detailData.id,
@@ -89,7 +89,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     setLike(likes.length);
   };
 
-  // 별로에요 숫자 카운트
+  // 별로예요 숫자 카운트
   const hateCountHandler = async () => {
     const { data } = await axios.get('http://localhost:3003/likeHate');
     const hates = data.filter((item: any) => {
@@ -113,7 +113,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           console.log('err', err);
         }
       } else if (hateClicked) {
-        alert('좋아요, 별로에요 둘 중 하나만 가능합니다.');
+        alert('좋아요, 별로예요 둘 중 하나만 가능합니다.');
       } else if (!likeClicked) {
         // 좋아요가 안눌린 상태
         try {
@@ -129,11 +129,11 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     }
   };
 
-  // 별로에요 버튼
+  // 별로예요 버튼
   const hateHandler = async () => {
     if (currentUser) {
       if (hateClicked) {
-        // 별로에요 눌린 상태
+        // 별로예요 눌린 상태
         try {
           axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
           hateSetColor(`${COLORS.black}`);
@@ -142,9 +142,9 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           console.log('err', err);
         }
       } else if (likeClicked) {
-        alert('좋아요, 별로에요 둘 중 하나만 가능합니다.');
+        alert('좋아요, 별로예요 둘 중 하나만 가능합니다.');
       } else if (!hateClicked) {
-        // 별로에요 안눌린 상태
+        // 별로예요 안눌린 상태
         try {
           axios.post('http://localhost:3003/likeHate', hateLike);
           hateSetColor(`${COLORS.red}`);
@@ -175,7 +175,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
             <S.LikeHateImg src={require('../../../assets/Logo/hate.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground style={{ width: '85px' }}>
-            <S.EmojiText style={{ color: hateColor }}>별로에요</S.EmojiText>
+            <S.EmojiText style={{ color: hateColor }}>별로예요</S.EmojiText>
           </S.TextBackground>
           <S.EmojiText>{hate}</S.EmojiText>
         </S.EmojiDiv>

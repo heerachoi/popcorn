@@ -64,7 +64,7 @@ export default DetailPageViews;
 const GrapfWrap = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 180px;
 `;
 
 export const GrapfBox = styled.div`

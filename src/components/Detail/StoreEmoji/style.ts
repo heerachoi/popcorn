@@ -12,7 +12,7 @@ export const EmojiContainer = styled.div`
   align-items: center;
   flex-direction: row;
   margin-top: 30px;
-  margin-bottom: 52px;
+  margin-bottom: 20px;
 `;
 
 export const EmojiDiv = styled.div`
@@ -54,7 +54,7 @@ export const TextBackground = styled.div`
 `;
 
 export const EmojiText = styled.span`
-  margin-top: 20px;
+  margin-top: 30px;
   position: relative;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;

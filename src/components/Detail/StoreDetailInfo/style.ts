@@ -21,7 +21,7 @@ export const TitleWrap = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 48px;
-  background-color: beige;
+  /* background-color: beige; */
 `;
 
 export const Title = styled.span`
