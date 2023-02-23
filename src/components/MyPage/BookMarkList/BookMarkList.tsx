@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import data from '../../../data/bookMarkList.json';
+import data from '../../../data/BookMark.json';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { BsBookmarkFill } from 'react-icons/bs';
@@ -27,10 +27,14 @@ const BookMarkList = () => {
             if (uid === bookmark.userId) {
               return (
                 <S.BookMarkCard>
-                  <BsBookmarkFill />
                   <S.BookMarkThumbnail
                     onClick={() => navigate(`/datail/${bookmark.storeId}`)}
                   >
+                    <S.BookMarkIcon>
+                      <BsBookmarkFill
+                        style={{ color: ' #323232', fontSize: '2rem' }}
+                      />
+                    </S.BookMarkIcon>
                     <img
                       src={bookmark.imgURL}
                       style={{ width: '296px', height: '296.46px' }}

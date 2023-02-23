@@ -1,3 +1,4 @@
+import { border } from '@mui/system';
 import {
   EmailAuthProvider,
   reauthenticateWithCredential,
@@ -5,7 +6,7 @@ import {
 } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../../../services/firebase';
-
+import * as S from './style';
 const UpdatePassword = () => {
   const initPasswordInput = {
     password: '',
@@ -122,30 +123,65 @@ const UpdatePassword = () => {
 
   return (
     <div>
-      <input
-        value={passwordInput.password}
-        type="password"
-        name="password"
-        onChange={passwordChangeHandler}
-      />
-      <button onClick={firstPasswordCheck}>비밀번호 확인</button>
-      <input
-        value={passwordInput.updatePassword}
-        type="password"
-        name="updatePassword"
-        onChange={passwordChangeHandler}
-        onBlur={validatePasswordHandler}
-      />
-      <div>{helperPasswordInput.updatePassword}</div>
-      <input
-        value={passwordInput.updatePasswordCheck}
-        type="password"
-        name="updatePasswordCheck"
-        onChange={passwordChangeHandler}
-        onBlur={validatePasswordCheckHandler}
-      />
-      <div>{helperPasswordInput.updatePasswordCheck}</div>
-      <button onClick={passwordCheckHandler}>비밀번호 변경</button>
+      <S.EnterInputPasswordWrapper>
+        <S.EnterInputPasswordText>현재 비밀번호</S.EnterInputPasswordText>
+        <S.EnterInputPassword
+          value={passwordInput.password}
+          type="password"
+          name="password"
+          onChange={passwordChangeHandler}
+          placeholder={'현재 비밀번호를 입력하세요'}
+        />
+        <button
+          onClick={firstPasswordCheck}
+          style={{
+            backgroundColor: 'transparent',
+            cursor: 'pointer',
+            border: '1px solid black',
+          }}
+        >
+          비밀번호 확인
+        </button>
+      </S.EnterInputPasswordWrapper>
+      <S.EnterInputChangePasswordWrapper>
+        <S.EnterInputChangePasswordText>
+          비밀번호 (대문자, 소문자+숫자+특수문자 8자 이상)
+        </S.EnterInputChangePasswordText>
+        <S.EnterInputChangePasswordInput
+          value={passwordInput.updatePassword}
+          type="password"
+          name="updatePassword"
+          onChange={passwordChangeHandler}
+          onBlur={validatePasswordHandler}
+          placeholder={'새 비밀번호를 입력하세요'}
+        />
+        <div>{helperPasswordInput.updatePassword}</div>
+      </S.EnterInputChangePasswordWrapper>
+
+      <S.EnterInputCheckPasswordWrapper>
+        <S.EnterInputCheckPasswordText>
+          비밀번호 확인
+        </S.EnterInputCheckPasswordText>
+        <S.EnterInputCheckPasswordInput
+          value={passwordInput.updatePasswordCheck}
+          type="password"
+          name="updatePasswordCheck"
+          onChange={passwordChangeHandler}
+          onBlur={validatePasswordCheckHandler}
+          placeholder={'새 비밀번호를 한번 더 확인하세요'}
+        />
+        <div>{helperPasswordInput.updatePasswordCheck}</div>
+        <button
+          onClick={passwordCheckHandler}
+          style={{
+            backgroundColor: 'transparent',
+            cursor: 'pointer',
+            border: '1px solid black',
+          }}
+        >
+          비밀번호 변경
+        </button>
+      </S.EnterInputCheckPasswordWrapper>
     </div>
   );
 };

@@ -23,6 +23,7 @@ export const BookMarkCard = styled.div`
 `;
 
 export const BookMarkThumbnail = styled.div`
+  position: relative;
   width: 296px;
   height: 296.46px;
   left: 0px;
@@ -35,6 +36,11 @@ export const BookMarkThumbnail = styled.div`
   /* background: #d9d9d9; */
   border-radius: 8px 8px 0px 0px;
   background-color: #d9d9d9;
+`;
+
+export const BookMarkIcon = styled.div`
+  position: absolute;
+  margin-left: 260px;
 `;
 
 export const BookMarkCardTitle = styled.p`
