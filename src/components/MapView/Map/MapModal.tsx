@@ -7,7 +7,6 @@ interface Props {
 }
 
 const MapModal = ({ marker, setInfo }: Props) => {
-  console.log('marker?', marker);
   const navigate = useNavigate();
 
   return (
@@ -116,8 +115,4 @@ const ModalMainText = styled.span`
 const ModalMainBtn = styled.button`
   border: none;
   cursor: pointer;
-`;
-
-const RemovableCustomOverlayStyle = styled.div`
-  display: none;
 `;
