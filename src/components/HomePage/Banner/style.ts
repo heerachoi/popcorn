@@ -4,11 +4,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export const StyledSlider = styled(Slider)`
-  height: 360px;
-
+  height: 27.5rem;
   img {
     cursor: pointer;
-    height: 40vh;
+    height: 27.5rem;
     width: 100vw;
   }
 
@@ -51,5 +50,5 @@ export const StyledSlider = styled(Slider)`
 
 export const IMG = styled.div`
   width: 100%;
-  height: 70vh;
+  height: 27.5rem;
 `;

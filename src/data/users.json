@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "age": "2023-02-20",
+      "email": "ewfwfk@naver.com",
+      "gender": "men",
+      "nickName": "재창이",
+      "phoneNumber": "01063183932",
+      "profileImg": null,
+      "uid": "XkFbaedOBDMumF6mC4gZ8YS6g082",
+      "id": "59b19ef9-b136-4f0e-8d2e-31ce6b84cd17"
+    },
+    {
+      "age": "1995-04-12",
+      "email": "wockdwockd12@naver.com",
+      "gender": "men",
+      "nickName": "재창이",
+      "phoneNumber": "01063183932",
+      "profileImg": null,
+      "uid": "mMuouk0EKfSJulDQLNQMgtETBMJ3",
+      "id": "59082783-bf8a-423c-bc0a-8288795682c2"
+    },
+    {
+      "age": "2023-02-07",
+      "email": "wockd1995@naver.com",
+      "gender": "men",
+      "nickName": "wockd",
+      "phoneNumber": "01063183932",
+      "profileImg": null,
+      "uid": "6NZbSbKqDHbj6w5QyYMSainJIlx1",
+      "id": "d8f7b1ce-a41e-40c6-b594-ceb57d7e218c"
+    },
+    {
+      "age": "1980-01-23",
+      "email": "chacha@naver.com",
+      "gender": "men",
+      "nickName": "차은우",
+      "phoneNumber": "01028846776",
+      "profileImg": null,
+      "uid": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "id": "22ace3dc-2a33-4fbc-b844-6ef15464c51a"
+    },
+
+    {
+      "age": "1993-06-13",
+      "email": "jieun@naver.com",
+      "gender": "women",
+      "nickName": "팝팝",
+      "phoneNumber": "01086256038",
+      "profileImg": null,
+      "uid": "THhGvnw91ObW1nfkjAU66kVitO33",
+      "id": "47957468-07ab-452a-8a51-9b5085d3f5f3"
+    }
+  ]
+}
