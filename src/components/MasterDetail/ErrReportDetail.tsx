@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getInfoErrReport } from '../../services/api';
@@ -12,13 +12,7 @@ const ErrReportDetail = () => {
     'infoErrModifiContents',
     getInfoErrReport,
   );
-  // console.log('data', data);
-
-  // console.log('paramId', paramId);
-
-  // useEffect(() => {
-  //   getInfoErrReport();
-  // }, []);
+ 
   if (isLoading) {
     console.log('로딩중');
     return <p>Loading...</p>;
@@ -28,11 +22,8 @@ const ErrReportDetail = () => {
     return <p>Error!!!</p>;
   }
 
-  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
-  // console.log('selectedDetail', selectedDetail);
-
+  const selectedDetail = data?.filter((item: any) => item.id === paramId.id); 
   const currentState = selectedDetail[0].status;
-  // console.log('currentState', currentState);
 
   const checkHandler = () => {
     alert('확인');

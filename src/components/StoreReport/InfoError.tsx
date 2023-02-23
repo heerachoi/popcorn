@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { InfoErrorForm, ErrorImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
 import { storage } from '../../services/firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
@@ -215,12 +214,12 @@ const InfoError: any = () => {
       </S.ReportGrid>
       <S.ReportGrid>
         <S.ReportTitle>이미지</S.ReportTitle>
-        <ErrorImgLabel htmlFor="storeInfoImg">
+        <S.ErrorImgLabel htmlFor="storeInfoImg">
           <BiImageAdd style={{ fontSize: '60px' }} />
           {errImgFile && (
             <img src={errImgFile} style={{ width: 150, height: 150 }} />
           )}
-        </ErrorImgLabel>
+        </S.ErrorImgLabel>
         <input
           type="file"
           accept="image/*"

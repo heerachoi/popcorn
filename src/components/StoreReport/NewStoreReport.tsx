@@ -9,7 +9,7 @@ import { auth } from '../../services/firebase';
 import * as S from './style';
 import { globalBtn } from '../../atoms';
 import { useSetRecoilState } from 'recoil';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface NewStoreInput {
   title: string;
@@ -55,24 +55,18 @@ const NewStoreReport: any = () => {
   ) => {
     setGlobalButton(true);
     const target = event.currentTarget;
-    console.log('target', target);
 
     const theFile = (target.files as FileList)[0]; // 이벤트로부터 파일을 얻어와서 첫 번째 파일만 받음
-    console.log('theFile', theFile);
     setFileName(theFile.name);
 
     const reader = new FileReader();
     reader.readAsDataURL(theFile); // file 객체를 data url로 바꿔줌
 
     reader.onloadend = (finishedEvent: any) => {
-      setImgFile(finishedEvent.currentTarget.result);
-      console.log(
-        'finishedEvent.currentTarget.result',
-        finishedEvent.currentTarget.result,
-      );
+      setImgFile(finishedEvent.currentTarget.result);      
     };
   };
-  console.log('imgFile', imgFile);
+
 
   const cancleHandler = () => {
     if (window.confirm('작성을 취소하시겠습니까?')) {
@@ -86,6 +80,7 @@ const NewStoreReport: any = () => {
   ) => {
     event.preventDefault();
     setGlobalButton(false);
+    
     // firebase storage에 이미지 업로드
     const imgRef = ref(storage, `storeInfoImg/${fileName}`);
 

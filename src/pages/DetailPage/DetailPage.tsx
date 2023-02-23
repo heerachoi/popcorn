@@ -7,7 +7,6 @@ import { userInfo } from '../../atoms';
 import DetailMap from '../../components/Detail/DetailMap/DetailMap';
 import DetailPageViews from '../../components/Detail/DetailPageViews/DetailPageViews';
 import StoreDetailInfo from '../../components/Detail/StoreDetailInfo/StoreDetailInfo';
-import StoreEmoji from '../../components/Detail/StoreEmoji/StoreEmoji';
 import { getPopupData } from '../../services/api';
 
 const DetailPage: any = () => {
@@ -70,7 +69,6 @@ const DetailPage: any = () => {
   return (
     <>
       <StoreDetailInfo detailData={detailData} />
-      {/* <StoreEmoji /> */}
       <DetailPageViews detailData={detailData} />
       <DetailMap />
     </>
