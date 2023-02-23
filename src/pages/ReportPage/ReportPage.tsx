@@ -46,7 +46,7 @@ const ReportPage = () => {
         <S.TabTitle>
           {tabMenu.map((item, i) => {
             return (
-              <S.TitleBox>
+              <S.TitleBox key={item.id}>
                 <S.TitleBtn
                   className={activeIndex === i ? 'active' : ''}
                   onClick={() => modalStatusChangeHandler(i)}

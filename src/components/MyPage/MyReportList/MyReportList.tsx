@@ -29,8 +29,12 @@ const MyReportList = () => {
                 </S.ListContent>
                 <S.ListContent>
                   <S.ReportCategory>{li.category}</S.ReportCategory>
-                  {/* li.status === 0 ? 진행중 : li.statue !== 0 ? 완료 : 거절 */}
-                  {li.status === 0 ? (
+                  {li.status === false ? (
+                    <S.ReportStatusText>진행중</S.ReportStatusText>
+                  ) : (
+                    <S.ReportStatusText style={{ color: 'black' }}>완료</S.ReportStatusText>
+                  )}
+                  {/* {li.status === 0 ? (
                     <S.ReportStatusText>진행중</S.ReportStatusText>
                   ) : li.status === 1 ? (
                     <S.ReportStatusText style={{ color: 'black' }}>
@@ -38,7 +42,7 @@ const MyReportList = () => {
                     </S.ReportStatusText>
                   ) : (
                     <S.ReportCategory style={{ color: 'red' }}>{li.excuse}</S.ReportCategory>
-                  )}
+                  )} */}
                 </S.ListContent>
               </S.ListBox>
             );

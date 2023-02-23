@@ -7,15 +7,12 @@ export const NewPostWrap = styled.div`
 `;
 
 export const TitleBackground = styled.div`
-  width: 210px;
-  height: 30px;
   background-color: #ffeb62;
-  position: absolute;
-  box-sizing: border-box;
-  padding-left: 20px;
+  width: 240px;
+  height: 30px;
+  padding-left: 13px;
   border-radius: 12px;
-  right: 950px;
-  top: 120px;
+  margin: auto;
 `;
 
 export const NewPostTitle = styled.div`
@@ -50,8 +47,7 @@ export const PostTitle = styled.div`
   font-size: 17px;
   line-height: 24px;
   text-align: center;
-  margin-right:10px;
-
+  margin-right: 10px;
 `;
 export const TitleInput = styled.input`
   width: 500px;
