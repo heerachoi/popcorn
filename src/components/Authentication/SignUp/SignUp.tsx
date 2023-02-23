@@ -30,9 +30,9 @@ interface SignUpInput {
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const setGlobalButton = useSetRecoilState(globalBtn);
-  const [isModal, setIsModal] = useRecoilState(modalStatus);
-  const modalStatusReset = useResetRecoilState(modalStatus);
+  const setGlobalButton = useSetRecoilState(globalBtn); // button 상태가 false면 페이지 이동 아니라면 모달창 오픈
+  const [isModal, setIsModal] = useRecoilState(modalStatus); // 모달 true면 켜짐
+  const modalStatusReset = useResetRecoilState(modalStatus); // recoil의 modalStatus를 defalut값으로 바꿔준다.
 
   const initSignUpInput = {
     nickName: '',
@@ -51,38 +51,38 @@ const SignUp = () => {
   const [helperText, setHelperText] = useState<SignUpInput>(
     initHelperTextSignUpInput,
   );
-  const [phoneVerify, setPhoneVerify] = useState(false);
-  const [requestedPV, setRequestedPV] = useState(false);
+  const [phoneVerify, setPhoneVerify] = useState(false); // 인증완료가 되지 않으면 회원가입 버튼을 누를 수 없게 하는 state
+  const [requestedPV, setRequestedPV] = useState(false); // 휴대폰 인증번호 요청 성공시 인증번호 입력칸을 생기게 하는 state
   const [dataId, setDataId] = useState('');
 
   // 모달
   const modalStatusChangeHandler = (error: string) => {
-    setIsModal({ ...isModal, [error]: !isModal.error });
+    setIsModal({ ...isModal, [error]: !isModal.error }); // error가 뜨면 이 함수를 return 해준다. recoil에 있는 '키(error)' : 값 boolean의 반대
   };
   const modalReset = () => {
-    modalStatusReset();
+    modalStatusReset(); // recoil 리셋
   };
 
   // 회원가입 완료
   const signUpCompleteAlert = async () => {
-    await signOut(auth);
-    setGlobalButton(false);
-    modalStatusReset();
-    navigate('/login', { state: signUpInput.email });
+    await signOut(auth); // 자동 로그인되서 로그아웃 해줌
+    setGlobalButton(false); // 페이지 이동 방지 true값을 false로 바꿔줌
+    modalStatusReset(); // modal을 닫아줌, 아니면 뒤로 갔을 때 모달 창이 떠 있다.
+    navigate('/login', { state: signUpInput.email }); // 로그인 페이지로 이동, state : 회원가입 때 입력한 email
   };
 
   const signUpInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    setGlobalButton(true);
+    setGlobalButton(true); // input 값이 바뀌는 순간 페이지 이동을 막기 위해 기본값을 true로 바꿔줌
     setSignUpInput({
-      ...signUpInput,
-      [event.target.name]: event.target.value,
+      ...signUpInput, // 나머지 인풋값 그대로
+      [event.target.name]: event.target.value, // 태그에서 설정해준 event.target.name : event.target.value를 'key': 'value'로 설정한다.
     });
   };
 
   const signUpSelectChanchHandler = (event: any) => {
-    event.target.style.color = '#323232';
+    event.target.style.color = '#323232'; // select에서 옵션을 선택하면 색깔이 바뀌게 하기 위해서
     setGlobalButton(true);
     setSignUpInput({
       ...signUpInput,
@@ -90,7 +90,6 @@ const SignUp = () => {
     });
   };
 
-  // 전역에 선언되서 phone라는 아이디를 읽기 전에 먼저 렌더링됨
   // 인증번호 보내는 이벤트
   const phoneNumberPostHandler = (
     event: React.MouseEvent<HTMLButtonElement>,
@@ -102,54 +101,55 @@ const SignUp = () => {
     // if문을 넣으니 여러번 눌러도 리캡챠가 실행되었다.
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
-        're-container',
+        're-container', // 리캡챠를 사용할 태그의 id
         {
-          size: 'invisible',
+          size: 'invisible', // 안보이는 리캡챠 설정
           callback: (response: any) => {
-            console.log('recaptchaVerifier response', response);
+            console.log('recaptchaVerifier response', response); // 리캡챠가 실행되면 콜백함수를 받음
             // setRecaptcha(grecaptcha);
           },
           'expired-callback': (data: any) => {
             console.log('reCAPTCHA expired, refreshing...');
-            window.recaptchaVerifier.reset();
+            window.recaptchaVerifier.reset(); // 만료된 리캡챠를 리셋해주기 위한 함수   ❌ 아직 error 처리중
           },
         },
-        auth,
+        auth, // getAuth()
       );
     }
 
     const appVerifier = window.recaptchaVerifier;
     // 인증번호를 보내는 메서드, 2번째 인수는 휴대폰 번호
-    signInWithPhoneNumber(auth, '+82' + signUpInput.phoneNumber, appVerifier)
+    signInWithPhoneNumber(auth, '+82' + signUpInput.phoneNumber, appVerifier) // 입력한 번호로 인증번호 보내기
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
-        setDataId(confirmationResult.verificationId);
-        setRequestedPV(true);
+        setDataId(confirmationResult.verificationId); // 리캡챠에서 제공하는 Id
+        setRequestedPV(true); // 번호입력칸 나옴
       })
       .catch((error) => {
         if (error.message.includes('invalid-phone-number'))
-          return modalStatusChangeHandler('validPhoneNumber');
+          return modalStatusChangeHandler('validPhoneNumber'); // 에러가 뜨면 모달창으로 알려줌
       });
   };
 
+  // 인증번호 검증 이벤트
   const phoneVerifyHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    const code = signUpInput.phoneCode;
-    const authCredential = PhoneAuthProvider.credential(dataId, code);
-    signInWithCredential(auth, authCredential)
+    const code = signUpInput.phoneCode; // 유저가 입력한 인증번호
+    const authCredential = PhoneAuthProvider.credential(dataId, code); // 리캡챠에서 인증번호를 보낼 때 제공해준 Id와 code를 확인
+    signInWithCredential(auth, authCredential) // 확인 완료 후 회원가입 및 로그인
       .then(() => {
-        deleteUser(auth.currentUser!);
-        signOut(auth);
-        setPhoneVerify(true);
-        setRequestedPV(false);
-        modalStatusChangeHandler('phoneValidComplete');
+        deleteUser(auth.currentUser!); // 회원가입 되자마자 회원탈퇴
+        signOut(auth); // 회원가입 되자마자 로그아웃
+        setPhoneVerify(true); // 회원가입 버튼을 누를 수 있음
+        setRequestedPV(false); // 인증번호 입력칸 사라짐
+        modalStatusChangeHandler('phoneValidComplete'); // 인증이 완료되었다는 모달창이 뜸
       })
       .catch((error: any) => {
         if (error.message.includes('invalid-verification-code'))
-          return modalStatusChangeHandler('invalidVerificationCode');
+          return modalStatusChangeHandler('invalidVerificationCode'); // 유효하지 않은 인증번호 모달
         if (error.message.includes('code-expired'))
-          return modalStatusChangeHandler('codeExpired');
+          return modalStatusChangeHandler('codeExpired'); // 만료된 인증번호 모달
       });
   };
 
@@ -157,6 +157,7 @@ const SignUp = () => {
   const singUpHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     await createUserWithEmailAndPassword(
+      // 로그인 및 회원가입
       auth,
       signUpInput.email,
       signUpInput.password,
@@ -183,21 +184,23 @@ const SignUp = () => {
       })
       .catch((error) => {
         if (error.message.includes('email-already-in-use'))
-          return modalStatusChangeHandler('emailAlreadyInUse');
+          return modalStatusChangeHandler('emailAlreadyInUse'); // 이미 가입된 아이디 모달
       });
   };
 
   /////////// 유효성 검사 ////////////
+  // 밑에서 onBlur에 이 함수를 넣어줌, focus 상태가 아닐 때 함수 실행됨
   const validateNickName = (event: React.FocusEvent<HTMLInputElement>) => {
     if (event.target.value.length < 2 || event.target.value.length > 10) {
+      // foucs한 value가 이 조건이라면
       setHelperText({
         ...helperText,
-        nickName: '2글자 이상 10글자 이하로 작성해주세요.',
+        nickName: '2글자 이상 10글자 이하로 작성해주세요.', // 닉네임 아래 경고문
       });
     } else {
       setHelperText({
         ...helperText,
-        nickName: initHelperTextSignUpInput.nickName,
+        nickName: initHelperTextSignUpInput.nickName, // 아니라면 경고문 사라짐
       });
     }
   };
@@ -271,6 +274,7 @@ const SignUp = () => {
   };
   /////////// 유효성 검사 ////////////
 
+  // 모든 인풋창이 비었을 때 페이지 이동 가능하게 함
   useEffect(() => {
     if (
       signUpInput.nickName === '' &&
@@ -418,6 +422,7 @@ const SignUp = () => {
         </S.FormItemWrap>
         <S.FormBtnWrap>
           <S.CancleBtn onClick={() => navigate('/login')}>취소</S.CancleBtn>
+          {/* 모든 조건을 충족하면 회원가입을 누를 수 있다. */}
           <S.SignUpBtn
             disabled={
               helperText.nickName === '' &&
@@ -435,6 +440,7 @@ const SignUp = () => {
           </S.SignUpBtn>
         </S.FormBtnWrap>
       </S.FormWrap>
+      {/* 위에서 error가 떳을 때 Modal이 뜨는 태그들 */}
       {isModal.validPhoneNumber && (
         <CustomModal
           title="알림"

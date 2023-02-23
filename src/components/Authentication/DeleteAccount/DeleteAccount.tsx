@@ -17,7 +17,7 @@ const DeleteAccount = () => {
   const deleteDBUser = async () => {
     if (user) await axios.delete(`http://localhost:4000/users/${user.uid}`);
     try {
-      modalStatusChangeHandler('signoutComplete');
+      modalStatusChangeHandler('signoutComplete'); // 회원탈퇴 완료 모달   ❌ 실행안됨
     } catch (error) {
       console.log('알 수 없는 오류 발생');
     }
@@ -51,6 +51,7 @@ const DeleteAccount = () => {
           fnc={deleteAccountClickHandler}
         />
       )}
+      {/* ❌ 실행 안됨 */}
       {isModal.signoutComplete && (
         <CustomModal
           title="알림"

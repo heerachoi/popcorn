@@ -31,7 +31,7 @@ const MapDataList = ({ popupData, condition, setMyLocation }: any) => {
         <NotFound />
       ) : (
         category === ' ' &&
-        popuplist?.map((popup: any) => (
+        popupData?.map((popup: any) => (
           <MapDataCard
             key={popup.id}
             popup={popup}

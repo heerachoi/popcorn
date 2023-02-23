@@ -1,11 +1,9 @@
 import * as S from './style';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
-import { confirmAlert } from 'react-confirm-alert';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../../services/firebase';
 import { AiFillLeftCircle } from 'react-icons/ai';
-import styled from 'styled-components';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { modalStatus } from '../../../atoms';
 import CustomModal from '../../../shared/CustomModal';
@@ -16,7 +14,7 @@ interface SignInInput {
 
 const Login = () => {
   const navigate = useNavigate();
-  const { state: signUpEmail } = useLocation();
+  const { state: signUpEmail } = useLocation(); // 회원가입 할 때 email
   const [isModal, setIsModal] = useRecoilState(modalStatus);
   const modalStatusReset = useResetRecoilState(modalStatus);
 
@@ -57,6 +55,7 @@ const Login = () => {
     });
   };
 
+  // x 버튼 클릭시 input창 리셋
   const signInInputReset = (event: React.MouseEvent<HTMLDivElement>) => {
     setSignInInput({
       ...signInInput,
@@ -137,6 +136,7 @@ const Login = () => {
           onChange={signInInputChangeHandler}
           onBlur={validateEmail}
         />
+        {/* 이메일 전체 지우기 버튼 */}
         {signInInput.email && (
           <div
             style={{ cursor: 'pointer' }}

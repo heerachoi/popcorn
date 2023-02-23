@@ -21,27 +21,29 @@ const Header = () => {
 
   // input 창에 value 가 있으면 alert로 이동을 막아주는 함수
   const globalBtnClickHandler = () => {
-    navigate(pageChange);
-    setGlobalButton(false);
-    setIsModal({ ...isModal, globalBtn: !isModal.globalBtn });
+    navigate(pageChange); // 페이지 이동
+    setGlobalButton(false); // input값 있을 때 이동 막는 함수 초기화
+    setIsModal({ ...isModal, globalBtn: !isModal.globalBtn }); // 모달 닫기
   };
 
   const reportClickHandler = () => {
-    setIsModal({ ...isModal, master: !isModal.master });
-    if (!user.isLogin) navigate('/login');
+    setIsModal({ ...isModal, master: !isModal.master }); // 모달 닫기
+    navigate('/login'); // 로그인 페이지로 이동
   };
 
   // 모달 상태 변경
+
+  // 팝업스토어 제보 모달
   const masterModalStatusChangeHandler = () => {
-    setIsModal({ ...isModal, master: !isModal.master });
+    setIsModal({ ...isModal, master: !isModal.master }); // 모달 열기
   };
 
   const globalBtnModalStatusChangeHandler = (page: string) => {
     if (globalButton) {
-      setPageChange(page);
-      return setIsModal({ ...isModal, globalBtn: !isModal.globalBtn });
+      setPageChange(page); // 값을 각 페이지 주소로 설정
+      return setIsModal({ ...isModal, globalBtn: !isModal.globalBtn }); // 모달 열기
     }
-    navigate(page);
+    navigate(page); // input에 값이 없으면 바로 이동
   };
 
   // globalButton이 true일 때 모달창이 뜬다.
