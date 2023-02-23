@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { getInfoErrReport, getNewStoreReport } from '../../services/api';
-import { Store } from '../../types/data/storeInterface';
+import { getInfoErrReport } from '../../services/api';
 import * as S from './style';
 
 const ErrReportList: any = () => {
@@ -11,18 +10,17 @@ const ErrReportList: any = () => {
     'infoErrModifiContents',
     getInfoErrReport,
   );
-  // const { data } = useQuery('infoErrModifiContents', getInfoErrReport);
-  // console.log('data', data);
 
   if (isLoading) {
-    console.log('로딩중!!!!');
+    console.log('로딩중');
     return <p>Loading...</p>;
   }
   if (isError) {
-    console.log('errMessage', error);
+    console.log('error', error);
     return <p>Error!!!!</p>;
   }
-
+ 
+  // 빈 배열 생성해서 status true, false값 각각 push
   const statusTrue: any = [];
   const statusFalse: any = [];
   data.map((item: any) => {
@@ -32,30 +30,23 @@ const ErrReportList: any = () => {
       statusFalse.push(item);
     }
   });
-  
-  
-  // console.log('statusTrue', statusTrue);
-  // console.log('statusFalse', statusFalse);
-
+    
+  // 완료 날짜 최근순 정렬
   const resentStatusTrue = statusTrue.sort(
     (a:any, b:any) =>
       Number(b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')) -
       Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
   );
 
+  //진행중 날짜 최근순 정렬
   const resentStatusFalse = statusFalse.sort(
     (a:any, b:any) =>
       Number(b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')) -
       Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
   );
-  // var myArray = myArray.concat(myArray2);
-  const statusSort = resentStatusFalse.concat(resentStatusTrue)
-  // console.log('statusSort');
-  
 
-  // console.log('resentStatusFalse', resentStatusFalse);
-  // console.log('statusTrueDate', Number(date.join('').replace(/\s/g, '')));
-  
+  // 완료, 진행순 정렬된거 한 변수에 합침
+  const statusSort = resentStatusFalse.concat(resentStatusTrue) 
   
 
   return (

@@ -105,7 +105,7 @@ const SignUp = () => {
         {
           size: 'invisible', // 안보이는 리캡챠 설정
           callback: (response: any) => {
-            console.log('recaptchaVerifier response', response); // 리캡챠가 실행되면 콜백함수를 받음
+            // 리캡챠가 실행되면 콜백함수를 받음
             // setRecaptcha(grecaptcha);
           },
           'expired-callback': (data: any) => {

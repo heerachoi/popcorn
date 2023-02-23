@@ -8,7 +8,6 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import * as S from './style';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
-import { AnyARecord } from 'dns';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { editModal } from '../../../atoms';
 import { profileState } from '../../../atoms';
@@ -25,50 +24,29 @@ const MyProfileEditModal = () => {
   const currentUserInfos = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
   const [nickname, setNickname] = useState<any>(''); // 현재 닉네임 상태변경
   const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기 및 변경 전 데이터
-  // console.log('nickname🏃🏻‍♀️', nickname);
-  // console.log('currentUser❤️', currentUser);
-  // console.log('currentUserInfos❤️', currentUserInfos);
-  // console.log(
-  //   'currentUserInfos.displayName❤️🐣',
-  //   currentUserInfos?.displayName,
-  // );
 
   // 이미지 관련
-  const [imgFile, setImgFile] = useState<any>(''); // 이미지 파일 엄청 긴 이름
+  const imgProfileUrl = useRecoilValue(profileState);
+  const [imgFile, setImgFile] = useState<any>(imgProfileUrl); // 이미지 파일 엄청 긴 이름
   const [imgFileName, setImgFileName] = useState<any>(''); // 이미지 파일 이름.jpg
   const [imgUploadUrl, setImgUploadUrl] = useState<any>('');
-  console.log('modal imgUploadUrl', imgUploadUrl);
-  // console.log('imgFile🏃🏻‍♀️🌃', imgFile);
-  // console.log('currentUserInfos❤️🌃', currentUserInfos);
-  // console.log('currentUserInfos?.photoURL❤️🌃🐣', currentUserInfos?.photoURL);
 
   // 현재 로그인한 사용자 가져오기
-  // 파베에서 이미지url 가져와서 set해줌
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      // console.log('user❤️', user);
       if (user) {
         setCurrentUser(currentUserInfos);
-        // setImgUploadUrl(currentUserInfos?.photoURL); // 인풋창 만들고나서 확인제대로 해보기
-        // console.log(
-        //   'currentUserInfos?.photoURL❤️🌃🐣',
-        //   currentUserInfos?.photoURL,
-        // );
       } else {
         return console.log('로그인 안됨');
       }
     });
   }, [currentUser]);
 
-  // 수정이 일어나면 알아서 닉네임 업뎃
-  // useEffect(() => {}, [nickname]);
-
   // 변경할 닉네임 받아오는 함수
   // 변경눌렀을 때 마이페이지 업뎃되면 닉네임은 끝난거
   const ToChangeNicknameInput = (event: any) => {
     setNickname(event.target.value);
   };
-  console.log('nickname🏃🏻‍♀️', nickname);
 
   // 수정완료 버튼 누를 때 유효성 검사 확인만
   const nicknameChangeOnClick = async (e: any) => {
@@ -86,10 +64,8 @@ const MyProfileEditModal = () => {
       const downloadImageUrl = await getDownloadURL(response.ref);
       setImgUploadUrl(downloadImageUrl);
       setProfileUrl(downloadImageUrl);
-      console.log('downloadImageUrl', downloadImageUrl);
     }
 
-    // console.log('downloadImageUrl🌃🌃🌃🌃🌃🖥️🖥️🖥️🖥️🖥️', downloadImageUrl);
     await updateProfile(currentUser, {
       displayName: nickname,
       photoURL: imgUploadUrl,
@@ -98,17 +74,16 @@ const MyProfileEditModal = () => {
         setNickname(nickname);
         alert('이미지 수정 완료!');
         setOpen(false);
-        // setNickname('');
       })
-      .catch((error: any) => {});
+      .catch((error: any) => {
+        error;
+      });
   };
 
-  // 모달키면 이미지가 켜있는데
-  // 유저가 클릭하면 업데이트
+  // 모달키면 이미지가 보이는데 유저가 클릭하면 업데이트
   const saveNewProfileImg = (event: any) => {
     const target = event.currentTarget;
     const theFile = (target.files as FileList)[0]; // 이미지 인풋창에서 클릭하면 이미지
-    console.log('theFile🌃🏃🏻‍♀️', theFile);
     setImgFile(theFile.name);
     const reader = new FileReader();
     reader.readAsDataURL(theFile);
@@ -117,10 +92,6 @@ const MyProfileEditModal = () => {
       console.log('finishedEvent❓❓❓❓❓', finishedEvent);
     };
   };
-
-  // 저장하기를 누르면 화면에도 파베에 업뎃이 돼야함
-  const imgChangeSubmit = async (e: any) => {};
-  // 사진을 변경하지 않고 닉네임만 변경하게 되면? 원래 사진이 날라가지 않고 들어감
 
   return (
     <div>
@@ -141,7 +112,6 @@ const MyProfileEditModal = () => {
       >
         <S.EditModalAll>
           <Box sx={style}>
-            {/* <S.NewProfileSubmitForm> */}
             <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
             <S.EditModalImgLabelInputWrapper>
               <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
@@ -166,7 +136,10 @@ const MyProfileEditModal = () => {
             </S.EditModalNicknameInputWrapper>
             <S.EditModalEmailInputWrpper>
               <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
-              <S.EditModalEmailInput placeholder={currentUser.email} readOnly />
+              <S.EditModalEmailInput
+                placeholder={currentUser?.email}
+                readOnly
+              />
             </S.EditModalEmailInputWrpper>
             <UpdatePassword />
             <S.EditModalBtnWrapper>
@@ -181,9 +154,7 @@ const MyProfileEditModal = () => {
                 수정완료
               </S.EditModalCompleteButton>
             </S.EditModalBtnWrapper>
-            {/* </S.NewProfileSubmitForm> */}
           </Box>
-          {/* 북마크/내가 쓴 제보 */}
         </S.EditModalAll>
       </Modal>
     </div>

@@ -629,11 +629,11 @@
         "20": 0,
         "30": 0,
         "40+": 0,
-        "women": 0,
+        "women": 1,
         "men": 0,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 1
       },
       "title": "부산사이다",
       "address": "부산시 중구 대청로137번길 8-2 지하1층",
@@ -2600,7 +2600,7 @@
       "location": "",
       "item": "기타",
       "openingTime": [
-        "12:00",
+        "휴무일",
         "12:00",
         "12:00",
         "12:00",
@@ -2609,7 +2609,7 @@
         "12:00"
       ],
       "closeTime": [
-        "20:00",
+        "휴무일",
         "20:00",
         "20:00",
         "20:00",
@@ -2650,7 +2650,7 @@
       "open": "2023-03-01",
       "close": "2023-03-31",
       "location": "서울",
-      "item": "패션",
+      "item": "기타",
       "openingTime": [
         "11:00",
         "11:00",
@@ -2723,7 +2723,10 @@
       "sns": "https://www.instagram.com/pokemon_korea/",
       "web": "",
       "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%ED%8F%AC%EC%BC%93%EB%AA%AC%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%20in%20%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C%EB%AA%B0.png?alt=media&token=b1366a99-18ec-4e5a-810e-3efaec229458"
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%ED%8F%AC%EC%BC%93%EB%AA%AC%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%20in%20%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C%EB%AA%B0.png?alt=media&token=b1366a99-18ec-4e5a-810e-3efaec229458",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Pocketmon%2F%ED%8F%AC%EC%BC%93%EB%AA%AC2.jpg?alt=media&token=5d8e16aa-170e-45a7-8d49-f3f3fe0bc678",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Pocketmon%2F%ED%8F%AC%EC%BC%93%EB%AA%AC3.jpg?alt=media&token=e7cde713-f59c-4ed5-a96f-6e63a1f1670c",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/YeonNamBangAtGan%20-%20BanDalSquare%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.58.44.png?alt=media&token=1da9eddd-18d8-415e-936f-98a23b8543a2"
       ],
       "lat": "37.5137161",
       "lon": "127.1051931",
@@ -2772,7 +2775,9 @@
       "sns": "https://instagram.com/glo_korea?igshid=YmMyMTA2M2Y=",
       "web": "",
       "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EA%B8%80%EB%A1%9C%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%20%ED%95%98%EC%9D%B4%ED%8D%BC%20x2%20%EC%88%98%EC%A0%9C%EB%A7%A5%EC%A3%BC%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4.jfif?alt=media&token=c68a2774-dadd-439d-8081-83e48692e319"
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EA%B8%80%EB%A1%9C%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%20%ED%95%98%EC%9D%B4%ED%8D%BC%20x2%20%EC%88%98%EC%A0%9C%EB%A7%A5%EC%A3%BC%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4.jfif?alt=media&token=c68a2774-dadd-439d-8081-83e48692e319",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Glo%2F%EA%B8%80%EB%A1%9C2.jpg?alt=media&token=fffab8a8-5900-427b-ae7f-6d27bfd28f28",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Glo%2F%EA%B8%80%EB%A1%9C3.jpg?alt=media&token=a9b875c1-20c3-4126-84aa-66772ce949df"
       ],
       "lat": "37.5739118",
       "lon": "126.9892693",
@@ -2821,7 +2826,13 @@
       "sns": "https://www.instagram.com/oo_2_zz/?hl=ko",
       "web": "",
       "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EC%99%80%EB%8B%A4%EB%8B%A4%EA%B3%B0.jpg?alt=media&token=ad33d687-1f3f-44fc-839e-7e3370bdc500"
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EC%99%80%EB%8B%A4%EB%8B%A4%EA%B3%B0.jpg?alt=media&token=ad33d687-1f3f-44fc-839e-7e3370bdc500",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WadadaGom%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.17.01.png?alt=media&token=0cdff688-9408-4e69-a80c-ecfd31fbd42f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WadadaGom%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.17.03.png?alt=media&token=92a9eb84-cacd-4952-95fc-3f9a959155b9",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WadadaGom%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.17.06.png?alt=media&token=12d36bbf-1d36-48f2-b378-641171793837",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WadadaGom%2F%EC%99%80%EB%8B%A4%EB%8B%A4%EA%B3%B02.jfif?alt=media&token=ec50712d-8c86-4977-8083-5aa18b26e618",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WadadaGom%2F%EC%99%80%EB%8B%A4%EB%8B%A4%EA%B3%B03.jfif?alt=media&token=2b8482af-952d-4c34-83a3-d0695ce5f07f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/WadadaGom%2F%EC%99%80%EB%8B%A4%EB%8B%A4%EA%B3%B04.jfif?alt=media&token=fa41bd93-81f5-4304-8137-f981e673a317"
       ],
       "lat": "37.5259316",
       "lon": "126.9284764",
@@ -2870,7 +2881,11 @@
       "sns": "https://instagram.com/nolie__official?igshid=YmMyMTA2M2Y=",
       "web": "",
       "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EB%85%B8%EC%9A%B0%EB%9D%BC%EC%9D%B4.jpg?alt=media&token=25127c70-0fd6-434c-a9ab-00b2cdaeb2fa"
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EB%85%B8%EC%9A%B0%EB%9D%BC%EC%9D%B4.jpg?alt=media&token=25127c70-0fd6-434c-a9ab-00b2cdaeb2fa",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Nolie%2F%EB%85%B8%EC%9A%B0%EB%9D%BC%EC%9D%B42.jpg?alt=media&token=a38d762c-5d3f-46ca-be85-d418e40a996c",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/YeonNamBangAtGan%20-%20BanDalSquare%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.58.19.png?alt=media&token=b13c04c5-1554-423b-854a-dec89a0fc474",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Nolie%2F%EB%85%B8%EC%9A%B0%EB%9D%BC%EC%9D%B43.jfif?alt=media&token=fd7de27f-bc39-400d-aba2-77fe37b97d9b",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/YeonNamBangAtGan%20-%20BanDalSquare%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.58.31.png?alt=media&token=693e6653-91bc-44bd-bf98-e98eeb90f01a"
       ],
       "lat": "37.5478418",
       "lon": "127.0429752",
@@ -2919,7 +2934,9 @@
       "sns": "https://www.instagram.com/yeonnambangagan/",
       "web": "https://docs.google.com/forms/d/e/1FAIpQLScr0pqX9sa-58kNGVSUNh6A0cF-ZwIQ39cQlifKrNGepfFFDg/viewform",
       "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EC%97%B0%EB%82%A8%EB%B0%A9%EC%95%97%EA%B0%84.jpg?alt=media&token=3334d2e5-957c-48b0-9406-821636fd4323"
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EC%97%B0%EB%82%A8%EB%B0%A9%EC%95%97%EA%B0%84.jpg?alt=media&token=3334d2e5-957c-48b0-9406-821636fd4323",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/YeonNamBangAtGan%20-%20BanDalSquare%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.58.44.png?alt=media&token=1da9eddd-18d8-415e-936f-98a23b8543a2",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/YeonNamBangAtGan%20-%20BanDalSquare%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.58.16.png?alt=media&token=89b269e3-1798-4407-ac7d-7cee5caec592"
       ],
       "lat": "35.865964",
       "lon": "128.592898",
@@ -2968,7 +2985,9 @@
       "sns": "https://www.instagram.com/tiffanyandco/",
       "web": "",
       "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%ED%8B%B0%ED%8C%8C%EB%8B%88%20%EB%9D%BD.jpg?alt=media&token=0cefe304-22fb-471f-a9ae-dd425d5b6b21"
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%ED%8B%B0%ED%8C%8C%EB%8B%88%20%EB%9D%BD.jpg?alt=media&token=0cefe304-22fb-471f-a9ae-dd425d5b6b21",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/TiffanyLock%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.16.23.png?alt=media&token=bbc93cb6-ec9b-4e8d-a314-55320ef88418",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/TiffanyLock%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.16.27.png?alt=media&token=3ee1de42-1f64-49db-9ebc-0b4515088463"
       ],
       "lat": "37.5278751",
       "lon": "127.0418071",
@@ -3017,7 +3036,10 @@
       "sns": "https://instagram.com/pop_peep_ing?igshid=YmMyMTA2M2Y=",
       "web": "",
       "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2Fpeeps%20store.jpg?alt=media&token=5632c86e-a239-4c06-8c7a-e287dd82b075"
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2Fpeeps%20store.jpg?alt=media&token=5632c86e-a239-4c06-8c7a-e287dd82b075",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/PeeP%2FPEEP2.jpg?alt=media&token=6c6a85aa-e650-4bf2-8fbf-c1f38b7cd4da",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/PeeP%2FPEEP3.jpg?alt=media&token=885feb36-90c7-4163-a900-829de255b732",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/PeeP%2FPEEP4.jpg?alt=media&token=a0e56438-4f9a-4de5-ad49-bae6d6ba6889"
       ],
       "lat": "37.5770931",
       "lon": "126.9307449",

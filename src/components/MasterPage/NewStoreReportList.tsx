@@ -16,7 +16,7 @@ const NewStoreReportList: any = () => {
     return <p>Loading...</p>;
   }
   if (isError) {
-    console.log('errMessage', error);
+    console.log('error', error);
     return <p>Error!!!!</p>;
   }
 

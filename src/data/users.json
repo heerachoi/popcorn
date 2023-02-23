@@ -29,6 +29,27 @@
       "profileImg": null,
       "uid": "6NZbSbKqDHbj6w5QyYMSainJIlx1",
       "id": "d8f7b1ce-a41e-40c6-b594-ceb57d7e218c"
+    },
+    {
+      "age": "1980-01-23",
+      "email": "chacha@naver.com",
+      "gender": "men",
+      "nickName": "차은우",
+      "phoneNumber": "01028846776",
+      "profileImg": null,
+      "uid": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "id": "22ace3dc-2a33-4fbc-b844-6ef15464c51a"
+    },
+
+    {
+      "age": "1993-06-13",
+      "email": "jieun@naver.com",
+      "gender": "women",
+      "nickName": "팝팝",
+      "phoneNumber": "01086256038",
+      "profileImg": null,
+      "uid": "THhGvnw91ObW1nfkjAU66kVitO33",
+      "id": "47957468-07ab-452a-8a51-9b5085d3f5f3"
     }
   ]
 }

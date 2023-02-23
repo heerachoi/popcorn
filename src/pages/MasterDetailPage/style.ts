@@ -1,15 +1,8 @@
 import styled from 'styled-components';
 
-export const MasterDetailPageWrap = styled.div`
- 
-`;
+export const MasterDetailPageWrap = styled.div``;
 
-export const MasterDetailContainer = styled.div`
-  /* box-sizing: border-box; */
-  /* max-width: 1040px;
-  width: 100%;  
-  margin: 0 auto; */
-`;
+export const MasterDetailContainer = styled.div``;
 
 export const TabMenu = styled.ul`
   padding: 0;
@@ -29,7 +22,6 @@ export const MenuTitleTabBtn = styled.button`
   display: block;
   border: 1px solid #e0e0e0;
   color: black;
-  /* text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75); */
   padding: 6px 18px;
   margin: 0 5px -1px 0;
 
@@ -46,10 +38,4 @@ export const MenuTitleTabBtn = styled.button`
   }
 `;
 
-export const ContentBox = styled.div`
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-
-  /* background-color: beige; */
-`;
+export const ContentBox = styled.div``;

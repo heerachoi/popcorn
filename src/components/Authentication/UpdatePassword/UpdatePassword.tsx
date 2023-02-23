@@ -88,8 +88,7 @@ const UpdatePassword = () => {
   const validatePasswordHandler = (
     event: React.FocusEvent<HTMLInputElement>,
   ) => {
-    let regexPw =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    let regexPw = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     if (!regexPw.test(event.target.value)) {
       setHelperPasswordInput({
         ...helperPasswordInput,
@@ -117,7 +116,6 @@ const UpdatePassword = () => {
       });
     }
   };
-  //////// 유효성 검사 ////////
 
   return (
     <div>
