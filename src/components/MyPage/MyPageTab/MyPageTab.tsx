@@ -37,7 +37,6 @@ const MyPageTab = ({ detailData }: Props) => {
     },
   ];
 
-
   return (
     <>
       <S.MyBookmarkReportWrap>
@@ -48,10 +47,7 @@ const MyPageTab = ({ detailData }: Props) => {
                 return t.tabTitle;
               })}
             </S.MyBookmarkReportTabMenu>
-            <S.MyContentBox>
-              {/* activeIndex에 해당하는 내용 보여줌 */}
-              {myTabArr[activeIndex].tabContent}
-            </S.MyContentBox>
+            <S.MyContentBox>{myTabArr[activeIndex].tabContent}</S.MyContentBox>
           </S.MyBookmarkReportBox>
         </S.MyBookmarkReportContainer>
       </S.MyBookmarkReportWrap>
