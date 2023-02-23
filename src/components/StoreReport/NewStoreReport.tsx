@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NewStoreForm, StoreImgLabel } from './style';
 import { BiImageAdd } from 'react-icons/bi';
 import { storage } from '../../services/firebase';
@@ -72,8 +72,7 @@ const NewStoreReport: any = () => {
       );
     };
   };
-  console.log('imgFile',imgFile);
-  
+  console.log('imgFile', imgFile);
 
   const cancleHandler = () => {
     if (window.confirm('작성을 취소하시겠습니까?')) {
@@ -129,6 +128,25 @@ const NewStoreReport: any = () => {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    if (
+      newStoreInput.title === '' &&
+      newStoreInput.storeName === '' &&
+      newStoreInput.storeAddress === '' &&
+      newStoreInput.startDate === '' &&
+      newStoreInput.endDate === '' &&
+      etcContent === ''
+    )
+      setGlobalButton(false);
+  }, [
+    newStoreInput.title,
+    newStoreInput.storeName,
+    newStoreInput.storeAddress,
+    newStoreInput.startDate,
+    newStoreInput.endDate,
+    etcContent,
+  ]);
 
   return (
     <NewStoreForm onSubmit={newStoreInfoAddHandler}>

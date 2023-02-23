@@ -3,7 +3,12 @@ import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { mapCategoryValue, mapFoodData, mapSearchValue } from '../../atoms';
+import {
+  mapCategoryValue,
+  mapFoodData,
+  mapSearchValue,
+  popupList,
+} from '../../atoms';
 import { getPopupData } from '../../services/api';
 import Maps from '../../components/MapView/Map/Maps';
 import MapCategory from '../../components/MapView/MapCategory/MapCategory';
@@ -36,7 +41,7 @@ const MapPage = () => {
   });
   const [search, setSearch] = useRecoilState(mapSearchValue);
   const [category, setCategory] = useRecoilState(mapCategoryValue);
-
+  const popuplist = useRecoilValue(popupList);
   const [foodData, setFoodData] = useRecoilState(mapFoodData);
 
   const { data: popupData, isLoading: popupDataIsLoading } = useQuery(
@@ -46,6 +51,8 @@ const MapPage = () => {
 
   const onSearchSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (popuplist.length === 0) return alert('검색 결과가 없습니다.');
     // new kakao.maps.services.Places(); 키워드로 검색하면 object를 반환해준다.
     setMarkerHandler(search, category);
     // setCategory(' ');

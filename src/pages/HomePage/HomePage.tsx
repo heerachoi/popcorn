@@ -6,6 +6,8 @@ import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwipe
 import { PopularToMen, PopularToWomen } from '../../utils/Filter';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import { getPopupData } from '../../services/api';
 
 const HomePage: any = () => {
   const navigate = useNavigate();
@@ -13,13 +15,15 @@ const HomePage: any = () => {
   const menTopTwo = PopularToMen();
 
   const [storeData, setStoreData] = useState<any>('');
-  const fetchTodos = async () => {
-    const { data } = await axios.get('http://localhost:3010/Store');
-    // console.log(data);
-  };
+  // const fetchTodos = async () => {
+  //   const { data } = await axios.get('http://localhost:3010/Store');
+  //   return data;
+  // };
+
+  const { data } = useQuery('popup', getPopupData);
 
   useEffect(() => {
-    fetchTodos();
+    // fetchTodos();
   }, [storeData]);
 
   return (
@@ -55,7 +59,7 @@ const HomePage: any = () => {
           </S.ListTitleContainer>
           <S.CategoryListContainer>
             <S.FilterStoreList>
-              {womenTopTwo?.map((popup: any) => {
+              {data?.map((popup: any) => {
                 return (
                   <S.StoreContainer
                     key={popup.id}

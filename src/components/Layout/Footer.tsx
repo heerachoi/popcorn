@@ -1,7 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { globalBtn, isActiveMenu, modalPage, modalStatus } from '../../atoms';
+import {
+  footerActiveMenu,
+  globalBtn,
+  modalPage,
+  modalStatus,
+} from '../../atoms';
 import Faq from '../CustomerCenter/FAQ/Faq';
 import Vector from '../../assets/Logo/Vector.png';
 import popcornLogo from '../../assets/Logo/popcorn_logo.png';
@@ -12,7 +17,7 @@ const Footer = () => {
   const navigate = useNavigate();
   // 탭 메뉴 제목을 클릭하면 해당 탭의 index값 저장
   // 초기 화면에 0번째 탭이 나오도록 초기값 설정
-  const setActiveIndex = useSetRecoilState(isActiveMenu);
+  const setFooterActiveMenu = useSetRecoilState(footerActiveMenu);
   const [globalButton, setGlobalButton] = useRecoilState(globalBtn);
   const [isModal, setIsModal] = useRecoilState(modalStatus);
   const [pageChange, setPageChange] = useRecoilState(modalPage);
@@ -47,11 +52,11 @@ const Footer = () => {
   // onClick 시 해당 탭의 index값을 set
   const globalBtnModalStatusChangeHandler = (page: string, i: number) => {
     if (globalButton) {
-      setActiveIndex(i);
+      setFooterActiveMenu(i);
       setPageChange(page);
       return setIsModal({ ...isModal, globalBtn: !isModal.globalBtn });
     }
-    setActiveIndex(i);
+    setFooterActiveMenu(i);
     navigate(page);
   };
 
@@ -70,7 +75,7 @@ const Footer = () => {
         <FooterTitle
           // src={require('../../assets/Logo/State=Default.png')}
           // alt="타이틀"
-          onClick={() => globalBtnModalStatusChangeHandler('/', 3)}
+          onClick={() => globalBtnModalStatusChangeHandler('/', 0)}
         ></FooterTitle>
       </FooterTitleWrap>
       <FooterMenuWrap>

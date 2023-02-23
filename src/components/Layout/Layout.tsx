@@ -59,6 +59,7 @@ const Layout = ({ children }: Props) => {
     // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
   }, [users.isLogin]);
 
+  console.log(users, 'users');
   return (
     <>
       <Header />
