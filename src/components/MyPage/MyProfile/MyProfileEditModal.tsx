@@ -137,7 +137,10 @@ const MyProfileEditModal = () => {
             </S.EditModalNicknameInputWrapper>
             <S.EditModalEmailInputWrpper>
               <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
-              <S.EditModalEmailInput placeholder={currentUser.email} readOnly />
+              <S.EditModalEmailInput
+                placeholder={currentUser?.email}
+                readOnly
+              />
             </S.EditModalEmailInputWrpper>
             <UpdatePassword />
             <S.EditModalBtnWrapper>
