@@ -6,13 +6,53 @@ import * as S from './style';
 
 const NewStoreReportList: any = () => {
   const navigate = useNavigate();
-  const { data } = useQuery('newStores', getNewStoreReport);
-  console.log('data', data);
+  const { isLoading, isError, data, error } = useQuery(
+    'infoErrModifiContents',
+    getNewStoreReport,
+  );
+
+  if (isLoading) {
+    console.log('로딩중!!!!');
+    return <p>Loading...</p>;
+  }
+  if (isError) {
+    console.log('errMessage', error);
+    return <p>Error!!!!</p>;
+  }
+
+  const statusTrue: any = [];
+  const statusFalse: any = [];
+  data.map((item: any) => {
+    if (item.status === true) {
+      statusTrue.push(item);
+    } else {
+      statusFalse.push(item);
+    }
+  });
+
+  const resentStatusTrue = statusTrue.sort(
+    (a: any, b: any) =>
+      Number(
+        b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
+      ) -
+      Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
+  );
+
+  const resentStatusFalse = statusFalse.sort(
+    (a: any, b: any) =>
+      Number(
+        b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
+      ) -
+      Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
+      );
+      
+
+  const statusSort = resentStatusFalse.concat(resentStatusTrue);
 
   return (
     <S.ContentWrap>
       <S.ListContainer>
-        {data?.map((li: any) => {
+        {statusSort?.map((li: any) => {
           return (
             <S.ListBox
               key={li.id}

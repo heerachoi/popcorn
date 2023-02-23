@@ -22,8 +22,8 @@ const NewStoreReportDetail = () => {
     return <p>Error!!!</p>;
   }
 
-  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
 
+  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
   const currentState = selectedDetail[0].status;
 
   const checkHandler = () => {
@@ -91,6 +91,7 @@ const NewStoreReportDetail = () => {
                   <S.CancleBtn onClick={() => navigate('/master')}>
                     취소
                   </S.CancleBtn>
+                  {/* <S.CheckBtn>거절</S.CheckBtn> */}
                   <S.CheckBtn onClick={checkHandler}>확인</S.CheckBtn>
                 </S.ButtonBox>
               </S.GridBox>

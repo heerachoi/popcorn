@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import { hateCount, likeCount, userInfo } from '../../../atoms';
-import { getLikeHate, getNewStoreReport } from '../../../services/api';
+import { useRecoilState } from 'recoil';
+import { hateCount, likeCount} from '../../../atoms';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { v4 as uuidv4 } from 'uuid';
@@ -42,6 +40,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     hateCountHandler();
   }, [likeClicked, hateClicked]);
 
+
+  // 좋아요 추가
   const newLike = {
     id: uuidv4(),
     storeId: detailData.id,
@@ -49,6 +49,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     vote: 'like',
   };
 
+  // 별로에요 추가
   const hateLike = {
     id: uuidv4(),
     storeId: detailData.id,
@@ -56,14 +57,11 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     vote: 'hate',
   };
 
+  // 렌더링 시 유저 클릭 유무 확인
   const fetchLikeHate = async () => {
     const { data } = await axios.get('http://localhost:3003/likeHate');
-    console.log('data!!!!!!!!', data);
-
-    // console.log('likes', likes);
-
-    data.map((item: any) => {
-      // 좋아요, 별로에요 숫자
+   
+    data.map((item: any) => {     
 
       if (item.userId === currentUser.uid && item.storeId === detailData.id) {
         if (item.vote === 'like') {
@@ -78,13 +76,10 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       } else {
         setColor(`${COLORS.black}`);
       }
-      // console.log('item', item);
-      // console.log('itemId', item.id);
-      // console.log('item.storeId', item.storeId);
-      // console.log('detailData.id', detailData.id);
     });
   };
 
+  // 좋아요 숫자 카운트
   const likeCountHandler = async () => {
     const { data } = await axios.get('http://localhost:3003/likeHate');
 
@@ -96,6 +91,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     setLike(likes.length);
   };
 
+  // 별로에요 숫자 카운트
   const hateCountHandler = async () => {
     const { data } = await axios.get('http://localhost:3003/likeHate');
     const hates = data.filter((item: any) => {
@@ -138,6 +134,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     }
   };
 
+  // 별로에요 버튼
   const hateHandler = async  () => {
     if (currentUser) {
       if (hateClicked) {
@@ -170,6 +167,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     }
   };
 
+  
   return (
     <S.EmojiWrap>
       <S.EmojiContainer>
