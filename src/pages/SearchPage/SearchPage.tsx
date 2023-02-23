@@ -11,10 +11,8 @@ import { ko } from 'date-fns/esm/locale';
 // React-icons
 import { ImLocation, ImSearch } from 'react-icons/im';
 import { BsFillCalendarFill } from 'react-icons/bs';
-import { RiProductHuntLine } from 'react-icons/ri';
-import { BiCalendar, BiCategoryAlt } from 'react-icons/bi';
 // Recoil
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 // Hooks
 import useLocationModal from '../../hooks/useLocationModal';
 import useItemModal from '../../hooks/useItemModal';
@@ -28,8 +26,9 @@ import { OtherModalButtonData } from '../../utils/ModalButtonData/OtherModalButt
 import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
 import { useNavigate } from 'react-router-dom';
 
-const Search: React.FC = () => {
+const Search:any = async () => {
   const navigate = useNavigate();
+  const { data } = await axios.get("http://localhost:3010/Store");
 
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(datas.Store);
@@ -80,6 +79,8 @@ const Search: React.FC = () => {
   const checkKeypress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     event.preventDefault();
     if (event.key === 'Enter') {
+      // onClick={() => navigate(`/detail/${popup.id}
+      window.location.href = "/search?search=" + searchTerm;
       setEnterKeyPressed(true);
       searchFilterHandler();
     } else {
@@ -275,7 +276,6 @@ const Search: React.FC = () => {
     setSaveOtherList(otherList);
     otherList = [];
   };
-
   // ModalButtonData에서 찾아서 active True
   // locationFilterList에 추가하면
   // locationFilterHandler 실행되고
@@ -290,9 +290,9 @@ const Search: React.FC = () => {
     }
   };
 
-  // useEffect(() => {
-  //   getURLInfo();
-  // }, []);
+  useEffect(() => {
+    getURLInfo();
+  }, []);
 
   // 검색
   useEffect(() => {
@@ -452,11 +452,9 @@ const Search: React.FC = () => {
               위치
             </S.FilterTitle>
             <Modal isShowing={isShowing} hide={toggle} value={'위치'} />
-            {/* <S.FilterItemHolder>전체</S.FilterItemHolder> */}
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          {/* <RiProductHuntLine /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={itemToggle}>
               제품 카테고리
@@ -466,11 +464,9 @@ const Search: React.FC = () => {
               hide={itemToggle}
               value={'제품'}
             />
-            {/* <S.FilterItemHolder>전체</S.FilterItemHolder> */}
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          {/* <BiCategoryAlt /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={otherToggle}>
               기타 카테고리
@@ -480,7 +476,6 @@ const Search: React.FC = () => {
               hide={otherToggle}
               value={'기타'}
             />
-            {/* <S.FilterItemHolder>전체</S.FilterItemHolder> */}
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.FilterTypes />

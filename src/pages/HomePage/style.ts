@@ -152,7 +152,7 @@ export const SeeMoreText = styled.div`
   font-weight: 700;
   font-size: 20px;
   box-sizing: border-box;
-  transition: all 0.6s;
+  transition: all 0.7s;
   background: rgba(50, 50, 50, 0.7);
   &:hover{
     background: rgba(143, 106, 10, 0.3);
