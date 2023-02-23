@@ -143,8 +143,8 @@ const InfoError: any = () => {
       setErrContent(initErrContent);
 
       alert('제보 완료!');
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 

@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../services/firebase';
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import CustomModal from '../../../shared/CustomModal';
