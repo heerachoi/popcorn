@@ -84,6 +84,5 @@
     "@types/request": "^2.48.8",
     "@types/styled-components": "^5.1.26",
     "@types/uuid": "^9.0.0"
-  },
-  "proxy": "https://openapi.naver.com"
+  }
 }
