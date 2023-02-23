@@ -1,12 +1,12 @@
 import { useRecoilState } from 'recoil';
-import { isActiveMenu } from '../../atoms';
+import { footerActiveMenu } from '../../atoms';
 import Faq from '../../components/CustomerCenter/FAQ/Faq';
 import * as S from './style';
 
 const CustomerCenterPage: any = () => {
   // 탭 메뉴 제목을 클릭하면 해당 탭의 index값 저장
   // 초기 화면에 0번째 탭이 나오도록 초기값 설정
-  const [activeIndex, setActiveIndex] = useRecoilState(isActiveMenu);
+  const [footerActive, setFooterActive] = useRecoilState(footerActiveMenu);
 
   // 탭 메뉴 제목과 들어갈 내용 담은 배열
   const menuArr = [
@@ -29,7 +29,7 @@ const CustomerCenterPage: any = () => {
 
   // onClick 시 해당 탭의 index값을 set
   const tabClickHandler = (i: any) => {
-    setActiveIndex(i);
+    setFooterActive(i);
   };
 
   return (
@@ -45,7 +45,7 @@ const CustomerCenterPage: any = () => {
             return (
               <S.TabTitleBox key={item.id}>
                 <S.MenuTitleTabBtn
-                  className={activeIndex === i ? 'active' : ''}
+                  className={footerActive === i ? 'active' : ''}
                   onClick={() => tabClickHandler(i)}
                 >
                   {item.tabTitle}
@@ -56,7 +56,7 @@ const CustomerCenterPage: any = () => {
         </S.TabMenu>
         <S.ContentBox>
           {/* activeIndex에 해당하는 내용 보여줌 */}
-          {menuArr[activeIndex].tabContent}
+          {menuArr[footerActive].tabContent}
         </S.ContentBox>
       </S.CustomerCenterContainer>
     </S.CustomerCenterWrap>
