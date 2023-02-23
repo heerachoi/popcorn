@@ -74,7 +74,7 @@
       "reportedDate": "2023. 2. 20. 오전 11:38:58",
       "category": "오류&수정",
       "status": false,
-      "excuse" : "허위정보로 제보가 거절되었습니다."
+      "excuse": "허위정보로 제보가 거절되었습니다."
     },
     {
       "id": "2",
@@ -112,8 +112,8 @@
       "errImg": "",
       "reportedDate": "2023. 2. 15. 오전 12:38:58",
       "category": "오류&수정",
-      "status": false,
-      "excuse" : "허위정보로 제보가 거절되었습니다."
+      "status": true,
+      "excuse": "허위정보로 제보가 거절되었습니다."
     },
     {
       "id": "5",
@@ -152,8 +152,9 @@
       "reportedDate": "2023. 2. 22. 오후 11:38:58",
       "category": "오류&수정",
       "status": true,
-      "excuse" : "허위정보로 제보가 거절되었습니다."
-    },{
+      "excuse": "허위정보로 제보가 거절되었습니다."
+    },
+    {
       "id": "sdf",
       "userId": {
         "uid": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
@@ -190,7 +191,7 @@
       "reportedDate": "2023. 2. 17. 오전 9:50:58",
       "category": "오류&수정",
       "status": false,
-      "excuse" : "허위정보로 제보가 거절되었습니다."
+      "excuse": "허위정보로 제보가 거절되었습니다."
     }
   ]
 }
