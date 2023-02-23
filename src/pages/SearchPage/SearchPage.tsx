@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style';
 import axios from 'axios';
+import { useQuery } from 'react-query';
 
 // Data
-import datas from '../../data/popupStore.json';
+import { getPopupData } from '../../services/api';
 // Interface
 import { Store } from '../../types/data/storeInterface';
 // Library
@@ -30,9 +31,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Search: React.FC = () => {
   const navigate = useNavigate();
-
+  const { isLoading, isError, data, error } = useQuery(
+    'popup',
+    getPopupData,
+  );
   // 팝업 스토어 필터된 리스트 상태관리
-  const [storeList, setStoreList] = useState<Store[]>(datas.Store);
+  const [storeList, setStoreList] = useState<Store[]>(data);
   // 팝업 스토어 필터된 리스트
   let searchList: Store[] = [];
   let durationList: Store[] = [];
@@ -44,29 +48,29 @@ const Search: React.FC = () => {
   const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
   // 검색어
   const [searchTerm, setSearchTerm] = useState<any>('');
-  const [saveSearchList, setSaveSearchList] = useState<Store[]>(datas.Store);
+  const [saveSearchList, setSaveSearchList] = useState<Store[]>(data);
   // Date Picker
   const [dateSelected, setDateSelected] = useState<any>();
   const [saveDatePickerList, setSaveDatePickerList] = useState<Store[]>(
-    datas.Store,
+    data,
   );
   // 팝업 기간
   const [popupDurationFilter, setPopupDurationFilter] = useState<any>('전체');
   const [savePopupDurationList, setSavePopupDurationList] = useState<Store[]>(
-    datas.Store,
+    data,
   );
   // 팝업 유형
   const [saveDepartmentList, setSaveDepartmentList] = useState<Store[]>(
-    datas.Store,
+    data,
   );
   // 지역 필터
   const [saveLocationList, setSaveLocationtList] = useState<Store[]>(
-    datas.Store,
+    data,
   );
   //  제품 필터
-  const [saveItemList, setSaveItemList] = useState<Store[]>(datas.Store);
+  const [saveItemList, setSaveItemList] = useState<Store[]>(data);
   // 기타 필터
-  const [saveOtherList, setSaveOtherList] = useState<Store[]>(datas.Store);
+  const [saveOtherList, setSaveOtherList] = useState<Store[]>(data);
   // 모달 버튼 값
   const [modalResultList, setModalResultList] = useState<string[]>([]);
 
@@ -89,7 +93,7 @@ const Search: React.FC = () => {
 
   // 검색 필터
   const searchFilterHandler = () => {
-    datas.Store.forEach((store: Store) => {
+    data.forEach((store: Store) => {
       if (
         store.title === searchTerm ||
         store.address === searchTerm ||
@@ -101,7 +105,7 @@ const Search: React.FC = () => {
       }
     });
     if (searchTerm.length === 0) {
-      setSaveSearchList(datas.Store);
+      setSaveSearchList(data);
     } else {
       setSaveSearchList(searchList);
     }
@@ -161,7 +165,7 @@ const Search: React.FC = () => {
     // nan일경우 모두 포함
     let datePickerList: Store[] = [];
     if (!Number.isNaN(pickedDate)) {
-      datas.Store.map((store: Store) => {
+      data.map((store: Store) => {
         let startDate = parseInt(store.open.split('.').join(''));
         let closeDate = parseInt(store.close.split('.').join(''));
         if (startDate <= pickedDate && closeDate >= pickedDate) {
@@ -171,7 +175,7 @@ const Search: React.FC = () => {
       });
       setSaveDatePickerList(datePickerList);
     } else {
-      setSaveDatePickerList(datas.Store);
+      setSaveDatePickerList(data);
     }
   };
 
@@ -179,9 +183,9 @@ const Search: React.FC = () => {
   // 전체일 경우 팝업스토어 목록 전체를 SavePopupDurationList에 저장
   const durationHandler = () => {
     if (popupDurationFilter === '전체') {
-      setSavePopupDurationList(datas.Store);
+      setSavePopupDurationList(data);
     } else {
-      datas.Store.forEach((store: Store) => {
+      data.forEach((store: Store) => {
         let monthDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
         let countDays = 0;
         let openDateList = store.open.split('.');
@@ -214,10 +218,10 @@ const Search: React.FC = () => {
   const locationFilterList = useRecoilValue(ModalButtonData);
   const locationFilterHandler = () => {
     if (locationFilterList[0].label === '전체') {
-      setSaveLocationtList(datas.Store);
+      setSaveLocationtList(data);
     } else {
       for (let i = 0; i < locationFilterList.length; i++) {
-        datas.Store.filter((store) => {
+        data.filter((store:Store) => {
           //서울특별시는 서울로 확인
           // if (locationFilterList[i].label === '서울특별시') {
           //   locationFilterList[i].label = '서울';
@@ -236,10 +240,10 @@ const Search: React.FC = () => {
   const itemFilterList = useRecoilValue(ItemModalButtonData);
   const itemFilterHandler = () => {
     if (itemFilterList[0].label === '전체') {
-      setSaveItemList(datas.Store);
+      setSaveItemList(data);
     } else {
       for (let i = 0; i < itemFilterList.length; i++) {
-        datas.Store.filter((store) => {
+        data.filter((store:Store) => {
           if (store.item === itemFilterList[i].label) {
             itemList.push(store);
           }
@@ -256,7 +260,7 @@ const Search: React.FC = () => {
     // otherFilterList에 있는 값들 중에
     // store view안에 otherFilterList에 선택된 애들이 10,20일경우
     // 10,20이 0 이상인 경우 출력
-    datas.Store.map((store: Store) => {
+    data.map((store: Store) => {
       otherFilterList.map((other) => {
         // store.view[10]은 알아서 뽑아낸다 -> 0이 아닐때
         let viewValue: string = other.label;

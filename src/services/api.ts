@@ -10,6 +10,8 @@ const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
 export const getPopupData = async () => {
   const { data } = await axios.get('http://localhost:3010/Store');
+  console.log("🚀 ~ file: api.ts:13 ~ getPopupData ~ data:", data)
+  
   return data;
 };
 
