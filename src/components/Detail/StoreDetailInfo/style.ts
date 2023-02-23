@@ -10,7 +10,6 @@ export const DetailContainer = styled.div`
   max-width: 1040px;
   width: 100%;
   margin: 0 auto;
-  /* background-color: #eaf7cd; */
 `;
 
 export const ImgWrap = styled.div``;
@@ -52,15 +51,18 @@ export const BookmarkClick = styled.button`
   border: none;
   background-color: transparent;
 `;
+
 export const SideTitleIcon = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 800;
   font-size: 13px;
 `;
+
 export const ReserveImg = styled.img`
   width: 20px;
 `;
+
 export const SideTitleText = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
@@ -74,20 +76,21 @@ export const InfoContentWrap = styled.div`
 `;
 
 export const InfoContentText = styled.td`
-  /* border: 1px solid black; */
 `;
+
 export const InfoTable = styled.table`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-size: 14px;
 `;
+
 export const InfoTbody = styled.tbody``;
+
 export const InfoTr = styled.tr``;
 
 export const InfoTitleText = styled.td`
   font-weight: 800;
   width: 130px;
-  /* border: 1px solid black; */
   padding: 15px 0;
 `;
 
@@ -109,6 +112,7 @@ export const Hr = styled.hr`
 // `;
 
 export const OperationPeriodWrap = styled.div``;
+
 export const OperationPeriodTitle = styled.span`
   font-size: 17px;
 `;

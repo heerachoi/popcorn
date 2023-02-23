@@ -117,10 +117,9 @@ const NewStoreReport: any = () => {
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
       setEtcContent('');
-
       alert('제보 완료!');
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 

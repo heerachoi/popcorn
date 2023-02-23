@@ -9,7 +9,7 @@ interface getDetailWeatherData {
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
 export const getPopupData = async () => {
-  const { data } = await axios.get('http://localhost:3010/Store');
+  const { data } = await axios.get('http://localhost:3010/Store');  
   return data;
 };
 
@@ -38,7 +38,6 @@ export const getDetailAirPollutionData = async ({
 
 export const getNewStoreReport = async () => {
   const { data } = await axios.get('http://localhost:3002/newStores');
-  console.log(data);
   return data;
 };
 

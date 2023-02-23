@@ -22,6 +22,9 @@ export const SwiperContainer = styled(Slider)`
     /* display: flex; */
     /* z-index: 999; */
     /* background-color: aliceblue; */
+    width: 52px;
+    height: 59px;
+    background:url(${ArrowBackgroundOff});
   }
 
   li {
@@ -30,13 +33,15 @@ export const SwiperContainer = styled(Slider)`
   }
 
   .slick-track:before {
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
   }
 
   .slick-slide {
     width: 334px;
     margin-right: 18px;
+    
   }
+  
   .slick-next {
     z-index: 999;
     background-color: white;

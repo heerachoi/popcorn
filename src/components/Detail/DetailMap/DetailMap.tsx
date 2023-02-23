@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 // map를 호출해서 detailData.lat, detailData.lon의 위치를 마커표시해준다.
-
 const DetailMap = () => {
   const { state: detailData } = useLocation();
 

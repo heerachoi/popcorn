@@ -109,8 +109,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
           likeSetColor(`${COLORS.black}`);
           setLikeClicked(false);
-        } catch (err) {
-          console.log('err', err);
+        } catch (error) {
+          console.log('error', error);
         }
       } else if (hateClicked) {
         alert('좋아요, 별로예요 둘 중 하나만 가능합니다.');
@@ -120,8 +120,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           axios.post('http://localhost:3003/likeHate', newLike);
           likeSetColor(`${COLORS.red}`);
           setLikeClicked(true);
-        } catch (err) {
-          console.log('err', err);
+        } catch (error) {
+          console.log('error', error);
         }
       }
     } else {
@@ -138,8 +138,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
           hateSetColor(`${COLORS.black}`);
           setHateClicked(false);
-        } catch (err) {
-          console.log('err', err);
+        } catch (error) {
+          console.log('error', error);
         }
       } else if (likeClicked) {
         alert('좋아요, 별로예요 둘 중 하나만 가능합니다.');
@@ -149,8 +149,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           axios.post('http://localhost:3003/likeHate', hateLike);
           hateSetColor(`${COLORS.red}`);
           setHateClicked(true);
-        } catch (err) {
-          console.log('err', err);
+        } catch (error) {
+          console.log('error', error);
         }
       }
     } else {

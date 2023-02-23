@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../services/firebase';
-import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import CustomModal from '../../../shared/CustomModal';
@@ -34,15 +34,15 @@ export const TextBackground = styled.div`
 `;
 
 const Logout = () => {
-  const navigate = useNavigate();
   const [isModal, setIsModal] = useRecoilState(modalStatus);
 
   // 로그아웃 이벤트
-  const SignOutClickHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const SignOutClickHandler = () => {
     signOut(auth);
     setIsModal({ ...isModal, logout: !isModal.logout });
   };
 
+  // 로그아웃 클릭시 모달창
   const modalStatusChangeHandler = () => {
     setIsModal({ ...isModal, logout: !isModal.logout });
   };

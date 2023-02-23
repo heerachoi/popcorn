@@ -6,7 +6,7 @@ import {
 } from '../../../services/api';
 import { useEffect } from 'react';
 
-const API_KEY = '45fabc77306799b105d9b9f9d05ad05a';
+const API_KEY = `process.env.REACT_APP_WEAHER_KEY`;
 
 interface airPollutionChangeTheText {
   [key: string]: string | number;

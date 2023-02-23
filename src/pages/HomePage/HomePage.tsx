@@ -1,30 +1,30 @@
-import Banner from '../../components/HomePage/Banner/Banner';
 import * as S from './style';
 import { useNavigate } from 'react-router-dom';
-import CategorySwiper from '../../components/HomePage/Swiper/CategorySwiper';
-import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwiper';
-import { PopularToMen, PopularToWomen } from '../../utils/Filter';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { getPopupData } from '../../services/api';
+import { PopularToMen, PopularToWomen } from '../../utils/Filter';
+import Banner from '../../components/HomePage/Banner/Banner';
+import CategorySwiper from '../../components/HomePage/Swiper/CategorySwiper';
+import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwiper';
+import { Store } from '../../types/data/storeInterface';
 
 const HomePage: any = () => {
   const navigate = useNavigate();
   const womenTopTwo = PopularToWomen();
   const menTopTwo = PopularToMen();
+  const { isLoading, isError, data, error } = useQuery(
+    'popup',
+    getPopupData,
+  );
 
-  const [storeData, setStoreData] = useState<any>('');
-  const fetchTodos = async () => {
-    const { data } = await axios.get('http://localhost:3010/Store');
-    return data;
-  };
-
-  const { data } = useQuery('popup', getPopupData);
-
-  useEffect(() => {
-    fetchTodos();
-  }, [storeData]);
+  if (isLoading) {
+    console.log('로딩중');
+    return <p>Loading...</p>;
+  }
+  if (isError) {
+    console.log('오류내용', error);
+    return <p>Error!!!</p>;
+  }
 
   return (
     <>
@@ -59,7 +59,8 @@ const HomePage: any = () => {
           </S.ListTitleContainer>
           <S.CategoryListContainer>
             <S.FilterStoreList>
-              {womenTopTwo?.map((popup: any) => {
+              {womenTopTwo.map((popup: 
+              Store) => {
                 return (
                   <S.StoreContainer
                     key={popup.id}

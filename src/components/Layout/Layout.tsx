@@ -43,11 +43,13 @@ const Layout = ({ children }: Props) => {
   }, [auth]);
 
   useEffect(() => {
+    // 현재 유저와 users.json에 있는 user과 같으면
     const myUser = userDataFromJson?.filter(
       (user: any) => users.userInfomation.uid === user.uid,
     )[0];
 
     // myUser가 빈 값이 아닐 때
+    // 한번 더 set 해주는 이유 : 성별, 나이 조회수 및 마이페이지에서 정보수정을 하기 위해서
     if (!!myUser) {
       setUsers({
         isLogin: true,
@@ -59,10 +61,10 @@ const Layout = ({ children }: Props) => {
     // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
   }, [users.isLogin]);
 
-  console.log(users, 'users');
   return (
     <>
       <Header />
+      {/* children은 Router에서 감싸주는 components */}
       <div>{children}</div>
       <Footer />
     </>
