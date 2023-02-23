@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getNewStoreReport } from '../../services/api';
@@ -21,7 +21,6 @@ const NewStoreReportDetail = () => {
     console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
-
 
   const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
   const currentState = selectedDetail[0].status;
@@ -91,7 +90,6 @@ const NewStoreReportDetail = () => {
                   <S.CancleBtn onClick={() => navigate('/master')}>
                     취소
                   </S.CancleBtn>
-                  {/* <S.CheckBtn>거절</S.CheckBtn> */}
                   <S.CheckBtn onClick={checkHandler}>확인</S.CheckBtn>
                 </S.ButtonBox>
               </S.GridBox>

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import React from 'react';
 import { useRecoilState } from 'recoil';
 import { isActiveMenu } from '../../atoms';
 import InfoError from '../../components/StoreReport/InfoError';

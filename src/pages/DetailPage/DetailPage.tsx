@@ -67,7 +67,6 @@ const DetailPage: any = () => {
   return (
     <>
       <StoreDetailInfo detailData={detailData} />
-      {/* <StoreEmoji /> */}
       <DetailPageViews detailData={detailData} />
       <DetailMap />
     </>

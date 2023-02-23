@@ -16,10 +16,10 @@ const COLORS = {
   gray7: '#D9D9D9',
   gray8: '#F5F5F5',
 
-  green: '##3EE953',
-  red: '##F4533D',
-  pink: '##FFB0A6',
-  lightPink: '##FFE8E4',
+  green: '#3EE953',
+  red: '#F4533D',
+  pink: '#FFB0A6',
+  lightPink: '#FFE8E4',
 };
 
 export default COLORS;
