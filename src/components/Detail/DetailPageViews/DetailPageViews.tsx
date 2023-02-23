@@ -6,14 +6,14 @@ interface Props {
 }
 
 const DetailPageViews = ({ detailData }: Props) => {
-  const teenagerPercent = detailData?.view[10];
-  const twentyPercent = detailData?.view[20];
-  const thirtyPercent = detailData?.view[30];
-  const fortyPercent = detailData?.view['40+'];
-  const unknownAgePercent = detailData?.view['연령모름'];
-  const menPercent = detailData?.view['men'];
-  const womenPercent = detailData?.view['women'];
-  const unknownGenderPercent = detailData?.view['성별모름'];
+  const teenagerPercent = detailData.view[10];
+  const twentyPercent = detailData.view[20];
+  const thirtyPercent = detailData.view[30];
+  const fortyPercent = detailData.view['40+'];
+  const unknownAgePercent = detailData.view['연령모름'];
+  const menPercent = detailData.view['men'];
+  const womenPercent = detailData.view['women'];
+  const unknownGenderPercent = detailData.view['성별모름'];
 
   return (
     <GrapfWrap>
@@ -60,17 +60,6 @@ const DetailPageViews = ({ detailData }: Props) => {
 };
 
 export default DetailPageViews;
-// const teenagerPercent = (detailData.view[10] / detailData.view['all']) * 100;
-// const twentyPercent = (detailData.view[20] / detailData.view['all']) * 100;
-// const thirtyPercent = (detailData.view[30] / detailData.view['all']) * 100;
-// const fortyPercent = (detailData.view['40+'] / detailData.view['all']) * 100;
-// const unknownAgePercent =
-//   (detailData.view['연령모름'] / detailData.view['all']) * 100;
-// const menPercent = (detailData.view['men'] / detailData.view['all']) * 100;
-// const womenPercent =
-//   (detailData.view['women'] / detailData.view['all']) * 100;
-// const unknownGenderPercent =
-//   (detailData.view['성별모름'] / detailData.view['all']) * 100;
 
 const GrapfWrap = styled.div`
   display: flex;

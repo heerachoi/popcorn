@@ -34,10 +34,6 @@ const Maps = ({
 
   return (
     <>
-      {/* <Wrap id="map" ref={MapRef} /> */}
-      {/* <button onClick={() => setOpenModal((prev) => !prev)}>모달</button>
-      {openModal && <MapModal />} */}
-
       {/* 맵이 맨 처음 렌더링 되면 getLocation에서 내 위치를 가져온 값이 center 기준이 되고 marker도 center 좌표에 찍힌다.
       검색하고 onSubmit이 발생되면 map.getCenter() 메서드로 myLocation의 값을 검색 기준 지도 가운데 경도, 위도로 바꿔준다.
       map.getCenter() 함수를 몰라서 오래 걸렸다 후... */}
