@@ -44,14 +44,12 @@ const MapPage = () => {
   const popuplist = useRecoilValue(popupList);
   const [foodData, setFoodData] = useRecoilState(mapFoodData);
 
-  const { data: popupData, isLoading: popupDataIsLoading } = useQuery(
-    'popupData',
-    getPopupData,
-  );
+  const { data: popupData } = useQuery('popupData', getPopupData);
 
   const onSearchSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    // 검색할 때 팝업리스트가 없으면 return 해서 지도가 옮겨지지 않게 하고 검색결과가 없다고 알려준다.
     if (popuplist.length === 0) return alert('검색 결과가 없습니다.');
     // new kakao.maps.services.Places(); 키워드로 검색하면 object를 반환해준다.
     setMarkerHandler(search, category);
@@ -60,13 +58,10 @@ const MapPage = () => {
 
   const setMarkerHandler = (search: any, category: any) => {
     const ps = new kakao.maps.services.Places();
-    console.log(search);
     // ps.keywordSearch(검색어, (키워드 데이터 [], 검색 상태 OK 여부, total count, page 수))
     if (search === '홍대') search += '마포구';
     if (search === '건대') search += '광진구';
-    // if (search)
 
-    console.log('카테고리', category);
     ps.keywordSearch(
       search,
       (data, status, _pagination) => {

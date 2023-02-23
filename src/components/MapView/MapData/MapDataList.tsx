@@ -25,8 +25,6 @@ const MapDataList = ({ popupData, condition, setMyLocation }: any) => {
     setPopupList(filter);
   }, [search]);
 
-  // 검색할 때 팝업리스트가 없으면 return 해서 지도가 옮겨지지 않게 하고 검색결과가 없다고 알려준다.
-
   return (
     <Wrap>
       {popuplist.length === 0 ? (
