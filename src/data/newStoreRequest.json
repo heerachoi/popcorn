@@ -156,6 +156,45 @@
       "reportedDate": "2023. 2. 20. 오후 4:12:34",
       "category": "신규",
       "status": true
+    },
+    {
+      "id": "7fac37b9-d4b8-4b27-afed-03470e88d0a9",
+      "userId": {
+        "uid": "THhGvnw91ObW1nfkjAU66kVitO33",
+        "email": "jieun@naver.com",
+        "emailVerified": false,
+        "displayName": "은이",
+        "isAnonymous": false,
+        "providerData": [
+          {
+            "providerId": "password",
+            "uid": "jieun@naver.com",
+            "displayName": "은이",
+            "email": "jieun@naver.com",
+            "phoneNumber": null,
+            "photoURL": null
+          }
+        ],
+        "stsTokenManager": {
+          "refreshToken": "APJWN8enEgNDmmbSAmZyUrrksCR9DyRCpnsqMOk2zbSs2Q0lt1-8R00zl2uYU0-AuYRWITZEEViOXjdWPIji46UA9q7ZM9cZVL2V2U-uECCYQVZmFTu5lAV92p_5WeisQWnn1wP7s8ltJ2gKn0DuPcQdfaYZD01eWaBM9asJqrFq9ms7K4fJ_4P72riL3w6zQ5xPGorzkxbMeKk4nEQbUD9V_JYPkAheOg",
+          "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE1YzJiNDBhYTJmMzIyNzk4NjY2YTZiMzMyYWFhMDNhNjc3MzAxOWIiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoi7Yyd7YydIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL3BvcGNvcm4xLTRiNDdlIiwiYXVkIjoicG9wY29ybjEtNGI0N2UiLCJhdXRoX3RpbWUiOjE2NzcxMzYyMjEsInVzZXJfaWQiOiJUSGhHdm53OTFPYlcxbmZrakFVNjZrVml0TzMzIiwic3ViIjoiVEhoR3ZudzkxT2JXMW5ma2pBVTY2a1ZpdE8zMyIsImlhdCI6MTY3NzEzNjIyMSwiZXhwIjoxNjc3MTM5ODIxLCJlbWFpbCI6ImppZXVuQG5hdmVyLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJqaWV1bkBuYXZlci5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.e2IDUdJWf5gMP4renJqDTWuX1v_b5vVux1HXYwbnwC6HJsz5GKIdg4rwhdH-TwRDWkfc5ddur1UqJyXrYGaj1TfJVgdseKY3iFaBggHh0E1CTIpZSoBcqOYuS8N4n55scBP24jkI2EfHM1tBn941r_tabEqYx6D6-rcwH412nHxwOmamhU5XIIBDypSvzHs5tTmAgTWZqjfXdenmq6gr8JKhwWalfW2KnDXOMI4BQuaCmegKbfaNsYuDKdKNUtHf3rMQrx5BgPkltpEeb-asUTXcD4W8Ta5AowZCEuZxuGA3Nv3dPn8QHIn0QsyjaHy_Yi1HKkq8ToUL4Hhw9IElag",
+          "expirationTime": 1677139823472
+        },
+        "createdAt": "1677136211936",
+        "lastLoginAt": "1677136211936",
+        "apiKey": "AIzaSyAUbL1bZQVHDbTw-PYGMwVM0HvLFaYry_o",
+        "appName": "[DEFAULT]"
+      },
+      "title": "팝업스토어 신청합니다!",
+      "storeName": "스토어 이름",
+      "storeAddress": "부산시",
+      "startDate": "2023-02-22",
+      "endDate": "2023-02-25",
+      "etcContent": "없음",
+      "infoImg": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/storeInfoImg%2Fhate.png?alt=media&token=93a5f172-056b-49d3-aff9-ae577e384e7d",
+      "reportedDate": "2023. 2. 23. 오후 4:13:41",
+      "category": "신규",
+      "status": false
     }
   ]
 }
