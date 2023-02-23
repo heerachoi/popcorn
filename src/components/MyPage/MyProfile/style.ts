@@ -1,13 +1,8 @@
 import styled from 'styled-components';
 
-export const MyPageAll = styled.div`
-  /* max-width: 1040px;
-width: 100%;
-background-color: beige; */
-`;
+export const MyPageAll = styled.div``;
 
 export const MyPageContainer = styled.div`
-  /* background-color: beige; */
   max-width: 1440px;
   width: 100%;
   height: 1621px;
@@ -146,9 +141,7 @@ export const ProfileImgShow = styled.img`
   border-radius: 70%;
   border: 1px solid #d9d9d9;
 `;
-export const ProfileImgInput = styled.input`
-  /* margin: 1vh 15vh 1vh 15vh; */
-`;
+export const ProfileImgInput = styled.input``;
 
 export const NewProfileSubmitForm = styled.form``;
 
@@ -179,7 +172,6 @@ export const EmailInput = styled.input`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
-  /* background-color: #d9d9d9; */
 `;
 
 // =======휴대전화 묶음
@@ -227,7 +219,7 @@ export const GenderText = styled.p`
   color: #323232;
 `;
 
-export const GenderInput = styled.div`
+export const GenderInputDiv = styled.div`
   width: 80%;
   height: 48px;
   border: 1px solid #a6a6a6;
@@ -256,7 +248,7 @@ export const AgeText = styled.p`
   color: #323232;
 `;
 
-export const AgeInput = styled.div`
+export const AgeInputDiv = styled.div`
   width: 80%;
   height: 48px;
   border: 1px solid #a6a6a6;
@@ -299,16 +291,11 @@ export const EditModalBtnText = styled.p`
   color: #9b9b9b;
 `;
 
-// export const EditModalButton = styled.button``;
-
 export const EditModalTitleText = styled.p`
   /* 타이틀 */
 
   width: 190px;
   height: 38px;
-  /* display: flex;
-  justify-content: center; */
-  /* align-items: center; */
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 800;
@@ -343,22 +330,7 @@ export const EditModalProfileImgShow = styled.img`
   border: 1px solid #d9d9d9;
 `;
 
-export const EditModalProfileImgInput = styled.input`
-  /* margin: 1vh 15vh 1vh 15vh; */
-`;
-// 얘는 모달창에선 안보여줘도 될듯
-// export const EditModalMyProfileNickname = styled.h3`
-//   font-family: 'Apple SD Gothic Neo';
-//   font-style: normal;
-//   font-weight: 700;
-//   font-size: 32px;
-//   line-height: 32px;
-//   color: black;
-//   /* or 100% */
-//   margin: 5vh;
-
-//   text-align: center;
-// `;
+export const EditModalProfileImgInput = styled.input``;
 
 export const EditModalNicknameInputWrapper = styled.div`
   margin: 4vh 0vh 2vh 8vh;
@@ -425,8 +397,6 @@ export const EditModalCanceleButton = styled.button`
   gap: 8px;
   width: 200px;
   height: 60px;
-  /* margin-left: 9%;
-  margin-bottom: 1rem; */
   border: 1px solid #d9d9d9;
   border-radius: 8px;
 
@@ -456,11 +426,6 @@ export const EditModalCompleteButton = styled.button`
   background: #bdbdbd;
   border: 1px solid #9b9b9b;
   border-radius: 8px;
-  /* margin-top: 2rem; */
-  /* margin-left: 17rem;
-  margin-bottom: 15rem; */
-  /* margin-left: 9%; */
-  /* Title Text */
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
@@ -485,5 +450,4 @@ export const EditModalEmailInput = styled.input`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
-  /* background-color: #d9d9d9; */
 `;

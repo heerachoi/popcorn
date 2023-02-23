@@ -29,6 +29,16 @@
       "profileImg": null,
       "uid": "6NZbSbKqDHbj6w5QyYMSainJIlx1",
       "id": "d8f7b1ce-a41e-40c6-b594-ceb57d7e218c"
+    },
+    {
+      "age": "1980-01-23",
+      "email": "chacha@naver.com",
+      "gender": "men",
+      "nickName": "차은우",
+      "phoneNumber": "01028846776",
+      "profileImg": null,
+      "uid": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "id": "22ace3dc-2a33-4fbc-b844-6ef15464c51a"
     }
   ]
 }

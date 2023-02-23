@@ -7,22 +7,21 @@ import MyProfileEditModal from './MyProfileEditModal';
 import { useRecoilState } from 'recoil';
 import { editModal, profileState } from '../../../atoms';
 import { useRecoilValue } from 'recoil';
-
+import { userInfo } from '../../../atoms';
 const MyProfile = () => {
+  const user = useRecoilValue(userInfo);
+  const userInfos = user.userInfomation;
+
   const [open, setOpen] = useRecoilState(editModal);
   const handleOpen = () => setOpen(true);
   const [nickname, setNickname] = useState<any>(''); // 닉네임
   const [currentUser, setCurrentUser] = useState<any>('');
-  console.log('currentUser', currentUser);
   const imgProfileUrl = useRecoilValue(profileState);
-
   const [imgUploadUrl, setImgUploadUrl] = useState<any>(); // 업로드한 이미지 url
-  console.log('imgUploadUrlimgUploadUrlimgUploadUrlimgUploadUrl', imgUploadUrl);
   useEffect(() => {
     auth.currentUser?.photoURL;
     if (currentUser?.photoURL) {
       setImgUploadUrl(currentUser.photoURL);
-      console.log('currentUser.photoURL', currentUser.photoURL);
     }
   }, [currentUser, nickname]);
 
@@ -75,15 +74,15 @@ const MyProfile = () => {
             </S.EmailInputWrpper>
             <S.PhoneNumInputWrpper>
               <S.PhoneNumText>휴대전화</S.PhoneNumText>
-              <S.PhoneNumInputDiv></S.PhoneNumInputDiv>
+              <S.PhoneNumInputDiv>{userInfos.phoneNumber}</S.PhoneNumInputDiv>
             </S.PhoneNumInputWrpper>
             <S.GenderInputWrpper>
               <S.GenderText>성별</S.GenderText>
-              <S.GenderInput />
+              <S.GenderInputDiv>{userInfos.gender}</S.GenderInputDiv>
             </S.GenderInputWrpper>
             <S.AgeInputWrpper>
               <S.AgeText>생일</S.AgeText>
-              <S.AgeInput />
+              <S.AgeInputDiv>{userInfos.age}</S.AgeInputDiv>
             </S.AgeInputWrpper>
             <S.ModifyCompleteButton type="button">
               <MyProfileEditModal />
