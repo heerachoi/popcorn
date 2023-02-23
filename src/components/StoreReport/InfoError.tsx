@@ -26,7 +26,6 @@ const InfoError: any = () => {
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
 
-
   // input 초기값
   const initInfoErrModifiInput = {
     title: '',
@@ -134,10 +133,7 @@ const InfoError: any = () => {
 
     // db에 추가
     try {
-      axios.post(
-        'http://localhost:3001/infoErrModifiContents',
-        newErrModifiInfo,
-      );
+      axios.post(`${JSON_API}/infoErrModifiContents`, newErrModifiInfo);
       setInfoErrModifiInput(initInfoErrModifiInput);
       setErrImgFile('');
       setErrContent(initErrContent);

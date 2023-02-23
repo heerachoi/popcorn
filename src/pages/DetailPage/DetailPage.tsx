@@ -34,7 +34,7 @@ const DetailPage: any = () => {
   // 연령대 + 1, 성별 + 1 전체 수 + 1,
   const upDateViews = async () => {
     try {
-      return await axios.patch(`http://localhost:3010/Store/${detailData.id}`, {
+      return await axios.patch(`${JSON_API}/Store/${detailData.id}`, {
         view: {
           ...detailData.view,
           [userAge]: detailData.view[userAge] + 1,
@@ -60,8 +60,9 @@ const DetailPage: any = () => {
   // 연령대가 설정되면 Json 서버 데이터 업데이트 하기
   useEffect(() => {
     if (userAge !== '') {
-      queryClient.removeQueries('popup');
-      queryClient.refetchQueries('popup');
+      queryClient.invalidateQueries({ queryKey: ['todos'] });
+      // queryClient.removeQueries('popup');
+      // queryClient.refetchQueries('popup');
       mutation.mutate();
     }
   }, [userAge]);

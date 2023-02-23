@@ -178,7 +178,7 @@ const SignUp = () => {
           uid: user.uid,
           id: uuidv4(),
         };
-        axios.post('http://localhost:4000/users', userInfo).then(() => {
+        axios.post(`${JSON_API}/users`, userInfo).then(() => {
           return modalStatusChangeHandler('signUpComplete');
         });
       })

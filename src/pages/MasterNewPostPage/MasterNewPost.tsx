@@ -8,6 +8,7 @@ import { Store } from '../../types/data/storeInterface';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { globalBtn } from '../../atoms';
+import { JSON_API } from '../../services/api';
 
 const MasterNewPost = () => {
   const navigate = useNavigate();
@@ -128,7 +129,7 @@ const MasterNewPost = () => {
 
     //db에 추가
     try {
-      axios.post('http://localhost:3010/Store', NewPost);
+      axios.post(`${JSON_API}`, NewPost);
       setNewPostInput(initialState);
       setImgFile('');
 
@@ -181,7 +182,7 @@ const MasterNewPost = () => {
   return (
     <S.NewPostWrap>
       <S.TitleBackground>
-      <S.NewPostTitle>새 게시물 작성</S.NewPostTitle>
+        <S.NewPostTitle>새 게시물 작성</S.NewPostTitle>
       </S.TitleBackground>
       <S.NewPostContainer onSubmit={newPostAddHandler}>
         <S.PostGrid>
@@ -311,9 +312,12 @@ const MasterNewPost = () => {
           />
         </S.PostGrid>
         <S.BtnBox>
-          <S.CancleAddBtn 
-          onClick={() =>{alert('취소하시겠습니까?'); navigate('/')}}
-          type='button'
+          <S.CancleAddBtn
+            onClick={() => {
+              alert('취소하시겠습니까?');
+              navigate('/');
+            }}
+            type="button"
             style={{ backgroundColor: 'white', color: '#9B9B9B' }}
           >
             취소

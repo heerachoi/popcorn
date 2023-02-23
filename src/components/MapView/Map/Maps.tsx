@@ -53,6 +53,7 @@ const Maps = ({
             lng: myLocation.La,
           }}
         />
+        {/* 카테고리가 음식점 카페라면 */}
         {(category === '음식점' || category === '카페') &&
           foodData.map((marker: any) => (
             <>
@@ -67,13 +68,14 @@ const Maps = ({
                   },
                 }}
                 onClick={() => {
-                  setInfo(marker);
+                  setInfo(marker); // 클릭할 때 마커의 정보를 info에 저장
                 }}
               />
+              {/* info 값이 있고, info.title과 marker.title가 같다면 커스텀한 모달창이 뜸 */}
               {info && info.title === marker.title && (
                 <CustomOverlayMap
                   position={marker.position}
-                  yAnchor={1.4}
+                  yAnchor={1.4} // 마커에 따른 모달창의 상대적인 위치
                   zIndex={1}
                 >
                   <MapModal marker={marker} setInfo={setInfo} />

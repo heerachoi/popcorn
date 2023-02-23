@@ -15,7 +15,7 @@ const DeleteAccount = () => {
 
   // 회원탈퇴 할 때 json-server에서 삭제해야하기 때문에 함수를 만듬
   const deleteDBUser = async () => {
-    if (user) await axios.delete(`http://localhost:4000/users/${user.uid}`);
+    if (user) await axios.delete(`${JSON_API}/users/${user.uid}`);
     try {
       modalStatusChangeHandler('signoutComplete'); // 회원탈퇴 완료 모달   ❌ 실행안됨
     } catch (error) {

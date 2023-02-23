@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getNewStoreReport } from '../../services/api';
+import { getNewStoreReport, JSON_API } from '../../services/api';
 import * as S from './style';
 
 const NewStoreReportDetail = () => {
@@ -28,7 +28,7 @@ const NewStoreReportDetail = () => {
   const checkHandler = () => {
     alert('확인');
     navigate('/master');
-    return axios.patch(`http://localhost:3002/newStores/${paramId.id}`, {
+    return axios.patch(`${JSON_API}/newStores/${paramId.id}`, {
       status: !currentState,
     });
   };
@@ -37,8 +37,8 @@ const NewStoreReportDetail = () => {
     <S.ReportListWrap>
       <S.ReportListContainer>
         <S.ReportTitleBox>
-        <S.TitleBackground style={{width: 420, right:'750px'}}>
-          <S.TitleText>신규 팝업스토어 신청 제보</S.TitleText>
+          <S.TitleBackground style={{ width: 420, right: '750px' }}>
+            <S.TitleText>신규 팝업스토어 신청 제보</S.TitleText>
           </S.TitleBackground>
         </S.ReportTitleBox>
 

@@ -63,10 +63,9 @@ const NewStoreReport: any = () => {
     reader.readAsDataURL(theFile); // file 객체를 data url로 바꿔줌
 
     reader.onloadend = (finishedEvent: any) => {
-      setImgFile(finishedEvent.currentTarget.result);      
+      setImgFile(finishedEvent.currentTarget.result);
     };
   };
-
 
   const cancleHandler = () => {
     if (window.confirm('작성을 취소하시겠습니까?')) {
@@ -80,7 +79,7 @@ const NewStoreReport: any = () => {
   ) => {
     event.preventDefault();
     setGlobalButton(false);
-    
+
     // firebase storage에 이미지 업로드
     const imgRef = ref(storage, `storeInfoImg/${fileName}`);
 
@@ -113,7 +112,7 @@ const NewStoreReport: any = () => {
 
     // db에 추가
     try {
-      axios.post('http://localhost:3002/newStores', newStore);
+      axios.post(`${JSON_API}/newStores`, newStore);
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
       setEtcContent('');

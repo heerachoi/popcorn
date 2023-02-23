@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getInfoErrReport } from '../../services/api';
+import { getInfoErrReport, JSON_API } from '../../services/api';
 import * as S from './style';
 
 const ErrReportDetail = () => {
@@ -12,7 +12,7 @@ const ErrReportDetail = () => {
     'infoErrModifiContents',
     getInfoErrReport,
   );
- 
+
   if (isLoading) {
     console.log('로딩중');
     return <p>Loading...</p>;
@@ -22,18 +22,15 @@ const ErrReportDetail = () => {
     return <p>Error!!!</p>;
   }
 
-  const selectedDetail = data?.filter((item: any) => item.id === paramId.id); 
+  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
   const currentState = selectedDetail[0].status;
 
   const checkHandler = () => {
     alert('확인');
     navigate('/master');
-    return axios.patch(
-      `http://localhost:3001/infoErrModifiContents/${paramId.id}`,
-      {
-        status: !currentState,
-      },
-    );
+    return axios.patch(`${JSON_API}/infoErrModifiContents/${paramId.id}`, {
+      status: !currentState,
+    });
   };
 
   return (
