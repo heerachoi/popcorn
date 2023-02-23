@@ -11,7 +11,7 @@ export interface Store {
   item: string;
   openingTime: string[];
   closeTime: string[];
-  significantContent: string;
+  significantContent:string;
   explain: string;
   sns: string;
   web: string;
@@ -23,13 +23,26 @@ export interface Store {
 }
 
 export interface BookMark {
-  id: string;
-  storeId: string;
-  userId: string;
-  notification: boolean;
-  title: string;
-  open: string;
-  close: string;
-  imgURL: string;
-  status: boolean;
+  id: string,
+  storeId: string,
+  userId: string,
+  notification: boolean,
+  title: string,
+  open: string,
+  close: string,
+  imgURL: string,
+  status: boolean,
 }
+
+export interface View {
+  '10': number,
+  '20': number,
+  '30': number,
+  '40+': number,
+   women: number,
+   men: number,
+  연령모름: number,
+  성별모름: number,
+  all: number
+}
+

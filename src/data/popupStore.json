@@ -16,7 +16,7 @@
       "title": "Fluffy Keyring News",
       "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
       "open": "2023.01.13",
-      "close": "2023.02.06",
+      "close": "2023.02.25",
       "location": "서울",
       "item": "액세서리",
       "openingTime": [
@@ -65,7 +65,7 @@
       "title": "Kauts",
       "address": "서울특별시 마포구 양화로 188 AK&플라자 2층",
       "open": "2023.01.09",
-      "close": "2023.02.06",
+      "close": "2023.02.26",
       "location": "서울",
       "item": "신발",
       "openingTime": [
@@ -1100,8 +1100,6 @@
         "성별모름": 0,
         "all": 0
       },
-      "like": 0,
-      "hate": 0,
       "title": "인생네컷 X 최고심",
       "address": "서울특별시 마포구 홍익로6길 23 인생네컷 동교점",
       "open": "2023-01-20",

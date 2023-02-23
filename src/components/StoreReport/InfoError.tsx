@@ -27,6 +27,7 @@ const InfoError: any = () => {
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
 
+
   // input 초기값
   const initInfoErrModifiInput = {
     title: '',
@@ -228,7 +229,6 @@ const InfoError: any = () => {
           style={{ display: 'none' }}
         />
       </S.ReportGrid>
-
       <S.ButtonBox>
         <S.CancleBtn onClick={cancleHandler}>취소</S.CancleBtn>
         <S.AddBtn type="submit">제보하기</S.AddBtn>

@@ -63,6 +63,7 @@ const DetailPage: any = () => {
   useEffect(() => {
     if (userAge !== '') {
       mutation.mutate();
+      // upDateViews();
     }
   }, [userAge]);
 

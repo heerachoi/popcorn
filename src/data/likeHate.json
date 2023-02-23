@@ -1,16 +1,16 @@
 {
   "likeHate": [
     {
-      "id": "8fbef966-2cdc-4e11-9312-a4b67ca67815",
-      "storeId": "2",
-      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
+      "id": "1a8a9a22-b42d-4168-88d3-482d1aa3a80d",
+      "storeId": "16",
+      "userId": "UDyXDrVqlKb3095Fzvj8NWxLnyt2",
       "vote": "like"
     },
     {
-      "id": "5a0ba4bc-38d8-4e34-835c-8413a5edcb19",
-      "storeId": "16",
-      "userId": "mdtTLX8TGqREILUTiQJzZJDaPRI2",
-      "vote": "like"
+      "id": "7e2c8434-00d7-40dc-99f8-e9f4a08e43a1",
+      "storeId": "0",
+      "userId": "UDyXDrVqlKb3095Fzvj8NWxLnyt2",
+      "vote": "hate"
     }
   ]
 }

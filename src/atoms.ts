@@ -26,6 +26,7 @@ interface ModalStatus {
 type MapSearchValue = string;
 type MapCategoryValue = string | null;
 
+// userInfo.id uid가 같으면? 현재유저!
 export const userInfo = atom<UserInfoState>({
   key: 'user',
   default: {
@@ -100,6 +101,11 @@ export const modalStatus = atom<ModalStatus>({
   },
 });
 
+export const editModal = atom<boolean>({
+  key: 'editModalStatus',
+  default: false,
+});
+
 export const likeCount = atom<number>({
   key: 'likeCount',
   default: 0,
@@ -124,3 +130,8 @@ export const modalPage = atom<string>({
 //     return data;
 //   },
 // });
+
+export const profileState = atom({
+  key: 'profileState', // unique ID (with respect to other atoms/selectors)
+  default: '', // default value (aka initial value)
+});
