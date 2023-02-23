@@ -29,7 +29,6 @@ const MyProfile = () => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        console.log('useEffect user.photoURL', user.photoURL);
         setCurrentUser(auth.currentUser);
         setImgUploadUrl(user.photoURL);
       } else {
@@ -39,7 +38,6 @@ const MyProfile = () => {
   }, [currentUser]);
 
   useEffect(() => {
-    console.log('user.photoURL', currentUser?.photoURL);
     setImgUploadUrl(currentUser.photoURL);
   }, []);
 

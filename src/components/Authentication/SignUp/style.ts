@@ -101,7 +101,6 @@ export const FormSelect = styled(FormInput)`
   option[value=''][disabled] {
     display: none;
   }
-  ///////// 값이 안먹힘 //////////
   option {
     background: lightcoral;
     color: #fff;

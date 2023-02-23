@@ -134,8 +134,8 @@ const MasterNewPost = () => {
 
       alert('작성 완료!');
       navigate('/master');
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   };
 

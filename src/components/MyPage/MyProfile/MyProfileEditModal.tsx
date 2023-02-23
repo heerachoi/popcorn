@@ -64,7 +64,6 @@ const MyProfileEditModal = () => {
       const downloadImageUrl = await getDownloadURL(response.ref);
       setImgUploadUrl(downloadImageUrl);
       setProfileUrl(downloadImageUrl);
-      console.log('downloadImageUrl', downloadImageUrl);
     }
 
     await updateProfile(currentUser, {

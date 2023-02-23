@@ -107,7 +107,6 @@ const SignUp = () => {
           size: 'invisible',
           callback: (response: any) => {
             console.log('recaptchaVerifier response', response);
-            // setRecaptcha(grecaptcha);
           },
           'expired-callback': (data: any) => {
             console.log('reCAPTCHA expired, refreshing...');
