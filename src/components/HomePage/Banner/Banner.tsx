@@ -3,7 +3,7 @@ import popcornBnr1 from '../../../assets/Logo/popcornBnr1.jpg';
 import popcornBnr2 from '../../../assets/Logo/popcornBnr2.jpg';
 import popcornBnr3 from '../../../assets/Logo/popcornBnr3.jpg';
 import { StyledSlider, IMG } from './style';
-import { MostViews } from '../../../utils/Filter';
+// import { MostViews } from '../../../utils/Filter';
 
 const Banner: any = () => {
   const settings: any = {
