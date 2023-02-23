@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style';
-import axios from "axios";
+import axios from 'axios';
 
 // Data
 import datas from '../../data/popupStore.json';
@@ -60,7 +60,9 @@ const Search: React.FC = () => {
     datas.Store,
   );
   // 지역 필터
-  const [saveLocationList, setSaveLocationtList] = useState<Store[]>(datas.Store);
+  const [saveLocationList, setSaveLocationtList] = useState<Store[]>(
+    datas.Store,
+  );
   //  제품 필터
   const [saveItemList, setSaveItemList] = useState<Store[]>(datas.Store);
   // 기타 필터
@@ -239,14 +241,14 @@ const Search: React.FC = () => {
       for (let i = 0; i < itemFilterList.length; i++) {
         datas.Store.filter((store) => {
           if (store.item === itemFilterList[i].label) {
-              itemList.push(store);
+            itemList.push(store);
           }
-        })
+        });
       }
       setSaveItemList(itemList);
       itemList = [];
     }
-  }
+  };
 
   //기타 필터
   const otherFilterList = useRecoilValue(OtherModalButtonData);
@@ -254,27 +256,25 @@ const Search: React.FC = () => {
     // otherFilterList에 있는 값들 중에
     // store view안에 otherFilterList에 선택된 애들이 10,20일경우
     // 10,20이 0 이상인 경우 출력
-    datas.Store.map((store:Store)=> {
+    datas.Store.map((store: Store) => {
       otherFilterList.map((other) => {
         // store.view[10]은 알아서 뽑아낸다 -> 0이 아닐때
-        let viewValue:string = other.label;
-        if (store.view[viewValue] > 0) { // view가 0이상일때
+        let viewValue: string = other.label;
+        if (store.view[viewValue] > 0) {
+          // view가 0이상일때
           // 현제 otherList에 없다면 추가
-          const checkDuplication = otherList.find((current) => current.id === store.id);
+          const checkDuplication = otherList.find(
+            (current) => current.id === store.id,
+          );
           if (checkDuplication === undefined) {
-          otherList.push(store);
+            otherList.push(store);
           }
         }
-      })
-    
-    })
+      });
+    });
     setSaveOtherList(otherList);
     otherList = [];
-  }
-  
-
-
-
+  };
 
   // ModalButtonData에서 찾아서 active True
   // locationFilterList에 추가하면
@@ -293,7 +293,6 @@ const Search: React.FC = () => {
   // useEffect(() => {
   //   getURLInfo();
   // }, []);
-
 
   // 검색
   useEffect(() => {
@@ -394,22 +393,21 @@ const Search: React.FC = () => {
   const modalClickHandler = (event: any) => {
     toggle(event);
   };
-  
 
   return (
     <S.SearchPageContainer>
       <S.FilterContainer>
-          <S.SearchInputContainer>
-            <ImSearch />
-            <S.InputTitle>키워드</S.InputTitle>
-            <S.SearchInput
-              type="text"
-              value={searchTerm}
-              placeholder="키워드를 입력해주세요."
-              onChange={(event) => setSearchTerm(event.target.value)}
-              onKeyPress={checkKeypress}
-            />
-          </S.SearchInputContainer>
+        <S.SearchInputContainer>
+          <ImSearch />
+          <S.InputTitle>키워드</S.InputTitle>
+          <S.SearchInput
+            type="text"
+            value={searchTerm}
+            placeholder="키워드를 입력해주세요."
+            onChange={(event) => setSearchTerm(event.target.value)}
+            onKeyPress={checkKeypress}
+          />
+        </S.SearchInputContainer>
         <S.SearchItemContainer>
           <S.SearchTagContainer>
             <BsFillCalendarFill />
@@ -492,31 +490,45 @@ const Search: React.FC = () => {
         <S.FilterResult>
           {storeList.map((popup: Store) => {
             return (
-              <S.StoreContainer key={popup.id} onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
+              <S.StoreContainer
+                key={popup.id}
+                onClick={() =>
+                  navigate(`/detail/${popup.id}`, { state: popup })
+                }
+              >
                 <S.PosterImg src={popup.imgURL[0]} />
                 <S.StoreInformation>
                   <S.InformationContainer>
                     <S.StoreTitle>{popup.title}</S.StoreTitle>
-                  <S.EventPeriod>
-                    {popup.open} - {popup.close}
-                  </S.EventPeriod>
+                    <S.EventPeriod>
+                      {popup.open} - {popup.close}
+                    </S.EventPeriod>
                   </S.InformationContainer>
                   <S.CategoryContainer>
-                  <S.Category onClick={(event) => { 
-                      event.stopPropagation(); 
-                      navigate(`/search?search=${popup.location}`);
-                    }}> 
-                    {popup.location} 
-                  </S.Category>
-                  <S.Category onClick={(event) => {
-                      event.stopPropagation();
-                      navigate(`/search?search=${popup.category}`);
-                    }}>{popup.category}
-                  </S.Category>
-                  <S.Category onClick={(event) => {
-                      event.stopPropagation();
-                      // setSearchTerm(event.target.value);
-                    }}>{popup.item}</S.Category>
+                    <S.Category
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        navigate(`/search?search=${popup.location}`);
+                      }}
+                    >
+                      {popup.location}
+                    </S.Category>
+                    <S.Category
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        navigate(`/search?search=${popup.category}`);
+                      }}
+                    >
+                      {popup.category}
+                    </S.Category>
+                    <S.Category
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        // setSearchTerm(event.target.value);
+                      }}
+                    >
+                      {popup.item}
+                    </S.Category>
                   </S.CategoryContainer>
                 </S.StoreInformation>
               </S.StoreContainer>

@@ -6,21 +6,12 @@ import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwipe
 import { PopularToMen, PopularToWomen } from '../../utils/Filter';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Store } from '../../types/data/storeInterface';
 
-const HomePage: any = () => {
+const HomePage:React.FC = () => {
   const navigate = useNavigate();
   const womenTopTwo = PopularToWomen();
   const menTopTwo = PopularToMen(); 
-
-  const [storeData, setStoreData] = useState<any>('');
-  const fetchTodos = async () => {
-    const { data } = await axios.get("http://localhost:3010/Store");
-    // console.log(data);
-  };
-
-  useEffect(() => {
-    fetchTodos();
-  }, [storeData]);
 
   return (
     <>
@@ -90,7 +81,10 @@ const HomePage: any = () => {
             }) }
             <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
               <S.SeeMoreImage src={require('../../assets/Img/SeeMore.jpg')} />
-              <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
+              <S.SeeMoreText onClick={(event) => {
+                        event.stopPropagation();
+                        navigate(`/search?search=여성`);
+                      }}>더 많은 팝업스토어 보기</S.SeeMoreText>
             </S.SeeMoreContainer>
           </S.FilterStoreList>
         </S.CategoryListContainer>
@@ -112,7 +106,6 @@ const HomePage: any = () => {
                       <S.PopupDate>
                       {popup.open} - {popup.close}
                       </S.PopupDate>
-                      {/* <S.PopupAddress>{popup.address}</S.PopupAddress> */}
                     </S.InformationContainer>
                   <S.CategoryContainer>
                     <S.Category onClick={(event) => { 
@@ -137,10 +130,12 @@ const HomePage: any = () => {
             }) }
             <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
               <S.SeeMoreImage src={require('../../assets/Img/SeeMore.jpg')} />
-              <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
+              <S.SeeMoreText onClick={(event) => {
+                        event.stopPropagation();
+                        navigate(`/search?search=남성`);
+                      }}>더 많은 팝업스토어 보기</S.SeeMoreText>
               
             </S.SeeMoreContainer>
-            
           </S.FilterStoreList>
         </S.CategoryListContainer>
         </S.CategoryWrapper>

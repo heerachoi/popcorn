@@ -33,3 +33,16 @@ export interface BookMark {
   imgURL: string,
   status: boolean,
 }
+
+export interface View {
+  '10': number,
+  '20': number,
+  '30': number,
+  '40+': number,
+   women: number,
+   men: number,
+  연령모름: number,
+  성별모름: number,
+  all: number
+}
+

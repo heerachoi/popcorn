@@ -112,11 +112,6 @@ export const DepartmentStoreCategory = styled.select`
   box-sizing: border-box;
   height: 100px;
 `
-// export const Option = styled.option`
-//   color: blue;
-//   background-color: yellow;
-//   /* width: 100px; */
-// `;
 
 export const ItemCategory = styled.div`
   
@@ -127,7 +122,6 @@ export const ItemCategory = styled.div`
 export const LocationCategory = styled.div`
   
 `
-
 
 export const EtcCategory = styled(ItemCategory)`
   border: 1px solid black;
@@ -192,11 +186,6 @@ export const StoreInformation = styled.div`
 export const CalendarContainer = styled.div`
   width: 100%;
 `
-
-export const FilterItemHolder = styled.div`
-  color: rgba(0,0,0,0.5);
-`
-
 
 export const FilterResultAndCalendarContainer = styled.div`
   display: flex;

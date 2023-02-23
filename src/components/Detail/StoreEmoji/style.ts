@@ -54,7 +54,7 @@ export const TextBackground = styled.div`
 `;
 
 export const EmojiText = styled.span`
-  margin-top: 12px;
+  margin-top: 20px;
   position: relative;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
