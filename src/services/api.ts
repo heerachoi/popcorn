@@ -8,11 +8,11 @@ interface getDetailWeatherData {
 
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
-export const JSON_API = 'http://localhost:3010';
+export const JSON_API = 'https://pop.herokuapp.com';
 export const WEB_API = 'http://localhost:3000';
 
 export const getPopupData = async () => {
-  const { data } = await axios.get(`${JSON_API}/Store`);  
+  const { data } = await axios.get(`${JSON_API}/Store`);
   return data;
 };
 
@@ -45,9 +45,7 @@ export const getNewStoreReport = async () => {
 };
 
 export const getInfoErrReport = async () => {
-  const { data } = await axios.get(
-    `${JSON_API}/infoErrModifiContents`,
-  );
+  const { data } = await axios.get(`${JSON_API}/infoErrModifiContents`);
   return data;
 };
 
@@ -57,6 +55,6 @@ export const getUser = async () => {
 };
 
 export const getLikeHate = async () => {
-  const { data} = await axios.get(`${JSON_API}/likeHate`)
-  return data
-}
+  const { data } = await axios.get(`${JSON_API}/likeHate`);
+  return data;
+};
