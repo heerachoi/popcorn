@@ -7,6 +7,7 @@ import { userInfo } from '../../atoms';
 import DetailMap from '../../components/Detail/DetailMap/DetailMap';
 import DetailPageViews from '../../components/Detail/DetailPageViews/DetailPageViews';
 import StoreDetailInfo from '../../components/Detail/StoreDetailInfo/StoreDetailInfo';
+import { JSON_API } from '../../services/api';
 
 const DetailPage: any = () => {
   const { state: detailData } = useLocation();
@@ -34,7 +35,7 @@ const DetailPage: any = () => {
   // 연령대 + 1, 성별 + 1 전체 수 + 1,
   const upDateViews = async () => {
     try {
-      return await axios.patch(`http://localhost:3010/Store/${detailData.id}`, {
+      return await axios.patch(`${JSON_API}/Store/${detailData.id}`, {
         view: {
           ...detailData.view,
           [userAge]: detailData.view[userAge] + 1,
