@@ -10,7 +10,7 @@ import * as S from './style';
 import { globalBtn } from '../../atoms';
 import { useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-
+import { JSON_API } from '../../services/api';
 interface NewStoreInput {
   title: string;
   storeName: string;
@@ -113,7 +113,7 @@ const NewStoreReport: any = () => {
 
     // db에 추가
     try {
-      axios.post('http://localhost:3002/newStores', newStore);
+      axios.post(`${JSON_API}/newStores`, newStore);
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
       setEtcContent('');
