@@ -8,8 +8,11 @@ interface getDetailWeatherData {
 
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
+export const JSON_API = 'http://localhost:3010';
+export const WEB_API = 'http://localhost:3000';
+
 export const getPopupData = async () => {
-  const { data } = await axios.get('http://localhost:3010/Store');  
+  const { data } = await axios.get(`${JSON_API}/Store`);  
   return data;
 };
 
@@ -37,23 +40,23 @@ export const getDetailAirPollutionData = async ({
 };
 
 export const getNewStoreReport = async () => {
-  const { data } = await axios.get('http://localhost:3002/newStores');
+  const { data } = await axios.get(`${JSON_API}/newStores`);
   return data;
 };
 
 export const getInfoErrReport = async () => {
   const { data } = await axios.get(
-    'http://localhost:3001/infoErrModifiContents',
+    `${JSON_API}/infoErrModifiContents`,
   );
   return data;
 };
 
 export const getUser = async () => {
-  const { data: userInfos } = await axios.get('http://localhost:4000/users');
+  const { data: userInfos } = await axios.get(`${JSON_API}/users`);
   return userInfos;
 };
 
 export const getLikeHate = async () => {
-  const { data} = await axios.get('http://localhost:3003/likeHate')
+  const { data} = await axios.get(`${JSON_API}/likeHate`)
   return data
 }

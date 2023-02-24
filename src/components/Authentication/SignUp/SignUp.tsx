@@ -17,6 +17,8 @@ import { globalBtn, modalStatus } from '../../../atoms';
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 import CustomModal from '../../../shared/CustomModal';
 import { v4 as uuidv4 } from 'uuid';
+import { JSON_API } from '../../../services/api';
+
 interface SignUpInput {
   nickName: string;
   email: string;
@@ -178,7 +180,7 @@ const SignUp = () => {
           uid: user.uid,
           id: uuidv4(),
         };
-        axios.post('http://localhost:4000/users', userInfo).then(() => {
+        axios.post(`${JSON_API}/users`, userInfo).then(() => {
           return modalStatusChangeHandler('signUpComplete');
         });
       })
