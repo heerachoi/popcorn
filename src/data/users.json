@@ -40,7 +40,6 @@
       "uid": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
       "id": "22ace3dc-2a33-4fbc-b844-6ef15464c51a"
     },
-
     {
       "age": "1993-06-13",
       "email": "jieun@naver.com",
@@ -50,6 +49,15 @@
       "profileImg": null,
       "uid": "THhGvnw91ObW1nfkjAU66kVitO33",
       "id": "47957468-07ab-452a-8a51-9b5085d3f5f3"
+    },
+    {
+      "age": "1971-12-26",
+      "email": "abc@naver.com",
+      "gender": "men",
+      "nickName": "김태희",
+      "phoneNumber": "01028846776",
+      "profileImg": null,
+      "id": "Sv0UvLcCMTXuPz9IdDIIo2R5gaN2"
     }
   ]
 }

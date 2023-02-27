@@ -4,7 +4,7 @@ import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
 import React from 'react';
-
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const queryClient = new QueryClient();
 
@@ -15,6 +15,7 @@ root.render(
   <RecoilRoot>
     <React.Suspense fallback={<div>Loading...</div>}>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
         <App />
       </QueryClientProvider>
     </React.Suspense>
