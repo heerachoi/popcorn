@@ -1,21 +1,26 @@
 import React from 'react';
 import * as S from './style';
 import { auth } from '../../../services/firebase';
-import {  useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 import { getInfoErrReport, getNewStoreReport } from '../../../services/api';
 
 const MyReportList = () => {
-  const { isLoading, isError, data:newStores, error } = useQuery(
-    'newStores',
-    getNewStoreReport,
-  );
-  const { data:errReport } = useQuery(
+  const {
+    isLoading,
+    isError,
+    data: newStores,
+    error,
+  } = useQuery('newStores', getNewStoreReport);
+
+  const { status, data: errReport } = useQuery(
     'infoErrModifiContents',
     getInfoErrReport,
   );
-  console.log('newStores', newStores);
-  console.log('errReport', errReport);
-  
+
+  if (status === 'loading') {
+    return <p>Loading...</p>;
+  }
+
   if (isLoading) {
     console.log('로딩중');
     return <p>Loading...</p>;
@@ -24,6 +29,9 @@ const MyReportList = () => {
     console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
+  
+  console.log('newStores', newStores);
+  console.log('errReport', errReport);
 
   const uid = auth.currentUser?.uid;
 
@@ -31,8 +39,8 @@ const MyReportList = () => {
     <S.ReportWrap>
       <S.ReportContainer>
         {errReport
-          .filter((item:any) => item.userId.uid === uid)
-          .map((li:any) => {
+          .filter((item: any) => item.userId.uid === uid)
+          .map((li: any) => {
             return (
               <S.ListBox key={li.id}>
                 <S.ListContent>
@@ -44,15 +52,17 @@ const MyReportList = () => {
                   {li.status === false ? (
                     <S.ReportStatusText>진행중</S.ReportStatusText>
                   ) : (
-                    <S.ReportStatusText style={{ color: 'black' }}>완료</S.ReportStatusText>
+                    <S.ReportStatusText style={{ color: 'black' }}>
+                      완료
+                    </S.ReportStatusText>
                   )}
                 </S.ListContent>
               </S.ListBox>
             );
           })}
         {newStores
-          .filter((item:any) => item.userId.uid === uid)
-          .map((li:any) => {
+          .filter((item: any) => item.userId.uid === uid)
+          .map((li: any) => {
             return (
               <S.ListBox key={li.id}>
                 <S.ListContent>
