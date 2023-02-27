@@ -12,6 +12,7 @@ import { useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { JSON_API } from '../../services/api';
 import { ko } from 'date-fns/esm/locale';
+import DaumPostcode from 'react-daum-postcode';
 
 interface NewStoreInput {
   title: string;
@@ -24,6 +25,7 @@ interface NewStoreInput {
 const NewStoreReport: any = () => {
   const [startDate, setStartDate] = useState<any>('');
   const [endDate, setEndDate] = useState<any>('');
+  const [isOpenPost, setIsOpenPost] = useState(false);
 
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
@@ -154,8 +156,7 @@ const NewStoreReport: any = () => {
     setStartDate(date);
   };
   console.log('startDate', startDate);
-  
-  
+
   const endDateOnChange = (date: any) => {
     if (startDate === '') {
       alert('시작 일자를 먼저 선택해 주세요.');
@@ -163,7 +164,14 @@ const NewStoreReport: any = () => {
       setEndDate(date);
     }
   };
-  
+
+  const openPostHandler = () => {
+    setIsOpenPost(!isOpenPost);
+  };
+
+  const onCompletePost = (data :any) => {
+    let storeAddress = data.address    
+  };
 
   return (
     <NewStoreForm onSubmit={newStoreInfoAddHandler}>
@@ -194,14 +202,18 @@ const NewStoreReport: any = () => {
       </S.ReportGrid>
       <S.ReportGrid>
         <S.ReportTitle>주소</S.ReportTitle>
-        <S.ReportTitleInput
+        {isOpenPost ? (
+          <DaumPostcode autoClose onComplete={onCompletePost} />
+        ) : null}
+        {/* <S.ReportTitleInput
           type="text"
           name="storeAddress"
           placeholder="(ex: 서울특별시 성동구 성수동) "
           required
           onChange={newStoreInputonChangeHandler}
           value={newStoreInput.storeAddress}
-        />
+        /> */}
+        <button type='button' onClick={openPostHandler}>주소 검색</button>
       </S.ReportGrid>
 
       <S.ThreeGrid>
