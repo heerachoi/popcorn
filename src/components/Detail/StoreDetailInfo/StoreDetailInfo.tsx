@@ -17,6 +17,8 @@ import { BookMark } from '../../../types/data/storeInterface';
 import StoreEmoji from '../StoreEmoji/StoreEmoji';
 /* firebase */
 import { auth } from '../../../services/firebase';
+import { JSON_API } from '../../../services/api';
+
 interface Props {
   detailData: Store;
 }
@@ -57,7 +59,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
 
   // 페이지 렌딩시 유저의 북마크 유무 확인
   const fetchBookmarks = async () => {
-    const { data } = await axios.get('http://localhost:3011/BookMarkList'); // 북마크 리스트
+    const { data } = await axios.get(`${JSON_API}/BookMarkList`); // 북마크 리스트
     data.map((bookmark: BookMark) => {
       if (
         bookmark.userId === currentUser.uid &&
@@ -82,7 +84,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
         // 북마크가 있을 경우 삭제
         try {
           axios.delete(
-            `http://localhost:3011/BookMarkList/${currentBookMarkId}`,
+            `${JSON_API}/BookMarkList/${currentBookMarkId}`,
           );
           setChangeColor(`${COLORS.black}`);
           setBookMarkState(false);
@@ -92,7 +94,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
       } else {
         //북마크가 없을 경우 추가
         try {
-          axios.post(`http://localhost:3011/BookMarkList`, NewBookmark);
+          axios.post(`${JSON_API}/BookMarkList`, NewBookmark);
           setChangeColor(`${COLORS.orange2}`);
           setBookMarkState(true);
         } catch (error) {

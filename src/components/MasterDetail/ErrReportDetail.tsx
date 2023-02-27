@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getInfoErrReport } from '../../services/api';
 import * as S from './style';
+import { JSON_API } from '../../services/api';
 
 const ErrReportDetail = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const ErrReportDetail = () => {
     alert('확인');
     navigate('/master');
     return axios.patch(
-      `http://localhost:3001/infoErrModifiContents/${paramId.id}`,
+      `${JSON_API}/infoErrModifiContents/${paramId.id}`,
       {
         status: !currentState,
       },
