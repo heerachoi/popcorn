@@ -6,9 +6,10 @@ import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { v4 as uuidv4 } from 'uuid';
 import COLORS from '../../../assets/CSS/colors';
+import { Store } from '../../../types/data/storeInterface';
 
 interface Props {
-  detailData: any;
+  detailData: Store;
 }
 
 const StoreEmoji: any = ({ detailData }: Props) => {
@@ -42,7 +43,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   // 좋아요 추가
   const newLike = {
     id: uuidv4(),
-    storeId: detailData.id,
+    storeId: detailData?.id,
     userId: currentUser.uid,
     vote: 'like',
   };
@@ -50,7 +51,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   // 별로에요 추가
   const hateLike = {
     id: uuidv4(),
-    storeId: detailData.id,
+    storeId: detailData?.id,
     userId: currentUser.uid,
     vote: 'hate',
   };
@@ -60,7 +61,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     const { data } = await axios.get('http://localhost:3003/likeHate');
 
     data.map((item: any) => {
-      if (item.userId === currentUser.uid && item.storeId === detailData.id) {
+      if (item.userId === currentUser.uid && item.storeId === detailData?.id) {
         if (item.vote === 'like') {
           likeSetColor(`${COLORS.red}`);
           setLikeClicked(true);
@@ -82,7 +83,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     const { data } = await axios.get('http://localhost:3003/likeHate');
 
     const likes = data.filter((item: any) => {
-      if (item.storeId === detailData.id && item.vote === 'like') {
+      if (item.storeId === detailData?.id && item.vote === 'like') {
         return true;
       }
     });
@@ -93,7 +94,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   const hateCountHandler = async () => {
     const { data } = await axios.get('http://localhost:3003/likeHate');
     const hates = data.filter((item: any) => {
-      if (item.storeId === detailData.id && item.vote === 'hate') {
+      if (item.storeId === detailData?.id && item.vote === 'hate') {
         return true;
       }
     });

@@ -7,11 +7,13 @@ import { userInfo } from '../../atoms';
 import DetailMap from '../../components/Detail/DetailMap/DetailMap';
 import DetailPageViews from '../../components/Detail/DetailPageViews/DetailPageViews';
 import StoreDetailInfo from '../../components/Detail/StoreDetailInfo/StoreDetailInfo';
+import { Store } from '../../types/data/storeInterface';
 
 const DetailPage: any = () => {
-  const { state: detailData } = useLocation();
+  const detailData = useLocation().state as Store;
   const users = useRecoilValue(userInfo);
   const [userAge, setUserAge] = useState('');
+  const [data, setData] = useState<Store>(detailData);
 
   const queryClient = useQueryClient();
 
@@ -47,34 +49,17 @@ const DetailPage: any = () => {
       console.log(error);
     }
   };
-
   const mutation = useMutation(() => upDateViews(), {
-    onSuccess: () => queryClient.invalidateQueries('popup'),
+    onSuccess: (data) => {
+      setData(data?.data);
+      // queryClient.invalidateQueries('popup');
+    },
   });
-
-  const removeQuery = () => {
-    console.log('gg');
-    queryClient.removeQueries({ queryKey: 'popup' });
-  };
-
-  const refetchQuery = () => {
-    console.log('gg11');
-    queryClient.refetchQueries({ queryKey: 'popup' });
-  };
 
   // age 값이 변하면 연령대 설정하기
   useEffect(() => {
     generation();
   }, [age]);
-
-  console.log();
-
-  useEffect(() => {
-    removeQuery();
-    refetchQuery();
-    // queryClient.removeQueries({ queryKey: 'popup' });
-    // queryClient.refetchQueries({ queryKey: 'popup' });
-  }, []);
 
   // 연령대가 설정되면 Json 서버 데이터 업데이트 하기
   useEffect(() => {
@@ -85,8 +70,8 @@ const DetailPage: any = () => {
 
   return (
     <>
-      <StoreDetailInfo detailData={detailData} />
-      <DetailPageViews detailData={detailData} />
+      <StoreDetailInfo detailData={data} />
+      <DetailPageViews detailData={data} />
       <DetailMap />
     </>
   );

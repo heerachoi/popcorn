@@ -1,30 +1,52 @@
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { mapCategoryValue, mapSearchValue } from '../../../atoms';
+import {
+  mapCategoryValue,
+  mapFoodSearchValue,
+  mapSearchValue,
+} from '../../../atoms';
 
 const MapDataCard = ({ popup, food, setMyLocation }: any) => {
   const category = useRecoilValue(mapCategoryValue);
-  const search = useRecoilValue(mapSearchValue);
+  const [search, setSearch] = useRecoilState(mapSearchValue);
+  const setFoodSearch = useSetRecoilState(mapFoodSearchValue);
   const condition =
     popup?.address.includes(search) || popup?.title.includes(search) || food;
 
   // 카드를 누르면 해당 좌표로 지도가 이동되는 함수
   // popup 카테고리 일 때
   const popupCenterChangeHandler = () => {
-    console.log(popup.lat, popup.lon, 'id');
     setMyLocation({ Ma: popup.lat, La: popup.lon });
+    searchAddrFromCoords(
+      new kakao.maps.LatLng(popup.lat, popup.lon),
+      displayCenterInfo,
+    );
   };
 
   // 음식점, 카페 카테고리 일 때
   const foodCenterChangeHandler = () => {
     setMyLocation({ Ma: food.position.lat, La: food.position.lng });
   };
+
+  const geocoder = new kakao.maps.services.Geocoder();
+  const searchAddrFromCoords = (coords: kakao.maps.LatLng, callback: any) => {
+    // 좌표로 행정동 주소 정보를 요청합니다
+    geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
+  };
+
+  // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
+  const displayCenterInfo = (result: any, status: any) => {
+    if (status === kakao.maps.services.Status.OK) {
+      setFoodSearch(result[0].region_3depth_name);
+    }
+  };
+
   return (
     <>
       {condition && (
         <Wrap
           onClick={
-            category === ' '
+            category === '팝업스토어'
               ? popupCenterChangeHandler
               : foodCenterChangeHandler
           }
@@ -32,22 +54,22 @@ const MapDataCard = ({ popup, food, setMyLocation }: any) => {
           <div>
             <DetailWrap>
               <DetailTitle>
-                {category === ' ' ? popup?.title : food?.title}
+                {category === '팝업스토어' ? popup?.title : food?.title}
               </DetailTitle>
               <DetailDescription>
                 {' '}
-                {category === ' ' ? popup?.item : food?.phone}
+                {category === '팝업스토어' ? popup?.item : food?.phone}
               </DetailDescription>
             </DetailWrap>
             <DetailAddressWrap>
               <DetailAddress>
-                {category === ' ' ? popup?.address : food?.address}
+                {category === '팝업스토어' ? popup?.address : food?.address}
               </DetailAddress>
             </DetailAddressWrap>
           </div>
           <div>
             <DetailImg
-              src={category === ' ' ? popup?.imgURL : food?.img}
+              src={category === '팝업스토어' ? popup?.imgURL : food?.img}
               alt="사진"
             />
           </div>

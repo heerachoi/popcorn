@@ -6,7 +6,7 @@ import {
 } from '../../../services/api';
 import { useEffect } from 'react';
 
-const API_KEY = `process.env.REACT_APP_WEAHER_KEY`;
+const API_KEY = process.env.REACT_APP_WEAHER_KEY;
 
 interface airPollutionChangeTheText {
   [key: string]: string | number;
@@ -16,30 +16,30 @@ interface Props {
 }
 
 const MapWeather = ({ myLocation }: Props) => {
-  const queryProps = {
-    lat: myLocation?.Ma,
-    lon: myLocation?.La,
-    api: API_KEY,
-  };
+  // const queryProps = {
+  //   lat: myLocation.Ma,
+  //   lon: myLocation.La,
+  //   api: API_KEY,
+  // };
 
-  // 날씨 데이터 가져오는 함수
+  // // 날씨 데이터 가져오는 함수
 
-  const { data: weatherData, refetch: weatherRefetch } = useQuery(
-    'weather',
-    () => getDetailWeatherData(queryProps),
-  );
+  // const { data: weatherData, refetch: weatherRefetch } = useQuery(
+  //   'weather',
+  //   () => getDetailWeatherData(queryProps),
+  // );
 
-  // 미세먼지 데이터 가져오는 함수
-  const { data: airPollutionData, refetch: airPollutionRefetch } = useQuery(
-    'airpollution',
-    () => getDetailAirPollutionData(queryProps),
-  );
+  // // 미세먼지 데이터 가져오는 함수
+  // const { data: airPollutionData, refetch: airPollutionRefetch } = useQuery(
+  //   'airpollution',
+  //   () => getDetailAirPollutionData(queryProps),
+  // );
 
-  console.log('myLocation', myLocation);
-  useEffect(() => {
-    weatherRefetch();
-    airPollutionRefetch();
-  }, [myLocation]);
+  // console.log('myLocation', myLocation);
+  // useEffect(() => {
+  //   weatherRefetch();
+  //   airPollutionRefetch();
+  // }, [myLocation]);
 
   // 미세먼지가 숫자로 표시되어 문자로 변환하기 위한 상수
   const airPollutionChangeTheText: airPollutionChangeTheText = {
@@ -52,14 +52,14 @@ const MapWeather = ({ myLocation }: Props) => {
 
   return (
     <Wrap>
-      <WeatherWrap>
+      {/* <WeatherWrap>
         <WeatherText>날씨 : {weatherData?.weather[0]?.main}</WeatherText>
         <WeatherText>기온 : {weatherData?.main?.temp}도</WeatherText>
         <WeatherText>
           미세먼지 :{' '}
           {airPollutionChangeTheText[airPollutionData?.list[0]?.main?.aqi]}
         </WeatherText>
-      </WeatherWrap>
+      </WeatherWrap> */}
     </Wrap>
   );
 };

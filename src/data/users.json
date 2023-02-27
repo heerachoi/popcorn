@@ -40,7 +40,6 @@
       "uid": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
       "id": "22ace3dc-2a33-4fbc-b844-6ef15464c51a"
     },
-
     {
       "age": "1993-06-13",
       "email": "jieun@naver.com",
@@ -50,6 +49,16 @@
       "profileImg": null,
       "uid": "THhGvnw91ObW1nfkjAU66kVitO33",
       "id": "47957468-07ab-452a-8a51-9b5085d3f5f3"
+    },
+    {
+      "age": "1995-04-12",
+      "email": "abcwockd@gmail.com",
+      "gender": "women",
+      "nickName": "wockd",
+      "phoneNumber": "01063183932",
+      "profileImg": null,
+      "uid": "H8qRAHkQXkUBccm7rqbOmSSg0Dm2",
+      "id": "568d48dd-eae7-4162-82e7-d03a3f0ad564"
     }
   ]
 }
