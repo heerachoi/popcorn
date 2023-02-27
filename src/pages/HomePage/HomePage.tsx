@@ -16,7 +16,7 @@ const HomePage: any = () => {
     'popup',
     getPopupData,
   );
-
+  
   if (isLoading) {
     console.log('로딩중');
     return <p>Loading...</p>;
