@@ -1,8 +1,9 @@
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk';
 
 // map를 호출해서 detailData.lat, detailData.lon의 위치를 마커표시해준다.
+
 const DetailMap = () => {
   const { state: detailData } = useLocation();
 
@@ -12,10 +13,15 @@ const DetailMap = () => {
   };
 
   return (
-    <MapWrap>      
+    <MapWrap>
       <TitleText>찾아오시는 길</TitleText>
       <DetailPageMap center={detailLocation}>
         <MapMarker position={detailLocation} />
+        <CustomOverlayMap position={detailLocation} yAnchor={4.0} zIndex={1}>
+          <MapInfoBox>
+            <ModalHeaderTitle>{detailData.title}</ModalHeaderTitle>
+          </MapInfoBox>
+        </CustomOverlayMap>
       </DetailPageMap>
     </MapWrap>
   );
@@ -23,7 +29,7 @@ const DetailMap = () => {
 
 export default DetailMap;
 
-const MapWrap = styled.div``
+const MapWrap = styled.div``;
 
 const DetailPageMap = styled(Map)`
   margin: 0 auto;
@@ -32,23 +38,24 @@ const DetailPageMap = styled(Map)`
   height: 500px;
 `;
 
-const TitleBackground = styled.div`
-  width: 140px;
-  height: 23px;
-  background-color: #ffeb62;
-  position: absolute;
-  box-sizing: border-box;
-  padding-left: 20px;
-  border-radius: 12px;
-  left: 100px;
-`;
-
 const TitleText = styled.div`
   margin-top: 58px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
-
   text-align: center;
+`;
+
+const MapInfoBox = styled.div`
+  width: 120%;
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+`;
+const ModalHeaderTitle = styled.span`
+  font-size: 15px;
+  font-weight: 600;
 `;

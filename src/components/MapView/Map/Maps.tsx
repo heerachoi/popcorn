@@ -81,7 +81,7 @@ const Maps = ({
               )}
             </>
           ))}
-        {category === ' ' &&
+        {category === '팝업스토어' &&
           popupData?.map((popup: any) => (
             <>
               {(popup?.address.includes(search) ||

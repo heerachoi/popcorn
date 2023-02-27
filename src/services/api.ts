@@ -3,12 +3,12 @@ import axios from 'axios';
 interface getDetailWeatherData {
   lat: string;
   lon: string;
-  api: string;
+  api: string | undefined;
 }
 
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
-export const JSON_API = 'http://localhost:3010';
+export const JSON_API = 'https://pop.herokuapp.com';
 export const WEB_API = 'http://localhost:3000';
 
 export const getPopupData = async () => {
