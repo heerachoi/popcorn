@@ -6,7 +6,7 @@ import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { v4 as uuidv4 } from 'uuid';
 import COLORS from '../../../assets/CSS/colors';
-
+import { JSON_API } from '../../../services/api';
 interface Props {
   detailData: any;
 }
@@ -57,7 +57,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
 
   // 렌더링 시 유저 클릭 유무 확인
   const fetchLikeHate = async () => {
-    const { data } = await axios.get('http://localhost:3003/likeHate');
+    const { data } = await axios.get(`${JSON_API}/likeHate`);
 
     data.map((item: any) => {
       if (item.userId === currentUser.uid && item.storeId === detailData.id) {
@@ -79,7 +79,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
 
   // 좋아요 숫자 카운트
   const likeCountHandler = async () => {
-    const { data } = await axios.get('http://localhost:3003/likeHate');
+    const { data } = await axios.get(`${JSON_API}/likeHate`);
 
     const likes = data.filter((item: any) => {
       if (item.storeId === detailData.id && item.vote === 'like') {
@@ -91,7 +91,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
 
   // 별로에요 숫자 카운트
   const hateCountHandler = async () => {
-    const { data } = await axios.get('http://localhost:3003/likeHate');
+    const { data } = await axios.get(`${JSON_API}/likeHate`);
     const hates = data.filter((item: any) => {
       if (item.storeId === detailData.id && item.vote === 'hate') {
         return true;
@@ -106,7 +106,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       if (likeClicked) {
         // 좋아요 눌린 상태
         try {
-          axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
+          axios.delete(`${JSON_API}/likeHate/${currentLikeId}`);
           likeSetColor(`${COLORS.black}`);
           setLikeClicked(false);
         } catch (error) {
@@ -117,7 +117,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       } else if (!likeClicked) {
         // 좋아요가 안눌린 상태
         try {
-          axios.post('http://localhost:3003/likeHate', newLike);
+          axios.post(`${JSON_API}/likeHate`, newLike);
           likeSetColor(`${COLORS.red}`);
           setLikeClicked(true);
         } catch (error) {
@@ -135,7 +135,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       if (hateClicked) {
         // 별로에요 눌린 상태
         try {
-          axios.delete(`http://localhost:3003/likeHate/${currentLikeId}`);
+          axios.delete(`${JSON_API}/likeHate/${currentLikeId}`);
           hateSetColor(`${COLORS.black}`);
           setHateClicked(false);
         } catch (error) {
@@ -146,7 +146,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       } else if (!hateClicked) {
         // 별로에요 안눌린 상태
         try {
-          axios.post('http://localhost:3003/likeHate', hateLike);
+          axios.post(`${JSON_API}/likeHate`, hateLike);
           hateSetColor(`${COLORS.red}`);
           setHateClicked(true);
         } catch (error) {

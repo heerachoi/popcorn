@@ -8,6 +8,7 @@ import { Store } from '../../types/data/storeInterface';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { globalBtn } from '../../atoms';
+import { JSON_API } from '../../services/api';
 
 const MasterNewPost = () => {
   const navigate = useNavigate();
@@ -128,7 +129,7 @@ const MasterNewPost = () => {
 
     //db에 추가
     try {
-      axios.post('http://localhost:3010/Store', NewPost);
+      axios.post(`${JSON_API}/Store`, NewPost);
       setNewPostInput(initialState);
       setImgFile('');
 
