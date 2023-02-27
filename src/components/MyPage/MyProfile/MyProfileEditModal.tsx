@@ -53,8 +53,7 @@ const MyProfileEditModal = () => {
     if (nickname.length < 2 || nickname.length > 5) {
       alert('2글자 이상 5글자 이하로 입력해주세요.');
       return;
-    }
-    if (imgFile.length === 0) {
+    } else if (imgFile.length === 0) {
       setImgUploadUrl(
         'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/basic_profile.png?alt=media&token=d58d0f49-79bd-400a-a4ae-ceca444734ae',
       );
@@ -72,7 +71,7 @@ const MyProfileEditModal = () => {
     })
       .then(() => {
         setNickname(nickname);
-        alert('이미지 수정 완료!');
+        alert('프로필 수정 완료!');
         setOpen(false);
       })
       .catch((error: any) => {
@@ -89,7 +88,6 @@ const MyProfileEditModal = () => {
     reader.readAsDataURL(theFile);
     reader.onloadend = (finishedEvent: any) => {
       setImgFile(finishedEvent.currentTarget.result);
-      console.log('finishedEvent❓❓❓❓❓', finishedEvent);
     };
   };
 
