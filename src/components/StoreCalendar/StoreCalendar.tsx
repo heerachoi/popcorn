@@ -15,20 +15,20 @@ const localizer = momentLocalizer(moment);
 const StoreCalendar = () => {
   const [events, setEvents] = useState<StoreEvent[]>([]);
 
-  useEffect(() => {
-    // Fetch data from JSON database
-    fetch('../../data/popupStore.json')
-      .then(response => response.json())
-      .then(data => {
-        // Transform data into format expected by react-big-calendar
-        // const transformedData = data.map((event: StoreEvent) => ({
-        //   ...event,
-        //   open: new Date(event.open),
-        //   close: new Date(event.close)
-        // }));
-        // setEvents(transformedData);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // Fetch data from JSON database
+  //   fetch('../../data/popupStore.json')
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       // Transform data into format expected by react-big-calendar
+  //       // const transformedData = data.map((event: StoreEvent) => ({
+  //       //   ...event,
+  //       //   open: new Date(event.open),
+  //       //   close: new Date(event.close)
+  //       // }));
+  //       // setEvents(transformedData);
+  //     });
+  // }, []);
 
   return (
     <Calendar
