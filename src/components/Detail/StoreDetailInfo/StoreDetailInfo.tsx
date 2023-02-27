@@ -9,9 +9,7 @@ import KakaoShare from './KakaoShare';
 import StoreDetailImg from '../StoreDetailImg/StoreDetailImg';
 /* icons */
 import { BsBookmarkHeart } from 'react-icons/bs';
-import { TbClock } from 'react-icons/tb';
 import { MdIosShare } from 'react-icons/md';
-import { BsInstagram, BsGlobe, BsFillSunFill } from 'react-icons/bs';
 /* componant */
 import { Store } from '../../../types/data/storeInterface';
 import COLORS from '../../../assets/CSS/colors';
@@ -25,9 +23,9 @@ interface Props {
   detailData: Store;
 }
 
-const StoreDetailInfo = ({ detailData }: Props) => {
+const StoreDetailInfo = ({ detailData }: any) => {
   const [currentUser, setCurrentUser] = useState<any>('');
-  const [changeColor, setChangeColor] = useState<string>(`${COLORS.black}`);
+  const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>();
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
 
@@ -65,7 +63,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     data.map((bookmark: BookMark) => {
       if (
         bookmark.userId === currentUser.uid &&
-        bookmark.storeId === detailData.id
+        bookmark.storeId === detailData?.id
       ) {
         // 유저가 북마크를 했음
         setChangeColor(`${COLORS.orange2}`);
@@ -73,7 +71,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
         setCurrentBookMarkId(bookmark.id);
       } else {
         // 북마크안했음
-        setChangeColor(`${COLORS.black}`);
+        setChangeColor(`${COLORS.gray5}`);
         setBookMarkState(false);
       }
     });
@@ -119,25 +117,13 @@ const StoreDetailInfo = ({ detailData }: Props) => {
             <S.SideTitleWrap>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>{detailData?.view.all}</S.SideTitleIcon>
-                <S.SideTitleText>조회수</S.SideTitleText>
-              </S.SideTitleIconText>
-              <S.SideTitleIconText>
-                <S.SideTitleIcon>
-                  <TbClock />
-                </S.SideTitleIcon>
-                <S.SideTitleText>
-                  <Link
-                    to={detailData?.reserveURL}
-                    target="_blank"
-                    style={{ color: 'black', textDecoration: 'none' }}
-                  >
-                    예약
-                  </Link>
+                <S.SideTitleText style={{ marginTop: '4px' }}>
+                  조회수
                 </S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>
-                  <MdIosShare />
+                  <MdIosShare style={{ fontSize: '14px' }} />
                 </S.SideTitleIcon>
                 <S.SideTitleText>
                   {/* 공유 */}
@@ -145,7 +131,6 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                 </S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
-                {/* 북마크 */}
                 <S.BookmarkClick
                   onClick={postBookmarkHandler}
                   style={{
@@ -154,90 +139,62 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                     cursor: 'pointer',
                   }}
                 >
-                  <S.SideTitleText>
-                    <BsBookmarkHeart style={{ color: changeColor }} />
-                  </S.SideTitleText>
+                  <BsBookmarkHeart style={{ color: changeColor }} />
                 </S.BookmarkClick>
+                <S.SideTitleText style={{ marginTop: '2px' }}>
+                  북마크
+                </S.SideTitleText>
               </S.SideTitleIconText>
             </S.SideTitleWrap>
           </S.TitleWrap>
+          {/* 스토어 정보 들어가는 부분 */}
           <S.InfoContentWrap>
-            <S.InfoTable>
-              <S.InfoTbody>
-                <S.InfoTr>
-                  <S.InfoTitleText>운영기간</S.InfoTitleText>
-                  <S.InfoContentText>{`${detailData?.open} ~ ${detailData?.close}`}</S.InfoContentText>
-                </S.InfoTr>
-              </S.InfoTbody>
-              <S.InfoTbody>
-                <S.InfoTr>
-                  <S.InfoTitleText>운영시간</S.InfoTitleText>
-                  <S.OpeningHoursWrap>
-                    <S.OpeningHoursBox>
-                      {detailData?.openingTime?.map((openTime: string) => {
-                        return <span key={uuidv4()}>{openTime + '-'}</span>;
-                      })}
-                    </S.OpeningHoursBox>
-                    <S.OpeningHoursBox>
-                      {detailData?.closeTime?.map((closeTime: string) => {
-                        return <span key={uuidv4()}>{closeTime}</span>;
-                      })}
-                    </S.OpeningHoursBox>
-                  </S.OpeningHoursWrap>
-                </S.InfoTr>
-              </S.InfoTbody>
-              <S.InfoTbody>
-                <S.InfoTr>
-                  <S.InfoTitleText>주소</S.InfoTitleText>
-                  <S.InfoContentText>{detailData?.address}</S.InfoContentText>
-                </S.InfoTr>
-              </S.InfoTbody>
-              <S.InfoTbody>
-                <S.InfoTr>
-                  <S.InfoTitleText>날씨</S.InfoTitleText>
-                  <S.InfoContentText>
-                    <BsFillSunFill />
-                  </S.InfoContentText>
-                </S.InfoTr>
-              </S.InfoTbody>
-              <S.InfoTbody>
-                <S.InfoTr>
-                  <S.InfoTitleText>스토어 설명</S.InfoTitleText>
-                  <S.InfoContentText>{detailData?.explain}</S.InfoContentText>
-                </S.InfoTr>
-              </S.InfoTbody>
-              <S.InfoTbody>
-                <S.InfoTr>
-                  <S.InfoTitleText>SNS계정</S.InfoTitleText>
-                  <S.InfoContentText>
-                    <S.SnsLinkWrap>
-                      <Link
-                        to={detailData?.sns}
-                        target="_blank"
-                        style={{ color: 'black' }}
-                      >
-                        <BsInstagram />
-                      </Link>
-                    </S.SnsLinkWrap>
-                    <S.SnsLinkWrap>
-                      <Link
-                        to={detailData?.web}
-                        target="_blank"
-                        style={{ color: 'black' }}
-                      >
-                        <BsGlobe />
-                      </Link>
-                    </S.SnsLinkWrap>
-                  </S.InfoContentText>
-                </S.InfoTr>
-              </S.InfoTbody>
-              <S.InfoTbody>
-                <S.InfoTr>
-                  <S.InfoTitleText>카테고리</S.InfoTitleText>
-                  <S.InfoContentText>{detailData?.item}</S.InfoContentText>
-                </S.InfoTr>
-              </S.InfoTbody>
-            </S.InfoTable>
+            <S.InfoContentBox>
+              <S.InfoTitle>운영기간</S.InfoTitle>
+              <S.InfoContentText>{`${detailData?.open} ~ ${detailData?.close}`}</S.InfoContentText>
+              <S.InfoTitle>운영시간</S.InfoTitle>
+              <S.OpeningHoursWrap>
+                <S.OpeningHoursBox>
+                  {detailData?.openingTime?.map((openTime: string) => {
+                    return <span key={uuidv4()}>{openTime + '-'}</span>;
+                  })}
+                </S.OpeningHoursBox>
+                <S.OpeningHoursBox>
+                  {detailData?.closeTime?.map((closeTime: string) => {
+                    return <span key={uuidv4()}>{closeTime}</span>;
+                  })}
+                </S.OpeningHoursBox>
+              </S.OpeningHoursWrap>
+              <S.InfoTitle>주소</S.InfoTitle>
+              <S.InfoContentText>{detailData?.address}</S.InfoContentText>
+              <S.InfoTitle>스토어 설명</S.InfoTitle>
+              <S.InfoContentText>{detailData?.explain}</S.InfoContentText>
+              <S.InfoTitle>SNS계정</S.InfoTitle>
+              <S.InfoContentText>
+                <S.SnsLinkWrap>
+                  <Link
+                    to={detailData?.sns}
+                    target="_blank"
+                    style={{ color: 'black' }}
+                  >
+                    <S.SnsImg
+                      src={require('../../../assets/Img/Instagram.png')}
+                    />
+                  </Link>
+                </S.SnsLinkWrap>
+                <S.SnsLinkWrap style={{ marginTop: '10px' }}>
+                  <Link
+                    to={detailData?.web}
+                    target="_blank"
+                    style={{ color: 'black' }}
+                  >
+                    <S.SnsImg src={require('../../../assets/Img/Link.png')} />
+                  </Link>
+                </S.SnsLinkWrap>
+              </S.InfoContentText>
+              <S.InfoTitle>카테고리</S.InfoTitle>
+              <S.InfoContentText>{detailData?.item}</S.InfoContentText>
+            </S.InfoContentBox>
           </S.InfoContentWrap>
         </S.DetailInfoContent>
       </S.DetailContainer>

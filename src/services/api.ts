@@ -3,7 +3,7 @@ import axios from 'axios';
 interface getDetailWeatherData {
   lat: string;
   lon: string;
-  api: string;
+  api: string | undefined;
 }
 
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
@@ -55,6 +55,16 @@ export const getUser = async () => {
 };
 
 export const getLikeHate = async () => {
-  const { data } = await axios.get(`${JSON_API}/likeHate`);
+  const { data} = await axios.get(`${JSON_API}/likeHate`)
+  return data
+}
+
+export const getFaq = async () => {
+  const { data} = await axios.get(`${JSON_API}/FAQ`)
+  return data
+}
+
+export const getBookMark = async () => {
+  const { data } = await axios.get(`${JSON_API}/BookMarkList`);
   return data;
 };

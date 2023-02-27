@@ -1,24 +1,28 @@
 import ApexChart from 'react-apexcharts';
 import styled from 'styled-components';
+import { Store } from '../../../types/data/storeInterface';
 
 interface Props {
-  detailData: any;
+  detailData: Store;
 }
 
 const DetailPageViews = ({ detailData }: Props) => {
   // 각 나이, 성별
-  const teenagerPercent = detailData.view[10];
-  const twentyPercent = detailData.view[20];
-  const thirtyPercent = detailData.view[30];
-  const fortyPercent = detailData.view['40+'];
-  const unknownAgePercent = detailData.view['연령모름'];
-  const menPercent = detailData.view['men'];
-  const womenPercent = detailData.view['women'];
-  const unknownGenderPercent = detailData.view['성별모름'];
+  const teenagerPercent = detailData?.view[10];
+  const twentyPercent = detailData?.view[20];
+  const thirtyPercent = detailData?.view[30];
+  const fortyPercent = detailData?.view['40+'];
+  const unknownAgePercent = detailData?.view['연령모름'];
+  const menPercent = detailData?.view['men'];
+  const womenPercent = detailData?.view['women'];
+  const unknownGenderPercent = detailData?.view['성별모름'];
 
   return (
     // 그래프 라이브러리
     <GrapfWrap>
+      <GrapTitleBackground>
+        <GrapTitleText>방문자 통계</GrapTitleText>
+      </GrapTitleBackground>
       <GrapfBox>
         <ApexChart
           // 그래프 크기
@@ -71,7 +75,7 @@ export default DetailPageViews;
 const GrapfWrap = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 100px;
 `;
 
 export const GrapfBox = styled.div`
@@ -84,3 +88,22 @@ export const GrapfBox = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+export const GrapTitleBackground = styled.div`
+   width: 145px;
+  height: 18px;
+  background-color: #ffeb62;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 12px;
+  top: 1440px;
+  text-align: center;
+`
+export const GrapTitleText = styled.p`
+   position: relative;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+`

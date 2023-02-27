@@ -11,6 +11,8 @@ import { globalBtn } from '../../atoms';
 import { useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { JSON_API } from '../../services/api';
+import { ko } from 'date-fns/esm/locale';
+
 interface NewStoreInput {
   title: string;
   storeName: string;
@@ -20,6 +22,9 @@ interface NewStoreInput {
 }
 
 const NewStoreReport: any = () => {
+  const [startDate, setStartDate] = useState<any>('');
+  const [endDate, setEndDate] = useState<any>('');
+
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
 
@@ -63,10 +68,9 @@ const NewStoreReport: any = () => {
     reader.readAsDataURL(theFile); // file 객체를 data url로 바꿔줌
 
     reader.onloadend = (finishedEvent: any) => {
-      setImgFile(finishedEvent.currentTarget.result);      
+      setImgFile(finishedEvent.currentTarget.result);
     };
   };
-
 
   const cancleHandler = () => {
     if (window.confirm('작성을 취소하시겠습니까?')) {
@@ -80,7 +84,7 @@ const NewStoreReport: any = () => {
   ) => {
     event.preventDefault();
     setGlobalButton(false);
-    
+
     // firebase storage에 이미지 업로드
     const imgRef = ref(storage, `storeInfoImg/${fileName}`);
 
@@ -102,8 +106,8 @@ const NewStoreReport: any = () => {
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
       storeAddress: newStoreInput.storeAddress,
-      startDate: newStoreInput.startDate,
-      endDate: newStoreInput.endDate,
+      startDate,
+      endDate,
       etcContent: etcContent,
       infoImg: downloadImageUrl,
       reportedDate: today.toLocaleString(),
@@ -117,6 +121,9 @@ const NewStoreReport: any = () => {
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
       setEtcContent('');
+      setStartDate('');
+      setEndDate('');
+
       alert('제보 완료!');
     } catch (error) {
       console.log(error);
@@ -128,8 +135,8 @@ const NewStoreReport: any = () => {
       newStoreInput.title === '' &&
       newStoreInput.storeName === '' &&
       newStoreInput.storeAddress === '' &&
-      newStoreInput.startDate === '' &&
-      newStoreInput.endDate === '' &&
+      startDate === '' &&
+      endDate === '' &&
       etcContent === ''
     )
       setGlobalButton(false);
@@ -137,10 +144,26 @@ const NewStoreReport: any = () => {
     newStoreInput.title,
     newStoreInput.storeName,
     newStoreInput.storeAddress,
-    newStoreInput.startDate,
-    newStoreInput.endDate,
+    startDate,
+    endDate,
     etcContent,
   ]);
+
+  // datePicker onChange 함수
+  const startDateOnchange = (date: any) => {
+    setStartDate(date);
+  };
+  console.log('startDate', startDate);
+  
+  
+  const endDateOnChange = (date: any) => {
+    if (startDate === '') {
+      alert('시작 일자를 먼저 선택해 주세요.');
+    } else {
+      setEndDate(date);
+    }
+  };
+  
 
   return (
     <NewStoreForm onSubmit={newStoreInfoAddHandler}>
@@ -183,7 +206,37 @@ const NewStoreReport: any = () => {
 
       <S.ThreeGrid>
         <S.ReportTitle>기간</S.ReportTitle>
-        <S.ReportTitleInput
+        <S.DatePickerContainer>
+          <S.DatePickerBox
+            required
+            locale={ko}
+            selected={startDate}
+            onChange={startDateOnchange}
+            selectsStart
+            startDate={startDate}
+            closeOnScroll={true}
+            showPopperArrow={false}
+            dateFormat="yyyy-MM-dd"
+            placeholderText="시작 일자"
+          />
+        </S.DatePickerContainer>
+        <S.DatePickerContainer>
+          <S.DatePickerBox
+            required
+            locale={ko}
+            selected={endDate}
+            onChange={endDateOnChange}
+            selectsEnd
+            endDate={endDate}
+            minDate={startDate}
+            closeOnScroll={true}
+            showPopperArrow={false}
+            dateFormat="yyyy-MM-dd"
+            placeholderText="종료 일자"
+          />
+        </S.DatePickerContainer>
+
+        {/* <S.ReportTitleInput
           style={{ width: 200 }}
           type="date"
           data-placeholder="시작 일자"
@@ -200,7 +253,7 @@ const NewStoreReport: any = () => {
           name="endDate"
           onChange={newStoreInputonChangeHandler}
           value={newStoreInput.endDate}
-        />
+        /> */}
       </S.ThreeGrid>
       <S.ReportGrid>
         <S.ReportTitle>제보 내용</S.ReportTitle>

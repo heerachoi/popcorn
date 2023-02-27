@@ -79,9 +79,8 @@ const Footer = () => {
       <FooterMenuWrap>
         {menuArr.map((item: any, i: any) => {
           return (
-            <TextBackground>
+            <TextBackground key={item.id}>
               <FooterMenu
-                key={item.id}
                 id={item.id}
                 onClick={() =>
                   globalBtnModalStatusChangeHandler('/customer', i)

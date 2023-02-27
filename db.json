@@ -4,14 +4,14 @@
       "id": "0",
       "view": {
         "10": 3,
-        "20": 82,
+        "20": 85,
         "30": 0,
-        "40+": 2,
+        "40+": 3,
         "women": 0,
-        "men": 83,
+        "men": 86,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 86
+        "all": 89
       },
       "title": "Fluffy Keyring News",
       "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
@@ -53,14 +53,14 @@
       "id": "1",
       "view": {
         "10": 0,
-        "20": 4,
+        "20": 10,
         "30": 0,
         "40+": 0,
         "women": 0,
-        "men": 4,
+        "men": 10,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 4
+        "all": 10
       },
       "title": "Kauts",
       "address": "서울특별시 마포구 양화로 188 AK&플라자 2층",
@@ -467,14 +467,14 @@
       "id": "9",
       "view": {
         "10": 0,
-        "20": 0,
+        "20": 16,
         "30": 0,
         "40+": 0,
         "women": 0,
-        "men": 0,
+        "men": 16,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 16
       },
       "title": "송월 X 발란사",
       "address": "서울특별시 성동구 연무장길1 퓨처소사이어티",
@@ -520,14 +520,14 @@
       "id": "10",
       "view": {
         "10": 0,
-        "20": 0,
+        "20": 4,
         "30": 0,
-        "40+": 0,
+        "40+": 1,
         "women": 0,
-        "men": 0,
+        "men": 4,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 4
       },
       "title": "Dyson Style Lab",
       "address": "서울특별시 성동구 연무장길 101-1 성수 오우드",
@@ -626,14 +626,14 @@
       "id": "12",
       "view": {
         "10": 0,
-        "20": 0,
+        "20": 1,
         "30": 0,
         "40+": 0,
         "women": 1,
-        "men": 0,
+        "men": 1,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 1
+        "all": 2
       },
       "title": "부산사이다",
       "address": "부산시 중구 대청로137번길 8-2 지하1층",
@@ -679,14 +679,14 @@
       "id": "13",
       "view": {
         "10": 0,
-        "20": 0,
+        "20": 2,
         "30": 0,
         "40+": 0,
         "women": 0,
-        "men": 0,
+        "men": 2,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 2
       },
       "title": "Chigong",
       "address": "서울특별시 마포구 양화로 188 AK&플라자 2층 비옥OFOF",
@@ -835,12 +835,12 @@
         "10": 0,
         "20": 2,
         "30": 0,
-        "40+": 1,
+        "40+": 2,
         "women": 0,
-        "men": 2,
+        "men": 3,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 3
+        "all": 4
       },
       "title": "DELPHIC POP-UP",
       "address": "서울특별시 강남구 압구정로 343 갤러리아 명품관 WEST",
@@ -884,14 +884,14 @@
       "id": "17",
       "view": {
         "10": 0,
-        "20": 0,
+        "20": 1,
         "30": 0,
         "40+": 0,
         "women": 0,
-        "men": 0,
+        "men": 1,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 1
       },
       "title": "Don't Lose Your Heart",
       "address": "서울특별시 서초구 신반포로 176 센트럴시티 1층",
@@ -988,14 +988,14 @@
       "id": "19",
       "view": {
         "10": 0,
-        "20": 0,
+        "20": 1,
         "30": 0,
         "40+": 0,
         "women": 0,
-        "men": 0,
+        "men": 1,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 1
       },
       "title": "EXPLORE THE NEW by 갤럭시 스튜디오",
       "address": "서울특별시 성동구 연무장길 26",
@@ -1398,14 +1398,14 @@
       "id": "27",
       "view": {
         "10": 0,
-        "20": 0,
+        "20": 1,
         "30": 0,
         "40+": 0,
         "women": 0,
-        "men": 0,
+        "men": 1,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 1
       },
       "title": "INSTANTFUNK",
       "address": "경기도 하남시 미사대로 750 스타필드 하남, 1층",
@@ -3088,7 +3088,6 @@
       "uid": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
       "id": "22ace3dc-2a33-4fbc-b844-6ef15464c51a"
     },
-
     {
       "age": "1993-06-13",
       "email": "jieun@naver.com",
@@ -3112,7 +3111,7 @@
     {
       "id": 1,
       "storeId": "3",
-      "userId": "qOW94Q60fyNvbvzLm7R2csHBRoe2",
+      "userId": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
       "notification": false,
       "title": "더 퍼스트 슬램덩크 at 더현대 서울",
       "open": "2023.01.26",
@@ -3178,6 +3177,16 @@
       "open": "2022.12.16",
       "close": "2023.02.26",
       "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/BusanCider%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.48.27.png?alt=media&token=c8c8fd2c-675d-4fa4-aad7-a8adc69a172e"
+    },
+    {
+      "id": "2ac79d46-4fd9-4bac-97dd-d58f59d529fd",
+      "storeId": "10",
+      "userId": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "notification": false,
+      "title": "Dyson Style Lab",
+      "open": "2023.02.17",
+      "close": "2023.02.19",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Dyson%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.50.13.png?alt=media&token=80c451ec-4aae-43f8-9157-d50aa9e97b1d"
     }
   ],
   "newStores": [
@@ -3377,7 +3386,7 @@
       "category": "신규",
       "status": false
     }
-  ], 
+  ],
   "infoErrModifiContents": [
     {
       "id": "d3b4c004-8d30-4aa7-bbf8-06f7fd9b32e7",
