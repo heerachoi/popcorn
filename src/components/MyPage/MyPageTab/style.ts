@@ -35,6 +35,7 @@ export const MyBookmarkReportTabMenu = styled.ul`
   border-bottom: 2px solid #9b9b9b;
 `;
 
+export const MyTitleTabTitleBox = styled.div``
 export const MyTitleTabBtn = styled.button`
   background-color: transparent;
   font-weight: bold;

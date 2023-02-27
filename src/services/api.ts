@@ -60,3 +60,8 @@ export const getLikeHate = async () => {
   const { data} = await axios.get(`${JSON_API}/likeHate`)
   return data
 }
+
+export const getFaq = async () => {
+  const { data} = await axios.get(`${JSON_API}/FAQ`)
+  return data
+}
