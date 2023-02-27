@@ -63,11 +63,11 @@
   },
   "main": "server.ts",
   "scripts": {
-    "start": "node server.ts",
+    "start": "node server",
     "start:dev": "react-scripts start",
     "build": "react-scripts build",
     "heroku-postbuild": "npm run build"
-  },
+},
   "eslintConfig": {
     "extends": []
   },
