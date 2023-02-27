@@ -4,19 +4,25 @@
 // const path = require('path');
 
 
-// const jsonServer = require('json-server');
-// const server = jsonServer.create();
-// const router = jsonServer.router('./db.json');
-// const middlewares = jsonServer.defaults();
-// const port = process.env.PORT || 3000;
+const jsonServer = require('json-server');
+const path = require('path');
 
-// server.use(middlewares);
-// server.use(router);
+const server = jsonServer.create();
+const router = jsonServer.router(path.resolve(__dirname + '/db.json'));
+const middlewares = jsonServer.defaults({
+    static: path.resolve(__dirname + '/../build/')
+});
 
-// server.listen(port,()=>{
-//   console.log('서버가 열렸습니다.')
-// });
+const port = process.env.PORT || 3010;
 
+server.use(middlewares);
+
+server.use(jsonServer.bodyParser);
+
+server.use(router);
+server.listen(port, () => {
+    console.log('JSON Server is running');
+});
 
 // if (process.env.NODE_ENV === 'production') {
 //     app.use(express.static('frontend/build'))
