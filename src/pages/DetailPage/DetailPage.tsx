@@ -7,12 +7,15 @@ import { userInfo } from '../../atoms';
 import DetailMap from '../../components/Detail/DetailMap/DetailMap';
 import DetailPageViews from '../../components/Detail/DetailPageViews/DetailPageViews';
 import StoreDetailInfo from '../../components/Detail/StoreDetailInfo/StoreDetailInfo';
+import { Store } from '../../types/data/storeInterface';
 import { JSON_API } from '../../services/api';
 
+
 const DetailPage: any = () => {
-  const { state: detailData } = useLocation();
+  const detailData = useLocation().state as Store;
   const users = useRecoilValue(userInfo);
   const [userAge, setUserAge] = useState('');
+  const [data, setData] = useState<Store>(detailData);
 
   const queryClient = useQueryClient();
 
@@ -48,9 +51,11 @@ const DetailPage: any = () => {
       console.log(error);
     }
   };
-
   const mutation = useMutation(() => upDateViews(), {
-    onSuccess: () => queryClient.invalidateQueries('popup'),
+    onSuccess: (data) => {
+      setData(data?.data);
+      // queryClient.invalidateQueries('popup');
+    },
   });
 
   // age 값이 변하면 연령대 설정하기
@@ -67,8 +72,8 @@ const DetailPage: any = () => {
 
   return (
     <>
-      <StoreDetailInfo detailData={detailData} />
-      <DetailPageViews detailData={detailData} />
+      <StoreDetailInfo detailData={data} />
+      <DetailPageViews detailData={data} />
       <DetailMap />
     </>
   );

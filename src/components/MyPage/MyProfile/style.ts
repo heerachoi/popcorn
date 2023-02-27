@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-export const MyPageAll = styled.div``;
+export const MyPageAll = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  height: 100%; */
+`;
 
 export const MyPageContainer = styled.div`
   max-width: 1440px;
@@ -143,8 +149,6 @@ export const ProfileImgShow = styled.img`
 `;
 export const ProfileImgInput = styled.input``;
 
-export const NewProfileSubmitForm = styled.form``;
-
 // =======이메일 묶음
 export const EmailInputWrpper = styled.div`
   margin: 3vh 0vh 3vh 5vh;
@@ -160,7 +164,7 @@ export const EmailText = styled.p`
   color: #323232;
 `;
 
-export const EmailInput = styled.input`
+export const EmailInputDiv = styled.div`
   width: 80%;
   height: 48px;
   border: 1px solid #a6a6a6;
@@ -172,6 +176,7 @@ export const EmailInput = styled.input`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
+  background-color: #ffffff;
 `;
 
 // =======휴대전화 묶음

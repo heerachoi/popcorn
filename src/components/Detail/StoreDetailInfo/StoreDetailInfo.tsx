@@ -23,7 +23,7 @@ interface Props {
   detailData: Store;
 }
 
-const StoreDetailInfo = ({ detailData }: Props) => {  
+const StoreDetailInfo = ({ detailData }: any) => {
   const [currentUser, setCurrentUser] = useState<any>('');
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>();
@@ -63,7 +63,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     data.map((bookmark: BookMark) => {
       if (
         bookmark.userId === currentUser.uid &&
-        bookmark.storeId === detailData.id
+        bookmark.storeId === detailData?.id
       ) {
         // 유저가 북마크를 했음
         setChangeColor(`${COLORS.orange2}`);

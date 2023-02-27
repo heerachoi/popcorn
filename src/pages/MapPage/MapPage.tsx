@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import {
   mapCategoryValue,
   mapFoodData,
+  mapFoodSearchValue,
   mapSearchValue,
   popupList,
 } from '../../atoms';
@@ -35,12 +36,13 @@ const MapPage = () => {
   const [info, setInfo] = useState<Markers>();
   // const [isLoading, setIsLoading] = useState<boolean>(true); // 로딩
   const [map, setMap] = useState<any>(); // 맵
-  const [myLocation, setMyLocation] = useState<any>({
+  const [myLocation, setMyLocation] = useState<LocationType>({
     Ma: 37.49810223154336,
     La: 127.0327612337389,
   }); // 나의 위치
-  const [search, setSearch] = useRecoilState(mapSearchValue); // 검색어
-  const [category, setCategory] = useRecoilState(mapCategoryValue); // 카테고리
+  const search = useRecoilValue(mapSearchValue); // 검색어
+  const foodSearch = useRecoilValue(mapFoodSearchValue);
+  const category = useRecoilValue(mapCategoryValue); // 카테고리
   const popuplist = useRecoilValue(popupList); // popupData
   const [foodData, setFoodData] = useRecoilState(mapFoodData); // 음식점, 카페 데이터
 
@@ -53,17 +55,14 @@ const MapPage = () => {
     if (popuplist.length === 0) return alert('검색 결과가 없습니다.');
     // new kakao.maps.services.Places(); 키워드로 검색하면 object를 반환해준다.
     setMarkerHandler(search, category);
-    // setCategory(' ');
   };
 
   const setMarkerHandler = (search: any, category: any) => {
     const ps = new kakao.maps.services.Places();
     // ps.keywordSearch(검색어, (키워드 데이터 [], 검색 상태 OK 여부, total count, page 수))
-    if (search === '홍대') search += '마포구';
-    if (search === '건대') search += '광진구';
 
     ps.keywordSearch(
-      search,
+      category === '팝업스토어' ? search : `${foodSearch} ${category}`,
       (data, status, _pagination) => {
         if (status === kakao.maps.services.Status.OK) {
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
@@ -117,7 +116,6 @@ const MapPage = () => {
                 popupData[i].address.includes(search) ||
                 popupData[i].title.includes(search)
               ) {
-                console.log(popupData[i].lat, popupData[i].lon);
                 // @ts-ignore
                 bounds.extend(
                   new kakao.maps.LatLng(popupData[i].lat, popupData[i].lon),
@@ -129,9 +127,8 @@ const MapPage = () => {
           setFoodData(markers);
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 
-          if (category === ' ') {
+          if (category === '팝업스토어') {
             map.setBounds(bounds);
-            // 검색된 장소 지도 가운데 위치를 내 위치로 업데이트 시켜줌
             let latlng = map.getCenter();
             setMyLocation(latlng);
           }
@@ -209,12 +206,12 @@ const MapPage = () => {
   // };
 
   // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-  function displayCenterInfo(result: any, status: any) {
-    if (status === kakao.maps.services.Status.OK) {
-      console.log('result', result);
-      setSearch(result[0].region_2depth_name);
-    }
-  }
+  // const displayCenterInfo = (result: any, status: any) => {
+  //   if (status === kakao.maps.services.Status.OK) {
+  //     console.log('result', result);
+  //     setSearch(result[0].region_2depth_name);
+  //   }
+  // };
 
   // useEffect(() => {
   //   getLocation();
@@ -239,7 +236,7 @@ const MapPage = () => {
             <MapSearch onSearchSubmitHandler={onSearchSubmitHandler} />
             <MapDataList popupData={popupData} setMyLocation={setMyLocation} />
           </div>
-          <div>
+          <MapWrap>
             <MapWeather myLocation={myLocation} />
             <Maps
               info={info}
@@ -249,7 +246,7 @@ const MapPage = () => {
               myLocation={myLocation}
               popupData={popupData}
             />
-          </div>
+          </MapWrap>
         </Wrap>
       )}
     </>
@@ -261,6 +258,11 @@ export default MapPage;
 const Wrap = styled.div`
   margin-top: 50px;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
+  /* justify-content: space-around; */
+  /* align-items: flex-end; */
+`;
+
+const MapWrap = styled.div`
+  width: 100%;
+  height: 100%;
 `;
