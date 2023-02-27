@@ -46,11 +46,16 @@ export const userInfo = atom<UserInfoState>({
 
 export const mapCategoryValue = atom<MapCategoryValue>({
   key: 'category',
-  default: ' ',
+  default: '팝업스토어',
 });
 
 export const mapSearchValue = atom<MapSearchValue>({
   key: 'searchValue',
+  default: '',
+});
+
+export const mapFoodSearchValue = atom<MapSearchValue>({
+  key: 'foodSearchValue',
   default: '',
 });
 
