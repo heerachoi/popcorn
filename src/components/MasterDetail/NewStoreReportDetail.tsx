@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getNewStoreReport } from '../../services/api';
 import * as S from './style';
+import { JSON_API } from '../../services/api';
 
 const NewStoreReportDetail = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const NewStoreReportDetail = () => {
   const checkHandler = () => {
     alert('확인');
     navigate('/master');
-    return axios.patch(`http://localhost:3002/newStores/${paramId.id}`, {
+    return axios.patch(`${JSON_API}/newStores/${paramId.id}`, {
       status: !currentState,
     });
   };
