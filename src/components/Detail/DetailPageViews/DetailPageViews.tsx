@@ -20,6 +20,9 @@ const DetailPageViews = ({ detailData }: Props) => {
   return (
     // 그래프 라이브러리
     <GrapfWrap>
+      <GrapTitleBackground>
+        <GrapTitleText>방문자 통계</GrapTitleText>
+      </GrapTitleBackground>
       <GrapfBox>
         <ApexChart
           // 그래프 크기
@@ -72,7 +75,7 @@ export default DetailPageViews;
 const GrapfWrap = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 200px;
+  margin-top: 100px;
 `;
 
 export const GrapfBox = styled.div`
@@ -85,3 +88,22 @@ export const GrapfBox = styled.div`
   display: flex;
   justify-content: center;
 `;
+
+export const GrapTitleBackground = styled.div`
+   width: 145px;
+  height: 18px;
+  background-color: #ffeb62;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 12px;
+  top: 1440px;
+  text-align: center;
+`
+export const GrapTitleText = styled.p`
+   position: relative;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+`

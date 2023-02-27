@@ -1,4 +1,7 @@
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import styled from 'styled-components';
+
 
 // NewStore.tsx
 export const NewStoreForm = styled.form`
@@ -12,7 +15,7 @@ export const ReportGrid = styled.div`
 
 export const ThreeGrid = styled.div`
   display: grid;
-  grid-template-columns: 150px 1fr 1fr;
+  grid-template-columns: 150px 250px 250px;
   margin-bottom: 40px;
 `;
 
@@ -63,7 +66,35 @@ export const ReportTitleInput = styled.input`
     display: none;
   }
 `;
+export const DatePickerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
 
+export const DatePickerBox = styled(DatePicker)`
+  font-family: 'Apple SD Gothic Neo';
+  font-weight: 500;
+  font-size: 14px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  background-color: #ffffff;
+
+  &:active,
+  &:focus {
+    outline-color: #676767;
+    color: #323232;
+  }
+
+  &::placeholder {
+    color: #9b9b9b;
+  }
+
+ 
+`
 export const TextArea = styled.textarea`
   width: 720px;
   height: 30px;

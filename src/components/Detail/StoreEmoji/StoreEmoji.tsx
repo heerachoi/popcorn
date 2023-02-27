@@ -49,7 +49,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     vote: 'like',
   };
 
-  // 별로에요 추가
+  // 별로예요 추가
   const hateLike = {
     id: uuidv4(),
     storeId: detailData?.id,
@@ -91,7 +91,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     setLike(likes.length);
   };
 
-  // 별로에요 숫자 카운트
+  // 별로예요 숫자 카운트
   const hateCountHandler = async () => {
     const { data } = await axios.get(`${JSON_API}/likeHate`);
     const hates = data.filter((item: any) => {
@@ -115,7 +115,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           console.log('error', error);
         }
       } else if (hateClicked) {
-        alert('좋아요, 별로에요 둘 중 하나만 가능합니다.');
+        alert('좋아요, 별로예요 둘 중 하나만 가능합니다.');
       } else if (!likeClicked) {
         // 좋아요가 안눌린 상태
         try {
@@ -131,11 +131,11 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     }
   };
 
-  // 별로에요 버튼
+  // 별로예요 버튼
   const hateHandler = async () => {
     if (currentUser) {
       if (hateClicked) {
-        // 별로에요 눌린 상태
+        // 별로예요 눌린 상태
         try {
           axios.delete(`${JSON_API}/likeHate/${currentLikeId}`);
           hateSetColor(`${COLORS.black}`);
@@ -144,9 +144,9 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           console.log('error', error);
         }
       } else if (likeClicked) {
-        alert('좋아요, 별로에요 둘 중 하나만 가능합니다.');
+        alert('좋아요, 별로예요 둘 중 하나만 가능합니다.');
       } else if (!hateClicked) {
-        // 별로에요 안눌린 상태
+        // 별로예요 안눌린 상태
         try {
           axios.post(`${JSON_API}/likeHate`, hateLike);
           hateSetColor(`${COLORS.red}`);
@@ -165,21 +165,21 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       <S.EmojiContainer>
         <S.EmojiDiv>
           <S.EmojiIconBtn onClick={likeHandler}>
-            <S.LikeHateImg src={require('../../../assets/Logo/like.png')} />
+            <S.LikeHateImg src={require('../../../assets/Img/Feel=Happy, Color=green.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground>
             <S.EmojiText style={{ color: likeColor }}>좋아요</S.EmojiText>
           </S.TextBackground>
-          <S.EmojiText>{like}</S.EmojiText>
+          <S.countText>{like}</S.countText>
         </S.EmojiDiv>
         <S.EmojiDiv>
           <S.EmojiIconBtn onClick={hateHandler}>
-            <S.LikeHateImg src={require('../../../assets/Logo/hate.png')} />
+            <S.LikeHateImg src={require('../../../assets/Img/Feel=Sad, Color=green.png')} />
           </S.EmojiIconBtn>
           <S.TextBackground style={{ width: '85px' }}>
-            <S.EmojiText style={{ color: hateColor }}>별로에요</S.EmojiText>
+            <S.EmojiText style={{ color: hateColor }}>별로예요</S.EmojiText>
           </S.TextBackground>
-          <S.EmojiText>{hate}</S.EmojiText>
+          <S.countText>{hate}</S.countText>
         </S.EmojiDiv>
       </S.EmojiContainer>
     </S.EmojiWrap>

@@ -29,22 +29,45 @@ const DetailMap = () => {
 
 export default DetailMap;
 
-const MapWrap = styled.div``;
+const MapTitleBox = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 88px;
+`;
+
+const MapWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  
+`;
 
 const DetailPageMap = styled(Map)`
   margin: 0 auto;
-  margin-top: 20px;
   width: 500px;
   height: 500px;
 `;
 
-const TitleText = styled.div`
+const TitleBackground = styled.div`
+  width: 170px;
+  height: 18px;
+  background-color: #ffeb62;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const TitleText = styled.p`
   margin-top: 58px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   text-align: center;
+  position: relative;
 `;
 
 const MapInfoBox = styled.div`

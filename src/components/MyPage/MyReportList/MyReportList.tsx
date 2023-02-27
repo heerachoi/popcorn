@@ -1,20 +1,38 @@
 import React from 'react';
 import * as S from './style';
-import newStoreData from '../../../data/newStoreRequest.json';
-import errData from '../../../data/errorRequest.json';
 import { auth } from '../../../services/firebase';
+import {  useQuery } from 'react-query';
+import { getInfoErrReport, getNewStoreReport } from '../../../services/api';
 
 const MyReportList = () => {
-  const errReport = errData.infoErrModifiContents;
-  const newStoreReport = newStoreData.newStores;
+  const { isLoading, isError, data:newStores, error } = useQuery(
+    'newStores',
+    getNewStoreReport,
+  );
+  const { data:errReport } = useQuery(
+    'infoErrModifiContents',
+    getInfoErrReport,
+  );
+  console.log('newStores', newStores);
+  console.log('errReport', errReport);
+  
+  if (isLoading) {
+    console.log('로딩중');
+    return <p>Loading...</p>;
+  }
+  if (isError) {
+    console.log('오류내용', error);
+    return <p>Error!!!</p>;
+  }
+
   const uid = auth.currentUser?.uid;
 
   return (
     <S.ReportWrap>
       <S.ReportContainer>
         {errReport
-          .filter((item) => item.userId.uid === uid)
-          .map((li) => {
+          .filter((item:any) => item.userId.uid === uid)
+          .map((li:any) => {
             return (
               <S.ListBox key={li.id}>
                 <S.ListContent>
@@ -32,9 +50,9 @@ const MyReportList = () => {
               </S.ListBox>
             );
           })}
-        {newStoreReport
-          .filter((item) => item.userId.uid === uid)
-          .map((li) => {
+        {newStores
+          .filter((item:any) => item.userId.uid === uid)
+          .map((li:any) => {
             return (
               <S.ListBox key={li.id}>
                 <S.ListContent>
