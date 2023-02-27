@@ -16,8 +16,7 @@ export const EmojiContainer = styled.div`
 `;
 
 export const EmojiDiv = styled.div`
-  margin: 0 8%;
-
+  margin: 0 5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,19 +45,26 @@ export const TextBackground = styled.div`
   background-color: #ffeb62;
   position: absolute;
   box-sizing: border-box;
-  padding-left: 18px;
   border-radius: 12px;
-  top: 1260px;
-  /* right: 808px;
-  top: 110px; */
+  top: 1350px;
+  text-align: center;
 `;
 
 export const EmojiText = styled.span`
-  margin-top: 30px;
   position: relative;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
+  text-align: center;
+`;
+
+export const countText = styled.span`
+  margin-top: 5px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
   line-height: 24px;
+  color: #9B9B9B;
 `;

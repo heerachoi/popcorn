@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 export const StoreDetailInfoWrap = styled.div`
   max-width: 1040px;
   width: 100%;
   margin: 0 auto;
+  margin-top: 48px;
 `;
 
 export const DetailContainer = styled.div`
@@ -57,6 +59,8 @@ export const SideTitleIcon = styled.span`
   font-style: normal;
   font-weight: 800;
   font-size: 13px;
+  margin-bottom: 2px;
+  color: #9b9b9b;
 `;
 
 export const ReserveImg = styled.img`
@@ -70,46 +74,81 @@ export const SideTitleText = styled.span`
 `;
 
 export const InfoContentWrap = styled.div`
-  /* background-color: yellow; */
-  display: flex;
-  /* justify-content: space-between; */
+  /* display: flex; */
+  height: 430px;
+  margin-top: 30px;
 `;
 
-export const InfoContentText = styled.td`
+export const InfoContentBox = styled.div`
+  display: grid;
+  grid-template-columns: 130px 70%;
+  grid-gap: 25px;
 `;
 
-export const InfoTable = styled.table`
+// export const InfoTitleBackground = styled.div`
+//   width: 70px;
+//   height: 12px;
+//   background-color: #ffeb62;
+//   position: absolute;
+//   box-sizing: border-box;
+//   border-radius: 12px;
+//   top: 800px;
+//   text-align: center;
+// `;
+
+export const InfoTitle = styled.div`
+  position: relative;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 16px;
 `;
 
-export const InfoTbody = styled.tbody``;
-
-export const InfoTr = styled.tr``;
-
-export const InfoTitleText = styled.td`
-  font-weight: 800;
-  width: 130px;
-  padding: 15px 0;
+export const InfoContentText = styled.span`
+  font-family: 'Apple SD Gothic Neo';
+  font-size: 16px;
+  font-weight: 500;
 `;
+
+export const InfoContentCategory = styled.span`
+  height: 21px;
+  background: ${COLORS.gray3};
+  border-radius: 20px;
+  color: white;
+  font-family: 'Apple SD Gothic Neo';
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 4px 16px 3px;
+`;
+
+// export const InfoTable = styled.table`
+//   font-family: 'Apple SD Gothic Neo';
+//   font-style: normal;
+//   font-size: 14px;
+// `;
+
+// export const InfoTbody = styled.tbody``;
+
+// export const InfoTr = styled.tr``;
+
+// export const InfoTitleText = styled.td`
+//   font-weight: 800;
+//   width: 130px;
+//   padding: 15px 0;
+// `;
 
 export const SnsLinkWrap = styled.p``;
+export const SnsImg = styled.img`
+  width: 20px;
+`;
 
 export const Hr = styled.hr`
   max-width: 1040px;
   width: 100%;
 `;
-
-// export const ViewTitle = styled.span`
-//   font-family: 'Apple SD Gothic Neo';
-//   font-style: normal;
-//   font-weight: 800;
-//   font-size: 14px;
-//   line-height: 38px;
-//   margin-right: 25%;
-//   flex-direction: column;
-// `;
 
 export const OperationPeriodWrap = styled.div``;
 
@@ -127,22 +166,3 @@ export const OpeningHoursBox = styled.div`
   display: flex;
   flex-direction: column;
 `;
-
-// export const OpeningHoursTitle = styled(OperationPeriodTitle)``;
-// export const OpeningHoursText = styled(OperationPeriodTitle)``;
-
-// export const AddressWrap = styled.div``;
-// export const AddressTitle = styled(OperationPeriodTitle)``;
-// export const AddressText = styled(OperationPeriodTitle)``;
-
-// export const ExplainWrap = styled.div``;
-// export const ExplainTitle = styled(OperationPeriodTitle)``;
-// export const ExplainText = styled(OperationPeriodTitle)``;
-
-// export const SNSWrap = styled.div``;
-// export const SNSTitle = styled(OperationPeriodTitle)``;
-// export const SNSText = styled(OperationPeriodTitle)``;
-
-// export const BrandPageWrap = styled.div``;
-// export const BrandTitle = styled(OperationPeriodTitle)``;
-// export const BrandText = styled(OperationPeriodTitle)``;

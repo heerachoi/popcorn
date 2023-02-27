@@ -12,43 +12,59 @@ const DetailMap = () => {
   };
 
   return (
-    <MapWrap>      
-      <TitleText>찾아오시는 길</TitleText>
-      <DetailPageMap center={detailLocation}>
-        <MapMarker position={detailLocation} />
-      </DetailPageMap>
-    </MapWrap>
+    <>
+      <MapTitleBox>
+        <TitleBackground>
+          <TitleText>찾아오시는 길</TitleText>
+        </TitleBackground>
+      </MapTitleBox>
+      <MapWrap>
+        <DetailPageMap center={detailLocation}>
+          <MapMarker position={detailLocation} />
+        </DetailPageMap>
+      </MapWrap>
+    </>
   );
 };
 
 export default DetailMap;
 
-const MapWrap = styled.div``
+const MapTitleBox = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 88px;
+`;
+
+const MapWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  
+`;
 
 const DetailPageMap = styled(Map)`
   margin: 0 auto;
-  margin-top: 20px;
   width: 500px;
   height: 500px;
 `;
 
 const TitleBackground = styled.div`
-  width: 140px;
-  height: 23px;
+  width: 170px;
+  height: 18px;
   background-color: #ffeb62;
   position: absolute;
   box-sizing: border-box;
-  padding-left: 20px;
   border-radius: 12px;
-  left: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const TitleText = styled.div`
-  margin-top: 58px;
+const TitleText = styled.p`
+  position: relative;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
-
+  font-size: 24px;
   text-align: center;
 `;
