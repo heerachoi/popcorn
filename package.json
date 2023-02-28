@@ -62,12 +62,14 @@
     "web-vitals": "^2.1.4"
   },
   "main": "server.ts",
-  "scripts": {
-    "start": "node server.ts",
-    "start:dev": "react-scripts start",
-    "build": "react-scripts build",
-    "heroku-postbuild": "npm run build"
-},
+    "scripts": {
+    "start": "node server",
+    "start:dev": "cross-env NODE_PATH=src react-scripts start",
+    "build": "cross-env NODE_PATH=src react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "cross-env NODE_PATH=src npm run build"
+  },
   "eslintConfig": {
     "extends": []
   },
