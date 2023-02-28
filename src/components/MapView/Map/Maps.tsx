@@ -122,5 +122,5 @@ export default Maps;
 const Wrap = styled(Map)`
   background-color: grey;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `;
