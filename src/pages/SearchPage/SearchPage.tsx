@@ -30,6 +30,11 @@ import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
 import { useNavigate } from 'react-router-dom';
 
 const Search: React.FC = () => {
+  // 1. url에서 카테고리 정보를 받아
+    // 검색
+  useEffect(() => {
+  }, []);
+
   const navigate = useNavigate();
   const { isLoading, isError, data, error } = useQuery(
     'popup',
@@ -48,6 +53,7 @@ const Search: React.FC = () => {
   const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
   // 검색어
   const [searchTerm, setSearchTerm] = useState<any>('');
+  console.log(searchTerm);
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(data);
   // Date Picker
   const [dateSelected, setDateSelected] = useState<any>();
@@ -287,16 +293,12 @@ const Search: React.FC = () => {
   const getURLInfo = () => {
     //현제 URL
     const urlParams = new URLSearchParams(window.location.search);
-    const searchParam = urlParams.get('search');
+    const searchParam = urlParams.get('list');
     if (searchParam != null) {
       const decodedSearch = decodeURIComponent(searchParam); // "서울"
       setSearchTerm(decodedSearch);
     }
   };
-
-  // useEffect(() => {
-  //   getURLInfo();
-  // }, []);
 
   // 검색
   useEffect(() => {
