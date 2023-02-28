@@ -62,8 +62,8 @@ const Wrap = styled.div`
 `;
 
 const MapInfoBox = styled.div`
-  width: 300px;
-  height: 100px;
+  width: 200px;
+  height: 20px;
   border-radius: 10px;
   background-color: white;
   overflow: hidden;

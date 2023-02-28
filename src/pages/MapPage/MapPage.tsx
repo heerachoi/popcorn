@@ -7,6 +7,7 @@ import {
   mapCategoryValue,
   mapFoodData,
   mapFoodSearchValue,
+  mapLevel,
   mapModalStatus,
   mapSearchValue,
   popupList,
@@ -36,18 +37,17 @@ interface Markers {
 
 const MapPage = () => {
   const [info, setInfo] = useState<Markers>();
-  // const [isLoading, setIsLoading] = useState<boolean>(true); // 로딩
   const [map, setMap] = useState<any>(); // 맵
   const [myLocation, setMyLocation] = useState<LocationType>({
     Ma: 37.49810223154336,
     La: 127.0327612337389,
   }); // 나의 위치
   const search = useRecoilValue(mapSearchValue); // 검색어
-  const foodSearch = useRecoilValue(mapFoodSearchValue);
   const [category, setCategory] = useRecoilState(mapCategoryValue); // 카테고리
   const popuplist = useRecoilValue(popupList); // popupData
   const [foodData, setFoodData] = useRecoilState(mapFoodData); // 음식점, 카페 데이터
   const [mapModal, setMapModal] = useRecoilState(mapModalStatus);
+  const setLevel = useSetRecoilState(mapLevel);
 
   const { data: popupData, isLoading } = useQuery('popupData', getPopupData);
 
@@ -58,7 +58,9 @@ const MapPage = () => {
     // 검색할 때 팝업리스트가 없으면 return 해서 지도가 옮겨지지 않게 하고 검색결과가 없다고 알려준다.
     if (popuplist.length === 0) return alert('검색 결과가 없습니다.');
     // new kakao.maps.services.Places(); 키워드로 검색하면 object를 반환해준다.
-    setMarkerHandler(search, category);
+    setMarkerHandler(search, '팝업스토어');
+    // 디테일 카드를 클릭하고 다시 검색하면 레벨 설정이 제대로 작동안되서 초기화 해줘야 함.
+    setLevel(3);
   };
 
   const setMarkerHandler = (search: any, category: any) => {
@@ -66,9 +68,8 @@ const MapPage = () => {
     // ps.keywordSearch(검색어, (키워드 데이터 [], 검색 상태 OK 여부, total count, page 수))
 
     ps.keywordSearch(
-      category === '팝업스토어' ? search : `${foodSearch} ${category}`,
+      category === '팝업스토어' ? search : `${search} ${category}`,
       (data, status, _pagination) => {
-        console.log('category', category);
         if (status === kakao.maps.services.Status.OK) {
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
           // LatLngBounds 객체에 좌표를 추가합니다
@@ -172,12 +173,6 @@ const MapPage = () => {
     };
   };
 
-  const geocoder = new window.kakao.maps.services.Geocoder();
-  const searchAddrFromCoords = (coords: kakao.maps.LatLng, callback: any) => {
-    // 좌표로 행정동 주소 정보를 요청합니다
-    geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
-  };
-
   // const getLocation = (): Promise<GeolocationPosition> => {
   //   return new Promise((resolve, reject) => {
   //     if (navigator.geolocation) {
@@ -210,20 +205,12 @@ const MapPage = () => {
   //   });
   // };
 
-  // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-  // const displayCenterInfo = (result: any, status: any) => {
-  //   if (status === kakao.maps.services.Status.OK) {
-  //     console.log('result', result);
-  //     setSearch(result[0].region_2depth_name);
-  //   }
-  // };
-
   // useEffect(() => {
   //   getLocation();
   // }, []);
 
   useEffect(() => {
-    if (!map) return;
+    // if (!map) return;
     // setMarkerHandler();
   }, [map]);
 
@@ -234,11 +221,10 @@ const MapPage = () => {
       ) : (
         <Wrap>
           <div>
-            <MapCategory
-              setMarkerHandler={setMarkerHandler}
-              popupData={popupData}
+            <MapSearch
+              onSearchSubmitHandler={onSearchSubmitHandler}
+              myLocation={myLocation}
             />
-            <MapSearch onSearchSubmitHandler={onSearchSubmitHandler} />
             <MapDataList
               popupData={popupData}
               setMyLocation={setMyLocation}
@@ -254,7 +240,6 @@ const MapPage = () => {
             </div>
           )}
           <MapWrap>
-            <MapWeather myLocation={myLocation} />
             <Maps
               info={info}
               foodData={foodData}
@@ -274,8 +259,7 @@ export default MapPage;
 
 const Wrap = styled.div`
   width: 100%;
-  height: 100%;
-  margin-top: 50px;
+  height: 100vh;
   display: flex;
   /* justify-content: space-around; */
   /* align-items: flex-end; */

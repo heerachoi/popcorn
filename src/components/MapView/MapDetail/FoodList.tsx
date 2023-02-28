@@ -6,11 +6,10 @@ import FoodCard from './FoodCard';
 const FoodList = ({ setMyLocation }: any) => {
   const foodData = useRecoilValue(mapFoodData);
 
-  console.log(foodData, 'foodData');
   return (
     <Wrap>
       {foodData?.map((food: any) => (
-        <FoodCard food={food} setMyLocation={setMyLocation} />
+        <FoodCard key={food.id} food={food} setMyLocation={setMyLocation} />
       ))}
     </Wrap>
   );
@@ -19,7 +18,7 @@ const FoodList = ({ setMyLocation }: any) => {
 export default FoodList;
 
 const Wrap = styled.div`
-  width: 500px;
+  width: 100%;
   height: 500px;
   overflow: scroll;
 `;

@@ -46,7 +46,7 @@ const MapDataList = ({ popupData, setMyLocation, setMarkerHandler }: any) => {
 export default MapDataList;
 
 const Wrap = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 100%;
   overflow: scroll;
 `;

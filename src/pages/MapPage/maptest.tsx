@@ -128,7 +128,7 @@ const MapPage = () => {
               setMarkerHandler={setMarkerHandler}
               popupData={popupData}
             />
-            <MapSearch onSearchSubmitHandler={onSearchSubmitHandler} />
+            {/* <MapSearch onSearchSubmitHandler={onSearchSubmitHandler} /> */}
             <MapDataList popupData={popupData} setMyLocation={setMyLocation} />
           </div>
           <div>
