@@ -141,7 +141,12 @@ export const modalPage = atom<string>({
 //   },
 // });
 
-export const profileState = atom({
+export const profileState = atom<string>({
   key: 'profileState', // unique ID (with respect to other atoms/selectors)
-  default: '', // default value (aka initial value)
+  default: '', // 유저의 photoURL
+});
+
+export const userUrl = atom({
+  key: 'userUrl',
+  default: '',
 });
