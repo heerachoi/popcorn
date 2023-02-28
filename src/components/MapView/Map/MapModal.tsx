@@ -12,10 +12,14 @@ const MapModal = ({ marker, setInfo }: Props) => {
   return (
     <MapInfoBox>
       <ModalHeader>
-        <ModalHeaderTitle>{marker.title}</ModalHeaderTitle>
-        <CloseIcon onClick={() => setInfo(null)}>닫기</CloseIcon>
+        <ModalHeaderTitle
+          onClick={() => navigate(`/detail/${marker.id}`, { state: marker })}
+        >
+          {marker.title}
+        </ModalHeaderTitle>
+        {/* <CloseIcon onClick={() => setInfo(null)}>닫기</CloseIcon> */}
       </ModalHeader>
-      <ModalMain>
+      {/* <ModalMain>
         <ModalMainImg src={marker.imgURL} alt="사진" />
         <ModalMainWrap>
           <ModalMainTextWrap>
@@ -40,7 +44,7 @@ const MapModal = ({ marker, setInfo }: Props) => {
             </ModalMainBtn>
           )}
         </ModalMainWrap>
-      </ModalMain>
+      </ModalMain> */}
     </MapInfoBox>
   );
 };

@@ -4,28 +4,27 @@ import {
   mapCategoryValue,
   mapFoodSearchValue,
   mapSearchValue,
+  mapModalStatus,
 } from '../../../atoms';
 
-const MapDataCard = ({ popup, food, setMyLocation }: any) => {
-  const category = useRecoilValue(mapCategoryValue);
+const MapDataCard = ({ popup, food, setMyLocation, setMarkerHandler }: any) => {
+  const [category, setCategory] = useRecoilState(mapCategoryValue);
   const [search, setSearch] = useRecoilState(mapSearchValue);
-  const setFoodSearch = useSetRecoilState(mapFoodSearchValue);
+  const [foodSearch, setFoodSearch] = useRecoilState(mapFoodSearchValue);
+  const [mapModal, setMapModal] = useRecoilState(mapModalStatus);
   const condition =
-    popup?.address.includes(search) || popup?.title.includes(search) || food;
+    popup?.address.includes(search) || popup?.title.includes(search);
 
   // 카드를 누르면 해당 좌표로 지도가 이동되는 함수
   // popup 카테고리 일 때
   const popupCenterChangeHandler = () => {
     setMyLocation({ Ma: popup.lat, La: popup.lon });
+    setMapModal(true);
     searchAddrFromCoords(
       new kakao.maps.LatLng(popup.lat, popup.lon),
       displayCenterInfo,
     );
-  };
-
-  // 음식점, 카페 카테고리 일 때
-  const foodCenterChangeHandler = () => {
-    setMyLocation({ Ma: food.position.lat, La: food.position.lng });
+    categoryChangeHandler('음식점', foodSearch);
   };
 
   const geocoder = new kakao.maps.services.Geocoder();
@@ -41,37 +40,34 @@ const MapDataCard = ({ popup, food, setMyLocation }: any) => {
     }
   };
 
+  const categoryChangeHandler = async (
+    category: string | null,
+    foodSearch: string,
+  ) => {
+    setCategory('음식점');
+    console.log(category, 'co');
+    console.log(foodSearch, 'useRecoilState');
+    // 1. 클릭하면 setSearch가 되기 전에 setMarkerHandler에서 search값이 들어갔다. 인자로 넘겨주니 해결되었다.
+    // 2. 팝업스토어 카테고리 클릭하면 위치 NaN됨 if문으로 팝업스토어 일때는 search 값으로만 검색되게 하였다.
+    if (category === '팝업스토어') setMarkerHandler(search, category);
+    else setMarkerHandler(`${foodSearch} ${category}`, category);
+  };
+
   return (
     <>
       {condition && (
-        <Wrap
-          onClick={
-            category === '팝업스토어'
-              ? popupCenterChangeHandler
-              : foodCenterChangeHandler
-          }
-        >
+        <Wrap onClick={popupCenterChangeHandler}>
           <div>
             <DetailWrap>
-              <DetailTitle>
-                {category === '팝업스토어' ? popup?.title : food?.title}
-              </DetailTitle>
-              <DetailDescription>
-                {' '}
-                {category === '팝업스토어' ? popup?.item : food?.phone}
-              </DetailDescription>
+              <DetailTitle>{popup?.title}</DetailTitle>
+              <DetailDescription>{popup?.item}</DetailDescription>
             </DetailWrap>
             <DetailAddressWrap>
-              <DetailAddress>
-                {category === '팝업스토어' ? popup?.address : food?.address}
-              </DetailAddress>
+              <DetailAddress>{popup?.address}</DetailAddress>
             </DetailAddressWrap>
           </div>
           <div>
-            <DetailImg
-              src={category === '팝업스토어' ? popup?.imgURL : food?.img}
-              alt="사진"
-            />
+            <DetailImg src={popup?.imgURL} alt="사진" />
           </div>
         </Wrap>
       )}
