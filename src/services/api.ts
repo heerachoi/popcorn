@@ -59,6 +59,11 @@ export const getLikeHate = async () => {
   return data;
 };
 
+export const getFaq = async () => {
+  const { data } = await axios.get(`${JSON_API}/FAQ`);
+  return data;
+};
+
 export const getBookMark = async () => {
   const { data } = await axios.get(`${JSON_API}/BookMarkList`);
   return data;

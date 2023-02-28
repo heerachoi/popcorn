@@ -10,7 +10,7 @@ import {
 import MapDataCard from './MapDataCard';
 import NotFound from './NotFound';
 
-const MapDataList = ({ popupData, condition, setMyLocation }: any) => {
+const MapDataList = ({ popupData, setMyLocation, setMarkerHandler }: any) => {
   const category = useRecoilValue(mapCategoryValue);
   const foodData = useRecoilValue(mapFoodData);
   const search = useRecoilValue(mapSearchValue);
@@ -30,23 +30,15 @@ const MapDataList = ({ popupData, condition, setMyLocation }: any) => {
       {popuplist.length === 0 ? (
         <NotFound />
       ) : (
-        category === '팝업스토어' &&
         popupData?.map((popup: any) => (
           <MapDataCard
             key={popup.id}
             popup={popup}
             setMyLocation={setMyLocation}
+            setMarkerHandler={setMarkerHandler}
           />
         ))
       )}
-      {category !== '팝업스토어' &&
-        foodData.map((food: any) => (
-          <MapDataCard
-            key={food.id}
-            food={food}
-            setMyLocation={setMyLocation}
-          />
-        ))}
     </Wrap>
   );
 };

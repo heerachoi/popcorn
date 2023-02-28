@@ -54,12 +54,12 @@ export const TitleBtn = styled.button`
   cursor: pointer;
 
   &.active {
-    border-bottom: 2px solid #f2901d;
-    color: #f2901d;
+    border-bottom: 2px solid #00C113;
+    color: #00C113;
   }
 
   &:focus {
-    border-bottom: 2px solid #f2901d;
+    border-bottom: 2px solid #00C113;
   }
 `;
 

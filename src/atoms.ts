@@ -69,6 +69,11 @@ export const popupList = atom<any>({
   default: [],
 });
 
+export const mapModalStatus = atom<boolean>({
+  key: 'mapModal',
+  default: false,
+});
+
 export const isActiveMenu = atom<number>({
   key: 'isActiveMenu',
   default: 0,

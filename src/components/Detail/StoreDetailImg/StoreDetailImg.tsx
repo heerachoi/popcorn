@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import * as S from './style';
 import styled from 'styled-components';
 
-const TestImgSlide = () => {
+const TestImgSlide = () => {  
   const { state: detailData } = useLocation();
 
   const img = detailData?.imgURL;

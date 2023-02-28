@@ -38,6 +38,8 @@ const ErrReportList: any = () => {
       Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
   );
 
+  
+
   //진행중 날짜 최근순 정렬
   const resentStatusFalse = statusFalse.sort(
     (a:any, b:any) =>
@@ -45,8 +47,9 @@ const ErrReportList: any = () => {
       Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
   );
 
-  // 완료, 진행순 정렬된거 한 변수에 합침
+  // 완료, 진행순 정렬된거 하나로 합침
   const statusSort = resentStatusFalse.concat(resentStatusTrue) 
+  
   
 
   return (

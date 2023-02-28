@@ -46,7 +46,7 @@ const KakaoShare = ({ detailData }: Props) => {
 
   return (
     <div id="KakaoShareBtn">
-      <KakaoImgBtn onClick={shareKakao}></KakaoImgBtn>
+      <KakaoImgBtn onClick={shareKakao}>공유</KakaoImgBtn>
     </div>
   );
 };
@@ -57,8 +57,10 @@ export const KakaoImgBtn = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
-  img {
-    width: 20px;
-    height: 20px;
-  }
+  padding: 0;
+  width: 35px;
+  height: 18px;  
+  font-family: 'Apple SD Gothic Neo';
+  font-weight: 700;
+  font-size: 16px;
 `;

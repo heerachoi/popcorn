@@ -14,7 +14,9 @@ const DetailMap = () => {
 
   return (
     <MapWrap>
-      <TitleText>찾아오시는 길</TitleText>
+      <TitleBackground>
+        <TitleText>찾아오시는 길</TitleText>
+      </TitleBackground>
       <DetailPageMap center={detailLocation}>
         <MapMarker position={detailLocation} />
         <CustomOverlayMap position={detailLocation} yAnchor={4.0} zIndex={1}>
@@ -29,22 +31,39 @@ const DetailMap = () => {
 
 export default DetailMap;
 
-const MapWrap = styled.div``;
+
+const MapWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 58px;
+`;
 
 const DetailPageMap = styled(Map)`
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 45px;
   width: 500px;
   height: 500px;
 `;
 
-const TitleText = styled.div`
-  margin-top: 58px;
+const TitleBackground = styled.div`
+  width: 170px;
+  height: 18px;
+  background-color: #ffeb62;
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const TitleText = styled.p`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 24px;
   text-align: center;
+  position: relative;
 `;
 
 const MapInfoBox = styled.div`
