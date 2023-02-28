@@ -3110,18 +3110,7 @@
     }
   ],
   "likeHate": [],
-  "BookMarkList": [
-    {
-      "id": "10f459d7-57ec-4b7b-a51d-055848475004",
-      "storeId": "13",
-      "userId": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
-      "notification": false,
-      "title": "Chigong",
-      "open": "2023.01.26",
-      "close": "2023.02.28",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Chigong%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.12.35.png?alt=media&token=9be04809-436e-438a-a6f8-3d3d94643f78"
-    }
-  ],
+  "BookMarkList": [],
   "newStores": [],
   "infoErrModifiContents": [],
   "FAQ": [

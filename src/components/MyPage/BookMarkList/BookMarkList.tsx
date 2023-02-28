@@ -6,6 +6,7 @@ import { BsBookmarkFill } from 'react-icons/bs';
 import { getBookMark } from '../../../services/api';
 import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../../atoms';
+import BookmarkNoResult from '../NoResults/BookmarkNoResult';
 
 const BookMarkList = () => {
   const user = useRecoilValue(userInfo);
@@ -22,35 +23,39 @@ const BookMarkList = () => {
 
   return (
     <>
-      <S.BookMarkContainer>
-        {bookmarkList.map((li: any) => {
-          {
-            return (
-              <S.BookMarkCard>
-                <S.BookMarkThumbnail key={li.id}>
-                  <S.BookMarkIcon>
-                    <BsBookmarkFill
-                      style={{ color: ' #323232', fontSize: '2rem' }}
-                    />
-                  </S.BookMarkIcon>
-                  <img
-                    src={li.imgURL}
-                    style={{ width: '296px', height: '296.46px' }}
-                  ></img>
-                </S.BookMarkThumbnail>
+      {bookmarkList.length === 0 ? (
+        <BookmarkNoResult />
+      ) : (
+        <S.BookMarkContainer>
+          {bookmarkList.map((li: any) => {
+            {
+              return (
+                <S.BookMarkCard key={li.id}>
+                  <S.BookMarkThumbnail>
+                    <S.BookMarkIcon>
+                      <BsBookmarkFill
+                        style={{ color: ' #323232', fontSize: '2rem' }}
+                      />
+                    </S.BookMarkIcon>
+                    <img
+                      src={li.imgURL}
+                      style={{ width: '296px', height: '296.46px' }}
+                    ></img>
+                  </S.BookMarkThumbnail>
 
-                <S.BookMarkCardTitle>{li.title}</S.BookMarkCardTitle>
-                <S.BookMarkCardDate>
-                  {li.open} - {li.close}
-                </S.BookMarkCardDate>
-                <S.BookMarkCardFilterBtn>
-                  <S.BookMarkCardFilterTxt>마감임박</S.BookMarkCardFilterTxt>
-                </S.BookMarkCardFilterBtn>
-              </S.BookMarkCard>
-            );
-          }
-        })}
-      </S.BookMarkContainer>
+                  <S.BookMarkCardTitle>{li.title}</S.BookMarkCardTitle>
+                  <S.BookMarkCardDate>
+                    {li.open} - {li.close}
+                  </S.BookMarkCardDate>
+                  <S.BookMarkCardFilterBtn>
+                    <S.BookMarkCardFilterTxt>마감임박</S.BookMarkCardFilterTxt>
+                  </S.BookMarkCardFilterBtn>
+                </S.BookMarkCard>
+              );
+            }
+          })}
+        </S.BookMarkContainer>
+      )}
     </>
   );
 };
