@@ -9,10 +9,13 @@ import { v4 as uuidv4 } from 'uuid';
 import * as S from './style';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { editModal } from '../../../atoms';
+import { editModal, userUrl } from '../../../atoms';
 import { profileState } from '../../../atoms';
+import { userInfo } from '../../../atoms';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
 
 const MyProfileEditModal = () => {
+  const user = useRecoilValue(userInfo);
   const [profileUrl, setProfileUrl] = useRecoilState(profileState);
 
   // 모달 관련
@@ -21,21 +24,22 @@ const MyProfileEditModal = () => {
   const handleClose = () => setOpen(false);
 
   // 닉네임 관련
-  const currentUserInfos = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
-  const [nickname, setNickname] = useState<any>(''); // 현재 닉네임 상태변경
+  const currentUserInfos: any = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
+  const [nickname, setNickname] = useState<any>(auth.currentUser?.displayName); // 현재 닉네임 상태변경
   const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기 및 변경 전 데이터
 
-  // 이미지 관련
-  const imgProfileUrl = useRecoilValue(profileState);
+  // 이미지 관련 profileState를 바꿔줘야 함 안그러면 로컬스토리지나 세션스토리지, 쿠키 안담겨있음 초기화됨
+  // 새로고침했을 때 auth.를쏘스로 담아줘야함
+  const [imgProfileUrl, setImgProfileUrl] = useRecoilState(profileState);
   const [imgFile, setImgFile] = useState<any>(imgProfileUrl); // 이미지 파일 엄청 긴 이름
-  const [imgFileName, setImgFileName] = useState<any>(''); // 이미지 파일 이름.jpg
-  const [imgUploadUrl, setImgUploadUrl] = useState<any>('');
+  const [imgUploadUrl, setImgUploadUrl] = useRecoilState<any>(userUrl); // 변경된 이미지 url
 
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         setCurrentUser(currentUserInfos);
+        setNickname(currentUserInfos?.displayName);
       } else {
         return console.log('로그인 안됨');
       }
@@ -53,30 +57,37 @@ const MyProfileEditModal = () => {
     if (nickname.length < 2 || nickname.length > 5) {
       alert('2글자 이상 5글자 이하로 입력해주세요.');
       return;
-    } else if (imgFile.length === 0) {
-      setImgUploadUrl(
-        'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/basic_profile.png?alt=media&token=d58d0f49-79bd-400a-a4ae-ceca444734ae',
-      );
-    } else if (imgFile.length !== 0) {
-      const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
-      const response = await uploadString(imgRef, imgFile, 'data_url');
-      const downloadImageUrl = await getDownloadURL(response.ref);
-      setImgUploadUrl(downloadImageUrl);
-      setProfileUrl(downloadImageUrl);
     }
-
-    await updateProfile(currentUser, {
-      displayName: nickname,
-      photoURL: imgUploadUrl,
-    })
-      .then(() => {
+    if (imgFile.length === 0) {
+      try {
+        await updateProfile(currentUser, {
+          displayName: nickname,
+        });
         setNickname(nickname);
         alert('프로필 수정 완료!');
         setOpen(false);
-      })
-      .catch((error: any) => {
-        error;
-      });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const imgRef = ref(storage, `profileUploadImg/${uuidv4()}`);
+        const response = await uploadString(imgRef, imgFile, 'data_url');
+        const downloadImageUrl = await getDownloadURL(response.ref);
+        await updateProfile(currentUser, {
+          displayName: nickname,
+          photoURL: downloadImageUrl,
+        });
+        setNickname(nickname);
+        setImgUploadUrl(downloadImageUrl);
+        setProfileUrl(downloadImageUrl);
+        setImgProfileUrl(downloadImageUrl);
+        alert('프로필 수정 완료!');
+        setOpen(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   // 모달키면 이미지가 보이는데 유저가 클릭하면 업데이트
@@ -88,6 +99,7 @@ const MyProfileEditModal = () => {
     reader.readAsDataURL(theFile);
     reader.onloadend = (finishedEvent: any) => {
       setImgFile(finishedEvent.currentTarget.result);
+      setImgProfileUrl(finishedEvent.currentTarget.result);
     };
   };
 
@@ -113,15 +125,19 @@ const MyProfileEditModal = () => {
             <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
             <S.EditModalImgLabelInputWrapper>
               <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
-                {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
+                {imgProfileUrl && (
+                  <S.EditModalProfileImgShow
+                    src={imgProfileUrl ? imgProfileUrl : basicProfileImg}
+                  />
+                )}
+                <S.EditModalProfileImgInput
+                  type="file"
+                  accept="image/*"
+                  id="modalProfileUploadImg"
+                  onChange={saveNewProfileImg}
+                  style={{ display: 'none' }}
+                />
               </S.EditModalProfileImgLabel>
-              <S.EditModalProfileImgInput
-                type="file"
-                accept="image/*"
-                id="modalProfileUploadImg"
-                onChange={saveNewProfileImg}
-                style={{ display: 'none' }}
-              />
             </S.EditModalImgLabelInputWrapper>
             <S.EditModalNicknameInputWrapper>
               <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
