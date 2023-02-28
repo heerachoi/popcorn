@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import COLORS from "../../assets/CSS/colors";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export const HomePageContentContainer = styled.div`
   max-width: 1060px;
@@ -159,3 +161,125 @@ export const SeeMoreText = styled.div`
   }
 `
 
+// 검색
+// 검색 기능 스타일
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  gap:10px;
+`
+
+export const SearchInputContainer = styled.div`
+  display: flex; 
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid ${COLORS.gray6};
+  border-radius: 20px;
+  width: 293px;
+  height: 30px;
+  padding: 8px 16px;
+  cursor:pointer;
+  gap: 4px;
+`
+
+export const InputTitle = styled.div`
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 54px;
+  display: flex;  
+  justify-content: center;
+`
+
+export const FilterTitle = styled(InputTitle)`
+   &:hover{
+    color: ${COLORS.white}; 
+  }
+`
+
+export const SearchInput = styled.input`
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: ${COLORS.gray6};
+  width: 300px;
+`
+
+export const SearchItemContainer = styled.div`
+`
+
+export const SearchTagContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 16px 3px;
+  gap: 4px;
+  height: 40px;
+  background: ${COLORS.orange4};
+  border: 1px solid ${COLORS.orange2};
+  border-radius: 20px;
+  color: ${COLORS.orange1}; 
+  &:hover{
+    background: ${COLORS.orange2};
+    color: ${COLORS.white}; 
+  }
+`
+
+export const SearchEventPeriod = styled.select`
+  outline: none;
+  border: none;
+  background-color: transparent; 
+`;
+
+export const Option = styled.option`
+background: #fff;
+  color: #fff;
+  padding: 3px 0;
+  font-size: 16px;
+`
+
+export const DatePickerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const DatePickerContainer = styled(DatePicker)`
+  outline: none;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  background-color: transparent;
+  width: 100px;
+`
+
+export const ToggleCalendar = styled.div`
+  /* display: flex; */
+  margin-top: 40px;
+  box-sizing: border-box;
+  
+`
+
+export const DepartmentStoreCategory = styled.select`
+  outline: none;
+  box-sizing: border-box;
+  height: 100px;
+`
+
+export const ItemCategory = styled.div`
+  
+  border: 1px solid black;
+  border-radius: 3px;
+`
+
+export const LocationCategory = styled.div`
+  
+`
+
+export const EtcCategory = styled(ItemCategory)`
+  border: 1px solid black;
+  border-radius: 3px;
+`
+
+export const FilterTypes = styled.div`
+`
