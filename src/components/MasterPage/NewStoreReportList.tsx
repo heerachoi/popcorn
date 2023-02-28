@@ -44,8 +44,7 @@ const NewStoreReportList: any = () => {
         b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
       ) -
       Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
-      );
-      
+  );
 
   const statusSort = resentStatusFalse.concat(resentStatusTrue);
 

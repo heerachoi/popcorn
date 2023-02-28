@@ -9,12 +9,13 @@ interface Props {
 
 const MapSearch = ({ onSearchSubmitHandler }: Props) => {
   const [search, setSearch] = useRecoilState(mapSearchValue);
-  const category = useRecoilValue(mapCategoryValue);
+  const [category, setCategory] = useRecoilState(mapCategoryValue);
 
   const searchValueChangeHandler = (
     event: React.FormEvent<HTMLInputElement>,
   ) => {
     setSearch(event.currentTarget.value);
+    setCategory('팝업스토어');
   };
 
   return (
@@ -24,7 +25,6 @@ const MapSearch = ({ onSearchSubmitHandler }: Props) => {
           <VscSearch size={28}></VscSearch>
         </VscIconWrap>
         <SearchInput
-          disabled={category === '음식점' || category === '카페'}
           onChange={searchValueChangeHandler}
           type="text"
           value={search}

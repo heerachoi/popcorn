@@ -1,7 +1,7 @@
+import DaumPostcode from 'react-daum-postcode';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from 'styled-components';
-
 
 // NewStore.tsx
 export const NewStoreForm = styled.form`
@@ -66,12 +66,42 @@ export const ReportTitleInput = styled.input`
     display: none;
   }
 `;
+
+export const AddressInput = styled.input`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  width: 350px;
+  height: 30px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  background-color: #ffffff;
+`;
+export const AddressBtn = styled.button`
+  margin-left: 150px;
+  width: 100px;
+  border-radius: 8px;
+  border: 1px solid #9b9b9b;
+  background-color: #bdbdbd;
+  color: white;
+  font-family: 'Apple SD Gothic Neo';
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #676767;
+  }
+`;
+
 export const DatePickerContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const DatePickerBox = styled(DatePicker)`
   font-family: 'Apple SD Gothic Neo';
@@ -92,9 +122,7 @@ export const DatePickerBox = styled(DatePicker)`
   &::placeholder {
     color: #9b9b9b;
   }
-
- 
-`
+`;
 export const TextArea = styled.textarea`
   width: 720px;
   height: 30px;
@@ -197,4 +225,13 @@ export const ErrorImgLabel = styled.label`
   align-items: center;
 
   cursor: pointer;
+`;
+
+export const PostModal = styled.div`
+
+`;
+
+export const DaumPostcodeModal = styled(DaumPostcode)`
+
+
 `;

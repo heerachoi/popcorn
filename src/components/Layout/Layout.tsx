@@ -65,7 +65,9 @@ const Layout = ({ children }: Props) => {
     <>
       <Header />
       {/* children은 Router에서 감싸주는 components */}
-      <div>{children}</div>
+      <div style={{ width: '100vw', overflow: 'hidden' }}>
+        {children}
+      </div>
       <Footer />
     </>
   );
