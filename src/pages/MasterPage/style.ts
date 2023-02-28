@@ -24,7 +24,7 @@ export const TabMenu = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  border-bottom: 2px solid #9B9B9B;
+  border-bottom: 2px solid #9b9b9b;
 `;
 export const MenuTitleBox = styled.div``;
 export const MenuTitleTabBtn = styled.button`
@@ -42,12 +42,12 @@ export const MenuTitleTabBtn = styled.button`
   cursor: pointer;
 
   &.active {
-    border-bottom: 2px solid #f2901d;
-    color: #f2901d;
+    border-bottom: 2px solid #00c113;
+    color: #00c113;
   }
 
   &:focus {
-    border-bottom: 2px solid #f2901d;
+    border-bottom: 2px solid #00c113;
   }
 `;
 
@@ -65,16 +65,16 @@ export const NewPostWriteBtnBox = styled.div`
 export const WriteBtn = styled.button`
   width: 408px;
   height: 60px;
-  color: #f2901d;
+  color: #00c113;
   border-radius: 8px;
-  background-color: #fff9d2;
-  border: 1px solid #ffeb62;
+  background-color: #e7ffd8;
+  border: 1px solid #88e25d;
   font-size: 18px;
   font-weight: 800;
 
   &:hover {
     cursor: pointer;
-    background-color: #f2901d;
-    color: #fff9d2;
+    background-color: #00c113;
+    color: #ffffff;
   }
 `;
