@@ -33,13 +33,12 @@ const MyReportList = () => {
   const uid = auth.currentUser?.uid;
 
   const myErrReport = errReport.filter((item: any) => item.userId.uid === uid);
-  console.log('myErrReport', myErrReport);
+
   const myNewStoreReport = newStores.filter(
     (item: any) => item.userId.uid === uid,
   );
-  console.log('myNewStoreReport', myNewStoreReport);
+
   const myReports = myErrReport.concat(myNewStoreReport);
-  console.log('myReports', myReports);
 
   return (
     <S.ReportWrap>

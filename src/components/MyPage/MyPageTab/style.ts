@@ -51,8 +51,8 @@ export const MyTitleTabBtn = styled.button`
   cursor: pointer;
   width: 50%;
   &.active {
-    color: #f2901d;
-    border-bottom: 2px solid #f2901d;
+    color: #00C113;
+    border-bottom: 2px solid #00C113;
   }
 `;
 
