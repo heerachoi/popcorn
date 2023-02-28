@@ -81,37 +81,37 @@ const Maps = ({
               )}
             </>
           ))}
-        {category === '팝업스토어' &&
-          popupData?.map((popup: any) => (
-            <>
-              {(popup?.address.includes(search) ||
-                popup?.title.includes(search)) && (
-                <>
-                  <MapMarker
-                    key={`popup-${popup.title}-${popup.lat},${popup.lon}`}
-                    position={{ lat: popup.lat, lng: popup.lon }} // 마커를 표시할 위치
-                    image={{
-                      src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
-                      size: {
-                        width: 24,
-                        height: 35,
-                      },
-                    }}
-                    onClick={() => setInfo(popup)}
-                  />
-                  {info && info.title === popup.title && (
-                    <CustomOverlayMap
-                      position={{ lat: popup.lat, lng: popup.lon }}
-                      yAnchor={1.4}
-                      zIndex={99}
-                    >
-                      <MapModal marker={popup} setInfo={setInfo} />
-                    </CustomOverlayMap>
-                  )}
-                </>
-              )}
-            </>
-          ))}
+
+        {popupData?.map((popup: any) => (
+          <>
+            {(popup?.address.includes(search) ||
+              popup?.title.includes(search)) && (
+              <>
+                <MapMarker
+                  key={`popup-${popup.title}-${popup.lat},${popup.lon}`}
+                  position={{ lat: popup.lat, lng: popup.lon }} // 마커를 표시할 위치
+                  image={{
+                    src: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png', // 마커이미지의 주소입니다
+                    size: {
+                      width: 24,
+                      height: 35,
+                    },
+                  }}
+                  onClick={() => setInfo(popup)}
+                />
+                {info && info.title === popup.title && (
+                  <CustomOverlayMap
+                    position={{ lat: popup.lat, lng: popup.lon }}
+                    yAnchor={1.4}
+                    zIndex={99}
+                  >
+                    <MapModal marker={popup} setInfo={setInfo} />
+                  </CustomOverlayMap>
+                )}
+              </>
+            )}
+          </>
+        ))}
       </Wrap>
     </>
   );
@@ -121,6 +121,6 @@ export default Maps;
 
 const Wrap = styled(Map)`
   background-color: grey;
-  width: 700px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
 `;

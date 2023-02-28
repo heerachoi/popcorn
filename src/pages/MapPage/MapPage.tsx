@@ -7,6 +7,7 @@ import {
   mapCategoryValue,
   mapFoodData,
   mapFoodSearchValue,
+  mapModalStatus,
   mapSearchValue,
   popupList,
 } from '../../atoms';
@@ -16,6 +17,7 @@ import MapCategory from '../../components/MapView/MapCategory/MapCategory';
 import MapDataList from '../../components/MapView/MapData/MapDataList';
 import MapSearch from '../../components/MapView/MapSearch/MapSearch';
 import MapWeather from '../../components/MapView/MapWeather/MapWeather';
+import DetailBox from '../../components/MapView/MapDetail/DetailBox';
 
 interface LocationType {
   Ma: number;
@@ -42,15 +44,17 @@ const MapPage = () => {
   }); // 나의 위치
   const search = useRecoilValue(mapSearchValue); // 검색어
   const foodSearch = useRecoilValue(mapFoodSearchValue);
-  const category = useRecoilValue(mapCategoryValue); // 카테고리
+  const [category, setCategory] = useRecoilState(mapCategoryValue); // 카테고리
   const popuplist = useRecoilValue(popupList); // popupData
   const [foodData, setFoodData] = useRecoilState(mapFoodData); // 음식점, 카페 데이터
+  const [mapModal, setMapModal] = useRecoilState(mapModalStatus);
 
   const { data: popupData, isLoading } = useQuery('popupData', getPopupData);
 
   const onSearchSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    setCategory('팝업스토어');
+    setMapModal(false);
     // 검색할 때 팝업리스트가 없으면 return 해서 지도가 옮겨지지 않게 하고 검색결과가 없다고 알려준다.
     if (popuplist.length === 0) return alert('검색 결과가 없습니다.');
     // new kakao.maps.services.Places(); 키워드로 검색하면 object를 반환해준다.
@@ -64,6 +68,7 @@ const MapPage = () => {
     ps.keywordSearch(
       category === '팝업스토어' ? search : `${foodSearch} ${category}`,
       (data, status, _pagination) => {
+        console.log('category', category);
         if (status === kakao.maps.services.Status.OK) {
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
           // LatLngBounds 객체에 좌표를 추가합니다
@@ -234,8 +239,20 @@ const MapPage = () => {
               popupData={popupData}
             />
             <MapSearch onSearchSubmitHandler={onSearchSubmitHandler} />
-            <MapDataList popupData={popupData} setMyLocation={setMyLocation} />
+            <MapDataList
+              popupData={popupData}
+              setMyLocation={setMyLocation}
+              setMarkerHandler={setMarkerHandler}
+            />
           </div>
+          {mapModal && (
+            <div>
+              <DetailBox
+                setMarkerHandler={setMarkerHandler}
+                setMyLocation={setMyLocation}
+              />
+            </div>
+          )}
           <MapWrap>
             <MapWeather myLocation={myLocation} />
             <Maps
@@ -256,6 +273,8 @@ const MapPage = () => {
 export default MapPage;
 
 const Wrap = styled.div`
+  width: 100%;
+  height: 100%;
   margin-top: 50px;
   display: flex;
   /* justify-content: space-around; */
