@@ -14,7 +14,8 @@ const middlewares = jsonServer.defaults({
 });
 
 const port = process.env.PORT || 3010;
-
+// const port = process.env.PORT || 3010;
+console.log('process.env.PORT', process.env.PORT)
 server.use(middlewares);
 
 server.use(jsonServer.bodyParser);
