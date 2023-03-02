@@ -86,7 +86,7 @@ const MyProfile = () => {
           <DeleteAccount />
         </S.MyProfileBox>
       </S.MyPageContainer>
-      <MyPageTab />
+      
     </S.MyPageAll>
   );
 };

@@ -30,7 +30,6 @@ const MyPageTab = ({ detailData }: Props) => {
   return (
     <>
       <S.MyBookmarkReportWrap>
-        <S.MyBookmarkReportContainer>
           <S.MyBookmarkReportBox>
             <S.MyBookmarkReportTabMenu>
               {myTabArr.map((t, i) => {
@@ -47,7 +46,6 @@ const MyPageTab = ({ detailData }: Props) => {
             </S.MyBookmarkReportTabMenu>
             <S.MyContentBox>{myTabArr[activeIndex].tabContent}</S.MyContentBox>
           </S.MyBookmarkReportBox>
-        </S.MyBookmarkReportContainer>
       </S.MyBookmarkReportWrap>
     </>
   );

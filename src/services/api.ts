@@ -64,7 +64,7 @@ export const getFaq = async () => {
   return data;
 };
 
-export const getBookMark = async () => {
-  const { data } = await axios.get(`${JSON_API}/BookMarkList`);
+export const getBookMark = async (page:any) => {
+  const { data } = await axios.get(`${JSON_API}/BookMarkList?_page=${page}_limit=6`);
   return data;
 };
