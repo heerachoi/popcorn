@@ -3,6 +3,12 @@ import COLORS from "../../assets/CSS/colors";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+export const HomePageContainer = styled.div`
+  @media screen and (max-width: 400px) {
+    margin-left: 15px;
+  }
+`;
+
 export const HomePageContentContainer = styled.div`
   max-width: 1060px;
   width: 100%;
