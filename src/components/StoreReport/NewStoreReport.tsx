@@ -12,19 +12,18 @@ import { useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { JSON_API } from '../../services/api';
 import { ko } from 'date-fns/esm/locale';
-import DaumPostcode from 'react-daum-postcode';
 
 interface NewStoreInput {
   title: string;
   storeName: string;
   storeAddress: string;
-  startDate: string;
-  endDate: string;
 }
 
 const NewStoreReport: any = () => {
+  // date Picker 날짜 state
   const [startDate, setStartDate] = useState<any>('');
   const [endDate, setEndDate] = useState<any>('');
+  // 주소찾기 API 팝업창
   const [isOpenPost, setIsOpenPost] = useState(false);
 
   const navigate = useNavigate();
@@ -34,8 +33,6 @@ const NewStoreReport: any = () => {
     title: '',
     storeName: '',
     storeAddress: '',
-    startDate: '',
-    endDate: '',
   };
 
   const [newStoreInput, setNewStoreInput] =
@@ -108,9 +105,9 @@ const NewStoreReport: any = () => {
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
       storeAddress: newStoreInput.storeAddress,
-      startDate,
-      endDate,
-      etcContent: etcContent,
+      startDate: startDate.toLocaleDateString(),
+      endDate: endDate.toLocaleDateString(),
+      etcContent,
       infoImg: downloadImageUrl,
       reportedDate: today.toLocaleString(),
       category: '신규',
@@ -165,12 +162,29 @@ const NewStoreReport: any = () => {
     }
   };
 
+  // 주소 검색 버튼 -> 주소 찾기 API 팝업창 뜸
   const openPostHandler = () => {
     setIsOpenPost(!isOpenPost);
   };
 
-  const onCompletePost = (data :any) => {
-    let storeAddress = data.address    
+  // 주소 검색 후 특정 주소를 클릭했을 때 발생하는 이벤트
+  const onCompletePost = (data: any) => {
+    let fullAddress = data.address;
+    let extraAddress = '';
+    if (data.addressType === 'R') {
+      if (data.bname !== '') {
+        extraAddress += data.bname;
+      }
+      if (data.buildingName !== '') {
+        extraAddress +=
+          extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
+      }
+      fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+    }
+    setNewStoreInput({
+      ...newStoreInput,
+      storeAddress: fullAddress,
+    });
   };
 
   return (
@@ -200,21 +214,28 @@ const NewStoreReport: any = () => {
           value={newStoreInput.storeName}
         />
       </S.ReportGrid>
-      <S.ReportGrid>
+      <S.ThreeGrid>
         <S.ReportTitle>주소</S.ReportTitle>
-        {isOpenPost ? (
-          <DaumPostcode autoClose onComplete={onCompletePost} />
-        ) : null}
-        {/* <S.ReportTitleInput
+        <S.AddressInput
+          width="300px"
+          readOnly
           type="text"
           name="storeAddress"
-          placeholder="(ex: 서울특별시 성동구 성수동) "
+          placeholder="주소를 검색해 주세요. "
           required
           onChange={newStoreInputonChangeHandler}
           value={newStoreInput.storeAddress}
-        /> */}
-        <button type='button' onClick={openPostHandler}>주소 검색</button>
-      </S.ReportGrid>
+        />
+
+        <S.AddressBtn type="button" onClick={openPostHandler}>
+          주소 검색
+        </S.AddressBtn>
+        {isOpenPost ? (
+          <S.PostModal>
+            <S.DaumPostcodeModal autoClose onComplete={onCompletePost} />
+          </S.PostModal>
+        ) : null}
+      </S.ThreeGrid>
 
       <S.ThreeGrid>
         <S.ReportTitle>기간</S.ReportTitle>

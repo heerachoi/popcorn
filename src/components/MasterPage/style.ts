@@ -52,5 +52,5 @@ export const NameText = styled.p`
 export const StatusText = styled.p`
   font-size: 12px;
   float: right;
-  color: green;
+  color: #00C113;
 `;

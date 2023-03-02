@@ -10,7 +10,6 @@ const ClosingSoonSwiper: React.FC = () => {
   const navigate = useNavigate();
   const [todayDate, setTodayDate] = useState<number|any>();
   const { data } = useQuery('popup', getPopupData);
-
   // 오늘날짜
   useEffect(() => {
     setTodayDate(getTodayDate());
@@ -23,7 +22,7 @@ const ClosingSoonSwiper: React.FC = () => {
   const closingSoonList = data.filter((store:Store) => {
     return (
       parseInt(store.close.split('.').join('')) >= todayDate &&
-      todayDate + 7 >= parseInt(store.close.split('.').join(''))
+      todayDate + 100 >= parseInt(store.close.split('.').join(''))
     );
   });
   // 마감 순
@@ -85,18 +84,18 @@ const ClosingSoonSwiper: React.FC = () => {
               <S.CategoryContainer>
                 <S.Category onClick={(event) => { 
                     event.stopPropagation(); 
-                    navigate(`/search?search=${popup.location}`);
+                    navigate(`/search?list=${popup.location}`);
                   }}> 
                   {popup.location} 
                 </S.Category>
                 <S.Category onClick={(event) => {
                     event.stopPropagation();
-                    navigate(`/search?search=${popup.category}`);
+                    navigate(`/search?list=${popup.category}`);
                   }}>{popup.category}
                 </S.Category>
                 <S.Category onClick={(event) => {
                     event.stopPropagation();
-                    navigate(`/search?search=${popup.item}`);
+                    navigate(`/search?list=${popup.item}`);
                   }}>{popup.item}</S.Category>
               </S.CategoryContainer>
             </S.StoreInformation>
