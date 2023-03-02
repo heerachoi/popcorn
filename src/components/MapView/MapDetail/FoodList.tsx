@@ -3,14 +3,18 @@ import styled from 'styled-components';
 import { mapFoodData } from '../../../atoms';
 import FoodCard from './FoodCard';
 
-const FoodList = ({ setMyLocation }: any) => {
+const FoodList = ({ setMyLocation, setInfo }: any) => {
   const foodData = useRecoilValue(mapFoodData);
 
-  console.log(foodData, 'foodData');
   return (
     <Wrap>
       {foodData?.map((food: any) => (
-        <FoodCard food={food} setMyLocation={setMyLocation} />
+        <FoodCard
+          key={food.id}
+          food={food}
+          setMyLocation={setMyLocation}
+          setInfo={setInfo}
+        />
       ))}
     </Wrap>
   );
@@ -19,7 +23,8 @@ const FoodList = ({ setMyLocation }: any) => {
 export default FoodList;
 
 const Wrap = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   overflow: scroll;
+  overflow-x: hidden;
 `;

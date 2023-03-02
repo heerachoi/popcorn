@@ -27,7 +27,7 @@ const HomePage: any = () => {
   }
 
   return (
-    <>
+    <S.HomePageContainer>
       <Banner />
       <S.HomePageContentContainer>
         <S.CategoryWrapper>
@@ -176,7 +176,7 @@ const HomePage: any = () => {
           </S.CategoryListContainer>
         </S.CategoryWrapper>
       </S.HomePageContentContainer>
-    </>
+    </S.HomePageContainer>
   );
 };
 

@@ -24,12 +24,7 @@ const DetailPageViews = ({ detailData }: Props) => {
         <GrapTitleText>방문자 통계</GrapTitleText>
       </GrapTitleBackground>
       <GrapfBox>
-        <ApexChart
-          // 그래프 크기
-          style={{
-            width: 400,
-            height: 400,
-          }}
+        <ApexChartContainer
           // 그래프 모양, 타입
           type="pie"
           // 그래프에 나타내줄 값
@@ -50,11 +45,7 @@ const DetailPageViews = ({ detailData }: Props) => {
             labels: ['10대', '20대', '30대', '40대 이상', '연령모름'],
           }}
         />
-        <ApexChart
-          style={{
-            width: 400,
-            height: 400,
-          }}
+        <ApexChartContainer
           type="pie"
           series={[menPercent, womenPercent, unknownGenderPercent]}
           options={{
@@ -72,14 +63,19 @@ const DetailPageViews = ({ detailData }: Props) => {
 
 export default DetailPageViews;
 
+const ApexChartContainer = styled(ApexChart)`
+  width: 300px;
+  height: 300px;
+`
+
 const GrapfWrap = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 50px;
 `;
 
 export const GrapfBox = styled.div`
-  margin: 10px 0;
+  margin-top: 50px;
   width: 1000px;
   height: 300px;
   text-align: center;
@@ -87,16 +83,20 @@ export const GrapfBox = styled.div`
   font-weight: bold;
   display: flex;
   justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 575px) {
+    margin: 110px 0;
+    flex-direction: column;
+  }
 `;
 
 export const GrapTitleBackground = styled.div`
-   width: 145px;
+  width: 145px;
   height: 18px;
   background-color: #ffeb62;
   position: absolute;
   box-sizing: border-box;
   border-radius: 12px;
-  top: 1440px;
   text-align: center;
 `
 export const GrapTitleText = styled.p`

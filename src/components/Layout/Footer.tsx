@@ -108,9 +108,19 @@ const FooterWrap = styled.div`
   justify-content: space-around;
   background-image: url(${Vector});
   background-size: cover;
+  @media screen and (max-width: 540px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 const FooterTitleWrap = styled.div`
   padding: 90px 30px;
+  @media screen and (max-width: 540px) {
+    margin-top: 45px;
+    padding: 0px;
+  }
 `;
 const FooterTitle = styled.div`
   cursor: pointer;

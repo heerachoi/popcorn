@@ -18,12 +18,11 @@ const CategorySwiper:React.FC = () => {
   
    /** popupList: 전체 데이터
    * 최근 오픈했어요
-   * 개선: 달력별 다른 날짜 개산 필요
    */
   const popupList = data.filter((store:Store) => {
     return (
-      parseInt(store.open.split('.').join('')) >= todayDate - 30 &&
-      todayDate >= parseInt(store.open.split('.').join(''))
+      parseInt(store.open.split('.').join('')) >= todayDate - 140 &&
+      todayDate <= parseInt(store.close.split('.').join('')) 
     );
   });
   // 최근 오픈 순
@@ -83,18 +82,18 @@ const CategorySwiper:React.FC = () => {
               <S.CategoryContainer>
                 <S.Category onClick={(event) => { 
                     event.stopPropagation(); 
-                    navigate(`/search?search=${popup.location}`);
+                    navigate(`/search?list=${popup.location}`);
                   }}> 
                   {popup.location} 
                 </S.Category>
                 <S.Category onClick={(event) => {
                     event.stopPropagation();
-                    navigate(`/search?search=${popup.category}`);
+                    navigate(`/search?list=${popup.category}`);
                   }}>{popup.category}
                 </S.Category>
                 <S.Category onClick={(event) => {
                     event.stopPropagation();
-                    navigate(`/search?search=${popup.item}`);
+                    navigate(`/search?list=${popup.item}`);
                   }}>{popup.item}</S.Category>
               </S.CategoryContainer>
             </S.StoreInformation>

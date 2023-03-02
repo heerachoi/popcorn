@@ -39,32 +39,41 @@ export const EmojiIconBtn = styled.button`
   border: none;
 `;
 
-export const TextBackground = styled.div`
-  width: 70px;
-  height: 12px;
-  background-color: #ffeb62;
+export const TextBackgroundContainer = styled.div`
+`
+
+export const TextBackgroundOne = styled.div`
+  width: 64px;
+  height: 18px;
+  background-color: #FFEB62;
   position: absolute;
-  box-sizing: border-box;
   border-radius: 12px;
-  top: 1350px;
-  text-align: center;
+  margin-top:-20px;
+  margin-left: -11px;
 `;
 
+export const TextBackgroundTwo = styled(TextBackgroundOne)`
+  width: 77px;
+`
+
+
 export const EmojiText = styled.span`
-  position: relative;
   font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   text-align: center;
+  z-index: 999;
+  position: relative;
+  top:-8px;
+  margin-bottom: 24px;
 `;
 
 export const countText = styled.span`
   margin-top: 5px;
   font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
+  /* font-style: normal; */
   font-weight: 700;
   font-size: 16px;
-  line-height: 24px;
+  /* line-height: 24px; */
   color: #9B9B9B;
 `;
