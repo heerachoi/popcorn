@@ -1,2 +1,1 @@
-web:node scripts/heroku-start.ts
-web:node App.tsx
+web:node server.js

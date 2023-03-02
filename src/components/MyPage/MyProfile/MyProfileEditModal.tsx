@@ -1,3 +1,4 @@
+import * as S from './style';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -6,13 +7,13 @@ import { auth, storage } from '../../../services/firebase';
 import { updateProfile } from 'firebase/auth';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
-import * as S from './style';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { editModal, userUrl } from '../../../atoms';
 import { profileState } from '../../../atoms';
 import { userInfo } from '../../../atoms';
 import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
+import styled from 'styled-components';
 
 const MyProfileEditModal = () => {
   const user = useRecoilValue(userInfo);
@@ -105,16 +106,8 @@ const MyProfileEditModal = () => {
   };
 
   return (
-    <div>
-      <Button
-        onClick={handleOpen}
-        style={{
-          width: '33%;',
-          height: '40px',
-        }}
-      >
-        <S.EditModalBtnText>회원정보수정</S.EditModalBtnText>
-      </Button>
+    <>
+      <S.EditModalBtnText  onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
       <Modal
         open={open}
         onClose={handleClose}
@@ -122,8 +115,8 @@ const MyProfileEditModal = () => {
         aria-describedby="modal-modal-description"
       >
         <S.EditModalAll>
-          <Box sx={style}>
-            <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
+          <BoxContainer>
+            <S.EditModalTitle>회원정보 수정</S.EditModalTitle>
             <S.EditModalImgLabelInputWrapper>
               <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
                 {imgProfileUrl && (
@@ -141,8 +134,8 @@ const MyProfileEditModal = () => {
               </S.EditModalProfileImgLabel>
             </S.EditModalImgLabelInputWrapper>
             <S.EditModalNicknameInputWrapper>
-              <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
-              <S.EditModalNicknameInput
+              <S.EditModalText>닉네임</S.EditModalText>
+              <S.EditModalInput
                 type="text"
                 placeholder={'닉네임을 입력해주세요'}
                 onChange={ToChangeNicknameInput}
@@ -150,29 +143,31 @@ const MyProfileEditModal = () => {
               />
             </S.EditModalNicknameInputWrapper>
             <S.EditModalEmailInputWrpper>
-              <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
-              <S.EditModalEmailInput
+              <S.EditModalText>이메일(아이디)</S.EditModalText>
+              <S.EditModalInput
                 placeholder={currentUser?.email}
                 readOnly
               />
             </S.EditModalEmailInputWrpper>
-            <UpdatePassword />
+            <S.EnterInputPasswordWrapper>
+               <UpdatePassword />
+            </S.EnterInputPasswordWrapper>
+
             <S.EditModalBtnWrapper>
               <S.EditModalCanceleButton onClick={handleClose}>
                 취소
               </S.EditModalCanceleButton>
-
               <S.EditModalCompleteButton
                 onClick={nicknameChangeOnClick}
                 type="submit"
               >
-                수정완료
+                수정
               </S.EditModalCompleteButton>
             </S.EditModalBtnWrapper>
-          </Box>
+          </BoxContainer>
         </S.EditModalAll>
       </Modal>
-    </div>
+    </>
   );
 };
 export default MyProfileEditModal;
@@ -189,3 +184,21 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+
+export const BoxContainer = styled(Box)`
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 800px;
+  border-radius: 5px;
+  background-color:#F5F5F5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  
+`;

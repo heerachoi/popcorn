@@ -19,7 +19,7 @@ export const BookMarkCard = styled.div`
   border: 1px solid #a6a6a6;
   border-radius: 8px;
   cursor: pointer;
-  margin: 10px 20px;
+  margin: 10px;
 `;
 
 export const BookMarkThumbnail = styled.div`
