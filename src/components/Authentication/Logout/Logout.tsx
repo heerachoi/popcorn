@@ -37,8 +37,7 @@ export const TextBackground = styled.div`
   &:hover {
     background-color: #ffb321;
   }
-    @media screen and (max-width: 840px) {
-    /* padding-left: 20px; */
+  @media screen and (max-width: 840px) {
     width: 200px;
     background-color:#323232;
    }
