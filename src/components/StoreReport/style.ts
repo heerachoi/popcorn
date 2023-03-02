@@ -1,4 +1,4 @@
-import DaumPostcode from 'react-daum-postcode';
+// import DaumPostcode from 'react-daum-postcode';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from 'styled-components';
@@ -227,11 +227,8 @@ export const ErrorImgLabel = styled.label`
   cursor: pointer;
 `;
 
-export const PostModal = styled.div`
+export const PostModal = styled.div``;
 
-`;
+// export const DaumPostcodeModal = styled(DaumPostcode)`
 
-export const DaumPostcodeModal = styled(DaumPostcode)`
-
-
-`;
+// `;

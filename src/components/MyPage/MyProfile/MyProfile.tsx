@@ -14,6 +14,8 @@ const MyProfile = () => {
   const user = useRecoilValue(userInfo);
   const userInfos = user.userInfomation;
   const currentUserProfile: CurrentUserProfile = auth.currentUser;
+  console.log('currentUserProfile', currentUserProfile);
+
   const [open, setOpen] = useRecoilState(editModal);
   const handleOpen = () => setOpen(true);
   const [currentUser, setCurrentUser] = useState<any>('');

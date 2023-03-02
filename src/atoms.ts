@@ -150,3 +150,8 @@ export const userUrl = atom({
   key: 'userUrl',
   default: '',
 });
+
+// export const kakaoState = atom({
+//   key: 'kakaoState',
+//   default: '',
+// });
