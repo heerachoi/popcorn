@@ -17,6 +17,7 @@ import MapDataList from '../../components/MapView/MapData/MapDataList';
 import MapSearch from '../../components/MapView/MapSearch/MapSearch';
 import DetailBox from '../../components/MapView/MapDetail/DetailBox';
 import Vector from '../../assets/Img/Vector.png';
+import COLORS from '../../assets/CSS/colors';
 
 interface LocationType {
   Ma: number;
@@ -219,7 +220,7 @@ const CloseDetailBox = styled.div`
   z-index: 999;
   width: 35px;
   height: 80px;
-  background: #ffffff;
+  background-color: ${COLORS.white};
   border-radius: 4px;
   display: flex;
   align-items: center;

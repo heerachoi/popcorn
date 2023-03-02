@@ -9,7 +9,7 @@ interface getDetailWeatherData {
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
 export const JSON_API = 'https://pop.herokuapp.com';
-export const WEB_API = 'http://localhost:3000';
+export const WEB_API = 'https://pop.herokuapp.com';
 
 export const getPopupData = async () => {
   const { data } = await axios.get(`${JSON_API}/Store`);
@@ -69,17 +69,17 @@ export const getBookMark = async () => {
   return data;
 };
 
-const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
-const Kakao = axios.create({
-  baseURL: 'https://dapi.kakao.com',
-  headers: {
-    Authorization: 'KakaoAK ' + KAKAO_KEY,
-  },
-});
+// const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
+// const Kakao = axios.create({
+//   baseURL: 'https://dapi.kakao.com',
+//   headers: {
+//     Authorization: 'KakaoAK ' + KAKAO_KEY,
+//   },
+// });
 
-export const getFoodImage = async (params: any) => {
-  const { data } = await Kakao.get('/v2/search/image', {
-    params,
-  });
-  return data;
-};
+// export const getFoodImage = async (params: any) => {
+//   const { data } = await Kakao.get('/v2/search/image', {
+//     params,
+//   });
+//   return data;
+// };
