@@ -63,4 +63,7 @@ export const KakaoImgBtn = styled.button`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 16px;
+  @media screen and (max-width: 700px) {
+    font-size: 12px;
+  }
 `;
