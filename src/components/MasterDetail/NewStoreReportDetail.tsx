@@ -38,7 +38,7 @@ const NewStoreReportDetail = () => {
     <S.ReportListWrap>
       <S.ReportListContainer>
         <S.ReportTitleBox>
-        <S.TitleBackground style={{width: 420, right:'750px'}}>
+        <S.TitleBackground style={{width: 820, right:'250px'}}>
           <S.TitleText>신규 팝업스토어 신청 제보</S.TitleText>
           </S.TitleBackground>
         </S.ReportTitleBox>
