@@ -6,6 +6,7 @@ const COLORS = {
   orange2: '#FFB321',
   orange3: '#FFEB62',
   orange4: '#FFF9D2',
+  orange5: '#FF8412',
 
   gray1: '#323232',
   gray2: '#494949',

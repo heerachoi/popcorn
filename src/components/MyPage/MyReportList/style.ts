@@ -2,13 +2,14 @@ import styled from 'styled-components';
 
 export const ReportWrap = styled.div`
   width: 100%;
+  /* background-color: yellow; */
 `;
-export const ReportContainer = styled.div` 
-margin-top: 24px;
+export const ReportContainer = styled.div`
+  margin-top: 24px;
 `;
 
 export const ListBox = styled.div`
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 `;
 
@@ -43,5 +44,5 @@ export const ReportCategory = styled.p`
 export const ReportStatusText = styled.p`
   font-size: 12px;
   float: right;
-  color: green;
+  color: #00c113;
 `;

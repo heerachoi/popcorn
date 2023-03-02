@@ -5,6 +5,10 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  @media screen and (max-width: 840px) {
+    /* background-color: aqua; */
+  
+  }
 `;
 
 export const Title = styled.img`
@@ -23,12 +27,32 @@ export const BtnWrap = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   gap: 1rem;
+  &.NavOn {
+    background-color: #323232;
+    top: 68px;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    right: 0px;
+    gap: 50px;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    margin-left: 50px;
+  }
+  &.NavOff {
+    right: -300px;
+  }
+  @media screen and (max-width: 840px) {
+    display: none;    
+  }
 `;
 
 export const CategoryBtn = styled.button`
   cursor: pointer;
   position: relative;
-  /* left: 8px; */
   top: -8px;
   border: none;
   background-color: transparent;
@@ -36,6 +60,18 @@ export const CategoryBtn = styled.button`
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
+  @media screen and (max-width: 840px) {
+    color: #fff;   
+    top: 30px;
+    /* width: 120px; */
+    &:first-child{
+      top: -25px;
+    }
+  }
 `;
 
-export const MapBtn = styled(CategoryBtn)``;
+export const MapBtn = styled(CategoryBtn)`
+  
+  @media screen and (max-width: 840px) {
+    color: #fff; 
+  }`;

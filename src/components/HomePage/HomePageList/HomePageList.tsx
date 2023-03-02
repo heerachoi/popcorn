@@ -1,17 +1,11 @@
+import * as S from './style'
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 // import data from '../../../data/popupStore.json';
 import { JSON_API } from '../../../services/api';
 import { getPopupData } from '../../../services/api';
 import { Store } from '../../../types/data/storeInterface';
-import {
-  StyleListWrap,
-  RecentList,
-  PopupTitle,
-  PopupDate,
-  PopupAddress,
-  ClosingSoonList,
-} from './style';
+
 
 const HomePageList: any = () => {
   const navigate = useNavigate();
@@ -22,32 +16,35 @@ const HomePageList: any = () => {
   const month = String(currentDate.getMonth() + 1).padStart(2, '0');
   const day = String(currentDate.getDate()).padStart(2, '0');
   const today = parseInt(year + month + day);
-  const popupList = data.Store.filter((list:Store) => {
+  const popupList = data.filter((list:Store) => {
     return (
       parseInt(list.open.split('.').join('')) >= today - 5 &&
       today >= parseInt(list.open.split('.').join(''))
     );
   });
+
+
+
   return (
     <>
-      <RecentList>최근 오픈했어요</RecentList>
+      <S.RecentList>최근 오픈했어요</S.RecentList>
       {popupList.map((popup:Store) => {
         return (
           <>
-            <StyleListWrap
+            <S.StyleListWrap
               key={popup.id}
               onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
             >
-              <PopupTitle>{popup.title}</PopupTitle>
-              <PopupDate>
+              <S.PopupTitle>{popup.title}</S.PopupTitle>
+              <S.PopupDate>
                 {popup.open} ~ {popup.close}
-              </PopupDate>
-              <PopupAddress>{popup.address}</PopupAddress>
-            </StyleListWrap>
+              </S.PopupDate>
+              <S.PopupAddress>{popup.address}</S.PopupAddress>
+            </S.StyleListWrap>
           </>
         );
       })}
-      <ClosingSoonList>곧 마감해요</ClosingSoonList>
+      <S.ClosingSoonList>곧 마감해요</S.ClosingSoonList>
     </>
   );
 };
