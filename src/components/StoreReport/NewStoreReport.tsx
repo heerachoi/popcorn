@@ -232,7 +232,7 @@ const NewStoreReport: any = () => {
         </S.AddressBtn>
         {isOpenPost ? (
           <S.PostModal>
-            <S.DaumPostcodeModal autoClose onComplete={onCompletePost} />
+            {/* <S.DaumPostcodeModal autoClose onComplete={onCompletePost} /> */}
           </S.PostModal>
         ) : null}
       </S.ThreeGrid>

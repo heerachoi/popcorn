@@ -26,10 +26,9 @@ const MyProfileEditModal = () => {
   // 닉네임 관련
   const currentUserInfos: any = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
   const [nickname, setNickname] = useState<any>(auth.currentUser?.displayName); // 현재 닉네임 상태변경
-  const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기 및 변경 전 데이터
+  const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기
 
-  // 이미지 관련 profileState를 바꿔줘야 함 안그러면 로컬스토리지나 세션스토리지, 쿠키 안담겨있음 초기화됨
-  // 새로고침했을 때 auth.를쏘스로 담아줘야함
+  // 이미지 관련
   const [imgProfileUrl, setImgProfileUrl] = useRecoilState(profileState);
   const [imgFile, setImgFile] = useState<any>(imgProfileUrl); // 이미지 파일 엄청 긴 이름
   const [imgUploadUrl, setImgUploadUrl] = useRecoilState<any>(userUrl); // 변경된 이미지 url
@@ -72,7 +71,9 @@ const MyProfileEditModal = () => {
     } else {
       try {
         const imgRef = ref(storage, `profileUploadImg/${uuidv4()}`);
+        // Storage에 이미지 업로드
         const response = await uploadString(imgRef, imgFile, 'data_url');
+        // 업로드한 이미지의 url 가져오기
         const downloadImageUrl = await getDownloadURL(response.ref);
         await updateProfile(currentUser, {
           displayName: nickname,
@@ -90,7 +91,7 @@ const MyProfileEditModal = () => {
     }
   };
 
-  // 모달키면 이미지가 보이는데 유저가 클릭하면 업데이트
+  // 이미지 업로드 시 이미지 미리보기 바로 반영됨
   const saveNewProfileImg = (event: any) => {
     const target = event.currentTarget;
     const theFile = (target.files as FileList)[0]; // 이미지 인풋창에서 클릭하면 이미지
