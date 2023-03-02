@@ -3107,7 +3107,58 @@
       "vote": "like"
     }
   ],
-  "BookMarkList": [],
+  "BookMarkList": [
+    {
+      "id": "b5b0c7b7-7ecc-447e-9b81-af01c0386f75",
+      "storeId": "19",
+      "userId": "oVd9fbcnG3PdXUV3gDIPOs7FVtD3",
+      "notification": false,
+      "title": "EXPLORE THE NEW by 갤럭시 스튜디오",
+      "open": "2023.02.04",
+      "close": "2023.03.12",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ExploreTheNewByGalaxyStudio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.17.50.png?alt=media&token=f231df00-32a1-4533-944d-37e731ba9a04"
+    },
+    {
+      "id": "c75f9661-169e-4bec-8cca-e469f76d4836",
+      "storeId": "18",
+      "userId": "oVd9fbcnG3PdXUV3gDIPOs7FVtD3",
+      "notification": false,
+      "title": "두껍상회 강남",
+      "open": "2023.01.20",
+      "close": "2023.03.05",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.44.png?alt=media&token=489a8fc3-488a-4a35-a9f1-4076aaa97e2f"
+    },
+    {
+      "id": "eabe1201-c806-407d-a43c-407829212928",
+      "storeId": "2",
+      "userId": "oVd9fbcnG3PdXUV3gDIPOs7FVtD3",
+      "notification": false,
+      "title": "Gram Style Lab with Musinsa",
+      "open": "2023.01.09",
+      "close": "2023.02.06",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/LG%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.37.16.png?alt=media&token=fd4c6878-16c8-4d18-bbd9-cae133fb4890"
+    },
+    {
+      "id": "986f3786-539d-41e2-a1a4-8a0a3e3e5bbf",
+      "storeId": "9",
+      "userId": "oVd9fbcnG3PdXUV3gDIPOs7FVtD3",
+      "notification": false,
+      "title": "송월 X 발란사",
+      "open": "2023.02.03",
+      "close": "2023.02.11",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Towelkun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.48.30.png?alt=media&token=beb1adf3-5e78-4ffc-9d12-dd86a11fd1eb"
+    },
+    {
+      "id": "ef2f9161-d4fb-4662-ae1f-753b79bf035d",
+      "storeId": "4",
+      "userId": "oVd9fbcnG3PdXUV3gDIPOs7FVtD3",
+      "notification": false,
+      "title": "농심 신라면 팝업스토어",
+      "open": "2023.01.09",
+      "close": "2023.02.08",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.44.28.png?alt=media&token=8a4f1439-baa8-4ef0-a999-7545a20d87ba"
+    }
+  ],
   "newStores": [],
   "infoErrModifiContents": [],
   "FAQ": [

@@ -17,7 +17,6 @@ export const ThreeGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 250px 250px;
   margin-bottom: 40px;
-  /* background-color: aqua; */
 `;
 
 export const ReportTitle = styled.div`

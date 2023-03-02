@@ -141,7 +141,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
                 >
                   <BsBookmarkHeart style={{ color: changeColor }} />
                 </S.BookmarkClick>
-                <S.SideTitleText style={{ marginTop: '2px' }}>
+                <S.SideTitleText>
                   북마크
                 </S.SideTitleText>
               </S.SideTitleIconText>
