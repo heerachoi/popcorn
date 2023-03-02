@@ -3109,8 +3109,26 @@
       "id": "14161310-3c95-4939-a63b-6838ec44ab88"
     }
   ],
-  "likeHate": [],
-  "BookMarkList": [],
+  "likeHate": [
+    {
+      "id": "b798de9c-f22e-4d89-a2d2-df1cbab7f64d",
+      "storeId": "18",
+      "userId": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "vote": "like"
+    }
+  ],
+  "BookMarkList": [
+    {
+      "id": "ab331987-b124-4f63-9661-99d4cdb55b09",
+      "storeId": "18",
+      "userId": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "notification": false,
+      "title": "두껍상회 강남",
+      "open": "2023.01.20",
+      "close": "2023.03.05",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.44.png?alt=media&token=489a8fc3-488a-4a35-a9f1-4076aaa97e2f"
+    }
+  ],
   "newStores": [],
   "infoErrModifiContents": [],
   "FAQ": [
