@@ -8,8 +8,8 @@ interface getDetailWeatherData {
 
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
-export const JSON_API = 'https://pop.herokuapp.com';
-export const WEB_API = 'https://pop.herokuapp.com';
+export const JSON_API = 'http://localhost:3010';
+export const WEB_API = 'http://localhost:3000';
 
 export const getPopupData = async () => {
   const { data } = await axios.get(`${JSON_API}/Store`);
@@ -59,16 +59,15 @@ export const getLikeHate = async () => {
   return data;
 };
 
-export const getFaq = async () => {
-  const { data } = await axios.get(`${JSON_API}/FAQ`);
-  return data;
-};
-
 export const getBookMark = async () => {
   const { data } = await axios.get(`${JSON_API}/BookMarkList`);
   return data;
 };
 
+export const getFaq = async () => {
+  const { data } = await axios.get(`${JSON_API}/FAQ`);
+  return data;
+};
 // const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
 // const Kakao = axios.create({
 //   baseURL: 'https://dapi.kakao.com',
