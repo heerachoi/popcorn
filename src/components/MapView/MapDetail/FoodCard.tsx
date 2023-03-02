@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const FoodCard = ({ food, setMyLocation }: any) => {
+const FoodCard = ({ food, setMyLocation, setInfo }: any) => {
   const foodCenterChangeHandler = () => {
     setMyLocation({ Ma: food.position.lat, La: food.position.lng });
+    setInfo(food);
   };
 
   return (
@@ -12,6 +14,9 @@ const FoodCard = ({ food, setMyLocation }: any) => {
         <DetailTitle>{food?.title}</DetailTitle>
         <DetailDescriptionWrap>
           <DetailDescription>{food?.address}</DetailDescription>
+          <DetailDescription>
+            <Link to={food.placeURL}>자세히 보기</Link>
+          </DetailDescription>
         </DetailDescriptionWrap>
       </DetailWrap>
     </Wrap>
@@ -27,7 +32,7 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 175px;
+  height: 130px;
   cursor: pointer;
 `;
 
@@ -56,7 +61,7 @@ const DetailDescriptionWrap = styled.div`
 `;
 
 const DetailImg = styled.img`
-  width: 175px;
-  height: 175px;
+  width: 130px;
+  height: 130px;
   border-radius: 8px 0px 0px 8px;
 `;

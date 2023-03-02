@@ -45,6 +45,7 @@ export const userInfo = atom<UserInfoState>({
   },
 });
 
+// map 관련 atom
 export const mapCategoryValue = atom<MapCategoryValue>({
   key: 'category',
   default: '팝업스토어',
@@ -74,6 +75,39 @@ export const mapModalStatus = atom<boolean>({
   key: 'mapModal',
   default: false,
 });
+
+export const mapDetailBoxPopup = atom<Store>({
+  key: 'mapItem',
+  default: {
+    id: '',
+    view: {
+      '': 0,
+    },
+    title: '',
+    address: '',
+    open: '',
+    close: '',
+    location: '',
+    item: '',
+    openingTime: [],
+    closeTime: [],
+    significantContent: '',
+    explain: '',
+    sns: '',
+    web: '',
+    imgURL: [],
+    lat: '',
+    lon: '',
+    category: '',
+    reserveURL: '',
+  },
+});
+
+export const mapLevel = atom<number>({
+  key: 'mapLevel',
+  default: 3,
+});
+//
 
 export const isActiveMenu = atom<number>({
   key: 'isActiveMenu',
@@ -131,48 +165,6 @@ export const modalPage = atom<string>({
   key: 'modalPage',
   default: '',
 });
-
-export const mapDetailBoxPopup = atom<Store>({
-  key: 'mapItem',
-  default: {
-    id: '',
-    view: {
-      '': 0,
-    },
-    title: '',
-    address: '',
-    open: '',
-    close: '',
-    location: '',
-    item: '',
-    openingTime: [],
-    closeTime: [],
-    significantContent: '',
-    explain: '',
-    sns: '',
-    web: '',
-    imgURL: [],
-    lat: '',
-    lon: '',
-    category: '',
-    reserveURL: '',
-  },
-});
-
-export const mapLevel = atom<number>({
-  key: 'mapLevel',
-  default: 3,
-});
-
-// export const mapCategorySelector = selector<any>({
-//   key: 'mapCategorySelector',
-//   get: async ({ get }) => {
-//     const category = get(mapCategoryValue);
-//     const data = await getPopupData();
-
-//     return data;
-//   },
-// });
 
 export const profileState = atom({
   key: 'profileState', // unique ID (with respect to other atoms/selectors)

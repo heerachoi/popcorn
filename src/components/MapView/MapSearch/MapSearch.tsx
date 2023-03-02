@@ -48,7 +48,7 @@ export default MapSearch;
 
 const Wrap = styled.div`
   position: relative;
-  height: 120px;
+  height: 13%;
   display: flex;
   flex-direction: column;
   justify-content: center;

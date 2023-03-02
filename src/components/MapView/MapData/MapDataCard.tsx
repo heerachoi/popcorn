@@ -9,7 +9,13 @@ import {
   mapLevel,
 } from '../../../atoms';
 
-const MapDataCard = ({ popup, food, setMyLocation, setMarkerHandler }: any) => {
+const MapDataCard = ({
+  popup,
+  food,
+  setMyLocation,
+  setMarkerHandler,
+  setPopupInfo,
+}: any) => {
   const [category, setCategory] = useRecoilState(mapCategoryValue);
   const [search, setSearch] = useRecoilState(mapSearchValue);
   const [foodSearch, setFoodSearch] = useRecoilState(mapFoodSearchValue);
@@ -32,6 +38,7 @@ const MapDataCard = ({ popup, food, setMyLocation, setMarkerHandler }: any) => {
       displayCenterInfo,
     );
     setMapDetailPopupItem(popup);
+    setPopupInfo(popup);
   };
 
   const geocoder = new kakao.maps.services.Geocoder();
@@ -46,6 +53,7 @@ const MapDataCard = ({ popup, food, setMyLocation, setMarkerHandler }: any) => {
       setFoodSearch(
         `${result[0].region_1depth_name} ${result[0].region_3depth_name}`,
       );
+
       categoryChangeHandler(
         '음식점',
         `${result[0].region_1depth_name} ${result[0].region_3depth_name}`,
@@ -108,6 +116,8 @@ const DetailDescription = styled.span`
   font-size: 14px;
   line-height: 24px;
   color: #a6a6a6;
+  border: none;
+  cursor: pointer;
 `;
 
 const DetailDescriptionWrap = styled.div`

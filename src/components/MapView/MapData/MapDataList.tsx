@@ -10,7 +10,12 @@ import {
 import MapDataCard from './MapDataCard';
 import NotFound from './NotFound';
 
-const MapDataList = ({ popupData, setMyLocation, setMarkerHandler }: any) => {
+const MapDataList = ({
+  popupData,
+  setMyLocation,
+  setMarkerHandler,
+  setPopupInfo,
+}: any) => {
   const category = useRecoilValue(mapCategoryValue);
   const foodData = useRecoilValue(mapFoodData);
   const search = useRecoilValue(mapSearchValue);
@@ -36,6 +41,7 @@ const MapDataList = ({ popupData, setMyLocation, setMarkerHandler }: any) => {
             popup={popup}
             setMyLocation={setMyLocation}
             setMarkerHandler={setMarkerHandler}
+            setPopupInfo={setPopupInfo}
           />
         ))
       )}
@@ -47,6 +53,7 @@ export default MapDataList;
 
 const Wrap = styled.div`
   width: 450px;
-  height: 100%;
+  height: 87%;
   overflow: scroll;
+  overflow-x: hidden;
 `;

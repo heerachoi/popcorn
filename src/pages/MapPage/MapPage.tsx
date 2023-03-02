@@ -1,12 +1,11 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import {
   mapCategoryValue,
   mapFoodData,
-  mapFoodSearchValue,
   mapLevel,
   mapModalStatus,
   mapSearchValue,
@@ -14,11 +13,10 @@ import {
 } from '../../atoms';
 import { getPopupData } from '../../services/api';
 import Maps from '../../components/MapView/Map/Maps';
-import MapCategory from '../../components/MapView/MapCategory/MapCategory';
 import MapDataList from '../../components/MapView/MapData/MapDataList';
 import MapSearch from '../../components/MapView/MapSearch/MapSearch';
-import MapWeather from '../../components/MapView/MapWeather/MapWeather';
 import DetailBox from '../../components/MapView/MapDetail/DetailBox';
+import Vector from '../../assets/Img/Vector.png';
 
 interface LocationType {
   Ma: number;
@@ -36,6 +34,7 @@ interface Markers {
 }
 
 const MapPage = () => {
+  const [popupInfo, setPopupInfo] = useState();
   const [info, setInfo] = useState<Markers>();
   const [map, setMap] = useState<any>(); // 맵
   const [myLocation, setMyLocation] = useState<LocationType>({
@@ -69,37 +68,37 @@ const MapPage = () => {
 
     ps.keywordSearch(
       category === '팝업스토어' ? search : `${search} ${category}`,
-      (data, status, _pagination) => {
+      async (data, status, _pagination) => {
         if (status === kakao.maps.services.Status.OK) {
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-          // LatLngBounds 객체에 좌표를 추가합니다
+          // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해 LatLngBounds 객체에 좌표를 추가합니다
           const bounds = new kakao.maps.LatLngBounds();
           let markers: any = [];
           // 받은 데이터 중에 사용할 것들만(lat, lng, content, address, category, img(이미지가 없다.)) markers에 push 해준다.
           // useState로 관리해주고 있는 markers에 set 해준다.
-          // img 해결 방법 : 네이버 api를 사용해서 search keyword와 같은 값의 img들을 가져와서 markers에 push 해준다.
+          // img 해결 방법 : 카카오 검색 api를 사용해서 search keyword와 같은 값의 img들을 가져와서 markers에 push 해준다.
 
-          // getSearchKeyWord().then(async () => {
-          //   const NAVER_CLIENT_ID = 'ZDK5Gc_XwH219r8fwyIt';
-          //   const NAVER_CLIENT_SECRET = 'VRu_0jKjhT';
-          // 네이버 API 제한 횟수 제한
-          // 엔터 연속으로 쳐서 데이터 여러번 불러오게 하는거 막기 ( 3초 이상 ,..)
+          const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
+          const Kakao = axios.create({
+            baseURL: 'https://dapi.kakao.com',
+            headers: {
+              Authorization: 'KakaoAK ' + KAKAO_KEY,
+            },
+          });
+
           if (category === '음식점' || category === '카페') {
             for (let i = 0; i < data.length; i++) {
-              // console.log('자!!!!!!!!!!!!!!!!!!', data[i]);
+              const params: any = {
+                query: data[i].place_name,
+                sort: 'accuracy', // accuracy | recency 정확도 or 최신
+                page: 1, // 페이지번호
+                size: 3, // 한 페이지에 보여 질 문서의 개수
+              };
 
-              // const {
-              //   data: { items },
-              // } = await axios.get('/v1/search/image', {
-              //   params: { query: data[i].place_name, start: 1, display: 1 },
-              //   headers: {
-              //     'X-Naver-Client-Id': NAVER_CLIENT_ID,
-              //     'X-Naver-Client-Secret': NAVER_CLIENT_SECRET,
-              //   },
-              // });
+              const { data: image } = await Kakao.get('/v2/search/image', {
+                params,
+              });
 
               // @ts-ignore
-
               markers.push({
                 position: {
                   lat: data[i].y,
@@ -111,7 +110,10 @@ const MapPage = () => {
                 placeURL: data[i].place_url,
                 id: data[i].id,
                 phone: data[i].phone,
-                // img: items.length !== 0 ? items[0].link : '파베이미지',
+                imgURL:
+                  image.documents.length !== 0
+                    ? image.documents[1]?.thumbnail_url
+                    : '이미지없음',
               });
               // @ts-ignore
               bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
@@ -129,90 +131,18 @@ const MapPage = () => {
               }
             }
           }
-
           setFoodData(markers);
-          // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 
+          // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
           if (category === '팝업스토어') {
             map.setBounds(bounds);
             let latlng = map.getCenter();
             setMyLocation(latlng);
           }
-          // if (category === ' ') {
-          //   map.setBounds(bounds);
-          //   // 검색된 장소 지도 가운데 위치를 내 위치로 업데이트 시켜줌
-          //   let latlng = map.getCenter();
-          //   setMyLocation(latlng);
-          // }
-
-          // setSearch('');
-          // setSearch((prev) => prev + ' ' + category);
-
-          // });
-
-          // axios 주석 풀때 같이 풀어주세요.
-          // });
         }
       },
-      // {
-      //   radius: 3000,
-      //   // location: new kakao.maps.LatLng(37.53082287515338, 127.04443987550118),
-      //   page: 1,
-      //   size: 15,
-      // },
     );
   };
-
-  const getSearchKeyWord = async () => {
-    const option = {
-      query: '', //이미지 검색 텍스트
-      start: 1, //검색 시작 위치
-      display: 3, //가져올 이미지 갯수
-      sort: 'sim', //정렬 유형 (sim:유사도)
-      filter: 'small', //이미지 사이즈
-    };
-  };
-
-  // const getLocation = (): Promise<GeolocationPosition> => {
-  //   return new Promise((resolve, reject) => {
-  //     if (navigator.geolocation) {
-  //       // getCurrentPosition 사용자의 경도, 위도를 알려줌
-  //       // 첫 번째 인자가 성공했을 때 반환하는 함수, 두 번째 인자가 실패했을 때 반환하는 함수
-  //       navigator.geolocation.getCurrentPosition(
-  //         (position) => {
-  //           if (position) {
-  //             console.log(position);
-  //             setMyLocation({
-  //               Ma: position.coords.latitude,
-  //               La: position.coords.longitude,
-  //             });
-  //             setIsLoading(false);
-  //             console.log('');
-  //             searchAddrFromCoords(
-  //               new kakao.maps.LatLng(
-  //                 position.coords.latitude,
-  //                 position.coords.longitude,
-  //               ),
-  //               displayCenterInfo,
-  //             );
-  //           }
-  //         },
-  //         (error) => reject(error),
-  //       );
-  //     } else {
-  //       alert('Geolocation is not supported by this browser.');
-  //     }
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   getLocation();
-  // }, []);
-
-  useEffect(() => {
-    // if (!map) return;
-    // setMarkerHandler();
-  }, [map]);
 
   return (
     <>
@@ -229,18 +159,24 @@ const MapPage = () => {
               popupData={popupData}
               setMyLocation={setMyLocation}
               setMarkerHandler={setMarkerHandler}
+              setPopupInfo={setPopupInfo}
             />
           </div>
           {mapModal && (
-            <div>
+            <DetailBoxWrap>
               <DetailBox
                 setMarkerHandler={setMarkerHandler}
                 setMyLocation={setMyLocation}
+                setInfo={setInfo}
               />
-            </div>
+              <CloseDetailBox onClick={() => setMapModal(false)}>
+                <img src={Vector} />
+              </CloseDetailBox>
+            </DetailBoxWrap>
           )}
-          <MapWrap>
+          <MapWrap mapModal={mapModal}>
             <Maps
+              popupInfo={popupInfo}
               info={info}
               foodData={foodData}
               setMap={setMap}
@@ -268,4 +204,29 @@ const Wrap = styled.div`
 const MapWrap = styled.div`
   width: 100%;
   height: 100%;
+  margin-left: ${(props: Props) => (props.mapModal ? '300px' : '0px')};
 `;
+
+const DetailBoxWrap = styled.div`
+  height: 100%;
+  position: relative;
+`;
+
+const CloseDetailBox = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 400px;
+  z-index: 999;
+  width: 35px;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`;
+
+interface Props {
+  mapModal: boolean;
+}

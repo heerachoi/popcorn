@@ -133,14 +133,15 @@ const MapPage = () => {
           </div>
           <div>
             <MapWeather myLocation={myLocation} />
-            <Maps
+            {/* <Maps
+              popupInfo={popupInfo}
               info={info}
               foodData={foodData}
               setMap={setMap}
               setInfo={setInfo}
               myLocation={myLocation}
               popupData={popupData}
-            />
+            /> */}
           </div>
         </Wrap>
       )}

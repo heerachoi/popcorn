@@ -33,9 +33,11 @@ interface Props {
   setInfo: any;
   myLocation: any;
   popupData: any;
+  popupInfo: any;
 }
 
 const Maps = ({
+  popupInfo,
   info,
   foodData,
   setMap,
@@ -48,6 +50,10 @@ const Maps = ({
   const popuplist = useRecoilValue(popupList);
   const level = useRecoilValue(mapLevel);
   const detailModal = useRecoilValue(mapModalStatus);
+
+  useEffect(() => {
+    setMap;
+  }, [myLocation]);
 
   return (
     <>
@@ -77,14 +83,17 @@ const Maps = ({
                     height: 35,
                   },
                 }}
-                onClick={() => {
+                onMouseOver={() => {
                   setInfo(marker);
                 }}
+                onMouseOut={() => {
+                  setInfo(null);
+                }}
               />
-              {info && info.title === marker.title && (
+              {info && info.address === marker.address && (
                 <CustomOverlayMap
                   position={marker.position}
-                  yAnchor={1.4}
+                  yAnchor={2}
                   zIndex={1}
                 >
                   <MapModal marker={marker} setInfo={setInfo} />
@@ -107,12 +116,11 @@ const Maps = ({
                       height: 35,
                     },
                   }}
-                  onClick={() => setInfo(popup)}
                 />
-                {info && info.title === popup.title && (
+                {popupInfo && popupInfo.title === popup.title && (
                   <CustomOverlayMap
                     position={{ lat: popup.lat, lng: popup.lon }}
-                    yAnchor={1.4}
+                    yAnchor={2}
                     zIndex={99}
                   >
                     <MapModal marker={popup} setInfo={setInfo} />
@@ -130,7 +138,7 @@ const Maps = ({
 export default Maps;
 
 const Wrap = styled(Map)`
-  background-color: grey;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
+  position: relative;
 `;

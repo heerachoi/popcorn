@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import {
@@ -5,14 +6,18 @@ import {
   mapDetailBoxPopup,
   mapFoodSearchValue,
 } from '../../../atoms';
+import { EmojiDiv } from '../../Detail/StoreEmoji/style';
 import FoodList from './FoodList';
 
 interface Props {
   setMarkerHandler: (search: any, category: any) => void;
   setMyLocation: any;
+  setInfo: any;
 }
 
-const DetailBox = ({ setMarkerHandler, setMyLocation }: Props) => {
+const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
+  const navigate = useNavigate();
+
   const setcategory = useSetRecoilState(mapCategoryValue);
   const foodSearch = useRecoilValue(mapFoodSearchValue);
   const [popup, setPopup] = useRecoilState(mapDetailBoxPopup);
@@ -43,6 +48,9 @@ const DetailBox = ({ setMarkerHandler, setMyLocation }: Props) => {
             <DetailInfoText>{popup.address}</DetailInfoText>
           </DetailTextBox>
         </DetailInfoBox>
+        <div onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
+          디테일 페이지로 이동
+        </div>
       </DetailInfoWrap>
       <CategoryBtn
         type="submit"
@@ -53,7 +61,7 @@ const DetailBox = ({ setMarkerHandler, setMyLocation }: Props) => {
       <CategoryBtn type="submit" onClick={() => categoryChangeHandler('카페')}>
         카페
       </CategoryBtn>
-      <FoodList setMyLocation={setMyLocation} />
+      <FoodList setMyLocation={setMyLocation} setInfo={setInfo} />
     </DetailBoxWrap>
   );
 };
@@ -61,7 +69,13 @@ const DetailBox = ({ setMarkerHandler, setMyLocation }: Props) => {
 export default DetailBox;
 
 const DetailBoxWrap = styled.div`
-  width: 450px;
+  width: 400px;
+  height: 100vh;
+  z-index: 999;
+  position: absolute;
+  background-color: white;
+  overflow: scroll;
+  overflow-x: hidden;
 `;
 
 const CategoryBtn = styled.button`

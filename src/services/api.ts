@@ -55,16 +55,31 @@ export const getUser = async () => {
 };
 
 export const getLikeHate = async () => {
-  const { data} = await axios.get(`${JSON_API}/likeHate`)
-  return data
-}
+  const { data } = await axios.get(`${JSON_API}/likeHate`);
+  return data;
+};
 
 export const getFaq = async () => {
-  const { data} = await axios.get(`${JSON_API}/FAQ`)
-  return data
-}
+  const { data } = await axios.get(`${JSON_API}/FAQ`);
+  return data;
+};
 
 export const getBookMark = async () => {
   const { data } = await axios.get(`${JSON_API}/BookMarkList`);
+  return data;
+};
+
+const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
+const Kakao = axios.create({
+  baseURL: 'https://dapi.kakao.com',
+  headers: {
+    Authorization: 'KakaoAK ' + KAKAO_KEY,
+  },
+});
+
+export const getFoodImage = async (params: any) => {
+  const { data } = await Kakao.get('/v2/search/image', {
+    params,
+  });
   return data;
 };
