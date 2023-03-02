@@ -19,8 +19,6 @@ export const ReportContainer = styled.div`
 `;
 
 export const TabTitle = styled.ul`
-  padding: 0;
-  margin: 0;
   margin-top: 10px;
   height: 50px;
   display: flex;
@@ -28,13 +26,15 @@ export const TabTitle = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  border-bottom: 2px solid #9b9b9b;
+  /* border-bottom: 2px solid #9b9b9b; */
+  /* background: aliceblue; */
 `;
 
 export const TitleBox = styled.div``;
 export const TitleBtn = styled.button`
   width: 469px;
-
+  /* min-width: 269px;
+  max-width: 469px; */
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: bold;
@@ -42,7 +42,6 @@ export const TitleBtn = styled.button`
   text-align: center;
   line-height: 24px;
   color: black;
-
   margin-top: 9px;
   padding-bottom: 17px;
   background-color: transparent;
@@ -50,17 +49,26 @@ export const TitleBtn = styled.button`
 
   border: none;
   text-decoration: none;
-
   cursor: pointer;
-
   &.active {
     border-bottom: 2px solid #00C113;
     color: #00C113;
   }
 
   &:focus {
-    border-bottom: 2px solid #00C113;
+    /* border-bottom: 2px solid #00C113; */
   }
+  @media screen and (max-width: 900px) {
+    width: 369px;
+   }
+   @media screen and (max-width: 650px) {
+    width: 240px;
+    font-size: 20px;
+   }
+   @media screen and (max-width: 400px) {
+    width: 190px;
+    font-size: 18px;
+   }
 `;
 
 export const Content = styled.div``;

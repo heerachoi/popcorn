@@ -1,3 +1,4 @@
+import * as S from './style';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -6,13 +7,16 @@ import { auth, storage } from '../../../services/firebase';
 import { updateProfile } from 'firebase/auth';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
-import * as S from './style';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { editModal } from '../../../atoms';
+import { editModal, userUrl } from '../../../atoms';
 import { profileState } from '../../../atoms';
+import { userInfo } from '../../../atoms';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
+import styled from 'styled-components';
 
 const MyProfileEditModal = () => {
+  const user = useRecoilValue(userInfo);
   const [profileUrl, setProfileUrl] = useRecoilState(profileState);
 
   // 모달 관련
@@ -21,21 +25,21 @@ const MyProfileEditModal = () => {
   const handleClose = () => setOpen(false);
 
   // 닉네임 관련
-  const currentUserInfos = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
-  const [nickname, setNickname] = useState<any>(''); // 현재 닉네임 상태변경
-  const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기 및 변경 전 데이터
+  const currentUserInfos: any = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
+  const [nickname, setNickname] = useState<any>(auth.currentUser?.displayName); // 현재 닉네임 상태변경
+  const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기
 
   // 이미지 관련
-  const imgProfileUrl = useRecoilValue(profileState);
+  const [imgProfileUrl, setImgProfileUrl] = useRecoilState(profileState);
   const [imgFile, setImgFile] = useState<any>(imgProfileUrl); // 이미지 파일 엄청 긴 이름
-  const [imgFileName, setImgFileName] = useState<any>(''); // 이미지 파일 이름.jpg
-  const [imgUploadUrl, setImgUploadUrl] = useState<any>('');
+  const [imgUploadUrl, setImgUploadUrl] = useRecoilState<any>(userUrl); // 변경된 이미지 url
 
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         setCurrentUser(currentUserInfos);
+        setNickname(currentUserInfos?.displayName);
       } else {
         return console.log('로그인 안됨');
       }
@@ -53,33 +57,42 @@ const MyProfileEditModal = () => {
     if (nickname.length < 2 || nickname.length > 5) {
       alert('2글자 이상 5글자 이하로 입력해주세요.');
       return;
-    } else if (imgFile.length === 0) {
-      setImgUploadUrl(
-        'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/basic_profile.png?alt=media&token=d58d0f49-79bd-400a-a4ae-ceca444734ae',
-      );
-    } else if (imgFile.length !== 0) {
-      const imgRef = ref(storage, `profileUploadImg/${imgFileName + uuidv4()}`);
-      const response = await uploadString(imgRef, imgFile, 'data_url');
-      const downloadImageUrl = await getDownloadURL(response.ref);
-      setImgUploadUrl(downloadImageUrl);
-      setProfileUrl(downloadImageUrl);
     }
-
-    await updateProfile(currentUser, {
-      displayName: nickname,
-      photoURL: imgUploadUrl,
-    })
-      .then(() => {
+    if (imgFile.length === 0) {
+      try {
+        await updateProfile(currentUser, {
+          displayName: nickname,
+        });
         setNickname(nickname);
         alert('프로필 수정 완료!');
         setOpen(false);
-      })
-      .catch((error: any) => {
-        error;
-      });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const imgRef = ref(storage, `profileUploadImg/${uuidv4()}`);
+        // Storage에 이미지 업로드
+        const response = await uploadString(imgRef, imgFile, 'data_url');
+        // 업로드한 이미지의 url 가져오기
+        const downloadImageUrl = await getDownloadURL(response.ref);
+        await updateProfile(currentUser, {
+          displayName: nickname,
+          photoURL: downloadImageUrl,
+        });
+        setNickname(nickname);
+        setImgUploadUrl(downloadImageUrl);
+        setProfileUrl(downloadImageUrl);
+        setImgProfileUrl(downloadImageUrl);
+        alert('프로필 수정 완료!');
+        setOpen(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
-  // 모달키면 이미지가 보이는데 유저가 클릭하면 업데이트
+  // 이미지 업로드 시 이미지 미리보기 바로 반영됨
   const saveNewProfileImg = (event: any) => {
     const target = event.currentTarget;
     const theFile = (target.files as FileList)[0]; // 이미지 인풋창에서 클릭하면 이미지
@@ -88,20 +101,13 @@ const MyProfileEditModal = () => {
     reader.readAsDataURL(theFile);
     reader.onloadend = (finishedEvent: any) => {
       setImgFile(finishedEvent.currentTarget.result);
+      setImgProfileUrl(finishedEvent.currentTarget.result);
     };
   };
 
   return (
-    <div>
-      <Button
-        onClick={handleOpen}
-        style={{
-          width: '33%;',
-          height: '40px',
-        }}
-      >
-        <S.EditModalBtnText>회원정보수정</S.EditModalBtnText>
-      </Button>
+    <>
+      <S.EditModalBtnText  onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
       <Modal
         open={open}
         onClose={handleClose}
@@ -109,23 +115,27 @@ const MyProfileEditModal = () => {
         aria-describedby="modal-modal-description"
       >
         <S.EditModalAll>
-          <Box sx={style}>
-            <S.EditModalTitleText>회원정보 수정</S.EditModalTitleText>
+          <BoxContainer>
+            <S.EditModalTitle>회원정보 수정</S.EditModalTitle>
             <S.EditModalImgLabelInputWrapper>
               <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
-                {imgFile && <S.EditModalProfileImgShow src={imgFile} />}
+                {imgProfileUrl && (
+                  <S.EditModalProfileImgShow
+                    src={imgProfileUrl ? imgProfileUrl : basicProfileImg}
+                  />
+                )}
+                <S.EditModalProfileImgInput
+                  type="file"
+                  accept="image/*"
+                  id="modalProfileUploadImg"
+                  onChange={saveNewProfileImg}
+                  style={{ display: 'none' }}
+                />
               </S.EditModalProfileImgLabel>
-              <S.EditModalProfileImgInput
-                type="file"
-                accept="image/*"
-                id="modalProfileUploadImg"
-                onChange={saveNewProfileImg}
-                style={{ display: 'none' }}
-              />
             </S.EditModalImgLabelInputWrapper>
             <S.EditModalNicknameInputWrapper>
-              <S.EditModalNicknameText>닉네임</S.EditModalNicknameText>
-              <S.EditModalNicknameInput
+              <S.EditModalText>닉네임</S.EditModalText>
+              <S.EditModalInput
                 type="text"
                 placeholder={'닉네임을 입력해주세요'}
                 onChange={ToChangeNicknameInput}
@@ -133,29 +143,31 @@ const MyProfileEditModal = () => {
               />
             </S.EditModalNicknameInputWrapper>
             <S.EditModalEmailInputWrpper>
-              <S.EditModalEmailText>이메일(아이디)</S.EditModalEmailText>
-              <S.EditModalEmailInput
+              <S.EditModalText>이메일(아이디)</S.EditModalText>
+              <S.EditModalInput
                 placeholder={currentUser?.email}
                 readOnly
               />
             </S.EditModalEmailInputWrpper>
-            <UpdatePassword />
+            <S.EnterInputPasswordWrapper>
+               <UpdatePassword />
+            </S.EnterInputPasswordWrapper>
+
             <S.EditModalBtnWrapper>
               <S.EditModalCanceleButton onClick={handleClose}>
                 취소
               </S.EditModalCanceleButton>
-
               <S.EditModalCompleteButton
                 onClick={nicknameChangeOnClick}
                 type="submit"
               >
-                수정완료
+                수정
               </S.EditModalCompleteButton>
             </S.EditModalBtnWrapper>
-          </Box>
+          </BoxContainer>
         </S.EditModalAll>
       </Modal>
-    </div>
+    </>
   );
 };
 export default MyProfileEditModal;
@@ -172,3 +184,21 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+
+export const BoxContainer = styled(Box)`
+  position: absolute;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 800px;
+  border-radius: 5px;
+  background-color:#F5F5F5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  
+`;

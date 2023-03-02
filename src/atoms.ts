@@ -1,4 +1,5 @@
 import { atom } from 'recoil';
+import { Store } from './types/data/storeInterface';
 
 // atom은 두 가지를 요구하는데 첫 번째는 key로 유니크해야한다.
 // 두 번째는 default 값이 필요하다.
@@ -44,6 +45,7 @@ export const userInfo = atom<UserInfoState>({
   },
 });
 
+// map 관련 atom
 export const mapCategoryValue = atom<MapCategoryValue>({
   key: 'category',
   default: '팝업스토어',
@@ -64,7 +66,7 @@ export const mapFoodData = atom<any>({
   default: [],
 });
 
-export const popupList = atom<any>({
+export const popupList = atom<Store[]>({
   key: 'popupList',
   default: [],
 });
@@ -73,6 +75,39 @@ export const mapModalStatus = atom<boolean>({
   key: 'mapModal',
   default: false,
 });
+
+export const mapDetailBoxPopup = atom<Store>({
+  key: 'mapItem',
+  default: {
+    id: '',
+    view: {
+      '': 0,
+    },
+    title: '',
+    address: '',
+    open: '',
+    close: '',
+    location: '',
+    item: '',
+    openingTime: [],
+    closeTime: [],
+    significantContent: '',
+    explain: '',
+    sns: '',
+    web: '',
+    imgURL: [],
+    lat: '',
+    lon: '',
+    category: '',
+    reserveURL: '',
+  },
+});
+
+export const mapLevel = atom<number>({
+  key: 'mapLevel',
+  default: 3,
+});
+//
 
 export const isActiveMenu = atom<number>({
   key: 'isActiveMenu',
@@ -131,17 +166,18 @@ export const modalPage = atom<string>({
   default: '',
 });
 
-// export const mapCategorySelector = selector<any>({
-//   key: 'mapCategorySelector',
-//   get: async ({ get }) => {
-//     const category = get(mapCategoryValue);
-//     const data = await getPopupData();
+export const profileState = atom<string>({
 
-//     return data;
-//   },
-// });
-
-export const profileState = atom({
   key: 'profileState', // unique ID (with respect to other atoms/selectors)
-  default: '', // default value (aka initial value)
+  default: '', // 유저의 photoURL
 });
+
+export const userUrl = atom({
+  key: 'userUrl',
+  default: '',
+});
+
+// export const kakaoState = atom({
+//   key: 'kakaoState',
+//   default: '',
+// });

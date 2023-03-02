@@ -21,6 +21,9 @@ const Layout = ({ children }: Props) => {
   // Router.tsx에서 유저 상태관리를 해주었는데, 페이지 이동시 첫번째 useEffect가 다시 실행됨
   // Layout.tsx로 옮겨주니 해결되었다.
   useEffect(() => {
+    const myUser = userDataFromJson?.filter(
+      (user: any) => users.userInfomation.uid === user.uid,
+    )[0];
     auth.onAuthStateChanged((user) => {
       if (user) {
         setUsers({
@@ -65,9 +68,7 @@ const Layout = ({ children }: Props) => {
     <>
       <Header />
       {/* children은 Router에서 감싸주는 components */}
-      <div style={{ width: '100vw', overflow: 'hidden' }}>
-        {children}
-      </div>
+      <div style={{ width: '100vw', overflow: 'hidden' }}>{children}</div>
       <Footer />
     </>
   );

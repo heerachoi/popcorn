@@ -141,7 +141,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
                 >
                   <BsBookmarkHeart style={{ color: changeColor }} />
                 </S.BookmarkClick>
-                <S.SideTitleText style={{ marginTop: '2px' }}>
+                <S.SideTitleText>
                   북마크
                 </S.SideTitleText>
               </S.SideTitleIconText>
@@ -150,9 +150,12 @@ const StoreDetailInfo = ({ detailData }: any) => {
           {/* 스토어 정보 들어가는 부분 */}
           <S.InfoContentWrap>
             <S.InfoContentBox>
-              <S.InfoTitle>운영기간</S.InfoTitle>
-              <S.InfoContentText>{`${detailData?.open} ~ ${detailData?.close}`}</S.InfoContentText>
-              <S.InfoTitle>운영시간</S.InfoTitle>
+              <S.InfoSubBox>
+                <S.InfoTitle>운영기간</S.InfoTitle>
+                <S.InfoContentText>{`${detailData?.open} ~ ${detailData?.close}`}</S.InfoContentText>
+              </S.InfoSubBox>
+              <S.InfoSubBox>
+                <S.InfoTitle>운영시간</S.InfoTitle>
               <S.OpeningHoursWrap>
                 <S.OpeningHoursBox>
                   {detailData?.openingTime?.map((openTime: string) => {
@@ -165,11 +168,14 @@ const StoreDetailInfo = ({ detailData }: any) => {
                   })}
                 </S.OpeningHoursBox>
               </S.OpeningHoursWrap>
-              <S.InfoTitle>주소</S.InfoTitle>
+              </S.InfoSubBox>
+              <S.InfoSubBox>
+                <S.InfoTitle>주소</S.InfoTitle>
               <S.InfoContentText>{detailData?.address}</S.InfoContentText>
-              <S.InfoTitle>스토어 설명</S.InfoTitle>
-              <S.InfoContentText>{detailData?.explain}</S.InfoContentText>
-              <S.InfoTitle>SNS계정</S.InfoTitle>
+              </S.InfoSubBox>
+              <S.InfoSubBox><S.InfoTitle>스토어 설명</S.InfoTitle>
+              <S.InfoContentText>{detailData?.explain}</S.InfoContentText></S.InfoSubBox>
+              <S.InfoSubBox><S.InfoTitle>SNS계정</S.InfoTitle>
               <S.InfoContentText>
                 <S.SnsLinkWrap>
                   <Link
@@ -192,14 +198,17 @@ const StoreDetailInfo = ({ detailData }: any) => {
                   </Link>
                 </S.SnsLinkWrap>
               </S.InfoContentText>
-              <S.InfoTitle>카테고리</S.InfoTitle>
+              </S.InfoSubBox>
+              <S.InfoSubBox>
+                <S.InfoTitle>카테고리</S.InfoTitle>
               <S.InfoContentText>{detailData?.item}</S.InfoContentText>
+              </S.InfoSubBox>
             </S.InfoContentBox>
           </S.InfoContentWrap>
         </S.DetailInfoContent>
       </S.DetailContainer>
       {/* 하단 선 */}
-      <S.Hr />
+      {/* <S.Hr /> */}
       {/* 좋아요/별로에요 이모티콘 컴포넌트 */}
       <StoreEmoji detailData={detailData} />
     </S.StoreDetailInfoWrap>

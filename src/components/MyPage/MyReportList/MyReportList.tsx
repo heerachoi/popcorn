@@ -3,6 +3,7 @@ import * as S from './style';
 import { auth } from '../../../services/firebase';
 import { useQuery } from 'react-query';
 import { getInfoErrReport, getNewStoreReport } from '../../../services/api';
+import NoResults from '../NoResults/NoResults';
 
 const MyReportList = () => {
   const {
@@ -29,16 +30,52 @@ const MyReportList = () => {
     console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
-  
-  console.log('newStores', newStores);
-  console.log('errReport', errReport);
-
   const uid = auth.currentUser?.uid;
+
+  const myErrReport = errReport.filter((item: any) => item.userId.uid === uid);
+
+  const myNewStoreReport = newStores.filter(
+    (item: any) => item.userId.uid === uid,
+  );
+
+  const myReports = myErrReport.concat(myNewStoreReport);
 
   return (
     <S.ReportWrap>
-      <S.ReportContainer>
-        {errReport
+      {myReports.length === 0 ? (
+        <NoResults />
+      ) : (
+        <S.ReportContainer>
+          {myReports.map((li: any) => {
+            return (
+              <S.ListBox key={li.id}>
+                <S.ListContent>
+                  <S.ReportTitleText>{li.title}</S.ReportTitleText>
+                  <S.ReportDateText>{li.reportedDate}</S.ReportDateText>
+                </S.ListContent>
+                <S.ListContent>
+                  <S.ReportCategory>{li.category}</S.ReportCategory>
+                  {li.status === false ? (
+                    <S.ReportStatusText>진행중</S.ReportStatusText>
+                  ) : (
+                    <S.ReportStatusText style={{ color: 'black' }}>
+                      완료
+                    </S.ReportStatusText>
+                  )}
+                </S.ListContent>
+              </S.ListBox>
+            );
+          })}
+        </S.ReportContainer>
+      )}
+    </S.ReportWrap>
+  );
+};
+
+export default MyReportList;
+
+{
+  /* {errReport
           .filter((item: any) => item.userId.uid === uid)
           .map((li: any) => {
             return (
@@ -81,10 +118,5 @@ const MyReportList = () => {
                 </S.ListContent>
               </S.ListBox>
             );
-          })}
-      </S.ReportContainer>
-    </S.ReportWrap>
-  );
-};
-
-export default MyReportList;
+          })} */
+}

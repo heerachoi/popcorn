@@ -62,8 +62,8 @@ const Wrap = styled.div`
 `;
 
 const MapInfoBox = styled.div`
-  width: 300px;
-  height: 100px;
+  width: 100%;
+  height: 40px;
   border-radius: 10px;
   background-color: white;
   overflow: hidden;
@@ -73,7 +73,7 @@ const ModalHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 10px 20px;
+  padding: 12px;
 `;
 
 const ModalHeaderTitle = styled.span`

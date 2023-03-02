@@ -7,6 +7,8 @@ import { AiFillLeftCircle } from 'react-icons/ai';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { modalStatus } from '../../../atoms';
 import CustomModal from '../../../shared/CustomModal';
+import KakaoLogin from './KakaoLogin';
+
 interface SignInInput {
   email: string;
   password: string;
@@ -178,6 +180,7 @@ const Login = () => {
           <S.SignUpBtn onClick={() => navigate('/signup')}>
             회원가입
           </S.SignUpBtn>
+          <KakaoLogin />
         </S.FormSignWrap>
       </S.FormWrap>
       {isModal.login && (

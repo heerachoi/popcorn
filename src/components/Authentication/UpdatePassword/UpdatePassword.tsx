@@ -93,7 +93,7 @@ const UpdatePassword = () => {
       setHelperPasswordInput({
         ...helperPasswordInput,
         updatePassword:
-          '비밀번호는 8자 이상이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.',
+          '*비밀번호는 8자 이상이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.',
       });
     } else {
       setHelperPasswordInput({
@@ -107,7 +107,7 @@ const UpdatePassword = () => {
     if (passwordInput.updatePassword !== passwordInput.updatePasswordCheck) {
       setHelperPasswordInput({
         ...helperPasswordInput,
-        updatePasswordCheck: '비밀번호는가 다릅니다. 확인해주세요.',
+        updatePasswordCheck: '*비밀번호는가 다릅니다. 확인해주세요.',
       });
     } else {
       setHelperPasswordInput({
@@ -118,30 +118,27 @@ const UpdatePassword = () => {
   };
 
   return (
-    <div>
+    <>
       <S.EnterInputPasswordWrapper>
         <S.EnterInputPasswordText>현재 비밀번호</S.EnterInputPasswordText>
-        <S.EnterInputPassword
-          value={passwordInput.password}
-          type="password"
-          name="password"
-          onChange={passwordChangeHandler}
-          placeholder={'현재 비밀번호를 입력하세요'}
-        />
-        <button
-          onClick={firstPasswordCheck}
-          style={{
-            backgroundColor: 'transparent',
-            cursor: 'pointer',
-            border: '1px solid black',
-          }}
-        >
-          비밀번호 확인
-        </button>
+        <S.InputAndButtonContainer>
+          <S.InputWithCheckButton
+            value={passwordInput.password}
+            type="password"
+            name="password"
+            onChange={passwordChangeHandler}
+            placeholder={'현재 비밀번호를 입력하세요'}
+          />
+          <S.CheckButton
+            onClick={firstPasswordCheck}
+          >
+            확인
+          </S.CheckButton>
+        </S.InputAndButtonContainer>
       </S.EnterInputPasswordWrapper>
       <S.EnterInputChangePasswordWrapper>
         <S.EnterInputChangePasswordText>
-          비밀번호 (대문자, 소문자+숫자+특수문자 8자 이상)
+          비밀번호 <span style={{fontSize:'13px'}}>(대문자,소문자+숫자+특수문자 8자 이상)</span>
         </S.EnterInputChangePasswordText>
         <S.EnterInputChangePasswordInput
           value={passwordInput.updatePassword}
@@ -151,14 +148,14 @@ const UpdatePassword = () => {
           onBlur={validatePasswordHandler}
           placeholder={'새 비밀번호를 입력하세요'}
         />
-        <div>{helperPasswordInput.updatePassword}</div>
+        <S.WarningText>{helperPasswordInput.updatePassword}</S.WarningText>
       </S.EnterInputChangePasswordWrapper>
 
       <S.EnterInputCheckPasswordWrapper>
         <S.EnterInputCheckPasswordText>
           비밀번호 확인
         </S.EnterInputCheckPasswordText>
-        <S.EnterInputCheckPasswordInput
+        <S.EnterInputChangePasswordInput
           value={passwordInput.updatePasswordCheck}
           type="password"
           name="updatePasswordCheck"
@@ -166,7 +163,7 @@ const UpdatePassword = () => {
           onBlur={validatePasswordCheckHandler}
           placeholder={'새 비밀번호를 한번 더 확인하세요'}
         />
-        <div>{helperPasswordInput.updatePasswordCheck}</div>
+        <S.WarningText>{helperPasswordInput.updatePasswordCheck}</S.WarningText>
         <button
           onClick={passwordCheckHandler}
           style={{
@@ -178,7 +175,7 @@ const UpdatePassword = () => {
           비밀번호 변경
         </button>
       </S.EnterInputCheckPasswordWrapper>
-    </div>
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ export const NewPostWrap = styled.div`
 `;
 
 export const TitleBackground = styled.div`
-  background-color: #ffeb62;
+  background-color: #88E25D;
   width: 240px;
   height: 30px;
   padding-left: 13px;

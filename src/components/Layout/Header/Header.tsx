@@ -7,6 +7,11 @@ import useModal from '../../../hooks/useModal';
 import AlertModal from './Notification/NotificationModal';
 import styled from 'styled-components';
 import CustomModal from '../../../shared/CustomModal';
+import { useState } from 'react';
+import {FaBars} from 'react-icons/fa';
+import {ImCross} from 'react-icons/im';
+import {AiFillBell} from 'react-icons/ai';
+import {BsMapFill} from 'react-icons/bs';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,7 +19,12 @@ const Header = () => {
   const [globalButton, setGlobalButton] = useRecoilState(globalBtn);
   const [isModal, setIsModal] = useRecoilState(modalStatus);
   const [pageChange, setPageChange] = useRecoilState(modalPage);
-
+  // 토글
+  const [isToggled, setIsToggled] = useState(false);
+  console.log('isToggled', isToggled)
+   const toggleMenu = () => {
+      setIsToggled(isToggled => !isToggled); // on,off 개념 boolean
+    }
   // console.log(auth?.currentUser?.email); //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
   // 해결 : Router에서 auth.onAuthStateChanged 메서드를 사용해서 파이어베이스에서 DB정보를 참조해서 변경 사항 가져옴
   const { isShowing, toggle } = useModal();
@@ -83,14 +93,10 @@ const Header = () => {
             onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
         </HoverBox>
-        <S.BtnWrap>
+        <S.BtnWrap className={isToggled ? 'NavOn' : 'NavOff'} onClick={()=>setIsToggled(false)}>
           {user.isLogin && (
             <MenuImageBackground>
-              <MenuImage
-                src={require('../../../assets/Logo/Bell.png')}
-                alt="타이틀"
-                onClick={toggle}
-              />
+              {isToggled? null:<BellIcon onClick={toggle}/>}
               <AlertModal isShowing={isShowing} hide={toggle} />
             </MenuImageBackground>
           )}
@@ -139,30 +145,75 @@ const Header = () => {
             </TextBackground>
           )}
           <MenuImageBackground>
-            <MenuImage
-              src={require('../../../assets/Logo/Spot.png')}
-              alt="타이틀"
+            {isToggled ? <MenuText onClick={() => globalBtnModalStatusChangeHandler('/map')}>
+              지도
+            </MenuText>: <MapIcon
               onClick={() => globalBtnModalStatusChangeHandler('/map')}
-            />
+            />}
+            
           </MenuImageBackground>
         </S.BtnWrap>
+        <MobileMenuContainer>
+          {user.isLogin && (
+              <MenuImageBackgroundMobile>
+                <BellIcon onClick={toggle}/>
+                <AlertModal isShowing={isShowing} hide={toggle} />
+              </MenuImageBackgroundMobile>
+          )}
+          <MenuIconContainer onClick={()=>setIsToggled(!isToggled)}>
+            {isToggled ? <ImCross/> :<MenuIcon/>}
+          </MenuIconContainer>
+        </MobileMenuContainer>
       </S.Wrap>
     </>
   );
 };
 
 export default Header;
+
+export const MenuIconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+`
+
+export const MobileMenuContainer = styled.div`
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  @media screen and (max-width: 840px) {
+    display: flex;
+  }
+`
+
+export const MenuIcon = styled(FaBars)`
+  font-size: 20px;
+  display: none; 
+  @media screen and (max-width: 840px) {
+    display : inline;
+  }
+`;
+
 const HoverBox = styled.div`
   width: 100px;
   position: relative;
   transition: opacity 0.2s linear;
   transition: transform 0.3s ease-out;
+  
   &:hover .TitleImg {
     opacity: 1;
     transform: scale(1.2);
   }
   &:hover .title {
     opacity: 0;
+  }
+  @media screen and (max-width: 740px) {
+    width: 260px;
+    &:hover .TitleImg {
+      transform: none;
+    }
   }
 `;
 
@@ -190,6 +241,13 @@ export const TextBackground = styled.div`
   &:hover {
     background-color: #ffb321;
   }
+   @media screen and (max-width: 840px) {
+    width: 200px;
+    background-color:#323232;
+      &:hover {
+    background-color: #323232;
+  }
+   }
 `;
 
 export const MenuImageBackground = styled(TextBackground)`
@@ -199,7 +257,22 @@ export const MenuImageBackground = styled(TextBackground)`
   top: 30px;
 `;
 
-export const MenuImage = styled.img`
+export const MenuImageBackgroundMobile = styled(MenuImageBackground)`
+  background-color: #ffeb62;
+`
+
+export const MenuText = styled.div`
+    cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  width: 120px;
+  color: #fff;
+  padding: 0 0 0 8px;
+  margin-top: -20px;
+  
+`
+
+export const BellIcon = styled(AiFillBell)`
   cursor: pointer;
   font-size: 20px;
   position: relative;
@@ -208,7 +281,18 @@ export const MenuImage = styled.img`
   border: none;
 `;
 
-export const MenuBtn = styled(MenuImage)`
-  background-color: transparent;
-  right: 20px;
+export const MapIcon = styled(BsMapFill)`
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  right: 12px;
+  top: 5px;
+  border: none;
 `;
+
+
+// export const MenuBtn = styled(MenuIcon)`
+//   background-color: transparent;
+//   right: 20px;
+// `;
+
