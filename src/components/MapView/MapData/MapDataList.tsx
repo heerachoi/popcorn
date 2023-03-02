@@ -8,7 +8,7 @@ import {
   popupList,
 } from '../../../atoms';
 import MapDataCard from './MapDataCard';
-import NotFound from './NotFound';
+import NotFound from '../../NotFound';
 
 const MapDataList = ({
   popupData,
