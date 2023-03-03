@@ -209,12 +209,19 @@ const HoverBox = styled.div`
   position: relative;
   transition: opacity 0.2s linear;
   transition: transform 0.3s ease-out;
+  
   &:hover .TitleImg {
     opacity: 1;
     transform: scale(1.2);
   }
   &:hover .title {
     opacity: 0;
+  }
+  @media screen and (max-width: 740px) {
+    width: 260px;
+    &:hover .TitleImg {
+      transform: none;
+    }
   }
 `;
 
