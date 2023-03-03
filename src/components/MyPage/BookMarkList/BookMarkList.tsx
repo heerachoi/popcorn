@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { auth } from '../../../services/firebase';
 import * as S from './style';
 import { BsBookmarkFill } from 'react-icons/bs';
 import { getBookMark } from '../../../services/api';
