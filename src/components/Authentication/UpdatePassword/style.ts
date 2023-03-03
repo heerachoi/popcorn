@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 import * as S from './style';
 
 export const UpdatePasswordWrapper = styled.div`
@@ -116,7 +117,7 @@ export const OkayBtn = styled.button`
 `;
 
 export const EditModalBtnWrapper = styled.div`
-  padding-top: 96.5px;
+  padding-top: 70px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -171,4 +172,9 @@ export const EditModalCompleteButton = styled.button`
   flex: none;
   order: 0;
   flex-grow: 0;
+`;
+
+export const EnterHelperText = styled.div`
+  color: ${COLORS.red};
+  padding-top: 10px;
 `;

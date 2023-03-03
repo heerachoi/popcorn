@@ -1,8 +1,8 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../services/firebase';
 import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css'; 
-import { useNavigate } from 'react-router-dom';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import CustomModal from '../../../shared/CustomModal';
 import { useRecoilState } from 'recoil';
@@ -19,7 +19,7 @@ const SignUpBtn = styled.button`
   font-weight: 700;
   font-size: 16px;
   @media screen and (max-width: 840px) {
-    color: #fff;   
+    color: #fff;
     /* top: 30px; */
     /* width: 120px; */
     top: -30px;
@@ -39,16 +39,17 @@ export const TextBackground = styled.div`
   }
   @media screen and (max-width: 840px) {
     width: 200px;
-    background-color:#323232;
-   }
+    background-color: #323232;
+  }
 `;
 
 const Logout = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
-
+  const navigate = useNavigate();
   // 로그아웃 이벤트
   const SignOutClickHandler = () => {
     signOut(auth);
+    navigate('/');
     setIsModal({ ...isModal, logout: !isModal.logout });
   };
 

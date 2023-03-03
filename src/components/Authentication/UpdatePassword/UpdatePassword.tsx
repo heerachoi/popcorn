@@ -100,8 +100,7 @@ const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
     if (!regexPw.test(event.target.value)) {
       setHelperPasswordInput({
         ...helperPasswordInput,
-        updatePassword:
-          '비밀번호는 8자 이상이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.',
+        updatePassword: '비밀번호를 조건에 맞게 입력해주세요.',
       });
     } else {
       setHelperPasswordInput({
@@ -152,7 +151,9 @@ const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
           onBlur={validatePasswordHandler}
           placeholder={'새 비밀번호를 입력하세요'}
         />
-        <div>{helperPasswordInput.updatePassword}</div>
+        <S.EnterHelperText>
+          {helperPasswordInput.updatePassword}
+        </S.EnterHelperText>
       </S.EnterInputChangePasswordWrapper>
 
       <S.EnterInputCheckPasswordWrapper>
@@ -167,7 +168,9 @@ const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
           onBlur={validatePasswordCheckHandler}
           placeholder={'새 비밀번호를 한번 더 확인하세요'}
         />
-        <div>{helperPasswordInput.updatePasswordCheck}</div>
+        <S.EnterHelperText>
+          {helperPasswordInput.updatePasswordCheck}
+        </S.EnterHelperText>
       </S.EnterInputCheckPasswordWrapper>
       <S.EditModalBtnWrapper>
         <S.EditModalCanceleButton onClick={handleClose}>
