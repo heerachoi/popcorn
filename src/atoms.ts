@@ -176,7 +176,19 @@ export const userUrl = atom({
   default: '',
 });
 
-// export const kakaoState = atom({
-//   key: 'kakaoState',
-//   default: '',
-// });
+export const kakaoAccessToken = atom({
+  key: 'kakaoAccessToken',
+  default: '',
+});
+
+export const userInfoState = atom({
+  key: 'userInfoState',
+  default: {
+    age: '',
+    email: '',
+    nickName: '',
+    id: '',
+    gender: '',
+    accessToken: '',
+  },
+});

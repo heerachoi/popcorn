@@ -11,22 +11,19 @@ import { useEffect } from 'react';
 
 const HomePage: any = () => {
   const navigate = useNavigate();
-  console.log('before womenTopTwo')
+  // console.log('before womenTopTwo')
   const womenTopTwo = PopularToWomen();
-  console.log('before menTopTwo')
+  // console.log('before menTopTwo')
   const menTopTwo = PopularToMen();
-  console.log('before query')
-  const { isLoading, isError, data, error } = useQuery(
-    'popup',
-    getPopupData,
-  );
+  // console.log('before query')
+  const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    console.log('로딩중');
+    // console.log('로딩중');
     return <p>Loading...</p>;
   }
   if (isError) {
-    console.log('오류내용', error);
+    // console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
 
@@ -63,8 +60,7 @@ const HomePage: any = () => {
           </S.ListTitleContainer>
           <S.CategoryListContainer>
             <S.FilterStoreList>
-              {womenTopTwo.map((popup: 
-              Store) => {
+              {womenTopTwo.map((popup: Store) => {
                 return (
                   <S.StoreContainer
                     key={popup.id}

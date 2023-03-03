@@ -12,6 +12,7 @@ import { FaBars } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { AiFillBell } from 'react-icons/ai';
 import { BsMapFill } from 'react-icons/bs';
+import Title from '../../../assets/Logo/popcorn_logo.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ const Header = () => {
         <HoverBox>
           <S.Title
             className="title"
-            src={require('../../../assets/Logo/popcorn_logo.png')}
+            src={Title}
             alt="타이틀"
             onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
@@ -209,7 +210,7 @@ const HoverBox = styled.div`
   position: relative;
   transition: opacity 0.2s linear;
   transition: transform 0.3s ease-out;
-  
+
   &:hover .TitleImg {
     opacity: 1;
     transform: scale(1.2);
@@ -252,6 +253,9 @@ export const TextBackground = styled.div`
   @media screen and (max-width: 840px) {
     width: 200px;
     background-color: #323232;
+    &:hover {
+      background-color: #323232;
+    }
   }
 `;
 

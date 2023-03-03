@@ -8,6 +8,8 @@ import { v4 as uuidv4 } from 'uuid';
 import COLORS from '../../../assets/CSS/colors';
 import { Store } from '../../../types/data/storeInterface';
 import { JSON_API } from '../../../services/api';
+import StoreLikeLogo from '../../../assets/Img/Feel=Happy, Color=green.svg';
+import StoreHateLogo from '../../../assets/Img/Feel=Sad, Color=green.svg';
 
 interface Props {
   detailData: Store;
@@ -182,9 +184,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       <S.EmojiContainer>
         <S.EmojiDiv>
           <S.EmojiIconBtn onClick={likeHandler}>
-            <S.LikeHateImg
-              src={require('../../../assets/Img/Feel=Happy, Color=green.png')}
-            />
+            <S.LikeHateImg src={StoreLikeLogo} />
           </S.EmojiIconBtn>
 
           <S.TextBackgroundContainer>
@@ -195,9 +195,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         </S.EmojiDiv>
         <S.EmojiDiv>
           <S.EmojiIconBtn onClick={hateHandler}>
-            <S.LikeHateImg
-              src={require('../../../assets/Img/Feel=Sad, Color=green.png')}
-            />
+            <S.LikeHateImg src={StoreHateLogo} />
           </S.EmojiIconBtn>
           <S.TextBackgroundContainer>
             <S.EmojiText style={{ color: hateColor }}>별로예요</S.EmojiText>

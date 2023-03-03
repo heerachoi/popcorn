@@ -12,7 +12,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { editModal, userUrl } from '../../../atoms';
 import { profileState } from '../../../atoms';
 import { userInfo } from '../../../atoms';
-import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 import styled from 'styled-components';
 
 const MyProfileEditModal = () => {
@@ -107,7 +107,7 @@ const MyProfileEditModal = () => {
 
   return (
     <>
-      <S.EditModalBtnText  onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
+      <S.EditModalBtnText onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
       <Modal
         open={open}
         onClose={handleClose}
@@ -144,13 +144,10 @@ const MyProfileEditModal = () => {
             </S.EditModalNicknameInputWrapper>
             <S.EditModalEmailInputWrpper>
               <S.EditModalText>이메일(아이디)</S.EditModalText>
-              <S.EditModalInput
-                placeholder={currentUser?.email}
-                readOnly
-              />
+              <S.EditModalInput placeholder={currentUser?.email} readOnly />
             </S.EditModalEmailInputWrpper>
             <S.EnterInputPasswordWrapper>
-               <UpdatePassword />
+              <UpdatePassword />
             </S.EnterInputPasswordWrapper>
 
             <S.EditModalBtnWrapper>
@@ -179,7 +176,7 @@ export const BoxContainer = styled(Box)`
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
-  background-color:#F5F5F5;
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   align-items: center;
