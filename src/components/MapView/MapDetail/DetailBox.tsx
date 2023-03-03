@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
 import {
   mapCategoryValue,
   mapDetailBoxPopup,
   mapFoodSearchValue,
 } from '../../../atoms';
-import { EmojiDiv } from '../../Detail/StoreEmoji/style';
 import FoodList from './FoodList';
 
 interface Props {
@@ -20,7 +19,7 @@ const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
 
   const setcategory = useSetRecoilState(mapCategoryValue);
   const foodSearch = useRecoilValue(mapFoodSearchValue);
-  const [popup, setPopup] = useRecoilState(mapDetailBoxPopup);
+  const popup = useRecoilValue(mapDetailBoxPopup);
 
   const categoryChangeHandler = async (category: string) => {
     setcategory(category);

@@ -9,7 +9,14 @@ const FoodCard = ({ food, setMyLocation, setInfo }: any) => {
 
   return (
     <Wrap onClick={foodCenterChangeHandler}>
-      <DetailImg src={food?.imgURL} alt="사진" />
+      <DetailImg
+        src={
+          food.imgURL
+            ? food?.imgURL
+            : 'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/NotFoundImg.png?alt=media&token=af4548f5-25fc-4b85-9d78-82b16c932a08'
+        }
+        alt="사진"
+      />
       <DetailWrap>
         <DetailTitle>{food?.title}</DetailTitle>
         <DetailDescriptionWrap>

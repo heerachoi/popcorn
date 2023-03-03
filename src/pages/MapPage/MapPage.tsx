@@ -112,9 +112,8 @@ const MapPage = () => {
                 id: data[i].id,
                 phone: data[i].phone,
                 imgURL:
-                  image.documents.length !== 0
-                    ? image.documents[1]?.thumbnail_url
-                    : '이미지없음',
+                  image.documents.length !== 0 &&
+                  image.documents[1]?.thumbnail_url,
               });
               // @ts-ignore
               bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));

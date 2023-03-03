@@ -21,10 +21,10 @@ const AlertModal = ({ isShowing, hide }: Props) => {
     return user.userInfomation.uid === bookmark?.userId;
   });
 
-  console.log('bookmarkList', bookmarkList);
+  // console.log('bookmarkList', bookmarkList);
 
   const nowTime = new Date();
-  console.log(nowTime);
+  // console.log(nowTime);
 
   return (
     <>
