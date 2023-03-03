@@ -55,6 +55,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
     open: detailData?.open,
     close: detailData?.close,
     imgURL: detailData?.imgURL[0],
+    item: detailData?.item,
   };
 
   // 페이지 렌딩시 유저의 북마크 유무 확인
@@ -83,9 +84,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
       if (bookMarkState) {
         // 북마크가 있을 경우 삭제
         try {
-          axios.delete(
-            `${JSON_API}/BookMarkList/${currentBookMarkId}`,
-          );
+          axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);
           setChangeColor(`${COLORS.black}`);
           setBookMarkState(false);
         } catch (error) {

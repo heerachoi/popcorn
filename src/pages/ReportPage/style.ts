@@ -26,7 +26,7 @@ export const TabTitle = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  /* border-bottom: 2px solid #9b9b9b; */
+  border-bottom: 2px solid #9b9b9b;
   /* background: aliceblue; */
 `;
 

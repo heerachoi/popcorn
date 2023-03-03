@@ -17,11 +17,12 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
   const [like, setLike] = useRecoilState(likeCount);
   const [hate, setHate] = useRecoilState(hateCount);
-  const [likeColor, likeSetColor] = useState(`${COLORS.black}`);
-  const [hateColor, hateSetColor] = useState(`${COLORS.black}`);
+  const [likeColor, setLikeColor] = useState(`${COLORS.black}`);
+  const [hateColor, setHateColor] = useState(`${COLORS.black}`);
   const [likeClicked, setLikeClicked] = useState(false);
   const [hateClicked, setHateClicked] = useState(false);
   const [currentLikeId, setCurrentLikeId] = useState('');
+  console.log('currentLikeId', currentLikeId);
 
   // 화면 렌더링 시 로그인 상태 확인
   useEffect(() => {
@@ -36,10 +37,18 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   }, [currentUser]);
 
   useEffect(() => {
+    console.log('렌더링!');
     fetchLikeHate();
-    likeCountHandler();
-    hateCountHandler();
+    console.log('fetchLikeHate 호출');
   }, [likeClicked, hateClicked]);
+
+  useEffect(() => {
+    console.log('언제 되는 렌더링?');
+    likeCountHandler();
+    console.log('likeCountHandler 호출');
+    hateCountHandler();
+    console.log('hateCountHandler 호출');
+  }, [likeColor, hateColor, like, hate]);
 
   // 좋아요 추가
   const newLike = {
@@ -60,21 +69,21 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   // 렌더링 시 유저 클릭 유무 확인
   const fetchLikeHate = async () => {
     const { data } = await axios.get(`${JSON_API}/likeHate`);
-
     data.map((item: any) => {
       if (item.userId === currentUser.uid && item.storeId === detailData?.id) {
+        setCurrentLikeId(item.id);
+        console.log('item.id', item.id);
         if (item.vote === 'like') {
-          likeSetColor(`${COLORS.red}`);
+          setLikeColor(`${COLORS.red}`);
           setLikeClicked(true);
-          setCurrentLikeId(item.id);
         } else if (item.vote === 'hate') {
-          hateSetColor(`${COLORS.red}`);
+          setHateColor(`${COLORS.red}`);
           setHateClicked(true);
-          setCurrentLikeId(item.id);
+          // setCurrentLikeId(item.id);
         }
       } else {
-        likeSetColor(`${COLORS.black}`);
-        hateSetColor(`${COLORS.black}`);
+        setLikeColor(`${COLORS.black}`);
+        setHateColor(`${COLORS.black}`);
       }
     });
   };
@@ -82,13 +91,13 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   // 좋아요 숫자 카운트
   const likeCountHandler = async () => {
     const { data } = await axios.get(`${JSON_API}/likeHate`);
-
     const likes = data.filter((item: any) => {
       if (item.storeId === detailData?.id && item.vote === 'like') {
         return true;
       }
     });
     setLike(likes.length);
+    console.log('like', like);
   };
 
   // 별로예요 숫자 카운트
@@ -108,9 +117,14 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       if (likeClicked) {
         // 좋아요 눌린 상태
         try {
-          axios.delete(`${JSON_API}/likeHate/${currentLikeId}`);
-          likeSetColor(`${COLORS.black}`);
-          setLikeClicked(false);
+          console.log('currentLikeId!!!', currentLikeId);
+          if (currentLikeId !== null) {
+            axios.delete(`${JSON_API}/likeHate/${currentLikeId}`);
+            console.log('삭제성공');
+            setLikeColor(`${COLORS.black}`);
+            setLikeClicked(false);
+            likeCountHandler();
+          }
         } catch (error) {
           console.log('error', error);
         }
@@ -120,7 +134,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         // 좋아요가 안눌린 상태
         try {
           axios.post(`${JSON_API}/likeHate`, newLike);
-          likeSetColor(`${COLORS.red}`);
+          console.log('추가성공');
+          setLikeColor(`${COLORS.red}`);
           setLikeClicked(true);
         } catch (error) {
           console.log('error', error);
@@ -138,8 +153,10 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         // 별로예요 눌린 상태
         try {
           axios.delete(`${JSON_API}/likeHate/${currentLikeId}`);
-          hateSetColor(`${COLORS.black}`);
+          console.log('--------------------------------');
+          setHateColor(`${COLORS.black}`);
           setHateClicked(false);
+          hateCountHandler();
         } catch (error) {
           console.log('error', error);
         }
@@ -149,7 +166,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         // 별로예요 안눌린 상태
         try {
           axios.post(`${JSON_API}/likeHate`, hateLike);
-          hateSetColor(`${COLORS.red}`);
+          setHateColor(`${COLORS.red}`);
           setHateClicked(true);
         } catch (error) {
           console.log('error', error);

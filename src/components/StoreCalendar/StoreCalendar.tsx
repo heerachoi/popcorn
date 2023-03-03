@@ -39,7 +39,6 @@ const StoreCalendar = ({ storeList }: Props) => {
     };
   });
 
-  console.log(events);
   // 달력에서 클릭시 페이지 이동
   const handleSelectEvent = useCallback(
     (event: any) => navigate(`/detail/${event.id}`, { state: event }),

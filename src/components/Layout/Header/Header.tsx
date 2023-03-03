@@ -21,7 +21,7 @@ const Header = () => {
   const [pageChange, setPageChange] = useRecoilState(modalPage);
   // 토글
   const [isToggled, setIsToggled] = useState(false);
-  // console.log('isToggled', isToggled);
+  console.log('isToggled', isToggled);
   const toggleMenu = () => {
     setIsToggled((isToggled) => !isToggled); // on,off 개념 boolean
   };

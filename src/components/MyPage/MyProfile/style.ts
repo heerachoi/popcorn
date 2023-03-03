@@ -5,7 +5,6 @@ export const MyPageAll = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  
   padding-top: 50px;
   @media screen and (max-width: 750px) {
     flex-direction: column;
@@ -161,6 +160,8 @@ export const MyBookmarkReportWrap = styled.div``;
 /*
  * 프로필 모달창
  */
+
+
 export const EditModalAll = styled.div`
 `;
 
@@ -180,7 +181,7 @@ export const EditModalImgLabelInputWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25px 0;
+  margin: 20px 0 5px;
 `;
 
 export const EnterInputPasswordWrapper = styled.div`
@@ -212,7 +213,7 @@ export const EditModalNicknameInputWrapper = styled.div`
 export const EditModalText = styled.p`
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   color: #323232;
 `;
 
@@ -239,7 +240,7 @@ export const EditModalEmailInputWrpper = styled.div`
  * 모달창 버튼
  */
 export const EditModalBtnWrapper = styled.div`
-  margin-top: 4rem;
+  margin-top: 2rem;
   display: flex;
   gap: 8px;
 `;
@@ -249,7 +250,7 @@ export const EditModalCanceleButton = styled.button`
   padding: 8px;
   gap: 8px;
   width: 150px;
-  height: 60px;
+  height: 50px;
   border: 1px solid #d9d9d9;
   border-radius: 5px;
   background-color: #fff;
@@ -265,7 +266,7 @@ export const EditModalCompleteButton = styled.button`
   cursor: pointer;
   padding: 8px;
   width: 150px;
-  height: 60px;
+  height: 50px;
 
   background: ${COLORS.orange4};
   border: 1px solid ${COLORS.orange3};
