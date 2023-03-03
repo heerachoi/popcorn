@@ -29,7 +29,7 @@ const Faq: any = () => {
         return (
           <S.Container key={qa.id}>
             <S.TitleBox onClick={() => clickHandler(i)}>
-              <span>Q. {qa.Q}</span>
+              <S.TitleText>Q. {qa.Q}</S.TitleText>
               {isClicked === i ? <IoIosArrowDown /> : <IoIosArrowUp />}
             </S.TitleBox>
             <S.AnswerBox className={isClicked === i ? 'show' : ''}>

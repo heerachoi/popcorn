@@ -1,5 +1,6 @@
 import { useRecoilState } from 'recoil';
 import { footerActiveMenu } from '../../atoms';
+import ContactUs from '../../components/CustomerCenter/Contact Us/ContactUs';
 import Faq from '../../components/CustomerCenter/FAQ/Faq';
 import * as S from './style';
 
@@ -23,7 +24,7 @@ const CustomerCenterPage: any = () => {
     {
       id: 2,
       tabTitle: 'Contact Us',
-      tabContent: <div>Contact Us 내용</div>,
+      tabContent: <ContactUs />,
     },
   ];
 
