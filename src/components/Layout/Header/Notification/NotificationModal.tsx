@@ -14,17 +14,17 @@ const AlertModal = ({ isShowing, hide }: Props) => {
   const { data, isLoading } = useQuery('BookMarkList', getBookMark);
 
   if (isLoading) {
-    console.log('로딩중');
+    // console.log('로딩중');
     return <p>Loading...</p>;
   }
   const bookmarkList = data?.filter((bookmark: any) => {
     return user.userInfomation.uid === bookmark?.userId;
   });
 
-  console.log('bookmarkList', bookmarkList);
+  // console.log('bookmarkList', bookmarkList);
 
   const nowTime = new Date();
-  console.log(nowTime);
+  // console.log(nowTime);
 
   return (
     <>

@@ -4,7 +4,6 @@ const MyPage: any = () => {
   return (
     <>
       <MyProfile />
-      <MyPageTab />
     </>
   );
 };
