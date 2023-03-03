@@ -5,10 +5,6 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  @media screen and (max-width: 840px) {
-    /* background-color: aqua; */
-  
-  }
 `;
 
 export const Title = styled.img`

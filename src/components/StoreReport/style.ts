@@ -17,7 +17,6 @@ export const ThreeGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 250px 250px;
   margin-bottom: 40px;
-  /* background-color: aqua; */
 `;
 
 export const ReportTitle = styled.div`
@@ -228,11 +227,6 @@ export const ErrorImgLabel = styled.label`
   cursor: pointer;
 `;
 
-export const PostModal = styled.div`
+export const PostModal = styled.div``;
 
-`;
-
-export const DaumPostcodeModal = styled(DaumPostcode)`
-
-
-`;
+export const DaumPostcodeModal = styled(DaumPostcode)``;

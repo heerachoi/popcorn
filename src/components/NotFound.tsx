@@ -1,5 +1,18 @@
 import styled from 'styled-components';
 
+const NotFound = () => {
+  return (
+    <ResultWarp>
+      <ResultContainer>
+        <ResultImg src={require('../assets/Img/Feel=Sad, Color=green.png')} />
+        <ResultText>입력한 검색 내용이 없습니다!</ResultText>
+      </ResultContainer>
+    </ResultWarp>
+  );
+};
+
+export default NotFound;
+
 export const ResultWarp = styled.div``;
 
 export const ResultContainer = styled.div`
@@ -7,7 +20,7 @@ export const ResultContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 181px;
+  margin-top: 200px;
 `;
 
 export const ResultText = styled.p`
@@ -19,6 +32,4 @@ export const ResultText = styled.p`
   text-align: center;
 `;
 
-export const ResultImg = styled.img`
-
-`
+export const ResultImg = styled.img``;

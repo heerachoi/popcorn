@@ -14,6 +14,8 @@ const MyProfile = () => {
   const user = useRecoilValue(userInfo);
   const userInfos = user.userInfomation;
   const currentUserProfile: CurrentUserProfile = auth.currentUser;
+  console.log('currentUserProfile', currentUserProfile);
+
   const [open, setOpen] = useRecoilState(editModal);
   const handleOpen = () => setOpen(true);
   const [currentUser, setCurrentUser] = useState<any>('');
@@ -43,8 +45,7 @@ const MyProfile = () => {
 
   return (
     <S.MyPageAll>
-      <S.MyPageContainer>
-        <S.MyProfileBox>
+      <S.MyProfileBox>
           <S.ProfileImgLabelInputWrapper>
             <S.ProfileImgShow
               src={
@@ -55,38 +56,36 @@ const MyProfile = () => {
               onClick={handleOpen}
             />
           </S.ProfileImgLabelInputWrapper>
-          <S.MyProfileNickname>{currentUser.displayName}</S.MyProfileNickname>
-          <S.NicknameInputWrapper>
-            <S.NicknameText>닉네임</S.NicknameText>
-            <S.NicknameInput
-              type="text"
-              placeholder={currentUser.displayName}
-              value={nickname}
-            />
-          </S.NicknameInputWrapper>
-          <S.EmailInputWrpper>
-            <S.EmailText>이메일</S.EmailText>
-            <S.EmailInputDiv>{userInfos.email}</S.EmailInputDiv>
-          </S.EmailInputWrpper>
-          <S.PhoneNumInputWrpper>
-            <S.PhoneNumText>휴대전화</S.PhoneNumText>
-            <S.PhoneNumInputDiv>{userInfos.phoneNumber}</S.PhoneNumInputDiv>
-          </S.PhoneNumInputWrpper>
-          <S.GenderInputWrpper>
-            <S.GenderText>성별</S.GenderText>
-            <S.GenderInputDiv>{userInfos.gender}</S.GenderInputDiv>
-          </S.GenderInputWrpper>
-          <S.AgeInputWrpper>
-            <S.AgeText>생일</S.AgeText>
-            <S.AgeInputDiv>{userInfos.age}</S.AgeInputDiv>
-          </S.AgeInputWrpper>
-          <S.ModifyCompleteButton type="button">
+          <S.MyProfileNickname>{currentUser.displayName} 님</S.MyProfileNickname>
+          <S.WelcomeText>
+            환영합니다!
+          </S.WelcomeText>
+          <S.InfoWrapper>
+            <S.InfoTitle>이메일</S.InfoTitle>
+            <S.InfoHolder>{userInfos.email}</S.InfoHolder>
+          </S.InfoWrapper>
+          <S.InfoWrapper>
+            <S.InfoTitle>휴대전화</S.InfoTitle>
+            <S.InfoHolder>{userInfos.phoneNumber}</S.InfoHolder>
+          </S.InfoWrapper>
+          <S.InfoWrapper>
+            <S.InfoTitle>성별</S.InfoTitle>
+            <S.InfoHolder>{userInfos.gender}</S.InfoHolder>
+          </S.InfoWrapper>
+          <S.InfoWrapper>
+            <S.InfoTitle>생일</S.InfoTitle>
+            <S.InfoHolder>{userInfos.age}</S.InfoHolder>
+          </S.InfoWrapper>
+          <S.ButtonContainer>
+            <S.ModifyCompleteButton type="button">
             <MyProfileEditModal />
-          </S.ModifyCompleteButton>
-          <DeleteAccount />
-        </S.MyProfileBox>
-      </S.MyPageContainer>
-      
+            </S.ModifyCompleteButton>
+            <DeleteAccount />
+          </S.ButtonContainer>
+      </S.MyProfileBox>
+      <S.TabContainer>
+        <MyPageTab />
+      </S.TabContainer>
     </S.MyPageAll>
   );
 };

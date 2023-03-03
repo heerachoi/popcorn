@@ -3109,106 +3109,24 @@
       "id": "14161310-3c95-4939-a63b-6838ec44ab88"
     }
   ],
-  "likeHate": [],
+  "likeHate": [
+    {
+      "id": "b798de9c-f22e-4d89-a2d2-df1cbab7f64d",
+      "storeId": "18",
+      "userId": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "vote": "like"
+    }
+  ],
   "BookMarkList": [
     {
-      "id": "5a2233a3-d45a-4334-8ef3-750d7d1f0731",
-      "storeId": "0",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
-      "notification": false,
-      "title": "Fluffy Keyring News",
-      "open": "2023.01.13",
-      "close": "2023.02.25",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b",
-      "item": "액세서리"
-    },
-    {
-      "id": "8580b6c9-225f-4001-9c68-7a97d9c09fbc",
-      "storeId": "13",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
-      "notification": false,
-      "title": "Chigong",
-      "open": "2023.01.26",
-      "close": "2023.02.28",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Chigong%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.12.35.png?alt=media&token=9be04809-436e-438a-a6f8-3d3d94643f78",
-      "item": "리빙/라이프스타일"
-    },
-    {
-      "id": "b821f451-9ac0-4f7d-9d34-1626bb67acf9",
+      "id": "ab331987-b124-4f63-9661-99d4cdb55b09",
       "storeId": "18",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
+      "userId": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
       "notification": false,
       "title": "두껍상회 강남",
       "open": "2023.01.20",
       "close": "2023.03.05",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.44.png?alt=media&token=489a8fc3-488a-4a35-a9f1-4076aaa97e2f",
-      "item": "기타"
-    },
-    {
-      "id": "974c1769-92a2-4736-be1a-abdc6ed011c0",
-      "storeId": "37",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
-      "notification": false,
-      "title": "Fill & Feel The Arcade",
-      "open": "2023-02-03",
-      "close": "2023-02-26",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fill%20%26%20Feel%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.52.24.png?alt=media&token=885d2ea9-9ab1-4df3-b10e-3f285c5582e3",
-      "item": "기타"
-    },
-    {
-      "id": "0d7ac668-61e3-4744-96ab-3212f8b9542a",
-      "storeId": "4",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
-      "notification": false,
-      "title": "농심 신라면 팝업스토어",
-      "open": "2023.01.09",
-      "close": "2023.02.08",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/ShinRamyun%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%209.44.28.png?alt=media&token=8a4f1439-baa8-4ef0-a999-7545a20d87ba",
-      "item": "식품"
-    },
-    {
-      "id": "6e1a9c1a-a224-4d70-ade1-ab74cd685706",
-      "storeId": "11",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
-      "notification": false,
-      "title": "1064studio",
-      "open": "2022.12.16",
-      "close": "2023.03.30",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/1064Studio%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.26.25.png?alt=media&token=104a286b-01ba-45d0-82a7-acb41c3ecc38",
-      "item": "액세서리"
-    },
-    {
-      "id": "7060d768-85f8-489e-9b68-9770bf63edc6",
-      "storeId": "16",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
-      "notification": false,
-      "title": "DELPHIC POP-UP",
-      "open": "2023.01.27",
-      "close": "2023.02.23",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DelphicPopUp%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%2012.47.21.png?alt=media&token=7bdb93ba-b5fc-48c3-970d-47d63f1a3a97",
-      "item": "식품"
-    },
-    {
-      "id": "0b8684be-5ca2-40d1-9e18-8d0f25a45a10",
-      "storeId": "21",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
-      "notification": false,
-      "title": "인생네컷 X 최고심",
-      "open": "2023-01-20",
-      "close": "2023-04-02",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/masterNewPostImg%2F%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(1).jpg?alt=media&token=e53c80c1-efd5-495d-821d-3d7730e0f0b9",
-      "item": "기타"
-    },
-    {
-      "id": "f4c818ef-37db-4422-99df-ce3b44423d58",
-      "storeId": "24",
-      "userId": "THhGvnw91ObW1nfkjAU66kVitO33",
-      "notification": false,
-      "title": "헬로키티 문방구",
-      "open": "2022-12-08",
-      "close": "2023-02-12",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/HelloKitty%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2010.12.20.png?alt=media&token=7d037df2-5340-49e1-a880-22ab5eb791cd",
-      "item": "캐릭터"
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.44.png?alt=media&token=489a8fc3-488a-4a35-a9f1-4076aaa97e2f"
     }
   ],
   "newStores": [],

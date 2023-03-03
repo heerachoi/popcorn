@@ -13,7 +13,8 @@ export const WEB_API = 'https://pop.herokuapp.com';
 
 export const getPopupData = async () => {
   const { data } = await axios.get(`${JSON_API}/Store`);
-  return data;
+  return data; // "Store": []
+
 };
 
 export const getDetailWeatherData = async ({
@@ -59,16 +60,15 @@ export const getLikeHate = async () => {
   return data;
 };
 
+export const getBookMark = async () => {
+  const { data } = await axios.get(`${JSON_API}/BookMarkList`);
+  return data;
+};
+
 export const getFaq = async () => {
   const { data } = await axios.get(`${JSON_API}/FAQ`);
   return data;
 };
-
-export const getBookMark = async (page:any) => {
-  const { data } = await axios.get(`${JSON_API}/BookMarkList?_page=${page}_limit=6`);
-  return data;
-};
-
 // const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
 // const Kakao = axios.create({
 //   baseURL: 'https://dapi.kakao.com',

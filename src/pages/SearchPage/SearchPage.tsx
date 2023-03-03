@@ -28,6 +28,7 @@ import { OtherModalButtonData } from '../../utils/ModalButtonData/OtherModalButt
 
 import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
 import { useNavigate } from 'react-router-dom';
+import NotFound from '../../components/NotFound';
 
 const Search: React.FC = () => {
   // 1. url에서 카테고리 정보를 받아
@@ -483,52 +484,56 @@ const Search: React.FC = () => {
       </S.FilterContainer>
       <S.FilterResultAndCalendarContainer>
         <S.FilterResult>
-          {storeList?.map((popup: Store) => {
-            return (
-              <S.StoreContainer
-                key={popup.id}
-                onClick={() =>
-                  navigate(`/detail/${popup.id}`, { state: popup })
-                }
-              >
-                <S.PosterImg src={popup.imgURL[0]} />
-                <S.StoreInformation>
-                  <S.InformationContainer>
-                    <S.StoreTitle>{popup.title}</S.StoreTitle>
-                    <S.EventPeriod>
-                      {popup.open} - {popup.close}
-                    </S.EventPeriod>
-                  </S.InformationContainer>
-                  <S.CategoryContainer>
-                    <S.Category
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        navigate(`/search?search=${popup.location}`);
-                      }}
-                    >
-                      {popup.location}
-                    </S.Category>
-                    <S.Category
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        navigate(`/search?search=${popup.category}`);
-                      }}
-                    >
-                      {popup.category}
-                    </S.Category>
-                    <S.Category
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        // setSearchTerm(event.target.value);
-                      }}
-                    >
-                      {popup.item}
-                    </S.Category>
-                  </S.CategoryContainer>
-                </S.StoreInformation>
-              </S.StoreContainer>
-            );
-          })}
+          {storeList.length === 0 ? (
+            <NotFound />
+          ) : (
+            storeList?.map((popup: Store) => {
+              return (
+                <S.StoreContainer
+                  key={popup.id}
+                  onClick={() =>
+                    navigate(`/detail/${popup.id}`, { state: popup })
+                  }
+                >
+                  <S.PosterImg src={popup.imgURL[0]} />
+                  <S.StoreInformation>
+                    <S.InformationContainer>
+                      <S.StoreTitle>{popup.title}</S.StoreTitle>
+                      <S.EventPeriod>
+                        {popup.open} - {popup.close}
+                      </S.EventPeriod>
+                    </S.InformationContainer>
+                    <S.CategoryContainer>
+                      <S.Category
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          navigate(`/search?search=${popup.location}`);
+                        }}
+                      >
+                        {popup.location}
+                      </S.Category>
+                      <S.Category
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          navigate(`/search?search=${popup.category}`);
+                        }}
+                      >
+                        {popup.category}
+                      </S.Category>
+                      <S.Category
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          // setSearchTerm(event.target.value);
+                        }}
+                      >
+                        {popup.item}
+                      </S.Category>
+                    </S.CategoryContainer>
+                  </S.StoreInformation>
+                </S.StoreContainer>
+              );
+            })
+          )}
         </S.FilterResult>
         <S.CalendarContainer>
           <StoreCalendar storeList={storeList} />

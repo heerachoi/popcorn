@@ -7,16 +7,20 @@ import Banner from '../../components/HomePage/Banner/Banner';
 import CategorySwiper from '../../components/HomePage/Swiper/CategorySwiper';
 import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwiper';
 import { Store } from '../../types/data/storeInterface';
+import { useEffect } from 'react';
 
 const HomePage: any = () => {
   const navigate = useNavigate();
+  console.log('before womenTopTwo')
   const womenTopTwo = PopularToWomen();
+  console.log('before menTopTwo')
   const menTopTwo = PopularToMen();
+  console.log('before query')
   const { isLoading, isError, data, error } = useQuery(
     'popup',
     getPopupData,
   );
-  
+
   if (isLoading) {
     console.log('로딩중');
     return <p>Loading...</p>;

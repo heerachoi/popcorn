@@ -77,6 +77,7 @@ export const StoreCategory = styled.div`
   font-size: 12px;
   display: flex;
   align-items: center;
+  margin: 10px;
 `;
 
 export const BookMarkThumbnail = styled.div`
