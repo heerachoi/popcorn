@@ -39,9 +39,10 @@ const MapDataCard = ({
     );
     setMapDetailPopupItem(popup);
     setPopupInfo(popup);
+    categoryChangeHandler('음식점', foodSearch);
   };
 
-  const geocoder = new kakao.maps.services.Geocoder();
+  const geocoder = new window.kakao.maps.services.Geocoder();
   const searchAddrFromCoords = (coords: kakao.maps.LatLng, callback: any) => {
     // 좌표로 행정동 주소 정보를 요청합니다
     geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
