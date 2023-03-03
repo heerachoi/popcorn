@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
 
-
 export const MyBookmarkReportWrap = styled.div``;
 
 export const MyBookmarkReportContainer = styled.div``;
 
-export const MyBookmarkReportBox = styled.div` 
+export const MyBookmarkReportBox = styled.div`
   background: #f5f5f5;
   border: 1px solid #d9d9d9;
-  border-radius: 8px;
+  border-radius: 0px 8px 8px 0px;
   padding: 0 15px;
 `;
 
@@ -39,8 +38,8 @@ export const MyTitleTabBtn = styled.button`
   width: 50%;
   &.active {
     padding-bottom: 12.5px;
-    color: #00C113;
-    border-bottom: 2px solid #00C113;
+    color: #00c113;
+    border-bottom: 2px solid #00c113;
   }
 `;
 

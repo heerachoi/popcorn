@@ -137,16 +137,31 @@ export const KakaoLoginBtn = styled.button`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
   width: 409px;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: ${COLORS.gray1};
   background-color: #fee500;
+  margin-top: 10px;
 
   border: 1px solid #fee500;
   &:hover:enabled {
     background-color: ${COLORS.orange3};
     border: 1px solid ${COLORS.orange3};
   }
+`;
+
+export const LoginOrText = styled.span`
+  color: ${COLORS.gray5};
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  border: none;
+  background-color: white;
+  margin-bottom: 50px;
 `;

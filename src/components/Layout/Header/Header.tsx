@@ -12,6 +12,7 @@ import { FaBars } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { AiFillBell } from 'react-icons/ai';
 import { BsMapFill } from 'react-icons/bs';
+import Title from '../../../assets/Logo/popcorn_logo.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -82,7 +83,7 @@ const Header = () => {
         <HoverBox>
           <S.Title
             className="title"
-            src={require('../../../assets/Logo/popcorn_logo.png')}
+            src={Title}
             alt="타이틀"
             onClick={() => globalBtnModalStatusChangeHandler('/')}
           />

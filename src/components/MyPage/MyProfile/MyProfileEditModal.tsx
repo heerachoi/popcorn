@@ -12,7 +12,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { editModal, userUrl } from '../../../atoms';
 import { profileState } from '../../../atoms';
 import { userInfo } from '../../../atoms';
-import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 import styled from 'styled-components';
 
 const MyProfileEditModal = () => {

@@ -132,12 +132,14 @@ const KakaoLogin = () => {
 
   return (
     <div>
-      <S.KakaoLoginBtn
-        style={{ cursor: 'pointer' }}
-        onClick={kakaoLoginHandler}
-      >
-        <img src={kakaoLogo} alt="카카오 로고" />
-        카카오로 계속하기
+      <S.LoginOrText>또는</S.LoginOrText>
+      <S.KakaoLoginBtn onClick={kakaoLoginHandler}>
+        <img
+          src={kakaoLogo}
+          alt="카카오 로고"
+          style={{ marginRight: '16px' }}
+        />
+        <span style={{ marginBottom: '10px' }}>카카오로 계속하기</span>
       </S.KakaoLoginBtn>
     </div>
   );

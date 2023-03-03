@@ -17,7 +17,7 @@ export const MyPageAll = styled.div`
 export const MyProfileBox = styled.div`
   width: 352px;
   border: 2px solid ${COLORS.orange3};
-  border-radius: 8px;
+  border-radius: 8px 0px 0px 8px;
   background: ${COLORS.orange4};
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ export const TabContainer = styled.div`
   @media screen and (max-width: 1060px) {
     width: 370px;
   }
-`
+`;
 
 export const ProfileImgLabelInputWrapper = styled.div`
   margin-top: 48px;
@@ -91,7 +91,7 @@ export const ButtonContainer = styled.div`
   @media screen and (max-width: 1150px) {
     margin-top: 30px;
   }
-`
+`;
 
 export const ModifyCompleteButton = styled.button`
   cursor: pointer;
@@ -105,13 +105,10 @@ export const ModifyCompleteButton = styled.button`
   background-color: ${COLORS.white};
 `;
 
-export const ModifyDeleteButton = styled.button`
-
-`;
+export const ModifyDeleteButton = styled.button``;
 
 // 이미지 수정, 업로드 관련 스타일링
-export const ImgModifyButton = styled.button`
-`;
+export const ImgModifyButton = styled.button``;
 
 /*
  * 이미지 라벨
@@ -156,14 +153,11 @@ export const EmailInputDiv = styled.div`
 
 export const MyBookmarkReportWrap = styled.div``;
 
-
 /*
  * 프로필 모달창
  */
 
-
-export const EditModalAll = styled.div`
-`;
+export const EditModalAll = styled.div``;
 
 export const EditModalBtnText = styled.div`
   cursor: pointer;
@@ -184,8 +178,7 @@ export const EditModalImgLabelInputWrapper = styled.div`
   margin: 20px 0 5px;
 `;
 
-export const EnterInputPasswordWrapper = styled.div`
-`;
+export const EnterInputPasswordWrapper = styled.div``;
 
 export const EditModalProfileImgLabel = styled.label`
   width: 160px;
@@ -207,8 +200,7 @@ export const EditModalProfileImgShow = styled.img`
 
 export const EditModalProfileImgInput = styled.input``;
 
-export const EditModalNicknameInputWrapper = styled.div`
-`;
+export const EditModalNicknameInputWrapper = styled.div``;
 
 export const EditModalText = styled.p`
   font-family: 'Apple SD Gothic Neo';
@@ -232,9 +224,7 @@ export const EditModalInput = styled.input`
   outline: none;
 `;
 
-export const EditModalEmailInputWrpper = styled.div`
-`;
-
+export const EditModalEmailInputWrpper = styled.div``;
 
 /*
  * 모달창 버튼

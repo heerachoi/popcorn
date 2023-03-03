@@ -13,7 +13,7 @@ import {
 } from '../../../atoms';
 import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../../atoms';
-import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 import { useNavigate } from 'react-router-dom';
 
 type CurrentUserProfile = any;
