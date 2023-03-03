@@ -2,6 +2,24 @@ import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import QueryString from 'qs';
 import axios from 'axios';
+import { JSON_API } from '../../../services/api';
+import * as S from './style';
+import kakaoLogo from '../../../assets/Img/kakaoLogo.svg';
+import { useRecoilState } from 'recoil';
+import { modalStatus } from '../../../atoms';
+import { kakaoAccessToken, userInfoState } from '../../../atoms';
+import { useNavigate } from 'react-router-dom';
+import { margin } from '@mui/system';
+// const userInfoState = atom({
+//   key: 'userInfoState',
+//   default: {
+//     age: '',
+//     email: '',
+//     nickName: '',
+//     id: '',
+//     accessToken: '',
+//   },
+// });
 // 카카오 로그인 기능 구현 코드
 const KakaoLogin = () => {
   const location = useLocation(); // useLocation hook 사용
@@ -11,15 +29,20 @@ const KakaoLogin = () => {
   const CLIENT_SECRET = 'Tdn2Y3Xx4qXX8mBO2tYbe44g3xwaOj23'; // 카카오 디벨로퍼스에서 발급받은 client secret 키
   //주소창에 파라미터code를 가져온다 split 메서드를 활용한다
   const KAKAO_CODE = location.search.split('=')[1];
+  const [isModal, setIsModal] = useRecoilState(modalStatus);
+  //accessToken 리코일로 바꿔라!!!!!!!!!!!!
+  const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
+  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   //nickname state
   const [nickName, setNickName] = useState('');
   //popcorn id = kakao email
   const [userId, setUserId] = useState('');
   const [age, setAge] = useState('');
-  //accessToken state
-  const [accessToken, setAccessToken] = useState();
-
-  const KakaoLoginHandler = () => {
+  const [id, setId] = useState('');
+  const [gender, setGender] = useState('');
+  const [userInfo, setUserInfo] = useRecoilState(userInfoState);
+  const navigate = useNavigate();
+  const kakaoLoginHandler = () => {
     window.location.replace(link);
   };
 
@@ -59,39 +82,63 @@ const KakaoLogin = () => {
     setNickName(user.data.properties.nickname);
     setUserId(user.data.kakao_account.email);
     setAge(user.data.kakao_account.age_range);
+    setId(user.data.id);
+    setGender(
+      user.data.kakao_account.gender
+        ? user.data.kakao_account.gender
+        : user.data.kakao_account.gender_needs_agreement,
+    );
 
-    // 로그인하고 json-server db에 저장하려면 코드를 어디에 어떤 식으로 짜야할까요?
+    // 유저 정보를 json-server에 저장
+    saveUserInfoToServer(user);
+    navigate('/');
   };
+
+  // 유저정보 저장
+  const saveUserInfoToServer = (user: any) => {
+    console.log('age', age);
+    let newUserInfo = {
+      age: user.data.kakao_account.age_range.slice(0, 2),
+      email: user.data.kakao_account.email,
+      nickName: user.data.properties.nickname,
+      id: user.data.id,
+      gender: user.data.kakao_account.gender
+        ? user.data.kakao_account.gender
+        : user.data.kakao_account.gender_needs_agreement,
+      accessToken: localStorage.getItem('token_for_kakaotalk') ?? '',
+    };
+    // Recoil state 업데이트
+    setKakaoUserInfo(newUserInfo);
+    axios
+      .post(`${JSON_API}/users`, newUserInfo)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log('user.data', user.data);
+    console.log('age', age);
+  };
+
   console.log('nickName', nickName);
   console.log('userId', userId);
-  console.log('age', age);
+
+  console.log('id', id);
 
   useEffect(() => {
     getUser();
   }, []);
 
-  // 로그아웃 accessToken 만료시키기
-  const KakaoLogoutHandler = async () => {
-    const isLogout = await fetch('https://kapi.kakao.com/v1/user/logout', {
-      headers: {
-        //accessToken을 만료시킨다
-        Authorization: `Bearer ${accessToken}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      method: 'POST',
-    }).then((res) => res.json());
-    localStorage.removeItem('token_for_kakaotalk');
-    alert('로그아웃되었습니다');
-  };
-
   return (
     <div>
-      <button style={{ cursor: 'pointer' }} onClick={KakaoLoginHandler}>
+      <S.KakaoLoginBtn
+        style={{ cursor: 'pointer' }}
+        onClick={kakaoLoginHandler}
+      >
+        <img src={kakaoLogo} alt="카카오 로고" />
         카카오로 계속하기
-      </button>
-      <button style={{ cursor: 'pointer' }} onClick={KakaoLogoutHandler}>
-        로그아웃
-      </button>
+      </S.KakaoLoginBtn>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { useRecoilState, useResetRecoilState } from 'recoil';
 import { modalStatus } from '../../../atoms';
 import CustomModal from '../../../shared/CustomModal';
 import KakaoLogin from './KakaoLogin';
+import LoginLogo from '../../../assets/Logo/Frame_59.svg';
 
 interface SignInInput {
   email: string;
@@ -119,10 +120,11 @@ const Login = () => {
   return (
     <S.Wrap>
       <S.LoginImgWrap>
-        <S.LoginImg
+        {/* <S.LoginImg
           src={require('../../../assets/Logo/Frame_59.png')}
           alt="로그인 Logo"
-        />
+        /> */}
+        <img src={LoginLogo} alt="로그인 Logo" />
       </S.LoginImgWrap>
       <S.TitleWrap>
         <S.TextBackground>

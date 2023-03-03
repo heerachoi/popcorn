@@ -1,12 +1,12 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../services/firebase';
 import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css'; 
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import CustomModal from '../../../shared/CustomModal';
 import { useRecoilState } from 'recoil';
-import { modalStatus } from '../../../atoms';
+import { kakaoAccessToken, modalStatus } from '../../../atoms';
 
 const SignUpBtn = styled.button`
   cursor: pointer;
@@ -19,7 +19,7 @@ const SignUpBtn = styled.button`
   font-weight: 700;
   font-size: 16px;
   @media screen and (max-width: 840px) {
-    color: #fff;   
+    color: #fff;
     /* top: 30px; */
     /* width: 120px; */
     top: -30px;
@@ -39,17 +39,29 @@ export const TextBackground = styled.div`
   }
   @media screen and (max-width: 840px) {
     width: 200px;
-    background-color:#323232;
-   }
+    background-color: #323232;
+  }
 `;
 
 const Logout = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
-
-  // 로그아웃 이벤트
-  const SignOutClickHandler = () => {
+  const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
+  const navigate = useNavigate();
+  // 로그아웃 이벤트 + 카카오 로그아웃
+  const SignOutClickHandler = async () => {
+    const isLogout = await fetch('https://kapi.kakao.com/v1/user/logout', {
+      headers: {
+        //accessToken을 만료시킨다
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      method: 'POST',
+    }).then((res) => res.json());
+    setAccessToken('');
+    localStorage.removeItem('token_for_kakaotalk');
     signOut(auth);
     setIsModal({ ...isModal, logout: !isModal.logout });
+    navigate('/');
   };
 
   // 로그아웃 클릭시 모달창
@@ -69,6 +81,7 @@ const Logout = () => {
         />
       )}
       <TextBackground>
+        {/* 헤더에 있는 로그아웃 버튼 */}
         <SignUpBtn onClick={modalStatusChangeHandler}>로그아웃</SignUpBtn>
       </TextBackground>
     </>

@@ -107,7 +107,7 @@ const MyProfileEditModal = () => {
 
   return (
     <>
-      <S.EditModalBtnText  onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
+      <S.EditModalBtnText onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
       <Modal
         open={open}
         onClose={handleClose}
@@ -144,13 +144,10 @@ const MyProfileEditModal = () => {
             </S.EditModalNicknameInputWrapper>
             <S.EditModalEmailInputWrpper>
               <S.EditModalText>이메일(아이디)</S.EditModalText>
-              <S.EditModalInput
-                placeholder={currentUser?.email}
-                readOnly
-              />
+              <S.EditModalInput placeholder={currentUser?.email} readOnly />
             </S.EditModalEmailInputWrpper>
             <S.EnterInputPasswordWrapper>
-               <UpdatePassword />
+              <UpdatePassword />
             </S.EnterInputPasswordWrapper>
 
             <S.EditModalBtnWrapper>
@@ -185,7 +182,6 @@ const style = {
   p: 4,
 };
 
-
 export const BoxContainer = styled(Box)`
   position: absolute;
   width: 400px;
@@ -194,11 +190,10 @@ export const BoxContainer = styled(Box)`
   transform: translate(-50%, -50%);
   height: 800px;
   border-radius: 5px;
-  background-color:#F5F5F5;
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 40px;
-  
 `;

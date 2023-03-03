@@ -1,5 +1,6 @@
 import { MdCancel } from 'react-icons/md';
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 export const Wrap = styled.div`
   box-sizing: border-box;
@@ -127,4 +128,25 @@ export const CancleIcon = styled(MdCancel)`
   left: 370px;
   bottom: 60px;
   color: #676767;
+`;
+
+export const KakaoLoginBtn = styled.button`
+  cursor: pointer;
+  border-radius: 8px;
+  height: 60px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  width: 409px;
+
+  color: ${COLORS.gray1};
+  background-color: #fee500;
+
+  border: 1px solid #fee500;
+  &:hover:enabled {
+    background-color: ${COLORS.orange3};
+    border: 1px solid ${COLORS.orange3};
+  }
 `;
