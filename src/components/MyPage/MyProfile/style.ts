@@ -42,7 +42,7 @@ export const MyProfileNickname = styled.h3`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 28px;
-  color: black;
+  color: ${COLORS.black};
   margin: 20px 0 10px;
 
   text-align: center;
@@ -148,7 +148,7 @@ export const EmailInputDiv = styled.div`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
-  background-color: #ffffff;
+  background-color: #${COLORS.white};
 `;
 
 export const MyBookmarkReportWrap = styled.div``;
@@ -168,7 +168,7 @@ export const EditModalTitle = styled.div`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 800;
   font-size: 23px;
-  color: #323232;
+  color: #${COLORS.gray1};
 `;
 
 export const EditModalImgLabelInputWrapper = styled.div`
@@ -184,7 +184,7 @@ export const EditModalProfileImgLabel = styled.label`
   width: 160px;
   height: 160px;
   border-radius: 70%;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #${COLORS.gray7};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +195,7 @@ export const EditModalProfileImgShow = styled.img`
   width: 160px;
   height: 160px;
   border-radius: 70%;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #${COLORS.gray7};
 `;
 
 export const EditModalProfileImgInput = styled.input``;
@@ -206,7 +206,7 @@ export const EditModalText = styled.p`
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   margin-bottom: 0.3rem;
-  color: #323232;
+  color: #${COLORS.gray1};
 `;
 
 export const EditModalInput = styled.input`
@@ -241,7 +241,7 @@ export const EditModalCanceleButton = styled.button`
   gap: 8px;
   width: 150px;
   height: 50px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #${COLORS.gray7};
   border-radius: 5px;
   background-color: #fff;
 
@@ -249,7 +249,7 @@ export const EditModalCanceleButton = styled.button`
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   text-align: center;
-  color: #9b9b9b;
+  color: #${COLORS.gray5};
 `;
 
 export const EditModalCompleteButton = styled.button`

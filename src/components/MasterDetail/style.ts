@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import COLORS from '../../assets/CSS/colors';
 export const ReportListWrap = styled.div``;
 export const ReportListContainer = styled.div`
   max-width: 1040px;
@@ -46,7 +46,7 @@ export const GridBox = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
 
   border-radius: 10px;
-  background: #f5f5f5;
+  background: ${COLORS.gray8};
   max-height: 900px;
 `;
 
@@ -85,15 +85,15 @@ export const ButtonBox = styled.div`
 `;
 
 export const CancleBtn = styled.button`
-  border: 1px solid #d9d9d9;
+  border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
   margin: 15px;
   margin-bottom: 22px;
   width: 200px;
   height: 60px;
 
-  background-color: #f5f5f5;
-  color: #9b9b9b;
+  background-color: ${COLORS.gray8};
+  color: ${COLORS.gray5};
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 600;
@@ -104,20 +104,20 @@ export const CancleBtn = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #9b9b9b;
-    background-color: #d9d9d9;
+    color: ${COLORS.gray5};
+    background-color: ${COLORS.gray7};
   }
 `;
 
 export const CheckBtn = styled.button`
-  border: 1px solid #9b9b9b;
+  border: 1px solid ${COLORS.gray5};
   border-radius: 8px;
   margin: 15px;
   margin-bottom: 22px;
   width: 200px;
   height: 60px;
 
-  background-color: #bdbdbd;
+  background-color: ${COLORS.gray6};
   color: white;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
@@ -129,6 +129,6 @@ export const CheckBtn = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #676767;
+    background-color: ${COLORS.gray3};
   }
 `;

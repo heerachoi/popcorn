@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import COLORS from '../../assets/CSS/colors';
 export const ContentWrap = styled.div`
   height: 618px;
   overflow: auto;
@@ -16,7 +16,7 @@ export const ContentWrap = styled.div`
 export const ListContainer = styled.div``;
 
 export const ListBox = styled.div`
-margin-bottom: 15px;
+  margin-bottom: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   &:hover {
     cursor: pointer;
@@ -52,5 +52,5 @@ export const NameText = styled.p`
 export const StatusText = styled.p`
   font-size: 12px;
   float: right;
-  color: #00C113;
+  color: #00c113;
 `;
