@@ -7,6 +7,7 @@ import {
 import React, { useState } from 'react';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
+import COLORS from '../../../assets/CSS/colors';
 const UpdatePassword = () => {
   const initPasswordInput = {
     password: '',
@@ -88,7 +89,8 @@ const UpdatePassword = () => {
   const validatePasswordHandler = (
     event: React.FocusEvent<HTMLInputElement>,
   ) => {
-    let regexPw = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    let regexPw =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     if (!regexPw.test(event.target.value)) {
       setHelperPasswordInput({
         ...helperPasswordInput,
@@ -129,16 +131,15 @@ const UpdatePassword = () => {
             onChange={passwordChangeHandler}
             placeholder={'현재 비밀번호를 입력하세요'}
           />
-          <S.CheckButton
-            onClick={firstPasswordCheck}
-          >
-            확인
-          </S.CheckButton>
+          <S.CheckButton onClick={firstPasswordCheck}>확인</S.CheckButton>
         </S.InputAndButtonContainer>
       </S.EnterInputPasswordWrapper>
       <S.EnterInputChangePasswordWrapper>
         <S.EnterInputChangePasswordText>
-          비밀번호 <span style={{fontSize:'13px'}}>(대문자,소문자+숫자+특수문자 8자 이상)</span>
+          비밀번호{' '}
+          <span style={{ fontSize: '13px' }}>
+            (대문자,소문자+숫자+특수문자 8자 이상)
+          </span>
         </S.EnterInputChangePasswordText>
         <S.EnterInputChangePasswordInput
           value={passwordInput.updatePassword}
@@ -169,7 +170,7 @@ const UpdatePassword = () => {
           style={{
             backgroundColor: 'transparent',
             cursor: 'pointer',
-            border: '1px solid black',
+            border: '1px solid ${COLORS.black};',
           }}
         >
           비밀번호 변경

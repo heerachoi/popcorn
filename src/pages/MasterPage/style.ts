@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import COLORS from '../../assets/CSS/colors';
 export const MasterPageWrap = styled.div``;
 
 export const ReportListContainer = styled.div`
@@ -7,7 +7,7 @@ export const ReportListContainer = styled.div`
   width: 100%;
   height: 750px;
   margin: 0 auto;
-  border: 1px solid #9b9b9b;
+  border: 1px solid ${COLORS.gray5};
   padding: 0 45px;
   border-radius: 8px;
   margin-top: 48px;
@@ -24,7 +24,7 @@ export const TabMenu = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  border-bottom: 2px solid #9b9b9b;
+  border-bottom: 2px solid ${COLORS.gray5}; ;
 `;
 export const MenuTitleBox = styled.div``;
 export const MenuTitleTabBtn = styled.button`
@@ -35,7 +35,7 @@ export const MenuTitleTabBtn = styled.button`
   text-align: center;
   display: block;
   border: none;
-  color: black;
+  color: ${COLORS.black};
   text-decoration: none;
   margin-top: 8px;
   padding-bottom: 15px;
@@ -75,6 +75,6 @@ export const WriteBtn = styled.button`
   &:hover {
     cursor: pointer;
     background-color: #00c113;
-    color: #ffffff;
+    color: ${COLORS.white};
   }
 `;

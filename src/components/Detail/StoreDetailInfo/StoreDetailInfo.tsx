@@ -140,9 +140,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
                 >
                   <BsBookmarkHeart style={{ color: changeColor }} />
                 </S.BookmarkClick>
-                <S.SideTitleText>
-                  북마크
-                </S.SideTitleText>
+                <S.SideTitleText>북마크</S.SideTitleText>
               </S.SideTitleIconText>
             </S.SideTitleWrap>
           </S.TitleWrap>
@@ -155,52 +153,55 @@ const StoreDetailInfo = ({ detailData }: any) => {
               </S.InfoSubBox>
               <S.InfoSubBox>
                 <S.InfoTitle>운영시간</S.InfoTitle>
-              <S.OpeningHoursWrap>
-                <S.OpeningHoursBox>
-                  {detailData?.openingTime?.map((openTime: string) => {
-                    return <span key={uuidv4()}>{openTime + '-'}</span>;
-                  })}
-                </S.OpeningHoursBox>
-                <S.OpeningHoursBox>
-                  {detailData?.closeTime?.map((closeTime: string) => {
-                    return <span key={uuidv4()}>{closeTime}</span>;
-                  })}
-                </S.OpeningHoursBox>
-              </S.OpeningHoursWrap>
+                <S.OpeningHoursWrap>
+                  <S.OpeningHoursBox>
+                    {detailData?.openingTime?.map((openTime: string) => {
+                      return <span key={uuidv4()}>{openTime + '-'}</span>;
+                    })}
+                  </S.OpeningHoursBox>
+                  <S.OpeningHoursBox>
+                    {detailData?.closeTime?.map((closeTime: string) => {
+                      return <span key={uuidv4()}>{closeTime}</span>;
+                    })}
+                  </S.OpeningHoursBox>
+                </S.OpeningHoursWrap>
               </S.InfoSubBox>
               <S.InfoSubBox>
                 <S.InfoTitle>주소</S.InfoTitle>
-              <S.InfoContentText>{detailData?.address}</S.InfoContentText>
+                <S.InfoContentText>{detailData?.address}</S.InfoContentText>
               </S.InfoSubBox>
-              <S.InfoSubBox><S.InfoTitle>스토어 설명</S.InfoTitle>
-              <S.InfoContentText>{detailData?.explain}</S.InfoContentText></S.InfoSubBox>
-              <S.InfoSubBox><S.InfoTitle>SNS계정</S.InfoTitle>
-              <S.InfoContentText>
-                <S.SnsLinkWrap>
-                  <Link
-                    to={detailData?.sns}
-                    target="_blank"
-                    style={{ color: 'black' }}
-                  >
-                    <S.SnsImg
-                      src={require('../../../assets/Img/Instagram.png')}
-                    />
-                  </Link>
-                </S.SnsLinkWrap>
-                <S.SnsLinkWrap style={{ marginTop: '10px' }}>
-                  <Link
-                    to={detailData?.web}
-                    target="_blank"
-                    style={{ color: 'black' }}
-                  >
-                    <S.SnsImg src={require('../../../assets/Img/Link.png')} />
-                  </Link>
-                </S.SnsLinkWrap>
-              </S.InfoContentText>
+              <S.InfoSubBox>
+                <S.InfoTitle>스토어 설명</S.InfoTitle>
+                <S.InfoContentText>{detailData?.explain}</S.InfoContentText>
+              </S.InfoSubBox>
+              <S.InfoSubBox>
+                <S.InfoTitle>SNS계정</S.InfoTitle>
+                <S.InfoContentText>
+                  <S.SnsLinkWrap>
+                    <Link
+                      to={detailData?.sns}
+                      target="_blank"
+                      style={{ color: '#000000' }}
+                    >
+                      <S.SnsImg
+                        src={require('../../../assets/Img/Instagram.png')}
+                      />
+                    </Link>
+                  </S.SnsLinkWrap>
+                  <S.SnsLinkWrap style={{ marginTop: '10px' }}>
+                    <Link
+                      to={detailData?.web}
+                      target="_blank"
+                      style={{ color: '#000000' }}
+                    >
+                      <S.SnsImg src={require('../../../assets/Img/Link.png')} />
+                    </Link>
+                  </S.SnsLinkWrap>
+                </S.InfoContentText>
               </S.InfoSubBox>
               <S.InfoSubBox>
                 <S.InfoTitle>카테고리</S.InfoTitle>
-              <S.InfoContentText>{detailData?.item}</S.InfoContentText>
+                <S.InfoContentText>{detailData?.item}</S.InfoContentText>
               </S.InfoSubBox>
             </S.InfoContentBox>
           </S.InfoContentWrap>

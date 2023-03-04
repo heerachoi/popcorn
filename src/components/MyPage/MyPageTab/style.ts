@@ -6,8 +6,8 @@ export const MyBookmarkReportWrap = styled.div``;
 export const MyBookmarkReportContainer = styled.div``;
 
 export const MyBookmarkReportBox = styled.div`
-  background: #f5f5f5;
-  border: 1px solid #d9d9d9;
+  background: ${COLORS.gray8};
+  border: 1px solid ${COLORS.gray7};
   border-radius: 0px 8px 8px 0px;
   padding: 0 15px;
 `;
@@ -19,7 +19,7 @@ export const MyBookmarkReportTabMenu = styled.ul`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid #9b9b9b;
+  border-bottom: 1px solid ${COLORS.gray5};
 `;
 
 export const MyTitleTabTitleBox = styled.div``;
@@ -30,7 +30,7 @@ export const MyTitleTabBtn = styled.button`
   text-align: center;
   display: block;
   border: none;
-  color: black;
+  color: ${COLORS.black};
   padding-bottom: 10px;
   margin-top: 13px;
   text-decoration: none;

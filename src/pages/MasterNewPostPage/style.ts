@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../assets/CSS/colors';
 
 export const NewPostWrap = styled.div`
   max-width: 1040px;
@@ -7,7 +8,7 @@ export const NewPostWrap = styled.div`
 `;
 
 export const TitleBackground = styled.div`
-  background-color: #88E25D;
+  background-color: #88e25d;
   width: 240px;
   height: 30px;
   padding-left: 13px;
@@ -28,11 +29,11 @@ export const NewPostTitle = styled.div`
 
 export const NewPostContainer = styled.form`
   height: 1050px;
-  border: 1px solid #9b9b9b;
+  border: 1px solid ${COLORS.gray5};
   border-radius: 8px;
   margin-top: 49px;
   padding: 40px;
-  background-color: #f5f5f5;
+  background-color: ${COLORS.gray8};
 `;
 export const PostGrid = styled.div`
   display: grid;
@@ -53,8 +54,8 @@ export const TitleInput = styled.input`
   width: 500px;
   height: 30px;
   padding: 10px;
-  border: 1px solid #bdbdbd;
-  background-color: #ffffff;
+  border: 1px solid ${COLORS.gray6};
+  background-color: ${COLORS.white};
   border-radius: 8px;
 
   font-family: 'Apple SD Gothic Neo';
@@ -64,12 +65,12 @@ export const TitleInput = styled.input`
 
   &:active,
   &:focus {
-    outline-color: #676767;
-    color: #323232;
+    outline-color: ${COLORS.gray3};
+    color: ${COLORS.gray1};
   }
 
   &::placeholder {
-    color: #9b9b9b;
+    color: ${COLORS.gray5};
   }
 
   &::before {
@@ -77,7 +78,7 @@ export const TitleInput = styled.input`
     width: 100%;
     font-family: 'Apple SD Gothic Neo';
     font-style: normal;
-    color: #9b9b9b;
+    color: ${COLORS.gray5};
   }
   &:valid::before {
     display: none;
@@ -88,7 +89,7 @@ export const TextArea = styled.textarea`
   width: 500px;
   height: 30px;
   padding: 10px;
-  border: 1px solid #9b9b9b;
+  border: 1px solid ${COLORS.gray5};
   border-radius: 8px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
@@ -97,13 +98,13 @@ export const TextArea = styled.textarea`
   resize: none;
 
   &::placeholder {
-    color: #9b9b9b;
+    color: ${COLORS.gray5};
   }
 
   &:active,
   &:focus {
-    outline-color: #676767;
-    color: #323232;
+    outline-color: ${COLORS.gray3};
+    color: ${COLORS.gray1};
   }
 `;
 
@@ -135,15 +136,15 @@ export const BtnBox = styled.div`
 `;
 
 export const CancleAddBtn = styled.button`
-  border: 1px solid #9b9b9b;
+  border: 1px solid ${COLORS.gray5};
   border-radius: 8px;
   margin: 15px;
   margin-bottom: 22px;
   width: 150px;
   height: 50px;
 
-  background-color: #bdbdbd;
-  color: white;
+  background-color: ${COLORS.gray6};
+  color: ${COLORS.white};
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 600;
@@ -154,6 +155,6 @@ export const CancleAddBtn = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #9b9b9b;
+    background-color: ${COLORS.white};
   }
 `;

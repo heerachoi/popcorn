@@ -272,14 +272,14 @@ export const DepartmentStoreCategory = styled.select`
 `;
 
 export const ItemCategory = styled.div`
-  border: 1px solid black;
+  border: 1px solid ${COLORS.black};
   border-radius: 3px;
 `;
 
 export const LocationCategory = styled.div``;
 
 export const EtcCategory = styled(ItemCategory)`
-  border: 1px solid black;
+  border: 1px solid ${COLORS.black};
   border-radius: 3px;
 `;
 

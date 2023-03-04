@@ -131,7 +131,7 @@ const KakaoLogin = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ textAlign: 'center', marginTop: '16px' }}>
       <S.LoginOrText>또는</S.LoginOrText>
       <S.KakaoLoginBtn onClick={kakaoLoginHandler}>
         <img
@@ -139,7 +139,7 @@ const KakaoLogin = () => {
           alt="카카오 로고"
           style={{ marginRight: '16px' }}
         />
-        <span style={{ marginBottom: '10px' }}>카카오로 계속하기</span>
+        <p>카카오로 계속하기</p>
       </S.KakaoLoginBtn>
     </div>
   );

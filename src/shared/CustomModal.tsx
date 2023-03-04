@@ -1,6 +1,7 @@
 import { useResetRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { modalStatus } from '../atoms';
+import COLORS from '../assets/CSS/colors';
 
 type Props = {
   title: string;
@@ -71,7 +72,7 @@ export const ModalContainer = styled.div`
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: ${COLORS.black};
   opacity: 0.5;
 `;
 
@@ -94,8 +95,8 @@ export const ModalHolder = styled.div`
   z-index: 1050;
   width: 600px;
   height: 312px;
-  background-color: #f5f5f5;
-  border: 1px solid #d9d9d9;
+  background-color: ${COLORS.gray8};
+  border: 1px solid ${COLORS.gray7};
   border-radius: 20px;
 `;
 
@@ -109,7 +110,7 @@ export const TextBackground = styled.div`
   text-align: center;
   width: 300px;
   height: 30px;
-  background-color: #ffeb62;
+  background-color: ${COLORS.orange3};
   box-sizing: border-box;
   border-radius: 20px;
 `;
@@ -119,7 +120,7 @@ export const Title = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  color: #323232;
+  color: ${COLORS.gray1};
   position: relative;
   top: -12px;
 `;
@@ -152,22 +153,22 @@ export const CancelButton = styled.button`
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
-  color: #9b9b9b;
-  background-color: #ffffff;
-  border: 1px solid #d9d9d9;
+  color: ${COLORS.gray5};
+  background-color: ${COLORS.white};
+  border: 1px solid ${COLORS.gray7};
   &:hover {
-    background-color: #d9d9d9;
-    border: 1px solid #bdbdbd;
+    background-color: ${COLORS.gray7};
+    border: 1px solid ${COLORS.gray6};
   }
 `;
 
 export const SubmitButton = styled(CancelButton)`
-  background-color: #bdbdbd;
-  border: 1px solid #9b9b9b;
-  color: #ffffff;
+  background-color: ${COLORS.gray6};
+  border: 1px solid ${COLORS.gray5};
+  color: ${COLORS.white};
   &:hover {
-    background-color: #676767;
-    border: 1px solid #323232;
+    background-color: ${COLORS.gray3};
+    border: 1px solid ${COLORS.gray1};
   }
 `;
 

@@ -58,7 +58,7 @@ const MyReportList = () => {
                   {li.status === false ? (
                     <S.ReportStatusText>진행중</S.ReportStatusText>
                   ) : (
-                    <S.ReportStatusText style={{ color: 'black' }}>
+                    <S.ReportStatusText style={{ color: '#000000' }}>
                       완료
                     </S.ReportStatusText>
                   )}

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../assets/CSS/colors';
 
 export const CustomerCenterWrap = styled.div``;
 
@@ -12,14 +13,14 @@ export const CustomerCenterTitle = styled.div`
 export const TitleBackground = styled.div`
   width: 140px;
   height: 23px;
-  background-color: #ffeb62;
+  background-color: ${COLORS.orange3};
   position: absolute;
   box-sizing: border-box;
   padding-left: 20px;
   border-radius: 12px;
 `;
 export const TitleText = styled.h1`
-position: relative;
+  position: relative;
 `;
 
 export const CustomerCenterContainer = styled.div`
@@ -29,7 +30,7 @@ export const CustomerCenterContainer = styled.div`
   height: 700px;
   margin: 0 auto;
   padding: 0 40px;
-  border: 1px solid #9b9b9b;
+  border: 1px solid ${COLORS.gray5};
   border-radius: 8px;
 `;
 
@@ -45,7 +46,7 @@ export const TabMenu = styled.ul`
   padding-bottom: 20px;
 
   &.active {
-    border-bottom: 2px solid #f2901d;
+    border-bottom: 2px solid ${COLORS.orange1};
   }
 `;
 
@@ -60,14 +61,14 @@ export const MenuTitleTabBtn = styled.button`
   text-align: center;
   background-color: transparent;
   border: none;
-  color: black;
+  color: ${COLORS.black};
   text-decoration: none;
 
   cursor: pointer;
 
   &:focus,
   &.active {
-    color: #f2901d;
+    color: ${COLORS.orange1};
   }
 `;
 
