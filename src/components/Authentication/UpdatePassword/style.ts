@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
-import * as S from './style';
 
 export const UpdatePasswordWrapper = styled.div`
   display: flex;
@@ -16,7 +15,7 @@ export const EnterInputPasswordWrapper = styled.div`
 
 export const EnterInputPassword = styled.input`
   width: 300px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
@@ -35,9 +34,7 @@ export const EnterInputPasswordText = styled.p`
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 0.3rem;
-  /* txt1 */
-
-  color: #323232;
+  color: ${COLORS.black};
 `;
 
 export const EnterInputChangePasswordWrapper = styled.div`
@@ -50,15 +47,13 @@ export const EnterInputChangePasswordText = styled.p`
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 0.3rem;
-  /* txt1 */
-
-  color: #323232;
+  color: ${COLORS.black};
 `;
 
 export const EnterInputChangePasswordInput = styled.input`
   width: 380px;
   height: 45px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
@@ -70,14 +65,13 @@ export const EnterInputChangePasswordInput = styled.input`
 `;
 
 export const EnterInputCheckPasswordWrapper = styled.div`
-  /* margin: 2vh 0vh 2vh 8vh; */
   margin-top: 30px;
 `;
 
 export const EnterInputCheckPasswordInput = styled.input`
   width: 380px;
   height: 45px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
@@ -95,14 +89,12 @@ export const EnterInputCheckPasswordText = styled.p`
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 0.3rem;
-  /* txt1 */
-
-  color: #323232;
+  color: ${COLORS.black};
 `;
 
 export const OkayBtn = styled.button`
   cursor: pointer;
-  color: #ffffff;
+  color: ${COLORS.white};
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -111,8 +103,8 @@ export const OkayBtn = styled.button`
   gap: 8px;
   width: 72px;
   height: 50px;
-  background-color: #bdbdbd;
-  border: 1px solid #9b9b9b;
+  background-color: ${COLORS.gray6};
+  border: 1px solid ${COLORS.gray5};
   border-radius: 8px;
 `;
 
@@ -135,8 +127,8 @@ export const EditModalCanceleButton = styled.button`
   gap: 8px;
   width: 170px;
   height: 60px;
-  background: #ffffff;
-  border: 1px solid #d9d9d9;
+  background: ${COLORS.white};
+  border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
 
   /* Title Text */
@@ -146,7 +138,7 @@ export const EditModalCanceleButton = styled.button`
   font-size: 16px;
   line-height: 24px;
   text-align: center;
-  color: #9b9b9b;
+  color: ${COLORS.gray5};
 `;
 
 export const EditModalCompleteButton = styled.button`

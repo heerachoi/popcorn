@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import styled from 'styled-components';
+import * as S from './style';
 import {
   mapCategoryValue,
   mapDetailBoxPopup,
@@ -27,101 +27,45 @@ const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
   };
 
   return (
-    <DetailBoxWrap>
-      <DetailInfoWrap>
-        <DetailImg src={popup.imgURL[0]} />
-        <DetailTitle>{popup.title}</DetailTitle>
-        <DetailInfoBox>
-          <DetailTextBox>
-            <DetailInfoTitle>운영기간</DetailInfoTitle>
-            <DetailInfoTitle>영업시간</DetailInfoTitle>
-            <DetailInfoTitle>주소</DetailInfoTitle>
-          </DetailTextBox>
-          <DetailTextBox>
-            <DetailInfoText>
+    <S.DetailBoxWrap>
+      <S.DetailInfoWrap>
+        <S.DetailImg src={popup.imgURL[0]} />
+        <S.DetailTitle>{popup.title}</S.DetailTitle>
+        <S.DetailInfoBox>
+          <S.DetailTextBox>
+            <S.DetailInfoTitle>운영기간</S.DetailInfoTitle>
+            <S.DetailInfoTitle>영업시간</S.DetailInfoTitle>
+            <S.DetailInfoTitle>주소</S.DetailInfoTitle>
+          </S.DetailTextBox>
+          <S.DetailTextBox>
+            <S.DetailInfoText>
               {popup.open} - {popup.close}
-            </DetailInfoText>
-            <DetailInfoText>
+            </S.DetailInfoText>
+            <S.DetailInfoText>
               {popup.openingTime[0]} - {popup.closeTime[0]}
-            </DetailInfoText>
-            <DetailInfoText>{popup.address}</DetailInfoText>
-          </DetailTextBox>
-        </DetailInfoBox>
+            </S.DetailInfoText>
+            <S.DetailInfoText>{popup.address}</S.DetailInfoText>
+          </S.DetailTextBox>
+        </S.DetailInfoBox>
         <div onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
           디테일 페이지로 이동
         </div>
-      </DetailInfoWrap>
-      <CategoryBtn
+      </S.DetailInfoWrap>
+      <S.CategoryBtn
         type="submit"
         onClick={() => categoryChangeHandler('음식점')}
       >
         음식점
-      </CategoryBtn>
-      <CategoryBtn type="submit" onClick={() => categoryChangeHandler('카페')}>
+      </S.CategoryBtn>
+      <S.CategoryBtn
+        type="submit"
+        onClick={() => categoryChangeHandler('카페')}
+      >
         카페
-      </CategoryBtn>
+      </S.CategoryBtn>
       <FoodList setMyLocation={setMyLocation} setInfo={setInfo} />
-    </DetailBoxWrap>
+    </S.DetailBoxWrap>
   );
 };
 
 export default DetailBox;
-
-const DetailBoxWrap = styled.div`
-  width: 400px;
-  height: 100vh;
-  z-index: 999;
-  position: absolute;
-  background-color: white;
-  overflow: scroll;
-  overflow-x: hidden;
-`;
-
-const CategoryBtn = styled.button`
-  border: none;
-  width: 100px;
-  height: 50px;
-  cursor: pointer;
-`;
-
-const DetailImg = styled.img`
-  width: 100%;
-  height: 300px;
-`;
-
-const DetailInfoWrap = styled.div`
-  text-align: center;
-`;
-
-const DetailTitle = styled.span`
-  color: #323232;
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 36px;
-`;
-
-const DetailInfoBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-`;
-
-const DetailTextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-const DetailInfoTitle = styled.span`
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: #00c113;
-`;
-
-const DetailInfoText = styled(DetailInfoTitle)`
-  color: #323232;
-`;

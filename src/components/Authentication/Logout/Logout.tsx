@@ -1,47 +1,10 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../services/firebase';
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
-import { Navigate, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import CustomModal from '../../../shared/CustomModal';
 import { useRecoilState } from 'recoil';
 import { modalStatus } from '../../../atoms';
-
-const SignUpBtn = styled.button`
-  cursor: pointer;
-  position: relative;
-  top: -8px;
-  border: none;
-  background-color: transparent;
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  @media screen and (max-width: 840px) {
-    color: #fff;
-    /* top: 30px; */
-    /* width: 120px; */
-    top: -30px;
-  }
-`;
-
-export const TextBackground = styled.div`
-  width: 110px;
-  height: 20px;
-  background-color: #ffeb62;
-  /* position: absolute; */
-  box-sizing: border-box;
-  padding-left: 20px;
-  border-radius: 12px;
-  &:hover {
-    background-color: #ffb321;
-  }
-  @media screen and (max-width: 840px) {
-    width: 200px;
-    background-color: #323232;
-  }
-`;
+import { useNavigate } from 'react-router-dom';
+import CustomModal from '../../../shared/CustomModal';
+import * as S from './style';
 
 const Logout = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
@@ -69,9 +32,9 @@ const Logout = () => {
           fnc={SignOutClickHandler}
         />
       )}
-      <TextBackground>
-        <SignUpBtn onClick={modalStatusChangeHandler}>로그아웃</SignUpBtn>
-      </TextBackground>
+      <S.TextBackground>
+        <S.SignUpBtn onClick={modalStatusChangeHandler}>로그아웃</S.SignUpBtn>
+      </S.TextBackground>
     </>
   );
 };

@@ -1,9 +1,4 @@
-import {
-  Map,
-  MapMarker,
-  CustomOverlayMap,
-  ZoomControl,
-} from 'react-kakao-maps-sdk';
+import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import {
