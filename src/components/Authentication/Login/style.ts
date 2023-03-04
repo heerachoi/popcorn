@@ -23,6 +23,9 @@ export const LoginImg = styled.img`
 export const TitleWrap = styled.div`
   margin-top: 20px;
   margin-bottom: 50px;
+  @media screen and (max-width: 580px) {
+    margin-bottom: 30px;
+  }
 `;
 export const Title = styled.span`
   font-family: 'Apple SD Gothic Neo';
@@ -32,6 +35,9 @@ export const Title = styled.span`
   color: #323232;
   position: relative;
   top: -12px;
+  @media screen and (max-width: 580px) {
+    font-size: 24px;
+  }
 `;
 
 export const FormWrap = styled.form`
@@ -124,9 +130,6 @@ export const HelperText = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
-  @media screen and (max-width: 580px) {
-    margin-top: -30px;
-  }
 `;
 
 export const TextBackground = styled.div`
@@ -136,11 +139,18 @@ export const TextBackground = styled.div`
   background-color: #ffeb62;
   box-sizing: border-box;
   border-radius: 20px;
+  @media screen and (max-width: 580px) {
+    width: 100px;
+    height: 20px;
+  }
 `;
 
 export const CancleIcon = styled(MdCancel)`
   position: relative;
-  left: 370px;
-  bottom: 60px;
+  left: 170px;
+  bottom: -45px;
   color: #676767;
+  @media screen and (max-width: 580px) {
+    left: 100px;
+  }
 `;

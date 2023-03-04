@@ -15,6 +15,9 @@ export const Wrap = styled.div`
 export const TitleWrap = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
+  @media screen and (max-width: 580px) {
+    margin-bottom: 30px;
+  }
 `;
 export const Title = styled.span`
   position: relative;
@@ -24,10 +27,19 @@ export const Title = styled.span`
   font-weight: 700;
   font-size: 32px;
   color: #323232;
+  @media screen and (max-width: 580px) {
+    font-size: 24px;
+  }
 `;
 
 // Form 박스, Form 안의 아이템, Form에서 사용하는 버튼, Input, 텍스트 등
-export const FormWrap = styled.form``;
+export const FormWrap = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const FormItemWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,6 +55,9 @@ export const FormText = styled(Title)`
   font-size: 16px;
   margin-bottom: 10px;
   top: 0;
+  @media screen and (max-width: 580px) {
+    font-size: 14px;
+  }
 `;
 
 export const FormInput = styled.input`
@@ -59,6 +74,9 @@ export const FormInput = styled.input`
   &:focus {
     outline: none;
     border: 1px solid #676767;
+  }
+  @media screen and (max-width: 580px) {
+    width: 210px;
   }
 `;
 
@@ -109,10 +127,17 @@ export const FormSelect = styled(FormInput)`
     width: 200px;
     height: 300px;
   }
+  @media screen and (max-width: 580px) {
+    width: 255px;
+  }
 `;
 
 export const PhoneInput = styled(FormInput)`
   width: 230px;
+  height: 58px;
+  @media screen and (max-width: 580px) {
+    width: 140px;
+  }
 `;
 
 export const PhoneBtn = styled.button`
@@ -131,6 +156,9 @@ export const PhoneBtn = styled.button`
     background-color: #d9d9d9;
     border: 1px solid #bdbdbd;
   }
+  @media screen and (max-width: 580px) {
+    width: 70px;
+  }
 `;
 
 export const CancleBtn = styled(PhoneBtn)`
@@ -142,6 +170,9 @@ export const CancleBtn = styled(PhoneBtn)`
     background-color: #d9d9d9;
     border: 1px solid #bdbdbd;
   }
+  @media screen and (max-width: 580px) {
+    width: 125px;
+  }
 `;
 
 export const SignUpBtn = styled(CancleBtn)`
@@ -152,11 +183,17 @@ export const SignUpBtn = styled(CancleBtn)`
     background-color: #676767;
     border: 1px solid #323232;
   }
+  @media screen and (max-width: 580px) {
+    width: 125px;
+  }
 `;
 
 export const HelperText = styled.span`
   color: red;
   margin-top: 5px;
+  @media screen and (max-width: 580px) {
+    font-size: 14px;
+  }
 `;
 
 export const TextBackground = styled.div`
@@ -166,4 +203,8 @@ export const TextBackground = styled.div`
   background-color: #ffeb62;
   box-sizing: border-box;
   border-radius: 20px;
+  @media screen and (max-width: 580px) {
+    width: 120px;
+    height: 20px;
+  }
 `;
