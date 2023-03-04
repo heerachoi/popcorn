@@ -13,7 +13,12 @@ export const LoginImgWrap = styled.div`
   margin-top: 50px;
 `;
 
-export const LoginImg = styled.img``;
+export const LoginImg = styled.img`
+  @media screen and (max-width: 580px) {
+    width: 150px;
+    height: 150px;
+  }
+`;
 
 export const TitleWrap = styled.div`
   margin-top: 20px;
@@ -32,6 +37,8 @@ export const Title = styled.span`
 export const FormWrap = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 export const FormInput = styled.input`
   border: 1px solid #bdbdbd;
@@ -47,6 +54,9 @@ export const FormInput = styled.input`
   &:focus {
     outline: none;
     border: 1px solid #676767;
+  }
+  @media screen and (max-width: 580px) {
+    width: 210px;
   }
 `;
 
@@ -89,6 +99,9 @@ export const LoginBtn = styled.button`
     background-color: #676767;
     border: 1px solid #9b9b9b;
   }
+  @media screen and (max-width: 580px) {
+    width: 250px;
+  }
 `;
 
 export const SignUpBtn = styled(LoginBtn)`
@@ -111,6 +124,9 @@ export const HelperText = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 12px;
+  @media screen and (max-width: 580px) {
+    margin-top: -30px;
+  }
 `;
 
 export const TextBackground = styled.div`
