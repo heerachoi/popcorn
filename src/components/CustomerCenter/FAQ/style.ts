@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 export const FaqWrap = styled.div`
   max-width: 1040px;
@@ -10,10 +11,11 @@ export const FaqWrap = styled.div`
 
   &::-webkit-scrollbar {
     width: 4px;
+    height: 80px;
   }
   &::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    background: #ccc;
+    border-radius: 8px;
+    background: ${COLORS.gray5};
   }
 `;
 
@@ -24,7 +26,7 @@ export const Container = styled.div`
   align-items: baseline;
   position: relative;
   height: 94px;
-  border-bottom: 1px solid #9b9b9b;
+  border-bottom: 1px solid ${COLORS.gray5};
 `;
 
 export const TitleBox = styled.button`
@@ -46,6 +48,7 @@ export const TitleText = styled.span`
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
+  color: ${COLORS.gray1};
 `;
 
 export const DropDownBtn = styled.button`
@@ -74,4 +77,5 @@ export const AnswerText = styled.p`
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
+  color: ${COLORS.gray1};
 `;

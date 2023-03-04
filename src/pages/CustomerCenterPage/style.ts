@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../assets/CSS/colors';
 
 export const CustomerCenterWrap = styled.div``;
 
@@ -12,13 +13,13 @@ export const CustomerCenterTitle = styled.div`
 export const TitleBackground = styled.div`
   width: 140px;
   height: 23px;
-  background-color: #88e25d;
+  background-color: ${COLORS.green2};
   position: absolute;
   box-sizing: border-box;
   padding-left: 20px;
   border-radius: 12px;
 `;
-export const TitleText = styled.h1`
+export const TitleText = styled.p`
   position: relative;
   font-family: 'Apple SD Gothic Neo';
   font-size: 32px;
@@ -26,6 +27,7 @@ export const TitleText = styled.h1`
   line-height: 38px;
   letter-spacing: 0em;
   text-align: center;
+  color: ${COLORS.gray1};
 `;
 
 export const CustomerCenterContainer = styled.div`
@@ -35,9 +37,9 @@ export const CustomerCenterContainer = styled.div`
   height: 700px;
   margin: 0 auto;
   padding: 0 40px;
-  border: 1px solid #d9d9d9;
-  background-color: #f5f5f5;
+  border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
+  background-color: ${COLORS.gray8};
 `;
 
 export const TabMenu = styled.ul`
@@ -49,6 +51,10 @@ export const TabMenu = styled.ul`
   list-style: none;
   margin-top: 24px;
   border-bottom: 2px solid #9b9b9b;
+  margin-bottom: 20px;
+  /* padding-bottom: 20px; */
+
+
 `;
 
 export const TabTitleBox = styled.div``;
@@ -61,7 +67,7 @@ export const MenuTitleTabBtn = styled.button`
   text-align: center;
   background-color: transparent;
   border: none;
-  color: #9b9b9b;
+  color: ${COLORS.gray5};
   text-decoration: none;
   margin-top: 4px;
   padding-bottom: 25px;
@@ -69,12 +75,13 @@ export const MenuTitleTabBtn = styled.button`
   cursor: pointer;
 
   &.active {
-    border-bottom: 2px solid #00c113;
-    color: #00c113;
+    border-bottom: 4px solid ${COLORS.green1};
+    color: ${COLORS.green1};
   }
 
   &:focus {
-    border-bottom: 2px solid #00c113;
+    border-bottom: 4px solid ${COLORS.green1};
+    color: ${COLORS.green1};
   }
 `;
 

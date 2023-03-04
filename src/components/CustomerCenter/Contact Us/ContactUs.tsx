@@ -1,26 +1,154 @@
 import React from 'react';
 import * as S from './style';
+import smallLike from '../../../assets/Img/smallLike.svg';
+import smallSad from '../../../assets/Img/smallSad.svg';
+import smallWow from '../../../assets/Img/smallWow.svg';
+import smallHeart from '../../../assets/Img/smallHeart.svg';
+import smallGreenDefault from '../../../assets/Img/smallGreenDefault.svg';
 
 const ContactUs = () => {
+  const data = [
+ 
+    {
+      id: 2,
+      title: 'Front End',
+      name: 'JaeChang Han',
+      github: 'https://github.com/JAECHANGG',
+      blog: 'https://velog.io/@abcwockd95',
+    },
+    {
+      id: 3,
+      title: 'Front End',
+      name: 'JiEun Han',
+      github: 'https://github.com/yjyyls',
+      blog: 'https://yjyyls6.tistory.com/',
+    },
+    {
+      id: 4,
+      title: 'Front End',
+      name: 'YuAn Kim',
+      github: 'https://github.com/innasz',
+      blog: 'https://velog.io/@innasz',
+    },
+    // {
+    //   id: 5,
+    //   title: 'Designer',
+    //   name: 'HyunSil Choi',
+    //   portfoilo: 'https://github.com/heerachoi'
+    // },
+  ];
+
   return (
     <S.contactUsWarp>
       <S.cardBox>
         <S.background>
-          <S.Img src={require('../../../assets/Img/smallLike.png')} />
+          <S.Img src={smallLike} />
         </S.background>
         <S.TextBox>
-            <p>Front End</p>
+          <S.TitleText>Front End</S.TitleText>
+          <S.NameText>HeeRa Choi</S.NameText>
+          <S.LinkWarp>
+            <S.LinkBox>
+              <S.LinkText>Github Link</S.LinkText>
+              <S.Alink href="https://github.com/heerachoi">
+                https://github.com/heerachoi
+              </S.Alink>
+            </S.LinkBox>
+            <S.LinkBox>
+              <S.LinkText>Blog Link</S.LinkText>
+              <S.Alink href="https://codesign.tistory.com/">
+                https://codesign.tistory.com/
+              </S.Alink>
+            </S.LinkBox>
+          </S.LinkWarp>
         </S.TextBox>
       </S.cardBox>
       <S.cardBox>
         <S.background>
-          <S.Img src={require('../../../assets/Img/smallLike.png')} />
+          <S.Img src={smallSad} />
         </S.background>
-        <div>
-            <p>Front End</p>
-        </div>
+        <S.TextBox>
+          <S.TitleText>Front End</S.TitleText>
+          <S.NameText>JaeChang Han</S.NameText>
+          <S.LinkWarp>
+            <S.LinkBox>
+              <S.LinkText>Github Link</S.LinkText>
+              <S.Alink href="https://github.com/JAECHANGG">
+                https://github.com/JAECHANGG
+              </S.Alink>
+            </S.LinkBox>
+            <S.LinkBox>
+              <S.LinkText>Blog Link</S.LinkText>
+              <S.Alink href="https://velog.io/@abcwockd95">
+                https://velog.io/@abcwockd95
+              </S.Alink>
+            </S.LinkBox>
+          </S.LinkWarp>
+        </S.TextBox>
       </S.cardBox>
-      
+      <S.cardBox>
+        <S.background>
+          <S.Img src={smallWow} />
+        </S.background>
+        <S.TextBox>
+          <S.TitleText>Front End</S.TitleText>
+          <S.NameText>JiEun Han</S.NameText>
+          <S.LinkWarp>
+            <S.LinkBox>
+              <S.LinkText>Github Link</S.LinkText>
+              <S.Alink href="https://github.com/yjyyls">
+                https://github.com/yjyyls
+              </S.Alink>
+            </S.LinkBox>
+            <S.LinkBox>
+              <S.LinkText>Blog Link</S.LinkText>
+              <S.Alink href="https://yjyyls6.tistory.com/">
+                https://yjyyls6.tistory.com/
+              </S.Alink>
+            </S.LinkBox>
+          </S.LinkWarp>
+        </S.TextBox>
+      </S.cardBox>
+      <S.cardBox>
+        <S.background>
+          <S.Img src={smallHeart} />
+        </S.background>
+        <S.TextBox>
+          <S.TitleText>Front End</S.TitleText>
+          <S.NameText>YuAn Kim</S.NameText>
+          <S.LinkWarp>
+            <S.LinkBox>
+              <S.LinkText>Github Link</S.LinkText>
+              <S.Alink href="https://github.com/innasz">
+                https://github.com/innasz
+              </S.Alink>
+            </S.LinkBox>
+            <S.LinkBox>
+              <S.LinkText>Blog Link</S.LinkText>
+              <S.Alink href="https://velog.io/@innasz">
+                https://velog.io/@innasz
+              </S.Alink>
+            </S.LinkBox>
+          </S.LinkWarp>
+        </S.TextBox>
+      </S.cardBox>
+      <S.cardBox>
+        <S.background>
+          <S.Img src={smallGreenDefault} />
+        </S.background>
+        <S.TextBox>
+          <S.TitleText style={{color:'#00C113'}}>Designer</S.TitleText>
+          <S.NameText>HyunSil Choi</S.NameText>
+          <S.LinkWarp style={{marginTop:'35px'}}>
+            <S.LinkBox >
+              <S.LinkText>Portfoilo Link</S.LinkText>
+              <S.Alink href="https://hyunsilchoi.creatorlink.net/">
+                https://hyunsilchoi.creatorlink.net/
+              </S.Alink>
+            </S.LinkBox>
+          </S.LinkWarp>
+        </S.TextBox>
+      </S.cardBox>
     </S.contactUsWarp>
   );
 };

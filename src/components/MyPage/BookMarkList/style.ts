@@ -4,7 +4,6 @@ import COLORS from '../../../assets/CSS/colors';
 // BookMarkList.tsx
 
 export const BookMarkContainer = styled.div`
- 
   height: 1000px;
   margin-top: 16px;
   display: grid;
@@ -93,7 +92,7 @@ export const BookMarkThumbnail = styled.div`
 
   /* background: #d9d9d9; */
   border-radius: 8px 8px 0px 0px;
-  background-color: #d9d9d9;
+  background-color: ${COLORS.gray7};
 `;
 
 export const BookMarkIcon = styled.div`
@@ -113,7 +112,7 @@ export const BookMarkCardTitle = styled.p`
   font-size: 16px;
   line-height: 24px;
 
-  color: #323232;
+  color: ${COLORS.gray1};
   margin-left: 8%;
 `;
 
@@ -129,7 +128,7 @@ export const BookMarkCardDate = styled.p`
   font-size: 16px;
   line-height: 19px;
 
-  color: #9b9b9b;
+  color: ${COLORS.gray5};
   margin-left: 8%;
 `;
 
@@ -152,7 +151,7 @@ export const BookMarkCardFilterBtn = styled.button`
   margin-left: 8%;
 
   &:hover {
-    background-color: #ffeb62;
+    background-color: ${COLORS.orange3};
   }
 `;
 
@@ -170,7 +169,7 @@ export const BookMarkCardFilterTxt = styled.span`
 
   /* Grayscale/Gray3 */
 
-  color: #9b9b9b;
+  color: #${COLORS.gray5};
 
   /* Inside auto layout */
 

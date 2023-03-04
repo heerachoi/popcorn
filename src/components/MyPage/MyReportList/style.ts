@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 export const ReportWrap = styled.div`
   width: 100%;
@@ -44,5 +45,5 @@ export const ReportCategory = styled.p`
 export const ReportStatusText = styled.p`
   font-size: 12px;
   float: right;
-  color: #00c113;
+  color: ${COLORS.green1};
 `;
