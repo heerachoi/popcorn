@@ -21,6 +21,7 @@ const COLORS = {
   red: '#F4533D',
   pink: '#FFB0A6',
   lightPink: '#FFE8E4',
+  yellow: '#ffeb62',
 };
 
 export default COLORS;
