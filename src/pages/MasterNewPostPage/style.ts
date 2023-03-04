@@ -8,12 +8,12 @@ export const NewPostWrap = styled.div`
 `;
 
 export const TitleBackground = styled.div`
-  background-color: #88e25d;
-  width: 240px;
+  background-color: ${COLORS.green2};
+  width: 230px;
   height: 30px;
-  padding-left: 13px;
+  padding-left: 5px;
   border-radius: 12px;
-  margin: auto;
+  margin: 0 auto;
 `;
 
 export const NewPostTitle = styled.div`
@@ -29,25 +29,27 @@ export const NewPostTitle = styled.div`
 
 export const NewPostContainer = styled.form`
   height: 1050px;
-  border: 1px solid ${COLORS.gray5};
+  border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
   margin-top: 49px;
   padding: 40px;
   background-color: ${COLORS.gray8};
 `;
 export const PostGrid = styled.div`
+
   display: grid;
   grid-template-columns: 150px 1fr;
   margin-bottom: 40px;
+  
 `;
 
 export const PostTitle = styled.div`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
-  font-weight: bold;
-  font-size: 17px;
-  line-height: 24px;
-  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: ${COLORS.gray1};
   margin-right: 10px;
 `;
 export const TitleInput = styled.input`
@@ -122,7 +124,6 @@ export const ImgLabel = styled.label`
   height: 150px;
   width: 150px;
   border-radius: 8px;
-  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
   align-items: center;

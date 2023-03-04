@@ -19,18 +19,20 @@ export const MyBookmarkReportTabMenu = styled.ul`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border-bottom: 1px solid ${COLORS.gray5};
+  border-bottom: 2px solid ${COLORS.gray5};
 `;
 
 export const MyTitleTabTitleBox = styled.div``;
 export const MyTitleTabBtn = styled.button`
   background-color: transparent;
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
   display: block;
   border: none;
-  color: ${COLORS.black};
+  color: ${COLORS.gray5};
   padding-bottom: 10px;
   margin-top: 13px;
   text-decoration: none;
@@ -38,8 +40,8 @@ export const MyTitleTabBtn = styled.button`
   width: 50%;
   &.active {
     padding-bottom: 12.5px;
-    color: #00c113;
-    border-bottom: 2px solid #00c113;
+    color: ${COLORS.green1};
+    border-bottom: 4px solid ${COLORS.green1};
   }
 `;
 

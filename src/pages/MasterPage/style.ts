@@ -7,11 +7,11 @@ export const ReportListContainer = styled.div`
   width: 100%;
   height: 750px;
   margin: 0 auto;
-  border: 1px solid ${COLORS.gray5};
+  border: 1px solid ${COLORS.gray7};
   padding: 0 45px;
   border-radius: 8px;
   margin-top: 48px;
-  background-color: #f5f5f5;
+  background-color: ${COLORS.gray8};
 `;
 
 export const TabMenu = styled.ul`
@@ -29,25 +29,28 @@ export const TabMenu = styled.ul`
 export const MenuTitleBox = styled.div``;
 export const MenuTitleTabBtn = styled.button`
   width: 520px;
-  background-color: transparent;
-  font-weight: bold;
-  font-size: 20px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   display: block;
   border: none;
-  color: ${COLORS.black};
+  color: ${COLORS.gray5};
+  background-color: transparent;
   text-decoration: none;
-  margin-top: 8px;
+  margin-top: 11px;
   padding-bottom: 15px;
   cursor: pointer;
 
   &.active {
-    border-bottom: 2px solid #00c113;
-    color: #00c113;
+    border-bottom: 4px solid ${COLORS.green1};
+    color: ${COLORS.green1};
   }
 
   &:focus {
-    border-bottom: 2px solid #00c113;
+    border-bottom: 4px solid ${COLORS.green1};
   }
 `;
 
@@ -65,7 +68,7 @@ export const NewPostWriteBtnBox = styled.div`
 export const WriteBtn = styled.button`
   width: 408px;
   height: 60px;
-  color: #00c113;
+  color: ${COLORS.green1};
   border-radius: 8px;
   background-color: #e7ffd8;
   border: 1px solid #88e25d;
@@ -74,7 +77,7 @@ export const WriteBtn = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #00c113;
+    background-color: ${COLORS.green1};
     color: ${COLORS.white};
   }
 `;

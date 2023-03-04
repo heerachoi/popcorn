@@ -8,8 +8,10 @@ interface getDetailWeatherData {
 
 const OPENWEATHER_URL = 'https://api.openweathermap.org/data/2.5';
 
-export const JSON_API = 'http://localhost:3010';
-export const WEB_API = 'http://localhost:3000';
+// export const JSON_API = 'http://localhost:3010';
+// export const WEB_API = 'http://localhost:3000';
+export const JSON_API = 'https://pop.herokuapp.com';
+export const WEB_API = 'https://pop.herokuapp.com';
 
 export const getPopupData = async () => {
   const { data } = await axios.get(`${JSON_API}/Store`);

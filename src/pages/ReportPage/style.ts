@@ -42,7 +42,7 @@ export const TitleBtn = styled.button`
   font-size: 24px;
   text-align: center;
   line-height: 24px;
-  color: ${COLORS.black};
+  color: ${COLORS.gray5};
   margin-top: 9px;
   padding-bottom: 17px;
   background-color: transparent;
@@ -52,13 +52,10 @@ export const TitleBtn = styled.button`
   text-decoration: none;
   cursor: pointer;
   &.active {
-    border-bottom: 2px solid #00c113;
-    color: #00c113;
+    border-bottom: 4px solid ${COLORS.green1};
+    color: ${COLORS.green1};
   }
 
-  &:focus {
-    /* border-bottom: 2px solid #00C113; */
-  }
   @media screen and (max-width: 900px) {
     width: 369px;
   }
