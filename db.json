@@ -3120,8 +3120,8 @@
   "BookMarkList": [
     {
       "id": "ab331987-b124-4f63-9661-99d4cdb55b09",
-      "storeId": "18",
-      "userId": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "store": "18",
+      "user": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
       "notification": false,
       "title": "두껍상회 강남",
       "open": "2023.01.20",

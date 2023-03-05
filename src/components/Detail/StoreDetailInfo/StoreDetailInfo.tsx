@@ -47,9 +47,9 @@ const StoreDetailInfo = ({ detailData }: any) => {
   }, [bookMarkState, changeColor]);
 
   const NewBookmark = {
-    id: uuidv4(),
-    storeId: detailData?.id,
-    userId: auth.currentUser?.uid,
+    id: currentUser.uid + detailData?.id,
+    store: detailData?.id,
+    user: auth.currentUser?.uid,
     notification: false,
     title: detailData?.title,
     open: detailData?.open,
@@ -63,8 +63,8 @@ const StoreDetailInfo = ({ detailData }: any) => {
     const { data } = await axios.get(`${JSON_API}/BookMarkList`); // 북마크 리스트
     data.map((bookmark: BookMark) => {
       if (
-        bookmark.userId === currentUser.uid &&
-        bookmark.storeId === detailData?.id
+        bookmark.user === currentUser.uid &&
+        bookmark.store === detailData?.id
       ) {
         // 유저가 북마크를 했음
         setChangeColor(`${COLORS.orange2}`);

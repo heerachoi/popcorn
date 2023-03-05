@@ -17,7 +17,7 @@ const BookMarkList = () => {
   }
 
   const bookmarkList = data?.filter((bookmark: any) => {
-    return userInfos?.uid === bookmark?.userId;
+    return userInfos?.uid === bookmark?.user;
   });
   console.log('bookmarkList', bookmarkList);
 

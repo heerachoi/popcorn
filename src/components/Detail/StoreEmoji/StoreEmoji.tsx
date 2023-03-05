@@ -102,16 +102,10 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       if (likeClicked) {
         // 좋아요 눌린 상태
         try {
-          axios.delete(`${JSON_API}/likeHate/` + `${currentLikeId}`)
-          .then(function (response) {
+          axios.delete(`${JSON_API}/likeHate/` + `${currentLikeId}`);
             setLikeColor(`${COLORS.black}`);
             setLikeClicked(false);
             setLike(like-1);
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-
         } catch (error) {
           console.log('error', error);
         }
