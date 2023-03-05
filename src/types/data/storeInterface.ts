@@ -24,8 +24,8 @@ export interface Store {
 
 export interface BookMark {
   id: string,
-  storeId: string,
-  userId: string,
+  store: string,
+  user: string,
   notification: boolean,
   title: string,
   open: string,
