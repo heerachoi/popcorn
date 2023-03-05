@@ -133,3 +133,39 @@ export const Category = styled.div`
     background-color: ${COLORS.orange2};
   }
 `;
+
+// 더보기 
+export const SeeMoreContainer = styled.div`
+  width: 344px;
+  height: 516px;
+  border-radius: 8px;
+	position: relative;
+  cursor: pointer;
+`;
+
+export const SeeMoreImage = styled.img`
+  width: 100%;
+  height: 516px;
+  object-fit: cover;
+  border-radius: 8px;
+`
+
+export const SeeMoreText = styled.div`
+  width: 100%;
+	height: 100%;
+  border-radius: 8px;
+	text-align: center;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+  color: white;
+  padding-top: 250px;
+  font-weight: 700;
+  font-size: 20px;
+  box-sizing: border-box;
+  transition: all 0.7s;
+  background: rgba(50, 50, 50, 0.7);
+  &:hover{
+    background: rgba(143, 106, 10, 0.3);
+  }
+`
