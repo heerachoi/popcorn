@@ -178,6 +178,9 @@ export const KakaoLoginBtn = styled.button`
     background-color: ${COLORS.orange3};
     border: 1px solid ${COLORS.orange3};
   }
+  @media screen and (max-width: 580px) {
+    width: 250px;
+  }
 `;
 
 export const LoginOrText = styled.span`
