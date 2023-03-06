@@ -44,7 +44,6 @@ export const MyProfileNickname = styled.h3`
   font-size: 28px;
   color: ${COLORS.black};
   margin: 20px 0 10px;
-
   text-align: center;
 `;
 
