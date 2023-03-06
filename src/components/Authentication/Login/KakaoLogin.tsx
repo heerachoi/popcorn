@@ -9,7 +9,7 @@ import { useRecoilState } from 'recoil';
 import { modalStatus } from '../../../atoms';
 import { kakaoAccessToken, userInfoState } from '../../../atoms';
 import { useNavigate } from 'react-router-dom';
-import { margin } from '@mui/system';
+
 // const userInfoState = atom({
 //   key: 'userInfoState',
 //   default: {
@@ -23,14 +23,16 @@ import { margin } from '@mui/system';
 // 카카오 로그인 기능 구현 코드
 const KakaoLogin = () => {
   const location = useLocation(); // useLocation hook 사용
-  const REST_API_KEY = 'fbbe0ffd8e5a9275920fc4b89603b870'; // 카카오 디벨로퍼스에서 발급받은 REST API키
-  const REDIRECT_URI = 'http://localhost:3000/login'; // 카카오 로그인이 이루어지는 페이지
-  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
-  const CLIENT_SECRET = 'Tdn2Y3Xx4qXX8mBO2tYbe44g3xwaOj23'; // 카카오 디벨로퍼스에서 발급받은 client secret 키
+  const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+  const REACT_APP_REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
+  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_REST_API_KEY}&redirect_uri=${REACT_APP_REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
+  const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET; // 카카오 디벨로퍼스에서 발급받은 client secret 키
+  console.log('REACT_APP_REST_API_KEY', REACT_APP_REST_API_KEY);
+  console.log('REACT_APP_REDIRECT_URI', REACT_APP_REDIRECT_URI);
+  console.log('REACT_APP_CLIENT_SECRET', REACT_APP_CLIENT_SECRET);
   //주소창에 파라미터code를 가져온다 split 메서드를 활용한다
   const KAKAO_CODE = location.search.split('=')[1];
   const [isModal, setIsModal] = useRecoilState(modalStatus);
-  //accessToken 리코일로 바꿔라!!!!!!!!!!!!
   const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   //nickname state
@@ -59,10 +61,10 @@ const KakaoLogin = () => {
       body: QueryString.stringify({
         //엑세스 토큰을 요청하기위해 필요한 토큰과 key값들
         grant_type: 'authorization_code',
-        client_id: REST_API_KEY,
-        redirect_uri: REDIRECT_URI, //위쪽에 전부 변수로 지정해주었기에불러오기만 하면된다
+        client_id: REACT_APP_REST_API_KEY,
+        redirect_uri: REACT_APP_REDIRECT_URI, //위쪽에 전부 변수로 지정해주었기에불러오기만 하면된다
         code: KAKAO_CODE,
-        client_secret: CLIENT_SECRET,
+        client_secret: REACT_APP_CLIENT_SECRET,
       }),
     })
       .then((res) => res.json())
