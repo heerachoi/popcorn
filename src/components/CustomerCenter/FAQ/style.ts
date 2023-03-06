@@ -28,9 +28,14 @@ export const Container = styled.div`
   position: relative;
   height: 94px;
   border-bottom: 1px solid ${COLORS.gray5};
+
+  @media screen and (max-width: 1040px) {
+    height: 120px;
+   
+  }
 `;
 
-export const TitleBox = styled.button`  
+export const TitleBox = styled.button`
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -50,6 +55,9 @@ export const TitleText = styled.span`
   font-size: 16px;
   line-height: 19px;
   color: ${COLORS.gray1};
+  @media screen and (max-width: 1040px) {
+    font-size: 14px;
+  }
 `;
 
 export const DropDownBtn = styled.button`
@@ -70,6 +78,9 @@ export const AnswerBox = styled.div`
     height: auto;
     max-height: 9999px;
   }
+  @media screen and (max-width: 1040px){   
+    margin-bottom: 5px;
+  }
 `;
 
 export const AnswerText = styled.p`
@@ -79,4 +90,8 @@ export const AnswerText = styled.p`
   font-size: 16px;
   line-height: 19px;
   color: ${COLORS.gray1};
+  @media screen and (max-width: 1040px) {
+    font-size: 14px;
+
+  }
 `;

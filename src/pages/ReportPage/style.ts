@@ -7,20 +7,23 @@ export const ReportWrap = styled.div`
   margin: 0 auto;
   margin-top: 50px;
 `;
+
 export const ReportContainer = styled.div`
   box-sizing: border-box;
   max-width: 1040px;
   width: 100%;
-  max-height: 1000px;
+  min-height: 900px;
   margin: 0 auto;
   border: 1px solid ${COLORS.gray7};
   padding: 0 51px;
   border-radius: 8px;
   background-color: ${COLORS.gray8};
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 700px) {
     width: 340px;
+    padding: 0 5px;
   }
+  
 `;
 
 export const TabTitle = styled.ul`
@@ -32,7 +35,7 @@ export const TabTitle = styled.ul`
   align-items: center;
   list-style: none;
   border-bottom: 2px solid ${COLORS.gray5};
-  /* background: aliceblue; */
+ 
 `;
 
 export const TitleBox = styled.div``;
@@ -60,7 +63,11 @@ export const TitleBtn = styled.button`
     color: ${COLORS.green1};
   }
  
-
+  @media screen and (max-width: 1000px) {
+    width: 168px;
+    font-size: 16px;
+  }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+`;
