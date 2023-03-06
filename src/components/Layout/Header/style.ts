@@ -8,6 +8,7 @@ export const Wrap = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  
   @media screen and (max-width: 840px) {
     /* background-color: aqua; */
   }

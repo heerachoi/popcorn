@@ -7,28 +7,29 @@ import COLORS from '../../assets/CSS/colors';
 // NewStore.tsx
 export const NewStoreForm = styled.form`
   margin-top: 40px;
+  @media screen and (max-width: 700px) {
+    padding-left: 15px;
+  }
 `;
 export const ReportGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 1fr;
   margin-bottom: 40px;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 700px) {
     width: 340px;
     display: block;
-    
+    margin-bottom: 20px;
   }
-  
 `;
 
 export const ThreeGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 250px 250px;
   margin-bottom: 40px;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 700px) {
     width: 340px;
     display: block;
-    
   }
 `;
 
@@ -45,7 +46,7 @@ export const ReportTitle = styled.div`
     color: ${COLORS.gray5};
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 700px) {
     margin-bottom: 10px;
   }
 `;
@@ -83,10 +84,9 @@ export const ReportTitleInput = styled.input`
     display: none;
   }
 
-  @media screen and (max-width: 900px) {
-    width: 300px;    
+  @media screen and (max-width: 700px) {
+    width: 240px;
   }
-
 `;
 
 export const AddressInput = styled.input`
@@ -98,11 +98,15 @@ export const AddressInput = styled.input`
   height: 30px;
   padding: 10px;
   border-radius: 8px;
-   border: 1px solid ${COLORS.gray6};
+  border: 1px solid ${COLORS.gray6};
   background-color: ${COLORS.white};
 
   &::placeholder {
     color: ${COLORS.gray5};
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 240px;
   }
 `;
 export const AddressBtn = styled.button`
@@ -170,6 +174,10 @@ export const TextArea = styled.textarea`
     outline-color: ${COLORS.gray3};
     color: ${COLORS.gray1};
   }
+
+  @media screen and (max-width: 700px) {
+    width: 240px;
+  }
 `;
 
 export const StoreImgLabel = styled.label`
@@ -188,6 +196,10 @@ export const ButtonBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 700px) {
+    margin-right: 20px;
+  }
 `;
 
 export const CancleBtn = styled.button`
@@ -213,6 +225,10 @@ export const CancleBtn = styled.button`
     color: ${COLORS.gray5};
     background-color: ${COLORS.gray7};
   }
+  @media screen and (max-width: 700px) {
+    width: 100px;
+    height: 60px;
+  }
 `;
 
 export const AddBtn = styled.button`
@@ -235,11 +251,20 @@ export const AddBtn = styled.button`
   &:hover {
     background-color: ${COLORS.gray3};
   }
+
+  @media screen and (max-width: 700px) {
+    width: 100px;
+    height: 60px;
+  }
 `;
 
 //InfoError.tsx
 export const InfoErrorForm = styled.form`
   margin-top: 40px;
+
+  @media screen and (max-width: 700px) {
+    padding-left: 15px;
+  }
 `;
 export const ErrorImgLabel = styled.label`
   height: 150px;
