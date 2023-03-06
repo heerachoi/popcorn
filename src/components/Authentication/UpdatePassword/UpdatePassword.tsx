@@ -7,6 +7,7 @@ import {
 import React, { useState } from 'react';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
+
 const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
   const initPasswordInput = {
     password: '',
@@ -114,7 +115,7 @@ const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
     if (passwordInput.updatePassword !== passwordInput.updatePasswordCheck) {
       setHelperPasswordInput({
         ...helperPasswordInput,
-        updatePasswordCheck: '비밀번호는가 다릅니다. 확인해주세요.',
+        updatePasswordCheck: '*비밀번호는가 다릅니다. 확인해주세요.',
       });
     } else {
       setHelperPasswordInput({
@@ -141,7 +142,10 @@ const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
       </div>
       <S.EnterInputChangePasswordWrapper>
         <S.EnterInputChangePasswordText>
-          비밀번호 (대문자, 소문자+숫자+특수문자 8자 이상)
+          비밀번호{' '}
+          <span style={{ fontSize: '13px' }}>
+            (대문자,소문자+숫자+특수문자 8자 이상)
+          </span>
         </S.EnterInputChangePasswordText>
         <S.EnterInputChangePasswordInput
           value={passwordInput.updatePassword}
@@ -160,7 +164,7 @@ const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
         <S.EnterInputCheckPasswordText>
           비밀번호 확인
         </S.EnterInputCheckPasswordText>
-        <S.EnterInputCheckPasswordInput
+        <S.EnterInputChangePasswordInput
           value={passwordInput.updatePasswordCheck}
           type="password"
           name="updatePasswordCheck"

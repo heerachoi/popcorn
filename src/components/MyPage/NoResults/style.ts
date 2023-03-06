@@ -7,7 +7,7 @@ export const ResultContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 341px;
+  margin-top: 181px;
 `;
 
 export const ResultText = styled.p`

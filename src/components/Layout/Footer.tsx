@@ -7,6 +7,9 @@ import {
   modalStatus,
 } from '../../atoms';
 import Faq from '../CustomerCenter/FAQ/Faq';
+import Vector from '../../assets/Logo/Vector.png';
+import popcornLogo from '../../assets/Logo/popcorn_logo.svg';
+import DefaultLogo from '../../assets/Logo/State=Default.svg';
 import CustomModal from '../../shared/CustomModal';
 import * as S from './style';
 

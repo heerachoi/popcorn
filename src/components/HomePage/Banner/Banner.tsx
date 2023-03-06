@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import popcornBnr1 from '../../../assets/Logo/popcornBnr1.jpg';
-import popcornBnr2 from '../../../assets/Logo/popcornBnr2.jpg';
-import popcornBnr3 from '../../../assets/Logo/popcornBnr3.jpg';
-import { StyledSlider, IMG } from './style';
+import popcornBnr1 from '../../../assets/Logo/popcornBanner1 2.svg';
+import popcornBnr2 from '../../../assets/Logo/popcornBanner2 2.svg';
+import popcornBnr3 from '../../../assets/Logo/popcornBanner3 3.svg';
+import * as S from './style';
 // import { MostViews } from '../../../utils/Filter';
 
 const Banner: any = () => {
@@ -18,19 +18,19 @@ const Banner: any = () => {
   };
 
   return (
-    <StyledSlider {...settings}>
-      <IMG>
-        <Link to="/detail">
+    <S.StyledSlider {...settings}>
+      <S.IMG>
+        <Link to="/search">
           <img src={popcornBnr1} alt="배너1" />
         </Link>
-      </IMG>
-      <Link to="/detail">
+      </S.IMG>
+      <Link to="/search">
         <img src={popcornBnr2} alt="배너2" />
       </Link>
-      <Link to="/my">
+      <Link to="/search">
         <img src={popcornBnr3} alt="배너2" />
       </Link>
-    </StyledSlider>
+    </S.StyledSlider>
   );
 };
 

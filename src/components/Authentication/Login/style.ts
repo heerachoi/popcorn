@@ -87,7 +87,7 @@ export const NavigateBtn = styled.button`
   font-size: 16px;
   line-height: 19px;
   border: none;
-  background-color: ${COLORS.white}; ;
+  background-color: ${COLORS.white};
 `;
 
 export const LoginBtn = styled.button`
@@ -100,7 +100,7 @@ export const LoginBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  color: white;
+  color: ${COLORS.white};
   cursor: pointer;
   &:hover {
     background-color: ${COLORS.gray3};
@@ -154,4 +154,39 @@ export const CancleIcon = styled(MdCancel)`
   @media screen and (max-width: 580px) {
     left: 100px;
   }
+`;
+
+export const KakaoLoginBtn = styled.button`
+  cursor: pointer;
+  border-radius: 8px;
+  height: 60px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  width: 409px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${COLORS.gray1};
+  background-color: #fee500;
+  margin-top: 16px;
+
+  border: 1px solid #fee500;
+  &:hover:enabled {
+    background-color: ${COLORS.orange3};
+    border: 1px solid ${COLORS.orange3};
+  }
+`;
+
+export const LoginOrText = styled.span`
+  color: ${COLORS.gray5};
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  border: none;
+  background-color: white;
 `;

@@ -1,19 +1,33 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../services/firebase';
-import { useRecoilState } from 'recoil';
-import { modalStatus } from '../../../atoms';
+import * as S from './style';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useNavigate } from 'react-router-dom';
 import CustomModal from '../../../shared/CustomModal';
-import * as S from './style';
+import { useRecoilState } from 'recoil';
+import { kakaoAccessToken, modalStatus } from '../../../atoms';
 
 const Logout = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
+  const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
   const navigate = useNavigate();
-  // 로그아웃 이벤트
-  const SignOutClickHandler = () => {
+  // 로그아웃 이벤트 + 카카오 로그아웃
+  const SignOutClickHandler = async () => {
+    const isLogout = await fetch('https://kapi.kakao.com/v1/user/logout', {
+      headers: {
+        //accessToken을 만료시킨다
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      method: 'POST',
+    }).then((res) => res.json());
+    setAccessToken('');
+    localStorage.removeItem('token_for_kakaotalk');
+
     signOut(auth);
-    navigate('/');
     setIsModal({ ...isModal, logout: !isModal.logout });
+    navigate('/');
   };
 
   // 로그아웃 클릭시 모달창

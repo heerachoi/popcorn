@@ -7,6 +7,7 @@ const COLORS = {
   orange3: '#FFEB62',
   orange4: '#FFF9D2',
   orange5: '#FF8412',
+  orange6: '#EC6503',
 
   gray1: '#323232',
   gray2: '#494949',
@@ -16,6 +17,10 @@ const COLORS = {
   gray6: '#BDBDBD',
   gray7: '#D9D9D9',
   gray8: '#F5F5F5',
+
+  green1: '#00C113',
+  green2: '#88E25D',
+  green3: '#E7FFD8',
 
   green: '#3EE953',
   red: '#F4533D',

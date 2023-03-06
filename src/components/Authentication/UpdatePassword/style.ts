@@ -27,14 +27,36 @@ export const EnterInputPassword = styled.input`
   margin-right: 10px;
 `;
 
+export const CheckButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+  width: 42px;
+  height: 30px;
+  border: 1px solid #9B9B9B;
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: #BDBDBD;
+  cursor: pointer;
+  color: #fff;
+`
+
+
+
 export const EnterInputPasswordText = styled.p`
   font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 700;
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 0.3rem;
   color: ${COLORS.black};
+`;
+
+export const WarningText = styled.div`
+  font-size: 11px;
+  color: red;
+  max-width: 280px;
+  margin-top: 5px;
 `;
 
 export const EnterInputChangePasswordWrapper = styled.div`
@@ -42,8 +64,6 @@ export const EnterInputChangePasswordWrapper = styled.div`
 `;
 export const EnterInputChangePasswordText = styled.p`
   font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 700;
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 0.3rem;
@@ -60,8 +80,8 @@ export const EnterInputChangePasswordInput = styled.input`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 8px 16px;
-  gap: 8px;
+  padding: 12px 16px;
+  outline: none;
 `;
 
 export const EnterInputCheckPasswordWrapper = styled.div`
@@ -84,8 +104,6 @@ export const EnterInputCheckPasswordInput = styled.input`
 
 export const EnterInputCheckPasswordText = styled.p`
   font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 700;
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 0.3rem;

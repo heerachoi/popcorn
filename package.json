@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "16.13.2",
+    "node": "18.x",
     "npm": "8.1.2"
   },
   "dependencies": {
@@ -44,6 +44,7 @@
     "react-dom": "^18.2.0",
     "react-google-recaptcha": "^2.1.0",
     "react-icons": "^4.7.1",
+    "react-intersection-observer": "^9.4.3",
     "react-kakao-maps-sdk": "^1.1.6",
     "react-query": "^3.39.3",
     "react-redux": "^8.0.5",
@@ -63,10 +64,10 @@
   },
   "main": "server.ts",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.ts",
+    "start:dev": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": []

@@ -28,7 +28,7 @@ export const BtnWrap = styled.div`
   align-items: flex-end;
   gap: 1rem;
   &.NavOn {
-    background-color: ${COLORS.black};
+    background-color: ${COLORS.gray1};
     top: 68px;
     display: flex;
     justify-content: start;

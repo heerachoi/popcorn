@@ -4,12 +4,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export const StyledSlider = styled(Slider)`
-  /* height: 27.5rem; */
-      /* width: 100vw; */
-
   img {
     cursor: pointer;
-    height: 27.5rem;
     width: 100vw;
   }
 
@@ -50,15 +46,12 @@ export const StyledSlider = styled(Slider)`
   }
 
   .slick-list {
-    /* marign-right: 20px; */
-    /* background-color: aqua; */
   }
 
 
 .slick-slider {
   display: block;
   margin: 0 auto;
-  /* background-color: aqua; */
 }
 
   @media screen and (max-width: 400px) {

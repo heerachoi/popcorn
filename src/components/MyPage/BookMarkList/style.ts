@@ -1,25 +1,82 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 // BookMarkList.tsx
 
 export const BookMarkContainer = styled.div`
-  /* overflow: scroll; */
-  /* background-color: yellowgreen; */
+  height: 1000px;
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #ccc;
+  }
 `;
 
 export const BookMarkCard = styled.div`
-  display: inline-block;
-  /* position: absolute; */
+  margin-top: 16px;
   width: 296px;
-  height: 458px;
-  left: 0px;
-  top: 0px;
-
-  background: #ffffff;
-  border: 1px solid #a6a6a6;
+  height: 450px;
+  border: 1px solid ${COLORS.gray7};
+  background-color: ${COLORS.gray8};
   border-radius: 8px;
   cursor: pointer;
-  margin: 10px 20px;
+  &:hover {
+    background-color: ${COLORS.orange4};
+    border: 1px solid ${COLORS.orange2};
+  }
+`;
+
+export const BookMarkStoreImg = styled.img`
+  width: 100%;
+  height: 296px;
+  border-radius: 8px 8px 0px 0px;
+`;
+
+export const BookMarkStoreInfo = styled.div`
+  padding: 16px;
+  height: 122px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const BookMarkStoreContainer = styled.div``;
+export const StoreTitle = styled.p`
+  font-weight: 700;
+  font-size: 16px;
+  color: ${COLORS.gray1};
+  margin-bottom: 20px;
+`;
+export const StoreDate = styled.p`
+  color: ${COLORS.gray5};
+`;
+
+export const StoreCategoryContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+`;
+
+export const StoreCategory = styled.div`
+  padding: 4px 16px 3px;
+  height: 21px;
+  background: ${COLORS.gray3};
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
 `;
 
 export const BookMarkThumbnail = styled.div`
@@ -35,7 +92,7 @@ export const BookMarkThumbnail = styled.div`
 
   /* background: #d9d9d9; */
   border-radius: 8px 8px 0px 0px;
-  background-color: #d9d9d9;
+  background-color: ${COLORS.gray7};
 `;
 
 export const BookMarkIcon = styled.div`
@@ -55,7 +112,7 @@ export const BookMarkCardTitle = styled.p`
   font-size: 16px;
   line-height: 24px;
 
-  color: #323232;
+  color: ${COLORS.gray1};
   margin-left: 8%;
 `;
 
@@ -71,7 +128,7 @@ export const BookMarkCardDate = styled.p`
   font-size: 16px;
   line-height: 19px;
 
-  color: #9b9b9b;
+  color: ${COLORS.gray5};
   margin-left: 8%;
 `;
 
@@ -94,7 +151,7 @@ export const BookMarkCardFilterBtn = styled.button`
   margin-left: 8%;
 
   &:hover {
-    background-color: #ffeb62;
+    background-color: ${COLORS.orange3};
   }
 `;
 
@@ -112,7 +169,7 @@ export const BookMarkCardFilterTxt = styled.span`
 
   /* Grayscale/Gray3 */
 
-  color: #9b9b9b;
+  color: #${COLORS.gray5};
 
   /* Inside auto layout */
 

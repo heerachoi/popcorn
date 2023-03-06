@@ -1,3 +1,4 @@
+import * as S from './style';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -6,13 +7,12 @@ import { auth, storage } from '../../../services/firebase';
 import { updateProfile } from 'firebase/auth';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
-import * as S from './style';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { editModal, userUrl } from '../../../atoms';
 import { profileState } from '../../../atoms';
 import { userInfo } from '../../../atoms';
-import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 import styled from 'styled-components';
 
 const MyProfileEditModal = () => {
@@ -107,16 +107,8 @@ const MyProfileEditModal = () => {
   };
 
   return (
-    <div>
-      <Button
-        onClick={handleOpen}
-        style={{
-          width: '33%;',
-          height: '40px',
-        }}
-      >
-        <S.EditModalBtnText>회원정보수정</S.EditModalBtnText>
-      </Button>
+    <>
+      <S.EditModalBtnText onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
       <Modal
         open={open}
         onClose={handleClose}
@@ -204,7 +196,7 @@ const MyProfileEditModal = () => {
           </Box>
         </S.EditModalAll>
       </Modal>
-    </div>
+    </>
   );
 };
 export default MyProfileEditModal;
