@@ -12,6 +12,12 @@ export const ReportGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 1fr;
   margin-bottom: 40px;
+
+  @media screen and (max-width: 900px) {
+    width: 340px;
+    display: block;
+    
+  }
   
 `;
 
@@ -19,7 +25,11 @@ export const ThreeGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 250px 250px;
   margin-bottom: 40px;
-  
+  @media screen and (max-width: 900px) {
+    width: 340px;
+    display: block;
+    
+  }
 `;
 
 export const ReportTitle = styled.div`
@@ -33,6 +43,10 @@ export const ReportTitle = styled.div`
   div {
     font-size: 12px;
     color: ${COLORS.gray5};
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-bottom: 10px;
   }
 `;
 
@@ -68,6 +82,11 @@ export const ReportTitleInput = styled.input`
   &:valid::before {
     display: none;
   }
+
+  @media screen and (max-width: 900px) {
+    width: 300px;    
+  }
+
 `;
 
 export const AddressInput = styled.input`

@@ -7,6 +7,8 @@ import { Store } from '../../../types/data/storeInterface';
 import { JSON_API } from '../../../services/api';
 import StoreLikeLogo from '../../../assets/Img/Feel=Happy, Color=green.svg';
 import StoreHateLogo from '../../../assets/Img/Feel=Sad, Color=green.svg';
+import LikeHoverImg from '../../../assets/Img/Feel=Happy, Color=Yellow.svg';
+import HateHoverImg from '../../../assets/Img/Feel=Sad, Color=Yellow.svg';
 
 interface Props {
   detailData: Store;
@@ -16,8 +18,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
   const [like, setLike] = useState<number>(0);
   const [hate, setHate] = useState<number>(0);
-  const [likeColor, setLikeColor] = useState(`${COLORS.black}`);
-  const [hateColor, setHateColor] = useState(`${COLORS.black}`);
+  const [likeColor, setLikeColor] = useState(`${COLORS.gray1}`);
+  const [hateColor, setHateColor] = useState(`${COLORS.gray1}`);
   const [likeClicked, setLikeClicked] = useState(false);
   const [hateClicked, setHateClicked] = useState(false);
   const [currentLikeId, setCurrentLikeId] = useState('');
@@ -31,12 +33,14 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         likeCountHandler();
         hateCountHandler();
       } else {
+        likeCountHandler();
+        hateCountHandler();
         return console.log('로그인 안됨');
       }
     });
   }, [currentUser]);
 
-    useEffect(() => {
+  useEffect(() => {
     setCurrentLikeId(currentUser.uid + detailData?.id);
   }, [currentUser]);
 
@@ -70,8 +74,8 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           setHateClicked(true);
         }
       } else {
-        setLikeColor(`${COLORS.black}`);
-        setHateColor(`${COLORS.black}`);
+        setLikeColor(`${COLORS.gray1}`);
+        setHateColor(`${COLORS.gray1}`);
       }
     });
   };
@@ -105,9 +109,9 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         // 좋아요 눌린 상태
         try {
           axios.delete(`${JSON_API}/likeHate/` + `${currentLikeId}`);
-            setLikeColor(`${COLORS.black}`);
-            setLikeClicked(false);
-            setLike(like-1);
+          setLikeColor(`${COLORS.gray1}`);
+          setLikeClicked(false);
+          setLike(like - 1);
         } catch (error) {
           console.log('error', error);
         }
@@ -119,7 +123,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           axios.post(`${JSON_API}/likeHate`, newLike);
           setLikeColor(`${COLORS.red}`);
           setLikeClicked(true);
-          setLike(like+1);
+          setLike(like + 1);
         } catch (error) {
           console.log('error', error);
         }
@@ -136,9 +140,9 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         // 별로예요 눌린 상태
         try {
           axios.delete(`${JSON_API}/likeHate/${currentLikeId}`);
-          setHateColor(`${COLORS.black}`);
+          setHateColor(`${COLORS.gray1}`);
           setHateClicked(false);
-          setHate(hate-1);
+          setHate(hate - 1);
         } catch (error) {
           console.log('error', error);
         }
@@ -150,7 +154,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
           axios.post(`${JSON_API}/likeHate`, hateLike);
           setHateColor(`${COLORS.red}`);
           setHateClicked(true);
-          setHate(hate+1);
+          setHate(hate + 1);
         } catch (error) {
           console.log('error', error);
         }
@@ -165,7 +169,11 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       <S.EmojiContainer>
         <S.EmojiDiv>
           <S.EmojiIconBtn onClick={likeHandler}>
-            <S.LikeHateImg src={StoreLikeLogo} />
+            {likeClicked ? (
+              <S.LikeHateImg src={LikeHoverImg} />
+            ) : (
+              <S.LikeHateImg src={StoreLikeLogo} />
+            )}
           </S.EmojiIconBtn>
 
           <S.TextBackgroundContainer>
@@ -176,7 +184,11 @@ const StoreEmoji: any = ({ detailData }: Props) => {
         </S.EmojiDiv>
         <S.EmojiDiv>
           <S.EmojiIconBtn onClick={hateHandler}>
-            <S.LikeHateImg src={StoreHateLogo} />
+            {hateClicked ? (
+              <S.LikeHateImg src={HateHoverImg} />
+            ) : (
+              <S.LikeHateImg src={StoreHateLogo} />
+            )}
           </S.EmojiIconBtn>
           <S.TextBackgroundContainer>
             <S.EmojiText style={{ color: hateColor }}>별로예요</S.EmojiText>

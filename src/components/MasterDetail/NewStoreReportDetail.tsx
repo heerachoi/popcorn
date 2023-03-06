@@ -38,9 +38,9 @@ const NewStoreReportDetail = () => {
     <S.ReportListWrap>
       <S.ReportListContainer>
         <S.ReportTitleBox>
-        <S.TitleBackground style={{width: 820, right:'250px'}}>
-          <S.TitleText>신규 팝업스토어 신청 제보</S.TitleText>
-          </S.TitleBackground>
+          <S.StoreReportTitleBackground>
+            <S.TitleText>신규 팝업스토어 신청 제보</S.TitleText>
+          </S.StoreReportTitleBackground>
         </S.ReportTitleBox>
 
         <S.ReportContentListWrap>
@@ -83,9 +83,7 @@ const NewStoreReportDetail = () => {
                 </S.Grid>
                 <S.Grid>
                   <S.ReportTitle>이미지</S.ReportTitle>
-                  <S.ReportContentText>
-                    <img src={li.infoImg} />
-                  </S.ReportContentText>
+                  <S.ReportImg src={li.infoImg} />
                 </S.Grid>
                 <S.ButtonBox>
                   <S.CancleBtn onClick={() => navigate('/master')}>

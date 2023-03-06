@@ -6,6 +6,7 @@ export const FaqWrap = styled.div`
   width: 100%;
   height: 533px;
   margin: 0 auto;
+
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -29,7 +30,7 @@ export const Container = styled.div`
   border-bottom: 1px solid ${COLORS.gray5};
 `;
 
-export const TitleBox = styled.button`
+export const TitleBox = styled.button`  
   width: 100%;
   display: flex;
   justify-content: space-between;

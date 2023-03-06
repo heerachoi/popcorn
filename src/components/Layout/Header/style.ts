@@ -2,9 +2,10 @@ import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
 
 export const Wrap = styled.div`
+max-width: 1040px;
   height: 70px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   @media screen and (max-width: 840px) {
     /* background-color: aqua; */

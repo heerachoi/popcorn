@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import * as S from './style';
-import styled from 'styled-components';
 
-const TestImgSlide = () => {  
+const TestImgSlide = () => {
   const { state: detailData } = useLocation();
 
   const img = detailData?.imgURL;
@@ -32,7 +28,7 @@ const TestImgSlide = () => {
   };
 
   // 썸네일 이미지 슬라이드 세팅
-  const settingsThumbs: any = { 
+  const settingsThumbs: any = {
     slidesToShow: img?.length < 3 ? img?.length : 3,
     slidesToScroll: 1,
     asNavFor: '.slider-for',
@@ -47,7 +43,7 @@ const TestImgSlide = () => {
     <S.ImgSlideWrap>
       <S.ImgContainer>
         <S.MainImgContainer>
-          <SliderStyle
+          <S.SliderStyle
             {...settingsMain}
             asNavFor={nav2}
             ref={(slider) => setSlider1(slider)}
@@ -59,10 +55,10 @@ const TestImgSlide = () => {
                 </S.MainImgDiv>
               );
             })}
-          </SliderStyle>
+          </S.SliderStyle>
         </S.MainImgContainer>
         <S.ThumbnailImgContainer>
-          <SliderStyle
+          <S.SliderStyle
             {...settingsThumbs}
             asNavFor={nav1}
             ref={(slider) => setSlider2(slider)}
@@ -74,7 +70,7 @@ const TestImgSlide = () => {
                 </S.ThumbnailImg>
               );
             })}
-          </SliderStyle>
+          </S.SliderStyle>
         </S.ThumbnailImgContainer>
       </S.ImgContainer>
     </S.ImgSlideWrap>
@@ -84,7 +80,3 @@ const TestImgSlide = () => {
 export default TestImgSlide;
 
 // 슬라이더 라이브러리 css
-export const SliderStyle = styled(Slider)`
-  cursor: pointer;
-  width: 100%;
-`;

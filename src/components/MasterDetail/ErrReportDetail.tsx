@@ -13,7 +13,7 @@ const ErrReportDetail = () => {
     'infoErrModifiContents',
     getInfoErrReport,
   );
- 
+
   if (isLoading) {
     console.log('로딩중');
     return <p>Loading...</p>;
@@ -23,18 +23,15 @@ const ErrReportDetail = () => {
     return <p>Error!!!</p>;
   }
 
-  const selectedDetail = data?.filter((item: any) => item.id === paramId.id); 
+  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
   const currentState = selectedDetail[0].status;
 
   const checkHandler = () => {
     alert('확인');
     navigate('/master');
-    return axios.patch(
-      `${JSON_API}/infoErrModifiContents/${paramId.id}`,
-      {
-        status: !currentState,
-      },
-    );
+    return axios.patch(`${JSON_API}/infoErrModifiContents/${paramId.id}`, {
+      status: !currentState,
+    });
   };
 
   return (
@@ -80,9 +77,8 @@ const ErrReportDetail = () => {
                 </S.Grid>
                 <S.Grid>
                   <S.ReportTitle>이미지</S.ReportTitle>
-                  <S.ReportContentText>
-                    <img src={li.errImg} />
-                  </S.ReportContentText>
+
+                  <S.ReportImg src={li.errImg} />
                 </S.Grid>
                 <S.ButtonBox>
                   <S.CancleBtn onClick={() => navigate('/master')}>
