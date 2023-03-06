@@ -18,6 +18,9 @@ import StoreEmoji from '../StoreEmoji/StoreEmoji';
 /* firebase */
 import { auth } from '../../../services/firebase';
 import { JSON_API } from '../../../services/api';
+/* img */
+import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
+import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
 
 interface Props {
   detailData: Store;
@@ -138,7 +141,12 @@ const StoreDetailInfo = ({ detailData }: any) => {
                     cursor: 'pointer',
                   }}
                 >
-                  <BsBookmarkHeart style={{ color: changeColor }} />
+                  {bookMarkState ? (
+                    <S.BookMarkImg src={bookmarkHeartOrange} />
+                  ) : (
+                    <S.BookMarkImg src={bookmarkHeartBlack} />
+                  )}
+                  {/* <S.BookMarkImg src={bookmarkHeartBlack} /> */}
                 </S.BookmarkClick>
                 <S.SideTitleText>북마크</S.SideTitleText>
               </S.SideTitleIconText>
@@ -207,7 +215,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
           </S.InfoContentWrap>
         </S.DetailInfoContent>
       </S.DetailContainer>
-   
+
       {/* 좋아요/별로에요 이모티콘 컴포넌트 */}
       <StoreEmoji detailData={detailData} />
     </S.StoreDetailInfoWrap>

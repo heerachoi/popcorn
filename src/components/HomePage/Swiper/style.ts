@@ -6,16 +6,20 @@ import 'slick-carousel/slick/slick-theme.css';
 import ArrowBackgroundOff from '../../../assets/Img/arrowBackgroundOff.png';
 import ArrowBackgroundOn from '../../../assets/Img/arrowBackgroundOn.png';
 
-
-
 export const SwiperContainer = styled(Slider)`
   width: 1100px;
-  height: 506px;
+  height: 506px;  
 
   img {
     cursor: pointer;
     height: 334px;
-    width: 334px;
+    width: 334px;   
+    
+    @media screen and (max-width: 400px){
+      width: 300px;
+      height: 300px;
+      
+    }  
   }
 
   .slick-arrow {
@@ -24,7 +28,8 @@ export const SwiperContainer = styled(Slider)`
     /* background-color: aliceblue; */
     width: 52px;
     height: 59px;
-    background:url(${ArrowBackgroundOff});
+    background: url(${ArrowBackgroundOff});
+    
   }
 
   li {
@@ -39,28 +44,35 @@ export const SwiperContainer = styled(Slider)`
   .slick-slide {
     width: 334px;
     margin-right: 18px;
-    
+
+    @media screen and (max-width: 400px){
+      width: 300px;
+    }
   }
-  
+
   .slick-next {
     z-index: 999;
     background-color: white;
     width: 52px;
     height: 59px;
-    background:url(${ArrowBackgroundOff});
-     &:hover {
-      background:url(${ArrowBackgroundOn});
+    background: url(${ArrowBackgroundOff});
+    &:hover {
+      background: url(${ArrowBackgroundOn});
     }
   }
   .slick-prev {
     z-index: 999;
-    background:url(${ArrowBackgroundOff});
+    background: url(${ArrowBackgroundOff});
     width: 55px;
     height: 59px;
     object-fit: cover;
     /* background-color: black; */
     &:hover {
-      background:url(${ArrowBackgroundOn});
+      background: url(${ArrowBackgroundOn});
+    }
+    @media screen and (max-width: 400px){
+      display: none;  
+      z-index: 0;    
     }
   }
 `;
@@ -71,10 +83,11 @@ export const StoreContainer = styled.div`
   background-color: ${COLORS.gray8};
   border-radius: 8px;
   cursor: pointer;
-  &:hover{
+  &:hover {
     background-color: ${COLORS.orange4};
     border: 1px solid ${COLORS.orange2};
   }
+
 `;
 
 export const PopupImg = styled.img`
@@ -83,9 +96,7 @@ export const PopupImg = styled.img`
   border-radius: 8px 8px 0px 0px;
 `;
 
-export const InformationContainer = styled.div`
-`;
-
+export const InformationContainer = styled.div``;
 
 export const StoreInformation = styled.div`
   padding: 16px;
@@ -93,6 +104,7 @@ export const StoreInformation = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+ 
 `;
 
 export const PopupTitle = styled.p`
@@ -100,6 +112,7 @@ export const PopupTitle = styled.p`
   font-size: 16px;
   color: ${COLORS.gray1};
   margin-bottom: 20px;
+ 
 `;
 
 export const PopupDate = styled.p`
@@ -110,7 +123,7 @@ export const PopupAddress = styled.p`
   width: 300px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;  /* 말줄임 적용 */
+  text-overflow: ellipsis; /* 말줄임 적용 */
 `;
 
 export const CategoryContainer = styled.div`
@@ -126,20 +139,20 @@ export const Category = styled.div`
   border-radius: 20px;
   color: white;
   font-weight: 700;
-  font-size: 12px;  
+  font-size: 12px;
   display: flex;
   align-items: center;
-  &:hover{
+  &:hover {
     background-color: ${COLORS.orange2};
   }
 `;
 
-// 더보기 
+// 더보기
 export const SeeMoreContainer = styled.div`
   width: 344px;
   height: 516px;
   border-radius: 8px;
-	position: relative;
+  position: relative;
   cursor: pointer;
 `;
 
@@ -148,16 +161,16 @@ export const SeeMoreImage = styled.img`
   height: 516px;
   object-fit: cover;
   border-radius: 8px;
-`
+`;
 
 export const SeeMoreText = styled.div`
   width: 100%;
-	height: 100%;
+  height: 100%;
   border-radius: 8px;
-	text-align: center;
-	position: absolute;
-	top: 0%;
-	left: 0%;
+  text-align: center;
+  position: absolute;
+  top: 0%;
+  left: 0%;
   color: white;
   padding-top: 250px;
   font-weight: 700;
@@ -165,7 +178,7 @@ export const SeeMoreText = styled.div`
   box-sizing: border-box;
   transition: all 0.7s;
   background: rgba(50, 50, 50, 0.7);
-  &:hover{
+  &:hover {
     background: rgba(143, 106, 10, 0.3);
   }
-`
+`;

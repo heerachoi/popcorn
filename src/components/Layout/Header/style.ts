@@ -10,7 +10,7 @@ export const Wrap = styled.div`
   margin: 0 auto;
   
   @media screen and (max-width: 840px) {
-    /* background-color: aqua; */
+   padding: 0 10px;
   }
 `;
 

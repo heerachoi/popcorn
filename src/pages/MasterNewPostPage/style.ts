@@ -10,10 +10,14 @@ export const NewPostWrap = styled.div`
 export const TitleBackground = styled.div`
   background-color: ${COLORS.green2};
   width: 230px;
-  height: 30px;
+  height: 27px;
   padding-left: 5px;
   border-radius: 12px;
   margin: 0 auto;
+  @media screen and (max-width: 1040px) {
+    width: 210px;
+    height: 22px;
+  }
 `;
 
 export const NewPostTitle = styled.div`
@@ -24,23 +28,35 @@ export const NewPostTitle = styled.div`
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  line-height: 38px;
+
+  @media screen and (max-width: 1040px){
+    font-size: 28px;
+  }
+
 `;
 
 export const NewPostContainer = styled.form`
-  height: 1050px;
+  min-height: 1050px;
   border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
   margin-top: 49px;
   padding: 40px;
   background-color: ${COLORS.gray8};
-`;
-export const PostGrid = styled.div`
 
+  @media screen and (max-width: 1040px) {
+    padding: 10px;
+  }
+`;
+
+export const PostGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 1fr;
   margin-bottom: 40px;
-  
+
+  @media screen and (max-width: 1040px) {    
+    display: block;
+    margin-bottom: 20px;
+  }
 `;
 
 export const PostTitle = styled.div`
@@ -85,6 +101,11 @@ export const TitleInput = styled.input`
   &:valid::before {
     display: none;
   }
+  @media screen and (max-width: 1040px){
+    width: 260px;
+    margin-top: 10px;
+  }
+
 `;
 
 export const TextArea = styled.textarea`
@@ -108,12 +129,20 @@ export const TextArea = styled.textarea`
     outline-color: ${COLORS.gray3};
     color: ${COLORS.gray1};
   }
+  @media screen and (max-width: 1040px){
+    width: 260px;
+    margin-top: 10px;
+  }
 `;
 
 export const TreeGridBox = styled.div`
   display: grid;
   grid-template-columns: 150px 1fr 1fr;
   margin-bottom: 40px;
+  @media screen and (max-width: 1040px) {    
+    display: block;
+    margin-bottom: 20px;
+  }
 `;
 
 export const ImgBox = styled.div`

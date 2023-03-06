@@ -182,7 +182,7 @@ const MasterNewPost = () => {
   return (
     <S.NewPostWrap>
       <S.TitleBackground>
-      <S.NewPostTitle>새 게시물 작성</S.NewPostTitle>
+        <S.NewPostTitle>새 게시물 작성</S.NewPostTitle>
       </S.TitleBackground>
       <S.NewPostContainer onSubmit={newPostAddHandler}>
         <S.PostGrid>
@@ -312,9 +312,12 @@ const MasterNewPost = () => {
           />
         </S.PostGrid>
         <S.BtnBox>
-          <S.CancleAddBtn 
-          onClick={() =>{alert('취소하시겠습니까?'); navigate('/')}}
-          type='button'
+          <S.CancleAddBtn
+            onClick={() => {
+              alert('취소하시겠습니까?');
+              navigate('/');
+            }}
+            type="button"
             style={{ backgroundColor: 'white', color: '#9B9B9B' }}
           >
             취소

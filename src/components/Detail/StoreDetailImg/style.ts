@@ -18,6 +18,7 @@ export const MainImgContainer = styled.div`
 export const SliderStyle = styled(Slider)`
   cursor: pointer;
   width: 100%;
+  
 `;
 
 export const MainImgDiv = styled.div`
@@ -25,24 +26,29 @@ export const MainImgDiv = styled.div`
 
   img {
     margin: 0 auto;
-    /* object-fit: contain; */
     width: 100%;
     height: 700px;
     border-radius: 8px;
     border: 1px solid ${COLORS.gray7};
+
+    @media screen and (max-width: 575px) {      
+      height: 300px;
+    }    
   }
 
-  @media screen and (max-width: 575px) {   
-    height: 35vh;
+  @media screen and (max-width: 575px) {
+    width: 100%;
   }
+
+  
 `;
 
 export const ThumbnailImgContainer = styled.div`
   margin-top: 25px;
   width: 100%;
-  /* background-color: yellow; */
   @media screen and (max-width: 575px) {
     width: 345px;
+    margin: 25px 0 0 20px; 
   }
 `;
 

@@ -23,6 +23,7 @@ export const FooterWrap = styled.div`
 `;
 export const FooterTitleWrap = styled.div`
   padding: 90px 30px;
+
   @media screen and (max-width: 540px) {
     margin-top: 45px;
     padding: 0px;
@@ -55,6 +56,11 @@ export const FooterMenu = styled.button`
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
+  color: ${COLORS.gray1};
+  
+  @media screen and (max-width: 540px) {
+    color: ${COLORS.gray1};
+  }
 `;
 
 export const TextBackground = styled.div`
@@ -65,5 +71,8 @@ export const TextBackground = styled.div`
   border-radius: 12px;
   &:hover {
     background-color: ${COLORS.orange2};
+  }
+  @media screen and (max-width: 540px) {
+    margin: 0 5px;
   }
 `;

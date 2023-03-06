@@ -11,10 +11,10 @@ import {
 
 const MapDataCard = ({
   popup,
-  food,
   setMyLocation,
   setMarkerHandler,
   setPopupInfo,
+  popupInfo,
 }: any) => {
   const [category, setCategory] = useRecoilState(mapCategoryValue);
   const [search, setSearch] = useRecoilState(mapSearchValue);
@@ -70,7 +70,11 @@ const MapDataCard = ({
   return (
     <>
       {condition && (
-        <S.Wrap onClick={popupCenterChangeHandler}>
+        <S.Wrap
+          popupInfo={popupInfo?.title}
+          popup={popup.title}
+          onClick={popupCenterChangeHandler}
+        >
           <S.DetailImg src={popup?.imgURL} alt="사진" />
           <S.DetailWrap>
             <S.DetailTitle>{popup?.title}</S.DetailTitle>

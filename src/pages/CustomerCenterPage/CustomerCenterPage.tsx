@@ -20,7 +20,7 @@ const CustomerCenterPage: any = () => {
     },
     {
       id: 1,
-      tabTitle: 'FAQ (자주 묻는 질문)',
+      tabTitle: 'FAQ',
       tabContent: <Faq />,
     },
     {
