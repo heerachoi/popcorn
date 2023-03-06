@@ -36,6 +36,7 @@ export const TitleText = styled.p`
   font-size: 24px;
   text-align: center;
   position: relative;
+  margin-top: -10px;
 `;
 
 export const MapInfoBox = styled.div`

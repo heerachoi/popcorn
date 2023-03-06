@@ -9,6 +9,7 @@ export const StoreDetailInfoWrap = styled.div`
   padding: 0 10px;
   @media screen and (max-width: 700px) {
     margin-top: 0px;
+    padding: 0;
   }
 `;
 
@@ -36,6 +37,7 @@ export const TitleWrap = styled.div`
     flex-direction: column;
     gap: 27px;
     margin-top: 16px;
+    
   }
 `;
 
@@ -48,6 +50,7 @@ export const Title = styled.span`
   color: ${COLORS.gray1};
   @media screen and (max-width: 700px) {
     font-size: 18px;
+    margin-left: 10px;
   }
 `;
 
@@ -61,6 +64,7 @@ export const SideTitleWrap = styled.div`
     justify-content: space-around;
     padding-bottom: 16px;
     border-bottom: 1px solid ${COLORS.gray7};
+    margin: 0;
   }
 `;
 
@@ -79,12 +83,16 @@ export const BookmarkClick = styled.button`
   background-color: transparent;
 `;
 
+export const BookMarkImg = styled.img`
+width: 17px;
+`
+
 export const SideTitleIcon = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 800;
   font-size: 13px;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   color: ${COLORS.gray5};
 `;
 
@@ -116,9 +124,11 @@ export const InfoSubBox = styled.div`
   display: flex;
   flex-direction: row;
   /* background-color: aliceblue; */
+
   @media screen and (max-width: 700px) {
     flex-direction: column;
     gap: 15px;
+    margin-left: 15px;
   }
 `;
 
@@ -139,6 +149,8 @@ export const InfoContentText = styled.span`
   max-width: 80%;
   width: 100%;
   margin-right: 30px;
+
+  
 `;
 
 export const InfoContentCategory = styled.span`
@@ -159,14 +171,14 @@ export const InfoContentCategory = styled.span`
 
 export const SnsLinkWrap = styled.p``;
 export const SnsImg = styled.img`
-  width: 20px;
+  width: 25px;
 `;
 
 
 export const OperationPeriodWrap = styled.div``;
 
 export const OperationPeriodTitle = styled.span`
-  font-size: 17px;
+  font-size: 17px;  
 `;
 
 export const OperationPeriodText = styled.span``;
@@ -178,4 +190,8 @@ export const OpeningHoursWrap = styled.div`
 export const OpeningHoursBox = styled.div`
   display: flex;
   flex-direction: column;
+  font-family: 'Apple SD Gothic Neo';
+  font-size: 16px;
+  font-weight: 500;
+  color: ${COLORS.gray1};
 `;

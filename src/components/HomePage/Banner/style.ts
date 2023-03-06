@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 export const StyledSlider = styled(Slider)`
   img {
     cursor: pointer;
-    width: 100vw;
+    width: 100vw;    
   }
 
   .slick-dots {
@@ -23,6 +23,10 @@ export const StyledSlider = styled(Slider)`
     width: 6px;
     height: 6px;
     margin: 0 13px;
+
+    @media screen and (max-width: 400px) {
+      display: none;
+    }
   }
 
   .slick-dots li button {
@@ -48,21 +52,18 @@ export const StyledSlider = styled(Slider)`
   .slick-list {
   }
 
-
-.slick-slider {
-  display: block;
-  margin: 0 auto;
-}
+  .slick-slider {
+    display: block;
+    margin: 0 auto;
+  }
 
   @media screen and (max-width: 400px) {
-    /* img {
-      height: 20rem;
-      width: 100vw;
-    } */
+    height: 110px;
   }
 `;
 
 export const IMG = styled.div`
   width: 100%;
   height: 27.5rem;
+ 
 `;

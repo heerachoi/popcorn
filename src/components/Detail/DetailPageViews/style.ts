@@ -45,4 +45,5 @@ export const GrapTitleText = styled.p`
   font-weight: 700;
   font-size: 24px;
   text-align: center;
+  margin-top: -10px;
 `;
