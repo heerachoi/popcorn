@@ -13,9 +13,15 @@ interface Props {
   setMarkerHandler: (search: any, category: any) => void;
   setMyLocation: any;
   setInfo: any;
+  info: any;
 }
 
-const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
+const DetailBox = ({
+  setMarkerHandler,
+  setMyLocation,
+  setInfo,
+  info,
+}: Props) => {
   const navigate = useNavigate();
 
   const [category, setCategory] = useRecoilState(mapCategoryValue);
@@ -50,12 +56,14 @@ const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
             <S.DetailInfoText>{popup.address}</S.DetailInfoText>
           </S.DetailContentBox>
         </S.DetailInfoBox>
-        <S.NavigationText
-          onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
-        >
-          디테일 페이지로 이동
+        <S.NavigationBox>
+          <S.NavigationBtn
+            onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
+          >
+            디테일 페이지로 이동
+          </S.NavigationBtn>
           <S.BorderBottomLine />
-        </S.NavigationText>
+        </S.NavigationBox>
       </S.DetailInfoWrap>
       <S.CategoryWrap>
         <S.CategoryImg src={Critical} />
@@ -77,7 +85,7 @@ const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
           </S.CategoryCafeBtn>
         </S.CategoryBtnBox>
       </S.CategoryWrap>
-      <FoodList setMyLocation={setMyLocation} setInfo={setInfo} />
+      <FoodList setMyLocation={setMyLocation} setInfo={setInfo} info={info} />
     </S.DetailBoxWrap>
   );
 };

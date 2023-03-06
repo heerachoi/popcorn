@@ -6,6 +6,11 @@ interface StyleProps {
   category: string | null;
 }
 
+interface FoodCardWrapProps {
+  info: any;
+  food: any;
+}
+
 // Detail.tsx
 export const DetailBoxWrap = styled.div`
   width: 400px;
@@ -15,14 +20,23 @@ export const DetailBoxWrap = styled.div`
   background-color: white;
   overflow: scroll;
   overflow-x: hidden;
+  &::-webkit-scrollbar {
+    /* 스크롤이 움직이는 영역  */
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    /*  스크롤  */
+    background-color: ${COLORS.gray5};
+    border-radius: 30px;
+  }
 `;
 
 export const CategoryWrap = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 24px;
 `;
 
 export const CategoryImg = styled.img`
@@ -68,11 +82,13 @@ export const DetailImg = styled.img`
 `;
 
 export const DetailInfoWrap = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
 `;
 
 export const DetailTitleWrap = styled.div`
-  padding: 20px;
+  padding: 20px 24px;
 `;
 
 export const DetailTitle = styled.span`
@@ -88,7 +104,7 @@ export const DetailTitle = styled.span`
 export const DetailInfoBox = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 50px 10px 50px;
+  padding: 0 24px;
   box-sizing: border-box;
 `;
 
@@ -120,30 +136,70 @@ export const DetailInfoText = styled(DetailInfoTitle)`
   color: ${COLORS.black};
 `;
 
-export const NavigationText = styled.div`
+export const NavigationBox = styled.div`
+  padding: 24px;
+`;
+
+export const NavigationBtn = styled.button`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  width: 345px;
+  height: 40px;
+  left: 24px;
+  top: 722px;
+  background: ${COLORS.green3};
+  border: 1px solid ${COLORS.green1};
+  color: ${COLORS.green1};
+  border-radius: 8px;
+  &:hover {
+    background: ${COLORS.green1};
+    color: ${COLORS.white};
+  }
 `;
 
 export const BorderBottomLine = styled.div`
   border-bottom: 1px solid ${COLORS.gray7};
-  width: 300px;
-  padding: 10px;
+  width: 345px;
+  padding: 10px 0;
 `;
 
 // FoodCard.tsx
 export const Wrap = styled.div`
-  border: 1px solid ${COLORS.gray7};
-  background-color: ${COLORS.gray8};
+  border: 1px solid
+    ${(props: FoodCardWrapProps) =>
+      props.info?.title === props.food.title &&
+      props.info?.address === props.info.address
+        ? COLORS.green1
+        : COLORS.gray7};
+  background-color: ${(props: FoodCardWrapProps) =>
+    props.info?.title === props.food.title &&
+    props.info?.address === props.info.address
+      ? COLORS.green3
+      : COLORS.gray8};
   border-radius: 8px;
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 130px;
+  margin-bottom: 24px;
   cursor: pointer;
+  &:hover {
+    border: 1px solid
+      ${(props: FoodCardWrapProps) =>
+        props.info?.title === props.food.title &&
+        props.info?.address === props.info.address
+          ? COLORS.green1
+          : COLORS.orange2};
+    background-color: ${(props: FoodCardWrapProps) =>
+      props.info?.title === props.food.title &&
+      props.info?.address === props.info.address
+        ? COLORS.green3
+        : COLORS.orange4};
+  }
 `;
 
 export const DetailWrap = styled.div`

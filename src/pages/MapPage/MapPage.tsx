@@ -159,6 +159,7 @@ const MapPage = () => {
               setMyLocation={setMyLocation}
               setMarkerHandler={setMarkerHandler}
               setPopupInfo={setPopupInfo}
+              popupInfo={popupInfo}
             />
           </div>
           {mapModal && (
@@ -167,9 +168,10 @@ const MapPage = () => {
                 setMarkerHandler={setMarkerHandler}
                 setMyLocation={setMyLocation}
                 setInfo={setInfo}
+                info={info}
               />
               <S.CloseDetailBox onClick={() => setMapModal(false)}>
-                <img src={Vector} />
+                <S.CloseButtonImg src={Vector} />
               </S.CloseDetailBox>
             </S.DetailBoxWrap>
           )}
