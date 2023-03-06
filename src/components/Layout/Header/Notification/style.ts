@@ -9,16 +9,10 @@ export const ModalContainer = styled.div`
   z-index: 999;
   width: 100vw;
   height: 100vh;
-  /* background-color: aliceblue; */
 `;
 
 export const ModalWrapper = styled.div`
-  /* z-index: 1050;
-  width: 100%;
-  height: 100%; */
-  /* overflow-x: hidden; */
-  /* overflow-y: auto; */
-  /* outline: 0; */
+  
 `;
 export const ModalHeader = styled.div`
   display: flex;
@@ -27,10 +21,7 @@ export const ModalHeader = styled.div`
 `;
 
 export const ModalHolder = styled.div`
-  /* z-index: 999; */
   background-color: ${COLORS.orange3};
-  /* position: relative; */
-  /* margin: 1.5rem auto; */
   border-radius: 3px;
   max-width: 300px;
   padding: 1rem;
