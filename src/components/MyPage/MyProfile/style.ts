@@ -239,8 +239,6 @@ export const EditModalEmailText = styled.p`
   color: #323232;
 `;
 
-export const EditModalEmailInputWrpper = styled.div``;
-
 /*
  * 모달창 버튼
  */

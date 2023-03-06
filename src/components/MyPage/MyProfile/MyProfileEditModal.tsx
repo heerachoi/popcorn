@@ -155,9 +155,7 @@ const MyProfileEditModal = () => {
                         </S.EditModalProfileImgLabel>
                       </S.EditModalImgLabelInputWrapper>
                       <S.EditModalNicknameInputWrapper>
-                        <S.EditModalNicknameText>
-                          닉네임
-                        </S.EditModalNicknameText>
+                        <S.EditModalEmailText>닉네임</S.EditModalEmailText>
                         <S.EditModalNicknameInput
                           type="text"
                           placeholder={'닉네임을 입력해주세요'}

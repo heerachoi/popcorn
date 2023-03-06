@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import COLORS from '../../assets/CSS/colors';
 import Vector from '../../assets/Logo/Vector.png';
-import popcornLogo from '../../assets/Logo/popcorn_logo.png';
-import DefaultLogo from '../../assets/Logo/State=Default.png';
+import popcornLogo from '../../assets/Logo/popcorn_logo.svg';
+import DefaultLogo from '../../assets/Logo/State=Default.svg';
 
 // Styled 컴포넌트에서 배경 이미지 추가하는 방법
 // 1. import 사용할 이미지를 한다.
