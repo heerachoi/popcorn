@@ -13,7 +13,7 @@ export const DetailPageMap = styled(Map)`
   border-radius: 8px;
   margin: 0 auto;
   margin-top: 45px;
-  width: 1110px;
+  width: 1040px;
   height: 500px;
 `;
 
