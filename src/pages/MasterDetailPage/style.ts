@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import COLORS from '../../assets/CSS/colors';
 export const MasterDetailPageWrap = styled.div``;
 
 export const MasterDetailContainer = styled.div``;
@@ -21,7 +21,7 @@ export const MenuTitleTabBtn = styled.button`
   text-align: center;
   display: block;
   border: 1px solid #e0e0e0;
-  color: black;
+  color: ${COLORS.black};
   padding: 6px 18px;
   margin: 0 5px -1px 0;
 
@@ -34,7 +34,7 @@ export const MenuTitleTabBtn = styled.button`
   &:focus,
   &:active {
     background-color: navy;
-    color: white;
+    color: ${COLORS.white};
   }
 `;
 

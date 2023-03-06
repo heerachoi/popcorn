@@ -1,5 +1,5 @@
 const COLORS = {
-  black: '#000000',
+  black: '#323232',
   white: '#FFFFFF',
 
   orange1: '#F2901D',
@@ -18,10 +18,15 @@ const COLORS = {
   gray7: '#D9D9D9',
   gray8: '#F5F5F5',
 
+  green1: '#00C113',
+  green2: '#88E25D',
+  green3: '#E7FFD8',
+
   green: '#3EE953',
   red: '#F4533D',
   pink: '#FFB0A6',
   lightPink: '#FFE8E4',
+  yellow: '#ffeb62',
 };
 
 export default COLORS;

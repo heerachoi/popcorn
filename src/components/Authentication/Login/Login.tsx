@@ -8,6 +8,7 @@ import { useRecoilState, useResetRecoilState } from 'recoil';
 import { modalStatus } from '../../../atoms';
 import CustomModal from '../../../shared/CustomModal';
 import KakaoLogin from './KakaoLogin';
+import LoginLogo from '../../../assets/Logo/Frame_59.svg';
 
 interface SignInInput {
   email: string;
@@ -105,8 +106,7 @@ const Login = () => {
     if (!regexPw.test(event.target.value)) {
       setHelperText({
         ...helperText,
-        password:
-          '8자 이상, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.',
+        password: '8자 이상, 대/소문자,숫자,특수문자를 포함해야 합니다.',
       });
     } else {
       setHelperText({
@@ -119,10 +119,11 @@ const Login = () => {
   return (
     <S.Wrap>
       <S.LoginImgWrap>
-        <S.LoginImg
+        {/* <S.LoginImg
           src={require('../../../assets/Logo/Frame_59.png')}
           alt="로그인 Logo"
-        />
+        /> */}
+        <img src={LoginLogo} alt="로그인 Logo" />
       </S.LoginImgWrap>
       <S.TitleWrap>
         <S.TextBackground>
@@ -130,14 +131,6 @@ const Login = () => {
         </S.TextBackground>
       </S.TitleWrap>
       <S.FormWrap onSubmit={signInClickHandler}>
-        <S.FormInput
-          placeholder="아이디를 입력해 주세요."
-          value={signInInput.email}
-          name="email"
-          type="text"
-          onChange={signInInputChangeHandler}
-          onBlur={validateEmail}
-        />
         {/* 이메일 전체 지우기 버튼 */}
         {signInInput.email && (
           <div
@@ -148,16 +141,15 @@ const Login = () => {
             <S.CancleIcon size={18} />
           </div>
         )}
-        <S.HelperText>{helperText.email}</S.HelperText>
         <S.FormInput
-          placeholder="비밀번호를 입력해 주세요."
-          value={signInInput.password}
-          name="password"
-          type="password"
+          placeholder="아이디를 입력해 주세요."
+          value={signInInput.email}
+          name="email"
+          type="text"
           onChange={signInInputChangeHandler}
-          onBlur={validatePassword}
-          autoFocus={signInInput.email ? true : false}
+          onBlur={validateEmail}
         />
+        <S.HelperText>{helperText.email}</S.HelperText>
         {signInInput.password && (
           <div
             style={{ cursor: 'pointer' }}
@@ -167,6 +159,15 @@ const Login = () => {
             <S.CancleIcon size={18} />
           </div>
         )}
+        <S.FormInput
+          placeholder="비밀번호를 입력해 주세요."
+          value={signInInput.password}
+          name="password"
+          type="password"
+          onChange={signInInputChangeHandler}
+          onBlur={validatePassword}
+          autoFocus={signInInput.email ? true : false}
+        />
         <S.HelperText>{helperText.password}</S.HelperText>
         <S.LoginBtn>로그인</S.LoginBtn>
         <S.FormBtnWrap onClick={() => navigate('/')}>

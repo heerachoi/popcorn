@@ -4,12 +4,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export const StyledSlider = styled(Slider)`
-  /* height: 27.5rem; */
-      /* width: 100vw; */
-
   img {
     cursor: pointer;
-    height: 27.5rem;
     width: 100vw;
   }
 

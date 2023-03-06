@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-
+import NotFoundLogo from '../assets/Img/Feel=Sad, Color=green.svg';
 const NotFound = () => {
   return (
     <ResultWarp>
       <ResultContainer>
-        <ResultImg src={require('../assets/Img/Feel=Sad, Color=green.png')} />
+        <ResultImg src={NotFoundLogo} />
         <ResultText>입력한 검색 내용이 없습니다!</ResultText>
       </ResultContainer>
     </ResultWarp>

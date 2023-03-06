@@ -267,26 +267,7 @@ const NewStoreReport: any = () => {
             dateFormat="yyyy-MM-dd"
             placeholderText="종료 일자"
           />
-        </S.DatePickerContainer>
-
-        {/* <S.ReportTitleInput
-          style={{ width: 200 }}
-          type="date"
-          data-placeholder="시작 일자"
-          required
-          name="startDate"
-          onChange={newStoreInputonChangeHandler}
-          value={newStoreInput.startDate}
-        />
-        <S.ReportTitleInput
-          style={{ width: 200 }}
-          type="date"
-          data-placeholder="종료 일자"
-          required
-          name="endDate"
-          onChange={newStoreInputonChangeHandler}
-          value={newStoreInput.endDate}
-        /> */}
+        </S.DatePickerContainer>   
       </S.ThreeGrid>
       <S.ReportGrid>
         <S.ReportTitle>제보 내용</S.ReportTitle>

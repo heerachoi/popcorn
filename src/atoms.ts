@@ -151,16 +151,6 @@ export const editModal = atom<boolean>({
   default: false,
 });
 
-export const likeCount = atom<number>({
-  key: 'likeCount',
-  default: 0,
-});
-
-export const hateCount = atom<number>({
-  key: 'hateCount',
-  default: 0,
-});
-
 export const modalPage = atom<string>({
   key: 'modalPage',
   default: '',
@@ -176,7 +166,19 @@ export const userUrl = atom({
   default: '',
 });
 
-// export const kakaoState = atom({
-//   key: 'kakaoState',
-//   default: '',
-// });
+export const kakaoAccessToken = atom({
+  key: 'kakaoAccessToken',
+  default: '',
+});
+
+export const userInfoState = atom({
+  key: 'userInfoState',
+  default: {
+    age: '',
+    email: '',
+    nickName: '',
+    id: '',
+    gender: '',
+    accessToken: '',
+  },
+});

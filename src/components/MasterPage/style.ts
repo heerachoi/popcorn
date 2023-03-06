@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../assets/CSS/colors';
 
 export const ContentWrap = styled.div`
   height: 618px;
@@ -16,8 +17,8 @@ export const ContentWrap = styled.div`
 export const ListContainer = styled.div``;
 
 export const ListBox = styled.div`
-margin-bottom: 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  border-bottom: 1px solid ${COLORS.gray5};
   &:hover {
     cursor: pointer;
   }
@@ -28,29 +29,37 @@ export const ListContent = styled.div`
   align-items: baseline;
   padding: 0 10px;
   height: 35px;
-
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 500;
 `;
 
 export const TitleText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
+  line-height: 24px;
+  color: ${COLORS.gray1};
 `;
 
 export const DateText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
   font-size: 12px;
-  color: gray;
+  font-weight: 500;
+  line-height: 24px;
+  color: ${COLORS.gray1};
 `;
 
 export const NameText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
   font-size: 12px;
-  color: gray;
+  font-weight: 500;
+  line-height: 24px;
+  color: ${COLORS.gray5};
 `;
 
 export const StatusText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
   font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
   float: right;
-  color: #00C113;
+  color: ${COLORS.green1};
 `;

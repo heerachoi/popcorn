@@ -1,19 +1,22 @@
 import { useRecoilState } from 'recoil';
 import { footerActiveMenu } from '../../atoms';
+import ContactUs from '../../components/CustomerCenter/Contact Us/ContactUs';
 import Faq from '../../components/CustomerCenter/FAQ/Faq';
+import Notice from '../../components/CustomerCenter/Notice/Notice';
 import * as S from './style';
 
 const CustomerCenterPage: any = () => {
   // 탭 메뉴 제목을 클릭하면 해당 탭의 index값 저장
   // 초기 화면에 0번째 탭이 나오도록 초기값 설정
   const [footerActive, setFooterActive] = useRecoilState(footerActiveMenu);
+  
 
   // 탭 메뉴 제목과 들어갈 내용 담은 배열
   const menuArr = [
     {
       id: 0,
       tabTitle: '공지사항 및 이벤트',
-      tabContent: <div>공지사항 내용</div>,
+      tabContent: <Notice />,
     },
     {
       id: 1,
@@ -23,7 +26,7 @@ const CustomerCenterPage: any = () => {
     {
       id: 2,
       tabTitle: 'Contact Us',
-      tabContent: <div>Contact Us 내용</div>,
+      tabContent: <ContactUs />,
     },
   ];
 

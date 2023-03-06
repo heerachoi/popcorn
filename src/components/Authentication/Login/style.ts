@@ -1,5 +1,6 @@
 import { MdCancel } from 'react-icons/md';
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 export const Wrap = styled.div`
   box-sizing: border-box;
@@ -13,40 +14,56 @@ export const LoginImgWrap = styled.div`
   margin-top: 50px;
 `;
 
-export const LoginImg = styled.img``;
+export const LoginImg = styled.img`
+  @media screen and (max-width: 580px) {
+    width: 150px;
+    height: 150px;
+  }
+`;
 
 export const TitleWrap = styled.div`
   margin-top: 20px;
   margin-bottom: 50px;
+  @media screen and (max-width: 580px) {
+    margin-bottom: 30px;
+  }
 `;
 export const Title = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  color: #323232;
+  color: ${COLORS.gray1};
   position: relative;
   top: -12px;
+  @media screen and (max-width: 580px) {
+    font-size: 24px;
+  }
 `;
 
 export const FormWrap = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 export const FormInput = styled.input`
-  border: 1px solid #bdbdbd;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 8px;
   width: 367px;
   height: 60px;
   padding: 0 20px 0 20px;
   margin-bottom: 20px;
-  color: #323232;
+  color: ${COLORS.gray1};
   &::placeholder {
-    color: #9b9b9b;
+    color: ${COLORS.gray5};
   }
   &:focus {
     outline: none;
-    border: 1px solid #676767;
+    border: 1px solid ${COLORS.gray3};
+  }
+  @media screen and (max-width: 580px) {
+    width: 210px;
   }
 `;
 
@@ -63,18 +80,18 @@ export const FormSignWrap = styled(FormBtnWrap)`
 `;
 
 export const NavigateBtn = styled.button`
-  color: #9b9b9b;
+  color: ${COLORS.gray5};
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   border: none;
-  background-color: white;
+  background-color: ${COLORS.white};
 `;
 
 export const LoginBtn = styled.button`
-  background-color: #bdbdbd;
+  background-color: ${COLORS.gray6};
   border-radius: 8px;
   border: none;
   width: 409px;
@@ -83,28 +100,31 @@ export const LoginBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  color: white;
+  color: ${COLORS.white};
   cursor: pointer;
   &:hover {
-    background-color: #676767;
-    border: 1px solid #9b9b9b;
+    background-color: ${COLORS.gray3};
+    border: 1px solid ${COLORS.gray5};
+  }
+  @media screen and (max-width: 580px) {
+    width: 250px;
   }
 `;
 
 export const SignUpBtn = styled(LoginBtn)`
   margin-top: 20px;
-  background-color: #fff9d2;
-  border: 1px solid #ffeb62;
-  color: #f2901d;
+  background-color: ${COLORS.orange4};
+  border: 1px solid ${COLORS.orange3};
+  color: ${COLORS.orange1};
   &:hover {
-    color: #ffffff;
-    background: #ffb321;
-    border: 1px solid #ffb321;
+    color: ${COLORS.white};
+    background: ${COLORS.orange2};
+    border: 1px solid ${COLORS.orange2};
   }
 `;
 
 export const HelperText = styled.span`
-  color: #f4533d;
+  color: ${COLORS.red};
   margin-top: -10px;
   margin-bottom: 10px;
   font-family: 'Apple SD Gothic Neo';
@@ -117,14 +137,59 @@ export const TextBackground = styled.div`
   text-align: center;
   width: 110px;
   height: 30px;
-  background-color: #ffeb62;
+  background-color: ${COLORS.orange3};
   box-sizing: border-box;
   border-radius: 20px;
+  @media screen and (max-width: 580px) {
+    width: 100px;
+    height: 20px;
+  }
 `;
 
 export const CancleIcon = styled(MdCancel)`
   position: relative;
-  left: 370px;
-  bottom: 60px;
-  color: #676767;
+  left: 170px;
+  bottom: -45px;
+  color: ${COLORS.gray3};
+  @media screen and (max-width: 580px) {
+    left: 100px;
+  }
+`;
+
+export const KakaoLoginBtn = styled.button`
+  cursor: pointer;
+  border-radius: 8px;
+  height: 60px;
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  width: 409px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${COLORS.gray1};
+  background-color: #fee500;
+  margin-top: 16px;
+
+  border: 1px solid #fee500;
+  &:hover:enabled {
+    background-color: ${COLORS.orange3};
+    border: 1px solid ${COLORS.orange3};
+  }
+  @media screen and (max-width: 580px) {
+    width: 250px;
+  }
+`;
+
+export const LoginOrText = styled.span`
+  color: ${COLORS.gray5};
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  border: none;
+  background-color: white;
 `;

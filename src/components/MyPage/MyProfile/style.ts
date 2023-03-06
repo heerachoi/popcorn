@@ -5,7 +5,6 @@ export const MyPageAll = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  
   padding-top: 50px;
   @media screen and (max-width: 750px) {
     flex-direction: column;
@@ -18,7 +17,7 @@ export const MyPageAll = styled.div`
 export const MyProfileBox = styled.div`
   width: 352px;
   border: 2px solid ${COLORS.orange3};
-  border-radius: 8px;
+  border-radius: 8px 0px 0px 8px;
   background: ${COLORS.orange4};
   display: flex;
   flex-direction: column;
@@ -31,7 +30,7 @@ export const TabContainer = styled.div`
   @media screen and (max-width: 1060px) {
     width: 370px;
   }
-`
+`;
 
 export const ProfileImgLabelInputWrapper = styled.div`
   margin-top: 48px;
@@ -43,9 +42,8 @@ export const MyProfileNickname = styled.h3`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 28px;
-  color: black;
+  color: ${COLORS.black};
   margin: 20px 0 10px;
-
   text-align: center;
 `;
 
@@ -92,7 +90,7 @@ export const ButtonContainer = styled.div`
   @media screen and (max-width: 1150px) {
     margin-top: 30px;
   }
-`
+`;
 
 export const ModifyCompleteButton = styled.button`
   cursor: pointer;
@@ -106,13 +104,10 @@ export const ModifyCompleteButton = styled.button`
   background-color: ${COLORS.white};
 `;
 
-export const ModifyDeleteButton = styled.button`
-
-`;
+export const ModifyDeleteButton = styled.button``;
 
 // 이미지 수정, 업로드 관련 스타일링
-export const ImgModifyButton = styled.button`
-`;
+export const ImgModifyButton = styled.button``;
 
 /*
  * 이미지 라벨
@@ -152,17 +147,16 @@ export const EmailInputDiv = styled.div`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
-  background-color: #ffffff;
+  background-color: #${COLORS.white};
 `;
 
 export const MyBookmarkReportWrap = styled.div``;
 
-
 /*
  * 프로필 모달창
  */
-export const EditModalAll = styled.div`
-`;
+
+export const EditModalAll = styled.div``;
 
 export const EditModalBtnText = styled.div`
   cursor: pointer;
@@ -173,24 +167,23 @@ export const EditModalTitle = styled.div`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 800;
   font-size: 23px;
-  color: #323232;
+  color: #${COLORS.gray1};
 `;
 
 export const EditModalImgLabelInputWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 25px 0;
+  margin: 20px 0 5px;
 `;
 
-export const EnterInputPasswordWrapper = styled.div`
-`;
+export const EnterInputPasswordWrapper = styled.div``;
 
 export const EditModalProfileImgLabel = styled.label`
   width: 160px;
   height: 160px;
   border-radius: 70%;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #${COLORS.gray7};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -201,77 +194,152 @@ export const EditModalProfileImgShow = styled.img`
   width: 160px;
   height: 160px;
   border-radius: 70%;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #${COLORS.gray7};
 `;
 
 export const EditModalProfileImgInput = styled.input``;
 
 export const EditModalNicknameInputWrapper = styled.div`
+  margin-top: 30px;
 `;
 
 export const EditModalText = styled.p`
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
-  margin-bottom: 0.4rem;
-  color: #323232;
+  margin-bottom: 0.3rem;
+  color: #${COLORS.gray1};
 `;
 
-export const EditModalInput = styled.input`
-  width: 280px;
-  height: 40px;
-  border: 1px solid ${COLORS.gray7};
-  border-radius: 5px;
-  font-size: 14px;
+export const EditModalNicknameInput = styled.input`
+  width: 370px;
+  height: 45px;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  font-size: 16px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  outline: none;
+  padding: 8px 16px;
+  gap: 8px;
 `;
 
 export const EditModalEmailInputWrpper = styled.div`
+  margin-top: 30px;
 `;
 
+export const EditModalEmailText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 0.4rem;
+  color: #323232;
+`;
 
 /*
  * 모달창 버튼
  */
 export const EditModalBtnWrapper = styled.div`
-  margin-top: 4rem;
+  width: 100%;
   display: flex;
-  gap: 8px;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 4rem;
 `;
 
 export const EditModalCanceleButton = styled.button`
   cursor: pointer;
   padding: 8px;
   gap: 8px;
-  width: 150px;
+  width: 170px;
   height: 60px;
+  background: #ffffff;
   border: 1px solid #d9d9d9;
-  border-radius: 5px;
-  background-color: #fff;
-
+  border-radius: 8px;
   /* Title Text */
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   text-align: center;
-  color: #9b9b9b;
+  color: #${COLORS.gray5};
 `;
 
 export const EditModalCompleteButton = styled.button`
   cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 8px;
-  width: 150px;
+  gap: 8px;
+  width: 170px;
   height: 60px;
-
-  background: ${COLORS.orange4};
-  border: 1px solid ${COLORS.orange3};
-  border-radius: 5px;
+  background-color: #e7ffd8;
+  border: 1px solid #88e25d;
+  border-radius: 8px;
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   text-align: center;
-  color: ${COLORS.orange6};
+  color: #00c113;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`;
+
+export const EditModalEmailInput = styled.input`
+  width: 370px;
+  height: 45px;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+`;
+
+// Modal Tab
+export const MyBookmarkReportWraps = styled.div``;
+export const MyBookmarkReportContainer = styled.div``;
+export const MyBookmarkReportBox = styled.div``;
+export const MyBookmarkReportTabMenu = styled.ul`
+  padding: 0;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  border-bottom: 2px solid #9b9b9b;
+`;
+
+export const MyTitleTabTitleBox = styled.div``;
+export const MyTitleTabBtn = styled.button`
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  border: none;
+  color: black;
+  padding-bottom: 10px;
+  margin-top: 13px;
+  text-decoration: none;
+
+  cursor: pointer;
+  width: 50%;
+  &.active {
+    color: #00c113;
+    border-bottom: 2px solid #00c113;
+  }
+`;
+
+export const MyContentBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

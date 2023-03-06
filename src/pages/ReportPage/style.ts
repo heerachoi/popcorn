@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../assets/CSS/colors';
 
 export const ReportWrap = styled.div`
   max-width: 1040px;
@@ -6,16 +7,23 @@ export const ReportWrap = styled.div`
   margin: 0 auto;
   margin-top: 50px;
 `;
+
 export const ReportContainer = styled.div`
   box-sizing: border-box;
   max-width: 1040px;
   width: 100%;
-  max-height: 1000px;
+  min-height: 900px;
   margin: 0 auto;
-  border: 1px solid #d9d9d9;
+  border: 1px solid ${COLORS.gray7};
   padding: 0 51px;
   border-radius: 8px;
-  background-color: #f5f5f5;
+  background-color: ${COLORS.gray8};
+
+  @media screen and (max-width: 700px) {
+    width: 340px;
+    padding: 0 5px;
+  }
+  
 `;
 
 export const TabTitle = styled.ul`
@@ -26,8 +34,8 @@ export const TabTitle = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  /* border-bottom: 2px solid #9b9b9b; */
-  /* background: aliceblue; */
+  border-bottom: 2px solid ${COLORS.gray5};
+ 
 `;
 
 export const TitleBox = styled.div``;
@@ -41,7 +49,7 @@ export const TitleBtn = styled.button`
   font-size: 24px;
   text-align: center;
   line-height: 24px;
-  color: black;
+  color: ${COLORS.gray5};
   margin-top: 9px;
   padding-bottom: 17px;
   background-color: transparent;
@@ -51,24 +59,15 @@ export const TitleBtn = styled.button`
   text-decoration: none;
   cursor: pointer;
   &.active {
-    border-bottom: 2px solid #00C113;
-    color: #00C113;
+    border-bottom: 4px solid ${COLORS.green1};
+    color: ${COLORS.green1};
   }
-
-  &:focus {
-    /* border-bottom: 2px solid #00C113; */
+ 
+  @media screen and (max-width: 1000px) {
+    width: 168px;
+    font-size: 16px;
   }
-  @media screen and (max-width: 900px) {
-    width: 369px;
-   }
-   @media screen and (max-width: 650px) {
-    width: 240px;
-    font-size: 20px;
-   }
-   @media screen and (max-width: 400px) {
-    width: 190px;
-    font-size: 18px;
-   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+`;

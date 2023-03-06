@@ -12,6 +12,7 @@ export const ModalContainer = styled.div`
   height: 100vh;
   background-color: ${COLORS.black};
   opacity: .8;
+  overflow:hidden;
 `
 
 export const ModalWrapper = styled.div`
@@ -22,7 +23,7 @@ export const ModalWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   outline: 0;
 `
 

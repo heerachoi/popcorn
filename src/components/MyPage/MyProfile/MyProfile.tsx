@@ -5,10 +5,17 @@ import MyPageTab from '../MyPageTab/MyPageTab';
 import DeleteAccount from '../../Authentication/DeleteAccount/DeleteAccount';
 import MyProfileEditModal from './MyProfileEditModal';
 import { useRecoilState } from 'recoil';
-import { editModal, profileState } from '../../../atoms';
+import {
+  editModal,
+  profileState,
+  userInfoState,
+  kakaoAccessToken,
+} from '../../../atoms';
 import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../../atoms';
-import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
+import { useNavigate } from 'react-router-dom';
+
 type CurrentUserProfile = any;
 const MyProfile = () => {
   const user = useRecoilValue(userInfo);
@@ -22,7 +29,17 @@ const MyProfile = () => {
   const [nickname, setNickname] = useState<any>(currentUser.displayName); // 닉네임
   const [imgUploadUrl, setImgUploadUrl] = useState<any>(); // 업로드한 이미지 url
   const [imgProfileUrl, setImgProfileUrl] = useRecoilState(profileState);
+  const navigate = useNavigate();
   const currentUserInfos: any = auth.currentUser;
+  const accessToken = useRecoilValue(kakaoAccessToken);
+  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
+
+  // user가 없거나 accessToken이 없을 때 로그아웃 - 재창님이 하셔서 일단 주석
+  // useEffect(() => {
+  //   if (!user && !accessToken) {
+  //     navigate('/');
+  //   }
+  // }, [user, accessToken]);
 
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
@@ -36,6 +53,7 @@ const MyProfile = () => {
     });
   }, [auth.currentUser]);
 
+  // user가 없거나 accessToken이 없을 때 navigate('/')로 이동시켜주는 코드 작성해줘
   // 바뀔 때마다 실행해달라
   useEffect(() => {
     if (currentUserInfos?.photoURL !== undefined) {
@@ -46,42 +64,47 @@ const MyProfile = () => {
   return (
     <S.MyPageAll>
       <S.MyProfileBox>
-          <S.ProfileImgLabelInputWrapper>
-            <S.ProfileImgShow
-              src={
-                currentUserProfile?.photoURL
-                  ? currentUserProfile?.photoURL
-                  : basicProfileImg
-              }
-              onClick={handleOpen}
-            />
-          </S.ProfileImgLabelInputWrapper>
-          <S.MyProfileNickname>{currentUser.displayName} 님</S.MyProfileNickname>
-          <S.WelcomeText>
-            환영합니다!
-          </S.WelcomeText>
-          <S.InfoWrapper>
-            <S.InfoTitle>이메일</S.InfoTitle>
-            <S.InfoHolder>{userInfos.email}</S.InfoHolder>
-          </S.InfoWrapper>
-          <S.InfoWrapper>
-            <S.InfoTitle>휴대전화</S.InfoTitle>
-            <S.InfoHolder>{userInfos.phoneNumber}</S.InfoHolder>
-          </S.InfoWrapper>
-          <S.InfoWrapper>
-            <S.InfoTitle>성별</S.InfoTitle>
-            <S.InfoHolder>{userInfos.gender}</S.InfoHolder>
-          </S.InfoWrapper>
-          <S.InfoWrapper>
-            <S.InfoTitle>생일</S.InfoTitle>
-            <S.InfoHolder>{userInfos.age}</S.InfoHolder>
-          </S.InfoWrapper>
-          <S.ButtonContainer>
-            <S.ModifyCompleteButton type="button">
+        <S.ProfileImgLabelInputWrapper>
+          <S.ProfileImgShow
+            src={
+              currentUserProfile?.photoURL
+                ? currentUserProfile?.photoURL
+                : basicProfileImg
+            }
+            onClick={handleOpen}
+          />
+        </S.ProfileImgLabelInputWrapper>
+        <S.MyProfileNickname>
+          {currentUser.displayName
+            ? currentUser.displayName
+            : kakaoUserInfo.nickName}
+          님
+        </S.MyProfileNickname>
+        <S.WelcomeText>환영합니다!</S.WelcomeText>
+        <S.InfoWrapper>
+          <S.InfoTitle>이메일</S.InfoTitle>
+          <S.InfoHolder>{userInfos.email}</S.InfoHolder>
+        </S.InfoWrapper>
+        <S.InfoWrapper>
+          <S.InfoTitle>휴대전화</S.InfoTitle>
+          <S.InfoHolder>{userInfos.phoneNumber}</S.InfoHolder>
+        </S.InfoWrapper>
+        <S.InfoWrapper>
+          <S.InfoTitle>성별</S.InfoTitle>
+          <S.InfoHolder>
+            {userInfos.gender ? userInfos.gender : kakaoUserInfo.gender}
+          </S.InfoHolder>
+        </S.InfoWrapper>
+        <S.InfoWrapper>
+          <S.InfoTitle>{accessToken ? '연령' : '생일'}</S.InfoTitle>
+          <S.InfoHolder>{userInfos.age}</S.InfoHolder>
+        </S.InfoWrapper>
+        <S.ButtonContainer>
+          <S.ModifyCompleteButton type="button">
             <MyProfileEditModal />
-            </S.ModifyCompleteButton>
-            <DeleteAccount />
-          </S.ButtonContainer>
+          </S.ModifyCompleteButton>
+          <DeleteAccount />
+        </S.ButtonContainer>
       </S.MyProfileBox>
       <S.TabContainer>
         <MyPageTab />

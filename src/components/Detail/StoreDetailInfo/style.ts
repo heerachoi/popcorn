@@ -3,7 +3,7 @@ import COLORS from '../../../assets/CSS/colors';
 
 export const StoreDetailInfoWrap = styled.div`
   max-width: 1040px;
-  width: 100%;
+  width: 100vw;
   margin: 0 auto;
   margin-top: 48px;
   padding: 0 10px;
@@ -17,7 +17,7 @@ export const DetailContainer = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  border-bottom: 1px solid #D9D9D9;
+  border-bottom: 1px solid ${COLORS.gray7};
   padding-bottom: 36px;
 `;
 
@@ -45,6 +45,7 @@ export const Title = styled.span`
   font-size: 28px;
   display: flex;
   align-items: center;
+  color: ${COLORS.gray1};
   @media screen and (max-width: 700px) {
     font-size: 18px;
   }
@@ -59,7 +60,7 @@ export const SideTitleWrap = styled.div`
   @media screen and (max-width: 700px) {
     justify-content: space-around;
     padding-bottom: 16px;
-    border-bottom: 1px solid #D9D9D9;
+    border-bottom: 1px solid ${COLORS.gray7};
   }
 `;
 
@@ -84,7 +85,7 @@ export const SideTitleIcon = styled.span`
   font-weight: 800;
   font-size: 13px;
   margin-bottom: 2px;
-  color: #9b9b9b;
+  color: ${COLORS.gray5};
 `;
 
 export const ReserveImg = styled.img`
@@ -95,6 +96,7 @@ export const SideTitleText = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 16px;
+  color: ${COLORS.gray1};
   @media screen and (max-width: 700px) {
     font-size: 12px;
   }
@@ -116,29 +118,16 @@ export const InfoSubBox = styled.div`
   /* background-color: aliceblue; */
   @media screen and (max-width: 700px) {
     flex-direction: column;
-    gap:15px;
+    gap: 15px;
   }
 `;
-
-
-
-// export const InfoTitleBackground = styled.div`
-//   width: 70px;
-//   height: 12px;
-//   background-color: #ffeb62;
-//   position: absolute;
-//   box-sizing: border-box;
-//   border-radius: 12px;
-//   top: 800px;
-//   text-align: center;
-// `;
 
 export const InfoTitle = styled.div`
   /* position: relative; */
   font-family: 'Apple SD Gothic Neo';
-  /* font-style: normal; */
   font-weight: 700;
   font-size: 16px;
+  color: ${COLORS.orange6};
   width: 170px;
 `;
 
@@ -146,6 +135,7 @@ export const InfoContentText = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   font-weight: 500;
+  color: ${COLORS.gray1};
   max-width: 80%;
   width: 100%;
   margin-right: 30px;
@@ -165,31 +155,13 @@ export const InfoContentCategory = styled.span`
   padding: 4px 16px 3px;
 `;
 
-// export const InfoTable = styled.table`
-//   font-family: 'Apple SD Gothic Neo';
-//   font-style: normal;
-//   font-size: 14px;
-// `;
 
-// export const InfoTbody = styled.tbody``;
-
-// export const InfoTr = styled.tr``;
-
-// export const InfoTitleText = styled.td`
-//   font-weight: 800;
-//   width: 130px;
-//   padding: 15px 0;
-// `;
 
 export const SnsLinkWrap = styled.p``;
 export const SnsImg = styled.img`
   width: 20px;
 `;
 
-// export const Hr = styled.hr`
-//   max-width: 1040px;
-//   width: 100%;
-// `;
 
 export const OperationPeriodWrap = styled.div``;
 

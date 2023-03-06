@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './style';
-import axios from 'axios';
 import { useQuery } from 'react-query';
 
 // Data
@@ -10,12 +9,10 @@ import { Store } from '../../types/data/storeInterface';
 // Library
 import { ko } from 'date-fns/esm/locale';
 // React-icons
-import { ImLocation, ImSearch } from 'react-icons/im';
+import { ImSearch } from 'react-icons/im';
 import { BsFillCalendarFill } from 'react-icons/bs';
-import { RiProductHuntLine } from 'react-icons/ri';
-import { BiCalendar, BiCategoryAlt } from 'react-icons/bi';
 // Recoil
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 // Hooks
 import useLocationModal from '../../hooks/useLocationModal';
 import useItemModal from '../../hooks/useItemModal';
@@ -39,6 +36,7 @@ const Search: React.FC = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(data);
+  console.log('storeList', storeList);
   // 팝업 스토어 필터된 리스트
   let searchList: Store[] = [];
   let durationList: Store[] = [];
@@ -388,14 +386,26 @@ const Search: React.FC = () => {
   // 모달 클릭 값
   const modalClickHandler = (event: any) => {
     toggle(event);
+
   };
+
+  // 모달창 열렸을시 스크롤 방지
+   useEffect(() => {
+    if (isShowing || isItemModalShowing || isOtherModalShowing) {
+      const body = document.body;
+      body.style.overflow = 'hidden';
+      return () => {
+        body.style.overflow = 'auto';
+      };
+    }
+  }, [isShowing, isItemModalShowing, isOtherModalShowing]);
 
   return (
     <S.SearchPageContainer>
       <S.FilterContainer>
         <S.SearchInputContainer>
           <ImSearch />
-          <S.InputTitle>키워드</S.InputTitle>
+          <S.KeyWordInputTitle>키워드</S.KeyWordInputTitle>
           <S.SearchInput
             type="text"
             value={searchTerm}
@@ -404,10 +414,13 @@ const Search: React.FC = () => {
             onKeyPress={checkKeypress}
           />
         </S.SearchInputContainer>
-        <S.SearchItemContainer>
-          <S.SearchTagContainer>
-            <BsFillCalendarFill />
-            <S.FilterTitle>진행중</S.FilterTitle>
+        <S.DateSearchContainer>
+          <S.SearchItemContainer>
+          <S.FilterWithIcon>
+            <S.IconTitleContainer>
+              <BsFillCalendarFill />
+              <S.FilterTitle>진행중</S.FilterTitle>
+            </S.IconTitleContainer>
             <S.DatePickerWrapper>
               <S.DatePickerContainer
                 selected={dateSelected}
@@ -421,10 +434,10 @@ const Search: React.FC = () => {
                 closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
               />
             </S.DatePickerWrapper>
-          </S.SearchTagContainer>
+          </S.FilterWithIcon>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          <S.SearchTagContainer>
+          <S.FilterWithIcon>
             <BsFillCalendarFill />
             <S.FilterTitle>팝업 기간</S.FilterTitle>
             <S.SearchEventPeriod
@@ -436,11 +449,13 @@ const Search: React.FC = () => {
               <option value="한달 이하">한달 이하</option>
               팝업 기간
             </S.SearchEventPeriod>
-          </S.SearchTagContainer>
+          </S.FilterWithIcon>
         </S.SearchItemContainer>
-        <S.SearchItemContainer>
-          {/* <ImLocation /> */}
-          <S.SearchTagContainer>
+        </S.DateSearchContainer>
+
+        <S.CategorySearchContainer>
+          <S.SearchItemContainer>
+          <S.LocationFilterTitle>
             <S.FilterTitle
               className="button-default"
               onClick={modalClickHandler}
@@ -448,11 +463,9 @@ const Search: React.FC = () => {
               위치
             </S.FilterTitle>
             <Modal isShowing={isShowing} hide={toggle} value={'위치'} />
-            {/* <S.FilterItemHolder>전체</S.FilterItemHolder> */}
-          </S.SearchTagContainer>
+          </S.LocationFilterTitle>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          {/* <RiProductHuntLine /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={itemToggle}>
               제품 카테고리
@@ -462,11 +475,9 @@ const Search: React.FC = () => {
               hide={itemToggle}
               value={'제품'}
             />
-            {/* <S.FilterItemHolder>전체</S.FilterItemHolder> */}
           </S.SearchTagContainer>
         </S.SearchItemContainer>
         <S.SearchItemContainer>
-          {/* <BiCategoryAlt /> */}
           <S.SearchTagContainer>
             <S.FilterTitle className="button-default" onClick={otherToggle}>
               기타 카테고리
@@ -476,15 +487,13 @@ const Search: React.FC = () => {
               hide={otherToggle}
               value={'기타'}
             />
-            {/* <S.FilterItemHolder>전체</S.FilterItemHolder> */}
           </S.SearchTagContainer>
         </S.SearchItemContainer>
-        <S.FilterTypes />
-        <S.SelectDate />
+        </S.CategorySearchContainer>
       </S.FilterContainer>
       <S.FilterResultAndCalendarContainer>
         <S.FilterResult>
-          {storeList.length === 0 ? (
+          {(storeList === undefined) || (storeList.length === 0) ? (
             <NotFound />
           ) : (
             storeList?.map((popup: Store) => {
@@ -536,7 +545,7 @@ const Search: React.FC = () => {
           )}
         </S.FilterResult>
         <S.CalendarContainer>
-          <StoreCalendar storeList={storeList} />
+          {(storeList !== undefined) ? (<StoreCalendar storeList={storeList} />) : null}
         </S.CalendarContainer>
       </S.FilterResultAndCalendarContainer>
     </S.SearchPageContainer>

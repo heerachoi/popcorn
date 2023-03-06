@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import styled from 'styled-components';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import * as S from './style';
 import {
   mapCategoryValue,
   mapDetailBoxPopup,
   mapFoodSearchValue,
 } from '../../../atoms';
-import { EmojiDiv } from '../../Detail/StoreEmoji/style';
 import FoodList from './FoodList';
+import Critical from '../../../assets/Img/Critical.svg';
 
 interface Props {
   setMarkerHandler: (search: any, category: any) => void;
@@ -18,111 +18,68 @@ interface Props {
 const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
   const navigate = useNavigate();
 
-  const setcategory = useSetRecoilState(mapCategoryValue);
+  const [category, setCategory] = useRecoilState(mapCategoryValue);
   const foodSearch = useRecoilValue(mapFoodSearchValue);
-  const [popup, setPopup] = useRecoilState(mapDetailBoxPopup);
+  const popup = useRecoilValue(mapDetailBoxPopup);
 
   const categoryChangeHandler = async (category: string) => {
-    setcategory(category);
+    setCategory(category);
     setMarkerHandler(`${foodSearch} ${category}`, category);
   };
 
   return (
-    <DetailBoxWrap>
-      <DetailInfoWrap>
-        <DetailImg src={popup.imgURL[0]} />
-        <DetailTitle>{popup.title}</DetailTitle>
-        <DetailInfoBox>
-          <DetailTextBox>
-            <DetailInfoTitle>운영기간</DetailInfoTitle>
-            <DetailInfoTitle>영업시간</DetailInfoTitle>
-            <DetailInfoTitle>주소</DetailInfoTitle>
-          </DetailTextBox>
-          <DetailTextBox>
-            <DetailInfoText>
+    <S.DetailBoxWrap>
+      <S.DetailInfoWrap>
+        <S.DetailImg src={popup.imgURL[0]} />
+        <S.DetailTitleWrap>
+          <S.DetailTitle>{popup.title}</S.DetailTitle>
+        </S.DetailTitleWrap>
+        <S.DetailInfoBox>
+          <S.DetailTextBox>
+            <S.DetailInfoTitle>운영기간</S.DetailInfoTitle>
+            <S.DetailInfoTitle>영업시간</S.DetailInfoTitle>
+            <S.DetailInfoTitle>주소</S.DetailInfoTitle>
+          </S.DetailTextBox>
+          <S.DetailContentBox>
+            <S.DetailInfoText>
               {popup.open} - {popup.close}
-            </DetailInfoText>
-            <DetailInfoText>
+            </S.DetailInfoText>
+            <S.DetailInfoText>
               {popup.openingTime[0]} - {popup.closeTime[0]}
-            </DetailInfoText>
-            <DetailInfoText>{popup.address}</DetailInfoText>
-          </DetailTextBox>
-        </DetailInfoBox>
-        <div onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
+            </S.DetailInfoText>
+            <S.DetailInfoText>{popup.address}</S.DetailInfoText>
+          </S.DetailContentBox>
+        </S.DetailInfoBox>
+        <S.NavigationText
+          onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
+        >
           디테일 페이지로 이동
-        </div>
-      </DetailInfoWrap>
-      <CategoryBtn
-        type="submit"
-        onClick={() => categoryChangeHandler('음식점')}
-      >
-        음식점
-      </CategoryBtn>
-      <CategoryBtn type="submit" onClick={() => categoryChangeHandler('카페')}>
-        카페
-      </CategoryBtn>
+          <S.BorderBottomLine />
+        </S.NavigationText>
+      </S.DetailInfoWrap>
+      <S.CategoryWrap>
+        <S.CategoryImg src={Critical} />
+        <S.CategoryTitle>주변 키워드</S.CategoryTitle>
+        <S.CategoryBtnBox>
+          <S.CategoryFoodBtn
+            category={category}
+            type="submit"
+            onClick={() => categoryChangeHandler('음식점')}
+          >
+            음식점
+          </S.CategoryFoodBtn>
+          <S.CategoryCafeBtn
+            category={category}
+            type="submit"
+            onClick={() => categoryChangeHandler('카페')}
+          >
+            카페
+          </S.CategoryCafeBtn>
+        </S.CategoryBtnBox>
+      </S.CategoryWrap>
       <FoodList setMyLocation={setMyLocation} setInfo={setInfo} />
-    </DetailBoxWrap>
+    </S.DetailBoxWrap>
   );
 };
 
 export default DetailBox;
-
-const DetailBoxWrap = styled.div`
-  width: 400px;
-  height: 100vh;
-  z-index: 999;
-  position: absolute;
-  background-color: white;
-  overflow: scroll;
-  overflow-x: hidden;
-`;
-
-const CategoryBtn = styled.button`
-  border: none;
-  width: 100px;
-  height: 50px;
-  cursor: pointer;
-`;
-
-const DetailImg = styled.img`
-  width: 100%;
-  height: 300px;
-`;
-
-const DetailInfoWrap = styled.div`
-  text-align: center;
-`;
-
-const DetailTitle = styled.span`
-  color: #323232;
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 28px;
-  line-height: 36px;
-`;
-
-const DetailInfoBox = styled.div`
-  display: flex;
-  justify-content: space-around;
-`;
-
-const DetailTextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-const DetailInfoTitle = styled.span`
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: #00c113;
-`;
-
-const DetailInfoText = styled(DetailInfoTitle)`
-  color: #323232;
-`;

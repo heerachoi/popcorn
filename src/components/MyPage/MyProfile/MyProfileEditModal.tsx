@@ -9,15 +9,21 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { editModal, userUrl } from '../../../atoms';
+import {
+  editModal,
+  kakaoAccessToken,
+  userInfoState,
+  userUrl,
+} from '../../../atoms';
 import { profileState } from '../../../atoms';
 import { userInfo } from '../../../atoms';
-import basicProfileImg from '../../../assets/Img/basicProfileImg.png';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 import styled from 'styled-components';
 
 const MyProfileEditModal = () => {
   const user = useRecoilValue(userInfo);
   const [profileUrl, setProfileUrl] = useRecoilState(profileState);
+  const [isActive, setIsActive] = useState(true);
 
   // 모달 관련
   const [open, setOpen] = useRecoilState(editModal);
@@ -34,6 +40,19 @@ const MyProfileEditModal = () => {
   const [imgFile, setImgFile] = useState<any>(imgProfileUrl); // 이미지 파일 엄청 긴 이름
   const [imgUploadUrl, setImgUploadUrl] = useRecoilState<any>(userUrl); // 변경된 이미지 url
 
+  // 카카오 정보 수정 관련 - accessToken이 있다면 kakaoUserInfo정보를 바꿔줘라
+  const accessToken = useRecoilValue(kakaoAccessToken);
+  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
+
+  console.log('accessToken', accessToken);
+  console.log('kakaoUserInfo', kakaoUserInfo);
+  console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
+  console.log('user', user);
+  console.log(
+    'user.userInfomation.displayName',
+    user.userInfomation.displayName,
+  );
+  console.log('nickname', nickname);
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -58,6 +77,18 @@ const MyProfileEditModal = () => {
       alert('2글자 이상 5글자 이하로 입력해주세요.');
       return;
     }
+    // if (accessToken) {
+    //   try {
+    //     await updateProfile(currentUser, {
+    //       displayName: nickname,
+    //     });
+    //     setNickname(nickname);
+    //     alert('프로필 수정 완료!');
+    //     setOpen(false);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
     if (imgFile.length === 0) {
       try {
         await updateProfile(currentUser, {
@@ -107,7 +138,7 @@ const MyProfileEditModal = () => {
 
   return (
     <>
-      <S.EditModalBtnText  onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
+      <S.EditModalBtnText onClick={handleOpen}>회원정보수정</S.EditModalBtnText>
       <Modal
         open={open}
         onClose={handleClose}
@@ -115,56 +146,82 @@ const MyProfileEditModal = () => {
         aria-describedby="modal-modal-description"
       >
         <S.EditModalAll>
-          <BoxContainer>
-            <S.EditModalTitle>회원정보 수정</S.EditModalTitle>
-            <S.EditModalImgLabelInputWrapper>
-              <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
-                {imgProfileUrl && (
-                  <S.EditModalProfileImgShow
-                    src={imgProfileUrl ? imgProfileUrl : basicProfileImg}
-                  />
-                )}
-                <S.EditModalProfileImgInput
-                  type="file"
-                  accept="image/*"
-                  id="modalProfileUploadImg"
-                  onChange={saveNewProfileImg}
-                  style={{ display: 'none' }}
-                />
-              </S.EditModalProfileImgLabel>
-            </S.EditModalImgLabelInputWrapper>
-            <S.EditModalNicknameInputWrapper>
-              <S.EditModalText>닉네임</S.EditModalText>
-              <S.EditModalInput
-                type="text"
-                placeholder={'닉네임을 입력해주세요'}
-                onChange={ToChangeNicknameInput}
-                value={nickname}
-              />
-            </S.EditModalNicknameInputWrapper>
-            <S.EditModalEmailInputWrpper>
-              <S.EditModalText>이메일(아이디)</S.EditModalText>
-              <S.EditModalInput
-                placeholder={currentUser?.email}
-                readOnly
-              />
-            </S.EditModalEmailInputWrpper>
-            <S.EnterInputPasswordWrapper>
-               <UpdatePassword />
-            </S.EnterInputPasswordWrapper>
+          <Box sx={style}>
+            <S.MyBookmarkReportWraps>
+              <S.MyBookmarkReportContainer>
+                <S.MyBookmarkReportBox>
+                  <S.MyBookmarkReportTabMenu>
+                    <S.MyTitleTabBtn
+                      className={isActive ? 'active' : ''}
+                      onClick={() => setIsActive(true)}
+                    >
+                      회원정보 수정
+                    </S.MyTitleTabBtn>
+                    <S.MyTitleTabBtn
+                      className={!isActive ? 'active' : ''}
+                      onClick={() => setIsActive(false)}
+                    >
+                      비밀번호 변경
+                    </S.MyTitleTabBtn>
+                  </S.MyBookmarkReportTabMenu>
+                  {isActive ? (
+                    <S.MyContentBox>
+                      <S.EditModalImgLabelInputWrapper>
+                        <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
+                          {imgProfileUrl && (
+                            <S.EditModalProfileImgShow
+                              src={
+                                imgProfileUrl ? imgProfileUrl : basicProfileImg
+                              }
+                            />
+                          )}
+                          <S.EditModalProfileImgInput
+                            type="file"
+                            accept="image/*"
+                            id="modalProfileUploadImg"
+                            onChange={saveNewProfileImg}
+                            style={{ display: 'none' }}
+                          />
+                        </S.EditModalProfileImgLabel>
+                      </S.EditModalImgLabelInputWrapper>
+                      <S.EditModalNicknameInputWrapper>
+                        <S.EditModalEmailText>닉네임</S.EditModalEmailText>
+                        <S.EditModalNicknameInput
+                          type="text"
+                          placeholder={'닉네임을 입력해주세요'}
+                          onChange={ToChangeNicknameInput}
+                          value={nickname}
+                        />
+                      </S.EditModalNicknameInputWrapper>
+                      <S.EditModalEmailInputWrpper>
+                        <S.EditModalEmailText>
+                          이메일(아이디)
+                        </S.EditModalEmailText>
+                        <S.EditModalEmailInput
+                          placeholder={currentUser?.email}
+                          readOnly
+                        />
+                      </S.EditModalEmailInputWrpper>
+                      <S.EditModalBtnWrapper>
+                        <S.EditModalCanceleButton onClick={handleClose}>
+                          취소
+                        </S.EditModalCanceleButton>
 
-            <S.EditModalBtnWrapper>
-              <S.EditModalCanceleButton onClick={handleClose}>
-                취소
-              </S.EditModalCanceleButton>
-              <S.EditModalCompleteButton
-                onClick={nicknameChangeOnClick}
-                type="submit"
-              >
-                수정
-              </S.EditModalCompleteButton>
-            </S.EditModalBtnWrapper>
-          </BoxContainer>
+                        <S.EditModalCompleteButton
+                          onClick={nicknameChangeOnClick}
+                          type="submit"
+                        >
+                          수정
+                        </S.EditModalCompleteButton>
+                      </S.EditModalBtnWrapper>
+                    </S.MyContentBox>
+                  ) : (
+                    <UpdatePassword handleClose={handleClose} />
+                  )}
+                </S.MyBookmarkReportBox>
+              </S.MyBookmarkReportContainer>
+            </S.MyBookmarkReportWraps>
+          </Box>
         </S.EditModalAll>
       </Modal>
     </>
@@ -177,28 +234,10 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '30%',
-  height: '800px',
-  bgcolor: 'background.paper',
+  width: '500px',
+  height: '600px',
+  bgcolor: '#f5f5f5;',
   border: '2px solid transparent',
   boxShadow: 24,
   p: 4,
 };
-
-
-export const BoxContainer = styled(Box)`
-  position: absolute;
-  width: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 800px;
-  border-radius: 5px;
-  background-color:#F5F5F5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-  
-`;

@@ -1,13 +1,21 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { getNewStoreReport } from '../../services/api';
+import { getNewStoreReport, JSON_API } from '../../services/api';
 import * as S from './style';
 
 const NewStoreReportList: any = () => {
+  useEffect(() => {
+    fetch();
+  }, []);
+
+  const fetch = async () => {
+    const data = await axios.get(`${JSON_API}/newStores`);
+  };
   const navigate = useNavigate();
   const { isLoading, isError, data, error } = useQuery(
-    'infoErrModifiContents',
+    'newStores',
     getNewStoreReport,
   );
 
@@ -66,7 +74,7 @@ const NewStoreReportList: any = () => {
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
-                  <S.StatusText style={{ color: 'black' }}>완료</S.StatusText>
+                  <S.StatusText style={{ color: '#323232' }}>완료</S.StatusText>
                 )}
               </S.ListContent>
             </S.ListBox>

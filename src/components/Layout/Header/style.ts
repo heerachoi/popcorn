@@ -1,10 +1,17 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 export const Wrap = styled.div`
+  max-width: 1040px;
   height: 70px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
+  
+  @media screen and (max-width: 840px) {
+    /* background-color: aqua; */
+  }
 `;
 
 export const Title = styled.img`
@@ -24,7 +31,7 @@ export const BtnWrap = styled.div`
   align-items: flex-end;
   gap: 1rem;
   &.NavOn {
-    background-color: #323232;
+    background-color: ${COLORS.gray1};
     top: 68px;
     display: flex;
     justify-content: start;
@@ -42,7 +49,7 @@ export const BtnWrap = styled.div`
     right: -300px;
   }
   @media screen and (max-width: 840px) {
-    display: none;    
+    display: none;
   }
 `;
 
@@ -57,17 +64,17 @@ export const CategoryBtn = styled.button`
   font-weight: 700;
   font-size: 16px;
   @media screen and (max-width: 840px) {
-    color: #fff;   
+    color: #fff;
     top: 30px;
     /* width: 120px; */
-    &:first-child{
+    &:first-child {
       top: -25px;
     }
   }
 `;
 
 export const MapBtn = styled(CategoryBtn)`
-  
   @media screen and (max-width: 840px) {
-    color: #fff; 
-  }`;
+    color: #fff;
+  }
+`;

@@ -7,7 +7,8 @@ import {
 import React, { useState } from 'react';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
-const UpdatePassword = () => {
+
+const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
   const initPasswordInput = {
     password: '',
     updatePassword: '',
@@ -40,6 +41,10 @@ const UpdatePassword = () => {
         setCheck(true); // check가 false면 비밀번호 변경해도 현재 비밀번호를 인증하라는 알림이 뜸
       })
       .catch((error) => {
+        console.log(error.message);
+        if (error.message.includes('internal-error')) {
+          alert('현재 비밀번호를 입력해 주세요.');
+        }
         if (error.message.includes('wrong-password')) {
           alert('비밀번호가 틀립니다. 확인 후 다시 입력해 주세요.'); // 유저의 비밀번호가 다를 때 뜨는 에러
         }
@@ -66,7 +71,10 @@ const UpdatePassword = () => {
     ) {
       updatePassword(user!, passwordInput.updatePassword).then(() =>
         // 비밀번호 변경완료
-        setCheck(false),
+        {
+          alert('변경완료');
+          setCheck(false);
+        },
       );
     } else if (!check) {
       alert('현재 비밀번호 인증을 해주시길 바랍니다.');
@@ -88,12 +96,12 @@ const UpdatePassword = () => {
   const validatePasswordHandler = (
     event: React.FocusEvent<HTMLInputElement>,
   ) => {
-    let regexPw = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    let regexPw =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
     if (!regexPw.test(event.target.value)) {
       setHelperPasswordInput({
         ...helperPasswordInput,
-        updatePassword:
-          '*비밀번호는 8자 이상이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.',
+        updatePassword: '비밀번호를 조건에 맞게 입력해주세요.',
       });
     } else {
       setHelperPasswordInput({
@@ -118,27 +126,26 @@ const UpdatePassword = () => {
   };
 
   return (
-    <>
-      <S.EnterInputPasswordWrapper>
+    <S.UpdatePasswordWrapper>
+      <div>
         <S.EnterInputPasswordText>현재 비밀번호</S.EnterInputPasswordText>
-        <S.InputAndButtonContainer>
-          <S.InputWithCheckButton
+        <S.EnterInputPasswordWrapper>
+          <S.EnterInputPassword
             value={passwordInput.password}
             type="password"
             name="password"
             onChange={passwordChangeHandler}
             placeholder={'현재 비밀번호를 입력하세요'}
           />
-          <S.CheckButton
-            onClick={firstPasswordCheck}
-          >
-            확인
-          </S.CheckButton>
-        </S.InputAndButtonContainer>
-      </S.EnterInputPasswordWrapper>
+          <S.OkayBtn onClick={firstPasswordCheck}>확인</S.OkayBtn>
+        </S.EnterInputPasswordWrapper>
+      </div>
       <S.EnterInputChangePasswordWrapper>
         <S.EnterInputChangePasswordText>
-          비밀번호 <span style={{fontSize:'13px'}}>(대문자,소문자+숫자+특수문자 8자 이상)</span>
+          비밀번호{' '}
+          <span style={{ fontSize: '13px' }}>
+            (대문자,소문자+숫자+특수문자 8자 이상)
+          </span>
         </S.EnterInputChangePasswordText>
         <S.EnterInputChangePasswordInput
           value={passwordInput.updatePassword}
@@ -148,7 +155,9 @@ const UpdatePassword = () => {
           onBlur={validatePasswordHandler}
           placeholder={'새 비밀번호를 입력하세요'}
         />
-        <S.WarningText>{helperPasswordInput.updatePassword}</S.WarningText>
+        <S.EnterHelperText>
+          {helperPasswordInput.updatePassword}
+        </S.EnterHelperText>
       </S.EnterInputChangePasswordWrapper>
 
       <S.EnterInputCheckPasswordWrapper>
@@ -163,19 +172,20 @@ const UpdatePassword = () => {
           onBlur={validatePasswordCheckHandler}
           placeholder={'새 비밀번호를 한번 더 확인하세요'}
         />
-        <S.WarningText>{helperPasswordInput.updatePasswordCheck}</S.WarningText>
-        <button
-          onClick={passwordCheckHandler}
-          style={{
-            backgroundColor: 'transparent',
-            cursor: 'pointer',
-            border: '1px solid black',
-          }}
-        >
-          비밀번호 변경
-        </button>
+        <S.EnterHelperText>
+          {helperPasswordInput.updatePasswordCheck}
+        </S.EnterHelperText>
       </S.EnterInputCheckPasswordWrapper>
-    </>
+      <S.EditModalBtnWrapper>
+        <S.EditModalCanceleButton onClick={handleClose}>
+          취소
+        </S.EditModalCanceleButton>
+
+        <S.EditModalCompleteButton onClick={passwordCheckHandler} type="submit">
+          수정
+        </S.EditModalCompleteButton>
+      </S.EditModalBtnWrapper>
+    </S.UpdatePasswordWrapper>
   );
 };
 

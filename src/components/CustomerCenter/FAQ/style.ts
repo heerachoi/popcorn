@@ -1,9 +1,23 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 export const FaqWrap = styled.div`
   max-width: 1040px;
   width: 100%;
+  height: 533px;
   margin: 0 auto;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 80px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: ${COLORS.gray5};
+  }
 `;
 
 export const Container = styled.div`
@@ -12,9 +26,13 @@ export const Container = styled.div`
   justify-content: center;
   align-items: baseline;
   position: relative;
-  height: 70px;
-  padding-top: 10px;
-  border-bottom: 1px solid gray;
+  height: 94px;
+  border-bottom: 1px solid ${COLORS.gray5};
+
+  @media screen and (max-width: 1040px) {
+    height: 120px;
+   
+  }
 `;
 
 export const TitleBox = styled.button`
@@ -30,7 +48,17 @@ export const TitleBox = styled.button`
   cursor: pointer;
 `;
 
-export const TitleText = styled.h4``;
+export const TitleText = styled.span`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: ${COLORS.gray1};
+  @media screen and (max-width: 1040px) {
+    font-size: 14px;
+  }
+`;
 
 export const DropDownBtn = styled.button`
   background-color: transparent;
@@ -42,12 +70,28 @@ export const DropDownBtn = styled.button`
 export const AnswerBox = styled.div`
   padding-left: 20px;
   max-height: 0;
+  margin-top: 20px;
+  margin-bottom: 10px;
   overflow: hidden;
 
-  &.show{
+  &.show {
     height: auto;
     max-height: 9999px;
   }
+  @media screen and (max-width: 1040px){   
+    margin-bottom: 5px;
+  }
 `;
 
-export const AnswerText = styled.p``;
+export const AnswerText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: ${COLORS.gray1};
+  @media screen and (max-width: 1040px) {
+    font-size: 14px;
+
+  }
+`;
