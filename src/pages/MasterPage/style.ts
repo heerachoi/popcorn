@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import COLORS from '../../assets/CSS/colors';
-export const MasterPageWrap = styled.div``;
+
+export const MasterPageWrap = styled.div`
+`;
 
 export const ReportListContainer = styled.div`
   max-width: 1040px;
@@ -12,6 +14,11 @@ export const ReportListContainer = styled.div`
   border-radius: 8px;
   margin-top: 48px;
   background-color: ${COLORS.gray8};
+
+  @media screen and (max-width: 1040px) {
+    width: 340px;
+    padding: 0;
+  }
 `;
 
 export const TabMenu = styled.ul`
@@ -52,6 +59,11 @@ export const MenuTitleTabBtn = styled.button`
   &:focus {
     border-bottom: 4px solid ${COLORS.green1};
   }
+  @media screen and (max-width: 1040px) {
+    width: 170px;
+    font-size: 13px;
+  }
+  
 `;
 
 export const ContentBox = styled.div`

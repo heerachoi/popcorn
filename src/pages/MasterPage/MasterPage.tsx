@@ -9,7 +9,6 @@ import { isActiveMenu } from '../../atoms';
 const MasterPage: any = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useRecoilState(isActiveMenu);
- 
 
   const tabMenuArr = [
     {

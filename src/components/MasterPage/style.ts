@@ -37,6 +37,9 @@ export const TitleText = styled.p`
   font-weight: 700;
   line-height: 24px;
   color: ${COLORS.gray1};
+  @media screen and (max-width: 700px) {
+    font-size: 14px;
+  }
 `;
 
 export const DateText = styled.p`
@@ -45,6 +48,7 @@ export const DateText = styled.p`
   font-weight: 500;
   line-height: 24px;
   color: ${COLORS.gray1};
+  
 `;
 
 export const NameText = styled.p`

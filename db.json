@@ -886,60 +886,7 @@
       "lon": "127.0267427",
       "category": "팝업스토어",
       "reserveURL": ""
-    },
-    {
-      "id": "107",
-      "view": {
-        "10": 0,
-        "20": 0,
-        "30": 0,
-        "40+": 0,
-        "women": 0,
-        "men": 0,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 0
-      },
-      "title": "레고 BTS Dynamite",
-      "address": "서울특별시 강남구 강남대로 426 일상비일상의틈",
-      "open": "2023.03.01",
-      "close": "2023.04.09",
-      "location": "서울",
-      "item": "기타",
-      "openingTime": [
-        "휴무",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00"
-      ],
-      "closeTime": [
-        "휴무",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00"
-      ],
-      "significantContent": "",
-      "explain": "'레고코리아'가 주최하는 방탄소년단 '다이너마이트(Dynamite)'테마의 팝업스토어 (이미지 출처 : 레고코리아 인스타그램) ",
-      "sns": "https://www.instagram.com/daily_teum/",
-      "web": "",
-      "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150143.png?alt=media&token=66ad52e8-cf2d-4c8e-955e-1b228f40e04e",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150229.png?alt=media&token=3a06403d-f258-418c-9b5d-dd697b5248db",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150254.png?alt=media&token=454988c9-d5d4-4528-af96-76f8bba8504d",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150341.png?alt=media&token=260b8ae1-b9b6-4dad-b893-4f9ca3966aac",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150448.png?alt=media&token=d2e138f5-c0ed-460b-bf60-bf42376e7e02"
-      ],
-      "lat": "37.5005376",
-      "lon": "127.0267427",
-      "category": "팝업스토어",
-      "reserveURL": ""
-    },
+    },    
     {
       "id": "108",
       "view": {
