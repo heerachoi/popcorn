@@ -31,6 +31,7 @@ const StoreCalendar = ({ storeList }: Props) => {
     [],
   );
 
+
   const events = storeList.map((store: Store) => {
     return {
       ...store,
@@ -89,7 +90,7 @@ const StoreCalendar = ({ storeList }: Props) => {
       onSelectEvent={handleSelectEvent}
       eventPropGetter={eventPropGetter}
       popup
-    />
+    />  
   );
 };
 
