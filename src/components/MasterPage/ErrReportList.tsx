@@ -1,10 +1,19 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { getInfoErrReport } from '../../services/api';
+import { getInfoErrReport, JSON_API } from '../../services/api';
 import * as S from './style';
 
 const ErrReportList: any = () => {
+  useEffect(() => {
+    fetch();
+  }, []);
+
+  // 디테일 페이지에서 확인 누른 후 홈페이지 렌더링할 때 상태값 확인
+  const fetch = async () => {
+    const data = await axios.get(`${JSON_API}/infoErrModifiContents`);
+  };
   const navigate = useNavigate();
   const { isLoading, isError, data, error } = useQuery(
     'infoErrModifiContents',
@@ -70,7 +79,7 @@ const ErrReportList: any = () => {
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
-                  <S.StatusText style={{ color: '#000000' }}>완료</S.StatusText>
+                  <S.StatusText style={{ color: '#323232' }}>완료</S.StatusText>
                 )}
               </S.ListContent>
             </S.ListBox>

@@ -23,6 +23,7 @@ import styled from 'styled-components';
 const MyProfileEditModal = () => {
   const user = useRecoilValue(userInfo);
   const [profileUrl, setProfileUrl] = useRecoilState(profileState);
+  const [isActive, setIsActive] = useState(true);
 
   // 모달 관련
   const [open, setOpen] = useRecoilState(editModal);
@@ -145,58 +146,82 @@ const MyProfileEditModal = () => {
         aria-describedby="modal-modal-description"
       >
         <S.EditModalAll>
-          <BoxContainer>
-            <S.EditModalTitle>회원정보 수정</S.EditModalTitle>
-            <S.EditModalImgLabelInputWrapper>
-              <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
-                {imgProfileUrl && (
-                  <S.EditModalProfileImgShow
-                    src={imgProfileUrl ? imgProfileUrl : basicProfileImg}
-                  />
-                )}
-                <S.EditModalProfileImgInput
-                  type="file"
-                  accept="image/*"
-                  id="modalProfileUploadImg"
-                  onChange={saveNewProfileImg}
-                  style={{ display: 'none' }}
-                />
-              </S.EditModalProfileImgLabel>
-            </S.EditModalImgLabelInputWrapper>
-            <S.EditModalNicknameInputWrapper>
-              <S.EditModalText>닉네임</S.EditModalText>
-              <S.EditModalInput
-                type="text"
-                placeholder={'닉네임을 입력해주세요'}
-                onChange={ToChangeNicknameInput}
-                value={nickname}
-              />
-            </S.EditModalNicknameInputWrapper>
-            <S.EditModalEmailInputWrpper>
-              <S.EditModalText>이메일(아이디)</S.EditModalText>
-              <S.EditModalInput
-                placeholder={
-                  currentUser?.email ? currentUser?.email : kakaoUserInfo.email
-                }
-                readOnly
-              />
-            </S.EditModalEmailInputWrpper>
-            <S.EnterInputPasswordWrapper>
-              <UpdatePassword />
-            </S.EnterInputPasswordWrapper>
+          <Box sx={style}>
+            <S.MyBookmarkReportWraps>
+              <S.MyBookmarkReportContainer>
+                <S.MyBookmarkReportBox>
+                  <S.MyBookmarkReportTabMenu>
+                    <S.MyTitleTabBtn
+                      className={isActive ? 'active' : ''}
+                      onClick={() => setIsActive(true)}
+                    >
+                      회원정보 수정
+                    </S.MyTitleTabBtn>
+                    <S.MyTitleTabBtn
+                      className={!isActive ? 'active' : ''}
+                      onClick={() => setIsActive(false)}
+                    >
+                      비밀번호 변경
+                    </S.MyTitleTabBtn>
+                  </S.MyBookmarkReportTabMenu>
+                  {isActive ? (
+                    <S.MyContentBox>
+                      <S.EditModalImgLabelInputWrapper>
+                        <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
+                          {imgProfileUrl && (
+                            <S.EditModalProfileImgShow
+                              src={
+                                imgProfileUrl ? imgProfileUrl : basicProfileImg
+                              }
+                            />
+                          )}
+                          <S.EditModalProfileImgInput
+                            type="file"
+                            accept="image/*"
+                            id="modalProfileUploadImg"
+                            onChange={saveNewProfileImg}
+                            style={{ display: 'none' }}
+                          />
+                        </S.EditModalProfileImgLabel>
+                      </S.EditModalImgLabelInputWrapper>
+                      <S.EditModalNicknameInputWrapper>
+                        <S.EditModalEmailText>닉네임</S.EditModalEmailText>
+                        <S.EditModalNicknameInput
+                          type="text"
+                          placeholder={'닉네임을 입력해주세요'}
+                          onChange={ToChangeNicknameInput}
+                          value={nickname}
+                        />
+                      </S.EditModalNicknameInputWrapper>
+                      <S.EditModalEmailInputWrpper>
+                        <S.EditModalEmailText>
+                          이메일(아이디)
+                        </S.EditModalEmailText>
+                        <S.EditModalEmailInput
+                          placeholder={currentUser?.email}
+                          readOnly
+                        />
+                      </S.EditModalEmailInputWrpper>
+                      <S.EditModalBtnWrapper>
+                        <S.EditModalCanceleButton onClick={handleClose}>
+                          취소
+                        </S.EditModalCanceleButton>
 
-            <S.EditModalBtnWrapper>
-              <S.EditModalCanceleButton onClick={handleClose}>
-                취소
-              </S.EditModalCanceleButton>
-              <S.EditModalCompleteButton
-                onClick={nicknameChangeOnClick}
-                type="submit"
-              >
-                수정
-              </S.EditModalCompleteButton>
-            </S.EditModalBtnWrapper>
-          </BoxContainer>
+                        <S.EditModalCompleteButton
+                          onClick={nicknameChangeOnClick}
+                          type="submit"
+                        >
+                          수정
+                        </S.EditModalCompleteButton>
+                      </S.EditModalBtnWrapper>
+                    </S.MyContentBox>
+                  ) : (
+                    <UpdatePassword handleClose={handleClose} />
+                  )}
+                </S.MyBookmarkReportBox>
+              </S.MyBookmarkReportContainer>
+            </S.MyBookmarkReportWraps>
+          </Box>
         </S.EditModalAll>
       </Modal>
     </>
@@ -204,23 +229,15 @@ const MyProfileEditModal = () => {
 };
 export default MyProfileEditModal;
 
-export const BoxContainer = styled(Box)`
-  position: absolute;
-  width: 400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 5px;
-  background-color: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  height: 710px;
-  overflow: scroll;
-  padding-bottom: 20px;
-  @media screen and (max-width: 750px) {
-    height: 600px;
-    top: 40%;
-  }
-`;
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '500px',
+  height: '600px',
+  bgcolor: '#f5f5f5;',
+  border: '2px solid transparent',
+  boxShadow: 24,
+  p: 4,
+};

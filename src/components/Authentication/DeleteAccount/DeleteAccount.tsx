@@ -7,6 +7,7 @@ import { useRecoilState, useResetRecoilState } from 'recoil';
 import CustomModal from '../../../shared/CustomModal';
 import axios from 'axios';
 import { JSON_API } from '../../../services/api';
+import COLORS from '../../../assets/CSS/colors';
 
 const DeleteAccount = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
@@ -78,9 +79,9 @@ const DeleteAccountBtn = styled.button`
   padding: 8px;
   width: 122px;
   height: 44px;
-  border: 1px solid #9b9b9b;
+  border: 1px solid ${COLORS.gray5};
   border-radius: 8px;
   font-size: 16px;
-  color: #ffffff;
-  background-color: #bdbdbd;
+  color: ${COLORS.white};
+  background-color: ${COLORS.gray6};
 `;

@@ -1,5 +1,5 @@
 const COLORS = {
-  black: '#000000',
+  black: '#323232',
   white: '#FFFFFF',
 
   orange1: '#F2901D',
@@ -26,6 +26,7 @@ const COLORS = {
   red: '#F4533D',
   pink: '#FFB0A6',
   lightPink: '#FFE8E4',
+  yellow: '#ffeb62',
 };
 
 export default COLORS;

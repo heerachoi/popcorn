@@ -70,7 +70,7 @@ export const getFaq = async () => {
   const { data } = await axios.get(`${JSON_API}/FAQ`);
   return data;
 };
-// const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
+// const KAKAO_KEY = process.env.REACT_APP_KAKAO_SEARCH_KEY;
 // const Kakao = axios.create({
 //   baseURL: 'https://dapi.kakao.com',
 //   headers: {

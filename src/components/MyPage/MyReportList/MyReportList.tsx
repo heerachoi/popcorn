@@ -58,7 +58,7 @@ const MyReportList = () => {
                   {li.status === false ? (
                     <S.ReportStatusText>진행중</S.ReportStatusText>
                   ) : (
-                    <S.ReportStatusText style={{ color: '#000000' }}>
+                    <S.ReportStatusText style={{ color: '#323232' }}>
                       완료
                     </S.ReportStatusText>
                   )}
@@ -74,49 +74,4 @@ const MyReportList = () => {
 
 export default MyReportList;
 
-{
-  /* {errReport
-          .filter((item: any) => item.userId.uid === uid)
-          .map((li: any) => {
-            return (
-              <S.ListBox key={li.id}>
-                <S.ListContent>
-                  <S.ReportTitleText>{li.title}</S.ReportTitleText>
-                  <S.ReportDateText>{li.reportedDate}</S.ReportDateText>
-                </S.ListContent>
-                <S.ListContent>
-                  <S.ReportCategory>{li.category}</S.ReportCategory>
-                  {li.status === false ? (
-                    <S.ReportStatusText>진행중</S.ReportStatusText>
-                  ) : (
-                    <S.ReportStatusText style={{ color: 'black' }}>
-                      완료
-                    </S.ReportStatusText>
-                  )}
-                </S.ListContent>
-              </S.ListBox>
-            );
-          })}
-        {newStores
-          .filter((item: any) => item.userId.uid === uid)
-          .map((li: any) => {
-            return (
-              <S.ListBox key={li.id}>
-                <S.ListContent>
-                  <S.ReportTitleText>{li.title}</S.ReportTitleText>
-                  <S.ReportDateText>{li.reportedDate}</S.ReportDateText>
-                </S.ListContent>
-                <S.ListContent>
-                  <S.ReportCategory>{li.category}</S.ReportCategory>
-                  {li.status === false ? (
-                    <S.ReportStatusText>진행중</S.ReportStatusText>
-                  ) : (
-                    <S.ReportStatusText style={{ color: 'black' }}>
-                      완료
-                    </S.ReportStatusText>
-                  )}
-                </S.ListContent>
-              </S.ListBox>
-            );
-          })} */
-}
+

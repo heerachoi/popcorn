@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import arrow from '../../../assets/Logo/🦆 icon _circle chevron down_.png';
 import calendar from '../../../assets/Logo/🦆 icon _calendar_.png';
+import COLORS from '../../../assets/CSS/colors';
 
 // 컴포넌트 전체 박스
 export const Wrap = styled.div`
@@ -15,6 +16,9 @@ export const Wrap = styled.div`
 export const TitleWrap = styled.div`
   margin-top: 50px;
   margin-bottom: 50px;
+  @media screen and (max-width: 580px) {
+    margin-bottom: 30px;
+  }
 `;
 export const Title = styled.span`
   position: relative;
@@ -23,11 +27,20 @@ export const Title = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
-  color: #323232;
+  color: ${COLORS.black};
+  @media screen and (max-width: 580px) {
+    font-size: 24px;
+  }
 `;
 
 // Form 박스, Form 안의 아이템, Form에서 사용하는 버튼, Input, 텍스트 등
-export const FormWrap = styled.form``;
+export const FormWrap = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const FormItemWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -43,22 +56,28 @@ export const FormText = styled(Title)`
   font-size: 16px;
   margin-bottom: 10px;
   top: 0;
+  @media screen and (max-width: 580px) {
+    font-size: 14px;
+  }
 `;
 
 export const FormInput = styled.input`
-  border: 1px solid #bdbdbd;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 8px;
   width: 367px;
   height: 60px;
   padding: 0 20px 0 20px;
-  color: #323232;
+  color: ${COLORS.black};
 
   &::placeholder {
-    color: #9b9b9b;
+    color: ${COLORS.gray5};
   }
   &:focus {
     outline: none;
-    border: 1px solid #676767;
+    border: 1px solid ${COLORS.gray3};
+  }
+  @media screen and (max-width: 580px) {
+    width: 210px;
   }
 `;
 
@@ -84,7 +103,7 @@ export const FormDate = styled(FormInput)`
     width: 100%;
     font-family: 'Apple SD Gothic Neo';
     font-style: normal;
-    color: #9b9b9b;
+    color: ${COLORS.gray5};
   }
   &:valid::before {
     display: none;
@@ -93,7 +112,7 @@ export const FormDate = styled(FormInput)`
 
 export const FormSelect = styled(FormInput)`
   width: 409px;
-  color: #9b9b9b;
+  color: ${COLORS.gray5};
   // 버튼 없애고 새로운 이미지 첨부
   appearance: none;
   background: url(${arrow}) no-repeat 95% 50%/15px auto;
@@ -109,10 +128,17 @@ export const FormSelect = styled(FormInput)`
     width: 200px;
     height: 300px;
   }
+  @media screen and (max-width: 580px) {
+    width: 255px;
+  }
 `;
 
 export const PhoneInput = styled(FormInput)`
   width: 230px;
+  height: 58px;
+  @media screen and (max-width: 580px) {
+    width: 140px;
+  }
 `;
 
 export const PhoneBtn = styled.button`
@@ -124,46 +150,62 @@ export const PhoneBtn = styled.button`
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
-  color: #9b9b9b;
-  background-color: #f5f5f5;
-  border: 1px solid #d9d9d9;
+  color: ${COLORS.gray5};
+  background-color: ${COLORS.gray8};
+  border: 1px solid ${COLORS.gray7};
   &:hover:enabled {
-    background-color: #d9d9d9;
-    border: 1px solid #bdbdbd;
+    background-color: ${COLORS.gray7};
+    border: 1px solid ${COLORS.gray6};
+  }
+  @media screen and (max-width: 580px) {
+    width: 70px;
   }
 `;
 
 export const CancleBtn = styled(PhoneBtn)`
   width: 200px;
-  color: #9b9b9b;
-  background-color: #f5f5f5;
-  border: 1px solid #d9d9d9;
+  color: ${COLORS.gray5};
+  background-color: ${COLORS.gray8};
+  border: 1px solid ${COLORS.gray7};
   &:hover:enabled {
-    background-color: #d9d9d9;
-    border: 1px solid #bdbdbd;
+    background-color: ${COLORS.gray7};
+    border: 1px solid ${COLORS.gray6};
+  }
+  @media screen and (max-width: 580px) {
+    width: 125px;
   }
 `;
 
 export const SignUpBtn = styled(CancleBtn)`
-  color: #ffffff;
-  background-color: #bdbdbd;
-  border: 1px solid #9b9b9b;
+  color: ${COLORS.white};
+  background-color: ${COLORS.gray6};
+  border: 1px solid ${COLORS.gray5};
   &:hover:enabled {
-    background-color: #676767;
-    border: 1px solid #323232;
+    background-color: ${COLORS.gray3};
+    border: 1px solid ${COLORS.black};
+  }
+  @media screen and (max-width: 580px) {
+    width: 125px;
   }
 `;
 
 export const HelperText = styled.span`
-  color: red;
+  color: ${COLORS.red};
   margin-top: 5px;
+  @media screen and (max-width: 580px) {
+    font-size: 14px;
+  }
 `;
 
 export const TextBackground = styled.div`
   text-align: center;
   width: 140px;
   height: 30px;
-  background-color: #ffeb62;
+  background-color: ${COLORS.yellow};
   box-sizing: border-box;
   border-radius: 20px;
+  @media screen and (max-width: 580px) {
+    width: 120px;
+    height: 20px;
+  }
 `;

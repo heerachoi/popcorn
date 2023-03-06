@@ -207,8 +207,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
           </S.InfoContentWrap>
         </S.DetailInfoContent>
       </S.DetailContainer>
-      {/* 하단 선 */}
-      {/* <S.Hr /> */}
+   
       {/* 좋아요/별로에요 이모티콘 컴포넌트 */}
       <StoreEmoji detailData={detailData} />
     </S.StoreDetailInfoWrap>
