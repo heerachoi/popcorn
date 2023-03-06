@@ -12,7 +12,7 @@ export const CustomerCenterTitle = styled.div`
 
 export const TitleBackground = styled.div`
   width: 140px;
-  height: 23px;
+  height: 20px;
   background-color: ${COLORS.green2};
   position: absolute;
   box-sizing: border-box;
@@ -27,14 +27,15 @@ export const TitleText = styled.p`
   line-height: 38px;
   letter-spacing: 0em;
   text-align: center;
-  color: ${COLORS.gray1};
+  color: ${COLORS.gray1}; 
+  margin-bottom: 7px ;
 `;
 
 export const CustomerCenterContainer = styled.div`
   box-sizing: border-box;
   max-width: 1040px;
   width: 100%;
-  height: 700px;
+  min-height: 700px;
   margin: 0 auto;
   padding: 0 40px;
   border: 1px solid ${COLORS.gray7};
@@ -43,7 +44,8 @@ export const CustomerCenterContainer = styled.div`
 
   @media screen and (max-width: 1040px) {
     width: 340px;
-  }
+    padding: 0 5px;
+  }  
 `;
 
 export const TabMenu = styled.ul`
@@ -57,6 +59,7 @@ export const TabMenu = styled.ul`
   margin-top: 24px;
   border-bottom: 2px solid ${COLORS.gray5};
   margin-bottom: 20px;
+
 `;
 
 export const TabTitleBox = styled.div``;
@@ -85,6 +88,11 @@ export const MenuTitleTabBtn = styled.button`
     border-bottom: 4px solid ${COLORS.green1};
     color: ${COLORS.green1};
   }
+
+  @media screen and (max-width: 1040px) {
+    width: 109px;
+    font-size: 14px;
+    }
 `;
 
 export const ContentBox = styled.div`

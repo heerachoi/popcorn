@@ -9,6 +9,7 @@ const CustomerCenterPage: any = () => {
   // 탭 메뉴 제목을 클릭하면 해당 탭의 index값 저장
   // 초기 화면에 0번째 탭이 나오도록 초기값 설정
   const [footerActive, setFooterActive] = useRecoilState(footerActiveMenu);
+  
 
   // 탭 메뉴 제목과 들어갈 내용 담은 배열
   const menuArr = [
