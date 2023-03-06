@@ -1,55 +1,6 @@
 {
   "Store": [
     {
-      "id": "0",
-      "view": {
-        "10": 3,
-        "20": 85,
-        "30": 0,
-        "40+": 3,
-        "women": 0,
-        "men": 86,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 89
-      },
-      "title": "Fluffy Keyring News",
-      "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
-      "open": "2023.01.13",
-      "close": "2023.02.25",
-      "location": "서울",
-      "item": "액세서리",
-      "openingTime": [
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00"
-      ],
-      "closeTime": [
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00"
-      ],
-      "significantContent": "",
-      "explain": "인형 키링을 주제로 하는 이번 팝업스토어에서는 새롭게 소개하는 신규 브랜드 16팀을 포함한 국내외 36팀의 100종 이상의 인형 키링들을 소개합니다. 작가와 브랜드의 개성과 정성이 가득 담긴 폭신폭신 부들부들한 인형 키링들을 열쇠, 가방, 에어팟, 외로워 보이는 사물, 어디에든 달아보세요!",
-      "sns": "https://www.instagram.com/onemorebagkr/",
-      "web": "",
-      "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b"
-      ],
-      "lat": "37.5766005",
-      "lon": "126.9693656",
-      "category": "팝업스토어",
-      "reserveURL": ""
-    },
-    {
       "id": "1",
       "view": {
         "10": 0,
