@@ -4,13 +4,11 @@ import Logout from '../../Authentication/Logout/Logout';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { globalBtn, modalPage, modalStatus, userInfo } from '../../../atoms';
 import useModal from '../../../hooks/useModal';
-import AlertModal from './Notification/NotificationModal';
 import styled from 'styled-components';
 import CustomModal from '../../../shared/CustomModal';
 import { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
-import { AiFillBell } from 'react-icons/ai';
 import { BsMapFill } from 'react-icons/bs';
 import Title from '../../../assets/Logo/popcorn_logo.svg';
 
@@ -98,12 +96,6 @@ const Header = () => {
           className={isToggled ? 'NavOn' : 'NavOff'}
           onClick={() => setIsToggled(false)}
         >
-          {user.isLogin && (
-            <MenuImageBackground>
-              {isToggled ? null : <BellIcon onClick={toggle} />}
-              <AlertModal isShowing={isShowing} hide={toggle} />
-            </MenuImageBackground>
-          )}
           <TextBackground>
             <S.CategoryBtn
               onClick={
@@ -163,12 +155,6 @@ const Header = () => {
           </MenuImageBackground>
         </S.BtnWrap>
         <MobileMenuContainer>
-          {user.isLogin && (
-            <MenuImageBackgroundMobile>
-              <BellIcon onClick={toggle} />
-              <AlertModal isShowing={isShowing} hide={toggle} />
-            </MenuImageBackgroundMobile>
-          )}
           <MenuIconContainer onClick={() => setIsToggled(!isToggled)}>
             {isToggled ? <ImCross /> : <MenuIcon />}
           </MenuIconContainer>
@@ -278,15 +264,6 @@ export const MenuText = styled.div`
   color: #fff;
   padding: 0 0 0 8px;
   margin-top: -20px;
-`;
-
-export const BellIcon = styled(AiFillBell)`
-  cursor: pointer;
-  font-size: 20px;
-  position: relative;
-  right: 12px;
-  top: 5px;
-  border: none;
 `;
 
 export const MapIcon = styled(BsMapFill)`

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import * as S from './style';
 
@@ -16,6 +16,7 @@ import {CgClose} from 'react-icons/cg';
 import { checkForAllButton } from '../../../utils/Buttons';
 
 const Modal = ({ isShowing, hide, value }: { isShowing: boolean, hide: () => void, value: string }) => {
+  
   let buttonValues:ButtonValue[] = [];
   // 카테 고리별 눌러졌을때 불들어오게  
   if (value === '위치') {

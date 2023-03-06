@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import COLORS from '../../assets/CSS/colors';
-import Vector from '../../assets/Logo/Vector.png';
+import Vector from '../../assets/Logo/Vector.svg';
 import popcornLogo from '../../assets/Logo/popcorn_logo.svg';
 import DefaultLogo from '../../assets/Logo/State=Default.svg';
 
