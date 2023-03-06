@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import styled from 'styled-components';
+import * as S from './style';
 import {
   mapCategoryValue,
   mapFoodData,
@@ -17,7 +17,6 @@ import MapDataList from '../../components/MapView/MapData/MapDataList';
 import MapSearch from '../../components/MapView/MapSearch/MapSearch';
 import DetailBox from '../../components/MapView/MapDetail/DetailBox';
 import Vector from '../../assets/Img/Vector.png';
-import COLORS from '../../assets/CSS/colors';
 
 interface LocationType {
   Ma: number;
@@ -42,11 +41,11 @@ const MapPage = () => {
     Ma: 37.49810223154336,
     La: 127.0327612337389,
   }); // 나의 위치
-  const search = useRecoilValue(mapSearchValue); // 검색어
-  const [category, setCategory] = useRecoilState(mapCategoryValue); // 카테고리
-  const popuplist = useRecoilValue(popupList); // popupData
   const [foodData, setFoodData] = useRecoilState(mapFoodData); // 음식점, 카페 데이터
   const [mapModal, setMapModal] = useRecoilState(mapModalStatus);
+  const search = useRecoilValue(mapSearchValue); // 검색어
+  const popuplist = useRecoilValue(popupList); // popupData
+  const setCategory = useSetRecoilState(mapCategoryValue); // 카테고리
   const setLevel = useSetRecoilState(mapLevel);
 
   const { data: popupData, isLoading } = useQuery('popupData', getPopupData);
@@ -78,7 +77,7 @@ const MapPage = () => {
           // useState로 관리해주고 있는 markers에 set 해준다.
           // img 해결 방법 : 카카오 검색 api를 사용해서 search keyword와 같은 값의 img들을 가져와서 markers에 push 해준다.
 
-          const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
+          const KAKAO_KEY = process.env.REACT_APP_KAKAO_SEARCH_KEY;
           const Kakao = axios.create({
             baseURL: 'https://dapi.kakao.com',
             headers: {
@@ -112,9 +111,8 @@ const MapPage = () => {
                 id: data[i].id,
                 phone: data[i].phone,
                 imgURL:
-                  image.documents.length !== 0
-                    ? image.documents[1]?.thumbnail_url
-                    : '이미지없음',
+                  image.documents.length !== 0 &&
+                  image.documents[1]?.thumbnail_url,
               });
               // @ts-ignore
               bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
@@ -150,8 +148,8 @@ const MapPage = () => {
       {isLoading ? (
         <div>로딩중</div>
       ) : (
-        <Wrap>
-          <div>
+        <S.Wrap>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <MapSearch
               onSearchSubmitHandler={onSearchSubmitHandler}
               myLocation={myLocation}
@@ -164,18 +162,18 @@ const MapPage = () => {
             />
           </div>
           {mapModal && (
-            <DetailBoxWrap>
+            <S.DetailBoxWrap>
               <DetailBox
                 setMarkerHandler={setMarkerHandler}
                 setMyLocation={setMyLocation}
                 setInfo={setInfo}
               />
-              <CloseDetailBox onClick={() => setMapModal(false)}>
+              <S.CloseDetailBox onClick={() => setMapModal(false)}>
                 <img src={Vector} />
-              </CloseDetailBox>
-            </DetailBoxWrap>
+              </S.CloseDetailBox>
+            </S.DetailBoxWrap>
           )}
-          <MapWrap mapModal={mapModal}>
+          <S.MapWrap mapModal={mapModal}>
             <Maps
               popupInfo={popupInfo}
               info={info}
@@ -185,49 +183,11 @@ const MapPage = () => {
               myLocation={myLocation}
               popupData={popupData}
             />
-          </MapWrap>
-        </Wrap>
+          </S.MapWrap>
+        </S.Wrap>
       )}
     </>
   );
 };
 
 export default MapPage;
-
-const Wrap = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  /* justify-content: space-around; */
-  /* align-items: flex-end; */
-`;
-
-const MapWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-left: ${(props: Props) => (props.mapModal ? '300px' : '0px')};
-`;
-
-const DetailBoxWrap = styled.div`
-  height: 100%;
-  position: relative;
-`;
-
-const CloseDetailBox = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 400px;
-  z-index: 999;
-  width: 35px;
-  height: 80px;
-  background-color: ${COLORS.white};
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`;
-
-interface Props {
-  mapModal: boolean;
-}

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import * as S from './style';
 import { useQuery } from 'react-query';
 import {
   getDetailAirPollutionData,
@@ -50,36 +50,17 @@ const MapWeather = ({ myLocation }: Props) => {
   };
 
   return (
-    <Wrap>
-      <WeatherWrap>
-        <WeatherText>{weatherData?.weather[0]?.main} |</WeatherText>
-        <WeatherText>{weatherData?.main?.temp}&deg;C |</WeatherText>
-        <WeatherText>
+    <S.Wrap>
+      <S.WeatherWrap>
+        <S.WeatherText>{weatherData?.weather[0]?.main} |</S.WeatherText>
+        <S.WeatherText>{weatherData?.main?.temp}&deg;C |</S.WeatherText>
+        <S.WeatherText>
           미세먼지{' '}
           {airPollutionChangeTheText[airPollutionData?.list[0]?.main?.aqi]}
-        </WeatherText>
-      </WeatherWrap>
-    </Wrap>
+        </S.WeatherText>
+      </S.WeatherWrap>
+    </S.Wrap>
   );
 };
 
 export default MapWeather;
-
-const Wrap = styled.div`
-  margin-top: 20px;
-`;
-const WeatherWrap = styled.div`
-  width: 400px;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const WeatherText = styled.span`
-  margin-right: 5px;
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ffffff;
-`;

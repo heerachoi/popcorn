@@ -7,7 +7,9 @@ max-width: 1040px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto
+  @media screen and (max-width: 840px) {
+    /* background-color: aqua; */
+  }
 `;
 
 export const Title = styled.img`

@@ -10,7 +10,6 @@ import StoreDetailInfo from '../../components/Detail/StoreDetailInfo/StoreDetail
 import { Store } from '../../types/data/storeInterface';
 import { JSON_API } from '../../services/api';
 
-
 const DetailPage: any = () => {
   const detailData = useLocation().state as Store;
   const users = useRecoilValue(userInfo);
@@ -27,7 +26,8 @@ const DetailPage: any = () => {
 
   // 나이에 따른 연령대를 셋팅해주는 함수
   const generation = () => {
-    if (age < 0 && age >= 0 && age < 10) setUserAge('연령모름');
+    if ((age < 0 && age >= 0 && age < 10) || !users.isLogin)
+      setUserAge('연령모름');
     if (age >= 10 && age < 20) setUserAge('10');
     if (age >= 20 && age < 30) setUserAge('20');
     if (age >= 30 && age < 40) setUserAge('40');
@@ -38,15 +38,26 @@ const DetailPage: any = () => {
   // 연령대 + 1, 성별 + 1 전체 수 + 1,
   const upDateViews = async () => {
     try {
-      return await axios.patch(`${JSON_API}/Store/${detailData.id}`, {
-        view: {
-          ...detailData.view,
-          [userAge]: detailData.view[userAge] + 1,
-          [users.userInfomation.gender]:
-            detailData.view[users.userInfomation.gender] + 1,
-          all: detailData.view['all'] + 1,
-        },
-      });
+      if (!users.isLogin) {
+        return await axios.patch(`${JSON_API}/Store/${detailData.id}`, {
+          view: {
+            ...detailData.view,
+            연령모름: detailData.view['연령모름'] + 1,
+            성별모름: detailData.view['성별모름'] + 1,
+            all: detailData.view['all'] + 1,
+          },
+        });
+      } else {
+        return await axios.patch(`${JSON_API}/Store/${detailData.id}`, {
+          view: {
+            ...detailData.view,
+            [userAge]: detailData.view[userAge] + 1,
+            [users.userInfomation.gender]:
+              detailData.view[users.userInfomation.gender] + 1,
+            all: detailData.view['all'] + 1,
+          },
+        });
+      }
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +77,7 @@ const DetailPage: any = () => {
   // 연령대가 설정되면 Json 서버 데이터 업데이트 하기
   useEffect(() => {
     if (userAge !== '') {
-      // mutation.mutate();
+      mutation.mutate();
     }
   }, [userAge]);
 
