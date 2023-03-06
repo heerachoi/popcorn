@@ -7,7 +7,7 @@ interface Props {
 
 export const Wrap = styled.div`
   width: 100%;
-  height: 87vh;
+  height: 91vh;
   display: flex;
 `;
 

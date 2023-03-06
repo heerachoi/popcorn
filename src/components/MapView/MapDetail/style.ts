@@ -65,7 +65,7 @@ export const CategoryFoodBtn = styled.button`
   width: 65px;
   height: 25px;
   background-color: ${(props: StyleProps) =>
-    props.category === '음식점' ? COLORS.green : COLORS.gray3};
+    props.category === '음식점' ? COLORS.green1 : COLORS.gray3};
   color: ${COLORS.white};
   border-radius: 20px;
   cursor: pointer;
@@ -128,7 +128,7 @@ export const DetailInfoTitle = styled.span`
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: #00c113;
+  color: ${COLORS.green1};
 `;
 
 export const DetailInfoText = styled(DetailInfoTitle)`

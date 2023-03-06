@@ -7,6 +7,7 @@ import { auth } from '../../services/firebase';
 import Footer from './Footer';
 import Header from './Header/Header';
 import { userInfoState } from '../../atoms';
+import { useLocation } from 'react-router-dom';
 
 type Props = {
   children: React.ReactNode;
@@ -21,6 +22,10 @@ const Layout = ({ children }: Props) => {
   console.log('userInfoState', userInfoState);
   console.log('kakaoUserInfo', kakaoUserInfo);
   console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
+
+  let link = document.location.pathname;
+  console.log(link, '!!!!!!!!!!!!!');
+
   // console.log('kakaoUserInfo.id', kakaoUserInfo.id);
   // 로그인 상태를 전역적으로 관리해주는 함수
   // 로그아웃이 된 상태에서만 Header가 바뀐다.
@@ -101,12 +106,14 @@ const Layout = ({ children }: Props) => {
     // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
   }, [users.isLogin]);
 
+  console.log('children', children);
+
   return (
     <>
       <Header />
       {/* children은 Router에서 감싸주는 components */}
       <div style={{ width: '100vw', overflow: 'hidden' }}>{children}</div>
-      <Footer />
+      {link === '/map' ? null : <Footer />}
     </>
   );
 };
