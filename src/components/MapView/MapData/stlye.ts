@@ -1,15 +1,31 @@
 import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
 
+interface Props {
+  popupInfo: any;
+  popup: any;
+}
+
 export const Wrap = styled.div`
-  border: 1px solid ${COLORS.gray7};
-  background-color: ${COLORS.gray8};
+  border: 1px solid
+    ${(props: Props) =>
+      props.popupInfo === props.popup ? COLORS.green1 : COLORS.gray7};
+  background-color: ${(props: Props) =>
+    props.popupInfo === props.popup ? COLORS.green3 : COLORS.gray8};
   border-radius: 8px;
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 175px;
+  margin-bottom: 24px;
   cursor: pointer;
+  &:hover {
+    border: 1px solid
+      ${(props: Props) =>
+        props.popupInfo === props.popup ? COLORS.green1 : COLORS.orange2};
+    background-color: ${(props: Props) =>
+      props.popupInfo === props.popup ? COLORS.green3 : COLORS.orange4};
+  }
 `;
 
 export const DetailWrap = styled.div`

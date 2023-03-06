@@ -7,7 +7,8 @@ export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  padding: 0 0 0 24px;
   background-color: ${COLORS.orange5};
 `;
 
@@ -31,7 +32,7 @@ export const KeywordText = styled.span`
   margin-top: 2px;
 `;
 export const SearchInput = styled.input`
-  padding: 0 0 0 150px;
+  padding: 0 0 0 185px;
   width: 250px;
   height: 40px;
   font-family: 'Inter';

@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 import * as S from './style';
 
-const FoodCard = ({ food, setMyLocation, setInfo }: any) => {
+const FoodCard = ({ food, setMyLocation, setInfo, info }: any) => {
   const foodCenterChangeHandler = () => {
     setMyLocation({ Ma: food.position.lat, La: food.position.lng });
     setInfo(food);
   };
 
   return (
-    <S.Wrap onClick={foodCenterChangeHandler}>
+    <S.Wrap info={info} food={food} onClick={foodCenterChangeHandler}>
       <S.DetailImage
         src={
           food.imgURL
