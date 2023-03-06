@@ -9,7 +9,12 @@ import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { editModal, userUrl } from '../../../atoms';
+import {
+  editModal,
+  kakaoAccessToken,
+  userInfoState,
+  userUrl,
+} from '../../../atoms';
 import { profileState } from '../../../atoms';
 import { userInfo } from '../../../atoms';
 import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
@@ -35,6 +40,19 @@ const MyProfileEditModal = () => {
   const [imgFile, setImgFile] = useState<any>(imgProfileUrl); // 이미지 파일 엄청 긴 이름
   const [imgUploadUrl, setImgUploadUrl] = useRecoilState<any>(userUrl); // 변경된 이미지 url
 
+  // 카카오 정보 수정 관련 - accessToken이 있다면 kakaoUserInfo정보를 바꿔줘라
+  const accessToken = useRecoilValue(kakaoAccessToken);
+  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
+
+  console.log('accessToken', accessToken);
+  console.log('kakaoUserInfo', kakaoUserInfo);
+  console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
+  console.log('user', user);
+  console.log(
+    'user.userInfomation.displayName',
+    user.userInfomation.displayName,
+  );
+  console.log('nickname', nickname);
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -59,6 +77,18 @@ const MyProfileEditModal = () => {
       alert('2글자 이상 5글자 이하로 입력해주세요.');
       return;
     }
+    // if (accessToken) {
+    //   try {
+    //     await updateProfile(currentUser, {
+    //       displayName: nickname,
+    //     });
+    //     setNickname(nickname);
+    //     alert('프로필 수정 완료!');
+    //     setOpen(false);
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }
     if (imgFile.length === 0) {
       try {
         await updateProfile(currentUser, {

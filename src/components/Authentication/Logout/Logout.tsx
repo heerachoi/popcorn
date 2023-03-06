@@ -1,16 +1,15 @@
 import { signOut } from 'firebase/auth';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useNavigate } from 'react-router-dom';
 import CustomModal from '../../../shared/CustomModal';
-import { useRecoilState } from 'recoil';
-import { kakaoAccessToken, modalStatus } from '../../../atoms';
+import { useRecoilState, useResetRecoilState } from 'recoil';
+import { kakaoAccessToken, modalStatus, userInfoState } from '../../../atoms';
 
 const Logout = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
   const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
+  const reset = useResetRecoilState(userInfoState);
   const navigate = useNavigate();
   // 로그아웃 이벤트 + 카카오 로그아웃
   const SignOutClickHandler = async () => {
@@ -28,6 +27,7 @@ const Logout = () => {
     signOut(auth);
     setIsModal({ ...isModal, logout: !isModal.logout });
     navigate('/');
+    reset();
   };
 
   // 로그아웃 클릭시 모달창
