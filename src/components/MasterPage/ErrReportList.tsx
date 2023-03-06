@@ -19,7 +19,7 @@ const ErrReportList: any = () => {
     console.log('error', error);
     return <p>Error!!!!</p>;
   }
- 
+
   // 빈 배열 생성해서 status true, false값 각각 push
   const statusTrue: any = [];
   const statusFalse: any = [];
@@ -30,27 +30,27 @@ const ErrReportList: any = () => {
       statusFalse.push(item);
     }
   });
-    
+
   // 완료 날짜 최근순 정렬
   const resentStatusTrue = statusTrue.sort(
-    (a:any, b:any) =>
-      Number(b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')) -
+    (a: any, b: any) =>
+      Number(
+        b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
+      ) -
       Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
   );
 
-  
-
   //진행중 날짜 최근순 정렬
   const resentStatusFalse = statusFalse.sort(
-    (a:any, b:any) =>
-      Number(b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')) -
+    (a: any, b: any) =>
+      Number(
+        b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
+      ) -
       Number(a.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, '')),
   );
 
   // 완료, 진행순 정렬된거 하나로 합침
-  const statusSort = resentStatusFalse.concat(resentStatusTrue) 
-  
-  
+  const statusSort = resentStatusFalse.concat(resentStatusTrue);
 
   return (
     <S.ContentWrap>
@@ -70,7 +70,7 @@ const ErrReportList: any = () => {
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
-                  <S.StatusText style={{ color: 'black' }}>완료</S.StatusText>
+                  <S.StatusText style={{ color: '#000000' }}>완료</S.StatusText>
                 )}
               </S.ListContent>
             </S.ListBox>

@@ -28,7 +28,10 @@ const Layout = ({ children }: Props) => {
   // Layout.tsx로 옮겨주니 해결되었다.
   useEffect(() => {
     if (accessToken === '') {
+      reset();
       auth.onAuthStateChanged((user) => {
+        console.log(user);
+
         if (user) {
           setUsers({
             isLogin: true,
@@ -49,11 +52,12 @@ const Layout = ({ children }: Props) => {
         }
       });
     }
-  }, [accessToken]);
+  }, [accessToken, auth]);
   // 의존성 배열에 원래 auth였는데 accessToken으로 바꿈
+  console.log('users', users);
 
   useEffect(() => {
-    if (accessToken !== '') {
+    if (accessToken !== undefined) {
       setUsers({
         isLogin: true,
         userInfomation: {

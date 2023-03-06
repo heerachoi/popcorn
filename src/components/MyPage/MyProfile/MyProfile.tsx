@@ -31,8 +31,8 @@ const MyProfile = () => {
   const [imgProfileUrl, setImgProfileUrl] = useRecoilState(profileState);
   const navigate = useNavigate();
   const currentUserInfos: any = auth.currentUser;
-  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
+  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
 
   // user가 없거나 accessToken이 없을 때 로그아웃 - 재창님이 하셔서 일단 주석
   // useEffect(() => {
