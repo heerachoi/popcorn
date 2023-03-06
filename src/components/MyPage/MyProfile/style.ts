@@ -200,7 +200,9 @@ export const EditModalProfileImgShow = styled.img`
 
 export const EditModalProfileImgInput = styled.input``;
 
-export const EditModalNicknameInputWrapper = styled.div``;
+export const EditModalNicknameInputWrapper = styled.div`
+  margin-top: 30px;
+`;
 
 export const EditModalText = styled.p`
   font-family: 'Apple SD Gothic Neo';
@@ -209,19 +211,32 @@ export const EditModalText = styled.p`
   color: #${COLORS.gray1};
 `;
 
-export const EditModalInput = styled.input`
-  width: 280px;
-  height: 40px;
-  border: 1px solid ${COLORS.gray7};
-  border-radius: 5px;
-  font-size: 14px;
+export const EditModalNicknameInput = styled.input`
+  width: 370px;
+  height: 45px;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  font-size: 16px;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  outline: none;
+  padding: 8px 16px;
+  gap: 8px;
+`;
+
+export const EditModalEmailInputWrpper = styled.div`
+  margin-top: 30px;
+`;
+
+export const EditModalEmailText = styled.p`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 0.4rem;
+  color: #323232;
 `;
 
 export const EditModalEmailInputWrpper = styled.div``;
@@ -230,21 +245,22 @@ export const EditModalEmailInputWrpper = styled.div``;
  * 모달창 버튼
  */
 export const EditModalBtnWrapper = styled.div`
-  margin-top: 2rem;
+  width: 100%;
   display: flex;
-  gap: 8px;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 4rem;
 `;
 
 export const EditModalCanceleButton = styled.button`
   cursor: pointer;
   padding: 8px;
   gap: 8px;
-  width: 150px;
-  height: 50px;
-  border: 1px solid #${COLORS.gray7};
-  border-radius: 5px;
-  background-color: #fff;
-
+  width: 170px;
+  height: 60px;
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
   /* Title Text */
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
@@ -254,15 +270,79 @@ export const EditModalCanceleButton = styled.button`
 
 export const EditModalCompleteButton = styled.button`
   cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 8px;
-  width: 150px;
-  height: 50px;
-
-  background: ${COLORS.orange4};
-  border: 1px solid ${COLORS.orange3};
-  border-radius: 5px;
+  gap: 8px;
+  width: 170px;
+  height: 60px;
+  background-color: #e7ffd8;
+  border: 1px solid #88e25d;
+  border-radius: 8px;
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   text-align: center;
-  color: ${COLORS.orange6};
+  color: #00c113;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+`;
+
+export const EditModalEmailInput = styled.input`
+  width: 370px;
+  height: 45px;
+  border: 1px solid #bdbdbd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+`;
+
+// Modal Tab
+export const MyBookmarkReportWraps = styled.div``;
+export const MyBookmarkReportContainer = styled.div``;
+export const MyBookmarkReportBox = styled.div``;
+export const MyBookmarkReportTabMenu = styled.ul`
+  padding: 0;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  border-bottom: 2px solid #9b9b9b;
+`;
+
+export const MyTitleTabTitleBox = styled.div``;
+export const MyTitleTabBtn = styled.button`
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  border: none;
+  color: black;
+  padding-bottom: 10px;
+  margin-top: 13px;
+  text-decoration: none;
+
+  cursor: pointer;
+  width: 50%;
+  &.active {
+    color: #00c113;
+    border-bottom: 2px solid #00c113;
+  }
+`;
+
+export const MyContentBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;

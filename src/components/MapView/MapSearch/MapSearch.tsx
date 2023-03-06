@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import { VscSearch } from 'react-icons/vsc';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { mapCategoryValue, mapSearchValue } from '../../../atoms';
+import { useRecoilState } from 'recoil';
+import { mapSearchValue } from '../../../atoms';
+import * as S from './style';
 import COLORS from '../../../assets/CSS/colors';
 import MapWeather from '../MapWeather/MapWeather';
 
@@ -16,23 +16,21 @@ interface Props {
 
 const MapSearch = ({ onSearchSubmitHandler, myLocation }: Props) => {
   const [search, setSearch] = useRecoilState(mapSearchValue);
-  const [category, setCategory] = useRecoilState(mapCategoryValue);
 
   const searchValueChangeHandler = (
     event: React.FormEvent<HTMLInputElement>,
   ) => {
     setSearch(event.currentTarget.value);
-    // setCategory('팝업스토어');
   };
 
   return (
-    <Wrap>
+    <S.Wrap>
       <form name="팝업스토어" onSubmit={onSearchSubmitHandler}>
-        <VscIconWrap>
+        <S.VscIconWrap>
           <VscSearch size={20} color={COLORS.green}></VscSearch>
-          <KeywordText>키워드</KeywordText>
-        </VscIconWrap>
-        <SearchInput
+          <S.KeywordText>키워드</S.KeywordText>
+        </S.VscIconWrap>
+        <S.SearchInput
           onChange={searchValueChangeHandler}
           type="text"
           value={search}
@@ -40,51 +38,8 @@ const MapSearch = ({ onSearchSubmitHandler, myLocation }: Props) => {
         />
       </form>
       <MapWeather myLocation={myLocation} />
-    </Wrap>
+    </S.Wrap>
   );
 };
 
 export default MapSearch;
-
-const Wrap = styled.div`
-  position: relative;
-  height: 13%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: ${COLORS.orange5};
-`;
-
-const VscIconWrap = styled.div`
-  position: absolute;
-  left: 80px;
-  top: 21%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const KeywordText = styled.span`
-  color: ${COLORS.green};
-  font-family: 'Apple SD Gothic Neo';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  margin-left: 10px;
-  margin-top: 2px;
-`;
-const SearchInput = styled.input`
-  padding: 0 0 0 150px;
-  width: 250px;
-  height: 40px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 30px;
-  background: #ffffff;
-  border: 1px solid #88e25d;
-  border-radius: 30px;
-`;

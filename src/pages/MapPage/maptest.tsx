@@ -11,7 +11,6 @@ import {
 } from '../../atoms';
 import { getPopupData } from '../../services/api';
 import Maps from '../../components/MapView/Map/Maps';
-import MapCategory from '../../components/MapView/MapCategory/MapCategory';
 import MapDataList from '../../components/MapView/MapData/MapDataList';
 import MapSearch from '../../components/MapView/MapSearch/MapSearch';
 import MapWeather from '../../components/MapView/MapWeather/MapWeather';
@@ -124,10 +123,6 @@ const MapPage = () => {
       ) : (
         <Wrap>
           <div>
-            <MapCategory
-              setMarkerHandler={setMarkerHandler}
-              popupData={popupData}
-            />
             {/* <MapSearch onSearchSubmitHandler={onSearchSubmitHandler} /> */}
             <MapDataList popupData={popupData} setMyLocation={setMyLocation} />
           </div>

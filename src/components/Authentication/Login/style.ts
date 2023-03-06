@@ -14,11 +14,19 @@ export const LoginImgWrap = styled.div`
   margin-top: 50px;
 `;
 
-export const LoginImg = styled.img``;
+export const LoginImg = styled.img`
+  @media screen and (max-width: 580px) {
+    width: 150px;
+    height: 150px;
+  }
+`;
 
 export const TitleWrap = styled.div`
   margin-top: 20px;
   margin-bottom: 50px;
+  @media screen and (max-width: 580px) {
+    margin-bottom: 30px;
+  }
 `;
 export const Title = styled.span`
   font-family: 'Apple SD Gothic Neo';
@@ -28,11 +36,16 @@ export const Title = styled.span`
   color: ${COLORS.gray1};
   position: relative;
   top: -12px;
+  @media screen and (max-width: 580px) {
+    font-size: 24px;
+  }
 `;
 
 export const FormWrap = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 export const FormInput = styled.input`
   border: 1px solid ${COLORS.gray6};
@@ -48,6 +61,9 @@ export const FormInput = styled.input`
   &:focus {
     outline: none;
     border: 1px solid ${COLORS.gray3};
+  }
+  @media screen and (max-width: 580px) {
+    width: 210px;
   }
 `;
 
@@ -90,13 +106,16 @@ export const LoginBtn = styled.button`
     background-color: ${COLORS.gray3};
     border: 1px solid ${COLORS.gray5};
   }
+  @media screen and (max-width: 580px) {
+    width: 250px;
+  }
 `;
 
 export const SignUpBtn = styled(LoginBtn)`
   margin-top: 20px;
   background-color: ${COLORS.orange4};
-  border: 1px solid ${COLORS.orange4};
-  color: #f2901d;
+  border: 1px solid ${COLORS.orange3};
+  color: ${COLORS.orange1};
   &:hover {
     color: ${COLORS.white};
     background: ${COLORS.orange2};
@@ -105,7 +124,7 @@ export const SignUpBtn = styled(LoginBtn)`
 `;
 
 export const HelperText = styled.span`
-  color: #f4533d;
+  color: ${COLORS.red};
   margin-top: -10px;
   margin-bottom: 10px;
   font-family: 'Apple SD Gothic Neo';
@@ -118,16 +137,23 @@ export const TextBackground = styled.div`
   text-align: center;
   width: 110px;
   height: 30px;
-  background-color: #ffeb62;
+  background-color: ${COLORS.orange3};
   box-sizing: border-box;
   border-radius: 20px;
+  @media screen and (max-width: 580px) {
+    width: 100px;
+    height: 20px;
+  }
 `;
 
 export const CancleIcon = styled(MdCancel)`
   position: relative;
-  left: 370px;
-  bottom: 60px;
-  color: #676767;
+  left: 170px;
+  bottom: -45px;
+  color: ${COLORS.gray3};
+  @media screen and (max-width: 580px) {
+    left: 100px;
+  }
 `;
 
 export const KakaoLoginBtn = styled.button`
