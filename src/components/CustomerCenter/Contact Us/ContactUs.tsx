@@ -7,36 +7,6 @@ import smallHeart from '../../../assets/Img/smallHeart.svg';
 import smallGreenDefault from '../../../assets/Img/smallGreenDefault.svg';
 
 const ContactUs = () => {
-  const data = [
- 
-    {
-      id: 2,
-      title: 'Front End',
-      name: 'JaeChang Han',
-      github: 'https://github.com/JAECHANGG',
-      blog: 'https://velog.io/@abcwockd95',
-    },
-    {
-      id: 3,
-      title: 'Front End',
-      name: 'JiEun Han',
-      github: 'https://github.com/yjyyls',
-      blog: 'https://yjyyls6.tistory.com/',
-    },
-    {
-      id: 4,
-      title: 'Front End',
-      name: 'YuAn Kim',
-      github: 'https://github.com/innasz',
-      blog: 'https://velog.io/@innasz',
-    },
-    // {
-    //   id: 5,
-    //   title: 'Designer',
-    //   name: 'HyunSil Choi',
-    //   portfoilo: 'https://github.com/heerachoi'
-    // },
-  ];
 
   return (
     <S.contactUsWarp>

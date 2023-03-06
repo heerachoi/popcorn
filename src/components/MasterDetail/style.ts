@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import COLORS from '../../assets/CSS/colors';
+
 export const ReportListWrap = styled.div``;
 export const ReportListContainer = styled.div`
   max-width: 1040px;
@@ -9,19 +10,26 @@ export const ReportListContainer = styled.div`
 
 export const TitleBackground = styled.div`
   width: 340px;
-  height: 30px;
-  background-color: #ffeb62;
+  height: 25px;
+  background-color: ${COLORS.green2};
   position: absolute;
   box-sizing: border-box;
-  padding-left: 20px;
   border-radius: 12px;
-  right: 808px;
-  top: 110px;
+  text-align: center;
+`;
+
+export const StoreReportTitleBackground = styled.div`
+  width: 420px;
+  height: 25px;
+  background-color: ${COLORS.green2};
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 12px;
+  text-align: center;
 `;
 
 export const ReportTitleBox = styled.div`
-  /* position: relative; */
-  margin-top: 53px;
+  margin-top: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,17 +42,16 @@ export const TitleText = styled.p`
   font-weight: 700;
   font-size: 32px;
   line-height: 38px;
+  top: -15px;
 `;
 
 export const ReportContentListWrap = styled.div`
-  margin-top: 47px;
-  border-radius: 8px;
+  margin-top: 49px;
   width: 100%;
 `;
 
 export const GridBox = styled.div`
-  border: 1px solid rgba(0, 0, 0, 0.2);
-
+  border: 1px solid ${COLORS.gray7};
   border-radius: 10px;
   background: ${COLORS.gray8};
   max-height: 900px;
@@ -54,28 +61,37 @@ export const Grid = styled.div`
   padding: 13px;
   display: grid;
   grid-template-columns: 170px 1fr;
-  align-items: baseline;
+  align-items: start;
 `;
 
 export const ReportTitle = styled.div`
-  text-align: center;
   margin: 10px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
-  font-size: 17px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: ${COLORS.gray1};
 `;
 
 export const ReportContentText = styled.div`
   margin: 10px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: ${COLORS.gray1};
 
   img {
     width: 150px;
     height: 150px;
   }
+`;
+
+export const ReportImg = styled.img`
+  width: 150px;
+  height: 150px;
 `;
 
 export const ButtonBox = styled.div`

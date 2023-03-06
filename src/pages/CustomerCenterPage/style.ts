@@ -40,9 +40,14 @@ export const CustomerCenterContainer = styled.div`
   border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
   background-color: ${COLORS.gray8};
+
+  @media screen and (max-width: 1040px) {
+    width: 340px;
+  }
 `;
 
 export const TabMenu = styled.ul`
+  width: 100%;
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -50,11 +55,8 @@ export const TabMenu = styled.ul`
   align-items: center;
   list-style: none;
   margin-top: 24px;
-  border-bottom: 2px solid #9b9b9b;
+  border-bottom: 2px solid ${COLORS.gray5};
   margin-bottom: 20px;
-  /* padding-bottom: 20px; */
-
-
 `;
 
 export const TabTitleBox = styled.div``;
@@ -90,6 +92,4 @@ export const ContentBox = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 24px;
-
-  /* background-color: beige; */
 `;

@@ -2,10 +2,12 @@ import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
 
 export const Wrap = styled.div`
+max-width: 1040px;
   height: 70px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 auto
 `;
 
 export const Title = styled.img`

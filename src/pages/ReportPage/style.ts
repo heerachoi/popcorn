@@ -17,6 +17,10 @@ export const ReportContainer = styled.div`
   padding: 0 51px;
   border-radius: 8px;
   background-color: ${COLORS.gray8};
+
+  @media screen and (max-width: 900px) {
+    width: 340px;
+  }
 `;
 
 export const TabTitle = styled.ul`
@@ -55,18 +59,8 @@ export const TitleBtn = styled.button`
     border-bottom: 4px solid ${COLORS.green1};
     color: ${COLORS.green1};
   }
+ 
 
-  @media screen and (max-width: 900px) {
-    width: 369px;
-  }
-  @media screen and (max-width: 650px) {
-    width: 240px;
-    font-size: 20px;
-  }
-  @media screen and (max-width: 400px) {
-    width: 190px;
-    font-size: 18px;
-  }
 `;
 
 export const Content = styled.div``;

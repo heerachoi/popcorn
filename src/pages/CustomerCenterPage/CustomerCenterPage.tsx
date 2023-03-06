@@ -2,6 +2,7 @@ import { useRecoilState } from 'recoil';
 import { footerActiveMenu } from '../../atoms';
 import ContactUs from '../../components/CustomerCenter/Contact Us/ContactUs';
 import Faq from '../../components/CustomerCenter/FAQ/Faq';
+import Notice from '../../components/CustomerCenter/Notice/Notice';
 import * as S from './style';
 
 const CustomerCenterPage: any = () => {
@@ -14,7 +15,7 @@ const CustomerCenterPage: any = () => {
     {
       id: 0,
       tabTitle: '공지사항 및 이벤트',
-      tabContent: <div>공지사항 내용</div>,
+      tabContent: <Notice />,
     },
     {
       id: 1,

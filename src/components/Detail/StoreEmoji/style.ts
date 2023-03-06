@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 export const EmojiWrap = styled.div`
   max-width: 1040px;
@@ -45,7 +46,7 @@ export const TextBackgroundContainer = styled.div`
 export const TextBackgroundOne = styled.div`
   width: 64px;
   height: 18px;
-  background-color: #FFEB62;
+  background-color: ${COLORS.orange3};
   position: absolute;
   border-radius: 12px;
   margin-top:-20px;
@@ -66,6 +67,7 @@ export const EmojiText = styled.span`
   position: relative;
   top:-8px;
   margin-bottom: 24px;
+  
 `;
 
 export const countText = styled.span`
@@ -75,5 +77,5 @@ export const countText = styled.span`
   font-weight: 700;
   font-size: 16px;
   /* line-height: 24px; */
-  color: #9B9B9B;
+  color: ${COLORS.gray5};
 `;
