@@ -21,9 +21,9 @@ const FoodCard = ({ food, setMyLocation, setInfo }: any) => {
         <S.DetailTitleSpan>{food?.title}</S.DetailTitleSpan>
         <S.DetailDescriptionWrap>
           <S.DetailDescription>{food?.address}</S.DetailDescription>
-          <S.DetailDescription>
-            <Link to={food.placeURL}>자세히 보기</Link>
-          </S.DetailDescription>
+          <Link to={food.placeURL} style={{ textDecoration: 'none' }}>
+            <S.DetailDescription>자세히 보기</S.DetailDescription>
+          </Link>
         </S.DetailDescriptionWrap>
       </S.DetailWrap>
     </S.Wrap>

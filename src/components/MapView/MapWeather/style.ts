@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
 
 export const Wrap = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const WeatherWrap = styled.div`

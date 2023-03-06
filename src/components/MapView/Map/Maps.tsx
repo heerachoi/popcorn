@@ -85,15 +85,17 @@ const Maps = ({
                   setInfo(null);
                 }}
               />
-              {info && info.address === marker.address && (
-                <CustomOverlayMap
-                  position={marker.position}
-                  yAnchor={2}
-                  zIndex={1}
-                >
-                  <MapModal marker={marker} setInfo={setInfo} />
-                </CustomOverlayMap>
-              )}
+              {info &&
+                info.title === marker.title &&
+                info.address === marker.address && (
+                  <CustomOverlayMap
+                    position={marker.position}
+                    yAnchor={2}
+                    zIndex={1}
+                  >
+                    <MapModal marker={marker} setInfo={setInfo} />
+                  </CustomOverlayMap>
+                )}
             </div>
           ))}
 

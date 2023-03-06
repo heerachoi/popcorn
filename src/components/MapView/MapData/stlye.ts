@@ -17,6 +17,8 @@ export const DetailWrap = styled.div`
   flex-direction: column;
   padding: 16px;
   justify-content: space-between;
+  text-align: left;
+  word-break: keep-all;
 `;
 export const DetailTitle = styled.span`
   font-weight: 800;

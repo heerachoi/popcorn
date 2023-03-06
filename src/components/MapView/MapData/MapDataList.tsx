@@ -53,7 +53,7 @@ export default MapDataList;
 
 const Wrap = styled.div`
   width: 450px;
-  height: 87%;
+  height: 100%;
   overflow: scroll;
   overflow-x: hidden;
 `;

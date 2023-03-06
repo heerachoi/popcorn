@@ -3,7 +3,7 @@ import COLORS from '../../../assets/CSS/colors';
 
 export const Wrap = styled.div`
   position: relative;
-  height: 13%;
+  min-height: 113px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,7 @@ export const Wrap = styled.div`
 export const VscIconWrap = styled.div`
   position: absolute;
   left: 80px;
-  top: 21%;
+  top: 23%;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import * as S from './style';
 import {
   mapCategoryValue,
@@ -7,6 +7,7 @@ import {
   mapFoodSearchValue,
 } from '../../../atoms';
 import FoodList from './FoodList';
+import Critical from '../../../assets/Img/Critical.svg';
 
 interface Props {
   setMarkerHandler: (search: any, category: any) => void;
@@ -17,12 +18,12 @@ interface Props {
 const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
   const navigate = useNavigate();
 
-  const setcategory = useSetRecoilState(mapCategoryValue);
+  const [category, setCategory] = useRecoilState(mapCategoryValue);
   const foodSearch = useRecoilValue(mapFoodSearchValue);
   const popup = useRecoilValue(mapDetailBoxPopup);
 
   const categoryChangeHandler = async (category: string) => {
-    setcategory(category);
+    setCategory(category);
     setMarkerHandler(`${foodSearch} ${category}`, category);
   };
 
@@ -30,14 +31,16 @@ const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
     <S.DetailBoxWrap>
       <S.DetailInfoWrap>
         <S.DetailImg src={popup.imgURL[0]} />
-        <S.DetailTitle>{popup.title}</S.DetailTitle>
+        <S.DetailTitleWrap>
+          <S.DetailTitle>{popup.title}</S.DetailTitle>
+        </S.DetailTitleWrap>
         <S.DetailInfoBox>
           <S.DetailTextBox>
             <S.DetailInfoTitle>운영기간</S.DetailInfoTitle>
             <S.DetailInfoTitle>영업시간</S.DetailInfoTitle>
             <S.DetailInfoTitle>주소</S.DetailInfoTitle>
           </S.DetailTextBox>
-          <S.DetailTextBox>
+          <S.DetailContentBox>
             <S.DetailInfoText>
               {popup.open} - {popup.close}
             </S.DetailInfoText>
@@ -45,24 +48,35 @@ const DetailBox = ({ setMarkerHandler, setMyLocation, setInfo }: Props) => {
               {popup.openingTime[0]} - {popup.closeTime[0]}
             </S.DetailInfoText>
             <S.DetailInfoText>{popup.address}</S.DetailInfoText>
-          </S.DetailTextBox>
+          </S.DetailContentBox>
         </S.DetailInfoBox>
-        <div onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}>
+        <S.NavigationText
+          onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
+        >
           디테일 페이지로 이동
-        </div>
+          <S.BorderBottomLine />
+        </S.NavigationText>
       </S.DetailInfoWrap>
-      <S.CategoryBtn
-        type="submit"
-        onClick={() => categoryChangeHandler('음식점')}
-      >
-        음식점
-      </S.CategoryBtn>
-      <S.CategoryBtn
-        type="submit"
-        onClick={() => categoryChangeHandler('카페')}
-      >
-        카페
-      </S.CategoryBtn>
+      <S.CategoryWrap>
+        <S.CategoryImg src={Critical} />
+        <S.CategoryTitle>주변 키워드</S.CategoryTitle>
+        <S.CategoryBtnBox>
+          <S.CategoryFoodBtn
+            category={category}
+            type="submit"
+            onClick={() => categoryChangeHandler('음식점')}
+          >
+            음식점
+          </S.CategoryFoodBtn>
+          <S.CategoryCafeBtn
+            category={category}
+            type="submit"
+            onClick={() => categoryChangeHandler('카페')}
+          >
+            카페
+          </S.CategoryCafeBtn>
+        </S.CategoryBtnBox>
+      </S.CategoryWrap>
       <FoodList setMyLocation={setMyLocation} setInfo={setInfo} />
     </S.DetailBoxWrap>
   );

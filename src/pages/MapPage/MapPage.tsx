@@ -77,7 +77,7 @@ const MapPage = () => {
           // useState로 관리해주고 있는 markers에 set 해준다.
           // img 해결 방법 : 카카오 검색 api를 사용해서 search keyword와 같은 값의 img들을 가져와서 markers에 push 해준다.
 
-          const KAKAO_KEY = 'de74e268b76a8e2b1f6b81e6cff5b52f';
+          const KAKAO_KEY = process.env.REACT_APP_KAKAO_SEARCH_KEY;
           const Kakao = axios.create({
             baseURL: 'https://dapi.kakao.com',
             headers: {
@@ -149,7 +149,7 @@ const MapPage = () => {
         <div>로딩중</div>
       ) : (
         <S.Wrap>
-          <div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <MapSearch
               onSearchSubmitHandler={onSearchSubmitHandler}
               myLocation={myLocation}
