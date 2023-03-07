@@ -12,7 +12,7 @@ export const HomePageContainer = styled.div`
 export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 59px;
+  margin-top: 89px;
   margin: 0 20px;
 `;
 
