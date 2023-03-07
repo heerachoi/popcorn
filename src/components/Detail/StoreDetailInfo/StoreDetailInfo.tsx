@@ -18,6 +18,8 @@ import StoreEmoji from '../StoreEmoji/StoreEmoji';
 /* firebase */
 import { auth } from '../../../services/firebase';
 import { JSON_API } from '../../../services/api';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { kakaoAccessToken, userInfoState } from '../../../atoms';
 /* img */
 import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
 import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
@@ -31,18 +33,39 @@ const StoreDetailInfo = ({ detailData }: any) => {
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>();
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
-
+  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
+  const accessToken = useRecoilValue(kakaoAccessToken);
+  console.log('userInfoState', userInfoState);
+  console.log('kakaoUserInfo', kakaoUserInfo);
+  console.log('kakaoUserInfo.id', kakaoUserInfo.id);
+  console.log('currentUser', currentUser);
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setCurrentUser(auth.currentUser);
-        fetchBookmarks();
-      } else {
-        return console.log('로그인 안됨');
-      }
-    });
-  }, [currentUser]);
+    if (accessToken !== '') {
+      setCurrentUser({
+        isLogin: true,
+        userInfomation: {
+          displayName: kakaoUserInfo.nickName,
+          email: kakaoUserInfo.email,
+          photoURL: '',
+          uid: '',
+          age: kakaoUserInfo.age,
+          gender: kakaoUserInfo.gender,
+          phoneNumber: '',
+          id: kakaoUserInfo.id,
+        },
+      });
+      fetchBookmarks();
+    } else {
+      auth.onAuthStateChanged((user) => {
+        console.log(user);
+        if (user) {
+          setCurrentUser(auth.currentUser);
+          fetchBookmarks();
+        }
+      });
+    }
+  }, [accessToken, kakaoUserInfo]);
 
   // 북마크 상태 업데이트
   useEffect(() => {
@@ -51,6 +74,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
 
   const NewBookmark = {
     id: currentUser.uid + detailData?.id,
+    uid: kakaoUserInfo.id,
     store: detailData?.id,
     user: auth.currentUser?.uid,
     notification: false,
@@ -62,8 +86,10 @@ const StoreDetailInfo = ({ detailData }: any) => {
   };
 
   // 페이지 렌딩시 유저의 북마크 유무 확인
+  // 카카오로 로그인 시에도 북마크 추가 잘됨
   const fetchBookmarks = async () => {
     const { data } = await axios.get(`${JSON_API}/BookMarkList`); // 북마크 리스트
+
     data.map((bookmark: BookMark) => {
       if (
         bookmark.user === currentUser.uid &&
@@ -87,18 +113,46 @@ const StoreDetailInfo = ({ detailData }: any) => {
       if (bookMarkState) {
         // 북마크가 있을 경우 삭제
         try {
-          axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);
-          setChangeColor(`${COLORS.black}`);
-          setBookMarkState(false);
+          if (accessToken) {
+            const response = await axios.delete(
+              `${JSON_API}/BookMarkList/${currentBookMarkId}`,
+              {
+                headers: { Authorization: `Bearer ${accessToken}` },
+              },
+            );
+            console.log('response', response);
+            setChangeColor(`${COLORS.gray5}`);
+            setBookMarkState(false);
+          } else {
+            // Firebase Auth를 사용하는 경우
+            await axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);
+            setChangeColor(`${COLORS.gray5}`);
+            setBookMarkState(false);
+          }
         } catch (error) {
           console.log('error', error);
         }
       } else {
         //북마크가 없을 경우 추가
         try {
-          axios.post(`${JSON_API}/BookMarkList`, NewBookmark);
-          setChangeColor(`${COLORS.orange2}`);
-          setBookMarkState(true);
+          if (accessToken) {
+            // Kakao Access Token이 존재하는 경우
+            const response = await axios.post(
+              `${JSON_API}/BookMarkList`,
+              NewBookmark,
+              {
+                headers: { Authorization: `Bearer ${accessToken}` },
+              },
+            );
+            console.log('response', response);
+            setChangeColor(`${COLORS.orange2}`);
+            setBookMarkState(true);
+          } else {
+            // Firebase Auth를 사용하는 경우
+            await axios.post(`${JSON_API}/BookMarkList`, NewBookmark);
+            setChangeColor(`${COLORS.orange2}`);
+            setBookMarkState(true);
+          }
         } catch (error) {
           console.log('error', error);
         }
@@ -189,7 +243,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
                     <Link
                       to={detailData?.sns}
                       target="_blank"
-                      style={{ color: '#000000' }}
+                      style={{ color: '#323232' }}
                     >
                       <S.SnsImg
                         src={require('../../../assets/Img/Instagram.png')}
@@ -200,7 +254,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
                     <Link
                       to={detailData?.web}
                       target="_blank"
-                      style={{ color: '#000000' }}
+                      style={{ color: '#323232' }}
                     >
                       <S.SnsImg src={require('../../../assets/Img/Link.png')} />
                     </Link>
