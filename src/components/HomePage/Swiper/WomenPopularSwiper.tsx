@@ -1,5 +1,5 @@
-import * as S from './style'
-import {useEffect, useState } from 'react';
+import * as S from './style';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { getTodayDate } from '../../../utils/FormatDate';
@@ -7,16 +7,13 @@ import { getPopupData } from '../../../services/api';
 import { Store } from '../../../types/data/storeInterface';
 import { PopularToWomen } from '../../../utils/Filter';
 
-const WomenPopularSwiper:React.FC = () => {
+const WomenPopularSwiper: React.FC = () => {
   const navigate = useNavigate();
   const womenTopTwo = PopularToWomen();
   // womenTopTwo.push()
-  console.log('womenTopTwo' , womenTopTwo)
-  const [todayDate, setTodayDate] = useState<number|any>();
-  const { isLoading, isError, data, error } = useQuery(
-    'popup',
-    getPopupData,
-  );
+  // console.log('womenTopTwo' , womenTopTwo)
+  const [todayDate, setTodayDate] = useState<number | any>();
+  const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
     console.log('로딩중');
@@ -27,24 +24,26 @@ const WomenPopularSwiper:React.FC = () => {
     return <p>Error!!!</p>;
   }
 
-
   // 오늘날짜
   useEffect(() => {
     setTodayDate(getTodayDate());
   }, []);
-  
-   /** popupList: 전체 데이터
+
+  /** popupList: 전체 데이터
    * 최근 오픈했어요
    */
-  const popupList = data.filter((store:Store) => {
+  const popupList = data.filter((store: Store) => {
     return (
       parseInt(store.open.split('.').join('')) >= todayDate - 140 &&
-      todayDate <= parseInt(store.close.split('.').join('')) 
+      todayDate <= parseInt(store.close.split('.').join(''))
     );
   });
   // 최근 오픈 순
-  const openingSoon = popupList.sort((a:Store,b:Store) => Number(b.open.split(".").join("")) - Number(a.open.split(".").join("")));
-  
+  const openingSoon = popupList.sort(
+    (a: Store, b: Store) =>
+      Number(b.open.split('.').join('')) - Number(a.open.split('.').join('')),
+  );
+
   const settings = {
     dots: false,
     infinite: false,
@@ -73,11 +72,11 @@ const WomenPopularSwiper:React.FC = () => {
     ],
   };
 
-   return (
-       <>
-        <S.SwiperContainer {...settings}>
-          {womenTopTwo.map((popup:Store) => {
-            return (
+  return (
+    <>
+      <S.SwiperContainer {...settings}>
+        {womenTopTwo.map((popup: Store) => {
+          return (
             <S.StoreContainer
               key={popup.id}
               onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
@@ -93,39 +92,35 @@ const WomenPopularSwiper:React.FC = () => {
               <S.CategoryContainer>
                 <S.Category onClick={(event) => { 
                     event.stopPropagation(); 
-                    navigate(`/search?list=${popup.location}`);
+                    navigate(`/search?search=${popup.location}`);
                   }}> 
                   {popup.location} 
                 </S.Category>
                 <S.Category onClick={(event) => {
                     event.stopPropagation();
-                    navigate(`/search?list=${popup.category}`);
+                    navigate(`/search?search=${popup.category}`);
                   }}>{popup.category}
                 </S.Category>
                 <S.Category onClick={(event) => {
                     event.stopPropagation();
-                    navigate(`/search?list=${popup.item}`);
+                    navigate(`/search?search=${popup.item}`);
                   }}>{popup.item}</S.Category>
               </S.CategoryContainer>
             </S.StoreInformation>
             </S.StoreContainer>
-          )
-          })}
-          <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
-                <S.SeeMoreImage src={require('../../../assets/Img/SeeMore.jpg')} />
-                <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
-          </S.SeeMoreContainer>
-        </S.SwiperContainer>
-        {/* <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
+          );
+        })}
+        <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
+          <S.SeeMoreImage src={require('../../../assets/Img/SeeMore.jpg')} />
+          <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
+        </S.SeeMoreContainer>
+      </S.SwiperContainer>
+      {/* <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
                 <S.SeeMoreImage src={require('../../../assets/Img/SeeMore.jpg')} />
                 <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
           </S.SeeMoreContainer> */}
-      </>
+    </>
   );
 };
 
 export default WomenPopularSwiper;
-
-
-
-

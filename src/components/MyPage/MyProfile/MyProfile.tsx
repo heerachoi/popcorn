@@ -15,6 +15,8 @@ import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../../atoms';
 import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 import { useNavigate } from 'react-router-dom';
+import MyProfileStar1 from '../../../assets/Img/MyProfileStar1.svg';
+import MyProfileStar2 from '../../../assets/Img/MyProfileStar2.svg';
 
 type CurrentUserProfile = any;
 const MyProfile = () => {
@@ -65,6 +67,7 @@ const MyProfile = () => {
     <S.MyPageAll>
       <S.MyProfileBox>
         <S.ProfileImgLabelInputWrapper>
+          <img src={MyProfileStar1} />
           <S.ProfileImgShow
             src={
               currentUserProfile?.photoURL
@@ -72,7 +75,8 @@ const MyProfile = () => {
                 : basicProfileImg
             }
             onClick={handleOpen}
-          />
+          />{' '}
+          <img src={MyProfileStar2} />
         </S.ProfileImgLabelInputWrapper>
         <S.MyProfileNickname>
           {currentUser.displayName
@@ -100,10 +104,14 @@ const MyProfile = () => {
           <S.InfoHolder>{userInfos.age}</S.InfoHolder>
         </S.InfoWrapper>
         <S.ButtonContainer>
-          <S.ModifyCompleteButton type="button">
-            <MyProfileEditModal />
-          </S.ModifyCompleteButton>
-          <DeleteAccount />
+          {accessToken ? (
+            ''
+          ) : (
+            <S.ModifyCompleteButton type="button">
+              <MyProfileEditModal />
+            </S.ModifyCompleteButton>
+          )}
+          {accessToken ? '' : <DeleteAccount />}
         </S.ButtonContainer>
       </S.MyProfileBox>
       <S.TabContainer>

@@ -30,13 +30,11 @@ import NotFound from '../../components/NotFound';
 const Search: React.FC = () => {
   // 1. url에서 카테고리 정보를 받아
   // 검색
-  useEffect(() => {}, []);
-
   const navigate = useNavigate();
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(data);
-  console.log('storeList', storeList);
+
   // 팝업 스토어 필터된 리스트
   let searchList: Store[] = [];
   let durationList: Store[] = [];
@@ -48,7 +46,6 @@ const Search: React.FC = () => {
   const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
   // 검색어
   const [searchTerm, setSearchTerm] = useState<any>('');
-  console.log(searchTerm);
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(data);
   // Date Picker
   const [dateSelected, setDateSelected] = useState<any>();
@@ -72,6 +69,12 @@ const Search: React.FC = () => {
   const { isShowing, toggle } = useLocationModal();
   const { isItemModalShowing, itemToggle } = useItemModal();
   const { isOtherModalShowing, otherToggle } = useOtherModal();
+    const [pickedDate, setPickedDate] = useState<number>();
+    const [datePickerPlaceHolder, setDatePickerPlaceHolder] = useState<string>('날짜 선택')
+  // url
+  useEffect(() => {
+    datePickerFilterHandler();
+  }, [pickedDate]);
 
   // 검색어 필터
   // 눌린 키가 enter인지 체크
@@ -131,7 +134,7 @@ const Search: React.FC = () => {
       if (Number(monthInNumber) < 10) {
         monthInNumber = '0' + String(monthInNumber);
       }
-      return spaceSplit[3] + monthInNumber + spaceSplit[2];
+      setPickedDate(Number(spaceSplit[3] + monthInNumber + spaceSplit[2]));
     }
   };
 
@@ -155,10 +158,9 @@ const Search: React.FC = () => {
   // 개선 pick했을때 실행하게,
   const datePickerFilterHandler: any = () => {
     // DatePicker의 날짜 숫자형식으로 가져온다
-    const pickedDate = Number(dateSelectedFilterHandler());
     // nan일경우 모두 포함
     let datePickerList: Store[] = [];
-    if (!Number.isNaN(pickedDate)) {
+    if (pickedDate !== undefined) {
       data.map((store: Store) => {
         let startDate = parseInt(store.open.split('.').join(''));
         let closeDate = parseInt(store.close.split('.').join(''));
@@ -216,10 +218,6 @@ const Search: React.FC = () => {
     } else {
       for (let i = 0; i < locationFilterList.length; i++) {
         data.filter((store: Store) => {
-          //서울특별시는 서울로 확인
-          // if (locationFilterList[i].label === '서울특별시') {
-          //   locationFilterList[i].label = '서울';
-          // }
           if (store.location === locationFilterList[i].label) {
             locationList.push(store);
           }
@@ -281,12 +279,31 @@ const Search: React.FC = () => {
   const getURLInfo = () => {
     //현제 URL
     const urlParams = new URLSearchParams(window.location.search);
-    const searchParam = urlParams.get('list');
-    if (searchParam != null) {
-      const decodedSearch = decodeURIComponent(searchParam); // "서울"
+    const searchParam = urlParams.get('search');
+    const dateParam = urlParams.get('date');
+    const duration = urlParams.get('duration');
+     if (searchParam != undefined || searchParam != null) {
+      const decodedSearch = decodeURIComponent(searchParam); 
       setSearchTerm(decodedSearch);
     }
+ 
+    if (dateParam !== null) {
+      if (dateParam !== 'undefined') {
+        const decodedDate = decodeURIComponent(dateParam); 
+          setPickedDate(Number(decodedDate));
+          setDatePickerPlaceHolder(decodedDate);
+      }
+    }
+    if (duration !== null && dateParam !== undefined) {
+      const decodedDuration = decodeURIComponent(duration); 
+      setPopupDurationFilter(decodedDuration);
+    }
   };
+
+  // url
+  useEffect(() => {
+    getURLInfo();
+  }, []);
 
   // 검색
   useEffect(() => {
@@ -386,7 +403,6 @@ const Search: React.FC = () => {
   // 모달 클릭 값
   const modalClickHandler = (event: any) => {
     toggle(event);
-
   };
 
   // 모달창 열렸을시 스크롤 방지
@@ -430,7 +446,7 @@ const Search: React.FC = () => {
                 minDate={new Date()}
                 showPopperArrow={false}
                 isClearable={true}
-                placeholderText="날짜 선택"
+                placeholderText= {datePickerPlaceHolder}
                 closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
               />
             </S.DatePickerWrapper>
@@ -441,6 +457,7 @@ const Search: React.FC = () => {
             <BsFillCalendarFill />
             <S.FilterTitle>팝업 기간</S.FilterTitle>
             <S.SearchEventPeriod
+              value={popupDurationFilter}
               onChange={(event) => setPopupDurationFilter(event.target.value)}
             >
               <option value="전체">전체</option>
