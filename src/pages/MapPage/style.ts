@@ -7,7 +7,7 @@ interface Props {
 
 export const Wrap = styled.div`
   width: 100%;
-  height: 87vh;
+  height: 91vh;
   display: flex;
 `;
 
@@ -24,15 +24,20 @@ export const DetailBoxWrap = styled.div`
 
 export const CloseDetailBox = styled.div`
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 400px;
   z-index: 999;
   width: 35px;
   height: 80px;
   background-color: ${COLORS.white};
-  border-radius: 4px;
+  border-radius: 0 4px 4px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+`;
+
+export const CloseButtonImg = styled.img`
+  width: 20px;
+  height: 20px;
 `;

@@ -9,12 +9,14 @@ import {
 } from '../../../atoms';
 import MapDataCard from './MapDataCard';
 import NotFound from '../../NotFound';
+import COLORS from '../../../assets/CSS/colors';
 
 const MapDataList = ({
   popupData,
   setMyLocation,
   setMarkerHandler,
   setPopupInfo,
+  popupInfo,
 }: any) => {
   const category = useRecoilValue(mapCategoryValue);
   const foodData = useRecoilValue(mapFoodData);
@@ -42,6 +44,7 @@ const MapDataList = ({
             setMyLocation={setMyLocation}
             setMarkerHandler={setMarkerHandler}
             setPopupInfo={setPopupInfo}
+            popupInfo={popupInfo}
           />
         ))
       )}
@@ -54,6 +57,19 @@ export default MapDataList;
 const Wrap = styled.div`
   width: 450px;
   height: 100%;
+  margin-right: 12px;
+  margin-top: 24px;
+  padding: 0 12px 0 24px;
   overflow: scroll;
   overflow-x: hidden;
+  &::-webkit-scrollbar {
+    /* 스크롤이 움직이는 영역  */
+    background: none;
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    /*  스크롤  */
+    background-color: ${COLORS.gray5};
+    border-radius: 30px;
+  }
 `;

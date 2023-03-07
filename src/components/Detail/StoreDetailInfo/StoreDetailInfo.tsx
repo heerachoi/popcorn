@@ -20,6 +20,9 @@ import { auth } from '../../../services/firebase';
 import { JSON_API } from '../../../services/api';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { kakaoAccessToken, userInfoState } from '../../../atoms';
+/* img */
+import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
+import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
 
 interface Props {
   detailData: Store;
@@ -192,7 +195,12 @@ const StoreDetailInfo = ({ detailData }: any) => {
                     cursor: 'pointer',
                   }}
                 >
-                  <BsBookmarkHeart style={{ color: changeColor }} />
+                  {bookMarkState ? (
+                    <S.BookMarkImg src={bookmarkHeartOrange} />
+                  ) : (
+                    <S.BookMarkImg src={bookmarkHeartBlack} />
+                  )}
+                  {/* <S.BookMarkImg src={bookmarkHeartBlack} /> */}
                 </S.BookmarkClick>
                 <S.SideTitleText>북마크</S.SideTitleText>
               </S.SideTitleIconText>
@@ -235,7 +243,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
                     <Link
                       to={detailData?.sns}
                       target="_blank"
-                      style={{ color: '#000000' }}
+                      style={{ color: '#323232' }}
                     >
                       <S.SnsImg
                         src={require('../../../assets/Img/Instagram.png')}
@@ -246,7 +254,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
                     <Link
                       to={detailData?.web}
                       target="_blank"
-                      style={{ color: '#000000' }}
+                      style={{ color: '#323232' }}
                     >
                       <S.SnsImg src={require('../../../assets/Img/Link.png')} />
                     </Link>

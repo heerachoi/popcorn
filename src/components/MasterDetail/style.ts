@@ -16,6 +16,11 @@ export const TitleBackground = styled.div`
   box-sizing: border-box;
   border-radius: 12px;
   text-align: center;
+
+  @media screen and (max-width: 700px){
+    width: 280px;
+    height: 20px;
+  }
 `;
 
 export const StoreReportTitleBackground = styled.div`
@@ -26,6 +31,12 @@ export const StoreReportTitleBackground = styled.div`
   box-sizing: border-box;
   border-radius: 12px;
   text-align: center;
+
+  @media screen and (max-width: 700px) {
+    width: 320px;
+    height: 20px;
+  }
+  
 `;
 
 export const ReportTitleBox = styled.div`
@@ -43,6 +54,10 @@ export const TitleText = styled.p`
   font-size: 32px;
   line-height: 38px;
   top: -15px;
+
+  @media screen and (max-width: 700px) {
+    font-size: 25px;
+  }
 `;
 
 export const ReportContentListWrap = styled.div`
@@ -54,7 +69,7 @@ export const GridBox = styled.div`
   border: 1px solid ${COLORS.gray7};
   border-radius: 10px;
   background: ${COLORS.gray8};
-  max-height: 900px;
+  min-height: 700px;
 `;
 
 export const Grid = styled.div`
@@ -62,6 +77,10 @@ export const Grid = styled.div`
   display: grid;
   grid-template-columns: 170px 1fr;
   align-items: start;
+
+  @media screen and (max-width: 700px) {
+   grid-template-columns: 150px 1fr;
+  }
 `;
 
 export const ReportTitle = styled.div`
@@ -87,6 +106,8 @@ export const ReportContentText = styled.div`
     width: 150px;
     height: 150px;
   }
+
+  
 `;
 
 export const ReportImg = styled.img`

@@ -31,6 +31,8 @@ export const ListContent = styled.div`
   align-items: baseline;
   padding:  10px;
   height: 35px;
+
+  
 `;
 
 export const ListText = styled.p`
@@ -40,4 +42,7 @@ export const ListText = styled.p`
   font-size: 16px;
   line-height: 19px;
   color: ${COLORS.gray1};
+  @media screen and (max-width: 1040px) {
+    font-size: 14px;
+  }
 `;

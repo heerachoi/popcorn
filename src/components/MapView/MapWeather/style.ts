@@ -6,7 +6,7 @@ export const Wrap = styled.div`
 `;
 
 export const WeatherWrap = styled.div`
-  width: 400px;
+  width: 440px;
   display: flex;
   justify-content: flex-end;
 `;

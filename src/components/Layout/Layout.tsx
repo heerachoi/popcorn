@@ -7,6 +7,7 @@ import { auth } from '../../services/firebase';
 import Footer from './Footer';
 import Header from './Header/Header';
 import { userInfoState } from '../../atoms';
+import { useLocation } from 'react-router-dom';
 
 type Props = {
   children: React.ReactNode;
@@ -18,6 +19,14 @@ const Layout = ({ children }: Props) => {
   const { data: userDataFromJson } = useQuery('user', getUser);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
+  console.log('userInfoState', userInfoState);
+  console.log('kakaoUserInfo', kakaoUserInfo);
+  console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
+
+  let link = document.location.pathname;
+  console.log(link, '!!!!!!!!!!!!!');
+
+  // console.log('kakaoUserInfo.id', kakaoUserInfo.id);
   // 로그인 상태를 전역적으로 관리해주는 함수
   // 로그아웃이 된 상태에서만 Header가 바뀐다.
   // Router.tsx에서 유저 상태관리를 해주었는데, 페이지 이동시 첫번째 useEffect가 다시 실행됨
@@ -97,12 +106,14 @@ const Layout = ({ children }: Props) => {
     // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
   }, [users.isLogin]);
 
+  console.log('children', children);
+
   return (
     <>
       <Header />
       {/* children은 Router에서 감싸주는 components */}
       <div style={{ width: '100vw', overflow: 'hidden' }}>{children}</div>
-      <Footer />
+      {link === '/map' ? null : <Footer />}
     </>
   );
 };
