@@ -15,7 +15,7 @@ export const WEB_API = 'https://pop.herokuapp.com';
 
 export const getPopupData = async () => {
   const { data } = await axios.get(`${JSON_API}/Store`);
-  return data; 
+  return data;
 };
 
 export const getDetailWeatherData = async ({
