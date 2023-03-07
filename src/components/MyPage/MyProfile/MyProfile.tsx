@@ -75,8 +75,8 @@ const MyProfile = () => {
                 : basicProfileImg
             }
             onClick={handleOpen}
-          />{' '}
-          <img src={MyProfileStar2} />
+          />
+          <S.MyProfileStar2 src={MyProfileStar2} />
         </S.ProfileImgLabelInputWrapper>
         <S.MyProfileNickname>
           {currentUser.displayName

@@ -344,6 +344,14 @@ export const MyContentBox = styled.div`
   align-items: center;
 `;
 
-export const MyProfileStar1 = styled.img``;
+export const MyProfileStar1 = styled.img`
+  position: relative;
+  top: -80px;
+  left: 58px;
+`;
 
-export const MyProfileStar2 = styled.img``;
+export const MyProfileStar2 = styled.img`
+  position: relative;
+  bottom: -65px;
+  right: 40px;
+`;
