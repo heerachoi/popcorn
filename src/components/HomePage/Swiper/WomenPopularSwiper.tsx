@@ -81,41 +81,32 @@ const WomenPopularSwiper: React.FC = () => {
               key={popup.id}
               onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
             >
-              <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진" />
-              <S.StoreInformation>
-                <S.InformationContainer>
-                  <S.PopupTitle>{popup.title}</S.PopupTitle>
-                  <S.PopupDate>
-                    {popup.open} - {popup.close}
-                  </S.PopupDate>
-                </S.InformationContainer>
-                <S.CategoryContainer>
-                  <S.Category
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      navigate(`/search?list=${popup.location}`);
-                    }}
-                  >
-                    {popup.location}
-                  </S.Category>
-                  <S.Category
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      navigate(`/search?list=${popup.category}`);
-                    }}
-                  >
-                    {popup.category}
-                  </S.Category>
-                  <S.Category
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      navigate(`/search?list=${popup.item}`);
-                    }}
-                  >
-                    {popup.item}
-                  </S.Category>
-                </S.CategoryContainer>
-              </S.StoreInformation>
+            <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
+            <S.StoreInformation>
+              <S.InformationContainer>
+                <S.PopupTitle>{popup.title}</S.PopupTitle>
+                <S.PopupDate>
+                {popup.open} - {popup.close}
+                </S.PopupDate>
+              </S.InformationContainer>
+              <S.CategoryContainer>
+                <S.Category onClick={(event) => { 
+                    event.stopPropagation(); 
+                    navigate(`/search?search=${popup.location}`);
+                  }}> 
+                  {popup.location} 
+                </S.Category>
+                <S.Category onClick={(event) => {
+                    event.stopPropagation();
+                    navigate(`/search?search=${popup.category}`);
+                  }}>{popup.category}
+                </S.Category>
+                <S.Category onClick={(event) => {
+                    event.stopPropagation();
+                    navigate(`/search?search=${popup.item}`);
+                  }}>{popup.item}</S.Category>
+              </S.CategoryContainer>
+            </S.StoreInformation>
             </S.StoreContainer>
           );
         })}

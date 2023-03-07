@@ -86,18 +86,21 @@ export const SearchInput = styled.input`
 
 export const SearchItemContainer = styled.div`
   width: 100%;
+  cursor:pointer;
 `;
 
 export const DateSearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
+  cursor:pointer;
 `;
 
 export const CategorySearchContainer = styled.div`
   display:flex;
   flex-direction: row;
   gap: 10px;
+  cursor:pointer;
 `;
 
 
@@ -116,6 +119,7 @@ export const SearchTagContainer = styled.div`
   border: 1px solid ${COLORS.orange2};
   border-radius: 20px;
   color: ${COLORS.orange1};
+  cursor: pointer;
   &:hover {
     background: ${COLORS.orange2};
     color: ${COLORS.white};
@@ -245,7 +249,7 @@ export const StoreContainer = styled.div`
   flex-direction: row;
   width: 100%;
   max-width: 600px;
-  min-width: 450px;
+  min-width: 308px;
   height: 175px;
   &:hover {
     border: 1px solid ${COLORS.orange3};
@@ -302,5 +306,8 @@ export const Category = styled.div`
   }
   @media screen and (max-width: 1100px) {
     padding: 4px 8px 3px;
+  }
+    @media screen and (max-width: 600px) {
+    font-weight: 500;
   }
 `;

@@ -15,7 +15,7 @@ export const WEB_API = 'http://localhost:3000';
 
 export const getPopupData = async () => {
   const { data } = await axios.get(`${JSON_API}/Store`);
-  return data; // "Store": []
+  return data; 
 };
 
 export const getDetailWeatherData = async ({
