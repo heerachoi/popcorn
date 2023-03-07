@@ -93,7 +93,6 @@ const MapPage = () => {
                 popupData[i].address.includes(search) ||
                 popupData[i].title.includes(search)
               ) {
-                console.log(popupData[i].lat, popupData[i].lon);
                 // @ts-ignore
                 bounds.extend(
                   new kakao.maps.LatLng(popupData[i].lat, popupData[i].lon),

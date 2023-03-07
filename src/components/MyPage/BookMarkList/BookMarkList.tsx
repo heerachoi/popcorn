@@ -19,10 +19,6 @@ const BookMarkList = () => {
     return <p>Loading...</p>;
   }
 
-  console.log('accessToken', accessToken);
-  console.log('kakaoUserInfo', kakaoUserInfo);
-  console.log('userInfos', userInfos);
-
   const bookmarkList = data?.filter((bookmark: any) => {
     return userInfos?.uid === bookmark?.user;
   });

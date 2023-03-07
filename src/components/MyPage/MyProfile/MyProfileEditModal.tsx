@@ -44,15 +44,7 @@ const MyProfileEditModal = () => {
   // 카카오 정보 수정 관련 - accessToken이 있다면 kakaoUserInfo정보를 바꿔줘라
   const accessToken = useRecoilValue(kakaoAccessToken);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-  console.log('accessToken', accessToken);
-  console.log('kakaoUserInfo', kakaoUserInfo);
-  console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
-  console.log('user', user);
-  console.log(
-    'user.userInfomation.displayName',
-    user.userInfomation.displayName,
-  );
-  console.log('nickname', nickname);
+
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -69,7 +61,6 @@ const MyProfileEditModal = () => {
   // 변경눌렀을 때 마이페이지 업뎃되면 닉네임은 끝난거
   const ToChangeNicknameInput = (event: any) => {
     setNickname(event.target.value);
-    // console.log('event.target.value', event.target.value);
   };
 
   // 수정완료 버튼 누를 때 유효성 검사 확인만
@@ -80,12 +71,10 @@ const MyProfileEditModal = () => {
     }
 
     if (imgFile.length === 0) {
-      console.log('nickname', nickname);
       try {
         await updateProfile(currentUser, {
           displayName: nickname,
         });
-        // setNickname(nickname);
         alert('프로필 수정 완료!');
         setOpen(false);
       } catch (error) {
