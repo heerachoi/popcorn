@@ -24,8 +24,8 @@ interface UserInfo {
 const KakaoLogin = () => {
   const location = useLocation(); // useLocation hook 사용
   const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  const REACT_APP_REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
-  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_REST_API_KEY}&redirect_uri=${REACT_APP_REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
+  const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
+  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
   const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET; // 카카오 디벨로퍼스에서 발급받은 client secret 키
   //주소창에 파라미터code를 가져온다 split 메서드를 활용한다
   const KAKAO_CODE = location.search.split('=')[1];
@@ -56,7 +56,7 @@ const KakaoLogin = () => {
         //엑세스 토큰을 요청하기위해 필요한 토큰과 key값들
         grant_type: 'authorization_code',
         client_id: REACT_APP_REST_API_KEY,
-        redirect_uri: REACT_APP_REDIRECT_URI, //위쪽에 전부 변수로 지정해주었기에불러오기만 하면된다
+        redirect_uri: REDIRECT_URI, //위쪽에 전부 변수로 지정해주었기에불러오기만 하면된다
         code: KAKAO_CODE,
         client_secret: REACT_APP_CLIENT_SECRET,
       }),
