@@ -57,7 +57,8 @@ export const DetailDescriptionWrap = styled.div`
 `;
 
 export const DetailImg = styled.img`
-  width: 175px;
+  max-width: 175px;
+  min-width: 175px;
   height: 175px;
   border-radius: 8px 0px 0px 8px;
 `;

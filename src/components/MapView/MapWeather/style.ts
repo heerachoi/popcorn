@@ -20,3 +20,7 @@ export const WeatherText = styled.span`
   line-height: 24px;
   color: ${COLORS.white};
 `;
+
+export const WeatherSpan = styled.span`
+  color: ${COLORS.orange6};
+`;

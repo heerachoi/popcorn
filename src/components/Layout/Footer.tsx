@@ -68,7 +68,7 @@ const Footer = () => {
           text="작성했던 내용이 사라집니다. 정말로 이동하시겠습니까?"
           cancel="취소"
           submit="이동"
-          fnc={globalBtnClickHandler}
+          onClick={globalBtnClickHandler}
         />
       )}
       <S.FooterTitleWrap>

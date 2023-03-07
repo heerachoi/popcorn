@@ -51,7 +51,7 @@ const DetailBox = ({
               {popup.open} - {popup.close}
             </S.DetailInfoText>
             <S.DetailInfoText>
-              {popup.openingTime[0]} - {popup.closeTime[0]}
+              {popup.openingTime[1]} - {popup.closeTime[1]}
             </S.DetailInfoText>
             <S.DetailInfoText>{popup.address}</S.DetailInfoText>
           </S.DetailContentBox>
