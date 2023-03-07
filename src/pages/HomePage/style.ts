@@ -256,8 +256,8 @@ export const SearchEventPeriod = styled.select`
 `;
 
 export const Option = styled.option`
-  background: #fff;
-  color: #fff;
+  background: ${COLORS.white};
+  color: ${COLORS.white};
   padding: 3px 0;
   font-size: 16px;
 `;

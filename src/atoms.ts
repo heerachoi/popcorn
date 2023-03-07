@@ -107,7 +107,6 @@ export const mapLevel = atom<number>({
   key: 'mapLevel',
   default: 3,
 });
-//
 
 export const isActiveMenu = atom<number>({
   key: 'isActiveMenu',

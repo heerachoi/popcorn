@@ -256,7 +256,7 @@ export const EditModalCanceleButton = styled.button`
   width: 170px;
   height: 60px;
   background: #ffffff;
-  border: 1px solid #d9d9d9;
+  border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
   /* Title Text */
   font-family: 'Apple SD Gothic Neo';
@@ -276,12 +276,12 @@ export const EditModalCompleteButton = styled.button`
   width: 170px;
   height: 60px;
   background-color: #e7ffd8;
-  border: 1px solid #88e25d;
+  border: 1px solid ${COLORS.green2};
   border-radius: 8px;
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   text-align: center;
-  color: #00c113;
+  color: ${COLORS.green1};
   flex: none;
   order: 0;
   flex-grow: 0;
