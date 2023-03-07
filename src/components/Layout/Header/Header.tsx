@@ -66,7 +66,7 @@ const Header = () => {
             text="작성했던 내용이 사라집니다. 정말로 이동하시겠습니까?"
             cancel="취소"
             submit="이동"
-            fnc={globalBtnClickHandler}
+            onClick={globalBtnClickHandler}
           />
         )}
         {isModal.master && (
@@ -75,7 +75,7 @@ const Header = () => {
             text="로그인하셔야 이용 가능한 서비스입니다."
             cancel="취소"
             submit="로그인"
-            fnc={reportClickHandler}
+            onClick={reportClickHandler}
           />
         )}
         <HoverBox>

@@ -8,10 +8,10 @@ type Props = {
   text: string;
   cancel: string;
   submit: string;
-  fnc: any;
+  onClick: any;
 };
 
-const CustomModal = ({ title, text, cancel, submit, fnc }: Props) => {
+const CustomModal = ({ title, text, cancel, submit, onClick }: Props) => {
   const modalStatusReset = useResetRecoilState(modalStatus);
   const isModal = useRecoilValue(modalStatus);
 
@@ -50,11 +50,11 @@ const CustomModal = ({ title, text, cancel, submit, fnc }: Props) => {
               <CancelButton onClick={modalStatusChangeHandler}>
                 {cancel}
               </CancelButton>
-              <SubmitButton onClick={fnc}>{submit}</SubmitButton>
+              <SubmitButton onClick={onClick}>{submit}</SubmitButton>
             </ButtonWrap>
           ) : (
             <OnlyButtonWrap>
-              <OnlySubmitButton onClick={fnc}>{submit}</OnlySubmitButton>
+              <OnlySubmitButton onClick={onClick}>{submit}</OnlySubmitButton>
             </OnlyButtonWrap>
           )}
         </ModalHolder>

@@ -31,7 +31,6 @@ const StoreCalendar = ({ storeList }: Props) => {
     [],
   );
 
-
   const events = storeList.map((store: Store) => {
     return {
       ...store,
@@ -50,21 +49,21 @@ const StoreCalendar = ({ storeList }: Props) => {
   const eventPropGetter = useCallback(
     (event: any) => ({
       style: {
-        backgroundColor: `${COLORS.orange1}`,
+        backgroundColor: `${COLORS.green1}`,
       },
       ...(event.item === '패션' && {
         style: {
-          backgroundColor: `${COLORS.orange2}`,
+          backgroundColor: `${COLORS.green2}`,
         },
       }),
       ...(event.item === '식음료' && {
         style: {
-          backgroundColor: `${COLORS.orange3}`,
+          backgroundColor: `${COLORS.orange1}`,
         },
       }),
       ...(event.item === '캐릭터' && {
         style: {
-          backgroundColor: `${COLORS.orange4}`,
+          backgroundColor: `${COLORS.orange2}`,
         },
       }),
       ...(event.item === '소품' && {
@@ -90,7 +89,7 @@ const StoreCalendar = ({ storeList }: Props) => {
       onSelectEvent={handleSelectEvent}
       eventPropGetter={eventPropGetter}
       popup
-    />  
+    />
   );
 };
 

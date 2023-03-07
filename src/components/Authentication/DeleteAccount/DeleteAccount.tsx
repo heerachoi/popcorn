@@ -17,29 +17,36 @@ const DeleteAccount = () => {
 
   // 회원탈퇴 할 때 json-server에서 삭제해야하기 때문에 함수를 만듬
   const deleteDBUser = async () => {
-    if (user) await axios.delete(`${JSON_API}/users/${user.uid}`);
-    try {
-      modalStatusChangeHandler('signoutComplete'); // 회원탈퇴 완료 모달   ❌ 실행안됨
-    } catch (error) {
-      console.log('알 수 없는 오류 발생');
+    if (user) {
+      await axios.delete(`${JSON_API}/users/${user.uid}`);
+      openModalClickHandler('signoutComplete'); // 회원탈퇴 완료 모달   ❌ 실행안됨
     }
   };
 
   // 회원탈퇴 이벤트
   const deleteAccountClickHandler = async () => {
     if (user) {
-      modalStatusReset();
-      await deleteUser(user);
       try {
+        modalStatusReset();
+        await deleteUser(user);
         deleteDBUser();
-        navigate('/');
+        navigateHome();
       } catch (error) {
         console.log(error);
       }
     }
   };
-  const modalStatusChangeHandler = (error: string) => {
-    setIsModal({ ...isModal, [error]: !isModal.error });
+
+  const navigateHome = () => {
+    navigate('/');
+  };
+
+  const closeModalClickHandler = (message: string) => {
+    setIsModal({ ...isModal, [message]: false });
+  };
+
+  const openModalClickHandler = (message: string) => {
+    setIsModal({ ...isModal, [message]: true });
   };
 
   return (
@@ -50,7 +57,7 @@ const DeleteAccount = () => {
           text="회원탈퇴를 하면 정보를 되돌릴 수 없습니다. 정말로 하시겠습니까?"
           cancel="취소"
           submit="회원탈퇴"
-          fnc={deleteAccountClickHandler}
+          onClick={deleteAccountClickHandler}
         />
       )}
       {/* ❌ 실행 안됨 */}
@@ -60,11 +67,11 @@ const DeleteAccount = () => {
           text="지금까지 팝콘을 이용해주셔서 감사합니다."
           cancel="취소"
           submit="확인"
-          fnc={modalStatusChangeHandler}
+          onClick={closeModalClickHandler}
         />
       )}
       <div>
-        <DeleteAccountBtn onClick={() => modalStatusChangeHandler('signout')}>
+        <DeleteAccountBtn onClick={() => openModalClickHandler('signout')}>
           회원탈퇴
         </DeleteAccountBtn>
       </div>

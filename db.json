@@ -1,55 +1,6 @@
 {
   "Store": [
     {
-      "id": "0",
-      "view": {
-        "10": 3,
-        "20": 85,
-        "30": 0,
-        "40+": 3,
-        "women": 0,
-        "men": 86,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 89
-      },
-      "title": "Fluffy Keyring News",
-      "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
-      "open": "2023.01.13",
-      "close": "2023.02.25",
-      "location": "서울",
-      "item": "액세서리",
-      "openingTime": [
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00"
-      ],
-      "closeTime": [
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00"
-      ],
-      "significantContent": "",
-      "explain": "인형 키링을 주제로 하는 이번 팝업스토어에서는 새롭게 소개하는 신규 브랜드 16팀을 포함한 국내외 36팀의 100종 이상의 인형 키링들을 소개합니다. 작가와 브랜드의 개성과 정성이 가득 담긴 폭신폭신 부들부들한 인형 키링들을 열쇠, 가방, 에어팟, 외로워 보이는 사물, 어디에든 달아보세요!",
-      "sns": "https://www.instagram.com/onemorebagkr/",
-      "web": "",
-      "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b"
-      ],
-      "lat": "37.5766005",
-      "lon": "126.9693656",
-      "category": "팝업스토어",
-      "reserveURL": ""
-    },
-    {
       "id": "1",
       "view": {
         "10": 0,
@@ -885,59 +836,6 @@
     },
     {
       "id": "106",
-      "view": {
-        "10": 0,
-        "20": 0,
-        "30": 0,
-        "40+": 0,
-        "women": 0,
-        "men": 0,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 0
-      },
-      "title": "레고 BTS Dynamite",
-      "address": "서울특별시 강남구 강남대로 426 일상비일상의틈",
-      "open": "2023.03.01",
-      "close": "2023.04.09",
-      "location": "서울",
-      "item": "기타",
-      "openingTime": [
-        "휴무",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00"
-      ],
-      "closeTime": [
-        "휴무",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00"
-      ],
-      "significantContent": "",
-      "explain": "'레고코리아'가 주최하는 방탄소년단 '다이너마이트(Dynamite)'테마의 팝업스토어 (이미지 출처 : 레고코리아 인스타그램) ",
-      "sns": "https://www.instagram.com/daily_teum/",
-      "web": "",
-      "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150143.png?alt=media&token=66ad52e8-cf2d-4c8e-955e-1b228f40e04e",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150229.png?alt=media&token=3a06403d-f258-418c-9b5d-dd697b5248db",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150254.png?alt=media&token=454988c9-d5d4-4528-af96-76f8bba8504d",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150341.png?alt=media&token=260b8ae1-b9b6-4dad-b893-4f9ca3966aac",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150448.png?alt=media&token=d2e138f5-c0ed-460b-bf60-bf42376e7e02"
-      ],
-      "lat": "37.5005376",
-      "lon": "127.0267427",
-      "category": "팝업스토어",
-      "reserveURL": ""
-    },
-    {
-      "id": "107",
       "view": {
         "10": 0,
         "20": 0,
