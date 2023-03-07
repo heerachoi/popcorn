@@ -128,6 +128,7 @@ export const ProfileImgShow = styled.img`
   height: 200px;
   border-radius: 70%;
   border: 1px solid #${COLORS.gray7};
+  cursor: pointer;
 `;
 export const ProfileImgInput = styled.input``;
 
