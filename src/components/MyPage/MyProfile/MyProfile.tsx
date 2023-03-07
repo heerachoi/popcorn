@@ -23,25 +23,17 @@ const MyProfile = () => {
   const user = useRecoilValue(userInfo);
   const userInfos = user.userInfomation;
   const currentUserProfile: CurrentUserProfile = auth.currentUser;
-  console.log('currentUserProfile', currentUserProfile);
 
   const [open, setOpen] = useRecoilState(editModal);
   const handleOpen = () => setOpen(true);
   const [currentUser, setCurrentUser] = useState<any>('');
-  const [nickname, setNickname] = useState<any>(currentUser.displayName); // 닉네임
+
   const [imgUploadUrl, setImgUploadUrl] = useState<any>(); // 업로드한 이미지 url
   const [imgProfileUrl, setImgProfileUrl] = useRecoilState(profileState);
   const navigate = useNavigate();
   const currentUserInfos: any = auth.currentUser;
   const accessToken = useRecoilValue(kakaoAccessToken);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-
-  // user가 없거나 accessToken이 없을 때 로그아웃 - 재창님이 하셔서 일단 주석
-  // useEffect(() => {
-  //   if (!user && !accessToken) {
-  //     navigate('/');
-  //   }
-  // }, [user, accessToken]);
 
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import COLORS from '../../assets/CSS/colors';
+
 export const MasterDetailPageWrap = styled.div``;
 
 export const MasterDetailContainer = styled.div``;
