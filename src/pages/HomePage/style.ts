@@ -9,6 +9,13 @@ export const HomePageContainer = styled.div`
   }
 `;
 
+export const SearchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 59px;
+  margin: 0 20px;
+`;
+
 export const HomePageContentContainer = styled.div`
   max-width: 1060px;
   width: 100%;
