@@ -18,6 +18,7 @@ import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 import CustomModal from '../../../shared/CustomModal';
 import { v4 as uuidv4 } from 'uuid';
 import { JSON_API } from '../../../services/api';
+import { sign } from 'crypto';
 
 interface SignUpInput {
   nickName: string;
@@ -158,7 +159,7 @@ const SignUp = () => {
   // 회원가입 클릭 이벤트
   const singUpHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await createUserWithEmailAndPassword(
+    createUserWithEmailAndPassword(
       // 로그인 및 회원가입
       auth,
       signUpInput.email,
@@ -170,7 +171,7 @@ const SignUp = () => {
           displayName: signUpInput.nickName,
         });
         // 회원가입하고 바로 데이터베이스 저장
-        let userInfo = {
+        const userInfo = {
           age: signUpInput.age,
           email: signUpInput.email,
           gender: signUpInput.gender,
@@ -276,29 +277,22 @@ const SignUp = () => {
   };
   /////////// 유효성 검사 ////////////
 
+  const isSignUpBtnDisabled = () => {
+    return !(
+      Object.values(helperText).every((input) => input === '') && phoneVerify
+    );
+  };
+
+  const isEmptySignUpInput = () => {
+    return Object.values(signUpInput).every((input) => input === '');
+  };
+
   // 모든 인풋창이 비었을 때 페이지 이동 가능하게 함
   useEffect(() => {
-    if (
-      signUpInput.nickName === '' &&
-      signUpInput.email === '' &&
-      signUpInput.password === '' &&
-      signUpInput.passwordCheck === '' &&
-      signUpInput.gender === '' &&
-      signUpInput.age === '' &&
-      signUpInput.phoneNumber === '' &&
-      signUpInput.phoneCode === ''
-    )
+    if (isEmptySignUpInput()) {
       setGlobalButton(false);
-  }, [
-    signUpInput.nickName,
-    signUpInput.email,
-    signUpInput.password,
-    signUpInput.passwordCheck,
-    signUpInput.gender,
-    signUpInput.age,
-    signUpInput.phoneNumber,
-    signUpInput.phoneCode,
-  ]);
+    }
+  }, [Object.values(signUpInput)]);
 
   return (
     <S.Wrap>
@@ -423,21 +417,7 @@ const SignUp = () => {
         <S.FormBtnWrap>
           <S.CancleBtn onClick={() => navigate('/login')}>취소</S.CancleBtn>
           {/* 모든 조건을 충족하면 회원가입을 누를 수 있다. */}
-          <S.SignUpBtn
-            disabled={
-              helperText.nickName === '' &&
-              helperText.email === '' &&
-              helperText.password === '' &&
-              helperText.passwordCheck === '' &&
-              helperText.age === '' &&
-              helperText.gender === '' &&
-              phoneVerify
-                ? false
-                : true
-            }
-          >
-            회원가입
-          </S.SignUpBtn>
+          <S.SignUpBtn disabled={isSignUpBtnDisabled()}>회원가입</S.SignUpBtn>
         </S.FormBtnWrap>
       </S.FormWrap>
       {/* 위에서 error가 떳을 때 Modal이 뜨는 태그들 */}
@@ -447,7 +427,7 @@ const SignUp = () => {
           text="알맞은 휴대폰 번호를 입력해 주세요."
           cancel="취소"
           submit="확인"
-          fnc={modalReset}
+          onClick={modalReset}
         />
       )}
       {isModal.phoneValidComplete && (
@@ -456,7 +436,7 @@ const SignUp = () => {
           text="인증이 완료되었습니다."
           cancel="취소"
           submit="확인"
-          fnc={modalReset}
+          onClick={modalReset}
         />
       )}
       {isModal.invalidVerificationCode && (
@@ -465,7 +445,7 @@ const SignUp = () => {
           text="인증번호를 입력해 주세요."
           cancel="취소"
           submit="확인"
-          fnc={modalReset}
+          onClick={modalReset}
         />
       )}
       {isModal.codeExpired && (
@@ -474,7 +454,7 @@ const SignUp = () => {
           text="인증번호가 틀립니다. 다시 입력해 주세요."
           cancel="취소"
           submit="확인"
-          fnc={modalReset}
+          onClick={modalReset}
         />
       )}
       {isModal.signUpComplete && (
@@ -483,7 +463,7 @@ const SignUp = () => {
           text="회원가입이 완료되었습니다."
           cancel="취소"
           submit="확인"
-          fnc={signUpCompleteAlert}
+          onClick={signUpCompleteAlert}
         />
       )}
       {isModal.emailAlreadyInUse && (
@@ -492,7 +472,7 @@ const SignUp = () => {
           text="이미 등록된 회원입니다. 이메일을 다시 입력해주세요."
           cancel="취소"
           submit="확인"
-          fnc={modalReset}
+          onClick={modalReset}
         />
       )}
     </S.Wrap>

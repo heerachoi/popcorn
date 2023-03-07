@@ -24,10 +24,7 @@ const BookMarkList = () => {
   console.log('userInfos', userInfos);
 
   const bookmarkList = data?.filter((bookmark: any) => {
-    return (
-      userInfos?.uid === bookmark?.user
-      // || kakaoUserInfo.id === bookmark.uid
-    );
+    return userInfos?.uid === bookmark?.user;
   });
 
   return (

@@ -56,9 +56,12 @@ export const StyledSlider = styled(Slider)`
     display: block;
     margin: 0 auto;
   }
-
   @media screen and (max-width: 400px) {
-    height: 110px;
+    height: 172px;
+  }
+  
+  @media screen and (max-width: 400px) {
+    height: 172px;
   }
 `;
 

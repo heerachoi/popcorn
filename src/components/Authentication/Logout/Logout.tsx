@@ -43,7 +43,7 @@ const Logout = () => {
           text="정말 로그아웃 하시겠습니까?"
           cancel="취소"
           submit="로그아웃"
-          fnc={SignOutClickHandler}
+          onClick={SignOutClickHandler}
         />
       )}
       <S.TextBackground>

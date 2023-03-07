@@ -9,6 +9,10 @@ import { modalStatus } from '../../../atoms';
 import CustomModal from '../../../shared/CustomModal';
 import KakaoLogin from './KakaoLogin';
 import LoginLogo from '../../../assets/Logo/Frame_59.svg';
+import {
+  getEmailValidation,
+  getPasswordValidation,
+} from '../../../utils/login-validation';
 
 interface SignInInput {
   email: string;
@@ -44,8 +48,12 @@ const Login = () => {
     modalStatusReset();
   };
 
-  const loginComplete = async () => {
+  const navigateHome = () => {
     navigate('/');
+  };
+
+  const loginComplete = async () => {
+    navigateHome();
     modalStatusReset();
   };
 
@@ -59,7 +67,9 @@ const Login = () => {
   };
 
   // x 버튼 클릭시 input창 리셋
-  const signInInputReset = (event: React.MouseEvent<HTMLDivElement>) => {
+  const resetSignInInputClickHandler = (
+    event: React.MouseEvent<HTMLDivElement>,
+  ) => {
     setSignInInput({
       ...signInInput,
       [event.currentTarget.className]: '',
@@ -71,29 +81,29 @@ const Login = () => {
     event: React.FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
-    if (signInInput.email === '' || signInInput.password === '')
+    if (signInInput.email === '' || signInInput.password === '') {
       modalStatusChangeHandler('loginError');
-    await signInWithEmailAndPassword(
-      auth,
-      signInInput.email,
-      signInInput.password,
-    )
+      return;
+    }
+    signInWithEmailAndPassword(auth, signInInput.email, signInInput.password)
       .then((res) => {
         console.log('res', res); // res.idtoken을 크롬 브라우저 쿠키에 set해주고, 토큰 아이디가 쿠키에 남아있으면 로그인 상태를 확인해줌
         modalStatusChangeHandler('login');
       })
       .catch((error: any) => {
-        if (error.message.includes('user-not-found'))
+        if (error.message.includes('user-not-found')) {
           modalStatusChangeHandler('userNotFound');
-        if (error.message.includes('wrong-password'))
+        }
+        if (error.message.includes('wrong-password')) {
           modalStatusChangeHandler('wrongPassword');
+        }
       });
   };
 
   const validateEmail = (event: React.FocusEvent<HTMLInputElement>) => {
-    const regExp =
-      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-    if (!regExp.test(event.target.value)) {
+    const email = event.target.value;
+    const validationError = getEmailValidation(email);
+    if (validationError) {
       setHelperText({ ...helperText, email: '이메일 형식을 기입해주세요.' });
     } else {
       setHelperText({ ...helperText, email: initHelperTextSignUpInput.email });
@@ -101,9 +111,9 @@ const Login = () => {
   };
 
   const validatePassword = (event: React.FocusEvent<HTMLInputElement>) => {
-    var regexPw =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-    if (!regexPw.test(event.target.value)) {
+    const password = event.target.value;
+    const validationError = getPasswordValidation(password);
+    if (validationError) {
       setHelperText({
         ...helperText,
         password: '8자 이상, 대/소문자,숫자,특수문자를 포함해야 합니다.',
@@ -136,7 +146,7 @@ const Login = () => {
           <div
             style={{ cursor: 'pointer' }}
             className="email"
-            onClick={signInInputReset}
+            onClick={resetSignInInputClickHandler}
           >
             <S.CancleIcon size={18} />
           </div>
@@ -154,7 +164,7 @@ const Login = () => {
           <div
             style={{ cursor: 'pointer' }}
             className="password"
-            onClick={signInInputReset}
+            onClick={resetSignInInputClickHandler}
           >
             <S.CancleIcon size={18} />
           </div>
@@ -190,7 +200,7 @@ const Login = () => {
           text="로그인이 완료되었습니다."
           cancel="취소"
           submit="확인"
-          fnc={loginComplete}
+          onClick={loginComplete}
         />
       )}
       {isModal.loginError && (
@@ -199,7 +209,7 @@ const Login = () => {
           text="빈 칸을 입력해 주세요."
           cancel="취소"
           submit="확인"
-          fnc={modalReset}
+          onClick={modalReset}
         />
       )}
       {isModal.userNotFound && (
@@ -208,7 +218,7 @@ const Login = () => {
           text="회원가입이 되지 않은 이메일입니다."
           cancel="취소"
           submit="확인"
-          fnc={modalReset}
+          onClick={modalReset}
         />
       )}
       {isModal.wrongPassword && (
@@ -217,7 +227,7 @@ const Login = () => {
           text="비밀번호가 틀렸습니다. 다시 확인해주세요."
           cancel="취소"
           submit="확인"
-          fnc={modalReset}
+          onClick={modalReset}
         />
       )}
     </S.Wrap>

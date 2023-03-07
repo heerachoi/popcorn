@@ -74,9 +74,9 @@ const StoreDetailInfo = ({ detailData }: any) => {
 
   const NewBookmark = {
     id: currentUser.uid + detailData?.id,
-    uid: kakaoUserInfo.id,
+    // uid: kakaoUserInfo.id,
     store: detailData?.id,
-    user: auth.currentUser?.uid,
+    user: accessToken ? kakaoUserInfo.id : auth.currentUser?.uid,
     notification: false,
     title: detailData?.title,
     open: detailData?.open,

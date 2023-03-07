@@ -7,6 +7,7 @@ import CategorySwiper from '../../components/HomePage/Swiper/CategorySwiper';
 import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwiper';
 import WomenPopularSwiper from '../../components/HomePage/Swiper/WomenPopularSwiper';
 import MenPopularSwiper from '../../components/HomePage/Swiper/MenPopularSwiper';
+import HomeSearch from '../../components/HomePage/Search/HomeSearch';
 
 const HomePage: any = () => {
   const navigate = useNavigate();
@@ -16,17 +17,18 @@ const HomePage: any = () => {
   );
 
   if (isLoading) {
-    // console.log('로딩중');
     return <p>Loading...</p>;
   }
   if (isError) {
-    // console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
 
   return (
     <S.HomePageContainer>
       <Banner />
+      <S.SearchContainer>
+        <HomeSearch/>
+      </S.SearchContainer>
       <S.HomePageContentContainer>
         <S.CategoryWrapper>
           <S.ListTitleContainer>
