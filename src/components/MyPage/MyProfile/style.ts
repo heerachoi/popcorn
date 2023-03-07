@@ -343,3 +343,7 @@ export const MyContentBox = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const MyProfileStar1 = styled.img``;
+
+export const MyProfileStar2 = styled.img``;

@@ -67,7 +67,7 @@ const MyProfile = () => {
     <S.MyPageAll>
       <S.MyProfileBox>
         <S.ProfileImgLabelInputWrapper>
-          <img src={MyProfileStar1} />
+          <S.MyProfileStar1 src={MyProfileStar1} />
           <S.ProfileImgShow
             src={
               currentUserProfile?.photoURL

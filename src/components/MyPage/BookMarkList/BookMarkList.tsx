@@ -5,6 +5,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import { userInfo } from '../../../atoms';
 import BookmarkNoResult from '../NoResults/BookmarkNoResult';
 import { kakaoAccessToken, userInfoState } from '../../../atoms';
+import { useNavigate } from 'react-router';
 
 const BookMarkList = () => {
   const user = useRecoilValue(userInfo);
@@ -12,7 +13,7 @@ const BookMarkList = () => {
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
   const { data, isLoading } = useQuery('BookMarkList', getBookMark);
-
+  const navigate = useNavigate();
   if (isLoading) {
     console.log('로딩중');
     return <p>Loading...</p>;
@@ -24,7 +25,8 @@ const BookMarkList = () => {
 
   const bookmarkList = data?.filter((bookmark: any) => {
     return (
-      userInfos?.uid === bookmark?.user || kakaoUserInfo.id === bookmark.uid
+      userInfos?.uid === bookmark?.user
+      // || kakaoUserInfo.id === bookmark.uid
     );
   });
 
@@ -35,8 +37,11 @@ const BookMarkList = () => {
       ) : (
         <S.BookMarkContainer>
           {bookmarkList.map((li: any) => {
+            const handleCardClick = () => {
+              navigate(`/detail/${li.store}`);
+            };
             return (
-              <S.BookMarkCard key={li.id}>
+              <S.BookMarkCard key={li.id} onClick={handleCardClick}>
                 <S.BookMarkStoreImg src={li.imgURL} />
                 <S.BookMarkStoreInfo>
                   <S.BookMarkStoreContainer>
