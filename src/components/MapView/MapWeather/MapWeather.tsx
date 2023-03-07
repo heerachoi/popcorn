@@ -52,8 +52,12 @@ const MapWeather = ({ myLocation }: Props) => {
   return (
     <S.Wrap>
       <S.WeatherWrap>
-        <S.WeatherText>{weatherData?.weather[0]?.main} |</S.WeatherText>
-        <S.WeatherText>{weatherData?.main?.temp}&deg;C |</S.WeatherText>
+        <S.WeatherText>
+          {weatherData?.weather[0]?.main} <S.WeatherSpan>|</S.WeatherSpan>
+        </S.WeatherText>
+        <S.WeatherText>
+          {weatherData?.main?.temp}&deg;C <S.WeatherSpan>|</S.WeatherSpan>
+        </S.WeatherText>
         <S.WeatherText>
           미세먼지{' '}
           {airPollutionChangeTheText[airPollutionData?.list[0]?.main?.aqi]}

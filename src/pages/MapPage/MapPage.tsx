@@ -16,7 +16,7 @@ import Maps from '../../components/MapView/Map/Maps';
 import MapDataList from '../../components/MapView/MapData/MapDataList';
 import MapSearch from '../../components/MapView/MapSearch/MapSearch';
 import DetailBox from '../../components/MapView/MapDetail/DetailBox';
-import Vector from '../../assets/Img/Vector.png';
+import arrow from '../../assets/Img/arrow.svg';
 
 interface LocationType {
   Ma: number;
@@ -171,7 +171,7 @@ const MapPage = () => {
                 info={info}
               />
               <S.CloseDetailBox onClick={() => setMapModal(false)}>
-                <S.CloseButtonImg src={Vector} />
+                <S.CloseButtonImg src={arrow} />
               </S.CloseDetailBox>
             </S.DetailBoxWrap>
           )}
