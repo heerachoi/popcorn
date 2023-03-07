@@ -1,14 +1,16 @@
 import { useQuery } from 'react-query';
 import * as S from './style';
 import { getBookMark } from '../../../services/api';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { userInfo } from '../../../atoms';
 import BookmarkNoResult from '../NoResults/BookmarkNoResult';
+import { kakaoAccessToken, userInfoState } from '../../../atoms';
 
 const BookMarkList = () => {
   const user = useRecoilValue(userInfo);
   const userInfos = user.userInfomation;
-
+  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
+  const accessToken = useRecoilValue(kakaoAccessToken);
   const { data, isLoading } = useQuery('BookMarkList', getBookMark);
 
   if (isLoading) {
@@ -16,10 +18,15 @@ const BookMarkList = () => {
     return <p>Loading...</p>;
   }
 
+  console.log('accessToken', accessToken);
+  console.log('kakaoUserInfo', kakaoUserInfo);
+  console.log('userInfos', userInfos);
+
   const bookmarkList = data?.filter((bookmark: any) => {
-    return userInfos?.uid === bookmark?.user;
+    return (
+      userInfos?.uid === bookmark?.user || kakaoUserInfo.id === bookmark.uid
+    );
   });
-  console.log('bookmarkList', bookmarkList);
 
   return (
     <>

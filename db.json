@@ -1,66 +1,17 @@
 {
   "Store": [
     {
-      "id": "0",
-      "view": {
-        "10": 3,
-        "20": 85,
-        "30": 0,
-        "40+": 3,
-        "women": 0,
-        "men": 86,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 89
-      },
-      "title": "Fluffy Keyring News",
-      "address": "서울특별시 종로구 필운대로 6-1 2층 원모어백",
-      "open": "2023.01.13",
-      "close": "2023.02.25",
-      "location": "서울",
-      "item": "액세서리",
-      "openingTime": [
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00",
-        "12:00"
-      ],
-      "closeTime": [
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00",
-        "19:00"
-      ],
-      "significantContent": "",
-      "explain": "인형 키링을 주제로 하는 이번 팝업스토어에서는 새롭게 소개하는 신규 브랜드 16팀을 포함한 국내외 36팀의 100종 이상의 인형 키링들을 소개합니다. 작가와 브랜드의 개성과 정성이 가득 담긴 폭신폭신 부들부들한 인형 키링들을 열쇠, 가방, 에어팟, 외로워 보이는 사물, 어디에든 달아보세요!",
-      "sns": "https://www.instagram.com/onemorebagkr/",
-      "web": "",
-      "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/Fluffy%2Fimage.png?alt=media&token=723836a7-dcb8-4e4b-be90-8d4bbd87fd9b"
-      ],
-      "lat": "37.5766005",
-      "lon": "126.9693656",
-      "category": "팝업스토어",
-      "reserveURL": ""
-    },
-    {
       "id": "1",
       "view": {
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 0,
+        "40+": 1,
         "women": 0,
-        "men": 0,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 0
+        "men": 1,
+        "연령모름": 1,
+        "성별모름": 1,
+        "all": 2
       },
       "title": "가나초콜릿하우스 시즌2",
       "address": "부산광역시 부산진구 전포대로 190, 1층",
@@ -158,12 +109,13 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 0,
+        "40+": 2,
         "women": 0,
-        "men": 0,
-        "연령모름": 0,
+        "men": 2,
+        "연령모름": 1,
         "성별모름": 0,
-        "all": 0
+        "all": 3,
+        "": null
       },
       "title": "포르쉐 나우 성수(Porsche Now Seongsu)",
       "address": "서울특별시 성동구 아차산로 163 포르쉐 나우 성수",
@@ -214,9 +166,9 @@
         "40+": 0,
         "women": 0,
         "men": 0,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 0
+        "연령모름": 2,
+        "성별모름": 2,
+        "all": 2
       },
       "title": "망상리토끼들",
       "address": "서울특별시 영등포구 영중로 15 타임스퀘어",
@@ -370,12 +322,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 0,
+        "40+": 1,
         "women": 0,
-        "men": 0,
+        "men": 1,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 1
       },
       "title": "우수 로컬상품 팝업스토어",
       "address": "서울특별시 용산구 한강대로23길 55 이마트 용산점",
@@ -520,12 +472,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 0,
+        "40+": 1,
         "women": 0,
-        "men": 0,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 0
+        "men": 1,
+        "연령모름": 1,
+        "성별모름": 1,
+        "all": 2
       },
       "title": "Weather Monster POP-UP",
       "address": "서울특별시 용산구 이태원로 260 코오롱스포츠 한남점",
@@ -677,12 +629,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 0,
+        "40+": 2,
         "women": 0,
-        "men": 0,
+        "men": 2,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 2
       },
       "title": "Victim X NUKIM",
       "address": "서울특별시 강남구 압구정로 4길 13-20 1층 느낌 서울",
@@ -937,59 +889,6 @@
       "reserveURL": ""
     },
     {
-      "id": "107",
-      "view": {
-        "10": 0,
-        "20": 0,
-        "30": 0,
-        "40+": 0,
-        "women": 0,
-        "men": 0,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 0
-      },
-      "title": "레고 BTS Dynamite",
-      "address": "서울특별시 강남구 강남대로 426 일상비일상의틈",
-      "open": "2023.03.01",
-      "close": "2023.04.09",
-      "location": "서울",
-      "item": "기타",
-      "openingTime": [
-        "휴무",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00",
-        "11:00"
-      ],
-      "closeTime": [
-        "휴무",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00",
-        "21:00"
-      ],
-      "significantContent": "",
-      "explain": "'레고코리아'가 주최하는 방탄소년단 '다이너마이트(Dynamite)'테마의 팝업스토어 (이미지 출처 : 레고코리아 인스타그램) ",
-      "sns": "https://www.instagram.com/daily_teum/",
-      "web": "",
-      "imgURL": [
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150143.png?alt=media&token=66ad52e8-cf2d-4c8e-955e-1b228f40e04e",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150229.png?alt=media&token=3a06403d-f258-418c-9b5d-dd697b5248db",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150254.png?alt=media&token=454988c9-d5d4-4528-af96-76f8bba8504d",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150341.png?alt=media&token=260b8ae1-b9b6-4dad-b893-4f9ca3966aac",
-        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150448.png?alt=media&token=d2e138f5-c0ed-460b-bf60-bf42376e7e02"
-      ],
-      "lat": "37.5005376",
-      "lon": "127.0267427",
-      "category": "팝업스토어",
-      "reserveURL": ""
-    },
-    {
       "id": "108",
       "view": {
         "10": 0,
@@ -1101,12 +1000,12 @@
         "10": 3,
         "20": 85,
         "30": 0,
-        "40+": 3,
+        "40+": 4,
         "women": 0,
-        "men": 86,
+        "men": 87,
         "연령모름": 1,
         "성별모름": 1,
-        "all": 90
+        "all": 91
       },
       "title": "<Nonmainstream> One-day popup",
       "address": "서울특별시 용산구 이태원로19길 6-10 랍생트",
@@ -1316,9 +1215,9 @@
         "40+": 3,
         "women": 0,
         "men": 86,
-        "연령모름": 1,
-        "성별모름": 1,
-        "all": 90
+        "연령모름": 2,
+        "성별모름": 2,
+        "all": 91
       },
       "title": "1064studio",
       "address": "서울특별시 양천구 목동동로 257 현대백화점 목동점B2",
@@ -1366,12 +1265,12 @@
         "10": 3,
         "20": 85,
         "30": 0,
-        "40+": 3,
+        "40+": 4,
         "women": 0,
-        "men": 86,
+        "men": 87,
         "연령모름": 1,
         "성별모름": 1,
-        "all": 90
+        "all": 91
       },
       "title": "갤럭시 스튜디오: EXPLORE THE NEW",
       "address": "서울특별시 마포구 양화로 171",
@@ -1476,24 +1375,48 @@
       "id": "14161310-3c95-4939-a63b-6838ec44ab88"
     },
     {
-      "age": "30~39",
+      "age": "30",
       "email": "mini5167@naver.com",
-      "nickName": "얌",
+      "nickName": "얌얌",
       "id": 2689197712,
-      "accessToken": "-hC8I6TCqdxDny_SYD3MHspMYj4--YHIh2BDcTWxCj1zGAAAAYamDURI"
+      "gender": "선택안함",
+      "accessToken": "mZj0A8yoHtSQGd-843fcZivhadGYCoxHeE9eTg8UCj1z6wAAAYa2AqQR"
     }
   ],
   "likeHate": [],
   "BookMarkList": [
     {
-      "id": "ab331987-b124-4f63-9661-99d4cdb55b09",
-      "store": "18",
-      "user": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "id": "undefined205",
+      "uid": 2689197712,
+      "store": "205",
       "notification": false,
-      "title": "두껍상회 강남",
-      "open": "2023.01.20",
-      "close": "2023.03.05",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/DuGgup%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-02-07%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.14.44.png?alt=media&token=489a8fc3-488a-4a35-a9f1-4076aaa97e2f"
+      "title": "반스 인도어 스케이트파크(Vans Indoor Skatepark)",
+      "open": "2023.02.04",
+      "close": "2023.03.30",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%B0%98%EC%8A%A4%20%EC%9D%B8%EB%8F%84%EC%96%B4%20%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%8A%B8%ED%8C%8C%ED%81%AC(Vans%20Indoor%20Skatepark)%2F%EB%B0%98%EC%8A%A41.png?alt=media&token=2a0ed5df-e364-4b9c-9a0f-e500371b71dc",
+      "item": "패션"
+    },
+    {
+      "id": "undefined202",
+      "uid": 2689197712,
+      "store": "202",
+      "notification": false,
+      "title": "<Nonmainstream> One-day popup",
+      "open": "2023.03.18",
+      "close": "2023.03.18",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%3CNonmainstream%3E%20One-day%20popup%2F%EB%85%BC%EB%A9%94%EC%9D%B81.png?alt=media&token=0f93cfc8-c362-4b25-a7ff-6344028db533",
+      "item": "식음료"
+    },
+    {
+      "id": "undefined4",
+      "uid": 2689197712,
+      "store": "4",
+      "notification": false,
+      "title": "망상리토끼들",
+      "open": "2023.02.24",
+      "close": "2023.03.16",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A7%9D%EC%83%81%EB%A6%AC%ED%86%A0%EB%81%BC%EB%93%A4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.09.06.png?alt=media&token=9cccc6cc-1333-4ed4-870f-d88abd7794b4",
+      "item": "캐릭터"
     }
   ],
   "newStores": [],

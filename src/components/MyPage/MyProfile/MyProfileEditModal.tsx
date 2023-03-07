@@ -19,6 +19,7 @@ import { profileState } from '../../../atoms';
 import { userInfo } from '../../../atoms';
 import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const MyProfileEditModal = () => {
   const user = useRecoilValue(userInfo);
@@ -43,7 +44,6 @@ const MyProfileEditModal = () => {
   // 카카오 정보 수정 관련 - accessToken이 있다면 kakaoUserInfo정보를 바꿔줘라
   const accessToken = useRecoilValue(kakaoAccessToken);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-
   console.log('accessToken', accessToken);
   console.log('kakaoUserInfo', kakaoUserInfo);
   console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
@@ -69,32 +69,23 @@ const MyProfileEditModal = () => {
   // 변경눌렀을 때 마이페이지 업뎃되면 닉네임은 끝난거
   const ToChangeNicknameInput = (event: any) => {
     setNickname(event.target.value);
+    // console.log('event.target.value', event.target.value);
   };
 
   // 수정완료 버튼 누를 때 유효성 검사 확인만
-  const nicknameChangeOnClick = async (e: any) => {
+  const nicknameChangeOnClick: any = async (e: any) => {
     if (nickname.length < 2 || nickname.length > 5) {
       alert('2글자 이상 5글자 이하로 입력해주세요.');
       return;
     }
-    // if (accessToken) {
-    //   try {
-    //     await updateProfile(currentUser, {
-    //       displayName: nickname,
-    //     });
-    //     setNickname(nickname);
-    //     alert('프로필 수정 완료!');
-    //     setOpen(false);
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // }
+
     if (imgFile.length === 0) {
+      console.log('nickname', nickname);
       try {
         await updateProfile(currentUser, {
           displayName: nickname,
         });
-        setNickname(nickname);
+        // setNickname(nickname);
         alert('프로필 수정 완료!');
         setOpen(false);
       } catch (error) {

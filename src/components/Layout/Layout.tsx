@@ -18,10 +18,6 @@ const Layout = ({ children }: Props) => {
   const { data: userDataFromJson } = useQuery('user', getUser);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
-  console.log('userInfoState', userInfoState);
-  console.log('kakaoUserInfo', kakaoUserInfo);
-  console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
-  // console.log('kakaoUserInfo.id', kakaoUserInfo.id);
   // 로그인 상태를 전역적으로 관리해주는 함수
   // 로그아웃이 된 상태에서만 Header가 바뀐다.
   // Router.tsx에서 유저 상태관리를 해주었는데, 페이지 이동시 첫번째 useEffect가 다시 실행됨

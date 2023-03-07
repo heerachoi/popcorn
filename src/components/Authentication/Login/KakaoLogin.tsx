@@ -9,17 +9,17 @@ import { useRecoilState } from 'recoil';
 import { modalStatus } from '../../../atoms';
 import { kakaoAccessToken, userInfoState } from '../../../atoms';
 import { useNavigate } from 'react-router-dom';
+import { updateProfile } from 'firebase/auth';
 
-// const userInfoState = atom({
-//   key: 'userInfoState',
-//   default: {
-//     age: '',
-//     email: '',
-//     nickName: '',
-//     id: '',
-//     accessToken: '',
-//   },
-// });
+interface UserInfo {
+  age: string;
+  email: string;
+  nickName: string;
+  id: string;
+  gender: string;
+  accessToken: string;
+}
+
 // 카카오 로그인 기능 구현 코드
 const KakaoLogin = () => {
   const location = useLocation(); // useLocation hook 사용
@@ -95,22 +95,24 @@ const KakaoLogin = () => {
     saveUserInfoToServer(user);
     navigate('/');
   };
-
+  const [currentUser, setCurrentUser] = useState<any>();
   // 유저정보 저장
-  const saveUserInfoToServer = (user: any) => {
+  const saveUserInfoToServer = async (user: any) => {
     console.log('age', age);
-    let newUserInfo = {
+    let newUserInfo: UserInfo = {
       age: user.data.kakao_account.age_range.slice(0, 2),
       email: user.data.kakao_account.email,
       nickName: user.data.properties.nickname,
       id: user.data.id,
       gender: user.data.kakao_account.gender
         ? user.data.kakao_account.gender
-        : user.data.kakao_account.gender_needs_agreement,
+        : '선택안함',
       accessToken: localStorage.getItem('token_for_kakaotalk') ?? '',
     };
+    console.log('accessToken', accessToken);
     // Recoil state 업데이트
     setKakaoUserInfo(newUserInfo);
+    setCurrentUser(id);
     axios
       .post(`${JSON_API}/users`, newUserInfo)
       .then((response) => {
@@ -119,8 +121,18 @@ const KakaoLogin = () => {
       .catch((error) => {
         console.log(error);
       });
-    console.log('user.data', user.data);
-    console.log('age', age);
+    console.log('id', id);
+    const downloadImageUrl =
+      'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/basic_profileImg.png?alt=media&token=5fb9fc96-2bab-4a01-928e-3b21543d9df7';
+
+    try {
+      await updateProfile(currentUser, {
+        displayName: nickName,
+        photoURL: downloadImageUrl,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   console.log('nickName', nickName);
