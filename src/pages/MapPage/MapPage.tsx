@@ -17,6 +17,7 @@ import MapDataList from '../../components/MapView/MapData/MapDataList';
 import MapSearch from '../../components/MapView/MapSearch/MapSearch';
 import DetailBox from '../../components/MapView/MapDetail/DetailBox';
 import arrow from '../../assets/Img/arrow.svg';
+import LoadingAnimation from '../../components/GlobalComponents/LoadingAnimation';
 
 interface LocationType {
   Ma: number;
@@ -91,7 +92,7 @@ const MapPage = () => {
                 query: data[i].place_name,
                 sort: 'accuracy', // accuracy | recency 정확도 or 최신
                 page: 1, // 페이지번호
-                size: 3, // 한 페이지에 보여 질 문서의 개수
+                size: 2, // 한 페이지에 보여 질 문서의 개수
               };
 
               const { data: image } = await Kakao.get('/v2/search/image', {
@@ -134,7 +135,7 @@ const MapPage = () => {
 
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
           if (category === '팝업스토어') {
-            map.setBounds(bounds);
+            map.panTo(map.setBounds(bounds));
             let latlng = map.getCenter();
             setMyLocation(latlng);
           }
@@ -146,7 +147,7 @@ const MapPage = () => {
   return (
     <>
       {isLoading ? (
-        <div>로딩중</div>
+        <LoadingAnimation />
       ) : (
         <S.Wrap>
           <div style={{ display: 'flex', flexDirection: 'column' }}>

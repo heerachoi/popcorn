@@ -22,9 +22,7 @@ const Layout = ({ children }: Props) => {
   console.log('userInfoState', userInfoState);
   console.log('kakaoUserInfo', kakaoUserInfo);
   console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
-
-  let link = document.location.pathname;
-  console.log(link, '!!!!!!!!!!!!!');
+  const { pathname } = useLocation();
 
   // console.log('kakaoUserInfo.id', kakaoUserInfo.id);
   // 로그인 상태를 전역적으로 관리해주는 함수
@@ -113,7 +111,7 @@ const Layout = ({ children }: Props) => {
       <Header />
       {/* children은 Router에서 감싸주는 components */}
       <div style={{ width: '100vw', overflow: 'hidden' }}>{children}</div>
-      {link === '/map' ? null : <Footer />}
+      {pathname === '/map' ? null : <Footer />}
     </>
   );
 };

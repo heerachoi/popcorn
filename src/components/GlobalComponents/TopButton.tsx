@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-// import {
-//   PositionContainer,
-//   TopBtn,
-// } from "../../../styledComponenet/mainContent";
+import TopImg from '../../assets/Img/Top.svg';
 
 const TopButton = () => {
   // 버튼 상태
@@ -36,14 +33,12 @@ const TopButton = () => {
 
   return (
     <PositionContainer>
-      {BtnStatus ? <TopBtn onClick={onClickTopHandler}>🔝</TopBtn> : null}
+      {BtnStatus ? <TopBtn src={TopImg} onClick={onClickTopHandler} /> : null}
     </PositionContainer>
   );
 };
 
 export default TopButton;
-
-// TopBtn.jsx
 
 export const PositionContainer = styled.div`
   position: fixed;
@@ -52,14 +47,9 @@ export const PositionContainer = styled.div`
   z-index: 1000;
 `;
 
-export const TopBtn = styled.button`
+export const TopBtn = styled.img`
   position: fixed;
   right: 0;
   margin-right: 30px;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: transparent;
-  font-size: 40px;
-  opacity: 0.3;
   cursor: pointer;
 `;

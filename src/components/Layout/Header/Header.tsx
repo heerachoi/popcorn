@@ -11,6 +11,7 @@ import { FaBars } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { BsMapFill } from 'react-icons/bs';
 import Title from '../../../assets/Logo/popcorn_logo.svg';
+import HoverImg from '../../../assets/Logo/HeaderHovered.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ const Header = () => {
           />
           <TitleImg
             className="TitleImg"
-            src={require('../../../assets/Logo/State=Hovered.png')}
+            src={HoverImg}
             alt="타이틀"
             onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
