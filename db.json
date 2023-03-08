@@ -6,12 +6,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 1,
+        "40+": 5,
         "women": 0,
-        "men": 1,
+        "men": 5,
         "연령모름": 1,
         "성별모름": 1,
-        "all": 2
+        "all": 6
       },
       "title": "가나초콜릿하우스 시즌2",
       "address": "부산광역시 부산진구 전포대로 190, 1층",
@@ -58,12 +58,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 0,
+        "40+": 2,
         "women": 0,
-        "men": 0,
+        "men": 2,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 0
+        "all": 2
       },
       "title": "티파니 락",
       "address": "부산광역시 해운대구 센텀남대로 35 신세계백화점 센텀시티점",
@@ -109,12 +109,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 2,
+        "40+": 5,
         "women": 0,
-        "men": 2,
+        "men": 5,
         "연령모름": 1,
         "성별모름": 0,
-        "all": 3,
+        "all": 6,
         "": null
       },
       "title": "포르쉐 나우 성수(Porsche Now Seongsu)",
@@ -322,12 +322,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 1,
+        "40+": 4,
         "women": 0,
-        "men": 1,
+        "men": 4,
         "연령모름": 0,
         "성별모름": 0,
-        "all": 1
+        "all": 4
       },
       "title": "우수 로컬상품 팝업스토어",
       "address": "서울특별시 용산구 한강대로23길 55 이마트 용산점",
@@ -472,12 +472,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 1,
+        "40+": 3,
         "women": 0,
-        "men": 1,
+        "men": 3,
         "연령모름": 1,
         "성별모름": 1,
-        "all": 2
+        "all": 4
       },
       "title": "Weather Monster POP-UP",
       "address": "서울특별시 용산구 이태원로 260 코오롱스포츠 한남점",
@@ -991,7 +991,7 @@
       ],
       "lat": "37.5556741",
       "lon": "126.9297811",
-      "category": "캐릭터",
+      "category": "팝업스토어",
       "reserveURL": ""
     },
     {
@@ -1000,12 +1000,13 @@
         "10": 3,
         "20": 85,
         "30": 0,
-        "40+": 4,
+        "40+": 5,
         "women": 0,
-        "men": 87,
-        "연령모름": 1,
+        "men": 88,
+        "연령모름": 2,
         "성별모름": 1,
-        "all": 91
+        "all": 93,
+        "": null
       },
       "title": "<Nonmainstream> One-day popup",
       "address": "서울특별시 용산구 이태원로19길 6-10 랍생트",
@@ -1044,7 +1045,7 @@
       ],
       "lat": "37.5346973",
       "lon": "126.9923808",
-      "category": "식음료",
+      "category": "팝업스토어",
       "reserveURL": ""
     },
     {
@@ -1097,7 +1098,7 @@
       ],
       "lat": "35.169684",
       "lon": "129.132651",
-      "category": "캐릭터",
+      "category": "팝업스토어",
       "reserveURL": ""
     },
     {
@@ -1150,7 +1151,7 @@
       ],
       "lat": "37.5247007",
       "lon": "127.043582",
-      "category": "기타",
+      "category": "팝업스토어",
       "reserveURL": ""
     },
     {
@@ -1203,7 +1204,7 @@
       ],
       "lat": "37.5347193",
       "lon": "126.9952793",
-      "category": "패션",
+      "category": "팝업스토어",
       "reserveURL": ""
     },
     {
@@ -1256,7 +1257,7 @@
       ],
       "lat": "37.5263828",
       "lon": "126.8752357",
-      "category": "패션",
+      "category": "팝업스토어",
       "reserveURL": ""
     },
     {
@@ -1276,7 +1277,7 @@
       "address": "서울특별시 마포구 양화로 171",
       "open": "2023.02.11",
       "close": "2023.03.26",
-      "location": "",
+      "location": "서울",
       "item": "기타",
       "openingTime": [
         "10:30",
@@ -1384,41 +1385,7 @@
     }
   ],
   "likeHate": [],
-  "BookMarkList": [
-    {
-      "id": "undefined205",
-      "uid": 2689197712,
-      "store": "205",
-      "notification": false,
-      "title": "반스 인도어 스케이트파크(Vans Indoor Skatepark)",
-      "open": "2023.02.04",
-      "close": "2023.03.30",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%B0%98%EC%8A%A4%20%EC%9D%B8%EB%8F%84%EC%96%B4%20%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%8A%B8%ED%8C%8C%ED%81%AC(Vans%20Indoor%20Skatepark)%2F%EB%B0%98%EC%8A%A41.png?alt=media&token=2a0ed5df-e364-4b9c-9a0f-e500371b71dc",
-      "item": "패션"
-    },
-    {
-      "id": "undefined202",
-      "uid": 2689197712,
-      "store": "202",
-      "notification": false,
-      "title": "<Nonmainstream> One-day popup",
-      "open": "2023.03.18",
-      "close": "2023.03.18",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%3CNonmainstream%3E%20One-day%20popup%2F%EB%85%BC%EB%A9%94%EC%9D%B81.png?alt=media&token=0f93cfc8-c362-4b25-a7ff-6344028db533",
-      "item": "식음료"
-    },
-    {
-      "id": "undefined4",
-      "uid": 2689197712,
-      "store": "4",
-      "notification": false,
-      "title": "망상리토끼들",
-      "open": "2023.02.24",
-      "close": "2023.03.16",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A7%9D%EC%83%81%EB%A6%AC%ED%86%A0%EB%81%BC%EB%93%A4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.09.06.png?alt=media&token=9cccc6cc-1333-4ed4-870f-d88abd7794b4",
-      "item": "캐릭터"
-    }
-  ],
+  "BookMarkList": [],
   "newStores": [],
   "infoErrModifiContents": [],
   "FAQ": [

@@ -4,16 +4,19 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const HomePageContainer = styled.div`
-  @media screen and (max-width: 400px) {
-    /* margin-left: 15px; */
-  }
 `;
 
 export const SearchContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 59px;
-  margin: 0 20px;
+  margin-top: 89px;
+  margin: 59px 20px;
+  @media screen and (max-width: 870px) {
+    margin: 0px 20px;
+  }
+  @media screen and (max-width: 420px) {
+    margin: 32px 20px;
+  }
 `;
 
 export const HomePageContentContainer = styled.div`
@@ -253,8 +256,8 @@ export const SearchEventPeriod = styled.select`
 `;
 
 export const Option = styled.option`
-  background: #fff;
-  color: #fff;
+  background: ${COLORS.white};
+  color: ${COLORS.white};
   padding: 3px 0;
   font-size: 16px;
 `;

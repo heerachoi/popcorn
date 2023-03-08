@@ -152,7 +152,6 @@ const NewStoreReport: any = () => {
   const startDateOnchange = (date: any) => {
     setStartDate(date);
   };
-  console.log('startDate', startDate);
 
   const endDateOnChange = (date: any) => {
     if (startDate === '') {

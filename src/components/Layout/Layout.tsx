@@ -24,17 +24,14 @@ const Layout = ({ children }: Props) => {
   console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
   const { pathname } = useLocation();
 
-  // console.log('kakaoUserInfo.id', kakaoUserInfo.id);
   // 로그인 상태를 전역적으로 관리해주는 함수
-  // 로그아웃이 된 상태에서만 Header가 바뀐다.
+  // 로그아웃이 된 상태에서만 pHeader가 바뀐다.
   // Router.tsx에서 유저 상태관리를 해주었는데, 페이지 이동시 첫번째 useEffect가 다시 실행됨
   // Layout.tsx로 옮겨주니 해결되었다.
   useEffect(() => {
     if (accessToken === '') {
       reset();
       auth.onAuthStateChanged((user) => {
-        console.log(user);
-
         if (user) {
           setUsers({
             isLogin: true,
@@ -51,13 +48,11 @@ const Layout = ({ children }: Props) => {
           });
         } else {
           reset();
-          // console.log('kakaoUserInfo.email11111111111111', kakaoUserInfo.email);
         }
       });
     }
   }, [accessToken, auth]);
   // 의존성 배열에 원래 auth였는데 accessToken으로 바꿈
-  console.log('users', users);
 
   useEffect(() => {
     if (accessToken !== undefined) {
@@ -76,14 +71,8 @@ const Layout = ({ children }: Props) => {
       });
     } else {
       reset();
-      // console.log(
-      //   'kakaoUserInfo.email2222222222222222222',
-      //   kakaoUserInfo.email,
-      // );
     }
   }, [accessToken, kakaoUserInfo]);
-
-  // console.log('accessToken', accessToken);
 
   useEffect(() => {
     // 현재 유저와 users.json에 있는 user과 같으면
@@ -103,8 +92,6 @@ const Layout = ({ children }: Props) => {
     }
     // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
   }, [users.isLogin]);
-
-  console.log('children', children);
 
   return (
     <>

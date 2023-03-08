@@ -15,7 +15,7 @@ export const WEB_API = 'https://pop.herokuapp.com';
 
 export const getPopupData = async () => {
   const { data } = await axios.get(`${JSON_API}/Store`);
-  return data; 
+  return data;
 };
 
 export const getDetailWeatherData = async ({
@@ -26,7 +26,6 @@ export const getDetailWeatherData = async ({
   const { data } = await axios.get(
     `${OPENWEATHER_URL}/weather?lat=${lat}&lon=${lon}&appid=${api}&lang=kr&units=metric`,
   );
-  console.log('api', lat, lon, api);
   return data;
 };
 
@@ -70,17 +69,4 @@ export const getFaq = async () => {
   const { data } = await axios.get(`${JSON_API}/FAQ`);
   return data;
 };
-// const KAKAO_KEY = process.env.REACT_APP_KAKAO_SEARCH_KEY;
-// const Kakao = axios.create({
-//   baseURL: 'https://dapi.kakao.com',
-//   headers: {
-//     Authorization: 'KakaoAK ' + KAKAO_KEY,
-//   },
-// });
 
-// export const getFoodImage = async (params: any) => {
-//   const { data } = await Kakao.get('/v2/search/image', {
-//     params,
-//   });
-//   return data;
-// };
