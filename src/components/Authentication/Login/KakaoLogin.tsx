@@ -131,7 +131,7 @@ const KakaoLogin = () => {
   return (
     <div style={{ textAlign: 'center', marginTop: '16px' }}>
       <S.LoginOrText>또는</S.LoginOrText>
-      <S.KakaoLoginBtn onClick={kakaoLoginHandler}>
+      <S.KakaoLoginBtn type="button" onClick={kakaoLoginHandler}>
         <img
           src={kakaoLogo}
           alt="카카오 로고"
