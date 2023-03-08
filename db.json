@@ -1385,7 +1385,19 @@
     }
   ],
   "likeHate": [],
-  "BookMarkList": [],
+  "BookMarkList": [
+    {
+      "id": "ZoH4tXexarXgqZxuWMDG8SfL8FE3202",
+      "store": "202",
+      "user": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "notification": false,
+      "title": "<Nonmainstream> One-day popup",
+      "open": "2023.03.18",
+      "close": "2023.03.18",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%3CNonmainstream%3E%20One-day%20popup%2F%EB%85%BC%EB%A9%94%EC%9D%B81.png?alt=media&token=0f93cfc8-c362-4b25-a7ff-6344028db533",
+      "item": "식음료"
+    }
+  ],
   "newStores": [],
   "infoErrModifiContents": [],
   "FAQ": [
