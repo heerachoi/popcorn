@@ -18,29 +18,16 @@ import MapSearch from '../../components/MapView/MapSearch/MapSearch';
 import DetailBox from '../../components/MapView/MapDetail/DetailBox';
 import arrow from '../../assets/Img/arrow.svg';
 import LoadingAnimation from '../../components/GlobalComponents/LoadingAnimation';
-
-interface LocationType {
-  Ma: number;
-  La: number;
-}
-
-interface Markers {
-  position: {
-    lat: number;
-    lng: number;
-  };
-  content: string;
-  address: string;
-  category: string;
-}
+import { LocationType, FoodData, Params } from '../../types/map';
+import { Store } from '../../types/data/storeInterface';
 
 const MapPage = () => {
-  const [popupInfo, setPopupInfo] = useState();
-  const [info, setInfo] = useState<Markers>();
+  const [popupInfo, setPopupInfo] = useState<Store | undefined>();
+  const [info, setInfo] = useState<FoodData>();
   const [map, setMap] = useState<any>(); // 맵
   const [myLocation, setMyLocation] = useState<LocationType>({
-    Ma: 37.49810223154336,
-    La: 127.0327612337389,
+    Ma: '37.49810223154336',
+    La: '127.0327612337389',
   }); // 나의 위치
   const [foodData, setFoodData] = useRecoilState(mapFoodData); // 음식점, 카페 데이터
   const [mapModal, setMapModal] = useRecoilState(mapModalStatus);
@@ -63,7 +50,7 @@ const MapPage = () => {
     setLevel(3);
   };
 
-  const setMarkerHandler = (search: any, category: any) => {
+  const setMarkerHandler = (search: string, category: string) => {
     const ps = new kakao.maps.services.Places();
     // ps.keywordSearch(검색어, (키워드 데이터 [], 검색 상태 OK 여부, total count, page 수))
 
@@ -73,7 +60,7 @@ const MapPage = () => {
         if (status === kakao.maps.services.Status.OK) {
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해 LatLngBounds 객체에 좌표를 추가합니다
           const bounds = new kakao.maps.LatLngBounds();
-          let markers: any = [];
+          let markers: FoodData[] = [];
           // 받은 데이터 중에 사용할 것들만(lat, lng, content, address, category, img(이미지가 없다.)) markers에 push 해준다.
           // useState로 관리해주고 있는 markers에 set 해준다.
           // img 해결 방법 : 카카오 검색 api를 사용해서 search keyword와 같은 값의 img들을 가져와서 markers에 push 해준다.
@@ -88,7 +75,7 @@ const MapPage = () => {
 
           if (category === '음식점' || category === '카페') {
             for (let i = 0; i < data.length; i++) {
-              const params: any = {
+              const params: Params = {
                 query: data[i].place_name,
                 sort: 'accuracy', // accuracy | recency 정확도 or 최신
                 page: 1, // 페이지번호
@@ -184,7 +171,6 @@ const MapPage = () => {
               setMap={setMap}
               setInfo={setInfo}
               myLocation={myLocation}
-              popupData={popupData}
             />
           </S.MapWrap>
         </S.Wrap>

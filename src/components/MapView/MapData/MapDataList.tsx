@@ -10,6 +10,16 @@ import {
 import MapDataCard from './MapDataCard';
 import NotFound from '../../NotFound';
 import COLORS from '../../../assets/CSS/colors';
+import { Store } from '../../../types/data/storeInterface';
+import { LocationType } from '../../../types/map';
+
+interface Props {
+  popupData: Store[];
+  setMyLocation: React.Dispatch<React.SetStateAction<LocationType>>;
+  setMarkerHandler: (search: string, category: string) => void;
+  setPopupInfo: React.Dispatch<React.SetStateAction<Store | undefined>>;
+  popupInfo?: Store;
+}
 
 const MapDataList = ({
   popupData,
@@ -17,14 +27,12 @@ const MapDataList = ({
   setMarkerHandler,
   setPopupInfo,
   popupInfo,
-}: any) => {
-  const category = useRecoilValue(mapCategoryValue);
-  const foodData = useRecoilValue(mapFoodData);
+}: Props) => {
   const search = useRecoilValue(mapSearchValue);
-
   const [popuplist, setPopupList] = useRecoilState(popupList);
+
   const filter = popupData.filter(
-    (popup: any) =>
+    (popup: Store) =>
       popup?.address.includes(search) || popup?.title.includes(search),
   );
 
@@ -37,7 +45,7 @@ const MapDataList = ({
       {popuplist.length === 0 ? (
         <NotFound />
       ) : (
-        popupData?.map((popup: any) => (
+        popupData?.map((popup: Store) => (
           <MapDataCard
             key={popup.id}
             popup={popup}
