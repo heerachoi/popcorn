@@ -8,6 +8,7 @@ import {
   mapDetailBoxPopup,
   mapLevel,
 } from '../../../atoms';
+import LazyImg from '../../GlobalComponents/LazyImg';
 
 const MapDataCard = ({
   popup,
@@ -67,6 +68,7 @@ const MapDataCard = ({
     setMarkerHandler(`${foodSearch} ${category}`, category);
   };
 
+  console.log(popup.imgURL[0], 'popup');
   return (
     <>
       {condition && (
@@ -75,7 +77,8 @@ const MapDataCard = ({
           popup={popup.title}
           onClick={popupCenterChangeHandler}
         >
-          <S.DetailImg src={popup?.imgURL} alt="사진" />
+          {/* <S.DetailImg src={popup?.imgURL} alt="사진" loading="lazy" /> */}
+          <LazyImg src={popup?.imgURL} />
           <S.DetailWrap>
             <S.DetailTitle>{popup?.title}</S.DetailTitle>
             <S.DetailDescriptionWrap>
