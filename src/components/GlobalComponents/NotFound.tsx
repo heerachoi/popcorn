@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import NotFoundLogo from '../assets/Img/Feel=Sad, Color=green.svg';
+import NotFoundLogo from '../../assets/Img/Feel=Sad, Color=green.svg';
+
 const NotFound = () => {
   return (
     <ResultWarp>
