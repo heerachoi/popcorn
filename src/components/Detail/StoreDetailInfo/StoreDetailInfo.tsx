@@ -7,9 +7,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import KakaoShare from './KakaoShare';
 import StoreDetailImg from '../StoreDetailImg/StoreDetailImg';
-/* icons */
-import { BsBookmarkHeart } from 'react-icons/bs';
-import { MdIosShare } from 'react-icons/md';
 /* componant */
 import { Store } from '../../../types/data/storeInterface';
 import COLORS from '../../../assets/CSS/colors';
@@ -23,6 +20,8 @@ import { kakaoAccessToken, userInfoState } from '../../../atoms';
 /* img */
 import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
 import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
+import Instagram from '../../../assets/Img/Instagram.svg';
+import LinkImg from '../../../assets/Img/Link.svg';
 
 interface Props {
   detailData: Store;
@@ -30,15 +29,20 @@ interface Props {
 
 const StoreDetailInfo = ({ detailData }: any) => {
   const [currentUser, setCurrentUser] = useState<any>('');
+  console.log('currentUser', currentUser.uid);
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
-  const [bookMarkState, setBookMarkState] = useState<boolean>();
+  const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
 
-  // 현재 로그인한 사용자 가져오기
+  const days = ['월', '화', '수', '목', '금', '토', '일'];
+
+  console.log('11111 - accessToken', accessToken);
+
   useEffect(() => {
     if (accessToken !== '') {
+      console.log('카카오 로그인 accessToken');
       setCurrentUser({
         isLogin: true,
         userInfomation: {
@@ -55,14 +59,14 @@ const StoreDetailInfo = ({ detailData }: any) => {
       fetchBookmarks();
     } else {
       auth.onAuthStateChanged((user) => {
-        console.log(user);
         if (user) {
+          console.log('auth.currentUser', auth.currentUser);
           setCurrentUser(auth.currentUser);
           fetchBookmarks();
         }
       });
     }
-  }, [accessToken, kakaoUserInfo]);
+  }, [currentUser, accessToken, kakaoUserInfo]);
 
   // 북마크 상태 업데이트
   useEffect(() => {
@@ -71,9 +75,8 @@ const StoreDetailInfo = ({ detailData }: any) => {
 
   const NewBookmark = {
     id: currentUser.uid + detailData?.id,
-    // uid: kakaoUserInfo.id,
     store: detailData?.id,
-    user: accessToken ? kakaoUserInfo.id : auth.currentUser?.uid,
+    user: accessToken ? kakaoUserInfo.id : currentUser?.uid,
     notification: false,
     title: detailData?.title,
     open: detailData?.open,
@@ -86,22 +89,22 @@ const StoreDetailInfo = ({ detailData }: any) => {
   // 카카오로 로그인 시에도 북마크 추가 잘됨
   const fetchBookmarks = async () => {
     const { data } = await axios.get(`${JSON_API}/BookMarkList`); // 북마크 리스트
-
-    data.map((bookmark: BookMark) => {
+    for (let i = 0; i < data.length; i++) {
       if (
-        bookmark.user === currentUser.uid &&
-        bookmark.store === detailData?.id
+        data[i].user === currentUser.uid &&
+        data[i].store === detailData?.id
       ) {
         // 유저가 북마크를 했음
         setChangeColor(`${COLORS.orange2}`);
         setBookMarkState(true);
-        setCurrentBookMarkId(bookmark.id);
+        setCurrentBookMarkId(currentUser.uid + detailData?.id);
+        break;
       } else {
         // 북마크안했음
         setChangeColor(`${COLORS.gray5}`);
         setBookMarkState(false);
       }
-    });
+    }
   };
 
   // 클릭했을 때 북마크에 추가 + 삭제
@@ -111,15 +114,15 @@ const StoreDetailInfo = ({ detailData }: any) => {
         // 북마크가 있을 경우 삭제
         try {
           if (accessToken) {
-            const response = await axios.delete(
-              `${JSON_API}/BookMarkList/${currentBookMarkId}`,
-              {
+            try {
+              axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`, {
                 headers: { Authorization: `Bearer ${accessToken}` },
-              },
-            );
-            console.log('response', response);
-            setChangeColor(`${COLORS.gray5}`);
-            setBookMarkState(false);
+              });
+              setChangeColor(`${COLORS.gray5}`);
+              setBookMarkState(false);
+            } catch (error) {
+              console.log('error', error);
+            }
           } else {
             // Firebase Auth를 사용하는 경우
             await axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);
@@ -169,35 +172,22 @@ const StoreDetailInfo = ({ detailData }: any) => {
             <S.Title>{detailData?.title}</S.Title>
             <S.SideTitleWrap>
               <S.SideTitleIconText>
-                <S.SideTitleIcon>{detailData?.view.all}</S.SideTitleIcon>
-                <S.SideTitleText style={{ marginTop: '4px' }}>
-                  조회수
-                </S.SideTitleText>
+                <S.ViewCount>{detailData?.view.all}</S.ViewCount>
+                <S.SideTitleText>조회수</S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>
-                  <MdIosShare style={{ fontSize: '14px' }} />
-                </S.SideTitleIcon>
-                <S.SideTitleText>
-                  {/* 공유 */}
                   <KakaoShare detailData={detailData} />
-                </S.SideTitleText>
+                </S.SideTitleIcon>
+                <S.SideTitleText>공유</S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
-                <S.BookmarkClick
-                  onClick={postBookmarkHandler}
-                  style={{
-                    border: 'none',
-                    backgroundColor: 'transparent',
-                    cursor: 'pointer',
-                  }}
-                >
+                <S.BookmarkClick onClick={postBookmarkHandler}>
                   {bookMarkState ? (
                     <S.BookMarkImg src={bookmarkHeartOrange} />
                   ) : (
                     <S.BookMarkImg src={bookmarkHeartBlack} />
                   )}
-                  {/* <S.BookMarkImg src={bookmarkHeartBlack} /> */}
                 </S.BookmarkClick>
                 <S.SideTitleText>북마크</S.SideTitleText>
               </S.SideTitleIconText>
@@ -214,8 +204,15 @@ const StoreDetailInfo = ({ detailData }: any) => {
                 <S.InfoTitle>운영시간</S.InfoTitle>
                 <S.OpeningHoursWrap>
                   <S.OpeningHoursBox>
+                    {days.map((d) => {
+                      return <span key={uuidv4()}>{d + '\u00A0'}</span>;
+                    })}
+                  </S.OpeningHoursBox>
+                  <S.OpeningHoursBox>
                     {detailData?.openingTime?.map((openTime: string) => {
-                      return <span key={uuidv4()}>{openTime + '-'}</span>;
+                      return (
+                        <span key={uuidv4()}>{openTime + '\u00A0-\u00A0'}</span>
+                      );
                     })}
                   </S.OpeningHoursBox>
                   <S.OpeningHoursBox>
@@ -242,25 +239,23 @@ const StoreDetailInfo = ({ detailData }: any) => {
                       target="_blank"
                       style={{ color: '#323232' }}
                     >
-                      <S.SnsImg
-                        src={require('../../../assets/Img/Instagram.png')}
-                      />
-                    </Link>
-                  </S.SnsLinkWrap>
-                  <S.SnsLinkWrap style={{ marginTop: '10px' }}>
-                    <Link
-                      to={detailData?.web}
-                      target="_blank"
-                      style={{ color: '#323232' }}
-                    >
-                      <S.SnsImg src={require('../../../assets/Img/Link.png')} />
+                      {detailData.sns.includes('instagram') ? (
+                        <S.SnsImg src={Instagram} />
+                      ) : (
+                        <S.SnsImg src={LinkImg} />
+                      )}
                     </Link>
                   </S.SnsLinkWrap>
                 </S.InfoContentText>
               </S.InfoSubBox>
               <S.InfoSubBox>
                 <S.InfoTitle>카테고리</S.InfoTitle>
-                <S.InfoContentText>{detailData?.item}</S.InfoContentText>
+                <S.InfoContentCategory>
+                  {detailData?.location}
+                </S.InfoContentCategory>
+                <S.InfoContentCategory>
+                  {detailData?.item}
+                </S.InfoContentCategory>
               </S.InfoSubBox>
             </S.InfoContentBox>
           </S.InfoContentWrap>

@@ -16,9 +16,7 @@ import axios from 'axios';
 import { globalBtn, modalStatus } from '../../../atoms';
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 import CustomModal from '../../../shared/CustomModal';
-import { v4 as uuidv4 } from 'uuid';
 import { JSON_API } from '../../../services/api';
-import { sign } from 'crypto';
 
 interface SignUpInput {
   nickName: string;
@@ -178,8 +176,7 @@ const SignUp = () => {
           nickName: signUpInput.nickName,
           phoneNumber: signUpInput.phoneNumber,
           profileImg: user.photoURL,
-          uid: user.uid,
-          id: uuidv4(),
+          id: user.uid,
         };
         axios.post(`${JSON_API}/users`, userInfo).then(() => {
           return modalStatusChangeHandler('signUpComplete');
@@ -392,7 +389,11 @@ const SignUp = () => {
               name="phoneNumber"
               type="text"
             />
-            <S.PhoneBtn id="phone" onClick={phoneNumberPostHandler}>
+            <S.PhoneBtn
+              id="phone"
+              disabled={requestedPV && true}
+              onClick={phoneNumberPostHandler}
+            >
               인증번호 보내기
             </S.PhoneBtn>
           </S.FormBtnWrap>

@@ -40,7 +40,6 @@
       "significantContent": "",
       "explain": "서울 성수동에서 열렸던 '가나 초콜릿 하우스 시즌2'가 부산에서 오픈합니다.",
       "sns": "https://www.instagram.com/lotte_food_sta/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EA%B0%80%EB%82%98%EC%B4%88%EC%BD%9C%EB%A6%BF%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%8B%9C%EC%A6%8C2%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.24.01.png?alt=media&token=1414e6b5-2a12-4e64-9a29-792bb3788aae",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EA%B0%80%EB%82%98%EC%B4%88%EC%BD%9C%EB%A6%BF%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%8B%9C%EC%A6%8C2%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.24.05.png?alt=media&token=32df794c-7b0b-484f-8f0d-ff134e21180f",
@@ -49,8 +48,7 @@
       ],
       "lat": "35.1537116",
       "lon": "129.0657648",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "2",
@@ -61,9 +59,10 @@
         "40+": 2,
         "women": 0,
         "men": 2,
-        "연령모름": 0,
-        "성별모름": 0,
-        "all": 2
+        "연령모름": 2,
+        "성별모름": 1,
+        "all": 4,
+        "": null
       },
       "title": "티파니 락",
       "address": "부산광역시 해운대구 센텀남대로 35 신세계백화점 센텀시티점",
@@ -92,7 +91,6 @@
       "significantContent": "",
       "explain": "'티파니 락' 컬렉션의 신제품 론칭을 기념하여 오픈하는 '티파니앤코' 팝업스토어",
       "sns": "https://www.instagram.com/tiffanyandco/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8B%B0%ED%8C%8C%EB%8B%88%20%EB%9D%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.45.41.png?alt=media&token=dac2acf3-c85b-487e-a13a-98f030229bdb",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8B%B0%ED%8C%8C%EB%8B%88%20%EB%9D%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.46.03.png?alt=media&token=f8caf960-dab8-467f-8bd2-31929ddd42a1",
@@ -100,8 +98,7 @@
       ],
       "lat": "35.1687032",
       "lon": "129.1297466",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "3",
@@ -144,7 +141,6 @@
       "significantContent": "",
       "explain": "문화, 예술, 카페 및 레스토랑을 즐길 수 있는 서울 성수동에 위치한 '포르쉐 나우 성수'에서 다양한 클래식카 및 순수 전기 스포츠카 타이칸 전시를 통해 아이코닉한 과거와 혁신적인 미래를 선보일 예정이에요.",
       "sns": "https://www.instagram.com/porscheclubkorea/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%AC%EB%A5%B4%EC%89%90%20%EB%82%98%EC%9A%B0%20%EC%84%B1%EC%88%98(Porsche%20Now%20Seongsu)%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.59.15.png?alt=media&token=f8b8e3d1-9b8f-43a1-b966-60a8709591a5",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%AC%EB%A5%B4%EC%89%90%20%EB%82%98%EC%9A%B0%20%EC%84%B1%EC%88%98(Porsche%20Now%20Seongsu)%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.59.19.png?alt=media&token=f26e54a2-fae2-4091-a79d-3e7dde2ae327",
@@ -154,8 +150,7 @@
       ],
       "lat": "37.5429535",
       "lon": "127.0621584",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "4",
@@ -197,7 +192,6 @@
       "significantContent": "",
       "explain": "행복 더하기 행복, 젤리크루가 함께 할게요. 지금, 행복을 주는 친구들 만나러 오실래요? 2023 HappyRabbits! 신세계 타임스퀘어에 도착한 망상리 친구들을 만나러 오세요!",
       "sns": "https://www.instagram.com/mangboong_official/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A7%9D%EC%83%81%EB%A6%AC%ED%86%A0%EB%81%BC%EB%93%A4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.09.06.png?alt=media&token=9cccc6cc-1333-4ed4-870f-d88abd7794b4",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A7%9D%EC%83%81%EB%A6%AC%ED%86%A0%EB%81%BC%EB%93%A4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.08.41.png?alt=media&token=89e29648-aed1-4048-99c7-929350da9936",
@@ -207,8 +201,7 @@
       ],
       "lat": "37.517007",
       "lon": "126.9041419",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "5",
@@ -250,7 +243,6 @@
       "significantContent": "",
       "explain": "LP 첨음과 함께 CD Player 렌탈 및 ATM 명세표 포토부스 체험, 그리고 레코드 무드의 한정판 굿즈까지 만날 수 있는 '우리은행'의 LP Bar 콘센트의 팝업 공간",
       "sns": "https://www.instagram.com/musinsaterrace/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FWON%20RE%3ACORD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.20.22.png?alt=media&token=b9ccc9d3-3adb-436a-b515-a2f416d3ca31",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FWON%20RE%3ACORD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.20.27.png?alt=media&token=04a9e21b-d164-49f6-8049-e27f76623337",
@@ -260,8 +252,7 @@
       ],
       "lat": "37.5575814",
       "lon": "126.9268736",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "6",
@@ -303,7 +294,6 @@
       "significantContent": "",
       "explain": "곧 돌아 올 진로의 100살 생일을 기념하기위해 다시 컴백했껍\n초대형 어린이 놀이터 가고 싶은 껌딱지 지금 바로 풋처핸껍!",
       "sns": "https://www.instagram.com/official.jinro/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%91%90%EA%BB%8D%EC%83%81%ED%9A%8C%20%EA%B0%95%EB%82%A8%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.27.24.png?alt=media&token=7b6250b2-2b17-408c-b6b7-13e0600208cd",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%91%90%EA%BB%8D%EC%83%81%ED%9A%8C%20%EA%B0%95%EB%82%A8%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.27.48.png?alt=media&token=be707a0a-d30a-45f0-b217-bc9b3a508232",
@@ -313,8 +303,7 @@
       ],
       "lat": "37.4982503",
       "lon": "127.0300905",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "7",
@@ -322,12 +311,14 @@
         "10": 0,
         "20": 0,
         "30": 0,
+        "40": null,
         "40+": 4,
-        "women": 0,
+        "women": 1,
         "men": 4,
-        "연령모름": 0,
+        "연령모름": 5,
         "성별모름": 0,
-        "all": 4
+        "all": 10,
+        "": 4
       },
       "title": "우수 로컬상품 팝업스토어",
       "address": "서울특별시 용산구 한강대로23길 55 이마트 용산점",
@@ -356,7 +347,6 @@
       "significantContent": "",
       "explain": "'우수 로컬상품 품평회'에서 선정된 지역 우수상품 12개 내외를 만나볼 수 있는 팝업스토어",
       "sns": "https://www.instagram.com/semas_2014/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%9A%B0%EC%88%98%20%EB%A1%9C%EC%BB%AC%EC%83%81%ED%92%88%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.45.26.png?alt=media&token=522eeb9d-0bd6-4b98-aa61-0df84061c6c5",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%9A%B0%EC%88%98%20%EB%A1%9C%EC%BB%AC%EC%83%81%ED%92%88%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.45.29.png?alt=media&token=f54c5854-494d-4dfa-9f20-d975c7119492",
@@ -364,8 +354,7 @@
       ],
       "lat": "37.5288539",
       "lon": "126.9640447",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "8",
@@ -406,16 +395,14 @@
       ],
       "significantContent": "",
       "explain": "김다미, 전소니, 변우석 주연 영화 <소울메이트>를 특별하게 만나볼 수 있는 온라인 팝업스토어",
-      "sns": "",
-      "web": "https://www.soulmate2023.kr/",
+      "sns": "https://www.soulmate2023.kr/",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%3C%EC%86%8C%EC%9A%B8%EB%A9%94%EC%9D%B4%ED%8A%B8%3E%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.52.31.png?alt=media&token=920d29ba-8527-4bc8-aeb0-25f0d5152c0c",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%3C%EC%86%8C%EC%9A%B8%EB%A9%94%EC%9D%B4%ED%8A%B8%3E%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%202.52.34.png?alt=media&token=c619d244-185e-4455-af8d-0de71dde3136"
       ],
       "lat": "37.5409268",
       "lon": "127.0611155",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "9",
@@ -457,14 +444,12 @@
       "significantContent": "",
       "explain": "주차별 다양한 제품이 공개되는 T1 팝업스토어",
       "sns": "https://www.instagram.com/t1lol/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FT1%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.05.16.png?alt=media&token=7aa1dc0d-0a5f-427b-b5b9-6ead1aa2e6cb"
       ],
       "lat": "37.5586315",
       "lon": "126.8544319",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "10",
@@ -506,7 +491,6 @@
       "significantContent": "",
       "explain": "50년의 히스토리를 가진 코오롱스포츠에서 과거에 출시되었던 피싱 제품을 모티브로 탄생한 프리미엄 낚시 웨어 브랜드 '웨더몬스터' 팝업스토어",
       "sns": "https://www.instagram.com/weathermonster/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FWeather%20Monster%20POP-UP%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.20.43.png?alt=media&token=06414979-2af8-4ac5-89cb-e54e8fcecab7",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FWeather%20Monster%20POP-UP%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.20.46.png?alt=media&token=cd520cf0-bd2c-48f6-8063-4a759a0dcd64",
@@ -514,8 +498,7 @@
       ],
       "lat": "37.5376265",
       "lon": "127.0014998",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "100",
@@ -557,7 +540,6 @@
       "significantContent": "",
       "explain": "글로벌 패션 아이웨어 브랜드 '젠틀몬스터'와 '메종 마르지엘라'의 콜라보레이션 팝업스토어",
       "sns": "https://www.instagram.com/gentlemonster/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%A0%A0%ED%8B%80%EB%AA%AC%EC%8A%A4%ED%84%B0%20X%20%EB%A9%94%EC%A2%85%20%EB%A7%88%EB%A5%B4%EC%A7%80%EC%97%98%EB%9D%BC%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20132652.png?alt=media&token=bb1bea8e-03e6-4021-8ea1-b7bf9d2fb3ed",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%A0%A0%ED%8B%80%EB%AA%AC%EC%8A%A4%ED%84%B0%20X%20%EB%A9%94%EC%A2%85%20%EB%A7%88%EB%A5%B4%EC%A7%80%EC%97%98%EB%9D%BC%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20132741.png?alt=media&token=04399bda-8757-4e49-9842-41c8956e6757",
@@ -567,8 +549,7 @@
       ],
       "lat": "37.5253221",
       "lon": "127.0356785",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "101",
@@ -611,7 +592,6 @@
       "significantContent": "",
       "explain": "공차 베스트 시그니처 테마의 딸기 신메뉴 3종 출시를 기념하여 열린 '스트로베리 하우스' 팝업스토어\n(이미지출처 : 공차 공식인스타그램)",
       "sns": "https://www.instagram.com/gongcha.official/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FGongcha%20%3Cthe%20Strawberry%20house%3E%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20135649.png?alt=media&token=e0ab3294-129c-4679-b5dd-2e1f0d8c8099",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FGongcha%20%3Cthe%20Strawberry%20house%3E%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20135741.png?alt=media&token=86355fd2-cce9-4287-8bba-cb6fc69af483",
@@ -620,8 +600,7 @@
       ],
       "lat": "37.5837472",
       "lon": "127.0011659",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "102",
@@ -663,7 +642,6 @@
       "significantContent": "",
       "explain": "첫 선보이는 4가지 맛 하드셀처와 빅팀의 다양한 굿즈를 직접 만나보실 수 있는 렌디한 주류 문화를 이끌어갈 VICTIM의 두 번째 팝업스토어\n*19세 이상의 법적 음주허용 소비자를 위한 콘텐츠입니다. 지나친 음주는 뇌졸중, 기억력 손상이나, 치매를 유발하며 임신 중 음주는 기형아 출생 위험을 높입니다.(이미지출처 : VICTIM 공식 인스타그램)",
       "sns": "https://www.instagram.com/victim.kr/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FVictim%20X%20NUKIM%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20140924.png?alt=media&token=4c976519-b507-4a1e-a44f-c0b4455c71dc",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FVictim%20X%20NUKIM%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20140753.png?alt=media&token=9c8e5057-93c5-4eb2-aa3f-345d2e99dbf0",
@@ -673,8 +651,7 @@
       ],
       "lat": "37.5223133",
       "lon": "127.021627",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "103",
@@ -716,7 +693,6 @@
       "significantContent": "",
       "explain": "남극의 자이언트펭수가 부산으로 놀러와 신세계의 푸빌라와 만났습니다! 신세계 센텀시티점에서 펭수X푸빌라 팝업을 만나보세요 :) (이미지출처 : 푸빌라 공식 인스타그램)",
       "sns": "https://www.instagram.com/puuvilla_society/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%91%B8%EB%B9%8C%EB%9D%BC%20X%20%ED%8E%AD%EC%88%98%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20142417.png?alt=media&token=7b2332fa-a2b8-4e13-ade9-591e6d1f1e02",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%91%B8%EB%B9%8C%EB%9D%BC%20X%20%ED%8E%AD%EC%88%98%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20142125.png?alt=media&token=db60eb9c-f52b-42ba-a0dc-1a4dcdb14d4d",
@@ -726,8 +702,7 @@
       ],
       "lat": "35.1687032",
       "lon": "129.1297466",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "104",
@@ -769,7 +744,6 @@
       "significantContent": "",
       "explain": "하이엔드 해외 남성 바잉 편집샵 '플라즈(PLADS7)' 팝업스토어 ",
       "sns": "https://www.instagram.com/plads7__official/",
-      "web": "http://www.gncostyle.com/brandshop/plads7",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FPLADS7(%ED%94%8C%EB%9D%BC%EC%A6%88)%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20144030.png?alt=media&token=407b79f9-4539-42b3-ac52-b34b20083182",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FPLADS7(%ED%94%8C%EB%9D%BC%EC%A6%88)%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20144047.png?alt=media&token=18cb3114-52be-483a-b326-8e0e0c5f4506",
@@ -779,8 +753,7 @@
       ],
       "lat": "37.513533",
       "lon": "127.1041032",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "105",
@@ -822,7 +795,6 @@
       "significantContent": "",
       "explain": "여행 용품 브랜드 '로우로우(RAWROW)'의 팝업스토어 (이미지 출처 : 로우로우 인스타그램) ",
       "sns": "https://www.instagram.com/rawrow/",
-      "web": "https://m.worldwideworld.kr/product/list.html?cate_no=539",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FRAWROW%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20144952.png?alt=media&token=fd4e2568-14ac-49ab-9a01-7d537c0bc36b",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FRAWROW%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20145027.png?alt=media&token=4781dca4-c7a6-4b9c-9d17-81ff0c042a2e",
@@ -832,8 +804,7 @@
       ],
       "lat": "37.5259316",
       "lon": "126.9284764",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "106",
@@ -875,7 +846,6 @@
       "significantContent": "",
       "explain": "'레고코리아'가 주최하는 방탄소년단 '다이너마이트(Dynamite)'테마의 팝업스토어 (이미지 출처 : 레고코리아 인스타그램) ",
       "sns": "https://www.instagram.com/daily_teum/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150143.png?alt=media&token=66ad52e8-cf2d-4c8e-955e-1b228f40e04e",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%A0%88%EA%B3%A0%20BTS%20Dynamite%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-06%20150229.png?alt=media&token=3a06403d-f258-418c-9b5d-dd697b5248db",
@@ -885,8 +855,7 @@
       ],
       "lat": "37.5005376",
       "lon": "127.0267427",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "108",
@@ -928,7 +897,6 @@
       "significantContent": "",
       "explain": "인생네컷 X 최고심 팝업 포토 매장이 온다! 다양한 온오프라인 이벤트와 오직 고심랜드에서만 만날 수 있는 특별한 프레임까지!",
       "sns": "https://www.instagram.com/life4cut/",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%9D%B8%EC%83%9D%EB%84%A4%EC%BB%B7%20X%20%EC%B5%9C%EA%B3%A0%EC%8B%AC%2F%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C%20(1).jpg?alt=media&token=ed782641-fd16-4e77-99eb-6f81deb9b91a",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%9D%B8%EC%83%9D%EB%84%A4%EC%BB%B7%20X%20%EC%B5%9C%EA%B3%A0%EC%8B%AC%2F%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.jpg?alt=media&token=2885df2f-67aa-4183-8acb-61bde59b0fb0",
@@ -938,8 +906,7 @@
       ],
       "lat": "37.5554993",
       "lon": "127.0267427",
-      "category": "126.9229443",
-      "reserveURL": ""
+      "category": "126.9229443"
     },
     {
       "id": "201",
@@ -981,7 +948,6 @@
       "significantContent": "",
       "explain": "고심 병원장의 선택은 바로 고심약국 고심약국에서 과연 무슨일이?!? 올게왓따ㅋ 오브젝트와 최고심의 첫 번째 전시가 오브젝트 서교점에서 3월 1일부터 문을 엽니다.🙌🏻",
       "sns": "https://instagram.com/gosimperson?igshid=YmMyMTA2M2Y=",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EA%B3%A0%EC%8B%AC%EC%95%BD%EA%B5%AD%2F%EA%B3%A0%EC%8B%AC1.png?alt=media&token=3754d226-8abf-4dcf-93cb-c96fcdd49630",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EA%B3%A0%EC%8B%AC%EC%95%BD%EA%B5%AD%2F%EA%B3%A0%EC%8B%AC2.png?alt=media&token=c225f973-ceae-4f97-9244-b59b64bc6b65",
@@ -991,8 +957,7 @@
       ],
       "lat": "37.5556741",
       "lon": "126.9297811",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "202",
@@ -1003,9 +968,9 @@
         "40+": 5,
         "women": 0,
         "men": 88,
-        "연령모름": 2,
-        "성별모름": 1,
-        "all": 93,
+        "연령모름": 3,
+        "성별모름": 2,
+        "all": 94,
         "": null
       },
       "title": "<Nonmainstream> One-day popup",
@@ -1035,7 +1000,6 @@
       "significantContent": "",
       "explain": "한국의 주류 디저트를 좋아하지 못해서 서글픈 비주류 파티시에 두 사람으로 구성된 팀 <팀 논메스>의 2번째 원데이 팝업! 봄을 느낄 수 있는 디저트 2종, 제철 요리과자 2종을 만나보실 수 있습니다.",
       "sns": "https://instagram.com/_nonmainstream?igshid=YmMyMTA2M2Y=",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%3CNonmainstream%3E%20One-day%20popup%2F%EB%85%BC%EB%A9%94%EC%9D%B81.png?alt=media&token=0f93cfc8-c362-4b25-a7ff-6344028db533",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%3CNonmainstream%3E%20One-day%20popup%2F%EB%85%BC%EB%A9%94%EC%9D%B82.png?alt=media&token=f6b73489-abcf-440b-8b5e-af48b2a84377",
@@ -1045,8 +1009,7 @@
       ],
       "lat": "37.5346973",
       "lon": "126.9923808",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "203",
@@ -1088,7 +1051,6 @@
       "significantContent": "",
       "explain": "짱덕들아 겨울에 뭐해?❄️ 우리 가족이랑 부산에서 놀자! 짱구 가족이 신세계백화점 센텀시티점에 떴다!! 짱구 인기 상품을 가득 담았다! 오직 부산에서만 한정판매하는 두근두근 럭키백부터 겨울 분위기 나는 짱구 가족과의 포토존까지!😍 짱덕들아 부산 짱구 팝업스토어로 놀러와~",
       "sns": "https://instagram.com/popcon_daewonmedia?igshid=YmMyMTA2M2Y=",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%A7%B1%EA%B5%AC%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%2F%EC%A7%B1%EA%B5%AC1.png?alt=media&token=9deafb4f-6c96-4cd4-8349-948409a8b222",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%A7%B1%EA%B5%AC%20%ED%8C%9D%EC%97%85%EC%8A%A4%ED%86%A0%EC%96%B4%2F%EC%A7%B1%EA%B5%AC2.png?alt=media&token=7a6097ae-cc8e-4210-bf69-05feede9562b",
@@ -1098,8 +1060,7 @@
       ],
       "lat": "35.169684",
       "lon": "129.132651",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "204",
@@ -1141,7 +1102,6 @@
       "significantContent": "",
       "explain": "보다갤러리는 오는 2월 22일부터 3월 22일까지 양지오작가의 개인전 <미도리는 그 섬에 나타나지 않았다>를 개최한다. 이번 전시는 휴식과 치유가 필요한 사회의 일원으로 살아가는 인간의 상태를 탐색하며, 작품을 통해 귀속 이전의 삶, 혼자만의 시공 상태인 상상 속 은신처에서 아직 닿지 않은 존재, '미도리'를 조우하길 기대한다. ",
       "sns": "https://instagram.com/vodaartgallery?igshid=YmMyMTA2M2Y=",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%AF%B8%EB%8F%84%EB%A6%AC%EB%8A%94%20%EA%B7%B8%20%EC%84%AC%EC%97%90%20%EB%82%98%ED%83%80%EB%82%98%EC%A7%80%20%EC%95%8A%EC%95%98%EB%8B%A4%2F%EB%AF%B8%EB%8F%84%EB%A6%AC1.jpg?alt=media&token=87f147a6-a0ee-48c9-a4dc-55d3fd1d0637",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%AF%B8%EB%8F%84%EB%A6%AC%EB%8A%94%20%EA%B7%B8%20%EC%84%AC%EC%97%90%20%EB%82%98%ED%83%80%EB%82%98%EC%A7%80%20%EC%95%8A%EC%95%98%EB%8B%A4%2F%EB%AF%B8%EB%8F%84%EB%A6%AC2.jpg?alt=media&token=5065d0b8-59d1-4c38-9f6d-8c40f73ea04c",
@@ -1151,8 +1111,7 @@
       ],
       "lat": "37.5247007",
       "lon": "127.043582",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "205",
@@ -1194,7 +1153,6 @@
       "significantContent": "",
       "explain": "추운 겨울날에도 스트리트 스케이팅을 즐길 수 있도록 다양한 높이의 렛지, 3-스태어 등의 스트리트 기물이 준비되어 있으며, 오프닝 이벤트에서는 파크의 기물을 활용한 스케이트 잼이 열릴 예정입니다.",
       "sns": "https://instagram.com/vans_korea?igshid=YmMyMTA2M2Y=",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%B0%98%EC%8A%A4%20%EC%9D%B8%EB%8F%84%EC%96%B4%20%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%8A%B8%ED%8C%8C%ED%81%AC(Vans%20Indoor%20Skatepark)%2F%EB%B0%98%EC%8A%A41.png?alt=media&token=2a0ed5df-e364-4b9c-9a0f-e500371b71dc",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%B0%98%EC%8A%A4%20%EC%9D%B8%EB%8F%84%EC%96%B4%20%EC%8A%A4%EC%BC%80%EC%9D%B4%ED%8A%B8%ED%8C%8C%ED%81%AC(Vans%20Indoor%20Skatepark)%2F%EB%B0%98%EC%8A%A42.png?alt=media&token=3ff306b2-bd26-4181-8240-e035dfe5e2c3",
@@ -1204,8 +1162,7 @@
       ],
       "lat": "37.5347193",
       "lon": "126.9952793",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "206",
@@ -1247,7 +1204,6 @@
       "significantContent": "",
       "explain": "하이엔드 디자이너 주얼리 브랜드'1064studio'팝업스토어",
       "sns": "https://instagram.com/1064_studio?igshid=YmMyMTA2M2Y=",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F1064studio%2F10462.png?alt=media&token=13e6060b-b6f6-4bac-a868-8c517101fc4c",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F1064studio%2F10461.png?alt=media&token=1da5eb1f-3bae-48d2-89cf-bfd5a01b66b8",
@@ -1257,8 +1213,7 @@
       ],
       "lat": "37.5263828",
       "lon": "126.8752357",
-      "category": "팝업스토어",
-      "reserveURL": ""
+      "category": "팝업스토어"
     },
     {
       "id": "207",
@@ -1300,7 +1255,6 @@
       "significantContent": "",
       "explain": "새로움을 향해 끝없이 탐험하고 미래를 변화시키는 갤럭시의 여정은 계속된다. 개기일식과 만남을 주제로 한 정성윤 작가의 <Eclipse>를 중심으로 비밀스러운 파티가 벌어진 갤럭시 스튜디오. 작품 속 갤럭시 S23의 광각, 초광각, 망원 렌즈를 표상하는 세 개의 원은 마치 달과 태양처럼 교차하고 분리되며 장대한 서사를 알리듯 아름다운 빛의 산란을 일으킨다. 언제나 그랬듯 가능성 그 너머를 향하는 갤럭시 S23와 육성재가 함께한 밤. 찬란한 빛의 시간.",
       "sns": "https://instagram.com/samsungkorea?igshid=YmMyMTA2M2Y=",
-      "web": "",
       "imgURL": [
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EA%B0%A4%EB%9F%AD%EC%8B%9C%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%3A%20EXPLORE%20THE%20NEW%2F%EA%B0%A4%EB%9F%AD%EC%8B%9C1.png?alt=media&token=6195df30-01df-4947-bd5c-57eeccb1a22a",
         "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EA%B0%A4%EB%9F%AD%EC%8B%9C%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%3A%20EXPLORE%20THE%20NEW%2F%EA%B0%A4%EB%9F%AD%EC%8B%9C2.png?alt=media&token=c40b806d-dc92-43b4-b20e-796775b6dada",
@@ -1310,8 +1264,7 @@
       ],
       "lat": "37.5575065",
       "lon": "126.9240936",
-      "category": "기타",
-      "reserveURL": ""
+      "category": "기타"
     }
   ],
   "users": [

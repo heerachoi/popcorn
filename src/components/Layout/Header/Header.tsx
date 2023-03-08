@@ -11,6 +11,7 @@ import { FaBars } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { BsMapFill } from 'react-icons/bs';
 import Title from '../../../assets/Logo/popcorn_logo.svg';
+import HoverImg from '../../../assets/Logo/HeaderHovered.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -85,7 +86,7 @@ const Header = () => {
           />
           <TitleImg
             className="TitleImg"
-            src={require('../../../assets/Logo/State=Hovered.png')}
+            src={HoverImg}
             alt="타이틀"
             onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
@@ -235,7 +236,8 @@ export const TextBackground = styled.div`
     background-color: #ffb321;
   }
   @media screen and (max-width: 840px) {
-    width: 200px;
+    /* width: 200px; */
+    padding-top: 50px;
     background-color: #323232;
     &:hover {
       background-color: #323232;
@@ -261,7 +263,7 @@ export const MenuText = styled.div`
   width: 120px;
   color: #fff;
   padding: 0 0 0 8px;
-  margin-top: -20px;
+  margin-top: 40px;
 `;
 
 export const MapIcon = styled(BsMapFill)`

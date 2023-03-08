@@ -8,6 +8,7 @@ import Footer from './Footer';
 import Header from './Header/Header';
 import { userInfoState } from '../../atoms';
 import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 type Props = {
   children: React.ReactNode;
@@ -19,8 +20,10 @@ const Layout = ({ children }: Props) => {
   const { data: userDataFromJson } = useQuery('user', getUser);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
-
-  let link = document.location.pathname;
+  console.log('userInfoState', userInfoState);
+  console.log('kakaoUserInfo', kakaoUserInfo);
+  console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
+  const { pathname } = useLocation();
 
   // 로그인 상태를 전역적으로 관리해주는 함수
   // 로그아웃이 된 상태에서만 pHeader가 바뀐다.
@@ -92,13 +95,17 @@ const Layout = ({ children }: Props) => {
   }, [users.isLogin]);
 
   return (
-    <>
+    <LayoutWrap>
       <Header />
       {/* children은 Router에서 감싸주는 components */}
       <div style={{ width: '100vw', overflow: 'hidden' }}>{children}</div>
-      {link === '/map' ? null : <Footer />}
-    </>
+      {pathname === '/map' ? null : <Footer />}
+    </LayoutWrap>
   );
 };
 
 export default Layout;
+
+const LayoutWrap = styled.div`
+  overflow-x: hidden;
+`;
