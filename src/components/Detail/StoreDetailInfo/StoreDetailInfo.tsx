@@ -28,14 +28,14 @@ interface Props {
   detailData: Store;
 }
 
-const StoreDetailInfo = ({ detailData }: any) => {
+const StoreDetailInfo = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>();
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
-  
+
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     if (accessToken !== '') {

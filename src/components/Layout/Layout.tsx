@@ -8,6 +8,7 @@ import Footer from './Footer';
 import Header from './Header/Header';
 import { userInfoState } from '../../atoms';
 import { useLocation } from 'react-router-dom';
+import { UserInfomation } from '../../types/user';
 
 type Props = {
   children: React.ReactNode;
@@ -77,7 +78,7 @@ const Layout = ({ children }: Props) => {
   useEffect(() => {
     // 현재 유저와 users.json에 있는 user과 같으면
     const myUser = userDataFromJson?.filter(
-      (user: any) => users.userInfomation.uid === user.uid,
+      (user: UserInfomation) => users.userInfomation.uid === user.uid,
     )[0];
 
     // myUser가 빈 값이 아닐 때
