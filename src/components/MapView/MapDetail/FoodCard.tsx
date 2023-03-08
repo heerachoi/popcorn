@@ -1,7 +1,15 @@
 import { Link } from 'react-router-dom';
+import { FoodData, LocationType } from '../../../types/map';
 import * as S from './style';
 
-const FoodCard = ({ food, setMyLocation, setInfo, info }: any) => {
+interface Props {
+  food: FoodData;
+  setMyLocation: React.Dispatch<React.SetStateAction<LocationType>>;
+  setInfo: React.Dispatch<React.SetStateAction<FoodData | undefined>>;
+  info?: FoodData;
+}
+
+const FoodCard = ({ food, setMyLocation, setInfo, info }: Props) => {
   const foodCenterChangeHandler = () => {
     setMyLocation({ Ma: food.position.lat, La: food.position.lng });
     setInfo(food);

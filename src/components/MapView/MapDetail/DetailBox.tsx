@@ -8,12 +8,13 @@ import {
 } from '../../../atoms';
 import FoodList from './FoodList';
 import Critical from '../../../assets/Img/Critical.svg';
+import { FoodData, LocationType } from '../../../types/map';
 
 interface Props {
-  setMarkerHandler: (search: any, category: any) => void;
-  setMyLocation: any;
-  setInfo: any;
-  info: any;
+  setMarkerHandler: (search: string, category: string) => void;
+  setMyLocation: React.Dispatch<React.SetStateAction<LocationType>>;
+  setInfo: React.Dispatch<React.SetStateAction<FoodData | undefined>>;
+  info?: FoodData;
 }
 
 const DetailBox = ({

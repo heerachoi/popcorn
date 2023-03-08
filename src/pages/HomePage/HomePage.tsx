@@ -7,13 +7,9 @@ import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwipe
 import WomenPopularSwiper from '../../components/HomePage/Swiper/WomenPopularSwiper';
 import MenPopularSwiper from '../../components/HomePage/Swiper/MenPopularSwiper';
 import HomeSearch from '../../components/HomePage/Search/HomeSearch';
-import { useEffect } from 'react';
+import TopButton from '../../components/GlobalComponents/TopButton';
 
 const HomePage: any = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
@@ -75,6 +71,7 @@ const HomePage: any = () => {
           </S.CategoryListContainer>
         </S.CategoryWrapper>
       </S.HomePageContentContainer>
+      <TopButton />
     </S.HomePageContainer>
   );
 };
