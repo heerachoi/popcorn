@@ -29,17 +29,31 @@ interface Props {
 
 const StoreDetailInfo = ({ detailData }: any) => {
   const [currentUser, setCurrentUser] = useState<any>('');
+  console.log('currentUser',currentUser.uid);
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
-  const [bookMarkState, setBookMarkState] = useState<boolean>();
+  const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
 
   const days = ['월', '화', '수', '목', '금', '토', '일'];
 
+  console.log('11111 - accessToken', accessToken);
   // 현재 로그인한 사용자 가져오기
+    // 현재 로그인한 사용자 가져오기
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setCurrentUser(auth.currentUser);
+  //     } else {
+  //       return console.log('로그인 안됨');
+  //     }
+  //   });
+  // }, [currentUser]);
+
   useEffect(() => {
     if (accessToken !== '') {
+      console.log('카카오 로그인 accessToken')
       setCurrentUser({
         isLogin: true,
         userInfomation: {
@@ -56,14 +70,14 @@ const StoreDetailInfo = ({ detailData }: any) => {
       fetchBookmarks();
     } else {
       auth.onAuthStateChanged((user) => {
-        console.log(user);
         if (user) {
+          console.log('auth.currentUser',auth.currentUser)
           setCurrentUser(auth.currentUser);
           fetchBookmarks();
         }
       });
     }
-  }, [accessToken, kakaoUserInfo]);
+  }, [currentUser, accessToken, kakaoUserInfo]);
 
   // 북마크 상태 업데이트
   useEffect(() => {
@@ -72,9 +86,8 @@ const StoreDetailInfo = ({ detailData }: any) => {
 
   const NewBookmark = {
     id: currentUser.uid + detailData?.id,
-    // uid: kakaoUserInfo.id,
     store: detailData?.id,
-    user: accessToken ? kakaoUserInfo.id : auth.currentUser?.uid,
+    user: accessToken ? kakaoUserInfo.id : currentUser?.uid,
     notification: false,
     title: detailData?.title,
     open: detailData?.open,
@@ -87,22 +100,22 @@ const StoreDetailInfo = ({ detailData }: any) => {
   // 카카오로 로그인 시에도 북마크 추가 잘됨
   const fetchBookmarks = async () => {
     const { data } = await axios.get(`${JSON_API}/BookMarkList`); // 북마크 리스트
-
-    data.map((bookmark: BookMark) => {
+    for (let i = 0; i < data.length; i++) {
       if (
-        bookmark.user === currentUser.uid &&
-        bookmark.store === detailData?.id
+        data[i].user === currentUser.uid &&
+        data[i].store === detailData?.id
       ) {
         // 유저가 북마크를 했음
         setChangeColor(`${COLORS.orange2}`);
         setBookMarkState(true);
-        setCurrentBookMarkId(bookmark.id);
-      } else {
+        setCurrentBookMarkId(currentUser.uid + detailData?.id);
+        break;
+      } else  {
         // 북마크안했음
         setChangeColor(`${COLORS.gray5}`);
         setBookMarkState(false);
       }
-    });
+    };
   };
 
   // 클릭했을 때 북마크에 추가 + 삭제
@@ -112,15 +125,18 @@ const StoreDetailInfo = ({ detailData }: any) => {
         // 북마크가 있을 경우 삭제
         try {
           if (accessToken) {
-            const response = await axios.delete(
-              `${JSON_API}/BookMarkList/${currentBookMarkId}`,
-              {
-                headers: { Authorization: `Bearer ${accessToken}` },
-              },
-            );
-            console.log('response', response);
-            setChangeColor(`${COLORS.gray5}`);
-            setBookMarkState(false);
+            try {
+              axios.delete(
+                `${JSON_API}/BookMarkList/${currentBookMarkId}`,
+                {
+                  headers: { Authorization: `Bearer ${accessToken}` },
+                },
+              );
+              setChangeColor(`${COLORS.gray5}`);
+              setBookMarkState(false);
+            } catch (error) {
+              console.log('error', error);
+            }
           } else {
             // Firebase Auth를 사용하는 경우
             await axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);

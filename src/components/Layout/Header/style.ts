@@ -50,6 +50,7 @@ export const BtnWrap = styled.div`
   }
   @media screen and (max-width: 840px) {
     display: none;
+    gap: 0px;
   }
 `;
 
