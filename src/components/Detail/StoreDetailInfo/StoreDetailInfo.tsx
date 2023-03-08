@@ -29,7 +29,7 @@ interface Props {
 
 const StoreDetailInfo = ({ detailData }: any) => {
   const [currentUser, setCurrentUser] = useState<any>('');
-  console.log('currentUser',currentUser.uid);
+  console.log('currentUser', currentUser.uid);
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
@@ -39,21 +39,10 @@ const StoreDetailInfo = ({ detailData }: any) => {
   const days = ['월', '화', '수', '목', '금', '토', '일'];
 
   console.log('11111 - accessToken', accessToken);
-  // 현재 로그인한 사용자 가져오기
-    // 현재 로그인한 사용자 가져오기
-  // useEffect(() => {
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setCurrentUser(auth.currentUser);
-  //     } else {
-  //       return console.log('로그인 안됨');
-  //     }
-  //   });
-  // }, [currentUser]);
 
   useEffect(() => {
     if (accessToken !== '') {
-      console.log('카카오 로그인 accessToken')
+      console.log('카카오 로그인 accessToken');
       setCurrentUser({
         isLogin: true,
         userInfomation: {
@@ -71,7 +60,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
     } else {
       auth.onAuthStateChanged((user) => {
         if (user) {
-          console.log('auth.currentUser',auth.currentUser)
+          console.log('auth.currentUser', auth.currentUser);
           setCurrentUser(auth.currentUser);
           fetchBookmarks();
         }
@@ -110,12 +99,12 @@ const StoreDetailInfo = ({ detailData }: any) => {
         setBookMarkState(true);
         setCurrentBookMarkId(currentUser.uid + detailData?.id);
         break;
-      } else  {
+      } else {
         // 북마크안했음
         setChangeColor(`${COLORS.gray5}`);
         setBookMarkState(false);
       }
-    };
+    }
   };
 
   // 클릭했을 때 북마크에 추가 + 삭제
@@ -126,12 +115,9 @@ const StoreDetailInfo = ({ detailData }: any) => {
         try {
           if (accessToken) {
             try {
-              axios.delete(
-                `${JSON_API}/BookMarkList/${currentBookMarkId}`,
-                {
-                  headers: { Authorization: `Bearer ${accessToken}` },
-                },
-              );
+              axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`, {
+                headers: { Authorization: `Bearer ${accessToken}` },
+              });
               setChangeColor(`${COLORS.gray5}`);
               setBookMarkState(false);
             } catch (error) {

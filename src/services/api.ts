@@ -63,8 +63,12 @@ export const getBookMark = async () => {
   return data;
 };
 
+export const getBookMarkStore = async () => {
+  const { data } = await axios.get(`${JSON_API}/BookMarkStoreList`);
+  return data;
+};
+
 export const getFaq = async () => {
   const { data } = await axios.get(`${JSON_API}/FAQ`);
   return data;
 };
-

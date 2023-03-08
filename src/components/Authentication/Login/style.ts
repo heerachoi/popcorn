@@ -70,7 +70,6 @@ export const FormInput = styled.input`
 export const FormBtnWrap = styled.div`
   display: flex;
   margin-top: 30px;
-  cursor: pointer;
 `;
 
 export const FormSignWrap = styled(FormBtnWrap)`
