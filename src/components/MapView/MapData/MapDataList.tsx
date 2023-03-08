@@ -21,8 +21,8 @@ const MapDataList = ({
   const category = useRecoilValue(mapCategoryValue);
   const foodData = useRecoilValue(mapFoodData);
   const search = useRecoilValue(mapSearchValue);
-
   const [popuplist, setPopupList] = useRecoilState(popupList);
+
   const filter = popupData.filter(
     (popup: any) =>
       popup?.address.includes(search) || popup?.title.includes(search),

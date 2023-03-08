@@ -6,12 +6,12 @@
         "10": 0,
         "20": 0,
         "30": 0,
-        "40+": 5,
+        "40+": 6,
         "women": 0,
-        "men": 5,
+        "men": 6,
         "연령모름": 1,
         "성별모름": 1,
-        "all": 6
+        "all": 7
       },
       "title": "가나초콜릿하우스 시즌2",
       "address": "부산광역시 부산진구 전포대로 190, 1층",
@@ -1396,6 +1396,39 @@
       "close": "2023.03.18",
       "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%3CNonmainstream%3E%20One-day%20popup%2F%EB%85%BC%EB%A9%94%EC%9D%B81.png?alt=media&token=0f93cfc8-c362-4b25-a7ff-6344028db533",
       "item": "식음료"
+    },
+    {
+      "id": "ZoH4tXexarXgqZxuWMDG8SfL8FE310",
+      "store": "10",
+      "user": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "notification": false,
+      "title": "Weather Monster POP-UP",
+      "open": "2023.03.03",
+      "close": "2023.04.30",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FWeather%20Monster%20POP-UP%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%203.20.43.png?alt=media&token=06414979-2af8-4ac5-89cb-e54e8fcecab7",
+      "item": "패션"
+    },
+    {
+      "id": "ZoH4tXexarXgqZxuWMDG8SfL8FE33",
+      "store": "3",
+      "user": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "notification": false,
+      "title": "포르쉐 나우 성수(Porsche Now Seongsu)",
+      "open": "2022.11.27",
+      "close": "2023.03.15",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%AC%EB%A5%B4%EC%89%90%20%EB%82%98%EC%9A%B0%20%EC%84%B1%EC%88%98(Porsche%20Now%20Seongsu)%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.59.15.png?alt=media&token=f8b8e3d1-9b8f-43a1-b966-60a8709591a5",
+      "item": "기타"
+    },
+    {
+      "id": "ZoH4tXexarXgqZxuWMDG8SfL8FE32",
+      "store": "2",
+      "user": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
+      "notification": false,
+      "title": "티파니 락",
+      "open": "2023.03.01",
+      "close": "2023.03.14",
+      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8B%B0%ED%8C%8C%EB%8B%88%20%EB%9D%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.45.41.png?alt=media&token=dac2acf3-c85b-487e-a13a-98f030229bdb",
+      "item": "패션"
     }
   ],
   "newStores": [],

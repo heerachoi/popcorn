@@ -35,7 +35,7 @@ const StoreDetailInfo = ({ detailData }: any) => {
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
-  
+
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     if (accessToken !== '') {

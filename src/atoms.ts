@@ -71,6 +71,11 @@ export const popupList = atom<Store[]>({
   default: [],
 });
 
+export const bookmarkStoreList = atom({
+  key: 'bookmarkStoreList',
+  default: [],
+});
+
 export const mapModalStatus = atom<boolean>({
   key: 'mapModal',
   default: false,
