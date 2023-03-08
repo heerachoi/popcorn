@@ -17,6 +17,7 @@ const MyReportList = () => {
     'infoErrModifiContents',
     getInfoErrReport,
   );
+  
 
   if (status === 'loading') {
     return <p>Loading...</p>;
@@ -32,10 +33,14 @@ const MyReportList = () => {
   }
   const uid = auth.currentUser?.uid;
 
-  const myErrReport = errReport.filter((item: any) => item.userId.uid === uid);
+  const myErrReport = errReport.filter(
+    (item: any) => item.user.uid === uid,
+  );
+  
+  
 
   const myNewStoreReport = newStores.filter(
-    (item: any) => item.userId.uid === uid,
+    (item: any) => item.user.uid === uid,
   );
 
   const myReports = myErrReport.concat(myNewStoreReport);
@@ -73,5 +78,3 @@ const MyReportList = () => {
 };
 
 export default MyReportList;
-
-

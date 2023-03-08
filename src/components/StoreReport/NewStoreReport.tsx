@@ -34,23 +34,26 @@ const NewStoreReport: any = () => {
     storeName: '',
     storeAddress: '',
   };
-
   const [newStoreInput, setNewStoreInput] =
     useState<NewStoreInput>(initNewStoreInput);
   const [imgFile, setImgFile] = useState(''); // 이미지 파일
   const [fileName, setFileName] = useState(''); // 이미지 파일 이름
   const [etcContent, setEtcContent] = useState('');
-  const userId = auth?.currentUser;
+  const user = auth?.currentUser;
 
   // input onChange 함수
   const newStoreInputonChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setGlobalButton(true);
-    setNewStoreInput({
-      ...newStoreInput,
-      [event.target.name]: event.target.value,
-    });
+    if (event.target.value.length > 20) {
+      return alert('20글자 이하로 작성해 주세요.');
+    } else {
+      setNewStoreInput({
+        ...newStoreInput,
+        [event.target.name]: event.target.value,
+      });
+    }
   };
 
   // 이미지 파일 input onChange 함수
@@ -83,7 +86,9 @@ const NewStoreReport: any = () => {
   ) => {
     event.preventDefault();
     setGlobalButton(false);
-
+    if (newStoreInput.storeAddress === '') {
+      return alert('주소를 입력해 주세요!');
+    }
     // firebase storage에 이미지 업로드
     const imgRef = ref(storage, `storeInfoImg/${fileName}`);
 
@@ -101,7 +106,7 @@ const NewStoreReport: any = () => {
     // db에 올라가는 데이터 구조
     const newStore = {
       id: uuidv4(),
-      userId,
+      user,
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
       storeAddress: newStoreInput.storeAddress,
@@ -124,6 +129,7 @@ const NewStoreReport: any = () => {
       setEndDate('');
 
       alert('제보 완료!');
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -266,7 +272,7 @@ const NewStoreReport: any = () => {
             dateFormat="yyyy-MM-dd"
             placeholderText="종료 일자"
           />
-        </S.DatePickerContainer>   
+        </S.DatePickerContainer>
       </S.ThreeGrid>
       <S.ReportGrid>
         <S.ReportTitle>제보 내용</S.ReportTitle>

@@ -26,12 +26,10 @@ const MasterNewPost = () => {
     significantContent: '',
     explain: '',
     sns: '',
-    web: '',
     imgURL: [],
     lat: '',
     lon: '',
-    category: '',
-    reserveURL: '',
+    category: ''
   };
   const [newPostInput, setNewPostInput] = useState<Store>(initialState);
   const [imgFile, setImgFile] = useState(''); // 이미지 파일
@@ -119,12 +117,10 @@ const MasterNewPost = () => {
       significantContent: newPostInput.significantContent,
       explain: newPostInput.explain,
       sns: newPostInput.sns,
-      web: newPostInput.web,
       imgURL: [downloadImageUrl],
       lat: '',
       lon: '',
-      category: '팝업스토어',
-      reserveURL: '',
+      category: '팝업스토어'
     };
 
     //db에 추가
@@ -153,11 +149,9 @@ const MasterNewPost = () => {
       newPostInput.significantContent === '' &&
       newPostInput.explain === '' &&
       newPostInput.sns === '' &&
-      newPostInput.web === '' &&
       newPostInput.lat === '' &&
       newPostInput.lon === '' &&
-      newPostInput.category === '' &&
-      newPostInput.reserveURL === ''
+      newPostInput.category === '' 
     )
       setGlobalButton(false);
   }, [
@@ -172,11 +166,9 @@ const MasterNewPost = () => {
     newPostInput.significantContent,
     newPostInput.explain,
     newPostInput.sns,
-    newPostInput.web,
     newPostInput.lat,
     newPostInput.lon,
-    newPostInput.category,
-    newPostInput.reserveURL,
+    newPostInput.category
   ]);
 
   return (
@@ -265,7 +257,7 @@ const MasterNewPost = () => {
             value={newPostInput.explain}
           />
         </S.PostGrid>
-        <S.TreeGridBox>
+        <S.PostGrid>
           <S.PostTitle>SNS</S.PostTitle>
           <S.TitleInput
             style={{ width: 300 }}
@@ -274,16 +266,8 @@ const MasterNewPost = () => {
             name="sns"
             onChange={newPostInputChangeHandler}
             value={newPostInput.sns}
-          />
-          <S.TitleInput
-            style={{ width: 300 }}
-            type="text"
-            placeholder="공식 SNS나 웹사이트 주소를 입력해 주세요."
-            name="web"
-            onChange={newPostInputChangeHandler}
-            value={newPostInput.web}
-          />
-        </S.TreeGridBox>
+          />          
+        </S.PostGrid>
         <S.PostGrid>
           <S.PostTitle>카테고리</S.PostTitle>
           <S.TitleInput

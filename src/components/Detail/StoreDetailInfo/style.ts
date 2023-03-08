@@ -37,7 +37,6 @@ export const TitleWrap = styled.div`
     flex-direction: column;
     gap: 27px;
     margin-top: 16px;
-    
   }
 `;
 
@@ -74,7 +73,6 @@ export const SideTitleIconText = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 0 10px;
-  cursor: pointer;
 `;
 
 export const BookmarkClick = styled.button`
@@ -84,15 +82,25 @@ export const BookmarkClick = styled.button`
 `;
 
 export const BookMarkImg = styled.img`
-width: 17px;
-`
+  width: 20px;
+`;
 
 export const SideTitleIcon = styled.span`
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 800;
   font-size: 13px;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
+  color: ${COLORS.gray5};
+  cursor: pointer;
+`;
+
+export const ViewCount = styled.span`
+  font-family: 'Apple SD Gothic Neo';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 10px;
   color: ${COLORS.gray5};
 `;
 
@@ -149,39 +157,33 @@ export const InfoContentText = styled.span`
   max-width: 80%;
   width: 100%;
   margin-right: 30px;
-
-  
 `;
 
 export const InfoContentCategory = styled.span`
+  padding: 4px 16px;
   height: 21px;
+  max-width: 50px;
   background: ${COLORS.gray3};
   border-radius: 20px;
   color: white;
-  font-family: 'Apple SD Gothic Neo';
-  font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 12px;
   display: flex;
   align-items: center;
-  text-align: center;
-  padding: 4px 16px 3px;
+  margin-right: 10px;
+
+  @media screen and (max-width: 700px) {
+    min-width: 35px;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+  }
 `;
-
-
 
 export const SnsLinkWrap = styled.p``;
 export const SnsImg = styled.img`
   width: 25px;
 `;
-
-
-export const OperationPeriodWrap = styled.div``;
-
-export const OperationPeriodTitle = styled.span`
-  font-size: 17px;  
-`;
-
-export const OperationPeriodText = styled.span``;
 
 export const OpeningHoursWrap = styled.div`
   display: flex;
@@ -194,4 +196,5 @@ export const OpeningHoursBox = styled.div`
   font-size: 16px;
   font-weight: 500;
   color: ${COLORS.gray1};
+  gap: 5px;
 `;

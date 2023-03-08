@@ -8,6 +8,7 @@ import Footer from './Footer';
 import Header from './Header/Header';
 import { userInfoState } from '../../atoms';
 import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 type Props = {
   children: React.ReactNode;
@@ -92,13 +93,17 @@ const Layout = ({ children }: Props) => {
   }, [users.isLogin]);
 
   return (
-    <>
+    <LayoutWrap>
       <Header />
       {/* children은 Router에서 감싸주는 components */}
       <div style={{ width: '100vw', overflow: 'hidden' }}>{children}</div>
       {link === '/map' ? null : <Footer />}
-    </>
+    </LayoutWrap>
   );
 };
 
 export default Layout;
+
+const LayoutWrap = styled.div`
+  overflow-x: hidden;
+`;
