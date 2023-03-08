@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import {
   mapCategoryValue,
   mapLevel,
-  mapModalStatus,
   mapSearchValue,
   popupList,
 } from '../../../atoms';
@@ -12,39 +11,30 @@ import MapModal from './MapModal';
 import RestaurantSpot from '../../../assets/Img/RestaurantSpot.png';
 import CafeSpot from '../../../assets/Img/CafeSpot.png';
 import { useEffect } from 'react';
-
-interface IMap {
-  position: {
-    lat: string;
-    lng: string;
-  };
-  content: string;
-}
+import { FoodData, LocationType } from '../../../types/map';
+import { Store } from '../../../types/data/storeInterface';
 
 interface Props {
-  info: any;
-  foodData: any;
+  info?: FoodData;
+  foodData: FoodData[];
   setMap: any;
-  setInfo: any;
-  myLocation: any;
-  popupData: any;
-  popupInfo: any;
+  setInfo: React.Dispatch<React.SetStateAction<FoodData | undefined>>;
+  myLocation: LocationType;
+  popupInfo?: Store;
 }
 
 const Maps = ({
-  popupInfo,
   info,
   foodData,
   setMap,
   setInfo,
   myLocation,
-  popupData,
+  popupInfo,
 }: Props) => {
   const search = useRecoilValue(mapSearchValue);
   const category = useRecoilValue(mapCategoryValue);
   const popuplist = useRecoilValue(popupList);
   const level = useRecoilValue(mapLevel);
-  const detailModal = useRecoilValue(mapModalStatus);
 
   useEffect(() => {
     setMap;
@@ -82,7 +72,7 @@ const Maps = ({
                   setInfo(marker);
                 }}
                 onMouseOut={() => {
-                  setInfo(null);
+                  setInfo(undefined);
                 }}
               />
               {info &&

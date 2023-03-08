@@ -2,9 +2,16 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
 import { mapFoodData } from '../../../atoms';
+import { FoodData, LocationType } from '../../../types/map';
 import FoodCard from './FoodCard';
 
-const FoodList = ({ setMyLocation, setInfo, info }: any) => {
+interface Props {
+  setMyLocation: React.Dispatch<React.SetStateAction<LocationType>>;
+  setInfo: React.Dispatch<React.SetStateAction<FoodData | undefined>>;
+  info?: FoodData;
+}
+
+const FoodList = ({ setMyLocation, setInfo, info }: Props) => {
   const foodData = useRecoilValue(mapFoodData);
 
   return (

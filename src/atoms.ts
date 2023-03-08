@@ -1,5 +1,6 @@
 import { atom } from 'recoil';
 import { Store } from './types/data/storeInterface';
+import { FoodData } from './types/map';
 
 // atom은 두 가지를 요구하는데 첫 번째는 key로 유니크해야한다.
 // 두 번째는 default 값이 필요하다.
@@ -61,7 +62,7 @@ export const mapFoodSearchValue = atom<MapSearchValue>({
   default: '',
 });
 
-export const mapFoodData = atom<any>({
+export const mapFoodData = atom<FoodData[]>({
   key: 'mapFoodData',
   default: [],
 });

@@ -4,11 +4,8 @@ import { mapSearchValue } from '../../../atoms';
 import * as S from './style';
 import COLORS from '../../../assets/CSS/colors';
 import MapWeather from '../MapWeather/MapWeather';
+import { LocationType } from '../../../types/map';
 
-interface LocationType {
-  Ma: number;
-  La: number;
-}
 interface Props {
   onSearchSubmitHandler: (event: React.FormEvent<HTMLFormElement>) => void;
   myLocation: LocationType;

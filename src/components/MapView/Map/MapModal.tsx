@@ -1,8 +1,9 @@
+import { FoodData } from '../../../types/map';
 import * as S from './style';
 
 interface Props {
-  marker: any;
-  setInfo: any;
+  marker: FoodData;
+  setInfo: React.Dispatch<React.SetStateAction<FoodData | undefined>>;
 }
 
 const MapModal = ({ marker, setInfo }: Props) => {
