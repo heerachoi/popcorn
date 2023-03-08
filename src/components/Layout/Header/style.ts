@@ -68,7 +68,7 @@ export const CategoryBtn = styled.button`
     top: 30px;
     /* width: 120px; */
     &:first-child {
-      top: -25px;
+      /* top: -25px; */
     }
   }
 `;

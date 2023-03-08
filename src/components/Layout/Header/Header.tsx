@@ -262,7 +262,7 @@ export const MenuText = styled.div`
   width: 120px;
   color: #fff;
   padding: 0 0 0 8px;
-  margin-top: -20px;
+  margin-top: 40px;
 `;
 
 export const MapIcon = styled(BsMapFill)`

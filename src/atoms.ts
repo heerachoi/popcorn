@@ -95,12 +95,10 @@ export const mapDetailBoxPopup = atom<Store>({
     significantContent: '',
     explain: '',
     sns: '',
-    web: '',
     imgURL: [],
     lat: '',
     lon: '',
-    category: '',
-    reserveURL: '',
+    category: ''
   },
 });
 

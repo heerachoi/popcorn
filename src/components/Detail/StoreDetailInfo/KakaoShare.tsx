@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import { JSON_API } from '../../../services/api';
 import { WEB_API } from '../../../services/api';
+import shareImg from '../../../assets/Img/shareImg.svg';
+
 interface Props {
   detailData: any;
 }
@@ -46,7 +48,9 @@ const KakaoShare = ({ detailData }: Props) => {
 
   return (
     <div id="KakaoShareBtn">
-      <KakaoImgBtn onClick={shareKakao}>공유</KakaoImgBtn>
+      <KakaoImgBtn onClick={shareKakao}>
+        <img src={shareImg} />
+      </KakaoImgBtn>
     </div>
   );
 };
@@ -59,10 +63,14 @@ export const KakaoImgBtn = styled.button`
   cursor: pointer;
   padding: 0;
   width: 35px;
-  height: 18px;  
+  height: 18px;
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 16px;
+
+  img {
+    width: 20px;
+  }
   @media screen and (max-width: 700px) {
     font-size: 12px;
   }

@@ -7,9 +7,6 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import KakaoShare from './KakaoShare';
 import StoreDetailImg from '../StoreDetailImg/StoreDetailImg';
-/* icons */
-import { BsBookmarkHeart } from 'react-icons/bs';
-import { MdIosShare } from 'react-icons/md';
 /* componant */
 import { Store } from '../../../types/data/storeInterface';
 import COLORS from '../../../assets/CSS/colors';
@@ -23,6 +20,8 @@ import { kakaoAccessToken, userInfoState } from '../../../atoms';
 /* img */
 import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
 import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
+import Instagram from '../../../assets/Img/Instagram.svg';
+import LinkImg from '../../../assets/Img/Link.svg';
 
 interface Props {
   detailData: Store;
@@ -35,7 +34,9 @@ const StoreDetailInfo = ({ detailData }: any) => {
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
-  
+
+  const days = ['월', '화', '수', '목', '금', '토', '일'];
+
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     if (accessToken !== '') {
@@ -169,35 +170,22 @@ const StoreDetailInfo = ({ detailData }: any) => {
             <S.Title>{detailData?.title}</S.Title>
             <S.SideTitleWrap>
               <S.SideTitleIconText>
-                <S.SideTitleIcon>{detailData?.view.all}</S.SideTitleIcon>
-                <S.SideTitleText style={{ marginTop: '4px' }}>
-                  조회수
-                </S.SideTitleText>
+                <S.ViewCount>{detailData?.view.all}</S.ViewCount>
+                <S.SideTitleText>조회수</S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>
-                  <MdIosShare style={{ fontSize: '14px' }} />
-                </S.SideTitleIcon>
-                <S.SideTitleText>
-                  {/* 공유 */}
                   <KakaoShare detailData={detailData} />
-                </S.SideTitleText>
+                </S.SideTitleIcon>
+                <S.SideTitleText>공유</S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
-                <S.BookmarkClick
-                  onClick={postBookmarkHandler}
-                  style={{
-                    border: 'none',
-                    backgroundColor: 'transparent',
-                    cursor: 'pointer',
-                  }}
-                >
+                <S.BookmarkClick onClick={postBookmarkHandler}>
                   {bookMarkState ? (
                     <S.BookMarkImg src={bookmarkHeartOrange} />
                   ) : (
                     <S.BookMarkImg src={bookmarkHeartBlack} />
                   )}
-                  {/* <S.BookMarkImg src={bookmarkHeartBlack} /> */}
                 </S.BookmarkClick>
                 <S.SideTitleText>북마크</S.SideTitleText>
               </S.SideTitleIconText>
@@ -214,8 +202,15 @@ const StoreDetailInfo = ({ detailData }: any) => {
                 <S.InfoTitle>운영시간</S.InfoTitle>
                 <S.OpeningHoursWrap>
                   <S.OpeningHoursBox>
+                    {days.map((d) => {
+                      return <span key={uuidv4()}>{d + '\u00A0'}</span>;
+                    })}
+                  </S.OpeningHoursBox>
+                  <S.OpeningHoursBox>
                     {detailData?.openingTime?.map((openTime: string) => {
-                      return <span key={uuidv4()}>{openTime + '-'}</span>;
+                      return (
+                        <span key={uuidv4()}>{openTime + '\u00A0-\u00A0'}</span>
+                      );
                     })}
                   </S.OpeningHoursBox>
                   <S.OpeningHoursBox>
@@ -242,25 +237,23 @@ const StoreDetailInfo = ({ detailData }: any) => {
                       target="_blank"
                       style={{ color: '#323232' }}
                     >
-                      <S.SnsImg
-                        src={require('../../../assets/Img/Instagram.png')}
-                      />
-                    </Link>
-                  </S.SnsLinkWrap>
-                  <S.SnsLinkWrap style={{ marginTop: '10px' }}>
-                    <Link
-                      to={detailData?.web}
-                      target="_blank"
-                      style={{ color: '#323232' }}
-                    >
-                      <S.SnsImg src={require('../../../assets/Img/Link.png')} />
+                      {detailData.sns.includes('instagram') ? (
+                        <S.SnsImg src={Instagram} />
+                      ) : (
+                        <S.SnsImg src={LinkImg} />
+                      )}
                     </Link>
                   </S.SnsLinkWrap>
                 </S.InfoContentText>
               </S.InfoSubBox>
               <S.InfoSubBox>
                 <S.InfoTitle>카테고리</S.InfoTitle>
-                <S.InfoContentText>{detailData?.item}</S.InfoContentText>
+                <S.InfoContentCategory>
+                  {detailData?.location}
+                </S.InfoContentCategory>
+                <S.InfoContentCategory>
+                  {detailData?.item}
+                </S.InfoContentCategory>
               </S.InfoSubBox>
             </S.InfoContentBox>
           </S.InfoContentWrap>
