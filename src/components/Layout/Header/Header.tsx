@@ -12,6 +12,7 @@ import { ImCross } from 'react-icons/im';
 import { BsMapFill } from 'react-icons/bs';
 import Title from '../../../assets/Logo/popcorn_logo.svg';
 import HoverImg from '../../../assets/Logo/HeaderHovered.svg';
+import COLORS from '../../../assets/CSS/colors';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Header = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
   const [pageChange, setPageChange] = useRecoilState(modalPage);
   // 토글
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState<boolean>(false);
   const toggleMenu = () => {
     setIsToggled((isToggled) => !isToggled); // on,off 개념 boolean
   };
@@ -228,19 +229,18 @@ export const TextBackground = styled.div`
   cursor: pointer;
   width: 150px;
   height: 20px;
-  background-color: #ffeb62;
+  background-color: ${COLORS.yellow1};
   box-sizing: border-box;
   padding-left: 20px;
   border-radius: 12px;
   &:hover {
-    background-color: #ffb321;
+    background-color: ${COLORS.orange4};
   }
   @media screen and (max-width: 840px) {
-    /* width: 200px; */
     padding-top: 50px;
-    background-color: #323232;
+    background-color: ${COLORS.black};
     &:hover {
-      background-color: #323232;
+      background-color: ${COLORS.black};
     }
   }
 `;
@@ -253,7 +253,7 @@ export const MenuImageBackground = styled(TextBackground)`
 `;
 
 export const MenuImageBackgroundMobile = styled(MenuImageBackground)`
-  background-color: #ffeb62;
+  background-color: ${COLORS.yellow1};
 `;
 
 export const MenuText = styled.div`
@@ -261,7 +261,7 @@ export const MenuText = styled.div`
   font-size: 16px;
   font-weight: 700;
   width: 120px;
-  color: #fff;
+  color: ${COLORS.white};
   padding: 0 0 0 8px;
   margin-top: 40px;
 `;
@@ -275,7 +275,3 @@ export const MapIcon = styled(BsMapFill)`
   border: none;
 `;
 
-// export const MenuBtn = styled(MenuIcon)`
-//   background-color: transparent;
-//   right: 20px;
-// `;

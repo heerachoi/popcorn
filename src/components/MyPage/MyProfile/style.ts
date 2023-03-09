@@ -16,9 +16,9 @@ export const MyPageAll = styled.div`
 
 export const MyProfileBox = styled.div`
   width: 352px;
-  border: 2px solid ${COLORS.orange3};
+  border: 2px solid ${COLORS.yellow1};
   border-radius: 8px 0px 0px 8px;
-  background: ${COLORS.orange4};
+  background: ${COLORS.yellow3};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -116,7 +116,7 @@ export const ProfileImgLabel = styled.label`
   width: 200px;
   height: 200px;
   border-radius: 70%;
-  border: 1px solid #${COLORS.gray7};
+  border: 1px solid ${COLORS.gray7};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -127,7 +127,7 @@ export const ProfileImgShow = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 70%;
-  border: 1px solid #${COLORS.gray7};
+  border: 1px solid ${COLORS.gray7};
   cursor: pointer;
 `;
 export const ProfileImgInput = styled.input``;
@@ -139,7 +139,7 @@ export const InfoWrapper = styled.div`
 export const EmailInputDiv = styled.div`
   width: 80%;
   height: 48px;
-  border: 1px solid #a6a6a6;
+  border: 1px solid ${COLORS.gray9};
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
@@ -148,7 +148,7 @@ export const EmailInputDiv = styled.div`
   align-items: center;
   padding: 8px 16px;
   gap: 8px;
-  background-color: #${COLORS.white};
+  background-color: ${COLORS.white};
 `;
 
 export const MyBookmarkReportWrap = styled.div``;
@@ -168,7 +168,7 @@ export const EditModalTitle = styled.div`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 800;
   font-size: 23px;
-  color: #${COLORS.gray1};
+  color: ${COLORS.gray1};
 `;
 
 export const EditModalImgLabelInputWrapper = styled.div`
@@ -184,7 +184,7 @@ export const EditModalProfileImgLabel = styled.label`
   width: 160px;
   height: 160px;
   border-radius: 70%;
-  border: 1px solid #${COLORS.gray7};
+  border: 1px solid ${COLORS.gray7};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +195,7 @@ export const EditModalProfileImgShow = styled.img`
   width: 160px;
   height: 160px;
   border-radius: 70%;
-  border: 1px solid #${COLORS.gray7};
+  border: 1px solid ${COLORS.gray7};
 `;
 
 export const EditModalProfileImgInput = styled.input``;
@@ -208,13 +208,13 @@ export const EditModalText = styled.p`
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   margin-bottom: 0.3rem;
-  color: #${COLORS.gray1};
+  color: ${COLORS.gray1};
 `;
 
 export const EditModalNicknameInput = styled.input`
   width: 370px;
   height: 45px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
@@ -236,7 +236,7 @@ export const EditModalEmailText = styled.p`
   font-size: 16px;
   line-height: 19px;
   margin-bottom: 0.4rem;
-  color: #323232;
+  color: ${COLORS.gray1};
 `;
 
 /*
@@ -256,14 +256,14 @@ export const EditModalCanceleButton = styled.button`
   gap: 8px;
   width: 170px;
   height: 60px;
-  background: #ffffff;
+  background: ${COLORS.white};
   border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
   /* Title Text */
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
   text-align: center;
-  color: #${COLORS.gray5};
+  color: ${COLORS.gray5};
 `;
 
 export const EditModalCompleteButton = styled.button`
@@ -276,8 +276,8 @@ export const EditModalCompleteButton = styled.button`
   gap: 8px;
   width: 170px;
   height: 60px;
-  background-color: #e7ffd8;
-  border: 1px solid ${COLORS.green2};
+  background-color: ${COLORS.green4};
+  border: 1px solid ${COLORS.green3};
   border-radius: 8px;
   font-family: 'Apple SD Gothic Neo';
   font-size: 16px;
@@ -291,7 +291,7 @@ export const EditModalCompleteButton = styled.button`
 export const EditModalEmailInput = styled.input`
   width: 370px;
   height: 45px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid ${COLORS.gray6};
   border-radius: 8px;
   font-size: 16px;
   box-sizing: border-box;
@@ -314,7 +314,7 @@ export const MyBookmarkReportTabMenu = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  border-bottom: 2px solid #9b9b9b;
+  border-bottom: 2px solid ${COLORS.gray5};
 `;
 
 export const MyTitleTabTitleBox = styled.div``;
@@ -333,8 +333,8 @@ export const MyTitleTabBtn = styled.button`
   cursor: pointer;
   width: 50%;
   &.active {
-    color: #00c113;
-    border-bottom: 2px solid #00c113;
+    color: ${COLORS.green1};
+    border-bottom: 2px solid ${COLORS.green1};
   }
 `;
 

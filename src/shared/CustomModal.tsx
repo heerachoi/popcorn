@@ -118,7 +118,7 @@ export const TextBackground = styled.div`
   text-align: center;
   width: 300px;
   height: 30px;
-  background-color: ${COLORS.orange3};
+  background-color: ${COLORS.yellow1};
   box-sizing: border-box;
   border-radius: 20px;
 

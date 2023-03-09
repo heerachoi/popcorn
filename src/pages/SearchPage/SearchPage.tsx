@@ -63,8 +63,6 @@ const Search: React.FC = () => {
   const [saveItemList, setSaveItemList] = useState<Store[]>(data);
   // 기타 필터
   const [saveOtherList, setSaveOtherList] = useState<Store[]>(data);
-  // 모달 버튼 값
-  const [modalResultList, setModalResultList] = useState<string[]>([]);
 
   // 카테고리 Modal
   const { isShowing, toggle } = useLocationModal();

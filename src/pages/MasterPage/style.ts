@@ -82,8 +82,8 @@ export const WriteBtn = styled.button`
   height: 60px;
   color: ${COLORS.green1};
   border-radius: 8px;
-  background-color: #e7ffd8;
-  border: 1px solid #88e25d;
+  background-color: ${COLORS.green4};
+  border: 1px solid ${COLORS.green3};
   font-size: 18px;
   font-weight: 800;
 

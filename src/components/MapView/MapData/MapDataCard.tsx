@@ -88,7 +88,6 @@ const MapDataCard = ({
           popup={popup.title}
           onClick={popupCenterChangeHandler}
         >
-          {/* <S.DetailImg src={popup?.imgURL} alt="사진" /> */}
           <LazyImg src={popup?.imgURL[0]} />
           <S.DetailWrap>
             <S.DetailTitle>{popup?.title}</S.DetailTitle>

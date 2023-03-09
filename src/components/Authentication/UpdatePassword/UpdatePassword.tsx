@@ -19,7 +19,7 @@ const UpdatePassword = ({ handleClose }: { handleClose: () => void }) => {
     updatePasswordCheck: '',
   };
 
-  const [check, setCheck] = useState(false); // 현재 비밀번호를 check 하는 state
+  const [check, setCheck] = useState<boolean>(false); // 현재 비밀번호를 check 하는 state
   const [passwordInput, setPasswordInput] = useState(initPasswordInput);
   const [helperPasswordInput, setHelperPasswordInput] = useState(
     initHelperPasswordInput,

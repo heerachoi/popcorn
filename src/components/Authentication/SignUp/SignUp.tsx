@@ -17,6 +17,7 @@ import { globalBtn, modalStatus } from '../../../atoms';
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 import CustomModal from '../../../shared/CustomModal';
 import { JSON_API } from '../../../services/api';
+import COLORS from '../../../assets/CSS/colors';
 
 interface SignUpInput {
   nickName: string;
@@ -52,9 +53,9 @@ const SignUp = () => {
   const [helperText, setHelperText] = useState<SignUpInput>(
     initHelperTextSignUpInput,
   );
-  const [phoneVerify, setPhoneVerify] = useState(false); // 인증완료가 되지 않으면 회원가입 버튼을 누를 수 없게 하는 state
-  const [requestedPV, setRequestedPV] = useState(false); // 휴대폰 인증번호 요청 성공시 인증번호 입력칸을 생기게 하는 state
-  const [dataId, setDataId] = useState('');
+  const [phoneVerify, setPhoneVerify] = useState<boolean>(false); // 인증완료가 되지 않으면 회원가입 버튼을 누를 수 없게 하는 state
+  const [requestedPV, setRequestedPV] = useState<boolean>(false); // 휴대폰 인증번호 요청 성공시 인증번호 입력칸을 생기게 하는 state
+  const [dataId, setDataId] = useState<string>('');
 
   // 모달
   const modalStatusChangeHandler = (error: string) => {
@@ -85,7 +86,7 @@ const SignUp = () => {
   const signUpSelectChanchHandler = (
     event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
-    event.target.style.color = '#323232'; // select에서 옵션을 선택하면 색깔이 바뀌게 하기 위해서
+    event.target.style.color = `${COLORS.black}`; // select에서 옵션을 선택하면 색깔이 바뀌게 하기 위해서
     setGlobalButton(true);
     setSignUpInput({
       ...signUpInput,

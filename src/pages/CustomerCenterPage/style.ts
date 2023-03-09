@@ -13,7 +13,7 @@ export const CustomerCenterTitle = styled.div`
 export const TitleBackground = styled.div`
   width: 140px;
   height: 20px;
-  background-color: ${COLORS.green2};
+  background-color: ${COLORS.green3};
   position: absolute;
   box-sizing: border-box;
   padding-left: 20px;

@@ -16,12 +16,12 @@ export const TabMenu = styled.ul`
 `;
 
 export const MenuTitleTabBtn = styled.button`
-  background-color: #f6f6f6;
+  background-color: ${COLORS.gray8};
   font-weight: bold;
   font-size: 17px;
   text-align: center;
   display: block;
-  border: 1px solid #e0e0e0;
+  border: 1px solid ${COLORS.gray7};
   color: ${COLORS.black};
   padding: 6px 18px;
   margin: 0 5px -1px 0;

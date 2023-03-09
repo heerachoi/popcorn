@@ -11,7 +11,7 @@ export const ReportListContainer = styled.div`
 export const TitleBackground = styled.div`
   width: 340px;
   height: 25px;
-  background-color: ${COLORS.green2};
+  background-color: ${COLORS.green3};
   position: absolute;
   box-sizing: border-box;
   border-radius: 12px;
@@ -26,7 +26,7 @@ export const TitleBackground = styled.div`
 export const StoreReportTitleBackground = styled.div`
   width: 420px;
   height: 25px;
-  background-color: ${COLORS.green2};
+  background-color: ${COLORS.green3};
   position: absolute;
   box-sizing: border-box;
   border-radius: 12px;

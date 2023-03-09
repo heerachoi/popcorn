@@ -46,22 +46,22 @@ const StoreCalendar = ({ storeList }: Props) => {
       },
       ...(event.item === '패션' && {
         style: {
-          backgroundColor: `${COLORS.green2}`,
+          backgroundColor: `${COLORS.green3}`,
         },
       }),
       ...(event.item === '식음료' && {
         style: {
-          backgroundColor: `${COLORS.orange1}`,
+          backgroundColor: `${COLORS.orange3}`,
         },
       }),
       ...(event.item === '캐릭터' && {
         style: {
-          backgroundColor: `${COLORS.orange2}`,
+          backgroundColor: `${COLORS.orange4}`,
         },
       }),
       ...(event.item === '소품' && {
         style: {
-          backgroundColor: `${COLORS.orange5}`,
+          backgroundColor: `${COLORS.orange2}`,
         },
       }),
       ...(event.item === '주류' && {

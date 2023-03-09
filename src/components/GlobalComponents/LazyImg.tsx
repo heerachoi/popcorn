@@ -4,7 +4,7 @@ import { DetailImg } from '../MapView/MapData/stlye';
 import LoadingAnimation from './LoadingAnimation';
 
 const LazyImg = ({ src }: { src: string }) => {
-  const [showList, setShowList] = useState(false);
+  const [showList, setShowList] = useState<boolean>(false);
   const { ref, inView } = useInView({
     // inView를 통해 보여지는지 구분한다.
     threshold: 0,

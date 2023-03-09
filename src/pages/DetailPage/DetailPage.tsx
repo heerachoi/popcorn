@@ -13,7 +13,7 @@ import { JSON_API } from '../../services/api';
 const DetailPage: any = () => {
   const detailData = useLocation().state as Store;
   const users = useRecoilValue(userInfo);
-  const [userAge, setUserAge] = useState('');
+  const [userAge, setUserAge] = useState<string>('');
   const [data, setData] = useState<Store>(detailData);
 
   const queryClient = useQueryClient();
