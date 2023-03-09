@@ -5,6 +5,7 @@ import * as S from './style';
 import COLORS from '../../../assets/CSS/colors';
 import MapWeather from '../MapWeather/MapWeather';
 import { LocationType } from '../../../types/map';
+import { useEffect, useState } from 'react';
 
 interface Props {
   onSearchSubmitHandler: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -13,12 +14,19 @@ interface Props {
 
 const MapSearch = ({ onSearchSubmitHandler, myLocation }: Props) => {
   const [search, setSearch] = useRecoilState(mapSearchValue);
-
+  const [tmpQuery, setTmpQuery] = useState(search);
   const searchValueChangeHandler = (
     event: React.FormEvent<HTMLInputElement>,
   ) => {
-    setSearch(event.currentTarget.value);
+    setTmpQuery(event.currentTarget.value);
   };
+
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      return setSearch(tmpQuery);
+    }, 300); //->setTimeout 설정
+    return () => clearTimeout(debounce); //->clearTimeout 바로 타이머 제거
+  }, [tmpQuery]); //->결국 마지막 이벤트에만 setTimeout이 실행됨
 
   return (
     <S.Wrap>
@@ -30,7 +38,7 @@ const MapSearch = ({ onSearchSubmitHandler, myLocation }: Props) => {
         <S.SearchInput
           onChange={searchValueChangeHandler}
           type="text"
-          value={search}
+          value={tmpQuery}
           placeholder="주소, 팝업스토어 검색"
         />
       </form>

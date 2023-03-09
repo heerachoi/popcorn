@@ -27,7 +27,7 @@ interface Props {
   detailData: Store;
 }
 
-const StoreDetailInfo = ({ detailData }: any) => {
+const StoreDetailInfo = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>(false);

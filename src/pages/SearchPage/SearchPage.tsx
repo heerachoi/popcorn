@@ -25,7 +25,7 @@ import { OtherModalButtonData } from '../../utils/ModalButtonData/OtherModalButt
 
 import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
 import { useNavigate } from 'react-router-dom';
-import NotFound from '../../components/NotFound';
+import NotFound from '../../components/GlobalComponents/NotFound';
 import TopButton from '../../components/GlobalComponents/TopButton';
 
 const Search: React.FC = () => {

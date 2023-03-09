@@ -1,17 +1,10 @@
 import { useCallback, useMemo } from 'react';
-import { Calendar, Event, momentLocalizer } from 'react-big-calendar';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import moment, { months } from 'moment';
+import moment from 'moment';
 import { Store } from '../../types/data/storeInterface';
 import { useNavigate } from 'react-router-dom';
 import COLORS from '../../assets/CSS/colors';
-
-interface StoreEvent extends Event {
-  title: string;
-  start: Date;
-  end: Date;
-}
-
 interface Props {
   storeList: Store[];
 }
@@ -41,13 +34,13 @@ const StoreCalendar = ({ storeList }: Props) => {
 
   // 달력에서 클릭시 페이지 이동
   const handleSelectEvent = useCallback(
-    (event: any) => navigate(`/detail/${event.id}`, { state: event }),
+    (event: Store) => navigate(`/detail/${event.id}`, { state: event }),
     [],
   );
 
   // 조건에 따른 그래프 색깔
   const eventPropGetter = useCallback(
-    (event: any) => ({
+    (event: Store) => ({
       style: {
         backgroundColor: `${COLORS.green1}`,
       },

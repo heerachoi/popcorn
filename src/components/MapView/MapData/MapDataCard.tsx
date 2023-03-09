@@ -63,16 +63,14 @@ const MapDataCard = ({
 
   // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
   const displayCenterInfo = (result: AddressResult[], status: string) => {
-    console.log('result', typeof result);
-    console.log('status', typeof status);
     if (status === kakao.maps.services.Status.OK) {
       setFoodSearch(
-        `${result[0].region_1depth_name} ${result[0].region_3depth_name}`,
+        `${result[1].region_1depth_name} ${result[1].region_3depth_name}`,
       );
 
       categoryChangeHandler(
         '음식점',
-        `${result[0].region_1depth_name} ${result[0].region_3depth_name}`,
+        `${result[1].region_1depth_name} ${result[1].region_3depth_name}`,
       );
     }
   };
