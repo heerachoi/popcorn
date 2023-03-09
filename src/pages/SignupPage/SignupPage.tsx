@@ -1,3 +1,4 @@
+// components
 import SignUp from '../../components/Authentication/SignUp/SignUp';
 
 const SignupPage: any = () => {

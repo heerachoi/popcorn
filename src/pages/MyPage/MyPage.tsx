@@ -1,5 +1,6 @@
-import MyPageTab from '../../components/MyPage/MyPageTab/MyPageTab';
+// component
 import MyProfile from '../../components/MyPage/MyProfile/MyProfile';
+
 const MyPage: any = () => {
   return (
     <>

@@ -1,14 +1,20 @@
+// library
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
+import { userInfoState } from '../../atoms';
 import { kakaoAccessToken, userInfo } from '../../atoms';
-import { getUser } from '../../services/api';
+import { useLocation } from 'react-router-dom';
+import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
+// firebase
 import { auth } from '../../services/firebase';
+//API
+import { getUser } from '../../services/api';
+// types
+import { UserInfomation } from '../../types/user';
+// component
 import Footer from './Footer';
 import Header from './Header/Header';
-import { userInfoState } from '../../atoms';
-import { useLocation } from 'react-router-dom';
-import { UserInfomation } from '../../types/user';
+// style
 import styled from 'styled-components';
 
 

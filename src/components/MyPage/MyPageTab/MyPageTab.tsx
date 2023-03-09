@@ -1,9 +1,11 @@
-import * as S from './style';
-import BookMarkList from '../BookMarkList/BookMarkList';
-import { useState } from 'react';
-import MyReportList from '../MyReportList/MyReportList';
+// library
 import { useRecoilState } from 'recoil';
 import { isActiveMenu } from '../../../atoms';
+// component
+import BookMarkList from '../BookMarkList/BookMarkList';
+import MyReportList from '../MyReportList/MyReportList';
+// style
+import * as S from './style';
 
 interface Props {
   detailData?: any;

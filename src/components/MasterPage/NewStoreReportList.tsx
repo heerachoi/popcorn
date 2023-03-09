@@ -1,10 +1,14 @@
+// library
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+// API
 import { getNewStoreReport, JSON_API } from '../../services/api';
-import * as S from './style';
+// types
 import { NewStoreReport } from '../../types/report';
+// style
+import * as S from './style';
 import COLORS from '../../assets/CSS/colors';
 
 const NewStoreReportList = () => {

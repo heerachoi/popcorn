@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+// style
 import styled from 'styled-components';
 import TopImg from '../../assets/Img/Top.svg';
 

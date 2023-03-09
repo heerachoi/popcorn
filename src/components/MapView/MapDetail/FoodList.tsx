@@ -1,9 +1,13 @@
+// library
 import { useRecoilValue } from 'recoil';
+import { mapFoodData } from '../../../atoms';
+// types
+import { FoodData, LocationType } from '../../../types/map';
+// component
+import FoodCard from './FoodCard';
+// style
 import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
-import { mapFoodData } from '../../../atoms';
-import { FoodData, LocationType } from '../../../types/map';
-import FoodCard from './FoodCard';
 
 interface Props {
   setMyLocation: React.Dispatch<React.SetStateAction<LocationType>>;

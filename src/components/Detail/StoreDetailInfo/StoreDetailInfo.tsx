@@ -1,5 +1,3 @@
-/* style */
-import * as S from './style';
 /* library */
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -22,7 +20,8 @@ import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
 import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
 import Instagram from '../../../assets/Img/Instagram.svg';
 import LinkImg from '../../../assets/Img/Link.svg';
-
+/* style */
+import * as S from './style';
 
 interface Props {
   detailData: Store;

@@ -1,3 +1,4 @@
+// types
 import { ButtonValue } from "../types/modal/modalInterface";
 
 /**

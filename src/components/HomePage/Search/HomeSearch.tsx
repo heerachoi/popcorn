@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import * as S from './style';
-import { Store } from '../../../types/data/storeInterface';
-import { useNavigate } from 'react-router-dom';
+// library
 import { useQuery } from 'react-query';
-// Data
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+// data
 import { getPopupData } from '../../../services/api';
-// Library
+// library
 import { ko } from 'date-fns/esm/locale';
-import Modal from '../../SearchPage/SearchModal/SearchModal';
-// Hooks
+// hooks
 import useLocationModal from '../../../hooks/useLocationModal';
-import { ModalButtonData } from '../../../utils/ModalButtonData/ModalButtonData';
-// Recoil
-import { useRecoilValue } from 'recoil';
+// types
+import { Store } from '../../../types/data/storeInterface';
+//style
+import * as S from './style';
 
 const HomeSearch = () => {
   const navigate = useNavigate();

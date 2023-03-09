@@ -1,19 +1,24 @@
-import * as S from './style';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+// libaray
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { auth } from '../../../services/firebase';
-import { AiFillLeftCircle } from 'react-icons/ai';
-import { useRecoilState, useResetRecoilState } from 'recoil';
 import { modalStatus } from '../../../atoms';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilState, useResetRecoilState } from 'recoil';
+// firebase
+import { auth } from '../../../services/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+// component
 import CustomModal from '../../../shared/CustomModal';
 import KakaoLogin from './KakaoLogin';
-import LoginLogo from '../../../assets/Logo/Frame_59.svg';
 import {
   getEmailValidation,
   getPasswordValidation,
 } from '../../../utils/login-validation';
+//style
+import * as S from './style';
+import { AiFillLeftCircle } from 'react-icons/ai';
 import COLORS from '../../../assets/CSS/colors';
+import LoginLogo from '../../../assets/Logo/Frame_59.svg';
+
 interface SignInInput {
   email: string;
   password: string;

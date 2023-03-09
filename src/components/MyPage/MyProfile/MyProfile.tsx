@@ -1,22 +1,25 @@
+// library
 import { useEffect, useState } from 'react';
-import { auth, storage } from '../../../services/firebase';
-import * as S from './style';
-import MyPageTab from '../MyPageTab/MyPageTab';
-import DeleteAccount from '../../Authentication/DeleteAccount/DeleteAccount';
-import MyProfileEditModal from './MyProfileEditModal';
-import { useRecoilState } from 'recoil';
+import { useNavigate } from 'react-router-dom';
+import { userInfo } from '../../../atoms';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import {
   editModal,
   profileState,
   userInfoState,
   kakaoAccessToken,
 } from '../../../atoms';
-import { useRecoilValue } from 'recoil';
-import { userInfo } from '../../../atoms';
-import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
-import { useNavigate } from 'react-router-dom';
+// firebase
+import { auth } from '../../../services/firebase';
+// component
+import MyPageTab from '../MyPageTab/MyPageTab';
+import DeleteAccount from '../../Authentication/DeleteAccount/DeleteAccount';
+import MyProfileEditModal from './MyProfileEditModal';
+// style
+import * as S from './style';
 import MyProfileStar1 from '../../../assets/Img/MyProfileStar1.svg';
 import MyProfileStar2 from '../../../assets/Img/MyProfileStar2.svg';
+import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 
 type CurrentUserProfile = any;
 const MyProfile = () => {
