@@ -375,8 +375,8 @@ const SignUp = () => {
             <option value="" disabled selected>
               성별을 선택해 주세요.
             </option>
-            <option value="men">남자</option>
-            <option value="women">여자</option>
+            <option value="male">남자</option>
+            <option value="female">여자</option>
             <option value="선택안함">선택안함</option>
           </S.FormSelect>
           <S.HelperText>{helperText.gender}</S.HelperText>
