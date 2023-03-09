@@ -236,7 +236,8 @@ export const TextBackground = styled.div`
     background-color: #ffb321;
   }
   @media screen and (max-width: 840px) {
-    width: 200px;
+    /* width: 200px; */
+    padding-top: 50px;
     background-color: #323232;
     &:hover {
       background-color: #323232;
@@ -262,7 +263,7 @@ export const MenuText = styled.div`
   width: 120px;
   color: #fff;
   padding: 0 0 0 8px;
-  margin-top: -20px;
+  margin-top: 40px;
 `;
 
 export const MapIcon = styled(BsMapFill)`

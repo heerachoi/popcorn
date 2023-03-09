@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import { WEB_API } from '../../../services/api';
-import { Store } from '../../../types/data/storeInterface';
+import shareImg from '../../../assets/Img/shareImg.svg';
+
 interface Props {
   detailData: Store;
 }
@@ -46,7 +47,9 @@ const KakaoShare = ({ detailData }: Props) => {
 
   return (
     <div id="KakaoShareBtn">
-      <KakaoImgBtn onClick={shareKakao}>공유</KakaoImgBtn>
+      <KakaoImgBtn onClick={shareKakao}>
+        <img src={shareImg} />
+      </KakaoImgBtn>
     </div>
   );
 };
@@ -63,6 +66,10 @@ export const KakaoImgBtn = styled.button`
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 16px;
+
+  img {
+    width: 20px;
+  }
   @media screen and (max-width: 700px) {
     font-size: 12px;
   }

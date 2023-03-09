@@ -57,6 +57,11 @@ export const popupList = atom<Store[]>({
   default: [],
 });
 
+export const bookmarkStoreList = atom({
+  key: 'bookmarkStoreList',
+  default: [],
+});
+
 export const mapModalStatus = atom<boolean>({
   key: 'mapModal',
   default: false,
@@ -80,12 +85,10 @@ export const mapDetailBoxPopup = atom<Store>({
     significantContent: '',
     explain: '',
     sns: '',
-    web: '',
     imgURL: [],
     lat: '',
     lon: '',
-    category: '',
-    reserveURL: '',
+    category: ''
   },
 });
 
@@ -93,6 +96,7 @@ export const mapLevel = atom<number>({
   key: 'mapLevel',
   default: 3,
 });
+//
 
 export const isActiveMenu = atom<number>({
   key: 'isActiveMenu',

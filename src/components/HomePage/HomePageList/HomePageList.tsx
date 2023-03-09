@@ -27,24 +27,7 @@ const HomePageList: any = () => {
 
   return (
     <>
-      <S.RecentList>최근 오픈했어요</S.RecentList>
-      {popupList.map((popup:Store) => {
-        return (
-          <>
-            <S.StyleListWrap
-              key={popup.id}
-              onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
-            >
-              <S.PopupTitle>{popup.title}</S.PopupTitle>
-              <S.PopupDate>
-                {popup.open} ~ {popup.close}
-              </S.PopupDate>
-              <S.PopupAddress>{popup.address}</S.PopupAddress>
-            </S.StyleListWrap>
-          </>
-        );
-      })}
-      <S.ClosingSoonList>곧 마감해요</S.ClosingSoonList>
+      
     </>
   );
 };

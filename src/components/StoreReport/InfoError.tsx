@@ -26,7 +26,6 @@ const InfoError: any = () => {
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
 
-
   // input 초기값
   const initInfoErrModifiInput = {
     title: '',
@@ -45,18 +44,22 @@ const InfoError: any = () => {
   const [errContent, setErrContent] = useState<ErrContent>(initErrContent);
   const [errImgFile, setErrImgFile] = useState(''); // 이미지 파일
   const [errFileName, setErrFileName] = useState(''); //이미지 파일 이름
-
-  const userId = auth?.currentUser;
+  const user = auth?.currentUser;  
+    
 
   // input onChange 함수
   const infoErrModifiOnChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setGlobalButton(true);
-    setInfoErrModifiInput({
-      ...infoErrModifiInput,
-      [event.target.name]: event.target.value,
-    });
+    if (event.target.value.length > 20) {
+      return alert('20글자 이하로 작성해 주세요.');
+    } else {
+      setInfoErrModifiInput({
+        ...infoErrModifiInput,
+        [event.target.name]: event.target.value,
+      });
+    }
   };
 
   const errContentOnchangeHandler = (
@@ -121,7 +124,7 @@ const InfoError: any = () => {
     // db에 올라가는 데이터 구조
     const newErrModifiInfo = {
       id: uuidv4(),
-      userId,
+      user,
       title: infoErrModifiInput.title,
       storeName: infoErrModifiInput.storeName,
       infoErrContent: errContent.infoErrContent,
@@ -134,15 +137,13 @@ const InfoError: any = () => {
 
     // db에 추가
     try {
-      axios.post(
-        `${JSON_API}/infoErrModifiContents`,
-        newErrModifiInfo,
-      );
+      axios.post(`${JSON_API}/infoErrModifiContents`, newErrModifiInfo);
       setInfoErrModifiInput(initInfoErrModifiInput);
       setErrImgFile('');
       setErrContent(initErrContent);
 
       alert('제보 완료!');
+      navigate('/');
     } catch (error) {
       console.log(error);
     }

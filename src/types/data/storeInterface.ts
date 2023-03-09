@@ -14,12 +14,10 @@ export interface Store {
   significantContent: string;
   explain: string;
   sns: string;
-  web: string;
   imgURL: string[];
   lat: string;
   lon: string;
   category: string;
-  reserveURL: string;
 }
 
 export interface BookMark {
