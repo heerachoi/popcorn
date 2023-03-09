@@ -16,7 +16,7 @@ const MenPopularSwiper:React.FC = () => {
   const navigate = useNavigate();
   const menTopTwo = PopularToMen();
 
-  const [todayDate, setTodayDate] = useState<number>();
+  const [todayDate, setTodayDate] = useState<number|any>();
   const { isLoading, isError, data, error } = useQuery(
     'popup',
     getPopupData,
