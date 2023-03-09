@@ -44,15 +44,15 @@ const Search: React.FC = () => {
   let otherList: Store[] = [];
 
   // keyEnter
-  const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
+  const [enterKeyPressed, setEnterKeyPressed] = useState<boolean>(false);
   // 검색어
-  const [searchTerm, setSearchTerm] = useState<any>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(data);
   // Date Picker
   const [dateSelected, setDateSelected] = useState<any>();
   const [saveDatePickerList, setSaveDatePickerList] = useState<Store[]>(data);
   // 팝업 기간
-  const [popupDurationFilter, setPopupDurationFilter] = useState<any>('전체');
+  const [popupDurationFilter, setPopupDurationFilter] = useState<string>('전체');
   const [savePopupDurationList, setSavePopupDurationList] =
     useState<Store[]>(data);
   // 팝업 유형

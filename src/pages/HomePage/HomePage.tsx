@@ -9,7 +9,7 @@ import MenPopularSwiper from '../../components/HomePage/Swiper/MenPopularSwiper'
 import HomeSearch from '../../components/HomePage/Search/HomeSearch';
 import TopButton from '../../components/GlobalComponents/TopButton';
 
-const HomePage: any = () => {
+const HomePage = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
