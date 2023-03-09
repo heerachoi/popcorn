@@ -15,7 +15,7 @@ import * as S from './style';
 const WomenPopularSwiper: React.FC = () => {
   const navigate = useNavigate();
   const womenTopTwo = PopularToWomen();
-  const [todayDate, setTodayDate] = useState<number | any>();
+  const [todayDate, setTodayDate] = useState<number>();
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
