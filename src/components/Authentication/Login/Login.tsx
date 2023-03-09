@@ -115,7 +115,7 @@ const Login = () => {
     if (validationError) {
       setHelperText({
         ...helperText,
-        password: '8자 이상, 대/소문자,숫자,특수문자를 포함해야 합니다.',
+        password: '8자 이상, 소문자,숫자,특수문자를 포함해야 합니다.',
       });
     } else {
       setHelperText({

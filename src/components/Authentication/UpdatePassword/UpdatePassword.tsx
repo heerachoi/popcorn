@@ -142,7 +142,7 @@ const UpdatePassword = ({ handleClose }: { handleClose: () => void }) => {
         <S.EnterInputChangePasswordText>
           비밀번호{' '}
           <span style={{ fontSize: '13px' }}>
-            (대문자,소문자+숫자+특수문자 8자 이상)
+            (소문자+숫자+특수문자 8자 이상)
           </span>
         </S.EnterInputChangePasswordText>
         <S.EnterInputChangePasswordInput

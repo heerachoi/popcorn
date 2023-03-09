@@ -38,11 +38,9 @@ const HomeSearch = () => {
   // 카테고리 Modal
   const { isShowing, toggle } = useLocationModal();
 
-
   // 검색어 필터
   // 눌린 키가 enter인지 체크
   const checkKeypress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    event.preventDefault();
     if (event.key === 'Enter') {
       setEnterKeyPressed(true);
       searchFilterHandler();
@@ -140,8 +138,6 @@ const HomeSearch = () => {
       <S.SearchInputContainer>
         <S.SearchIcon/>
         <S.SearchInput 
-          type="text"
-          value={searchTerm}
           placeholder="키워드를 입력해주세요."
           onChange={(event) => setSearchTerm(event.target.value)}
           onKeyPress={checkKeypress}
