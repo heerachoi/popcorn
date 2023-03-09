@@ -184,7 +184,6 @@ export const StoreImgLabel = styled.label`
   height: 150px;
   width: 150px;
   border-radius: 3px;
-  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
   align-items: center;

@@ -13,7 +13,7 @@ import {
   getEmailValidation,
   getPasswordValidation,
 } from '../../../utils/login-validation';
-
+import COLORS from '../../../assets/CSS/colors';
 interface SignInInput {
   email: string;
   password: string;
@@ -115,7 +115,7 @@ const Login = () => {
     if (validationError) {
       setHelperText({
         ...helperText,
-        password: '8자 이상, 대/소문자,숫자,특수문자를 포함해야 합니다.',
+        password: '8자 이상, 소문자,숫자,특수문자를 포함해야 합니다.',
       });
     } else {
       setHelperText({
@@ -180,7 +180,7 @@ const Login = () => {
         <S.HelperText>{helperText.password}</S.HelperText>
         <S.LoginBtn>로그인</S.LoginBtn>
         <S.FormBtnWrap onClick={() => navigate('/')}>
-          <AiFillLeftCircle style={{ color: '#9b9b9b' }} size={18} />
+          <AiFillLeftCircle style={{ color: `${COLORS.gray5}` }} size={18} />
           <S.NavigateBtn style={{ cursor: 'pointer' }}>
             홈으로 이동
           </S.NavigateBtn>

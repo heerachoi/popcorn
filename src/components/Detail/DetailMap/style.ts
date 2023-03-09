@@ -20,7 +20,7 @@ export const DetailPageMap = styled(Map)`
 export const TitleBackground = styled.div`
   width: 170px;
   height: 18px;
-  background-color: ${COLORS.yellow};
+  background-color: ${COLORS.yellow1};
   position: absolute;
   box-sizing: border-box;
   border-radius: 12px;
@@ -40,7 +40,7 @@ export const TitleText = styled.p`
 `;
 
 export const MapInfoBox = styled.div`
-  background: #00c113;
+  background: ${COLORS.green1};
   border: 1px solid ${COLORS.white};
   border-radius: 8px;
   overflow: hidden;

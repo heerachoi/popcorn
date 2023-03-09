@@ -24,7 +24,7 @@ import axios from 'axios';
 const MyProfileEditModal = () => {
   const user = useRecoilValue(userInfo);
   const [profileUrl, setProfileUrl] = useRecoilState(profileState);
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState<boolean>(true);
 
   // 모달 관련
   const [open, setOpen] = useRecoilState(editModal);

@@ -60,7 +60,6 @@ const DeleteAccount = () => {
           onClick={deleteAccountClickHandler}
         />
       )}
-      {/* ❌ 실행 안됨 */}
       {isModal.signoutComplete && (
         <CustomModal
           title="알림"

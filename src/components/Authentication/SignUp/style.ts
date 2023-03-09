@@ -122,7 +122,7 @@ export const FormSelect = styled(FormInput)`
   }
   option {
     background: lightcoral;
-    color: #fff;
+    color: ${COLORS.white};
     padding: 3px 0;
     font-size: 16px;
     width: 200px;
@@ -201,7 +201,7 @@ export const TextBackground = styled.div`
   text-align: center;
   width: 140px;
   height: 30px;
-  background-color: ${COLORS.yellow};
+  background-color: ${COLORS.yellow1};
   box-sizing: border-box;
   border-radius: 20px;
   @media screen and (max-width: 580px) {

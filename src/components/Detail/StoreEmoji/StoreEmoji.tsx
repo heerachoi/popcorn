@@ -18,11 +18,11 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
   const [like, setLike] = useState<number>(0);
   const [hate, setHate] = useState<number>(0);
-  const [likeColor, setLikeColor] = useState(`${COLORS.gray1}`);
-  const [hateColor, setHateColor] = useState(`${COLORS.gray1}`);
-  const [likeClicked, setLikeClicked] = useState(false);
-  const [hateClicked, setHateClicked] = useState(false);
-  const [currentLikeId, setCurrentLikeId] = useState('');
+  const [likeColor, setLikeColor] = useState<string>(`${COLORS.gray1}`);
+  const [hateColor, setHateColor] = useState<string>(`${COLORS.gray1}`);
+  const [likeClicked, setLikeClicked] = useState<boolean>(false);
+  const [hateClicked, setHateClicked] = useState<boolean>(false);
+  const [currentLikeId, setCurrentLikeId] = useState<string>('');
 
   // 화면 렌더링 시 로그인 상태 확인
   useEffect(() => {

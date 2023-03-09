@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import COLORS from '../../assets/CSS/colors';
 import { getInfoErrReport, JSON_API } from '../../services/api';
 import * as S from './style';
 
@@ -79,7 +80,7 @@ const ErrReportList: any = () => {
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
-                  <S.StatusText style={{ color: '#323232' }}>완료</S.StatusText>
+                  <S.StatusText style={{ color: `${COLORS.black}` }}>완료</S.StatusText>
                 )}
               </S.ListContent>
             </S.ListBox>

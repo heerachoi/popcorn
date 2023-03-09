@@ -6,6 +6,6 @@ export const getEmailValidation = (email: string) => {
 
 export const getPasswordValidation = (password: string) => {
   const regexPw =
-    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
   return !regexPw.test(password);
 };
