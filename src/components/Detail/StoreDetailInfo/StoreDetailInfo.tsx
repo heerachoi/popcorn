@@ -29,7 +29,6 @@ interface Props {
 
 const StoreDetailInfo = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
-  console.log('currentUser', currentUser.uid);
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
@@ -40,7 +39,6 @@ const StoreDetailInfo = ({ detailData }: Props) => {
 
   useEffect(() => {
     if (accessToken !== '') {
-      console.log('카카오 로그인 accessToken');
       setCurrentUser({
         isLogin: true,
         userInfomation: {
@@ -58,13 +56,12 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     } else {
       auth.onAuthStateChanged((user) => {
         if (user) {
-          console.log('auth.currentUser', auth.currentUser);
           setCurrentUser(auth.currentUser);
           fetchBookmarks();
         }
       });
     }
-  }, [currentUser, accessToken, kakaoUserInfo]);
+  }, [currentUser, accessToken]);
 
   // 북마크 상태 업데이트
   useEffect(() => {
@@ -142,7 +139,6 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                 headers: { Authorization: `Bearer ${accessToken}` },
               },
             );
-            console.log('response', response);
             setChangeColor(`${COLORS.orange2}`);
             setBookMarkState(true);
           } else {

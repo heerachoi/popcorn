@@ -68,7 +68,8 @@ export const PopularToWomen = () => {
   });
   
   // 여성 조회 많은 순
-  const womenViewSort = currentlyOpen.sort((a:Store,b:Store) => b.view.female - a.view.female);
+  const womenViewSort = currentlyOpen.sort((a:Store,b:Store) => b.view.women - a.view.women);
+
   // 마감 순
   const closingSoon = womenViewSort.sort((a:Store,b:Store) => Number(a.close.split(".").join("")) - Number(b.close.split(".").join("")));
   const womenTopTwo = closingSoon.slice(0, 2); 
