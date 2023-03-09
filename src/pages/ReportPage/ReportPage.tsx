@@ -1,8 +1,10 @@
-import React from 'react';
+// libary
 import { useRecoilState } from 'recoil';
 import { isActiveMenu } from '../../atoms';
+// components
 import InfoError from '../../components/StoreReport/InfoError';
 import NewStoreReport from '../../components/StoreReport/NewStoreReport';
+// style
 import * as S from './style';
 
 const ReportPage = () => {

@@ -1,4 +1,10 @@
+// library
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { globalBtn, modalStatus } from '../../../atoms';
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
+// firebase
 import { auth } from '../../../services/firebase';
 import {
   createUserWithEmailAndPassword,
@@ -10,13 +16,12 @@ import {
   PhoneAuthProvider,
   signInWithCredential,
 } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
-import * as S from './style';
-import axios from 'axios';
-import { globalBtn, modalStatus } from '../../../atoms';
-import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
+// component
 import CustomModal from '../../../shared/CustomModal';
+// API
 import { JSON_API } from '../../../services/api';
+// Style
+import * as S from './style';
 import COLORS from '../../../assets/CSS/colors';
 
 interface SignUpInput {

@@ -1,14 +1,20 @@
+// library
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import * as S from './style';
 import {
   mapCategoryValue,
   mapDetailBoxPopup,
   mapFoodSearchValue,
 } from '../../../atoms';
+// component
 import FoodList from './FoodList';
-import Critical from '../../../assets/Img/Critical.svg';
+// types
 import { FoodData, LocationType } from '../../../types/map';
+// style
+import * as S from './style';
+import Critical from '../../../assets/Img/Critical.svg';
+
+
 
 interface Props {
   setMarkerHandler: (search: string, category: string) => void;

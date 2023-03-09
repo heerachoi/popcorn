@@ -1,5 +1,8 @@
+// library
 import { Link } from 'react-router-dom';
+// types
 import { FoodData, LocationType } from '../../../types/map';
+// style
 import * as S from './style';
 
 interface Props {

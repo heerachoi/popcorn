@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import { BiImageAdd } from 'react-icons/bi';
+// library
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios';
+import { useSetRecoilState } from 'recoil';
+import { globalBtn } from '../../atoms';
+// firebase
 import { storage } from '../../services/firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { auth } from '../../services/firebase';
-import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios';
-import * as S from './style';
-import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { globalBtn } from '../../atoms';
+// API
 import { JSON_API } from '../../services/api';
-
+// style
+import * as S from './style';
+import { BiImageAdd } from 'react-icons/bi';
 
 interface InfoErrInput {
   title: string;

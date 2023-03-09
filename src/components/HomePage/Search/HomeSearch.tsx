@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import * as S from './style';
-import { Store } from '../../../types/data/storeInterface';
-import { useNavigate } from 'react-router-dom';
+// library
 import { useQuery } from 'react-query';
-// Data
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+// data
 import { getPopupData } from '../../../services/api';
-// Library
+// library
 import { ko } from 'date-fns/esm/locale';
-import Modal from '../../SearchPage/SearchModal/SearchModal';
-// Hooks
+// hooks
 import useLocationModal from '../../../hooks/useLocationModal';
-import { ModalButtonData } from '../../../utils/ModalButtonData/ModalButtonData';
-// Recoil
-import { useRecoilValue } from 'recoil';
+// types
+import { Store } from '../../../types/data/storeInterface';
+//style
+import * as S from './style';
 
 const HomeSearch = () => {
   const navigate = useNavigate();
@@ -72,7 +71,7 @@ const HomeSearch = () => {
     const [pickedDate, setPickedDate] = useState<number>();
 
   // DatePicker 날짜 숫자로 바꿔준다
-  const dateSelectedFilterHandler:any = () => {
+  const dateSelectedFilterHandler = () => {
     // 날짜 구조 변경 - Tue Feb 14 2023 00:00:00 GMT+0900 (한국 표준시) => month 숫자로 변경
     const monthInWords = [
       'Jan',

@@ -1,5 +1,4 @@
 import React from 'react'
-// import data from '../../data/popupStore.json';
 import { Store } from '../../types/data/storeInterface';
 
 const TopViewStores = () => {

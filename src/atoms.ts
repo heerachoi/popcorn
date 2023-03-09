@@ -154,14 +154,9 @@ export const userUrl = atom({
   default: '',
 });
 
-export const kakaoAccessToken = atom({
+export const kakaoAccessToken = atom<string | undefined | null>({
   key: 'kakaoAccessToken',
-  default: undefined,
-});
-
-export const kakaoRefreshToken = atom({
-  key: 'kakaoRefreshToken',
-  default: undefined,
+  default: localStorage.getItem('token_for_kakaotalk'),
 });
 
 export const userInfoState = atom({

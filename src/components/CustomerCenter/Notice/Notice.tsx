@@ -1,4 +1,4 @@
-import React from 'react'
+// style
 import * as S from './style'
 
 const Notice = () => {

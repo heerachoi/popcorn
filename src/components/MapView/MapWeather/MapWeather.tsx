@@ -1,13 +1,14 @@
-import * as S from './style';
-import { useQuery } from 'react-query';
-import {
-  getDetailAirPollutionData,
-  getDetailWeatherData,
-} from '../../../services/api';
+// library
 import { useEffect } from 'react';
-import { LocationType, AirPollutionChangeTheText } from '../../../types/map';
-
+import { useQuery } from 'react-query';
+// API
 const API_KEY = process.env.REACT_APP_WEAHER_KEY;
+// data
+import {getDetailAirPollutionData,getDetailWeatherData} from '../../../services/api';
+// types
+import { LocationType, AirPollutionChangeTheText } from '../../../types/map';
+// style
+import * as S from './style';
 interface Props {
   myLocation: LocationType;
 }

@@ -1,5 +1,5 @@
+// library
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import * as S from './stlye';
 import {
   mapCategoryValue,
   mapFoodSearchValue,
@@ -8,9 +8,12 @@ import {
   mapDetailBoxPopup,
   mapLevel,
 } from '../../../atoms';
-import LazyImg from '../../GlobalComponents/LazyImg';
+// types
 import { Store } from '../../../types/data/storeInterface';
 import { AddressResult, LocationType } from '../../../types/map';
+// style
+import * as S from './stlye';
+import LazyImg from '../../GlobalComponents/LazyImg';
 
 interface Props {
   popup: Store;

@@ -1,5 +1,7 @@
-import styled from 'styled-components';
+// types
 import { CategoryItemProps } from '../../../types/modal/modalInterface';
+// style
+import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
 
 const FilterButtons = ({ buttons, onButtonClick }: { buttons: { id: number, label: string, active: boolean }[], onButtonClick: (id: number) => void }) => {

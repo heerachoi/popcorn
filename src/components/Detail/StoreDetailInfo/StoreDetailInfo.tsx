@@ -1,5 +1,3 @@
-/* style */
-import * as S from './style';
 /* library */
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,7 +8,6 @@ import StoreDetailImg from '../StoreDetailImg/StoreDetailImg';
 /* componant */
 import { Store } from '../../../types/data/storeInterface';
 import COLORS from '../../../assets/CSS/colors';
-import { BookMark } from '../../../types/data/storeInterface';
 import StoreEmoji from '../StoreEmoji/StoreEmoji';
 /* firebase */
 import { auth } from '../../../services/firebase';
@@ -22,6 +19,8 @@ import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
 import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
 import Instagram from '../../../assets/Img/Instagram.svg';
 import LinkImg from '../../../assets/Img/Link.svg';
+/* style */
+import * as S from './style';
 
 interface Props {
   detailData: Store;

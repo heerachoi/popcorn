@@ -1,17 +1,20 @@
+// library
 import React, { useEffect, useState } from 'react';
-import { NewStoreForm, StoreImgLabel } from './style';
-import { BiImageAdd } from 'react-icons/bi';
-import { storage } from '../../services/firebase';
-import { getDownloadURL, ref, uploadString } from 'firebase/storage';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import { auth } from '../../services/firebase';
-import * as S from './style';
 import { globalBtn } from '../../atoms';
 import { useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-import { JSON_API } from '../../services/api';
 import { ko } from 'date-fns/esm/locale';
+// firebase
+import { auth } from '../../services/firebase';
+import { storage } from '../../services/firebase';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
+// api
+import { JSON_API } from '../../services/api';
+// style
+import * as S from './style';
+import { BiImageAdd } from 'react-icons/bi';
 
 interface NewStoreInput {
   title: string;
@@ -196,7 +199,7 @@ const NewStoreReport = () => {
   };
 
   return (
-    <NewStoreForm onSubmit={newStoreInfoAddHandler}>
+    <S.NewStoreForm onSubmit={newStoreInfoAddHandler}>
       <S.ReportGrid>
         <S.ReportTitle>제보 제목</S.ReportTitle>
         <S.ReportTitleInput
@@ -290,10 +293,10 @@ const NewStoreReport = () => {
       </S.ReportGrid>
       <S.ReportGrid>
         <S.ReportTitle>이미지</S.ReportTitle>
-        <StoreImgLabel htmlFor="storeInfoImg">
+        <S.StoreImgLabel htmlFor="storeInfoImg">
           <BiImageAdd style={{ fontSize: '60px' }} />
           {imgFile && <img src={imgFile} style={{ width: 150, height: 150 }} />}
-        </StoreImgLabel>
+        </S.StoreImgLabel>
         <input
           type="file"
           accept="image/*"
@@ -306,7 +309,7 @@ const NewStoreReport = () => {
         <S.CancleBtn onClick={cancleHandler}>취소</S.CancleBtn>
         <S.AddBtn type="submit">제보하기</S.AddBtn>
       </S.ButtonBox>
-    </NewStoreForm>
+    </S.NewStoreForm>
   );
 };
 

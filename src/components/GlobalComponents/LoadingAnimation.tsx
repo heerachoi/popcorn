@@ -1,3 +1,4 @@
+// style
 import styled from 'styled-components';
 import LoadingImg from '../../assets/Logo/Loading.svg';
 
