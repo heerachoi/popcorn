@@ -1267,7 +1267,17 @@
       "category": "기타"
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "age": "2023-03-01",
+      "email": "chacha@naver.com",
+      "gender": "male",
+      "nickName": "야먀",
+      "phoneNumber": "01028846776",
+      "profileImg": null,
+      "id": "jh0ivyGoReMplkvVS9URVfZsd3x1"
+    }
+  ],
   "likeHate": [],
   "BookMarkList": [
     {

@@ -22,7 +22,6 @@ export const userInfo = atom<UserInfoState>({
       displayName: '',
       email: '',
       photoURL: '',
-      uid: '',
       age: '',
       gender: '',
       phoneNumber: '',
@@ -157,6 +156,11 @@ export const userUrl = atom({
 
 export const kakaoAccessToken = atom({
   key: 'kakaoAccessToken',
+  default: undefined,
+});
+
+export const kakaoRefreshToken = atom({
+  key: 'kakaoRefreshToken',
   default: undefined,
 });
 

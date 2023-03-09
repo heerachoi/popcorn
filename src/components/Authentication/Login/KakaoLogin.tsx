@@ -6,7 +6,11 @@ import { JSON_API } from '../../../services/api';
 import * as S from './style';
 import kakaoLogo from '../../../assets/Img/kakaoLogo.svg';
 import { useRecoilState } from 'recoil';
-import { kakaoAccessToken, userInfoState } from '../../../atoms';
+import {
+  kakaoAccessToken,
+  kakaoRefreshToken,
+  userInfoState,
+} from '../../../atoms';
 import { useNavigate } from 'react-router-dom';
 import { updateProfile } from 'firebase/auth';
 
@@ -21,29 +25,22 @@ interface UserInfo {
 
 // 카카오 로그인 기능 구현 코드
 const KakaoLogin = () => {
-  const location = useLocation(); // useLocation hook 사용
   const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
+  const REDIRECT_URI = 'http://localhost:3000/login';
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
   const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET; // 카카오 디벨로퍼스에서 발급받은 client secret 키
-  //주소창에 파라미터code를 가져온다 split 메서드를 활용한다
-  const KAKAO_CODE = location.search.split('=')[1];
-  const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
-  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-  //nickname state
-  const [nickName, setNickName] = useState('');
-  //popcorn id = kakao email
-  const [userId, setUserId] = useState('');
-  const [age, setAge] = useState('');
-  const [id, setId] = useState('');
-  const [gender, setGender] = useState('');
-  const navigate = useNavigate();
+  const location = useLocation();
   const kakaoLoginHandler = () => {
     window.location.replace(link);
   };
+  //주소창에 code를 가져오기
+  const KAKAO_CODE = location.search.split('=')[1];
+  const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
+  const [refreshToken, setRefreshToken] = useRecoilState(kakaoRefreshToken);
 
-  //카카오 서버로 클라이언트 시크릿키값과 파라미터의 코드값을 보내 액세스토큰을 요청
-  const getUser = async () => {
+  // 로그인
+  // POST로 우리가 알고 있는 정보, 아까 받은 code, grantType, clientID, redirectURI를 url형태로 만들고 송신함
+  const getKakaoToken = async () => {
     const ACCESS_TOKEN = await fetch('https://kauth.kakao.com/oauth/token', {
       method: 'POST',
       headers: {
@@ -54,76 +51,24 @@ const KakaoLogin = () => {
         //엑세스 토큰을 요청하기위해 필요한 토큰과 key값들
         grant_type: 'authorization_code',
         client_id: REACT_APP_REST_API_KEY,
-        redirect_uri: REDIRECT_URI, //위쪽에 전부 변수로 지정해주었기에불러오기만 하면된다
+        redirect_uri: REDIRECT_URI,
         code: KAKAO_CODE,
         client_secret: REACT_APP_CLIENT_SECRET,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => res.json()) // response로 accessToken, id_token, refresh_token 등을 json형태로 받을 수 있음
       .catch((error) => console.log('error:', error));
-
     setAccessToken(ACCESS_TOKEN.access_token);
+    // accessToken 로컬스토리지에 저장
     localStorage.setItem('token_for_kakaotalk', ACCESS_TOKEN.access_token);
-    // accessToken을 가지고 다시 한번 더 유저의 정보를 달라고 요청해야함
-    const user = await axios.get('https://kapi.kakao.com/v2/user/me', {
-      headers: {
-        //access_token이 필요하다
-        Authorization: `Bearer ${ACCESS_TOKEN.access_token}`,
-      },
-    });
-    setNickName(user.data.properties.nickname);
-    setUserId(user.data.kakao_account.email);
-    setAge(user.data.kakao_account.age_range);
-    setId(user.data.id);
-    setGender(
-      user.data.kakao_account.gender
-        ? user.data.kakao_account.gender
-        : user.data.kakao_account.gender_needs_agreement,
-    );
-
-    // 유저 정보를 json-server에 저장
-    saveUserInfoToServer(user);
-    navigate('/');
   };
-  const [currentUser, setCurrentUser] = useState<any>();
-  // 유저정보 저장
-  const saveUserInfoToServer = async (user: any) => {
-    let newUserInfo: UserInfo = {
-      age: user.data.kakao_account.age_range.slice(0, 2),
-      email: user.data.kakao_account.email,
-      nickName: user.data.properties.nickname,
-      id: user.data.id,
-      gender: user.data.kakao_account.gender
-        ? user.data.kakao_account.gender
-        : '선택안함',
-      accessToken: localStorage.getItem('token_for_kakaotalk') ?? '',
-    };
-    // Recoil state 업데이트
-    setKakaoUserInfo(newUserInfo);
-    setCurrentUser(id);
-    axios
-      .post(`${JSON_API}/users`, newUserInfo)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    const downloadImageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/basic_profileImg.png?alt=media&token=5fb9fc96-2bab-4a01-928e-3b21543d9df7';
 
-    try {
-      await updateProfile(currentUser, {
-        displayName: nickName,
-        photoURL: downloadImageUrl,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // 카카오 유저 정보 json-server에 저장하기(/users)
+
+  // refresh token으로 전역에서 로그인 유지하기
 
   useEffect(() => {
-    getUser();
+    getKakaoToken();
   }, []);
 
   return (

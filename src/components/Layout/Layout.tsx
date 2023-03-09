@@ -38,11 +38,10 @@ const Layout = ({ children }: Props) => {
               displayName: user.displayName,
               email: user.email,
               photoURL: user.photoURL,
-              uid: user.uid,
+              id: '',
               age: '',
               gender: '',
               phoneNumber: '',
-              id: '',
             },
           });
         } else {
@@ -60,7 +59,6 @@ const Layout = ({ children }: Props) => {
           displayName: kakaoUserInfo.nickName,
           email: kakaoUserInfo.email,
           photoURL: '',
-          uid: '',
           age: kakaoUserInfo.age,
           gender: kakaoUserInfo.gender,
           phoneNumber: '',
@@ -75,7 +73,7 @@ const Layout = ({ children }: Props) => {
   useEffect(() => {
     // 현재 유저와 users.json에 있는 user과 같으면
     const myUser = userDataFromJson?.filter(
-      (user: UserInfomation) => users.userInfomation.uid === user.uid,
+      (user: UserInfomation) => users.userInfomation.id === user.id,
     )[0];
 
     // myUser가 빈 값이 아닐 때
