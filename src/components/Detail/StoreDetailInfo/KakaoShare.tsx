@@ -7,7 +7,6 @@ import { Store } from '../../../types/data/storeInterface';
 // style
 import styled from 'styled-components';
 import shareImg from '../../../assets/Img/shareImg.svg';
-import { Store } from '../../../types/data/storeInterface';
 
 interface Props {
   detailData: Store;
