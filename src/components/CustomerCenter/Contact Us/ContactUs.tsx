@@ -5,9 +5,9 @@ import smallSad from '../../../assets/Img/smallSad.svg';
 import smallWow from '../../../assets/Img/smallWow.svg';
 import smallHeart from '../../../assets/Img/smallHeart.svg';
 import smallGreenDefault from '../../../assets/Img/smallGreenDefault.svg';
+import COLORS from '../../../assets/CSS/colors';
 
 const ContactUs = () => {
-
   return (
     <S.contactUsWarp>
       <S.cardBox>
@@ -107,7 +107,7 @@ const ContactUs = () => {
           <S.Img src={smallGreenDefault} />
         </S.background>
         <S.TextBox>
-          <S.TitleText style={{color:'#00C113'}}>Designer</S.TitleText>
+          <S.TitleText style={{color:`${COLORS.green1}`}}>Designer</S.TitleText>
           <S.NameText>HyunSil Choi</S.NameText>
           <S.LinkWarp style={{marginTop:'35px'}}>
             <S.LinkBox >

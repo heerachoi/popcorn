@@ -12,7 +12,7 @@ export const SignUpBtn = styled.button`
   font-weight: 700;
   font-size: 16px;
   @media screen and (max-width: 840px) {
-    color: #fff;
+    color: ${COLORS.white};
     top: -30px;
   }
 `;
@@ -20,12 +20,12 @@ export const SignUpBtn = styled.button`
 export const TextBackground = styled.div`
   width: 110px;
   height: 20px;
-  background-color: ${COLORS.yellow};
+  background-color: ${COLORS.yellow1};
   box-sizing: border-box;
   padding-left: 20px;
   border-radius: 12px;
   &:hover {
-    background-color: ${COLORS.yellow};
+    background-color: ${COLORS.yellow1};
   }
   @media screen and (max-width: 840px) {
     width: 200px;

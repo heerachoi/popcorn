@@ -41,8 +41,6 @@ export const TabTitle = styled.ul`
 export const TitleBox = styled.div``;
 export const TitleBtn = styled.button`
   width: 469px;
-  /* min-width: 269px;
-  max-width: 469px; */
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: bold;

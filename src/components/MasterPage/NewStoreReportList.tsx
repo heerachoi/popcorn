@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { getNewStoreReport, JSON_API } from '../../services/api';
 import * as S from './style';
 import { NewStoreReport } from '../../types/report';
+import COLORS from '../../assets/CSS/colors';
 
 const NewStoreReportList = () => {
   useEffect(() => {
@@ -77,7 +78,7 @@ const NewStoreReportList = () => {
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
-                  <S.StatusText style={{ color: '#323232' }}>완료</S.StatusText>
+                  <S.StatusText style={{ color: `${COLORS.black}` }}>완료</S.StatusText>
                 )}
               </S.ListContent>
             </S.ListBox>

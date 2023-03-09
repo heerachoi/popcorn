@@ -10,7 +10,7 @@ export const ContentWrap = styled.div`
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    background: #ccc;
+    background: ${COLORS.gray7};
   }
 `;
 

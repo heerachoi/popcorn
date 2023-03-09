@@ -4,7 +4,7 @@ import TopImg from '../../assets/Img/Top.svg';
 
 const TopButton = () => {
   // 버튼 상태
-  const [BtnStatus, setBtnStatus] = useState(false);
+  const [BtnStatus, setBtnStatus] = useState<boolean>(false);
 
   // Y축 스크롤 위치에 따라 Show || Hide 함수
   const onShowTopButton = () => {

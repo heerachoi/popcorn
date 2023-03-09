@@ -33,7 +33,6 @@ export default FoodList;
 
 const Wrap = styled.div`
   width: 88%;
-  /* height: 100%; */
   margin-right: 12px;
   padding: 0 12px 0 24px;
   overflow: scroll;

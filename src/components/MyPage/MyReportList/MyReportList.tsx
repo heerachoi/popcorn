@@ -7,6 +7,7 @@ import NoResults from '../NoResults/NoResults';
 import { ErrReport } from '../../../types/report';
 import { NewStoreReport } from '../../../types/report';
 import { Report } from '../../../types/report';
+import COLORS from '../../../assets/CSS/colors';
 
 const MyReportList = () => {
   const {
@@ -65,7 +66,7 @@ const MyReportList = () => {
                   {li.status === false ? (
                     <S.ReportStatusText>진행중</S.ReportStatusText>
                   ) : (
-                    <S.ReportStatusText style={{ color: '#323232' }}>
+                    <S.ReportStatusText style={{ color: `${COLORS.black}` }}>
                       완료
                     </S.ReportStatusText>
                   )}

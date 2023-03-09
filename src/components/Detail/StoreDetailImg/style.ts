@@ -9,7 +9,6 @@ export const ImgSlideWrap = styled.div``;
 export const ImgContainer = styled.div``;
 
 export const MainImgContainer = styled.div`
-  /* background-color: yellow; */
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -54,14 +53,12 @@ export const ThumbnailImgContainer = styled.div`
 
 export const ThumbnailImg = styled.div`
   img {
-    /* margin: 0 auto; */
     width: 98%;
     height: 230px;
     border-radius: 8px;
   }
   @media screen and (max-width: 575px) {
     img {
-      /* margin: 0 auto; */
       width: 100px;
       height: 80px;
     }

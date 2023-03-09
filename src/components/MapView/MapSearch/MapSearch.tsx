@@ -32,7 +32,7 @@ const MapSearch = ({ onSearchSubmitHandler, myLocation }: Props) => {
     <S.Wrap>
       <form name="팝업스토어" onSubmit={onSearchSubmitHandler}>
         <S.VscIconWrap>
-          <VscSearch size={20} color={COLORS.green}></VscSearch>
+          <VscSearch size={20} color={COLORS.green2}></VscSearch>
           <S.KeywordText>키워드</S.KeywordText>
         </S.VscIconWrap>
         <S.SearchInput

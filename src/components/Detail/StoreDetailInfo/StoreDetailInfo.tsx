@@ -23,6 +23,7 @@ import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
 import Instagram from '../../../assets/Img/Instagram.svg';
 import LinkImg from '../../../assets/Img/Link.svg';
 
+
 interface Props {
   detailData: Store;
 }
@@ -90,7 +91,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
         data[i].store === detailData?.id
       ) {
         // 유저가 북마크를 했음
-        setChangeColor(`${COLORS.orange2}`);
+        setChangeColor(`${COLORS.orange4}`);
         setBookMarkState(true);
         setCurrentBookMarkId(currentUser.uid + detailData?.id);
         break;
@@ -139,12 +140,12 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                 headers: { Authorization: `Bearer ${accessToken}` },
               },
             );
-            setChangeColor(`${COLORS.orange2}`);
+            setChangeColor(`${COLORS.orange4}`);
             setBookMarkState(true);
           } else {
             // Firebase Auth를 사용하는 경우
             await axios.post(`${JSON_API}/BookMarkList`, NewBookmark);
-            setChangeColor(`${COLORS.orange2}`);
+            setChangeColor(`${COLORS.orange4}`);
             setBookMarkState(true);
           }
         } catch (error) {
@@ -231,7 +232,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                     <Link
                       to={detailData?.sns}
                       target="_blank"
-                      style={{ color: '#323232' }}
+                      style={{ color: `${COLORS.black}` }}
                     >
                       {detailData.sns.includes('instagram') ? (
                         <S.SnsImg src={Instagram} />

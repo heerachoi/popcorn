@@ -71,7 +71,6 @@ const ClosingSoonSwiper: React.FC = () => {
                 <S.PopupDate>
                 {popup.open} - {popup.close}
                 </S.PopupDate>
-                {/* <S.PopupAddress>{popup.address}</S.PopupAddress> */}
                </S.InformationContainer>
               <S.CategoryContainer>
                 <S.Category onClick={(event) => { 
