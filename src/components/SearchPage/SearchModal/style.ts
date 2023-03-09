@@ -98,7 +98,7 @@ export const CloseButton = styled.button`
   color: ${COLORS.gray5};
   cursor : pointer ;
   &:hover {
-    color: #000;
+    color: ${COLORS.black};
   }
 `
 

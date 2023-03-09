@@ -25,7 +25,8 @@ import { OtherModalButtonData } from '../../utils/ModalButtonData/OtherModalButt
 
 import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
 import { useNavigate } from 'react-router-dom';
-import NotFound from '../../components/NotFound';
+import NotFound from '../../components/GlobalComponents/NotFound';
+import TopButton from '../../components/GlobalComponents/TopButton';
 
 const Search: React.FC = () => {
   // 1. url에서 카테고리 정보를 받아
@@ -69,8 +70,9 @@ const Search: React.FC = () => {
   const { isShowing, toggle } = useLocationModal();
   const { isItemModalShowing, itemToggle } = useItemModal();
   const { isOtherModalShowing, otherToggle } = useOtherModal();
-    const [pickedDate, setPickedDate] = useState<number>();
-    const [datePickerPlaceHolder, setDatePickerPlaceHolder] = useState<string>('날짜 선택')
+  const [pickedDate, setPickedDate] = useState<number>();
+  const [datePickerPlaceHolder, setDatePickerPlaceHolder] =
+    useState<string>('날짜 선택');
   // url
   useEffect(() => {
     datePickerFilterHandler();
@@ -282,20 +284,20 @@ const Search: React.FC = () => {
     const searchParam = urlParams.get('search');
     const dateParam = urlParams.get('date');
     const duration = urlParams.get('duration');
-     if (searchParam != undefined || searchParam != null) {
-      const decodedSearch = decodeURIComponent(searchParam); 
+    if (searchParam != undefined || searchParam != null) {
+      const decodedSearch = decodeURIComponent(searchParam);
       setSearchTerm(decodedSearch);
     }
- 
+
     if (dateParam !== null) {
       if (dateParam !== 'undefined') {
-        const decodedDate = decodeURIComponent(dateParam); 
-          setPickedDate(Number(decodedDate));
-          setDatePickerPlaceHolder(decodedDate);
+        const decodedDate = decodeURIComponent(dateParam);
+        setPickedDate(Number(decodedDate));
+        setDatePickerPlaceHolder(decodedDate);
       }
     }
     if (duration !== null && dateParam !== undefined) {
-      const decodedDuration = decodeURIComponent(duration); 
+      const decodedDuration = decodeURIComponent(duration);
       setPopupDurationFilter(decodedDuration);
     }
   };
@@ -406,7 +408,7 @@ const Search: React.FC = () => {
   };
 
   // 모달창 열렸을시 스크롤 방지
-   useEffect(() => {
+  useEffect(() => {
     if (isShowing || isItemModalShowing || isOtherModalShowing) {
       const body = document.body;
       body.style.overflow = 'hidden';
@@ -432,85 +434,85 @@ const Search: React.FC = () => {
         </S.SearchInputContainer>
         <S.DateSearchContainer>
           <S.SearchItemContainer>
-          <S.FilterWithIcon>
-            <S.IconTitleContainer>
+            <S.FilterWithIcon>
+              <S.IconTitleContainer>
+                <BsFillCalendarFill />
+                <S.FilterTitle>진행중</S.FilterTitle>
+              </S.IconTitleContainer>
+              <S.DatePickerWrapper>
+                <S.DatePickerContainer
+                  selected={dateSelected}
+                  locale={ko}
+                  onChange={(date) => setDateSelected(date)}
+                  dateFormat="yyyy-MM-dd"
+                  minDate={new Date()}
+                  showPopperArrow={false}
+                  isClearable={true}
+                  placeholderText={datePickerPlaceHolder}
+                  closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
+                />
+              </S.DatePickerWrapper>
+            </S.FilterWithIcon>
+          </S.SearchItemContainer>
+          <S.SearchItemContainer>
+            <S.FilterWithIcon>
               <BsFillCalendarFill />
-              <S.FilterTitle>진행중</S.FilterTitle>
-            </S.IconTitleContainer>
-            <S.DatePickerWrapper>
-              <S.DatePickerContainer
-                selected={dateSelected}
-                locale={ko}
-                onChange={(date) => setDateSelected(date)}
-                dateFormat="yyyy-MM-dd"
-                minDate={new Date()}
-                showPopperArrow={false}
-                isClearable={true}
-                placeholderText= {datePickerPlaceHolder}
-                closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
-              />
-            </S.DatePickerWrapper>
-          </S.FilterWithIcon>
-        </S.SearchItemContainer>
-        <S.SearchItemContainer>
-          <S.FilterWithIcon>
-            <BsFillCalendarFill />
-            <S.FilterTitle>팝업 기간</S.FilterTitle>
-            <S.SearchEventPeriod
-              value={popupDurationFilter}
-              onChange={(event) => setPopupDurationFilter(event.target.value)}
-            >
-              <option value="전체">전체</option>
-              <option value="1주일 이하">1주일 이하</option>
-              <option value="2주일 이하">2주일 이하</option>
-              <option value="한달 이하">한달 이하</option>
-              팝업 기간
-            </S.SearchEventPeriod>
-          </S.FilterWithIcon>
-        </S.SearchItemContainer>
+              <S.FilterTitle>팝업 기간</S.FilterTitle>
+              <S.SearchEventPeriod
+                value={popupDurationFilter}
+                onChange={(event) => setPopupDurationFilter(event.target.value)}
+              >
+                <option value="전체">전체</option>
+                <option value="1주일 이하">1주일 이하</option>
+                <option value="2주일 이하">2주일 이하</option>
+                <option value="한달 이하">한달 이하</option>
+                팝업 기간
+              </S.SearchEventPeriod>
+            </S.FilterWithIcon>
+          </S.SearchItemContainer>
         </S.DateSearchContainer>
 
         <S.CategorySearchContainer>
           <S.SearchItemContainer>
-          <S.LocationFilterTitle>
-            <S.FilterTitle
-              className="button-default"
-              onClick={modalClickHandler}
-            >
-              위치
-            </S.FilterTitle>
-            <Modal isShowing={isShowing} hide={toggle} value={'위치'} />
-          </S.LocationFilterTitle>
-        </S.SearchItemContainer>
-        <S.SearchItemContainer>
-          <S.SearchTagContainer>
-            <S.FilterTitle className="button-default" onClick={itemToggle}>
-              제품 카테고리
-            </S.FilterTitle>
-            <Modal
-              isShowing={isItemModalShowing}
-              hide={itemToggle}
-              value={'제품'}
-            />
-          </S.SearchTagContainer>
-        </S.SearchItemContainer>
-        <S.SearchItemContainer>
-          <S.SearchTagContainer>
-            <S.FilterTitle className="button-default" onClick={otherToggle}>
-              기타 카테고리
-            </S.FilterTitle>
-            <Modal
-              isShowing={isOtherModalShowing}
-              hide={otherToggle}
-              value={'기타'}
-            />
-          </S.SearchTagContainer>
-        </S.SearchItemContainer>
+            <S.LocationFilterTitle>
+              <S.FilterTitle
+                className="button-default"
+                onClick={modalClickHandler}
+              >
+                위치
+              </S.FilterTitle>
+              <Modal isShowing={isShowing} hide={toggle} value={'위치'} />
+            </S.LocationFilterTitle>
+          </S.SearchItemContainer>
+          <S.SearchItemContainer>
+            <S.SearchTagContainer>
+              <S.FilterTitle className="button-default" onClick={itemToggle}>
+                제품 카테고리
+              </S.FilterTitle>
+              <Modal
+                isShowing={isItemModalShowing}
+                hide={itemToggle}
+                value={'제품'}
+              />
+            </S.SearchTagContainer>
+          </S.SearchItemContainer>
+          <S.SearchItemContainer>
+            <S.SearchTagContainer>
+              <S.FilterTitle className="button-default" onClick={otherToggle}>
+                기타 카테고리
+              </S.FilterTitle>
+              <Modal
+                isShowing={isOtherModalShowing}
+                hide={otherToggle}
+                value={'기타'}
+              />
+            </S.SearchTagContainer>
+          </S.SearchItemContainer>
         </S.CategorySearchContainer>
       </S.FilterContainer>
       <S.FilterResultAndCalendarContainer>
         <S.FilterResult>
-          {(storeList === undefined) || (storeList.length === 0) ? (
+          {storeList === undefined || storeList.length === 0 ? (
             <NotFound />
           ) : (
             storeList?.map((popup: Store) => {
@@ -562,9 +564,12 @@ const Search: React.FC = () => {
           )}
         </S.FilterResult>
         <S.CalendarContainer>
-          {(storeList !== undefined) ? (<StoreCalendar storeList={storeList} />) : null}
+          {storeList !== undefined ? (
+            <StoreCalendar storeList={storeList} />
+          ) : null}
         </S.CalendarContainer>
       </S.FilterResultAndCalendarContainer>
+      <TopButton />
     </S.SearchPageContainer>
   );
 };

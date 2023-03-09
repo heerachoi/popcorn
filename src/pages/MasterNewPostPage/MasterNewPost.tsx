@@ -26,20 +26,19 @@ const MasterNewPost = () => {
     significantContent: '',
     explain: '',
     sns: '',
-    web: '',
     imgURL: [],
     lat: '',
     lon: '',
     category: '',
-    reserveURL: '',
   };
   const [newPostInput, setNewPostInput] = useState<Store>(initialState);
-  const [imgFile, setImgFile] = useState(''); // 이미지 파일
-  const [fileName, setFileName] = useState(''); // 이미지 파일 이름
+  const [imgFile, setImgFile] = useState<string>(''); // 이미지 파일
+  const [fileName, setFileName] = useState<string>(''); // 이미지 파일 이름
+  const [explainText, setExplainText] = useState<string>('');
   const setGlobalButton = useSetRecoilState(globalBtn);
 
   // input onChange 함수
-  const newPostInputChangeHandler: any = (
+  const newPostInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setGlobalButton(true);
@@ -47,6 +46,14 @@ const MasterNewPost = () => {
       ...newPostInput,
       [event.target.name]: event.target.value,
     });
+  };
+
+  // 스토어 설명 textArea 태그 onChange 함수
+  const explainOnChangeHandler = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    setExplainText(event.target.value);
+    console.log('event.target.value', event.target.value);
   };
 
   // 이미지 파일 input onChange 함수
@@ -102,8 +109,8 @@ const MasterNewPost = () => {
         '20': 0,
         '30': 0,
         '40+': 0,
-        women: 0,
-        men: 0,
+        female: 0,
+        male: 0,
         연령모름: 0,
         성별모름: 0,
         all: 0,
@@ -117,14 +124,12 @@ const MasterNewPost = () => {
       openingTime: openingTime,
       closeTime: closeTime,
       significantContent: newPostInput.significantContent,
-      explain: newPostInput.explain,
+      explain: explainText,
       sns: newPostInput.sns,
-      web: newPostInput.web,
       imgURL: [downloadImageUrl],
       lat: '',
       lon: '',
       category: '팝업스토어',
-      reserveURL: '',
     };
 
     //db에 추가
@@ -153,11 +158,9 @@ const MasterNewPost = () => {
       newPostInput.significantContent === '' &&
       newPostInput.explain === '' &&
       newPostInput.sns === '' &&
-      newPostInput.web === '' &&
       newPostInput.lat === '' &&
       newPostInput.lon === '' &&
-      newPostInput.category === '' &&
-      newPostInput.reserveURL === ''
+      newPostInput.category === ''
     )
       setGlobalButton(false);
   }, [
@@ -172,11 +175,9 @@ const MasterNewPost = () => {
     newPostInput.significantContent,
     newPostInput.explain,
     newPostInput.sns,
-    newPostInput.web,
     newPostInput.lat,
     newPostInput.lon,
     newPostInput.category,
-    newPostInput.reserveURL,
   ]);
 
   return (
@@ -261,11 +262,11 @@ const MasterNewPost = () => {
             style={{ height: 100 }}
             placeholder="팝업스토어에 대한 설명을 입력해 주세요."
             name="explain"
-            onChange={newPostInputChangeHandler}
-            value={newPostInput.explain}
+            onChange={explainOnChangeHandler}
+            value={explainText}
           />
         </S.PostGrid>
-        <S.TreeGridBox>
+        <S.PostGrid>
           <S.PostTitle>SNS</S.PostTitle>
           <S.TitleInput
             style={{ width: 300 }}
@@ -275,15 +276,7 @@ const MasterNewPost = () => {
             onChange={newPostInputChangeHandler}
             value={newPostInput.sns}
           />
-          <S.TitleInput
-            style={{ width: 300 }}
-            type="text"
-            placeholder="공식 SNS나 웹사이트 주소를 입력해 주세요."
-            name="web"
-            onChange={newPostInputChangeHandler}
-            value={newPostInput.web}
-          />
-        </S.TreeGridBox>
+        </S.PostGrid>
         <S.PostGrid>
           <S.PostTitle>카테고리</S.PostTitle>
           <S.TitleInput

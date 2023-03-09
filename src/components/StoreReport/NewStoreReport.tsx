@@ -19,12 +19,14 @@ interface NewStoreInput {
   storeAddress: string;
 }
 
-const NewStoreReport: any = () => {
+const NewStoreReport = () => {
   // date Picker 날짜 state
-  const [startDate, setStartDate] = useState<any>('');
-  const [endDate, setEndDate] = useState<any>('');
+  const [startDate, setStartDate] = useState<Date | undefined>();
+  const [endDate, setEndDate] = useState<Date | undefined>();
+  console.log('startDate', typeof startDate);
+
   // 주소찾기 API 팝업창
-  const [isOpenPost, setIsOpenPost] = useState(false);
+  const [isOpenPost, setIsOpenPost] = useState<boolean>(false);
 
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
@@ -34,23 +36,26 @@ const NewStoreReport: any = () => {
     storeName: '',
     storeAddress: '',
   };
-
   const [newStoreInput, setNewStoreInput] =
     useState<NewStoreInput>(initNewStoreInput);
-  const [imgFile, setImgFile] = useState(''); // 이미지 파일
-  const [fileName, setFileName] = useState(''); // 이미지 파일 이름
-  const [etcContent, setEtcContent] = useState('');
-  const userId = auth?.currentUser;
+  const [imgFile, setImgFile] = useState<string>(''); // 이미지 파일
+  const [fileName, setFileName] = useState<string>(''); // 이미지 파일 이름
+  const [etcContent, setEtcContent] = useState<string>('');
+  const user = auth?.currentUser;
 
   // input onChange 함수
   const newStoreInputonChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setGlobalButton(true);
-    setNewStoreInput({
-      ...newStoreInput,
-      [event.target.name]: event.target.value,
-    });
+    if (event.target.value.length > 20) {
+      return alert('20글자 이하로 작성해 주세요.');
+    } else {
+      setNewStoreInput({
+        ...newStoreInput,
+        [event.target.name]: event.target.value,
+      });
+    }
   };
 
   // 이미지 파일 input onChange 함수
@@ -83,7 +88,9 @@ const NewStoreReport: any = () => {
   ) => {
     event.preventDefault();
     setGlobalButton(false);
-
+    if (newStoreInput.storeAddress === '') {
+      return alert('주소를 입력해 주세요!');
+    }
     // firebase storage에 이미지 업로드
     const imgRef = ref(storage, `storeInfoImg/${fileName}`);
 
@@ -101,12 +108,12 @@ const NewStoreReport: any = () => {
     // db에 올라가는 데이터 구조
     const newStore = {
       id: uuidv4(),
-      userId,
+      user,
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
       storeAddress: newStoreInput.storeAddress,
-      startDate: startDate.toLocaleDateString(),
-      endDate: endDate.toLocaleDateString(),
+      startDate: startDate?.toLocaleDateString(),
+      endDate: endDate?.toLocaleDateString(),
       etcContent,
       infoImg: downloadImageUrl,
       reportedDate: today.toLocaleString(),
@@ -120,10 +127,11 @@ const NewStoreReport: any = () => {
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
       setEtcContent('');
-      setStartDate('');
-      setEndDate('');
+      setStartDate(undefined);
+      setEndDate(undefined);
 
       alert('제보 완료!');
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
@@ -134,8 +142,8 @@ const NewStoreReport: any = () => {
       newStoreInput.title === '' &&
       newStoreInput.storeName === '' &&
       newStoreInput.storeAddress === '' &&
-      startDate === '' &&
-      endDate === '' &&
+      startDate === undefined &&
+      endDate === undefined &&
       etcContent === ''
     )
       setGlobalButton(false);
@@ -149,13 +157,13 @@ const NewStoreReport: any = () => {
   ]);
 
   // datePicker onChange 함수
-  const startDateOnchange = (date: any) => {
+  const startDateOnchange = (date: Date) => {
     setStartDate(date);
+    console.log('date', date);
   };
-  console.log('startDate', startDate);
 
-  const endDateOnChange = (date: any) => {
-    if (startDate === '') {
+  const endDateOnChange = (date: Date) => {
+    if (startDate === undefined) {
       alert('시작 일자를 먼저 선택해 주세요.');
     } else {
       setEndDate(date);
@@ -267,7 +275,7 @@ const NewStoreReport: any = () => {
             dateFormat="yyyy-MM-dd"
             placeholderText="종료 일자"
           />
-        </S.DatePickerContainer>   
+        </S.DatePickerContainer>
       </S.ThreeGrid>
       <S.ReportGrid>
         <S.ReportTitle>제보 내용</S.ReportTitle>

@@ -1,4 +1,3 @@
-import { border } from '@mui/system';
 import {
   EmailAuthProvider,
   reauthenticateWithCredential,
@@ -8,7 +7,7 @@ import React, { useState } from 'react';
 import { auth } from '../../../services/firebase';
 import * as S from './style';
 
-const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
+const UpdatePassword = ({ handleClose }: { handleClose: () => void }) => {
   const initPasswordInput = {
     password: '',
     updatePassword: '',
@@ -41,7 +40,6 @@ const UpdatePassword = ({ handleClose }: { handleClose: any }) => {
         setCheck(true); // check가 false면 비밀번호 변경해도 현재 비밀번호를 인증하라는 알림이 뜸
       })
       .catch((error) => {
-        console.log(error.message);
         if (error.message.includes('internal-error')) {
           alert('현재 비밀번호를 입력해 주세요.');
         }

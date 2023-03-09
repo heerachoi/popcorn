@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { auth } from '../../../services/firebase';
 import {
   createUserWithEmailAndPassword,
@@ -16,9 +16,7 @@ import axios from 'axios';
 import { globalBtn, modalStatus } from '../../../atoms';
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 import CustomModal from '../../../shared/CustomModal';
-import { v4 as uuidv4 } from 'uuid';
 import { JSON_API } from '../../../services/api';
-import { sign } from 'crypto';
 
 interface SignUpInput {
   nickName: string;
@@ -84,7 +82,9 @@ const SignUp = () => {
     });
   };
 
-  const signUpSelectChanchHandler = (event: any) => {
+  const signUpSelectChanchHandler = (
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) => {
     event.target.style.color = '#323232'; // select에서 옵션을 선택하면 색깔이 바뀌게 하기 위해서
     setGlobalButton(true);
     setSignUpInput({
@@ -107,11 +107,11 @@ const SignUp = () => {
         're-container', // 리캡챠를 사용할 태그의 id
         {
           size: 'invisible', // 안보이는 리캡챠 설정
-          callback: (response: any) => {
+          callback: () => {
             // 리캡챠가 실행되면 콜백함수를 받음
             // setRecaptcha(grecaptcha);
           },
-          'expired-callback': (data: any) => {
+          'expired-callback': () => {
             console.log('reCAPTCHA expired, refreshing...');
             window.recaptchaVerifier.reset(); // 만료된 리캡챠를 리셋해주기 위한 함수   ❌ 아직 error 처리중
           },
@@ -148,7 +148,7 @@ const SignUp = () => {
         setRequestedPV(false); // 인증번호 입력칸 사라짐
         modalStatusChangeHandler('phoneValidComplete'); // 인증이 완료되었다는 모달창이 뜸
       })
-      .catch((error: any) => {
+      .catch((error) => {
         if (error.message.includes('invalid-verification-code'))
           return modalStatusChangeHandler('invalidVerificationCode'); // 유효하지 않은 인증번호 모달
         if (error.message.includes('code-expired'))
@@ -178,8 +178,7 @@ const SignUp = () => {
           nickName: signUpInput.nickName,
           phoneNumber: signUpInput.phoneNumber,
           profileImg: user.photoURL,
-          uid: user.uid,
-          id: uuidv4(),
+          id: user.uid,
         };
         axios.post(`${JSON_API}/users`, userInfo).then(() => {
           return modalStatusChangeHandler('signUpComplete');
@@ -376,8 +375,8 @@ const SignUp = () => {
             <option value="" disabled selected>
               성별을 선택해 주세요.
             </option>
-            <option value="men">남자</option>
-            <option value="women">여자</option>
+            <option value="male">남자</option>
+            <option value="female">여자</option>
             <option value="선택안함">선택안함</option>
           </S.FormSelect>
           <S.HelperText>{helperText.gender}</S.HelperText>
@@ -392,7 +391,11 @@ const SignUp = () => {
               name="phoneNumber"
               type="text"
             />
-            <S.PhoneBtn id="phone" onClick={phoneNumberPostHandler}>
+            <S.PhoneBtn
+              id="phone"
+              disabled={requestedPV && true}
+              onClick={phoneNumberPostHandler}
+            >
               인증번호 보내기
             </S.PhoneBtn>
           </S.FormBtnWrap>

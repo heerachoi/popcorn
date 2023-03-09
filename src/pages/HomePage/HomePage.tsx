@@ -1,5 +1,4 @@
 import * as S from './style';
-import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getPopupData } from '../../services/api';
 import Banner from '../../components/HomePage/Banner/Banner';
@@ -8,13 +7,10 @@ import ClosingSoonSwiper from '../../components/HomePage/Swiper/ClosingSoonSwipe
 import WomenPopularSwiper from '../../components/HomePage/Swiper/WomenPopularSwiper';
 import MenPopularSwiper from '../../components/HomePage/Swiper/MenPopularSwiper';
 import HomeSearch from '../../components/HomePage/Search/HomeSearch';
+import TopButton from '../../components/GlobalComponents/TopButton';
 
 const HomePage: any = () => {
-  const navigate = useNavigate();
-  const { isLoading, isError, data, error } = useQuery(
-    'popup',
-    getPopupData,
-  );
+  const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -27,7 +23,7 @@ const HomePage: any = () => {
     <S.HomePageContainer>
       <Banner />
       <S.SearchContainer>
-        <HomeSearch/>
+        <HomeSearch />
       </S.SearchContainer>
       <S.HomePageContentContainer>
         <S.CategoryWrapper>
@@ -59,7 +55,7 @@ const HomePage: any = () => {
           </S.ListTitleContainer>
           <S.CategoryListContainer>
             <S.FilterStoreList>
-              <WomenPopularSwiper/>  
+              <WomenPopularSwiper />
             </S.FilterStoreList>
           </S.CategoryListContainer>
         </S.CategoryWrapper>
@@ -70,11 +66,12 @@ const HomePage: any = () => {
           </S.ListTitleContainer>
           <S.CategoryListContainer>
             <S.FilterStoreList>
-              <MenPopularSwiper/>
+              <MenPopularSwiper />
             </S.FilterStoreList>
           </S.CategoryListContainer>
         </S.CategoryWrapper>
       </S.HomePageContentContainer>
+      <TopButton />
     </S.HomePageContainer>
   );
 };

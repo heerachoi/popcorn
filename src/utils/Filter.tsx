@@ -68,7 +68,7 @@ export const PopularToWomen = () => {
   });
   
   // 여성 조회 많은 순
-  const womenViewSort = currentlyOpen.sort((a:Store,b:Store) => b.view.women - a.view.women);
+  const womenViewSort = currentlyOpen.sort((a:Store,b:Store) => b.view.female - a.view.female);
   // 마감 순
   const closingSoon = womenViewSort.sort((a:Store,b:Store) => Number(a.close.split(".").join("")) - Number(b.close.split(".").join("")));
   const womenTopTwo = closingSoon.slice(0, 2); 
@@ -102,7 +102,7 @@ export const PopularToMen = () => {
   });
   
   // 남성 조회 많은 순
-  const menViewSort = currentlyOpen.sort((a:Store,b:Store) => b.view.men - a.view.men);
+  const menViewSort = currentlyOpen.sort((a:Store,b:Store) => b.view.male - a.view.male);
   // 마감 순
   const closingSoon = menViewSort.sort((a:Store,b:Store) => Number(a.close.split(".").join("")) - Number(b.close.split(".").join("")));
   const menTopTwo = menViewSort.slice(0, 2); 

@@ -54,7 +54,7 @@ const NewStoreReportDetail = () => {
                 <S.Grid>
                   <S.ReportTitle>제보자</S.ReportTitle>
                   <S.ReportContentText>
-                    {li.userId.displayName}
+                    {li.user.displayName}
                   </S.ReportContentText>
                 </S.Grid>
                 <S.Grid>

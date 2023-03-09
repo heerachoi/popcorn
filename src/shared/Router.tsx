@@ -13,10 +13,12 @@ import ReportPage from '../pages/ReportPage/ReportPage';
 import ErrReportDetailPage from '../pages/MasterDetailPage/ErrReportDetailPage';
 import MasterNewPost from '../pages/MasterNewPostPage/MasterNewPost';
 import Layout from '../components/Layout/Layout';
+import ScrollToTop from '../components/Layout/ScrollToTop';
 
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />

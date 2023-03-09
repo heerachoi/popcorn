@@ -8,6 +8,17 @@ import {
   mapDetailBoxPopup,
   mapLevel,
 } from '../../../atoms';
+import LazyImg from '../../GlobalComponents/LazyImg';
+import { Store } from '../../../types/data/storeInterface';
+import { AddressResult, LocationType } from '../../../types/map';
+
+interface Props {
+  popup: Store;
+  setMyLocation: React.Dispatch<React.SetStateAction<LocationType>>;
+  setMarkerHandler: (search: string, category: string) => void;
+  setPopupInfo: React.Dispatch<React.SetStateAction<Store | undefined>>;
+  popupInfo?: Store;
+}
 
 const MapDataCard = ({
   popup,
@@ -15,13 +26,12 @@ const MapDataCard = ({
   setMarkerHandler,
   setPopupInfo,
   popupInfo,
-}: any) => {
-  const [category, setCategory] = useRecoilState(mapCategoryValue);
-  const [search, setSearch] = useRecoilState(mapSearchValue);
+}: Props) => {
   const [foodSearch, setFoodSearch] = useRecoilState(mapFoodSearchValue);
-  const [mapModal, setMapModal] = useRecoilState(mapModalStatus);
-  const [mapDetailPopupItem, setMapDetailPopupItem] =
-    useRecoilState(mapDetailBoxPopup);
+  const setCategory = useSetRecoilState(mapCategoryValue);
+  const search = useRecoilValue(mapSearchValue);
+  const setMapModal = useSetRecoilState(mapModalStatus);
+  const setMapDetailPopupItem = useSetRecoilState(mapDetailBoxPopup);
   const setLevel = useSetRecoilState(mapLevel);
 
   const condition =
@@ -34,7 +44,7 @@ const MapDataCard = ({
     setMapModal(true);
     setMyLocation({ Ma: popup.lat, La: popup.lon });
     searchAddrFromCoords(
-      new kakao.maps.LatLng(popup.lat, popup.lon),
+      new kakao.maps.LatLng(+popup.lat, +popup.lon),
       displayCenterInfo,
     );
     setMapDetailPopupItem(popup);
@@ -43,21 +53,24 @@ const MapDataCard = ({
   };
 
   const geocoder = new window.kakao.maps.services.Geocoder();
-  const searchAddrFromCoords = (coords: kakao.maps.LatLng, callback: any) => {
+  const searchAddrFromCoords = (
+    coords: kakao.maps.LatLng,
+    callback: (result: AddressResult[], status: string) => void,
+  ) => {
     // 좌표로 행정동 주소 정보를 요청합니다
     geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
   };
 
   // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
-  const displayCenterInfo = (result: any, status: any) => {
+  const displayCenterInfo = (result: AddressResult[], status: string) => {
     if (status === kakao.maps.services.Status.OK) {
       setFoodSearch(
-        `${result[0].region_1depth_name} ${result[0].region_3depth_name}`,
+        `${result[1].region_1depth_name} ${result[1].region_3depth_name}`,
       );
 
       categoryChangeHandler(
         '음식점',
-        `${result[0].region_1depth_name} ${result[0].region_3depth_name}`,
+        `${result[1].region_1depth_name} ${result[1].region_3depth_name}`,
       );
     }
   };
@@ -75,7 +88,8 @@ const MapDataCard = ({
           popup={popup.title}
           onClick={popupCenterChangeHandler}
         >
-          <S.DetailImg src={popup?.imgURL} alt="사진" />
+          {/* <S.DetailImg src={popup?.imgURL} alt="사진" /> */}
+          <LazyImg src={popup?.imgURL[0]} />
           <S.DetailWrap>
             <S.DetailTitle>{popup?.title}</S.DetailTitle>
             <S.DetailDescriptionWrap>

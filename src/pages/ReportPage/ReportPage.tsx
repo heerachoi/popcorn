@@ -21,7 +21,7 @@ const ReportPage = () => {
     },
   ];
 
-  const tabSelectHandler = (i: any) => {
+  const tabSelectHandler = (i: number) => {
     setActiveIndex(i);
   };
 

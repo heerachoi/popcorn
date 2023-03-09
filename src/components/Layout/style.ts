@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import COLORS from '../../assets/CSS/colors';
 import Vector from '../../assets/Logo/Vector.svg';
-import popcornLogo from '../../assets/Logo/popcorn_logo.svg';
+import popcornLogo from '../../assets/Logo/State=Hovered.svg';
 import DefaultLogo from '../../assets/Logo/State=Default.svg';
 
 // Styled 컴포넌트에서 배경 이미지 추가하는 방법
@@ -57,7 +57,7 @@ export const FooterMenu = styled.button`
   font-weight: 700;
   font-size: 16px;
   color: ${COLORS.gray1};
-  
+
   @media screen and (max-width: 540px) {
     color: ${COLORS.gray1};
   }
@@ -70,7 +70,7 @@ export const TextBackground = styled.div`
   box-sizing: border-box;
   border-radius: 12px;
   &:hover {
-    background-color: ${COLORS.orange2};
+    background-color: ${COLORS.green1};
   }
   @media screen and (max-width: 540px) {
     margin: 0 5px;

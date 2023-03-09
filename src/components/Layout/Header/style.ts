@@ -50,6 +50,7 @@ export const BtnWrap = styled.div`
   }
   @media screen and (max-width: 840px) {
     display: none;
+    gap: 0px;
   }
 `;
 
@@ -68,7 +69,7 @@ export const CategoryBtn = styled.button`
     top: 30px;
     /* width: 120px; */
     &:first-child {
-      top: -25px;
+      /* top: -25px; */
     }
   }
 `;
