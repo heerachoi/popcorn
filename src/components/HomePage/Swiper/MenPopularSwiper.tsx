@@ -1,11 +1,16 @@
-import * as S from './style'
+// library
 import {useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { getTodayDate } from '../../../utils/FormatDate';
-import { getPopupData } from '../../../services/api';
-import { Store } from '../../../types/data/storeInterface';
+// utils
 import { PopularToMen } from '../../../utils/Filter';
+import { getTodayDate } from '../../../utils/FormatDate';
+// API
+import { getPopupData } from '../../../services/api';
+// types
+import { Store } from '../../../types/data/storeInterface';
+// style
+import * as S from './style'
 
 const MenPopularSwiper:React.FC = () => {
   const navigate = useNavigate();

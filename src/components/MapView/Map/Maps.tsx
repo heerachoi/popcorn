@@ -1,6 +1,6 @@
+// library
 import { Map, MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import styled from 'styled-components';
 import {
   mapCategoryValue,
   mapDetailBoxPopup,
@@ -10,12 +10,15 @@ import {
   mapSearchValue,
   popupList,
 } from '../../../atoms';
+// component
 import MapModal from './MapModal';
-import RestaurantSpot from '../../../assets/Img/RestaurantSpot.png';
-import CafeSpot from '../../../assets/Img/CafeSpot.png';
-import { useEffect } from 'react';
-import { AddressResult, FoodData, LocationType } from '../../../types/map';
+// types
 import { Store } from '../../../types/data/storeInterface';
+import { AddressResult, FoodData, LocationType } from '../../../types/map';
+// style
+import styled from 'styled-components';
+import CafeSpot from '../../../assets/Img/CafeSpot.png';
+import RestaurantSpot from '../../../assets/Img/RestaurantSpot.png';
 
 interface Props {
   info?: FoodData;

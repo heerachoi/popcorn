@@ -1,9 +1,10 @@
+// library
 import { Link } from 'react-router-dom';
+// style
+import * as S from './style';
 import popcornBnr1 from '../../../assets/Logo/popcornBanner1 2.svg';
 import popcornBnr2 from '../../../assets/Logo/popcornBanner2 2.svg';
 import popcornBnr3 from '../../../assets/Logo/popcornBanner3 3.svg';
-import * as S from './style';
-// import { MostViews } from '../../../utils/Filter';
 
 const Banner: any = () => {
   const settings: any = {

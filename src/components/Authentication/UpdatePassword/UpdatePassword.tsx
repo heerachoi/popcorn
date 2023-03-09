@@ -1,10 +1,13 @@
+// library
+import React, { useState } from 'react';
+// firebase
+import { auth } from '../../../services/firebase';
 import {
   EmailAuthProvider,
   reauthenticateWithCredential,
   updatePassword,
 } from 'firebase/auth';
-import React, { useState } from 'react';
-import { auth } from '../../../services/firebase';
+// style
 import * as S from './style';
 
 const UpdatePassword = ({ handleClose }: { handleClose: () => void }) => {

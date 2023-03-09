@@ -1,6 +1,7 @@
-import React from 'react';
+// style
 import * as S from './style';
 import NoResultLogo from '../../../assets/Img/Feel=Heart, Color=green.svg';
+
 const BookmarkNoResult = () => {
   return (
     <S.ResultWarp>

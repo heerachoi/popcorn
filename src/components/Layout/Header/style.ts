@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
+import { FaBars } from 'react-icons/fa';
+import { BsMapFill } from 'react-icons/bs';
 
 export const Wrap = styled.div`
   max-width: 1040px;
@@ -74,4 +76,115 @@ export const MapBtn = styled(CategoryBtn)`
   @media screen and (max-width: 840px) {
     color: ${COLORS.white};
   }
+`;
+
+
+// Header
+export const MenuIconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+`;
+
+export const MobileMenuContainer = styled.div`
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  @media screen and (max-width: 840px) {
+    display: flex;
+  }
+`;
+
+export const MenuIcon = styled(FaBars)`
+  font-size: 20px;
+  display: none;
+  @media screen and (max-width: 840px) {
+    display: inline;
+  }
+`;
+
+export const HoverBox = styled.div`
+  width: 100px;
+  position: relative;
+  transition: opacity 0.2s linear;
+  transition: transform 0.3s ease-out;
+
+  &:hover .TitleImg {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  &:hover .title {
+    opacity: 0;
+  }
+  @media screen and (max-width: 740px) {
+    width: 260px;
+    &:hover .TitleImg {
+      transform: none;
+    }
+  }
+`;
+
+export const TitleImg = styled(Title)`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 200px;
+  height: 40px;
+  opacity: 0;
+`;
+
+export const BtnBox = styled.div`
+  position: relative;
+`;
+
+export const TextBackground = styled.div`
+  cursor: pointer;
+  width: 150px;
+  height: 20px;
+  background-color: ${COLORS.yellow1};
+  box-sizing: border-box;
+  padding-left: 20px;
+  border-radius: 12px;
+  &:hover {
+    background-color: ${COLORS.orange4};
+  }
+  @media screen and (max-width: 840px) {
+    padding-top: 50px;
+    background-color: ${COLORS.black};
+    &:hover {
+      background-color: ${COLORS.black};
+    }
+  }
+`;
+
+export const MenuImageBackground = styled(TextBackground)`
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  top: 30px;
+`;
+
+export const MenuImageBackgroundMobile = styled(MenuImageBackground)`
+  background-color: ${COLORS.yellow1};
+`;
+
+export const MenuText = styled.div`
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  width: 120px;
+  color: ${COLORS.white};
+  padding: 0 0 0 8px;
+  margin-top: 40px;
+`;
+
+export const MapIcon = styled(BsMapFill)`
+  cursor: pointer;
+  font-size: 20px;
+  position: relative;
+  right: 12px;
+  top: 5px;
+  border: none;
 `;

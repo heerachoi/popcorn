@@ -1,15 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+// firebase
 import { auth } from '../../../services/firebase';
+// types
+import { Store } from '../../../types/data/storeInterface';
+// API
+import { JSON_API } from '../../../services/api';
+// style
 import * as S from './style';
 import COLORS from '../../../assets/CSS/colors';
-import { Store } from '../../../types/data/storeInterface';
-import { JSON_API } from '../../../services/api';
 import StoreLikeLogo from '../../../assets/Img/Feel=Happy, Color=green.svg';
 import StoreHateLogo from '../../../assets/Img/Feel=Sad, Color=green.svg';
 import LikeHoverImg from '../../../assets/Img/Feel=Happy, Color=Yellow.svg';
 import HateHoverImg from '../../../assets/Img/Feel=Sad, Color=Yellow.svg';
-
 interface Props {
   detailData: Store;
 }

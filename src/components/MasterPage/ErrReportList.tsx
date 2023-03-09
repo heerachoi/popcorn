@@ -1,10 +1,13 @@
+// library
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import COLORS from '../../assets/CSS/colors';
+// API
 import { getInfoErrReport, JSON_API } from '../../services/api';
+// style
 import * as S from './style';
+import COLORS from '../../assets/CSS/colors';
 
 const ErrReportList: any = () => {
   useEffect(() => {

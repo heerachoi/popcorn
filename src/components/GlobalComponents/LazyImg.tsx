@@ -1,7 +1,10 @@
+// library
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { DetailImg } from '../MapView/MapData/stlye';
+// component
 import LoadingAnimation from './LoadingAnimation';
+// style
+import { DetailImg } from '../MapView/MapData/stlye';
 
 const LazyImg = ({ src }: { src: string }) => {
   const [showList, setShowList] = useState<boolean>(false);

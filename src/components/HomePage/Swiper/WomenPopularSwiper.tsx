@@ -1,17 +1,20 @@
-import * as S from './style';
+// library
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { getTodayDate } from '../../../utils/FormatDate';
+// API
 import { getPopupData } from '../../../services/api';
+// types
 import { Store } from '../../../types/data/storeInterface';
+// utils
+import { getTodayDate } from '../../../utils/FormatDate';
 import { PopularToWomen } from '../../../utils/Filter';
+// style
+import * as S from './style';
 
 const WomenPopularSwiper: React.FC = () => {
   const navigate = useNavigate();
   const womenTopTwo = PopularToWomen();
-  // womenTopTwo.push()
-  // console.log('womenTopTwo' , womenTopTwo)
   const [todayDate, setTodayDate] = useState<number | any>();
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 

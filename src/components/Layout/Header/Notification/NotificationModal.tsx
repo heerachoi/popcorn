@@ -1,7 +1,10 @@
+// library
 import { useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../../../atoms';
+// API
 import { getBookMark } from '../../../../services/api';
+// style
 import * as S from './style';
 
 interface Props {

@@ -1,8 +1,12 @@
+// library
 import { useEffect } from 'react';
-import styled from 'styled-components';
+// API
 import { WEB_API } from '../../../services/api';
-import shareImg from '../../../assets/Img/shareImg.svg';
+// types
 import { Store } from '../../../types/data/storeInterface';
+// style
+import styled from 'styled-components';
+import shareImg from '../../../assets/Img/shareImg.svg';
 
 interface Props {
   detailData: Store;

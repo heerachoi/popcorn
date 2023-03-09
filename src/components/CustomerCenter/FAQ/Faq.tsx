@@ -1,8 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
+// library
+import { useState } from 'react';
+import { useQuery } from 'react-query';
+// API
+import { getFaq } from '../../../services/api';
+// style
 import * as S from './style';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { useQuery } from 'react-query';
-import { getFaq } from '../../../services/api';
+
 
 const Faq: any = () => {
   const [isClicked, setIsClicked] = useState(null);

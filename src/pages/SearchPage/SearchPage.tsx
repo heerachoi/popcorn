@@ -1,32 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import * as S from './style';
 import { useQuery } from 'react-query';
-
 // Data
 import { getPopupData } from '../../services/api';
 // Interface
 import { Store } from '../../types/data/storeInterface';
 // Library
 import { ko } from 'date-fns/esm/locale';
-// React-icons
-import { ImSearch } from 'react-icons/im';
-import { BsFillCalendarFill } from 'react-icons/bs';
-// Recoil
+// library
 import { useRecoilValue } from 'recoil';
+import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
+import { useNavigate } from 'react-router-dom';
 // Hooks
 import useLocationModal from '../../hooks/useLocationModal';
 import useItemModal from '../../hooks/useItemModal';
 import useOtherModal from '../../hooks/useOtherModal';
-// Component
+// component
 import Modal from '../../components/SearchPage/SearchModal/SearchModal';
 import { ModalButtonData } from '../../utils/ModalButtonData/ModalButtonData';
 import { ItemModalButtonData } from '../../utils/ModalButtonData/ItemModalButtonData';
 import { OtherModalButtonData } from '../../utils/ModalButtonData/OtherModalButtonData';
-
-import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
-import { useNavigate } from 'react-router-dom';
 import NotFound from '../../components/GlobalComponents/NotFound';
 import TopButton from '../../components/GlobalComponents/TopButton';
+//style
+import * as S from './style';
+import { ImSearch } from 'react-icons/im';
+import { BsFillCalendarFill } from 'react-icons/bs';
 
 const Search: React.FC = () => {
   // 1. url에서 카테고리 정보를 받아
