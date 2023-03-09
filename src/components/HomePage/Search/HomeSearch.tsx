@@ -71,7 +71,7 @@ const HomeSearch = () => {
     const [pickedDate, setPickedDate] = useState<number>();
 
   // DatePicker 날짜 숫자로 바꿔준다
-  const dateSelectedFilterHandler:any = () => {
+  const dateSelectedFilterHandler = () => {
     // 날짜 구조 변경 - Tue Feb 14 2023 00:00:00 GMT+0900 (한국 표준시) => month 숫자로 변경
     const monthInWords = [
       'Jan',
