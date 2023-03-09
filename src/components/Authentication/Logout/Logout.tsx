@@ -25,7 +25,7 @@ const Logout = () => {
       },
       method: 'POST',
     }).then((res) => res.json());
-    setAccessToken('');
+    setAccessToken(undefined);
     localStorage.removeItem('token_for_kakaotalk');
 
     signOut(auth);
