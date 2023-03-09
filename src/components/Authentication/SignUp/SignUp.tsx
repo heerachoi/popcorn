@@ -220,7 +220,7 @@ const SignUp = () => {
 
   const validatePassword = (event: React.FocusEvent<HTMLInputElement>) => {
     var regexPw =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
     if (!regexPw.test(event.target.value)) {
       setHelperText({
         ...helperText,
@@ -327,7 +327,7 @@ const SignUp = () => {
           <S.HelperText>{helperText.email}</S.HelperText>
         </S.FormItemWrap>
         <S.FormItemWrap>
-          <S.FormText>비밀번호 (대/소문자+숫자+특수문자 8자 이상)</S.FormText>
+          <S.FormText>비밀번호 (소문자+숫자+특수문자 8자 이상)</S.FormText>
           <S.FormInput
             placeholder="비밀번호를 입력해 주세요."
             onChange={signUpInputChangeHandler}

@@ -43,8 +43,6 @@ const Search: React.FC = () => {
   let itemList: Store[] = [];
   let otherList: Store[] = [];
 
-  // keyEnter
-  const [enterKeyPressed, setEnterKeyPressed] = useState<boolean>(false);
   // 검색어
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(data);
@@ -71,22 +69,15 @@ const Search: React.FC = () => {
   const [pickedDate, setPickedDate] = useState<number>();
   const [datePickerPlaceHolder, setDatePickerPlaceHolder] =
     useState<string>('날짜 선택');
-  // url
+  // pickedDate
   useEffect(() => {
     datePickerFilterHandler();
   }, [pickedDate]);
 
-  // 검색어 필터
-  // 눌린 키가 enter인지 체크
-  const checkKeypress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    if (event.key === 'Enter') {
-      setEnterKeyPressed(true);
-      searchFilterHandler();
-    } else {
-      setEnterKeyPressed(false);
-    }
-  };
+
+   useEffect(() => {
+    searchFilterHandler();
+  }, [searchTerm]);
 
   // 검색 필터
   const searchFilterHandler = () => {
@@ -423,11 +414,8 @@ const Search: React.FC = () => {
           <ImSearch />
           <S.KeyWordInputTitle>키워드</S.KeyWordInputTitle>
           <S.SearchInput
-            type="text"
-            value={searchTerm}
             placeholder="키워드를 입력해주세요."
             onChange={(event) => setSearchTerm(event.target.value)}
-            onKeyPress={checkKeypress}
           />
         </S.SearchInputContainer>
         <S.DateSearchContainer>
