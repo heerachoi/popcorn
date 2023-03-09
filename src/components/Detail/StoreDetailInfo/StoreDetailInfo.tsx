@@ -27,7 +27,7 @@ interface Props {
   detailData: Store;
 }
 
-const StoreDetailInfo = ({ detailData }: any) => {
+const StoreDetailInfo = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
   console.log('currentUser', currentUser.uid);
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
@@ -37,8 +37,6 @@ const StoreDetailInfo = ({ detailData }: any) => {
   const accessToken = useRecoilValue(kakaoAccessToken);
 
   const days = ['월', '화', '수', '목', '금', '토', '일'];
-
-  console.log('11111 - accessToken', accessToken);
 
   useEffect(() => {
     if (accessToken !== '') {
