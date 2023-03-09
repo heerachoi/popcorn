@@ -24,7 +24,7 @@ const MyPageTab = ({ detailData }: Props) => {
     },
   ];
 
-  const MyTabClick = (i: any) => {
+  const MyTabClick = (i: number) => {
     setActiveIndex(i);
   };
   return (

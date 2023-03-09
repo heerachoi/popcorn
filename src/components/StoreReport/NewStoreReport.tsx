@@ -19,12 +19,14 @@ interface NewStoreInput {
   storeAddress: string;
 }
 
-const NewStoreReport: any = () => {
+const NewStoreReport = () => {
   // date Picker 날짜 state
-  const [startDate, setStartDate] = useState<any>('');
-  const [endDate, setEndDate] = useState<any>('');
+  const [startDate, setStartDate] = useState<Date | undefined>();
+  const [endDate, setEndDate] = useState<Date | undefined>();
+  console.log('startDate', typeof startDate);
+
   // 주소찾기 API 팝업창
-  const [isOpenPost, setIsOpenPost] = useState(false);
+  const [isOpenPost, setIsOpenPost] = useState<boolean>(false);
 
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
@@ -36,9 +38,9 @@ const NewStoreReport: any = () => {
   };
   const [newStoreInput, setNewStoreInput] =
     useState<NewStoreInput>(initNewStoreInput);
-  const [imgFile, setImgFile] = useState(''); // 이미지 파일
-  const [fileName, setFileName] = useState(''); // 이미지 파일 이름
-  const [etcContent, setEtcContent] = useState('');
+  const [imgFile, setImgFile] = useState<string>(''); // 이미지 파일
+  const [fileName, setFileName] = useState<string>(''); // 이미지 파일 이름
+  const [etcContent, setEtcContent] = useState<string>('');
   const user = auth?.currentUser;
 
   // input onChange 함수
@@ -110,8 +112,8 @@ const NewStoreReport: any = () => {
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
       storeAddress: newStoreInput.storeAddress,
-      startDate: startDate.toLocaleDateString(),
-      endDate: endDate.toLocaleDateString(),
+      startDate: startDate?.toLocaleDateString(),
+      endDate: endDate?.toLocaleDateString(),
       etcContent,
       infoImg: downloadImageUrl,
       reportedDate: today.toLocaleString(),
@@ -125,8 +127,8 @@ const NewStoreReport: any = () => {
       setNewStoreInput(initNewStoreInput);
       setImgFile('');
       setEtcContent('');
-      setStartDate('');
-      setEndDate('');
+      setStartDate(undefined);
+      setEndDate(undefined);
 
       alert('제보 완료!');
       navigate('/');
@@ -140,8 +142,8 @@ const NewStoreReport: any = () => {
       newStoreInput.title === '' &&
       newStoreInput.storeName === '' &&
       newStoreInput.storeAddress === '' &&
-      startDate === '' &&
-      endDate === '' &&
+      startDate === undefined &&
+      endDate === undefined &&
       etcContent === ''
     )
       setGlobalButton(false);
@@ -155,12 +157,13 @@ const NewStoreReport: any = () => {
   ]);
 
   // datePicker onChange 함수
-  const startDateOnchange = (date: any) => {
+  const startDateOnchange = (date: Date) => {
     setStartDate(date);
+    console.log('date', date);
   };
 
-  const endDateOnChange = (date: any) => {
-    if (startDate === '') {
+  const endDateOnChange = (date: Date) => {
+    if (startDate === undefined) {
       alert('시작 일자를 먼저 선택해 주세요.');
     } else {
       setEndDate(date);

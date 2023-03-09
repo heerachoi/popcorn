@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { globalBtn } from '../../atoms';
 import { JSON_API } from '../../services/api';
+
+
 interface InfoErrInput {
   title: string;
   storeName: string;
@@ -22,18 +24,18 @@ interface ErrContent {
 }
 
 // 정보 오류/수정 제보
-const InfoError: any = () => {
+const InfoError = () => {
   const navigate = useNavigate();
   const setGlobalButton = useSetRecoilState(globalBtn);
 
   // input 초기값
-  const initInfoErrModifiInput = {
+  const initInfoErrModifiInput: InfoErrInput = {
     title: '',
     storeName: '',
   };
 
   // 오류, 수정 내용 적는 textarea 초기값
-  const initErrContent = {
+  const initErrContent: ErrContent = {
     infoErrContent: '',
     infoModifiContent: '',
   };
@@ -42,8 +44,8 @@ const InfoError: any = () => {
     initInfoErrModifiInput,
   );
   const [errContent, setErrContent] = useState<ErrContent>(initErrContent);
-  const [errImgFile, setErrImgFile] = useState(''); // 이미지 파일
-  const [errFileName, setErrFileName] = useState(''); //이미지 파일 이름
+  const [errImgFile, setErrImgFile] = useState<string>(''); // 이미지 파일
+  const [errFileName, setErrFileName] = useState<string>(''); //이미지 파일 이름
   const user = auth?.currentUser;  
     
 
@@ -86,6 +88,8 @@ const InfoError: any = () => {
 
     reader.onloadend = (finishedEvent: any) => {
       setErrImgFile(finishedEvent.currentTarget.result);
+      
+
     };
   };
 
