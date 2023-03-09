@@ -7,9 +7,8 @@ export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   padding: 0 0 0 24px;
-  background-color: ${COLORS.orange5};
+  background-color: ${COLORS.orange2};
 `;
 
 export const VscIconWrap = styled.div`
@@ -22,7 +21,7 @@ export const VscIconWrap = styled.div`
 `;
 
 export const KeywordText = styled.span`
-  color: ${COLORS.green};
+  color: ${COLORS.green2};
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
@@ -41,6 +40,6 @@ export const SearchInput = styled.input`
   font-size: 16px;
   line-height: 30px;
   background: ${COLORS.white};
-  border: 1px solid #88e25d;
+  border: 1px solid ${COLORS.green3};
   border-radius: 30px;
 `;

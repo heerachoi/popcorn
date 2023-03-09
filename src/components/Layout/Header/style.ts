@@ -65,17 +65,13 @@ export const CategoryBtn = styled.button`
   font-weight: 700;
   font-size: 16px;
   @media screen and (max-width: 840px) {
-    color: #fff;
+    color: ${COLORS.white};
     top: 30px;
-    /* width: 120px; */
-    &:first-child {
-      /* top: -25px; */
-    }
   }
 `;
 
 export const MapBtn = styled(CategoryBtn)`
   @media screen and (max-width: 840px) {
-    color: #fff;
+    color: ${COLORS.white};
   }
 `;

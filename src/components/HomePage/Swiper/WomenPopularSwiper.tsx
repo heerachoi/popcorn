@@ -115,10 +115,6 @@ const WomenPopularSwiper: React.FC = () => {
           <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
         </S.SeeMoreContainer>
       </S.SwiperContainer>
-      {/* <S.SeeMoreContainer onClick={() => navigate(`/search`)}>
-                <S.SeeMoreImage src={require('../../../assets/Img/SeeMore.jpg')} />
-                <S.SeeMoreText>더 많은 팝업스토어 보기</S.SeeMoreText>
-          </S.SeeMoreContainer> */}
     </>
   );
 };

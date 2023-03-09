@@ -25,6 +25,7 @@ const CategorySwiper:React.FC = () => {
       todayDate <= parseInt(store.close.split('.').join('')) 
     );
   });
+
   // 최근 오픈 순
   const openingSoon = popupList.sort((a:Store,b:Store) => Number(b.open.split(".").join("")) - Number(a.open.split(".").join("")));
   
@@ -69,7 +70,6 @@ const CategorySwiper:React.FC = () => {
                 <S.PopupDate>
                 {popup.open} - {popup.close}
                 </S.PopupDate>
-                {/* <S.PopupAddress>{popup.address}</S.PopupAddress> */}
               </S.InformationContainer>
               <S.CategoryContainer>
                 <S.Category onClick={(event) => { 

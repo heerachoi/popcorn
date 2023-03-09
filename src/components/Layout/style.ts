@@ -65,8 +65,7 @@ export const FooterMenu = styled.button`
 
 export const TextBackground = styled.div`
   height: 20px;
-  background-color: ${COLORS.yellow};
-  /* position: absolute; */
+  background-color: ${COLORS.yellow1};
   box-sizing: border-box;
   border-radius: 12px;
   &:hover {

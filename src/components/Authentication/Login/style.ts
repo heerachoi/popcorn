@@ -112,13 +112,13 @@ export const LoginBtn = styled.button`
 
 export const SignUpBtn = styled(LoginBtn)`
   margin-top: 20px;
-  background-color: ${COLORS.orange4};
-  border: 1px solid ${COLORS.orange3};
-  color: ${COLORS.orange1};
+  background-color: ${COLORS.yellow3};
+  border: 1px solid ${COLORS.yellow1};
+  color: ${COLORS.orange3};
   &:hover {
     color: ${COLORS.white};
-    background: ${COLORS.orange2};
-    border: 1px solid ${COLORS.orange2};
+    background: ${COLORS.orange4};
+    border: 1px solid ${COLORS.orange4};
   }
 `;
 
@@ -136,7 +136,7 @@ export const TextBackground = styled.div`
   text-align: center;
   width: 110px;
   height: 30px;
-  background-color: ${COLORS.orange3};
+  background-color: ${COLORS.yellow1};
   box-sizing: border-box;
   border-radius: 20px;
   @media screen and (max-width: 580px) {
@@ -169,13 +169,13 @@ export const KakaoLoginBtn = styled.button`
   align-items: center;
   justify-content: center;
   color: ${COLORS.gray1};
-  background-color: #fee500;
+  background-color: ${COLORS.yellow2};
   margin-top: 16px;
 
-  border: 1px solid #fee500;
+  border: 1px solid ${COLORS.yellow2};
   &:hover:enabled {
-    background-color: ${COLORS.orange3};
-    border: 1px solid ${COLORS.orange3};
+    background-color: ${COLORS.yellow1};
+    border: 1px solid ${COLORS.yellow1};
   }
   @media screen and (max-width: 580px) {
     width: 250px;

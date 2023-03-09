@@ -8,7 +8,7 @@ export const SearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid ${COLORS.orange5};
+  border: 1px solid ${COLORS.orange2};
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
   padding: 18px 36px;
@@ -25,7 +25,7 @@ export const SearchInputContainer = styled.div`
 `
 
 export const SearchIcon = styled(HiLocationMarker)`
-  color: ${COLORS.orange5};
+  color: ${COLORS.orange2};
   font-size: 30px;
 `
 
@@ -57,7 +57,7 @@ export const FilterTitle = styled.div`
   cursor: pointer;
   min-width: 60px;
   width: 100%;
-  color: ${COLORS.orange1};
+  color: ${COLORS.orange3};
   font-weight: 700;
 `
 
@@ -72,7 +72,7 @@ export const SearchButton = styled.div`
   cursor: pointer;
   width: 142px;
   height: 68px;
-  background-color: ${COLORS.orange5};
+  background-color: ${COLORS.orange2};
   border-top-right-radius: 60px;
   border-bottom-right-radius: 60px;
   display: flex;

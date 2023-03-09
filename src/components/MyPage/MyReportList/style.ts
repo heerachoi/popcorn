@@ -3,7 +3,6 @@ import COLORS from '../../../assets/CSS/colors';
 
 export const ReportWrap = styled.div`
   width: 100%;
-  /* background-color: yellow; */
 `;
 export const ReportContainer = styled.div`
   margin-top: 24px;
@@ -19,7 +18,6 @@ export const ListContent = styled.div`
   justify-content: space-between;
   align-items: baseline;
   padding: 0 10px;
-  /* margin-top: 10px; */
   height: 30px;
 
   font-family: 'Apple SD Gothic Neo';

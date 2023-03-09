@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { globalBtn } from '../../atoms';
 import { JSON_API } from '../../services/api';
+import COLORS from '../../assets/CSS/colors';
 
 const MasterNewPost = () => {
   const navigate = useNavigate();
@@ -311,7 +312,7 @@ const MasterNewPost = () => {
               navigate('/');
             }}
             type="button"
-            style={{ backgroundColor: 'white', color: '#9B9B9B' }}
+            style={{ backgroundColor: 'white', color: `${COLORS.gray5}` }}
           >
             취소
           </S.CancleAddBtn>

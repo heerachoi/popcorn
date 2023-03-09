@@ -8,7 +8,7 @@ export const NewPostWrap = styled.div`
 `;
 
 export const TitleBackground = styled.div`
-  background-color: ${COLORS.green2};
+  background-color: ${COLORS.green3};
   width: 230px;
   height: 27px;
   padding-left: 5px;

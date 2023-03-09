@@ -34,12 +34,12 @@ export const CheckButton = styled.div`
   padding: 3px;
   width: 42px;
   height: 30px;
-  border: 1px solid #9B9B9B;
+  border: 1px solid ${COLORS.gray5};
   border-radius: 5px;
   font-size: 15px;
-  background-color: #BDBDBD;
+  background-color: ${COLORS.gray6};
   cursor: pointer;
-  color: #fff;
+  color: ${COLORS.white};
 `
 
 
@@ -169,8 +169,8 @@ export const EditModalCompleteButton = styled.button`
   gap: 8px;
   width: 170px;
   height: 60px;
-  background-color: #e7ffd8;
-  border: 1px solid #88e25d;
+  background-color: ${COLORS.green4};
+  border: 1px solid ${COLORS.green3};
   border-radius: 8px;
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
@@ -178,7 +178,7 @@ export const EditModalCompleteButton = styled.button`
   font-size: 16px;
   line-height: 24px;
   text-align: center;
-  color: #00c113;
+  color: ${COLORS.green1};
   flex: none;
   order: 0;
   flex-grow: 0;

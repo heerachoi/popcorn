@@ -26,7 +26,7 @@ export const SearchInputContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid ${COLORS.green};
+  border: 1px solid ${COLORS.green2};
   border-radius: 20px;
   width: 283px;
   height: 30px;
@@ -51,7 +51,6 @@ export const KeyWordInputTitle = styled.div`
   justify-content: center;
   color: ${COLORS.green1};
   @media screen and (max-width: 1100px) {
-    /* word-break: keep-all; */
     font-size: 12px;
   }
 `;
@@ -62,7 +61,7 @@ export const FilterTitle = styled.div`
   min-width: 90px;
   display: flex;
   justify-content: center;
-  color: ${COLORS.orange6};
+  color: ${COLORS.orange1};
   &:hover {
     color: ${COLORS.white};
   }
@@ -115,13 +114,13 @@ export const SearchTagContainer = styled.div`
   box-sizing: border-box;
   gap: 4px;
   height: 40px;
-  background: ${COLORS.orange4};
-  border: 1px solid ${COLORS.orange2};
+  background: ${COLORS.yellow3};
+  border: 1px solid ${COLORS.orange4};
   border-radius: 20px;
-  color: ${COLORS.orange1};
+  color: ${COLORS.orange3};
   cursor: pointer;
   &:hover {
-    background: ${COLORS.orange2};
+    background: ${COLORS.orange4};
     color: ${COLORS.white};
   }
   @media screen and (max-width: 1430px) {
@@ -252,8 +251,8 @@ export const StoreContainer = styled.div`
   min-width: 308px;
   height: 175px;
   &:hover {
-    border: 1px solid ${COLORS.orange3};
-    background-color: ${COLORS.orange4};
+    border: 1px solid ${COLORS.yellow1};
+    background-color: ${COLORS.yellow3};
   }
 `;
 
@@ -302,7 +301,7 @@ export const Category = styled.div`
   display: flex;
   align-items: center;
   &:hover {
-    background-color: ${COLORS.orange2};
+    background-color: ${COLORS.orange4};
   }
   @media screen and (max-width: 1100px) {
     padding: 4px 8px 3px;
