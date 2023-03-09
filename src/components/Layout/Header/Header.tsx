@@ -11,6 +11,7 @@ import { FaBars } from 'react-icons/fa';
 import { ImCross } from 'react-icons/im';
 import { BsMapFill } from 'react-icons/bs';
 import Title from '../../../assets/Logo/popcorn_logo.svg';
+import HoverImg from '../../../assets/Logo/HeaderHovered.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -20,13 +21,11 @@ const Header = () => {
   const [pageChange, setPageChange] = useRecoilState(modalPage);
   // 토글
   const [isToggled, setIsToggled] = useState(false);
-  // console.log('isToggled', isToggled);
   const toggleMenu = () => {
     setIsToggled((isToggled) => !isToggled); // on,off 개념 boolean
   };
-  // console.log(auth?.currentUser?.email); //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
+  //header에서만 null이 뜬다. 헤더가 먼저 렌더링 되서 console에 null이 떳다가 렌더링이 다되면 null이 안뜸.
   // 해결 : Router에서 auth.onAuthStateChanged 메서드를 사용해서 파이어베이스에서 DB정보를 참조해서 변경 사항 가져옴
-  const { isShowing, toggle } = useModal();
 
   // input 창에 value 가 있으면 alert로 이동을 막아주는 함수
   const globalBtnClickHandler = () => {
@@ -87,7 +86,7 @@ const Header = () => {
           />
           <TitleImg
             className="TitleImg"
-            src={require('../../../assets/Logo/State=Hovered.png')}
+            src={HoverImg}
             alt="타이틀"
             onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
@@ -237,7 +236,8 @@ export const TextBackground = styled.div`
     background-color: #ffb321;
   }
   @media screen and (max-width: 840px) {
-    width: 200px;
+    /* width: 200px; */
+    padding-top: 50px;
     background-color: #323232;
     &:hover {
       background-color: #323232;
@@ -263,7 +263,7 @@ export const MenuText = styled.div`
   width: 120px;
   color: #fff;
   padding: 0 0 0 8px;
-  margin-top: -20px;
+  margin-top: 40px;
 `;
 
 export const MapIcon = styled(BsMapFill)`

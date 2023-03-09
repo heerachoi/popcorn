@@ -163,8 +163,8 @@ export const SearchEventPeriod = styled.select`
 `;
 
 export const Option = styled.option`
-  background: #fff;
-  color: #fff;
+  background: ${COLORS.white};
+  color: ${COLORS.white};
   padding: 3px 0;
   font-size: 16px;
 `;
@@ -232,7 +232,7 @@ export const EventPeriod = styled.div`
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  color: #a6a6a6;
+  color: ${COLORS.gray5};
 `;
 export const FilterResult = styled.div`
   display: flex;

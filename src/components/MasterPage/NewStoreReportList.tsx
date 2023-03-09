@@ -4,8 +4,9 @@ import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { getNewStoreReport, JSON_API } from '../../services/api';
 import * as S from './style';
+import { NewStoreReport } from '../../types/report';
 
-const NewStoreReportList: any = () => {
+const NewStoreReportList = () => {
   useEffect(() => {
     fetch();
   }, []);
@@ -13,6 +14,7 @@ const NewStoreReportList: any = () => {
   const fetch = async () => {
     const data = await axios.get(`${JSON_API}/newStores`);
   };
+
   const navigate = useNavigate();
   const { isLoading, isError, data, error } = useQuery(
     'newStores',
@@ -20,7 +22,7 @@ const NewStoreReportList: any = () => {
   );
 
   if (isLoading) {
-    console.log('로딩중!!!!');
+    console.log('로딩중');
     return <p>Loading...</p>;
   }
   if (isError) {
@@ -28,18 +30,19 @@ const NewStoreReportList: any = () => {
     return <p>Error!!!!</p>;
   }
 
-  const statusTrue: any = [];
-  const statusFalse: any = [];
-  data.map((item: any) => {
+  const statusTrue: NewStoreReport[] = [];
+  const statusFalse: NewStoreReport[] = [];
+  data.map((item: NewStoreReport) => {
     if (item.status === true) {
       statusTrue.push(item);
     } else {
       statusFalse.push(item);
     }
   });
+  console.log('statusFalse', statusFalse);
 
   const resentStatusTrue = statusTrue.sort(
-    (a: any, b: any) =>
+    (a, b) =>
       Number(
         b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
       ) -
@@ -70,7 +73,7 @@ const NewStoreReportList: any = () => {
                 <S.DateText>{li.reportedDate}</S.DateText>
               </S.ListContent>
               <S.ListContent>
-                <S.NameText>{li.userId.displayName}</S.NameText>
+                <S.NameText>{li.user.displayName}</S.NameText>
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (

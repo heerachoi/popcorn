@@ -47,5 +47,15 @@ export const MyTitleTabBtn = styled.button`
 
 export const MyContentBox = styled.div`
   height: 800px;
-  overflow: scroll;
+  margin-left: 10px;
+  overflow-y: auto;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: #ccc;
+  }
 `;

@@ -21,11 +21,11 @@ const Banner: any = () => {
     <S.StyledSlider {...settings}>
       <S.IMG>
         <Link to="/search">
-          <img src={popcornBnr1} alt="배너1" />
+          <img src={popcornBnr2} alt="배너1" />
         </Link>
       </S.IMG>
       <Link to="/search">
-        <img src={popcornBnr2} alt="배너2" />
+        <img src={popcornBnr1} alt="배너2" />
       </Link>
       <Link to="/search">
         <img src={popcornBnr3} alt="배너2" />

@@ -101,6 +101,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     });
     setHate(hates.length);
   };
+  
 
   // 좋아요 버튼
   const likeHandler = async () => {
@@ -108,7 +109,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
       if (likeClicked) {
         // 좋아요 눌린 상태
         try {
-          axios.delete(`${JSON_API}/likeHate/` + `${currentLikeId}`);
+          axios.delete(`${JSON_API}/likeHate/${currentLikeId}`);
           setLikeColor(`${COLORS.gray1}`);
           setLikeClicked(false);
           setLike(like - 1);

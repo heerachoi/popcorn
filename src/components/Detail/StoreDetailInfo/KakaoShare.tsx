@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import { JSON_API } from '../../../services/api';
 import { WEB_API } from '../../../services/api';
+import shareImg from '../../../assets/Img/shareImg.svg';
+import { Store } from '../../../types/data/storeInterface';
+
 interface Props {
-  detailData: any;
+  detailData: Store;
 }
 
 const KakaoShare = ({ detailData }: Props) => {
@@ -30,7 +32,7 @@ const KakaoShare = ({ detailData }: Props) => {
       },
       social: {
         // 나중에 글 추천수의 데이터를 받아와서 바꿔줌
-        likeCount: 286,
+        likeCount: 287,
       },
       buttons: [
         {
@@ -46,7 +48,9 @@ const KakaoShare = ({ detailData }: Props) => {
 
   return (
     <div id="KakaoShareBtn">
-      <KakaoImgBtn onClick={shareKakao}>공유</KakaoImgBtn>
+      <KakaoImgBtn onClick={shareKakao}>
+        <img src={shareImg} />
+      </KakaoImgBtn>
     </div>
   );
 };
@@ -59,10 +63,14 @@ export const KakaoImgBtn = styled.button`
   cursor: pointer;
   padding: 0;
   width: 35px;
-  height: 18px;  
+  height: 18px;
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 16px;
+
+  img {
+    width: 20px;
+  }
   @media screen and (max-width: 700px) {
     font-size: 12px;
   }

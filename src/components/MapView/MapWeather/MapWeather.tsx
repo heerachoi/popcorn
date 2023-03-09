@@ -5,14 +5,11 @@ import {
   getDetailWeatherData,
 } from '../../../services/api';
 import { useEffect } from 'react';
+import { LocationType, AirPollutionChangeTheText } from '../../../types/map';
 
 const API_KEY = process.env.REACT_APP_WEAHER_KEY;
-
-interface airPollutionChangeTheText {
-  [key: string]: string | number;
-}
 interface Props {
-  myLocation: any;
+  myLocation: LocationType;
 }
 
 const MapWeather = ({ myLocation }: Props) => {
@@ -41,7 +38,7 @@ const MapWeather = ({ myLocation }: Props) => {
   }, [myLocation]);
 
   // 미세먼지가 숫자로 표시되어 문자로 변환하기 위한 상수
-  const airPollutionChangeTheText: airPollutionChangeTheText = {
+  const airPollutionChangeTheText: AirPollutionChangeTheText = {
     1: '매우 좋음',
     2: '좋음',
     3: '보통',

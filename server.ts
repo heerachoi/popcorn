@@ -1,9 +1,3 @@
-// import express from 'express';
-// import path from 'path';
-// const app = express();
-// const path = require('path');
-
-
 const jsonServer = require('json-server');
 const path = require('path');
 
@@ -14,8 +8,6 @@ const middlewares = jsonServer.defaults({
 });
 
 const port = process.env.PORT || 3010;
-// const port = process.env.PORT || 3010;
-console.log('process.env.PORT', process.env.PORT)
 server.use(middlewares);
 
 server.use(jsonServer.bodyParser);
@@ -24,10 +16,3 @@ server.use(router);
 server.listen(port, () => {
     console.log('JSON Server is running');
 });
-
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static('frontend/build'))
-//     app.get('/', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
-//     })
-// }

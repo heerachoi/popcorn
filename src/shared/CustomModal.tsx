@@ -98,12 +98,20 @@ export const ModalHolder = styled.div`
   background-color: ${COLORS.gray8};
   border: 1px solid ${COLORS.gray7};
   border-radius: 20px;
+
+  @media screen and (max-width: 580px) {
+    width: 300px;
+    height: 230px;
+  }
 `;
 
 export const TitleWrap = styled.div`
   padding: 80px 0 30px 0;
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 580px) {
+    padding: 50px 0 10px 0;
+  }
 `;
 
 export const TextBackground = styled.div`
@@ -113,6 +121,11 @@ export const TextBackground = styled.div`
   background-color: ${COLORS.orange3};
   box-sizing: border-box;
   border-radius: 20px;
+
+  @media screen and (max-width: 580px) {
+    width: 200px;
+    height: 20px;
+  }
 `;
 
 export const Title = styled.span`
@@ -123,6 +136,10 @@ export const Title = styled.span`
   color: ${COLORS.gray1};
   position: relative;
   top: -12px;
+
+  @media screen and (max-width: 580px) {
+    font-size: 22px;
+  }
 `;
 
 export const TextWrap = styled.div`
@@ -136,12 +153,19 @@ export const Text = styled.span`
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
+  @media screen and (max-width: 580px) {
+    font-size: 13px;
+  }
 `;
 
 export const ButtonWrap = styled.div`
   padding: 50px 100px;
   display: flex;
   justify-content: space-evenly;
+  @media screen and (max-width: 580px) {
+    padding: 30px 70px;
+    justify-content: space-between;
+  }
 `;
 
 export const CancelButton = styled.button`
@@ -159,6 +183,10 @@ export const CancelButton = styled.button`
   &:hover {
     background-color: ${COLORS.gray7};
     border: 1px solid ${COLORS.gray6};
+  }
+  @media screen and (max-width: 580px) {
+    width: 70px;
+    height: 30px;
   }
 `;
 
@@ -179,4 +207,8 @@ export const OnlyButtonWrap = styled(ButtonWrap)`
 export const OnlySubmitButton = styled(SubmitButton)`
   width: 200px;
   height: 40px;
+  @media screen and (max-width: 580px) {
+    width: 100px;
+    height: 30px;
+  }
 `;
