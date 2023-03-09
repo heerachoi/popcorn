@@ -1,17 +1,19 @@
+// library
 import { useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import styled from 'styled-components';
 import {
-  mapCategoryValue,
-  mapFoodData,
   mapSearchValue,
   popupList,
 } from '../../../atoms';
+// component
 import MapDataCard from './MapDataCard';
 import NotFound from '../../GlobalComponents/NotFound';
-import COLORS from '../../../assets/CSS/colors';
+// types
 import { Store } from '../../../types/data/storeInterface';
 import { LocationType } from '../../../types/map';
+// style
+import styled from 'styled-components';
+import COLORS from '../../../assets/CSS/colors';
 
 interface Props {
   popupData: Store[];

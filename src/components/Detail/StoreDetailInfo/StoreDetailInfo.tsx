@@ -1,5 +1,3 @@
-/* style */
-import * as S from './style';
 /* library */
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -22,6 +20,8 @@ import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
 import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
 import Instagram from '../../../assets/Img/Instagram.svg';
 import LinkImg from '../../../assets/Img/Link.svg';
+/* style */
+import * as S from './style';
 
 interface Props {
   detailData: Store;
@@ -29,7 +29,6 @@ interface Props {
 
 const StoreDetailInfo = ({ detailData }: Props) => {
   const [currentUser, setCurrentUser] = useState<any>('');
-  console.log('currentUser', currentUser.uid);
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
@@ -40,7 +39,6 @@ const StoreDetailInfo = ({ detailData }: Props) => {
 
   useEffect(() => {
     if (accessToken !== '') {
-      console.log('카카오 로그인 accessToken');
       setCurrentUser({
         isLogin: true,
         userInfomation: {
@@ -58,13 +56,12 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     } else {
       auth.onAuthStateChanged((user) => {
         if (user) {
-          console.log('auth.currentUser', auth.currentUser);
           setCurrentUser(auth.currentUser);
           fetchBookmarks();
         }
       });
     }
-  }, [currentUser, accessToken, kakaoUserInfo]);
+  }, [currentUser, accessToken]);
 
   // 북마크 상태 업데이트
   useEffect(() => {
@@ -93,7 +90,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
         data[i].store === detailData?.id
       ) {
         // 유저가 북마크를 했음
-        setChangeColor(`${COLORS.orange2}`);
+        setChangeColor(`${COLORS.orange4}`);
         setBookMarkState(true);
         setCurrentBookMarkId(currentUser.uid + detailData?.id);
         break;
@@ -142,13 +139,12 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                 headers: { Authorization: `Bearer ${accessToken}` },
               },
             );
-            console.log('response', response);
-            setChangeColor(`${COLORS.orange2}`);
+            setChangeColor(`${COLORS.orange4}`);
             setBookMarkState(true);
           } else {
             // Firebase Auth를 사용하는 경우
             await axios.post(`${JSON_API}/BookMarkList`, NewBookmark);
-            setChangeColor(`${COLORS.orange2}`);
+            setChangeColor(`${COLORS.orange4}`);
             setBookMarkState(true);
           }
         } catch (error) {
@@ -235,7 +231,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                     <Link
                       to={detailData?.sns}
                       target="_blank"
-                      style={{ color: '#323232' }}
+                      style={{ color: `${COLORS.black}` }}
                     >
                       {detailData.sns.includes('instagram') ? (
                         <S.SnsImg src={Instagram} />

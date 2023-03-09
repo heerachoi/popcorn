@@ -1,12 +1,17 @@
-import { deleteUser } from 'firebase/auth';
+// library
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../../services/firebase';
-import styled from 'styled-components';
 import { modalStatus } from '../../../atoms';
 import { useRecoilState, useResetRecoilState } from 'recoil';
+// firebase
+import { deleteUser } from 'firebase/auth';
+import { auth } from '../../../services/firebase';
+// component
 import CustomModal from '../../../shared/CustomModal';
-import axios from 'axios';
+// api
 import { JSON_API } from '../../../services/api';
+// style
+import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
 
 const DeleteAccount = () => {
@@ -60,7 +65,6 @@ const DeleteAccount = () => {
           onClick={deleteAccountClickHandler}
         />
       )}
-      {/* ❌ 실행 안됨 */}
       {isModal.signoutComplete && (
         <CustomModal
           title="알림"

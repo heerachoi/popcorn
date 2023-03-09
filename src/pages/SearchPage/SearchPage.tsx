@@ -1,32 +1,31 @@
 import React, { useEffect, useState } from 'react';
-import * as S from './style';
 import { useQuery } from 'react-query';
-
 // Data
 import { getPopupData } from '../../services/api';
 // Interface
 import { Store } from '../../types/data/storeInterface';
 // Library
 import { ko } from 'date-fns/esm/locale';
-// React-icons
-import { ImSearch } from 'react-icons/im';
-import { BsFillCalendarFill } from 'react-icons/bs';
-// Recoil
+import { MouseEvent } from 'react';
+// library
 import { useRecoilValue } from 'recoil';
+import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
+import { useNavigate } from 'react-router-dom';
 // Hooks
 import useLocationModal from '../../hooks/useLocationModal';
 import useItemModal from '../../hooks/useItemModal';
 import useOtherModal from '../../hooks/useOtherModal';
-// Component
+// component
 import Modal from '../../components/SearchPage/SearchModal/SearchModal';
 import { ModalButtonData } from '../../utils/ModalButtonData/ModalButtonData';
 import { ItemModalButtonData } from '../../utils/ModalButtonData/ItemModalButtonData';
 import { OtherModalButtonData } from '../../utils/ModalButtonData/OtherModalButtonData';
-
-import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
-import { useNavigate } from 'react-router-dom';
 import NotFound from '../../components/GlobalComponents/NotFound';
 import TopButton from '../../components/GlobalComponents/TopButton';
+//style
+import * as S from './style';
+import { ImSearch } from 'react-icons/im';
+import { BsFillCalendarFill } from 'react-icons/bs';
 
 const Search: React.FC = () => {
   // 1. url에서 카테고리 정보를 받아
@@ -43,16 +42,14 @@ const Search: React.FC = () => {
   let itemList: Store[] = [];
   let otherList: Store[] = [];
 
-  // keyEnter
-  const [enterKeyPressed, setEnterKeyPressed] = useState<any>(false);
   // 검색어
-  const [searchTerm, setSearchTerm] = useState<any>('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(data);
   // Date Picker
-  const [dateSelected, setDateSelected] = useState<any>();
+  const [dateSelected, setDateSelected] = useState<string>();
   const [saveDatePickerList, setSaveDatePickerList] = useState<Store[]>(data);
   // 팝업 기간
-  const [popupDurationFilter, setPopupDurationFilter] = useState<any>('전체');
+  const [popupDurationFilter, setPopupDurationFilter] = useState<string>('전체');
   const [savePopupDurationList, setSavePopupDurationList] =
     useState<Store[]>(data);
   // 팝업 유형
@@ -63,8 +60,6 @@ const Search: React.FC = () => {
   const [saveItemList, setSaveItemList] = useState<Store[]>(data);
   // 기타 필터
   const [saveOtherList, setSaveOtherList] = useState<Store[]>(data);
-  // 모달 버튼 값
-  const [modalResultList, setModalResultList] = useState<string[]>([]);
 
   // 카테고리 Modal
   const { isShowing, toggle } = useLocationModal();
@@ -73,22 +68,15 @@ const Search: React.FC = () => {
   const [pickedDate, setPickedDate] = useState<number>();
   const [datePickerPlaceHolder, setDatePickerPlaceHolder] =
     useState<string>('날짜 선택');
-  // url
+  // pickedDate
   useEffect(() => {
     datePickerFilterHandler();
   }, [pickedDate]);
 
-  // 검색어 필터
-  // 눌린 키가 enter인지 체크
-  const checkKeypress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    if (event.key === 'Enter') {
-      setEnterKeyPressed(true);
-      searchFilterHandler();
-    } else {
-      setEnterKeyPressed(false);
-    }
-  };
+
+   useEffect(() => {
+    searchFilterHandler();
+  }, [searchTerm]);
 
   // 검색 필터
   const searchFilterHandler = () => {
@@ -158,7 +146,7 @@ const Search: React.FC = () => {
   // 데이터에서 가저온 날짜 숫자로 변경
   // 시작과 끝 사이에 고른 날짜가 있다면 return true
   // 개선 pick했을때 실행하게,
-  const datePickerFilterHandler: any = () => {
+  const datePickerFilterHandler = () => {
     // DatePicker의 날짜 숫자형식으로 가져온다
     // nan일경우 모두 포함
     let datePickerList: Store[] = [];
@@ -321,7 +309,7 @@ const Search: React.FC = () => {
 
   // Date Picker
   useEffect(() => {
-    datePickerFilterHandler(dateSelected);
+    datePickerFilterHandler();
   }, [dateSelected]);
 
   // 기간
@@ -403,7 +391,7 @@ const Search: React.FC = () => {
   };
 
   // 모달 클릭 값
-  const modalClickHandler = (event: any) => {
+  const modalClickHandler = (event:any) => {
     toggle(event);
   };
 
@@ -425,11 +413,8 @@ const Search: React.FC = () => {
           <ImSearch />
           <S.KeyWordInputTitle>키워드</S.KeyWordInputTitle>
           <S.SearchInput
-            type="text"
-            value={searchTerm}
             placeholder="키워드를 입력해주세요."
             onChange={(event) => setSearchTerm(event.target.value)}
-            onKeyPress={checkKeypress}
           />
         </S.SearchInputContainer>
         <S.DateSearchContainer>
@@ -441,9 +426,9 @@ const Search: React.FC = () => {
               </S.IconTitleContainer>
               <S.DatePickerWrapper>
                 <S.DatePickerContainer
-                  selected={dateSelected}
+                  selected={dateSelected ? new Date(dateSelected) : null}
                   locale={ko}
-                  onChange={(date) => setDateSelected(date)}
+                  onChange={(date) => setDateSelected(date?.toString())}
                   dateFormat="yyyy-MM-dd"
                   minDate={new Date()}
                   showPopperArrow={false}

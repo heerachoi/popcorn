@@ -1,3 +1,4 @@
+// style
 import styled from 'styled-components';
 import NotFoundLogo from '../../assets/Img/Feel=Sad, Color=green.svg';
 

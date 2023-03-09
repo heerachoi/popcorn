@@ -1,15 +1,14 @@
+// library
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as S from './style';
-import Logout from '../../Authentication/Logout/Logout';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { globalBtn, modalPage, modalStatus, userInfo } from '../../../atoms';
-import useModal from '../../../hooks/useModal';
-import styled from 'styled-components';
+// component
 import CustomModal from '../../../shared/CustomModal';
-import { useState } from 'react';
-import { FaBars } from 'react-icons/fa';
+import Logout from '../../Authentication/Logout/Logout';
+// style
+import * as S from './style';
 import { ImCross } from 'react-icons/im';
-import { BsMapFill } from 'react-icons/bs';
 import Title from '../../../assets/Logo/popcorn_logo.svg';
 import HoverImg from '../../../assets/Logo/HeaderHovered.svg';
 
@@ -20,7 +19,7 @@ const Header = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
   const [pageChange, setPageChange] = useRecoilState(modalPage);
   // 토글
-  const [isToggled, setIsToggled] = useState(false);
+  const [isToggled, setIsToggled] = useState<boolean>(false);
   const toggleMenu = () => {
     setIsToggled((isToggled) => !isToggled); // on,off 개념 boolean
   };
@@ -77,25 +76,25 @@ const Header = () => {
             onClick={reportClickHandler}
           />
         )}
-        <HoverBox>
+        <S.HoverBox>
           <S.Title
             className="title"
             src={Title}
             alt="타이틀"
             onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
-          <TitleImg
+          <S.TitleImg
             className="TitleImg"
             src={HoverImg}
             alt="타이틀"
             onClick={() => globalBtnModalStatusChangeHandler('/')}
           />
-        </HoverBox>
+        </S.HoverBox>
         <S.BtnWrap
           className={isToggled ? 'NavOn' : 'NavOff'}
           onClick={() => setIsToggled(false)}
         >
-          <TextBackground>
+          <S.TextBackground>
             <S.CategoryBtn
               onClick={
                 user.isLogin
@@ -105,29 +104,29 @@ const Header = () => {
             >
               팝업스토어 제보
             </S.CategoryBtn>
-          </TextBackground>
+          </S.TextBackground>
           {!user.isLogin && (
-            <TextBackground style={{ width: 110 }}>
+            <S.TextBackground style={{ width: 110 }}>
               <S.CategoryBtn
                 onClick={() => globalBtnModalStatusChangeHandler('/signup')}
               >
                 회원가입
               </S.CategoryBtn>
-            </TextBackground>
+            </S.TextBackground>
           )}
           {user.isLogin ? (
             <Logout />
           ) : (
-            <TextBackground style={{ width: 100 }}>
+            <S.TextBackground style={{ width: 100 }}>
               <S.CategoryBtn
                 onClick={() => globalBtnModalStatusChangeHandler('/login')}
               >
                 로그인
               </S.CategoryBtn>
-            </TextBackground>
+            </S.TextBackground>
           )}
           {user.isLogin && (
-            <TextBackground style={{ width: 120 }}>
+            <S.TextBackground style={{ width: 120 }}>
               <S.CategoryBtn
                 onClick={
                   user.userInfomation.email === 'master@gmail.com'
@@ -137,27 +136,27 @@ const Header = () => {
               >
                 마이페이지
               </S.CategoryBtn>
-            </TextBackground>
+            </S.TextBackground>
           )}
-          <MenuImageBackground>
+          <S.MenuImageBackground>
             {isToggled ? (
-              <MenuText
+              <S.MenuText
                 onClick={() => globalBtnModalStatusChangeHandler('/map')}
               >
                 지도
-              </MenuText>
+              </S.MenuText>
             ) : (
-              <MapIcon
+              <S.MapIcon
                 onClick={() => globalBtnModalStatusChangeHandler('/map')}
               />
             )}
-          </MenuImageBackground>
+          </S.MenuImageBackground>
         </S.BtnWrap>
-        <MobileMenuContainer>
-          <MenuIconContainer onClick={() => setIsToggled(!isToggled)}>
-            {isToggled ? <ImCross /> : <MenuIcon />}
-          </MenuIconContainer>
-        </MobileMenuContainer>
+        <S.MobileMenuContainer>
+          <S.MenuIconContainer onClick={() => setIsToggled(!isToggled)}>
+            {isToggled ? <ImCross /> : <S.MenuIcon />}
+          </S.MenuIconContainer>
+        </S.MobileMenuContainer>
       </S.Wrap>
     </>
   );
@@ -165,117 +164,3 @@ const Header = () => {
 
 export default Header;
 
-export const MenuIconContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-`;
-
-export const MobileMenuContainer = styled.div`
-  display: none;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  @media screen and (max-width: 840px) {
-    display: flex;
-  }
-`;
-
-export const MenuIcon = styled(FaBars)`
-  font-size: 20px;
-  display: none;
-  @media screen and (max-width: 840px) {
-    display: inline;
-  }
-`;
-
-const HoverBox = styled.div`
-  width: 100px;
-  position: relative;
-  transition: opacity 0.2s linear;
-  transition: transform 0.3s ease-out;
-
-  &:hover .TitleImg {
-    opacity: 1;
-    transform: scale(1.2);
-  }
-  &:hover .title {
-    opacity: 0;
-  }
-  @media screen and (max-width: 740px) {
-    width: 260px;
-    &:hover .TitleImg {
-      transform: none;
-    }
-  }
-`;
-
-const TitleImg = styled(S.Title)`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 200px;
-  height: 40px;
-  opacity: 0;
-`;
-
-export const BtnBox = styled.div`
-  position: relative;
-`;
-
-export const TextBackground = styled.div`
-  cursor: pointer;
-  width: 150px;
-  height: 20px;
-  background-color: #ffeb62;
-  box-sizing: border-box;
-  padding-left: 20px;
-  border-radius: 12px;
-  &:hover {
-    background-color: #ffb321;
-  }
-  @media screen and (max-width: 840px) {
-    /* width: 200px; */
-    padding-top: 50px;
-    background-color: #323232;
-    &:hover {
-      background-color: #323232;
-    }
-  }
-`;
-
-export const MenuImageBackground = styled(TextBackground)`
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
-  top: 30px;
-`;
-
-export const MenuImageBackgroundMobile = styled(MenuImageBackground)`
-  background-color: #ffeb62;
-`;
-
-export const MenuText = styled.div`
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 700;
-  width: 120px;
-  color: #fff;
-  padding: 0 0 0 8px;
-  margin-top: 40px;
-`;
-
-export const MapIcon = styled(BsMapFill)`
-  cursor: pointer;
-  font-size: 20px;
-  position: relative;
-  right: 12px;
-  top: 5px;
-  border: none;
-`;
-
-// export const MenuBtn = styled(MenuIcon)`
-//   background-color: transparent;
-//   right: 20px;
-// `;

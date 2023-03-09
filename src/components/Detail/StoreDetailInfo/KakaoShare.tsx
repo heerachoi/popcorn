@@ -1,6 +1,11 @@
+// library
 import { useEffect } from 'react';
-import styled from 'styled-components';
+// API
 import { WEB_API } from '../../../services/api';
+// types
+import { Store } from '../../../types/data/storeInterface';
+// style
+import styled from 'styled-components';
 import shareImg from '../../../assets/Img/shareImg.svg';
 import { Store } from '../../../types/data/storeInterface';
 

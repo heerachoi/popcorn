@@ -11,7 +11,7 @@ export const Wrap = styled.div`
     ${(props: Props) =>
       props.popupInfo === props.popup ? COLORS.green1 : COLORS.gray7};
   background-color: ${(props: Props) =>
-    props.popupInfo === props.popup ? COLORS.green3 : COLORS.gray8};
+    props.popupInfo === props.popup ? COLORS.green4 : COLORS.gray8};
   border-radius: 8px;
   display: flex;
   flex-direction: row;
@@ -22,9 +22,9 @@ export const Wrap = styled.div`
   &:hover {
     border: 1px solid
       ${(props: Props) =>
-        props.popupInfo === props.popup ? COLORS.green1 : COLORS.orange2};
+        props.popupInfo === props.popup ? COLORS.green1 : COLORS.orange4};
     background-color: ${(props: Props) =>
-      props.popupInfo === props.popup ? COLORS.green3 : COLORS.orange4};
+      props.popupInfo === props.popup ? COLORS.green4 : COLORS.yellow3};
   }
 `;
 
@@ -46,7 +46,7 @@ export const DetailDescription = styled.span`
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  color: #a6a6a6;
+  color: ${COLORS.gray9};
   border: none;
   cursor: pointer;
 `;

@@ -19,8 +19,8 @@ export const BookMarkCard = styled.div`
   border-radius: 8px;
   cursor: pointer;
   &:hover {
-    background-color: ${COLORS.orange4};
-    border: 1px solid ${COLORS.orange2};
+    background-color: ${COLORS.yellow3};
+    border: 1px solid ${COLORS.orange4};
   }
 `;
 

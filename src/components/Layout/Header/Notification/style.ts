@@ -21,7 +21,7 @@ export const ModalHeader = styled.div`
 `;
 
 export const ModalHolder = styled.div`
-  background-color: ${COLORS.orange3};
+  background-color: ${COLORS.yellow1};
   border-radius: 3px;
   max-width: 300px;
   padding: 1rem;

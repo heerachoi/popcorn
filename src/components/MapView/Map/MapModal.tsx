@@ -1,5 +1,7 @@
+// types
 import { Store } from '../../../types/data/storeInterface';
 import { FoodData } from '../../../types/map';
+// style
 import * as S from './style';
 
 interface Props {
@@ -12,7 +14,6 @@ const MapModal = ({ marker, setInfo }: Props) => {
     <S.MapInfoBox>
       <S.ModalHeader>
         <S.ModalHeaderTitle>{marker.title}</S.ModalHeaderTitle>
-        {/* <CloseIcon onClick={() => setInfo(null)}>닫기</CloseIcon> */}
       </S.ModalHeader>
     </S.MapInfoBox>
   );

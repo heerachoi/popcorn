@@ -1,9 +1,13 @@
+// library
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+// API
 import { getInfoErrReport, JSON_API } from '../../services/api';
+// style
 import * as S from './style';
+import COLORS from '../../assets/CSS/colors';
 
 const ErrReportList: any = () => {
   useEffect(() => {
@@ -79,7 +83,7 @@ const ErrReportList: any = () => {
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
-                  <S.StatusText style={{ color: '#323232' }}>완료</S.StatusText>
+                  <S.StatusText style={{ color: `${COLORS.black}` }}>완료</S.StatusText>
                 )}
               </S.ListContent>
             </S.ListBox>

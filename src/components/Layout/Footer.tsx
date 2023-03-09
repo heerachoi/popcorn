@@ -1,3 +1,4 @@
+// library
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import {
@@ -6,8 +7,10 @@ import {
   modalPage,
   modalStatus,
 } from '../../atoms';
+// component
 import Faq from '../CustomerCenter/FAQ/Faq';
 import CustomModal from '../../shared/CustomModal';
+//style
 import * as S from './style';
 
 interface Menu {

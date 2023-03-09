@@ -45,8 +45,8 @@ export const StoreContainer = styled.div`
   border-radius: 8px;
   cursor: pointer;
   &:hover {
-    background-color: ${COLORS.orange4};
-    border: 1px solid ${COLORS.orange2};
+    background-color: ${COLORS.yellow3};
+    border: 1px solid ${COLORS.orange4};
   }
  
 `;
@@ -102,7 +102,7 @@ export const Category = styled.div`
   display: flex;
   align-items: center;
   &:hover {
-    background-color: ${COLORS.orange2};
+    background-color: ${COLORS.orange4};
   }
 `;
 
@@ -116,7 +116,7 @@ export const CategoryListContainer = styled.div`
 export const CategoryTitleBackgroundOne = styled.div`
   width: 180px;
   height: 20px;
-  background-color: #ffeb62;
+  background-color: ${COLORS.yellow1};
   position: absolute;
   box-sizing: border-box;
   padding-left: 20px;
@@ -141,7 +141,7 @@ export const ListTitle = styled.p`
   left: 11px;
   top: -8px;
   margin-bottom: 24px;
-  color: #323232;
+  color: ${COLORS.black};
 `;
 
 export const FilterStoreList = styled.div`
@@ -239,12 +239,12 @@ export const SearchTagContainer = styled.div`
   padding: 4px 16px 3px;
   gap: 4px;
   height: 40px;
-  background: ${COLORS.orange4};
-  border: 1px solid ${COLORS.orange2};
+  background: ${COLORS.yellow3};
+  border: 1px solid ${COLORS.orange4};
   border-radius: 20px;
-  color: ${COLORS.orange1};
+  color: ${COLORS.orange3};
   &:hover {
-    background: ${COLORS.orange2};
+    background: ${COLORS.orange4};
     color: ${COLORS.white};
   }
 `;
@@ -277,7 +277,6 @@ export const DatePickerContainer = styled(DatePicker)`
 `;
 
 export const ToggleCalendar = styled.div`
-  /* display: flex; */
   margin-top: 40px;
   box-sizing: border-box;
 `;

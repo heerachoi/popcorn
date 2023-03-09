@@ -1,14 +1,20 @@
+// library
 import React, { useEffect, useState } from 'react';
-import * as S from './style';
-import { BiImageAdd } from 'react-icons/bi';
-import { getDownloadURL, ref, uploadString } from 'firebase/storage';
-import { storage } from '../../services/firebase';
-import axios from 'axios';
-import { Store } from '../../types/data/storeInterface';
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
+import axios from 'axios';
 import { globalBtn } from '../../atoms';
+import { useSetRecoilState } from 'recoil';
+// firebase
+import { storage } from '../../services/firebase';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
+// types
+import { Store } from '../../types/data/storeInterface';
+// API
 import { JSON_API } from '../../services/api';
+// style
+import * as S from './style';
+import COLORS from '../../assets/CSS/colors';
+import { BiImageAdd } from 'react-icons/bi';
 
 const MasterNewPost = () => {
   const navigate = useNavigate();
@@ -311,7 +317,7 @@ const MasterNewPost = () => {
               navigate('/');
             }}
             type="button"
-            style={{ backgroundColor: 'white', color: '#9B9B9B' }}
+            style={{ backgroundColor: 'white', color: `${COLORS.gray5}` }}
           >
             취소
           </S.CancleAddBtn>

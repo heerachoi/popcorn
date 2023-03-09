@@ -4,13 +4,12 @@ import COLORS from '../../assets/CSS/colors';
 export const ContentWrap = styled.div`
   height: 618px;
   overflow: auto;
-
   &::-webkit-scrollbar {
     width: 5px;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    background: #ccc;
+    background: ${COLORS.gray7};
   }
 `;
 
@@ -23,6 +22,7 @@ export const ListBox = styled.div`
     cursor: pointer;
   }
 `;
+
 export const ListContent = styled.div`
   display: flex;
   justify-content: space-between;

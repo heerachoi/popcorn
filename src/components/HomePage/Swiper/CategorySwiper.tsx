@@ -1,14 +1,19 @@
-import * as S from './style'
+// library
 import {useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+// utils
 import { getTodayDate } from '../../../utils/FormatDate';
+// API
 import { getPopupData } from '../../../services/api';
+// types
 import { Store } from '../../../types/data/storeInterface';
+// style
+import * as S from './style'
 
 const CategorySwiper:React.FC = () => {
   const navigate = useNavigate();
-  const [todayDate, setTodayDate] = useState<number|any>();
+  const [todayDate, setTodayDate] = useState<number|any>(0);
   const { data } = useQuery('popup', getPopupData);
 
   // 오늘날짜
@@ -25,6 +30,7 @@ const CategorySwiper:React.FC = () => {
       todayDate <= parseInt(store.close.split('.').join('')) 
     );
   });
+
   // 최근 오픈 순
   const openingSoon = popupList.sort((a:Store,b:Store) => Number(b.open.split(".").join("")) - Number(a.open.split(".").join("")));
   
@@ -69,7 +75,6 @@ const CategorySwiper:React.FC = () => {
                 <S.PopupDate>
                 {popup.open} - {popup.close}
                 </S.PopupDate>
-                {/* <S.PopupAddress>{popup.address}</S.PopupAddress> */}
               </S.InformationContainer>
               <S.CategoryContainer>
                 <S.Category onClick={(event) => { 

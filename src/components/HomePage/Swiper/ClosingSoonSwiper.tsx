@@ -1,10 +1,15 @@
-import * as S from './style'
+// library
 import {useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getTodayDate } from '../../../utils/FormatDate';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
+// utils
+import { getTodayDate } from '../../../utils/FormatDate';
+// API
 import { getPopupData } from '../../../services/api';
+// types
 import { Store } from '../../../types/data/storeInterface';
+// style
+import * as S from './style'
 
 const ClosingSoonSwiper: React.FC = () => {
   const navigate = useNavigate();
@@ -71,7 +76,6 @@ const ClosingSoonSwiper: React.FC = () => {
                 <S.PopupDate>
                 {popup.open} - {popup.close}
                 </S.PopupDate>
-                {/* <S.PopupAddress>{popup.address}</S.PopupAddress> */}
                </S.InformationContainer>
               <S.CategoryContainer>
                 <S.Category onClick={(event) => { 
