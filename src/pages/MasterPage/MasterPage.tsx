@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { isActiveMenu } from '../../atoms';
 
-const MasterPage: any = () => {
+
+
+const MasterPage = () => {
   const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useRecoilState(isActiveMenu);
 
@@ -23,7 +25,7 @@ const MasterPage: any = () => {
     },
   ];
 
-  const tabMenuClickHandler = (idx: any) => {
+  const tabMenuClickHandler = (idx: number) => {
     setActiveIndex(idx);
   };
   return (
@@ -31,8 +33,10 @@ const MasterPage: any = () => {
       <S.MasterPageWrap>
         <S.ReportListContainer>
           <S.TabMenu>
-            {tabMenuArr.map((item: any, idx: any) => {
+            {tabMenuArr.map((item: any, idx: number) => {
+            console.log('item',item);
               return (
+                
                 <S.MenuTitleBox key={item.id}>
                   <S.MenuTitleTabBtn
                     className={activeIndex === idx ? 'active' : ''}

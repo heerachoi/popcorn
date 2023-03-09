@@ -4,6 +4,9 @@ import { auth } from '../../../services/firebase';
 import { useQuery } from 'react-query';
 import { getInfoErrReport, getNewStoreReport } from '../../../services/api';
 import NoResults from '../NoResults/NoResults';
+import { ErrReport } from '../../../types/report';
+import { NewStoreReport } from '../../../types/report';
+import { Report } from '../../../types/report';
 
 const MyReportList = () => {
   const {
@@ -34,13 +37,12 @@ const MyReportList = () => {
   const uid = auth.currentUser?.uid;
 
   const myErrReport = errReport.filter(
-    (item: any) => item.user.uid === uid,
+    (item: ErrReport) => item.user.uid === uid,
   );
-  
-  
+    
 
   const myNewStoreReport = newStores.filter(
-    (item: any) => item.user.uid === uid,
+    (item: NewStoreReport) => item.user.uid === uid,
   );
 
   const myReports = myErrReport.concat(myNewStoreReport);
@@ -51,7 +53,7 @@ const MyReportList = () => {
         <NoResults />
       ) : (
         <S.ReportContainer>
-          {myReports.map((li: any) => {
+          {myReports.map((li: Report) => {
             return (
               <S.ListBox key={li.id}>
                 <S.ListContent>

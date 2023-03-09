@@ -29,15 +29,16 @@ const MasterNewPost = () => {
     imgURL: [],
     lat: '',
     lon: '',
-    category: ''
+    category: '',
   };
   const [newPostInput, setNewPostInput] = useState<Store>(initialState);
-  const [imgFile, setImgFile] = useState(''); // 이미지 파일
-  const [fileName, setFileName] = useState(''); // 이미지 파일 이름
+  const [imgFile, setImgFile] = useState<string>(''); // 이미지 파일
+  const [fileName, setFileName] = useState<string>(''); // 이미지 파일 이름
+  const [explainText, setExplainText] = useState<string>('');
   const setGlobalButton = useSetRecoilState(globalBtn);
 
   // input onChange 함수
-  const newPostInputChangeHandler: any = (
+  const newPostInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setGlobalButton(true);
@@ -45,6 +46,14 @@ const MasterNewPost = () => {
       ...newPostInput,
       [event.target.name]: event.target.value,
     });
+  };
+
+  // 스토어 설명 textArea 태그 onChange 함수
+  const explainOnChangeHandler = (
+    event: React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    setExplainText(event.target.value);
+    console.log('event.target.value', event.target.value);
   };
 
   // 이미지 파일 input onChange 함수
@@ -115,12 +124,12 @@ const MasterNewPost = () => {
       openingTime: openingTime,
       closeTime: closeTime,
       significantContent: newPostInput.significantContent,
-      explain: newPostInput.explain,
+      explain: explainText,
       sns: newPostInput.sns,
       imgURL: [downloadImageUrl],
       lat: '',
       lon: '',
-      category: '팝업스토어'
+      category: '팝업스토어',
     };
 
     //db에 추가
@@ -151,7 +160,7 @@ const MasterNewPost = () => {
       newPostInput.sns === '' &&
       newPostInput.lat === '' &&
       newPostInput.lon === '' &&
-      newPostInput.category === '' 
+      newPostInput.category === ''
     )
       setGlobalButton(false);
   }, [
@@ -168,7 +177,7 @@ const MasterNewPost = () => {
     newPostInput.sns,
     newPostInput.lat,
     newPostInput.lon,
-    newPostInput.category
+    newPostInput.category,
   ]);
 
   return (
@@ -253,8 +262,8 @@ const MasterNewPost = () => {
             style={{ height: 100 }}
             placeholder="팝업스토어에 대한 설명을 입력해 주세요."
             name="explain"
-            onChange={newPostInputChangeHandler}
-            value={newPostInput.explain}
+            onChange={explainOnChangeHandler}
+            value={explainText}
           />
         </S.PostGrid>
         <S.PostGrid>
@@ -266,7 +275,7 @@ const MasterNewPost = () => {
             name="sns"
             onChange={newPostInputChangeHandler}
             value={newPostInput.sns}
-          />          
+          />
         </S.PostGrid>
         <S.PostGrid>
           <S.PostTitle>카테고리</S.PostTitle>
