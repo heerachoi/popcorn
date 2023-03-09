@@ -1,11 +1,11 @@
-import React from 'react';
+// Style
 import * as S from './style';
+import COLORS from '../../../assets/CSS/colors';
 import smallLike from '../../../assets/Img/smallLike.svg';
 import smallSad from '../../../assets/Img/smallSad.svg';
 import smallWow from '../../../assets/Img/smallWow.svg';
 import smallHeart from '../../../assets/Img/smallHeart.svg';
 import smallGreenDefault from '../../../assets/Img/smallGreenDefault.svg';
-import COLORS from '../../../assets/CSS/colors';
 
 const ContactUs = () => {
   return (

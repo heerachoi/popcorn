@@ -1,10 +1,14 @@
-import { signOut } from 'firebase/auth';
-import { auth } from '../../../services/firebase';
-import * as S from './style';
+// library
 import { useNavigate } from 'react-router-dom';
-import CustomModal from '../../../shared/CustomModal';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { kakaoAccessToken, modalStatus, userInfoState } from '../../../atoms';
+// firebase
+import { signOut } from 'firebase/auth';
+import { auth } from '../../../services/firebase';
+// component
+import CustomModal from '../../../shared/CustomModal';
+//style
+import * as S from './style';
 
 const Logout = () => {
   const [isModal, setIsModal] = useRecoilState(modalStatus);
@@ -21,7 +25,7 @@ const Logout = () => {
       },
       method: 'POST',
     }).then((res) => res.json());
-    setAccessToken('');
+    setAccessToken(undefined);
     localStorage.removeItem('token_for_kakaotalk');
 
     signOut(auth);

@@ -1,4 +1,5 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+// library
+import { useEffect } from 'react';
 import { useLocation } from 'react-router';
 
 const ScrollToTop = () => {

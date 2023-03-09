@@ -1,8 +1,9 @@
-import React from 'react';
+// library
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+// API
 import { getPopupData } from '../../../services/api';
-
+// style
 import * as S from './style';
 
 const BookMarkStore = ({ li }: any) => {

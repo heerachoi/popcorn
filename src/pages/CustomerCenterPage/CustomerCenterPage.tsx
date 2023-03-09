@@ -1,8 +1,11 @@
+// library
 import { useRecoilState } from 'recoil';
 import { footerActiveMenu } from '../../atoms';
+// components
 import ContactUs from '../../components/CustomerCenter/Contact Us/ContactUs';
 import Faq from '../../components/CustomerCenter/FAQ/Faq';
 import Notice from '../../components/CustomerCenter/Notice/Notice';
+// style
 import * as S from './style';
 
 const CustomerCenterPage: any = () => {

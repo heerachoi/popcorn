@@ -1,14 +1,19 @@
-import * as S from './style'
+// library
 import {useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+// utils
 import { getTodayDate } from '../../../utils/FormatDate';
+// API
 import { getPopupData } from '../../../services/api';
+// types
 import { Store } from '../../../types/data/storeInterface';
+// style
+import * as S from './style'
 
 const CategorySwiper:React.FC = () => {
   const navigate = useNavigate();
-  const [todayDate, setTodayDate] = useState<number|any>();
+  const [todayDate, setTodayDate] = useState<number|any>(0);
   const { data } = useQuery('popup', getPopupData);
 
   // 오늘날짜

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
-// import data from '../data/popupStore.json';
-import { getTodayDate } from './FormatDate';
-import { Store, View } from '../types/data/storeInterface';
-import { getPopupData } from '../services/api';
+// library
 import { useQuery } from 'react-query';
+import { getTodayDate } from './FormatDate';
+// types
+import { Store } from '../types/data/storeInterface';
+// API
+import { getPopupData } from '../services/api';
 
 // 현재 진행중인 스토어
 export const CurrentlyOpen = () => {

@@ -15,7 +15,7 @@ root.render(
   <RecoilRoot>
     <React.Suspense fallback={<div>Loading...</div>}>
       <QueryClientProvider client={queryClient}>
-        {/* <ReactQueryDevtools initialIsOpen={false} position="bottom-right" /> */}
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
         <App />
       </QueryClientProvider>
     </React.Suspense>

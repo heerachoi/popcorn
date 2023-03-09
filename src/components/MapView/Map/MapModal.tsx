@@ -1,5 +1,7 @@
+// types
 import { Store } from '../../../types/data/storeInterface';
 import { FoodData } from '../../../types/map';
+// style
 import * as S from './style';
 
 interface Props {

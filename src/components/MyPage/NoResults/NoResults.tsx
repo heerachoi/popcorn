@@ -1,6 +1,7 @@
-import React from 'react';
+// style
 import * as S from './style';
 import PleaseReport from '../../../assets/Img/Feel=Wow, Color=green.svg';
+
 const NoResults = () => {
   return (
     <S.ResultWarp>

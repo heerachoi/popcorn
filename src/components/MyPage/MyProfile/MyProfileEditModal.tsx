@@ -1,25 +1,27 @@
-import * as S from './style';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
+// library
 import { useEffect, useState } from 'react';
-import { auth, storage } from '../../../services/firebase';
-import { updateProfile } from 'firebase/auth';
-import { getDownloadURL, ref, uploadString } from 'firebase/storage';
-import { v4 as uuidv4 } from 'uuid';
-import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import { userInfo, profileState } from '../../../atoms';
 import {
   editModal,
   kakaoAccessToken,
   userInfoState,
   userUrl,
 } from '../../../atoms';
-import { profileState } from '../../../atoms';
-import { userInfo } from '../../../atoms';
+import { v4 as uuidv4 } from 'uuid';
+// firebase
+import { updateProfile } from 'firebase/auth';
+import { auth, storage } from '../../../services/firebase';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
+// component
+import UpdatePassword from '../../Authentication/UpdatePassword/UpdatePassword';
+// library
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+// style
+import * as S from './style';
 import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
-import styled from 'styled-components';
-import axios from 'axios';
+
 
 const MyProfileEditModal = () => {
   const user = useRecoilValue(userInfo);

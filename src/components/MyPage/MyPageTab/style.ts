@@ -23,6 +23,7 @@ export const MyBookmarkReportTabMenu = styled.ul`
 `;
 
 export const MyTitleTabTitleBox = styled.div``;
+
 export const MyTitleTabBtn = styled.button`
   background-color: transparent;
   font-family: 'Apple SD Gothic Neo';

@@ -1,5 +1,6 @@
-import * as S from './style';
 import { Store } from '../../../types/data/storeInterface';
+// style
+import * as S from './style';
 
 interface Props {
   detailData: Store;

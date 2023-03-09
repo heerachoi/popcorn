@@ -1,12 +1,17 @@
-import React from 'react';
-import * as S from './style';
-import { auth } from '../../../services/firebase';
+// library
 import { useQuery } from 'react-query';
+// firebase
+import { auth } from '../../../services/firebase';
+// API
 import { getInfoErrReport, getNewStoreReport } from '../../../services/api';
+// components
 import NoResults from '../NoResults/NoResults';
+// types
 import { ErrReport } from '../../../types/report';
 import { NewStoreReport } from '../../../types/report';
 import { Report } from '../../../types/report';
+// style
+import * as S from './style';
 import COLORS from '../../../assets/CSS/colors';
 
 const MyReportList = () => {

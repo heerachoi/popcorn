@@ -1,15 +1,18 @@
-import { useLocation } from 'react-router-dom';
+// libaray
 import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import QueryString from 'qs';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { kakaoAccessToken, userInfoState } from '../../../atoms';
+// firebase
+import { updateProfile } from 'firebase/auth';
+// API
 import { JSON_API } from '../../../services/api';
+// style
 import * as S from './style';
 import kakaoLogo from '../../../assets/Img/kakaoLogo.svg';
-import { useRecoilState } from 'recoil';
-import { modalStatus } from '../../../atoms';
-import { kakaoAccessToken, userInfoState } from '../../../atoms';
-import { useNavigate } from 'react-router-dom';
-import { updateProfile } from 'firebase/auth';
+
 
 interface UserInfo {
   age: string;
@@ -23,8 +26,10 @@ interface UserInfo {
 // 카카오 로그인 기능 구현 코드
 const KakaoLogin = () => {
   const location = useLocation(); // useLocation hook 사용
-  const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
+  // const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+  const REACT_APP_REST_API_KEY = 'fbbe0ffd8e5a9275920fc4b89603b870';
+  // const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
+  const REDIRECT_URI = 'http://localhost:3000/login';
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
   const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET; // 카카오 디벨로퍼스에서 발급받은 client secret 키
   //주소창에 파라미터code를 가져온다 split 메서드를 활용한다
@@ -73,18 +78,19 @@ const KakaoLogin = () => {
         Authorization: `Bearer ${ACCESS_TOKEN.access_token}`,
       },
     });
-    setNickName(user.data.properties.nickname);
-    setUserId(user.data.kakao_account.email);
-    setAge(user.data.kakao_account.age_range);
-    setId(user.data.id);
-    setGender(
-      user.data.kakao_account.gender
-        ? user.data.kakao_account.gender
-        : user.data.kakao_account.gender_needs_agreement,
-    );
+    // setNickName(user.data.properties.nickname);
+    // setUserId(user.data.kakao_account.email);
+    // setAge(user.data.kakao_account.age_range);
+    // setId(user.data.id);
+    // setGender(
+    //   user.data.kakao_account.gender
+    //     ? user.data.kakao_account.gender
+    //     : user.data.kakao_account.gender_needs_agreement,
+    // );
 
     // 유저 정보를 json-server에 저장
     saveUserInfoToServer(user);
+    localStorage.setItem('kakao_user_id', user.data.id);
     navigate('/');
   };
   const [currentUser, setCurrentUser] = useState<any>();
@@ -100,6 +106,7 @@ const KakaoLogin = () => {
         : '선택안함',
       accessToken: localStorage.getItem('token_for_kakaotalk') ?? '',
     };
+
     // Recoil state 업데이트
     setKakaoUserInfo(newUserInfo);
     setCurrentUser(id);
