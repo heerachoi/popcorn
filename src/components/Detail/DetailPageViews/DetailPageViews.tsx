@@ -12,8 +12,8 @@ const DetailPageViews = ({ detailData }: Props) => {
   const thirtyPercent = detailData?.view[30];
   const fortyPercent = detailData?.view['40+'];
   const unknownAgePercent = detailData?.view['연령모름'];
-  const menPercent = detailData?.view['men'];
-  const womenPercent = detailData?.view['women'];
+  const menPercent = detailData?.view['male'];
+  const womenPercent = detailData?.view['female'];
   const unknownGenderPercent = detailData?.view['성별모름'];
 
   return (

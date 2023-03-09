@@ -52,8 +52,8 @@ const Modal = ({ isShowing, hide, value }: { isShowing: boolean, hide: () => voi
     { id: 3, label: '20', active: false },
     { id: 4, label: '30', active: false },
     { id: 5, label: '40+', active: false },
-    { id: 6, label: 'women', active: false },
-    { id: 7, label: 'men', active: false },
+    { id: 6, label: 'female', active: false },
+    { id: 7, label: 'male', active: false },
     { id: 8, label: '연령모름', active: false },
     { id: 9, label: '성별모름', active: false },
   ],[
