@@ -29,9 +29,14 @@ const FoodCard = ({ food, setMyLocation, setInfo, info }: Props) => {
         <S.DetailTitleSpan>{food?.title}</S.DetailTitleSpan>
         <S.DetailDescriptionWrap>
           <S.DetailDescription>{food?.address}</S.DetailDescription>
-          <Link to={food.placeURL} style={{ textDecoration: 'none' }}>
-            <S.DetailDescription>자세히 보기</S.DetailDescription>
-          </Link>
+          <S.DetailDescription
+            to={food.placeURL}
+            style={{ width: 70, textDecoration: 'none' }}
+            as={Link}
+            target="_blank"
+          >
+            자세히 보기
+          </S.DetailDescription>
         </S.DetailDescriptionWrap>
       </S.DetailWrap>
     </S.Wrap>

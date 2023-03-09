@@ -171,6 +171,9 @@ const MapPage = () => {
               setMap={setMap}
               setInfo={setInfo}
               myLocation={myLocation}
+              setPopupInfo={setPopupInfo}
+              setMyLocation={setMyLocation}
+              setMarkerHandler={setMarkerHandler}
             />
           </S.MapWrap>
         </S.Wrap>

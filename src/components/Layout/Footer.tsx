@@ -7,11 +7,14 @@ import {
   modalStatus,
 } from '../../atoms';
 import Faq from '../CustomerCenter/FAQ/Faq';
-import Vector from '../../assets/Logo/Vector.svg';
-import popcornLogo from '../../assets/Logo/popcorn_logo.svg';
-import DefaultLogo from '../../assets/Logo/State=Default.svg';
 import CustomModal from '../../shared/CustomModal';
 import * as S from './style';
+
+interface Menu {
+  id?: number;
+  tabTitle: string;
+  tabContent: JSX.Element;
+}
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -77,11 +80,11 @@ const Footer = () => {
         ></S.FooterTitle>
       </S.FooterTitleWrap>
       <S.FooterMenuWrap>
-        {menuArr.map((item: any, i: any) => {
+        {menuArr.map((item: Menu, i: number) => {
           return (
             <S.TextBackground key={item.id}>
               <S.FooterMenu
-                id={item.id}
+                id={String(item.id)}
                 onClick={() =>
                   globalBtnModalStatusChangeHandler('/customer', i)
                 }

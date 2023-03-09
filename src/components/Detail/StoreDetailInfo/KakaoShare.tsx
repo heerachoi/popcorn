@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import { JSON_API } from '../../../services/api';
 import { WEB_API } from '../../../services/api';
 import shareImg from '../../../assets/Img/shareImg.svg';
 
 interface Props {
-  detailData: any;
+  detailData: Store;
 }
 
 const KakaoShare = ({ detailData }: Props) => {
@@ -32,7 +31,7 @@ const KakaoShare = ({ detailData }: Props) => {
       },
       social: {
         // 나중에 글 추천수의 데이터를 받아와서 바꿔줌
-        likeCount: 286,
+        likeCount: 287,
       },
       buttons: [
         {
