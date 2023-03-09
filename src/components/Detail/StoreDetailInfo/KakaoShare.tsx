@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import { WEB_API } from '../../../services/api';
 import shareImg from '../../../assets/Img/shareImg.svg';
+import { Store } from '../../../types/data/storeInterface';
 
 interface Props {
   detailData: Store;

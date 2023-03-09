@@ -88,7 +88,7 @@ export const mapDetailBoxPopup = atom<Store>({
     imgURL: [],
     lat: '',
     lon: '',
-    category: ''
+    category: '',
   },
 });
 
@@ -157,7 +157,7 @@ export const userUrl = atom({
 
 export const kakaoAccessToken = atom({
   key: 'kakaoAccessToken',
-  default: '',
+  default: undefined,
 });
 
 export const userInfoState = atom({

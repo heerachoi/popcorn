@@ -6,7 +6,6 @@ import { JSON_API } from '../../../services/api';
 import * as S from './style';
 import kakaoLogo from '../../../assets/Img/kakaoLogo.svg';
 import { useRecoilState } from 'recoil';
-import { modalStatus } from '../../../atoms';
 import { kakaoAccessToken, userInfoState } from '../../../atoms';
 import { useNavigate } from 'react-router-dom';
 import { updateProfile } from 'firebase/auth';
@@ -43,13 +42,12 @@ const KakaoLogin = () => {
     window.location.replace(link);
   };
 
-  const code = new URL(window.location.href).searchParams.get('code');
-
   //카카오 서버로 클라이언트 시크릿키값과 파라미터의 코드값을 보내 액세스토큰을 요청
   const getUser = async () => {
     const ACCESS_TOKEN = await fetch('https://kauth.kakao.com/oauth/token', {
       method: 'POST',
       headers: {
+        // 요청 헤더에 대한 정보
         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
       },
       body: QueryString.stringify({

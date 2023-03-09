@@ -11,7 +11,6 @@ import { useLocation } from 'react-router-dom';
 import { UserInfomation } from '../../types/user';
 import styled from 'styled-components';
 
-
 type Props = {
   children: React.ReactNode;
 };
@@ -22,9 +21,6 @@ const Layout = ({ children }: Props) => {
   const { data: userDataFromJson } = useQuery('user', getUser);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
-  console.log('userInfoState', userInfoState);
-  console.log('kakaoUserInfo', kakaoUserInfo);
-  console.log('kakaoUserInfo.nickName', kakaoUserInfo.nickName);
   const { pathname } = useLocation();
 
   // 로그인 상태를 전역적으로 관리해주는 함수
@@ -32,7 +28,7 @@ const Layout = ({ children }: Props) => {
   // Router.tsx에서 유저 상태관리를 해주었는데, 페이지 이동시 첫번째 useEffect가 다시 실행됨
   // Layout.tsx로 옮겨주니 해결되었다.
   useEffect(() => {
-    if (accessToken === '') {
+    if (accessToken === undefined) {
       reset();
       auth.onAuthStateChanged((user) => {
         if (user) {
@@ -55,7 +51,6 @@ const Layout = ({ children }: Props) => {
       });
     }
   }, [accessToken, auth]);
-  // 의존성 배열에 원래 auth였는데 accessToken으로 바꿈
 
   useEffect(() => {
     if (accessToken !== undefined) {

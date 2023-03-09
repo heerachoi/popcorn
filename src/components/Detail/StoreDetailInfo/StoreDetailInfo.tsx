@@ -37,33 +37,33 @@ const StoreDetailInfo = ({ detailData }: Props) => {
 
   const days = ['월', '화', '수', '목', '금', '토', '일'];
 
-  useEffect(() => {
-    if (accessToken !== '') {
-      console.log('카카오 로그인 accessToken');
-      setCurrentUser({
-        isLogin: true,
-        userInfomation: {
-          displayName: kakaoUserInfo.nickName,
-          email: kakaoUserInfo.email,
-          photoURL: '',
-          uid: '',
-          age: kakaoUserInfo.age,
-          gender: kakaoUserInfo.gender,
-          phoneNumber: '',
-          id: kakaoUserInfo.id,
-        },
-      });
-      fetchBookmarks();
-    } else {
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          console.log('auth.currentUser', auth.currentUser);
-          setCurrentUser(auth.currentUser);
-          fetchBookmarks();
-        }
-      });
-    }
-  }, [currentUser, accessToken, kakaoUserInfo]);
+  // useEffect(() => {
+  //   if (accessToken !== '') {
+  //     console.log('카카오 로그인 accessToken');
+  //     setCurrentUser({
+  //       isLogin: true,
+  //       userInfomation: {
+  //         displayName: kakaoUserInfo.nickName,
+  //         email: kakaoUserInfo.email,
+  //         photoURL: '',
+  //         uid: '',
+  //         age: kakaoUserInfo.age,
+  //         gender: kakaoUserInfo.gender,
+  //         phoneNumber: '',
+  //         id: kakaoUserInfo.id,
+  //       },
+  //     });
+  //     fetchBookmarks();
+  //   } else {
+  //     auth.onAuthStateChanged((user) => {
+  //       if (user) {
+  //         console.log('auth.currentUser', auth.currentUser);
+  //         setCurrentUser(auth.currentUser);
+  //         fetchBookmarks();
+  //       }
+  //     });
+  //   }
+  // }, [currentUser, accessToken, kakaoUserInfo]);
 
   // 북마크 상태 업데이트
   useEffect(() => {
