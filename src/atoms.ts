@@ -22,7 +22,6 @@ export const userInfo = atom<UserInfoState>({
       displayName: '',
       email: '',
       photoURL: '',
-      uid: '',
       age: '',
       gender: '',
       phoneNumber: '',
@@ -88,7 +87,7 @@ export const mapDetailBoxPopup = atom<Store>({
     imgURL: [],
     lat: '',
     lon: '',
-    category: ''
+    category: '',
   },
 });
 
@@ -155,9 +154,9 @@ export const userUrl = atom({
   default: '',
 });
 
-export const kakaoAccessToken = atom({
+export const kakaoAccessToken = atom<string | undefined | null>({
   key: 'kakaoAccessToken',
-  default: '',
+  default: localStorage.getItem('token_for_kakaotalk'),
 });
 
 export const userInfoState = atom({

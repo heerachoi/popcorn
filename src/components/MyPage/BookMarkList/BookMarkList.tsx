@@ -1,10 +1,6 @@
 import { useQuery } from 'react-query';
 import * as S from './style';
-import {
-  getBookMark,
-  getBookMarkStore,
-  getPopupData,
-} from '../../../services/api';
+import { getBookMark, getPopupData } from '../../../services/api';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { userInfo } from '../../../atoms';
 import BookmarkNoResult from '../NoResults/BookmarkNoResult';
@@ -27,7 +23,7 @@ const BookMarkList = () => {
   }
 
   const bookmarkList = data?.filter((bookmark: any) => {
-    return userInfos?.uid === bookmark?.user;
+    return userInfos?.id === bookmark?.user;
   });
 
   return (
