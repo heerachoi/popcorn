@@ -24,8 +24,7 @@ interface UserInfo {
 
 // 카카오 로그인 기능 구현 코드
 const KakaoLogin = () => {
-  const location = useLocation(); // useLocation hook 사용
-  // const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+  const location = useLocation();
   const REACT_APP_REST_API_KEY = 'fbbe0ffd8e5a9275920fc4b89603b870';
   // const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
   const REDIRECT_URI = 'http://localhost:3000/login';
@@ -35,13 +34,8 @@ const KakaoLogin = () => {
   const KAKAO_CODE = location.search.split('=')[1];
   const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-  //nickname state
   const [nickName, setNickName] = useState('');
-  //popcorn id = kakao email
-  const [userId, setUserId] = useState('');
-  const [age, setAge] = useState('');
   const [id, setId] = useState('');
-  const [gender, setGender] = useState('');
   const navigate = useNavigate();
   const kakaoLoginHandler = () => {
     window.location.replace(link);
@@ -77,15 +71,6 @@ const KakaoLogin = () => {
         Authorization: `Bearer ${ACCESS_TOKEN.access_token}`,
       },
     });
-    // setNickName(user.data.properties.nickname);
-    // setUserId(user.data.kakao_account.email);
-    // setAge(user.data.kakao_account.age_range);
-    // setId(user.data.id);
-    // setGender(
-    //   user.data.kakao_account.gender
-    //     ? user.data.kakao_account.gender
-    //     : user.data.kakao_account.gender_needs_agreement,
-    // );
 
     // 유저 정보를 json-server에 저장
     saveUserInfoToServer(user);
@@ -111,9 +96,7 @@ const KakaoLogin = () => {
     setCurrentUser(id);
     axios
       .post(`${JSON_API}/users`, newUserInfo)
-      .then((response) => {
-        console.log(response.data);
-      })
+      .then((response) => {})
       .catch((error) => {
         console.log(error);
       });

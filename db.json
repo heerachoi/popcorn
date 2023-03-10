@@ -59,9 +59,9 @@
         "40+": 2,
         "female": 0,
         "male": 2,
-        "연령모름": 2,
-        "성별모름": 1,
-        "all": 4,
+        "연령모름": 3,
+        "성별모름": 2,
+        "all": 5,
         "": null
       },
       "title": "티파니 락",
@@ -460,9 +460,9 @@
         "40+": 3,
         "female": 0,
         "male": 3,
-        "연령모름": 1,
-        "성별모름": 1,
-        "all": 4
+        "연령모름": 2,
+        "성별모름": 2,
+        "all": 5
       },
       "title": "Weather Monster POP-UP",
       "address": "서울특별시 용산구 이태원로 260 코오롱스포츠 한남점",
@@ -1312,17 +1312,6 @@
       "close": "2023.03.15",
       "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%AC%EB%A5%B4%EC%89%90%20%EB%82%98%EC%9A%B0%20%EC%84%B1%EC%88%98(Porsche%20Now%20Seongsu)%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.59.15.png?alt=media&token=f8b8e3d1-9b8f-43a1-b966-60a8709591a5",
       "item": "기타"
-    },
-    {
-      "id": "ZoH4tXexarXgqZxuWMDG8SfL8FE32",
-      "store": "2",
-      "user": "ZoH4tXexarXgqZxuWMDG8SfL8FE3",
-      "notification": false,
-      "title": "티파니 락",
-      "open": "2023.03.01",
-      "close": "2023.03.14",
-      "imgURL": "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8B%B0%ED%8C%8C%EB%8B%88%20%EB%9D%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.45.41.png?alt=media&token=dac2acf3-c85b-487e-a13a-98f030229bdb",
-      "item": "패션"
     }
   ],
   "newStores": [],

@@ -7,10 +7,7 @@ import MyReportList from '../MyReportList/MyReportList';
 // style
 import * as S from './style';
 
-interface Props {
-  detailData?: any;
-}
-const MyPageTab = ({ detailData }: Props) => {
+const MyPageTab = () => {
   const [activeIndex, setActiveIndex] = useRecoilState(isActiveMenu);
 
   const myTabArr = [
@@ -32,22 +29,22 @@ const MyPageTab = ({ detailData }: Props) => {
   return (
     <>
       <S.MyBookmarkReportWrap>
-          <S.MyBookmarkReportBox>
-            <S.MyBookmarkReportTabMenu>
-              {myTabArr.map((t, i) => {
-                return (
-                  <S.MyTitleTabBtn
-                    key={t.id}
-                    className={activeIndex === i ? 'active' : ''}
-                    onClick={() => MyTabClick(i)}
-                  >
-                    {t.tabTitle}
-                  </S.MyTitleTabBtn>
-                );
-              })}
-            </S.MyBookmarkReportTabMenu>
-            <S.MyContentBox>{myTabArr[activeIndex].tabContent}</S.MyContentBox>
-          </S.MyBookmarkReportBox>
+        <S.MyBookmarkReportBox>
+          <S.MyBookmarkReportTabMenu>
+            {myTabArr.map((t, i) => {
+              return (
+                <S.MyTitleTabBtn
+                  key={t.id}
+                  className={activeIndex === i ? 'active' : ''}
+                  onClick={() => MyTabClick(i)}
+                >
+                  {t.tabTitle}
+                </S.MyTitleTabBtn>
+              );
+            })}
+          </S.MyBookmarkReportTabMenu>
+          <S.MyContentBox>{myTabArr[activeIndex].tabContent}</S.MyContentBox>
+        </S.MyBookmarkReportBox>
       </S.MyBookmarkReportWrap>
     </>
   );

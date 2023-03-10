@@ -22,9 +22,7 @@ import Modal from '@mui/material/Modal';
 import * as S from './style';
 import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
 
-
 const MyProfileEditModal = () => {
-  const user = useRecoilValue(userInfo);
   const [profileUrl, setProfileUrl] = useRecoilState(profileState);
   const [isActive, setIsActive] = useState<boolean>(true);
 
@@ -34,18 +32,14 @@ const MyProfileEditModal = () => {
   const handleClose = () => setOpen(false);
 
   // 닉네임 관련
-  const currentUserInfos: any = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
+  const currentUserInfos = auth.currentUser; // 현재 로그인한 사용자의 정보들(파이어베이스)
   const [nickname, setNickname] = useState<any>(auth.currentUser?.displayName); // 현재 닉네임 상태변경
   const [currentUser, setCurrentUser] = useState<any>(''); // 현재 로그인한 사용자 가져오기
 
   // 이미지 관련
   const [imgProfileUrl, setImgProfileUrl] = useRecoilState(profileState);
-  const [imgFile, setImgFile] = useState<any>(imgProfileUrl); // 이미지 파일 엄청 긴 이름
-  const [imgUploadUrl, setImgUploadUrl] = useRecoilState<any>(userUrl); // 변경된 이미지 url
-
-  // 카카오 정보 수정 관련 - accessToken이 있다면 kakaoUserInfo정보를 바꿔줘라
-  const accessToken = useRecoilValue(kakaoAccessToken);
-  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
+  const [imgFile, setImgFile] = useState<string>(imgProfileUrl); // 이미지 파일 엄청 긴 이름
+  const [imgUploadUrl, setImgUploadUrl] = useRecoilState<string>(userUrl); // 변경된 이미지 url
 
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
