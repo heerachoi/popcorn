@@ -45,6 +45,7 @@ const NewStoreReportList = () => {
       statusFalse.push(item);
     }
   });
+  console.log('statusFalse', statusFalse);
 
   const resentStatusTrue = statusTrue.sort(
     (a, b) =>

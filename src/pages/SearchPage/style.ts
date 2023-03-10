@@ -266,8 +266,79 @@ export const StoreInformation = styled.div`
 export const CalendarContainer = styled.div`
   width: 100%;
   max-width: 500px;
+  .rbc-calendar{
+
+  }
+  .rbc-toolbar{
+    background-color: ${COLORS.orange2};
+    border: none;
+    color: white;
+    border-radius: 8px 8px 0px 0px;
+    height: 48px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding: 4px 0;
+  }
+  .rbc-toolbar button  {
+    color: ${COLORS.white};
+    border: ${COLORS.white};
+    font-size: 14px;    
+  }
+  .rbc-toolbar button:hover  {
+    color: ${COLORS.orange2};
+    background-color: ${COLORS.white};
+  }
+  .rbc-month-header {
+    height: 40.7px;
+    background-color: ${COLORS.gray8};
+    font-weight:none;
+  }
+  .rbc-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: none;
+    color: ${COLORS.gray2};
+
+  }
+  .rbc-off-range-bg {
+    background-color: ${COLORS.white};
+  }
+  .rbc-row {
+    margin-bottom: 2px;
+  }
+  .rbc-date-cell.rbc-now {
+    background-color: ${COLORS.white};
+    color: ${COLORS.orange2};
+    text-decoration: underline;
+  }
+  .rbc-event-continues-after {
+    padding: 5px;
+    font-size: 13px;
+  }
+  .rbc-row-segment {
+    padding: 1px 3px;
+  }
+  .rbc-month-row {
+    overflow: visible;
+  }
+  .rbc-show-more {
+    font-weight: normal;
+    font-size: 12px;
+    @media screen and (max-width: 400px) {
+    font-size: 9px;
+  }
+  }
+  .rbc-event-content {
+    font-size: 13px;
+    border-radius: 5px;
+  }  
   @media screen and (max-width: 1100px) {
     max-width:800px;
+  }
+  @media screen and (max-width: 400px) {
+    height: 1500px;
   }
 `;
 

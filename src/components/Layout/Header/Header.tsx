@@ -1,4 +1,3 @@
-// library
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -94,7 +93,7 @@ const Header = () => {
           className={isToggled ? 'NavOn' : 'NavOff'}
           onClick={() => setIsToggled(false)}
         >
-          <S.TextBackground>
+          <S.TextBackground style={{ width: 130 }}>
             <S.CategoryBtn
               onClick={
                 user.isLogin
@@ -106,7 +105,7 @@ const Header = () => {
             </S.CategoryBtn>
           </S.TextBackground>
           {!user.isLogin && (
-            <S.TextBackground style={{ width: 110 }}>
+            <S.TextBackground style={{ width: 88 }}>
               <S.CategoryBtn
                 onClick={() => globalBtnModalStatusChangeHandler('/signup')}
               >
@@ -117,7 +116,7 @@ const Header = () => {
           {user.isLogin ? (
             <Logout />
           ) : (
-            <S.TextBackground style={{ width: 100 }}>
+            <S.TextBackground style={{ width: 72 }}>
               <S.CategoryBtn
                 onClick={() => globalBtnModalStatusChangeHandler('/login')}
               >

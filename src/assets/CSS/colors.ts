@@ -3,13 +3,22 @@ const COLORS = {
   white: '#FFFFFF',
   red: '#F4533D',
   pink: '#FFB0A6',
-  lightPink: '#FFE8E4',
+  lightPink: '#FEEDEA',
+  
+  blue1: '#5B85F9',
+  blue2: '#E4EBFF',
+  blue3: '#31B7E8',
+  blue4: '#E1F7FF',
 
+  purple1: '#B45BF9',
+  purple2: '#F5EEFF',
 
   orange1: '#EC6503',
   orange2: '#FF8412',
   orange3: '#F2901D',
   orange4: '#FFB321',
+  orange5: '#FBC867',
+  orange6: '#FCEDCD',
 
   gray1: '#323232',
   gray2: '#494949',
@@ -25,10 +34,14 @@ const COLORS = {
   green2: '#3EE953',
   green3: '#88E25D',
   green4: '#E7FFD8',
+  green5: '#E4FFE6',
+
 
   yellow1: '#FFEB62',
   yellow2: '#FEE500',
   yellow3: '#FFF9D2',
+  yellow4: '#FBC132',
+  yellow5: '#FFFBE3',
 
 };
 

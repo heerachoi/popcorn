@@ -26,7 +26,7 @@ const NewStoreReport = () => {
   // date Picker 날짜 state
   const [startDate, setStartDate] = useState<Date | undefined>();
   const [endDate, setEndDate] = useState<Date | undefined>();
-
+  
   // 주소찾기 API 팝업창
   const [isOpenPost, setIsOpenPost] = useState<boolean>(false);
 
@@ -304,7 +304,7 @@ const NewStoreReport = () => {
         />
       </S.ReportGrid>
       <S.ButtonBox>
-        <S.CancleBtn onClick={cancleHandler}>취소</S.CancleBtn>
+        <S.CancelBtn onClick={cancleHandler}>취소</S.CancelBtn>
         <S.AddBtn type="submit">제보하기</S.AddBtn>
       </S.ButtonBox>
     </S.NewStoreForm>

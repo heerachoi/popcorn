@@ -1,6 +1,7 @@
 // library
-import moment from 'moment';
 import { useCallback, useMemo } from 'react';
+import moment from 'moment';
+import 'moment/locale/ko';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import { useNavigate } from 'react-router-dom';
 // types
@@ -8,7 +9,6 @@ import { Store } from '../../types/data/storeInterface';
 // style
 import COLORS from '../../assets/CSS/colors';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
 interface Props {
   storeList: Store[];
 }
@@ -46,31 +46,39 @@ const StoreCalendar = ({ storeList }: Props) => {
   const eventPropGetter = useCallback(
     (event: Store) => ({
       style: {
-        backgroundColor: `${COLORS.green1}`,
+        backgroundColor: `${COLORS.blue4}`,
+          color:`${COLORS.blue3}`
       },
       ...(event.item === '패션' && {
         style: {
-          backgroundColor: `${COLORS.green3}`,
+          backgroundColor: `${COLORS.orange6}`,
+          color:`${COLORS.orange2}`
         },
       }),
       ...(event.item === '식음료' && {
         style: {
-          backgroundColor: `${COLORS.orange3}`,
+          backgroundColor: `${COLORS.green5}`,
+          color:`${COLORS.green1}`
         },
       }),
       ...(event.item === '캐릭터' && {
         style: {
-          backgroundColor: `${COLORS.orange4}`,
+           backgroundColor: `${COLORS.yellow5}`,
+           color:`${COLORS.yellow4}`
+          
         },
       }),
       ...(event.item === '소품' && {
         style: {
-          backgroundColor: `${COLORS.orange2}`,
+          backgroundColor: `${COLORS.blue2}`,
+          color:`${COLORS.blue1}`
+          
         },
       }),
       ...(event.item === '주류' && {
         style: {
-          backgroundColor: `${COLORS.pink}`,
+          backgroundColor: `${COLORS.lightPink}`,
+          color:`${COLORS.pink}`
         },
       }),
     }),
@@ -81,7 +89,7 @@ const StoreCalendar = ({ storeList }: Props) => {
     <Calendar
       localizer={localizer}
       events={events}
-      style={{ height: '100vh' }}
+      style={{ height: '145vh'}}
       views={views}
       onSelectEvent={handleSelectEvent}
       eventPropGetter={eventPropGetter}
