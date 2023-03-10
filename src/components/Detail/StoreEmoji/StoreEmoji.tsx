@@ -13,12 +13,14 @@ import StoreLikeLogo from '../../../assets/Img/Feel=Happy, Color=green.svg';
 import StoreHateLogo from '../../../assets/Img/Feel=Sad, Color=green.svg';
 import LikeHoverImg from '../../../assets/Img/Feel=Happy, Color=Yellow.svg';
 import HateHoverImg from '../../../assets/Img/Feel=Sad, Color=Yellow.svg';
+import { useRecoilValue } from 'recoil';
+import { userInfo } from '../../../atoms';
 interface Props {
   detailData: Store;
 }
 
-const StoreEmoji: any = ({ detailData }: Props) => {
-  const [currentUser, setCurrentUser] = useState<any>('');
+const StoreEmoji = ({ detailData }: Props) => {
+  const user = useRecoilValue(userInfo);
   const [like, setLike] = useState<number>(0);
   const [hate, setHate] = useState<number>(0);
   const [likeColor, setLikeColor] = useState<string>(`${COLORS.gray1}`);
@@ -29,37 +31,34 @@ const StoreEmoji: any = ({ detailData }: Props) => {
 
   // 화면 렌더링 시 로그인 상태 확인
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setCurrentUser(auth.currentUser);
-        fetchLikeHate();
-        likeCountHandler();
-        hateCountHandler();
-      } else {
-        likeCountHandler();
-        hateCountHandler();
-        return console.log('로그인 안됨');
-      }
-    });
-  }, [currentUser]);
+    if (user) {
+      fetchLikeHate();
+      likeCountHandler();
+      hateCountHandler();
+    } else {
+      likeCountHandler();
+      hateCountHandler();
+      return console.log('로그인 안됨');
+    }
+  }, [user.isLogin]);
 
   useEffect(() => {
-    setCurrentLikeId(currentUser.uid + detailData?.id);
-  }, [currentUser]);
+    setCurrentLikeId(user.userInfomation.id + detailData?.id);
+  }, [user]);
 
   // 좋아요 추가
   const newLike = {
-    id: currentUser.uid + detailData?.id,
+    id: user.userInfomation.id + detailData?.id,
     store: detailData?.id,
-    user: currentUser.uid,
+    user: String(user.userInfomation.id),
     vote: 'like',
   };
 
   // 별로예요 추가
   const hateLike = {
-    id: currentUser.uid + detailData?.id,
+    id: user.userInfomation.id + detailData?.id,
     store: detailData?.id,
-    user: currentUser.uid,
+    user: String(user.userInfomation.id),
     vote: 'hate',
   };
 
@@ -67,7 +66,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
   const fetchLikeHate = async () => {
     const { data } = await axios.get(`${JSON_API}/likeHate`);
     data.map((item: any) => {
-      if (item.user === currentUser.uid && item.store === detailData?.id) {
+      if (item.user === String(user.userInfomation.id) && item.store === detailData?.id) {
         // setCurrentLikeId(item.id);
         if (item.vote === 'like') {
           setLikeColor(`${COLORS.red}`);
@@ -104,11 +103,10 @@ const StoreEmoji: any = ({ detailData }: Props) => {
     });
     setHate(hates.length);
   };
-  
 
   // 좋아요 버튼
   const likeHandler = async () => {
-    if (currentUser) {
+    if (user.isLogin) {
       if (likeClicked) {
         // 좋아요 눌린 상태
         try {
@@ -139,7 +137,7 @@ const StoreEmoji: any = ({ detailData }: Props) => {
 
   // 별로예요 버튼
   const hateHandler = async () => {
-    if (currentUser) {
+    if (user.isLogin) {
       if (hateClicked) {
         // 별로예요 눌린 상태
         try {
