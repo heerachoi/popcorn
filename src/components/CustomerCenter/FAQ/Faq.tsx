@@ -7,8 +7,7 @@ import { getFaq } from '../../../services/api';
 import * as S from './style';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 
-
-const Faq: any = () => {
+const Faq = () => {
   const [isClicked, setIsClicked] = useState(null);
   const { isLoading, isError, data, error } = useQuery('FAQ', getFaq);
 

@@ -2,11 +2,7 @@
 import MyProfile from '../../components/MyPage/MyProfile/MyProfile';
 
 const MyPage = () => {
-  return (
-    <>
-      <MyProfile />
-    </>
-  );
+  return <MyProfile />;
 };
 
 export default MyPage;

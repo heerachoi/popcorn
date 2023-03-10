@@ -14,16 +14,14 @@ import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 const BookMarkList = () => {
   const user = useRecoilValue(userInfo);
   const userInfos = user.userInfomation;
-  const { data, isLoading } = useQuery('BookMarkList', getBookMark);
+  const { data } = useQuery('BookMarkList', getBookMark);
   const bookmarkList = data?.filter((bookmark: any) => {
     return String(userInfos?.id) === bookmark?.user;
   });
 
   return (
     <>
-      {isLoading ? (
-        <LoadingAnimation />
-      ) : bookmarkList.length === 0 ? (
+      {bookmarkList.length === 0 ? (
         <BookmarkNoResult />
       ) : (
         <S.BookMarkContainer>

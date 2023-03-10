@@ -86,12 +86,8 @@ const Layout = ({ children }: Props) => {
   useEffect(() => {
     // 현재 유저와 users.json에 있는 user과 같으면
     const myUser = userDataFromJson?.filter((user: UserInfomation) => {
-      console.log(users.userInfomation.id);
-      console.log(user.id);
-
       return users.userInfomation.id === String(user.id);
     })[0];
-    console.log(myUser, 'myUser');
     // myUser가 빈 값이 아닐 때
     // 한번 더 set 해주는 이유 : 성별, 나이 조회수 및 마이페이지에서 정보수정을 하기 위해서
     if (!!myUser) {
