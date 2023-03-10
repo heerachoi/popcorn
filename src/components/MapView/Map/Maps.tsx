@@ -128,10 +128,13 @@ const Maps = ({
                 onMouseOver={() => {
                   setInfo(marker);
                 }}
-                onMouseOut={() => {
-                  setInfo(undefined);
+                onClick={() => {
+                  setMyLocation({
+                    Ma: marker.position.lat,
+                    La: marker.position.lng,
+                  });
+                  setInfo(marker);
                 }}
-                onClick={() => setInfo(marker)}
               />
               {info &&
                 info.title === marker.title &&
