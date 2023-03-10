@@ -11,6 +11,7 @@ export const SignUpBtn = styled.button`
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
+  color: ${COLORS.black};
   @media screen and (max-width: 840px) {
     color: ${COLORS.white};
     top: -30px;
@@ -25,7 +26,7 @@ export const TextBackground = styled.div`
   padding-left: 20px;
   border-radius: 12px;
   &:hover {
-    background-color: ${COLORS.yellow1};
+    background-color: ${COLORS.orange2};
   }
   @media screen and (max-width: 840px) {
     width: 200px;

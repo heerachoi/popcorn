@@ -42,7 +42,7 @@ const MyProfile = () => {
         setCurrentUser(auth.currentUser);
         setImgUploadUrl(user.photoURL);
       } else {
-        return console.log('로그인 안됨');
+        return;
       }
     });
   }, [auth.currentUser]);
@@ -52,7 +52,7 @@ const MyProfile = () => {
       setImgProfileUrl(currentUserInfos?.photoURL || '');
     }
   }, [currentUserInfos?.photoURL]);
-  console.log('kakaoUser', kakaoUserInfo.nickName);
+
   return (
     <S.MyPageAll>
       <S.MyProfileBox>
@@ -94,14 +94,14 @@ const MyProfile = () => {
           <S.InfoHolder>{userInfos.age}</S.InfoHolder>
         </S.InfoWrapper>
         <S.ButtonContainer>
-          {accessToken ? (
+          {accessToken !== 'undefined' ? (
             ''
           ) : (
             <S.ModifyCompleteButton type="button">
               <MyProfileEditModal />
             </S.ModifyCompleteButton>
           )}
-          {accessToken ? '' : <DeleteAccount />}
+          {accessToken !== 'undefined' ? '' : <DeleteAccount />}
         </S.ButtonContainer>
       </S.MyProfileBox>
       <S.TabContainer>

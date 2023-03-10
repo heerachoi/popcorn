@@ -1,7 +1,7 @@
 // library
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 // data
 import { getPopupData } from '../../../services/api';
 // library
@@ -21,7 +21,7 @@ const HomeSearch = () => {
   let searchList: Store[] = [];
   let durationList: Store[] = [];
 
- // keyEnter
+  // keyEnter
   const [enterKeyPressed, setEnterKeyPressed] = useState<boolean>(false);
   // 검색어
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -30,10 +30,11 @@ const HomeSearch = () => {
   const [dateSelected, setDateSelected] = useState<any>('');
   const [saveDatePickerList, setSaveDatePickerList] = useState<Store[]>(data);
   // 팝업 기간
-  const [popupDurationFilter, setPopupDurationFilter] = useState<string>('전체');
+  const [popupDurationFilter, setPopupDurationFilter] =
+    useState<string>('전체');
   const [savePopupDurationList, setSavePopupDurationList] =
     useState<Store[]>(data);
-  
+
   // 카테고리 Modal
   const { isShowing, toggle } = useLocationModal();
 
@@ -43,7 +44,9 @@ const HomeSearch = () => {
     if (event.key === 'Enter') {
       setEnterKeyPressed(true);
       searchFilterHandler();
-      navigate(`/search?search=${searchTerm}&date=${dateSelected}&duration=${popupDurationFilter}`)
+      navigate(
+        `/search?search=${searchTerm}&date=${dateSelected}&duration=${popupDurationFilter}`,
+      );
     } else {
       setEnterKeyPressed(false);
     }
@@ -68,7 +71,7 @@ const HomeSearch = () => {
       setSaveSearchList(searchList);
     }
   };
-    const [pickedDate, setPickedDate] = useState<number>();
+  const [pickedDate, setPickedDate] = useState<number>();
 
   // DatePicker 날짜 숫자로 바꿔준다
   const dateSelectedFilterHandler = () => {
@@ -116,8 +119,8 @@ const HomeSearch = () => {
   };
 
   // 모달창 열렸을시 스크롤 방지
-   useEffect(() => {
-    if (isShowing ) {
+  useEffect(() => {
+    if (isShowing) {
       const body = document.body;
       body.style.overflow = 'hidden';
       return () => {
@@ -134,51 +137,55 @@ const HomeSearch = () => {
   return (
     <>
       <S.SearchContainer>
-      <S.SearchInputContainer>
-        <S.SearchIcon/>
-        <S.SearchInput 
-          placeholder="키워드를 입력해주세요."
-          onChange={(event) => setSearchTerm(event.target.value)}
-          onKeyPress={checkKeypress}
+        <S.SearchInputContainer>
+          <S.SearchIcon />
+          <S.SearchInput
+            placeholder="키워드를 입력해주세요."
+            onChange={(event) => setSearchTerm(event.target.value)}
+            onKeyPress={checkKeypress}
           />
-      </S.SearchInputContainer>
-      <S.DatePickerWrapper>
-        <S.IconTitleContainer>
-        <S.FilterTitle>진행중</S.FilterTitle>
-      </S.IconTitleContainer>
-         <S.DatePickerContainer
+        </S.SearchInputContainer>
+        <S.DatePickerWrapper>
+          <S.IconTitleContainer>
+            <S.FilterTitle>진행중</S.FilterTitle>
+          </S.IconTitleContainer>
+          <S.DatePickerContainer
             selected={dateSelected}
             locale={ko}
             onChange={(date) => setDateSelected(date)}
             dateFormat="yyyy-MM-dd"
             minDate={new Date()}
             showPopperArrow={false}
-            isClearable={true}
+            isClearable={dateSelected === '' ? false : true}
             placeholderText="날짜 선택"
             closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
-          />     
-       </S.DatePickerWrapper>
-       <S.IconTitleContainer>
-        <S.FilterTitle>팝업 기간</S.FilterTitle>
-        <S.SearchEventPeriod
-              onChange={(event) => setPopupDurationFilter(event.target.value)}
-            >
-              <option value="전체">전체</option>
-              <option value="1주일 이하">1주일 이하</option>
-              <option value="2주일 이하">2주일 이하</option>
-              <option value="한달 이하">한달 이하</option>
-              팝업 기간
-            </S.SearchEventPeriod>
-      </S.IconTitleContainer>
-    </S.SearchContainer>
-    <S.SearchButton onClick={(event) => {
-                    event.stopPropagation();
-                    navigate(`/search?search=${searchTerm}&date=${pickedDate}&duration=${popupDurationFilter}`);
-                  }}>
+          />
+        </S.DatePickerWrapper>
+        <S.IconTitleContainer>
+          <S.FilterTitle>팝업 기간</S.FilterTitle>
+          <S.SearchEventPeriod
+            onChange={(event) => setPopupDurationFilter(event.target.value)}
+          >
+            <option value="전체">전체</option>
+            <option value="1주일 이하">1주일 이하</option>
+            <option value="2주일 이하">2주일 이하</option>
+            <option value="한달 이하">한달 이하</option>
+            팝업 기간
+          </S.SearchEventPeriod>
+        </S.IconTitleContainer>
+      </S.SearchContainer>
+      <S.SearchButton
+        onClick={(event) => {
+          event.stopPropagation();
+          navigate(
+            `/search?search=${searchTerm}&date=${pickedDate}&duration=${popupDurationFilter}`,
+          );
+        }}
+      >
         검색
       </S.SearchButton>
     </>
-  )
-}
+  );
+};
 
-export default HomeSearch
+export default HomeSearch;

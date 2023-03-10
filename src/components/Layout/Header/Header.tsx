@@ -93,7 +93,7 @@ const Header = () => {
           className={isToggled ? 'NavOn' : 'NavOff'}
           onClick={() => setIsToggled(false)}
         >
-          <S.TextBackground style={{ width: 130 }}>
+          <S.TextBackground style={{ width: 140 }}>
             <S.CategoryBtn
               onClick={
                 user.isLogin
@@ -162,4 +162,3 @@ const Header = () => {
 };
 
 export default Header;
-
