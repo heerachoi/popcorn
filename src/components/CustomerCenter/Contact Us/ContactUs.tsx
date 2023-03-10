@@ -111,7 +111,7 @@ const ContactUs = () => {
           <S.NameText>HyunSil Choi</S.NameText>
           <S.LinkWarp style={{marginTop:'35px'}}>
             <S.LinkBox >
-              <S.LinkText>Portfoilo Link</S.LinkText>
+              <S.LinkText>Portfolio Link</S.LinkText>
               <S.Alink href="https://hyunsilchoi.creatorlink.net/">
                 https://hyunsilchoi.creatorlink.net/
               </S.Alink>

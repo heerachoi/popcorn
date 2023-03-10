@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import { useSetRecoilState } from 'recoil';
-import { globalBtn } from '../../atoms';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { globalBtn, userInfo } from '../../atoms';
 // firebase
 import { storage } from '../../services/firebase';
 import { getDownloadURL, ref, uploadString } from 'firebase/storage';
@@ -48,7 +48,7 @@ const InfoError = () => {
   const [errContent, setErrContent] = useState<ErrContent>(initErrContent);
   const [errImgFile, setErrImgFile] = useState<string>(''); // 이미지 파일
   const [errFileName, setErrFileName] = useState<string>(''); //이미지 파일 이름
-  const user = auth?.currentUser;  
+  const user = useRecoilValue(userInfo)  
     
 
   // input onChange 함수
@@ -130,7 +130,7 @@ const InfoError = () => {
     // db에 올라가는 데이터 구조
     const newErrModifiInfo = {
       id: uuidv4(),
-      user,
+      user: String(user.userInfomation.id),
       title: infoErrModifiInput.title,
       storeName: infoErrModifiInput.storeName,
       infoErrContent: errContent.infoErrContent,
