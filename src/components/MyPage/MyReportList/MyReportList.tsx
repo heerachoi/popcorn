@@ -13,6 +13,7 @@ import { Report } from '../../../types/report';
 // style
 import * as S from './style';
 import COLORS from '../../../assets/CSS/colors';
+import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 
 const MyReportList = () => {
   const {
@@ -29,12 +30,12 @@ const MyReportList = () => {
   
 
   if (status === 'loading') {
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('오류내용', error);

@@ -11,6 +11,7 @@ import { getPopupData } from '../../../services/api';
 import { Store } from '../../../types/data/storeInterface';
 // style
 import * as S from './style'
+import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 
 const MenPopularSwiper:React.FC = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const MenPopularSwiper:React.FC = () => {
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('오류내용', error);

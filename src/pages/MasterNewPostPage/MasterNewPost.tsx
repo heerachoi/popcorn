@@ -59,7 +59,6 @@ const MasterNewPost = () => {
     event: React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     setExplainText(event.target.value);
-    console.log('event.target.value', event.target.value);
   };
 
   // 이미지 파일 input onChange 함수

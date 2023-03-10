@@ -5,6 +5,7 @@ import { getTodayDate } from './FormatDate';
 import { Store } from '../types/data/storeInterface';
 // API
 import { getPopupData } from '../services/api';
+import LoadingAnimation from '../components/GlobalComponents/LoadingAnimation';
 
 // 현재 진행중인 스토어
 export const CurrentlyOpen = () => {
@@ -16,7 +17,7 @@ export const CurrentlyOpen = () => {
 
    if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('오류내용', error);
@@ -52,7 +53,7 @@ export const PopularToWomen = () => {
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('오류내용', error);
@@ -89,7 +90,7 @@ export const PopularToMen = () => {
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('오류내용', error);

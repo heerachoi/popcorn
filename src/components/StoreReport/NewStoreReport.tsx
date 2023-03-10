@@ -26,7 +26,7 @@ const NewStoreReport = () => {
   // date Picker 날짜 state
   const [startDate, setStartDate] = useState<Date | undefined>();
   const [endDate, setEndDate] = useState<Date | undefined>();
-  
+
   // 주소찾기 API 팝업창
   const [isOpenPost, setIsOpenPost] = useState<boolean>(false);
 
@@ -161,7 +161,6 @@ const NewStoreReport = () => {
   // datePicker onChange 함수
   const startDateOnchange = (date: Date) => {
     setStartDate(date);
-    console.log('date', date);
   };
 
   const endDateOnChange = (date: Date) => {
@@ -241,9 +240,9 @@ const NewStoreReport = () => {
           주소 검색
         </S.AddressBtn>
         {isOpenPost ? (
-          <S.PostModal>
-            <S.DaumPostcodeModal autoClose onComplete={onCompletePost} />
-          </S.PostModal>
+            <S.PostModal>
+              <S.DaumPostcodeModal autoClose onComplete={onCompletePost} />
+            </S.PostModal>
         ) : null}
       </S.ThreeGrid>
 

@@ -6,7 +6,7 @@ export interface ErrReport {
   infoErrContent: string;
   infoModifiContent: string;
   errImg: string;
-  reportedDate: Date | string;
+  reportedDate: string;
   category: string;
   status: boolean;
 }

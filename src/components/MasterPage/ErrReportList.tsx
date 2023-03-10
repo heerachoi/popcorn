@@ -8,8 +8,11 @@ import { getInfoErrReport, JSON_API } from '../../services/api';
 // style
 import * as S from './style';
 import COLORS from '../../assets/CSS/colors';
+import LoadingAnimation from '../GlobalComponents/LoadingAnimation';
+// type
+import { ErrReport } from '../../types/report';
 
-const ErrReportList: any = () => {
+const ErrReportList = () => {
   useEffect(() => {
     fetch();
   }, []);
@@ -26,7 +29,7 @@ const ErrReportList: any = () => {
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('error', error);
@@ -34,9 +37,9 @@ const ErrReportList: any = () => {
   }
 
   // 빈 배열 생성해서 status true, false값 각각 push
-  const statusTrue: any = [];
-  const statusFalse: any = [];
-  data.map((item: any) => {
+  const statusTrue: ErrReport[] = [];
+  const statusFalse: ErrReport[] = [];
+  data.map((item: ErrReport) => {
     if (item.status === true) {
       statusTrue.push(item);
     } else {
@@ -45,8 +48,9 @@ const ErrReportList: any = () => {
   });
 
   // 완료 날짜 최근순 정렬
+
   const resentStatusTrue = statusTrue.sort(
-    (a: any, b: any) =>
+    (a, b) =>
       Number(
         b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
       ) -
@@ -55,7 +59,7 @@ const ErrReportList: any = () => {
 
   //진행중 날짜 최근순 정렬
   const resentStatusFalse = statusFalse.sort(
-    (a: any, b: any) =>
+    (a, b) =>
       Number(
         b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
       ) -
@@ -68,7 +72,7 @@ const ErrReportList: any = () => {
   return (
     <S.ContentWrap>
       <S.ListContainer>
-        {statusSort?.map((li: any) => {
+        {statusSort?.map((li: ErrReport) => {
           return (
             <S.ListBox
               key={li.id}
@@ -83,7 +87,9 @@ const ErrReportList: any = () => {
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (
-                  <S.StatusText style={{ color: `${COLORS.black}` }}>완료</S.StatusText>
+                  <S.StatusText style={{ color: `${COLORS.black}` }}>
+                    완료
+                  </S.StatusText>
                 )}
               </S.ListContent>
             </S.ListBox>

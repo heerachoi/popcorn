@@ -40,7 +40,7 @@ const CategorySwiper:React.FC = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrow: false,
+    arrow: true,
     variableWidth: true, // 넓이 조정
     responsive: [
       {
