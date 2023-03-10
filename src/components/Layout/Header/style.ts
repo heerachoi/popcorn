@@ -141,11 +141,11 @@ export const BtnBox = styled.div`
 
 export const TextBackground = styled.div`
   cursor: pointer;
-  width: 150px;
+  /* width: 150px; */
   height: 20px;
   background-color: ${COLORS.yellow1};
   box-sizing: border-box;
-  padding-left: 20px;
+  padding-left: 10px;
   border-radius: 12px;
   &:hover {
     background-color: ${COLORS.orange4};
@@ -160,10 +160,10 @@ export const TextBackground = styled.div`
 `;
 
 export const MenuImageBackground = styled(TextBackground)`
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
-  top: 30px;
+  width: 39px;
+  height: 39px;
+  border-radius: 60px;
+  top: 20px;
 `;
 
 export const MenuImageBackgroundMobile = styled(MenuImageBackground)`
@@ -184,7 +184,7 @@ export const MapIcon = styled(BsMapFill)`
   cursor: pointer;
   font-size: 20px;
   position: relative;
-  right: 12px;
-  top: 5px;
+  right: 1px;
+  top: 9px;
   border: none;
 `;

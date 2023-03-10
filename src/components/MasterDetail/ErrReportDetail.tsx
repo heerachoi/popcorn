@@ -86,9 +86,9 @@ const ErrReportDetail = () => {
                   <S.ReportImg src={li.errImg} />
                 </S.Grid>
                 <S.ButtonBox>
-                  <S.CancleBtn onClick={() => navigate('/master')}>
+                  <S.CancelBtn onClick={() => navigate('/master')}>
                     취소
-                  </S.CancleBtn>
+                  </S.CancelBtn>
                   <S.CheckBtn onClick={checkHandler}>확인</S.CheckBtn>
                 </S.ButtonBox>
               </S.GridBox>

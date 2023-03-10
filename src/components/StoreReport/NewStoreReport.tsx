@@ -304,7 +304,7 @@ const NewStoreReport = () => {
         />
       </S.ReportGrid>
       <S.ButtonBox>
-        <S.CancleBtn onClick={cancleHandler}>취소</S.CancleBtn>
+        <S.CancelBtn onClick={cancleHandler}>취소</S.CancelBtn>
         <S.AddBtn type="submit">제보하기</S.AddBtn>
       </S.ButtonBox>
     </S.NewStoreForm>
