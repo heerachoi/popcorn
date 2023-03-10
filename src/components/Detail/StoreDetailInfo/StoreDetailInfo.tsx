@@ -79,7 +79,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     }
   };
   // 클릭했을 때 북마크에 추가 + 삭제
-  const postBookmarkHandler = async () => {
+const postBookmarkHandler = async () => {
     if (user.isLogin) {
       if (bookMarkState) {
         // 북마크가 있을 경우 삭제
