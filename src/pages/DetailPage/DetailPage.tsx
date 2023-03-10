@@ -23,19 +23,28 @@ const DetailPage: any = () => {
   const queryClient = useQueryClient();
 
   const today = new Date(); // 오늘 날짜
-  const birthDay = new Date(users.userInfomation.age); // 유저 생일
+  const birthDay: any = new Date(users.userInfomation.age); // 유저 생일
 
   // 유저의 나이 계산
-  let age = today.getFullYear() - birthDay.getFullYear();
-
+  let age =
+    typeof birthDay !== 'object'
+      ? today.getFullYear() - birthDay.getFullYear()
+      : users.userInfomation.age;
+  const upForey =
+    age === '40대' ||
+    age === '50대' ||
+    age === '60대' ||
+    age === '70대' ||
+    age === '80대' ||
+    age === '90대';
   // 나이에 따른 연령대를 셋팅해주는 함수
   const generation = () => {
     if ((age < 0 && age >= 0 && age < 10) || !users.isLogin)
       setUserAge('연령모름');
-    if (age >= 10 && age < 20) setUserAge('10');
-    if (age >= 20 && age < 30) setUserAge('20');
-    if (age >= 30 && age < 40) setUserAge('40');
-    if (age > 40) setUserAge('40+');
+    if ((age >= 10 && age < 20) || age === '10대') setUserAge('10');
+    if ((age >= 20 && age < 30) || age === '20대') setUserAge('20');
+    if ((age >= 30 && age < 40) || age === '30대') setUserAge('40');
+    if (age > 40 || upForey) setUserAge('40+');
   };
 
   // 데이터를 업데이트 해주는 함수
