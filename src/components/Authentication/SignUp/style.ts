@@ -162,7 +162,7 @@ export const PhoneBtn = styled.button`
   }
 `;
 
-export const CancleBtn = styled(PhoneBtn)`
+export const CancelBtn = styled(PhoneBtn)`
   width: 200px;
   color: ${COLORS.gray5};
   background-color: ${COLORS.gray8};
@@ -176,7 +176,7 @@ export const CancleBtn = styled(PhoneBtn)`
   }
 `;
 
-export const SignUpBtn = styled(CancleBtn)`
+export const SignUpBtn = styled(CancelBtn)`
   color: ${COLORS.white};
   background-color: ${COLORS.gray6};
   border: 1px solid ${COLORS.gray5};
