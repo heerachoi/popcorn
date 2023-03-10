@@ -16,7 +16,7 @@ const BookMarkList = () => {
   const userInfos = user.userInfomation;
   const { data, isLoading } = useQuery('BookMarkList', getBookMark);
   const bookmarkList = data?.filter((bookmark: any) => {
-    return userInfos?.id === bookmark?.user;
+    return String(userInfos?.id) === bookmark?.user;
   });
 
   return (
@@ -28,7 +28,7 @@ const BookMarkList = () => {
       ) : (
         <S.BookMarkContainer>
           {bookmarkList.map((li: any) => {
-            return <BookMarkStore li={li} />;
+            return <BookMarkStore li={li} key={li.id} />;
           })}
         </S.BookMarkContainer>
       )}

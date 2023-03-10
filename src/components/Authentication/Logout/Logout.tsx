@@ -27,6 +27,7 @@ const Logout = () => {
     }).then((res) => res.json());
     setAccessToken(undefined);
     localStorage.removeItem('token_for_kakaotalk');
+    localStorage.removeItem('kakao_user_id');
 
     signOut(auth);
     setIsModal({ ...isModal, logout: !isModal.logout });

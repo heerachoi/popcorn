@@ -40,7 +40,7 @@ const Layout = ({ children }: Props) => {
         setUsers({
           isLogin: true,
           userInfomation: {
-            displayName: user.displayName,
+            nickName: user.displayName,
             email: user.email,
             photoURL: user.photoURL,
             age: '',
@@ -67,7 +67,7 @@ const Layout = ({ children }: Props) => {
         setUsers({
           isLogin: true,
           userInfomation: {
-            displayName: '',
+            nickName: '',
             email: '',
             photoURL: '',
             age: '',
@@ -76,8 +76,8 @@ const Layout = ({ children }: Props) => {
             id: kakaoId,
           },
         });
-        // string 일 때 실행됨
       }
+      // string 일 때 실행됨
     } else if (!accessToken) {
       reset();
     }
@@ -86,9 +86,12 @@ const Layout = ({ children }: Props) => {
   useEffect(() => {
     // 현재 유저와 users.json에 있는 user과 같으면
     const myUser = userDataFromJson?.filter((user: UserInfomation) => {
+      console.log(users.userInfomation.id);
+      console.log(user.id);
+
       return users.userInfomation.id === String(user.id);
     })[0];
-
+    console.log(myUser, 'myUser');
     // myUser가 빈 값이 아닐 때
     // 한번 더 set 해주는 이유 : 성별, 나이 조회수 및 마이페이지에서 정보수정을 하기 위해서
     if (!!myUser) {
@@ -101,7 +104,7 @@ const Layout = ({ children }: Props) => {
     }
     // users의 isLogin의 상태가 바뀔 때 마다 설정해준다.
   }, [users.isLogin, userDataFromJson]);
-
+  console.log(users);
   return (
     <LayoutWrap>
       <Header />

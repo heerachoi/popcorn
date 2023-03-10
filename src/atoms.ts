@@ -19,7 +19,7 @@ export const userInfo = atom<UserInfoState>({
   default: {
     isLogin: false,
     userInfomation: {
-      displayName: '',
+      nickName: '',
       email: '',
       photoURL: '',
       age: '',
