@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 // API
 import { JSON_API } from '../../services/api';
 import { getNewStoreReport } from '../../services/api';
+import LoadingAnimation from '../GlobalComponents/LoadingAnimation';
 // style
 import * as S from './style';
 
@@ -18,7 +19,7 @@ const NewStoreReportDetail = () => {
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('오류내용', error);

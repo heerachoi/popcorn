@@ -199,11 +199,11 @@ const SignUp = () => {
   /////////// 유효성 검사 ////////////
   // 밑에서 onBlur에 이 함수를 넣어줌, focus 상태가 아닐 때 함수 실행됨
   const validateNickName = (event: React.FocusEvent<HTMLInputElement>) => {
-    if (event.target.value.length < 2 || event.target.value.length > 10) {
+    if (event.target.value.length < 2 || event.target.value.length > 5) {
       // foucs한 value가 이 조건이라면
       setHelperText({
         ...helperText,
-        nickName: '2글자 이상 10글자 이하로 작성해주세요.', // 닉네임 아래 경고문
+        nickName: '2글자 이상 5글자 이하로 작성해주세요.', // 닉네임 아래 경고문
       });
     } else {
       setHelperText({
@@ -315,6 +315,7 @@ const SignUp = () => {
             value={signUpInput.nickName}
             name="nickName"
             type="text"
+            maxLength={4}
             onBlur={validateNickName}
           />
           <S.HelperText>{helperText.nickName}</S.HelperText>
@@ -327,6 +328,7 @@ const SignUp = () => {
             value={signUpInput.email}
             name="email"
             type="email"
+            maxLength={20}
             onBlur={validateEmail}
           />
           <S.HelperText>{helperText.email}</S.HelperText>

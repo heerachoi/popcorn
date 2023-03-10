@@ -15,6 +15,7 @@ export const ReportGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 1fr;
   margin-bottom: 40px;
+  align-items: baseline;
 
   @media screen and (max-width: 700px) {
     width: 340px;
@@ -27,6 +28,7 @@ export const ThreeGrid = styled.div`
   display: grid;
   grid-template-columns: 150px 250px 250px;
   margin-bottom: 40px;
+  align-items: baseline;
   @media screen and (max-width: 700px) {
     width: 340px;
     display: block;
@@ -276,6 +278,14 @@ export const ErrorImgLabel = styled.label`
   cursor: pointer;
 `;
 
-export const PostModal = styled.div``;
+
+export const PostModal = styled.div`  
+  position: fixed;
+  left: 60%;
+  top: 40%;
+  height: 400px;
+  width: 400px;
+  z-index: 9999px;
+`;
 
 export const DaumPostcodeModal = styled(DaumPostcode)``;

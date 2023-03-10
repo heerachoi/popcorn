@@ -5,8 +5,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 // API
 import { getInfoErrReport } from '../../services/api';
 import { JSON_API } from '../../services/api';
+import LoadingAnimation from '../GlobalComponents/LoadingAnimation';
 // style
 import * as S from './style';
+// type
+import { ErrReport } from '../../types/report';
 
 const ErrReportDetail = () => {
   const navigate = useNavigate();
@@ -18,14 +21,14 @@ const ErrReportDetail = () => {
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
 
-  const selectedDetail = data?.filter((item: any) => item.id === paramId.id);
+  const selectedDetail = data?.filter((item: ErrReport) => item.id === paramId.id);
   const currentState = selectedDetail[0].status;
 
   const checkHandler = () => {

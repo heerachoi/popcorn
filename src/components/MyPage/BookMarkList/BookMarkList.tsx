@@ -26,7 +26,6 @@ const BookMarkList = () => {
     return <p><LoadingAnimation /></p>;
   }
 
-  console.log();
   const bookmarkList = data?.filter((bookmark: any) => {
     return String(userInfos?.id) === bookmark?.user;
   });

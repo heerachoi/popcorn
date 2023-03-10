@@ -8,6 +8,8 @@ import Notice from '../../components/CustomerCenter/Notice/Notice';
 // style
 import * as S from './style';
 
+
+
 const CustomerCenterPage: any = () => {
   // 탭 메뉴 제목을 클릭하면 해당 탭의 index값 저장
   // 초기 화면에 0번째 탭이 나오도록 초기값 설정
@@ -34,7 +36,7 @@ const CustomerCenterPage: any = () => {
   ];
 
   // onClick 시 해당 탭의 index값을 set
-  const tabClickHandler = (i: any) => {
+  const tabClickHandler = (i: number) => {
     setFooterActive(i);
   };
 
@@ -47,7 +49,7 @@ const CustomerCenterPage: any = () => {
       <S.CustomerCenterContainer>
         <S.TabMenu>
           {/* map으로 title을 뽑아옴 */}
-          {menuArr.map((item: any, i: any) => {
+          {menuArr.map((item, i: number) => {
             return (
               <S.TabTitleBox key={item.id}>
                 <S.MenuTitleTabBtn

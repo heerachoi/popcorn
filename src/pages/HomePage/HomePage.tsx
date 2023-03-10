@@ -12,12 +12,13 @@ import HomeSearch from '../../components/HomePage/Search/HomeSearch';
 import TopButton from '../../components/GlobalComponents/TopButton';
 // style
 import * as S from './style';
+import LoadingAnimation from '../../components/GlobalComponents/LoadingAnimation';
 
 const HomePage = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     return <p>Error!!!</p>;
