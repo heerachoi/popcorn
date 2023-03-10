@@ -28,11 +28,10 @@ const ErrReportList = () => {
   );
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
-    console.log('error', error);
+    console.log( error);
     return <p>Error!!!!</p>;
   }
 

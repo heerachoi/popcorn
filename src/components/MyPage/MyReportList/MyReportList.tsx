@@ -14,8 +14,13 @@ import { Report } from '../../../types/report';
 import * as S from './style';
 import COLORS from '../../../assets/CSS/colors';
 import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
+import { useRecoilValue } from 'recoil';
+import { userInfo } from '../../../atoms';
 
 const MyReportList = () => {
+  const user = useRecoilValue(userInfo);
+  const userInfos = user.userInfomation;
+
   const {
     isLoading,
     isError,
@@ -27,29 +32,25 @@ const MyReportList = () => {
     'infoErrModifiContents',
     getInfoErrReport,
   );
-  
 
   if (status === 'loading') {
     return <LoadingAnimation />;
   }
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
-    console.log('오류내용', error);
+    console.log( error);
     return <p>Error!!!</p>;
   }
-  const uid = auth.currentUser?.uid;
 
   const myErrReport = errReport.filter(
-    (item: ErrReport) => item.user.uid === uid,
+    (item: ErrReport) => item?.user === String(userInfos?.id),
   );
-    
 
   const myNewStoreReport = newStores.filter(
-    (item: NewStoreReport) => item.user.uid === uid,
+    (item: NewStoreReport) => item?.user === String(userInfos?.id),
   );
 
   const myReports = myErrReport.concat(myNewStoreReport);
