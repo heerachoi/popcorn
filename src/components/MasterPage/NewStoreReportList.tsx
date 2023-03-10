@@ -10,6 +10,7 @@ import { NewStoreReport } from '../../types/report';
 // style
 import * as S from './style';
 import COLORS from '../../assets/CSS/colors';
+import LoadingAnimation from '../GlobalComponents/LoadingAnimation';
 
 const NewStoreReportList = () => {
   useEffect(() => {
@@ -28,7 +29,7 @@ const NewStoreReportList = () => {
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('error', error);
@@ -44,6 +45,7 @@ const NewStoreReportList = () => {
       statusFalse.push(item);
     }
   });
+  console.log('statusFalse', statusFalse);
 
   const resentStatusTrue = statusTrue.sort(
     (a, b) =>
@@ -54,7 +56,7 @@ const NewStoreReportList = () => {
   );
 
   const resentStatusFalse = statusFalse.sort(
-    (a: any, b: any) =>
+    (a, b) =>
       Number(
         b.reportedDate.split('.').slice(0, 3).join('').replace(/\s/g, ''),
       ) -
@@ -66,7 +68,7 @@ const NewStoreReportList = () => {
   return (
     <S.ContentWrap>
       <S.ListContainer>
-        {statusSort?.map((li: any) => {
+        {statusSort?.map((li: NewStoreReport) => {
           return (
             <S.ListBox
               key={li.id}

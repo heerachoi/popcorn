@@ -36,7 +36,7 @@ export const NewPostTitle = styled.div`
 `;
 
 export const NewPostContainer = styled.form`
-  min-height: 1050px;
+  /* min-height: 1050px; */
   border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
   margin-top: 49px;

@@ -15,8 +15,16 @@ import LikeHoverImg from '../../../assets/Img/Feel=Happy, Color=Yellow.svg';
 import HateHoverImg from '../../../assets/Img/Feel=Sad, Color=Yellow.svg';
 import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../../atoms';
+
 interface Props {
   detailData: Store;
+}
+
+interface LikeHate {
+  id: string,
+  store: string,
+  user: string,
+  vote: string,
 }
 
 const StoreEmoji = ({ detailData }: Props) => {
@@ -65,7 +73,7 @@ const StoreEmoji = ({ detailData }: Props) => {
   // 렌더링 시 유저 클릭 유무 확인
   const fetchLikeHate = async () => {
     const { data } = await axios.get(`${JSON_API}/likeHate`);
-    data.map((item: any) => {
+    data.map((item: LikeHate) => {
       if (item.user === String(user.userInfomation.id) && item.store === detailData?.id) {
         // setCurrentLikeId(item.id);
         if (item.vote === 'like') {
@@ -85,7 +93,7 @@ const StoreEmoji = ({ detailData }: Props) => {
   // 좋아요 숫자 카운트
   const likeCountHandler = async () => {
     const { data } = await axios.get(`${JSON_API}/likeHate`);
-    const likes = data.filter((item: any) => {
+    const likes = data.filter((item: LikeHate) => {
       if (item.store === detailData?.id && item.vote === 'like') {
         return true;
       }
@@ -96,7 +104,7 @@ const StoreEmoji = ({ detailData }: Props) => {
   // 별로예요 숫자 카운트
   const hateCountHandler = async () => {
     const { data } = await axios.get(`${JSON_API}/likeHate`);
-    const hates = data.filter((item: any) => {
+    const hates = data.filter((item: LikeHate) => {
       if (item.store === detailData?.id && item.vote === 'hate') {
         return true;
       }

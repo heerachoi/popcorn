@@ -76,7 +76,7 @@ const KakaoLogin = () => {
   // 유저정보 저장
   const saveUserInfoToServer = async (user: any) => {
     let newUserInfo: UserInfo = {
-      age: user.data.kakao_account.age_range.slice(0, 2),
+      age: user.data.kakao_account.age_range.slice(0, 2) + '대',
       email: user.data.kakao_account.email,
       nickName: user.data.properties.nickname,
       id: user.data.id,

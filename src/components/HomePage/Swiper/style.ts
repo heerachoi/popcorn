@@ -12,7 +12,7 @@ export const SwiperContainer = styled(Slider)`
 
   img {
     cursor: pointer;
-    height: 334px;
+    /* height: 334px; */
     width: 334px;   
     
     @media screen and (max-width: 400px){
@@ -25,8 +25,7 @@ export const SwiperContainer = styled(Slider)`
   .slick-arrow {
     width: 52px;
     height: 59px;
-    background: url(${ArrowBackgroundOff});
-    
+    background: url(${ArrowBackgroundOn});    
   }
 
   li {
@@ -47,24 +46,22 @@ export const SwiperContainer = styled(Slider)`
   }
 
   .slick-next {
+    right: -70px;
     z-index: 999;
-    background-color: white;
     width: 52px;
     height: 59px;
-    background: url(${ArrowBackgroundOff});
+    /* background: url(${ArrowBackgroundOn}); */
     &:hover {
-      background: url(${ArrowBackgroundOn});
+      /* background: url(${ArrowBackgroundOn}); */
     }
   }
   .slick-prev {
+    left: -75px;
     z-index: 999;
-    background: url(${ArrowBackgroundOff});
+    background: url(${ArrowBackgroundOn});
     width: 55px;
     height: 59px;
     object-fit: cover;
-    &:hover {
-      background: url(${ArrowBackgroundOn});
-    }
     @media screen and (max-width: 400px){
       display: none;  
       z-index: 0;    
@@ -145,7 +142,7 @@ export const Category = styled.div`
 // 더보기
 export const SeeMoreContainer = styled.div`
   width: 344px;
-  height: 516px;
+  height: 490px;
   border-radius: 8px;
   position: relative;
   cursor: pointer;
@@ -153,7 +150,7 @@ export const SeeMoreContainer = styled.div`
 
 export const SeeMoreImage = styled.img`
   width: 100%;
-  height: 516px;
+  height: 490px;
   object-fit: cover;
   border-radius: 8px;
 `;

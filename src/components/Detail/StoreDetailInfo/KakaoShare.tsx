@@ -34,10 +34,6 @@ const KakaoShare = ({ detailData }: Props) => {
           webUrl: `${WEB_API}`,
         },
       },
-      social: {
-        // 나중에 글 추천수의 데이터를 받아와서 바꿔줌
-        likeCount: 287,
-      },
       buttons: [
         {
           title: '웹으로 보기',

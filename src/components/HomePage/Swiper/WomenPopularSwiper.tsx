@@ -11,6 +11,7 @@ import { getTodayDate } from '../../../utils/FormatDate';
 import { PopularToWomen } from '../../../utils/Filter';
 // style
 import * as S from './style';
+import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 
 const WomenPopularSwiper: React.FC = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const WomenPopularSwiper: React.FC = () => {
 
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <LoadingAnimation />;
   }
   if (isError) {
     console.log('오류내용', error);
