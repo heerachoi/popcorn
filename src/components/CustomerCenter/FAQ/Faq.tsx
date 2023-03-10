@@ -19,11 +19,9 @@ const Faq = () => {
   const { isLoading, isError, data, error } = useQuery('FAQ', getFaq);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
-    console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
   const clickHandler = (i: number) => {

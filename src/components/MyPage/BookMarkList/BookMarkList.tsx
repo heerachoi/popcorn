@@ -14,18 +14,10 @@ import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 const BookMarkList = () => {
   const user = useRecoilValue(userInfo);
   const userInfos = user.userInfomation;
-  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-  const accessToken = useRecoilValue(kakaoAccessToken);
   const { data, isLoading } = useQuery('BookMarkList', getBookMark);
 
-  const navigate = useNavigate();
   if (isLoading) {
-    console.log('로딩중');
-    return (
-      <p>
-        <LoadingAnimation />
-      </p>
-    );
+    return <LoadingAnimation />;
   }
 
   const bookmarkList = data?.filter((bookmark: any) => {

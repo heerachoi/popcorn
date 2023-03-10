@@ -36,8 +36,6 @@ const KakaoLogin = () => {
     window.location.replace(link);
   };
 
-  const code = new URL(window.location.href).searchParams.get('code');
-
   //카카오 서버로 클라이언트 시크릿키값과 파라미터의 코드값을 보내 액세스토큰을 요청
   const getUser = async () => {
     const ACCESS_TOKEN = await fetch('https://kauth.kakao.com/oauth/token', {
