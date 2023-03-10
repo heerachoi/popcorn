@@ -10,9 +10,9 @@ export const Wrap = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  
+
   @media screen and (max-width: 840px) {
-   padding: 0 10px;
+    padding: 0 10px;
   }
 `;
 
@@ -62,6 +62,7 @@ export const CategoryBtn = styled.button`
   top: -8px;
   border: none;
   background-color: transparent;
+  color: ${COLORS.black};
   font-family: 'Apple SD Gothic Neo';
   font-style: normal;
   font-weight: 700;
@@ -77,7 +78,6 @@ export const MapBtn = styled(CategoryBtn)`
     color: ${COLORS.white};
   }
 `;
-
 
 // Header
 export const MenuIconContainer = styled.div`
@@ -148,7 +148,7 @@ export const TextBackground = styled.div`
   padding-left: 10px;
   border-radius: 12px;
   &:hover {
-    background-color: ${COLORS.orange4};
+    background-color: ${COLORS.orange2};
   }
   @media screen and (max-width: 840px) {
     padding-top: 50px;
