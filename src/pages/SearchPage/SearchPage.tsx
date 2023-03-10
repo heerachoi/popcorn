@@ -6,7 +6,6 @@ import { getPopupData } from '../../services/api';
 import { Store } from '../../types/data/storeInterface';
 // Library
 import { ko } from 'date-fns/esm/locale';
-import { MouseEvent } from 'react';
 // library
 import { useRecoilValue } from 'recoil';
 import StoreCalendar from '../../components/StoreCalendar/StoreCalendar';
@@ -16,6 +15,7 @@ import useLocationModal from '../../hooks/useLocationModal';
 import useItemModal from '../../hooks/useItemModal';
 import useOtherModal from '../../hooks/useOtherModal';
 // component
+import ColorBox from '../../components/StoreCalendar/ColorBox';
 import Modal from '../../components/SearchPage/SearchModal/SearchModal';
 import { ModalButtonData } from '../../utils/ModalButtonData/ModalButtonData';
 import { ItemModalButtonData } from '../../utils/ModalButtonData/ItemModalButtonData';
@@ -26,6 +26,7 @@ import TopButton from '../../components/GlobalComponents/TopButton';
 import * as S from './style';
 import { ImSearch } from 'react-icons/im';
 import { BsFillCalendarFill } from 'react-icons/bs';
+import {SearchKey} from '../../atoms';
 
 const Search: React.FC = () => {
   // 1. url에서 카테고리 정보를 받아
@@ -34,6 +35,7 @@ const Search: React.FC = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(data);
+  const searchKey = useRecoilValue(SearchKey);
 
   // 팝업 스토어 필터된 리스트
   let searchList: Store[] = [];
@@ -43,17 +45,15 @@ const Search: React.FC = () => {
   let otherList: Store[] = [];
 
   // 검색어
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [searchTerm, setSearchTerm] = useState<any>('');
   const [saveSearchList, setSaveSearchList] = useState<Store[]>(data);
   // Date Picker
-  const [dateSelected, setDateSelected] = useState<string>();
+  const [dateSelected, setDateSelected] = useState<any>();
   const [saveDatePickerList, setSaveDatePickerList] = useState<Store[]>(data);
   // 팝업 기간
-  const [popupDurationFilter, setPopupDurationFilter] = useState<string>('전체');
+  const [popupDurationFilter, setPopupDurationFilter] = useState<any>('전체');
   const [savePopupDurationList, setSavePopupDurationList] =
     useState<Store[]>(data);
-  // 팝업 유형
-  const [saveDepartmentList, setSaveDepartmentList] = useState<Store[]>(data);
   // 지역 필터
   const [saveLocationList, setSaveLocationtList] = useState<Store[]>(data);
   //  제품 필터
@@ -67,13 +67,7 @@ const Search: React.FC = () => {
   const { isOtherModalShowing, otherToggle } = useOtherModal();
   const [pickedDate, setPickedDate] = useState<number>();
   const [datePickerPlaceHolder, setDatePickerPlaceHolder] =
-    useState<string>('날짜 선택');
-  // pickedDate
-  useEffect(() => {
-    datePickerFilterHandler();
-  }, [pickedDate]);
-
-
+  useState<string>('날짜 선택');
    useEffect(() => {
     searchFilterHandler();
   }, [searchTerm]);
@@ -82,9 +76,9 @@ const Search: React.FC = () => {
   const searchFilterHandler = () => {
     data?.forEach((store: Store) => {
       if (
-        store.title === searchTerm ||
-        store.address === searchTerm ||
-        store.location === searchTerm ||
+        store.title.includes(searchTerm) ||
+        store.address.includes(searchTerm) === searchTerm ||
+        store.location.includes(searchTerm) ||
         store.item === searchTerm ||
         store.category === searchTerm
       ) {
@@ -95,9 +89,15 @@ const Search: React.FC = () => {
       setSaveSearchList(data);
     } else {
       setSaveSearchList(searchList);
+      searchList =[];
     }
     startFilter();
   };
+
+    // Date Picker
+  useEffect(() => {
+    dateSelectedFilterHandler();
+  }, [dateSelected]);
 
   // DatePicker 날짜 숫자로 바꿔준다
   const dateSelectedFilterHandler = () => {
@@ -242,6 +242,9 @@ const Search: React.FC = () => {
     // otherFilterList에 있는 값들 중에
     // store view안에 otherFilterList에 선택된 애들이 10,20일경우
     // 10,20이 0 이상인 경우 출력
+    if (otherFilterList[0].label === '전체') {
+        setSaveOtherList(data);
+    } else {
     data?.map((store: Store) => {
       otherFilterList.map((other) => {
         // store.view[10]은 알아서 뽑아낸다 -> 0이 아닐때
@@ -260,40 +263,73 @@ const Search: React.FC = () => {
     });
     setSaveOtherList(otherList);
     otherList = [];
+  }
   };
 
   // ModalButtonData에서 찾아서 active True
   // locationFilterList에 추가하면
   // locationFilterHandler 실행되고
   // 필터 리스트 리프레시
+
   const getURLInfo = () => {
     //현제 URL
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get('search');
     const dateParam = urlParams.get('date');
     const duration = urlParams.get('duration');
+  
+
+      // Check if the parameters are in sessionStorage
+  if (sessionStorage.getItem('searchParam') !== null) {
+    setSearchTerm(sessionStorage.getItem('searchParam'));
+  }
+
+  if (sessionStorage.getItem('dateParam') !== null ) {
+    setPickedDate(Number(sessionStorage.getItem('dateParam')));
+  }
+
+  if (sessionStorage.getItem('duration') !== null) {
+    setPopupDurationFilter(sessionStorage.getItem('duration'));
+  }
+
+
+
+
+
     if (searchParam != undefined || searchParam != null) {
       const decodedSearch = decodeURIComponent(searchParam);
+      sessionStorage.setItem('searchParam', decodedSearch);
       setSearchTerm(decodedSearch);
+    } else {
+      setSaveSearchList(data);
     }
 
     if (dateParam !== null) {
-      if (dateParam !== 'undefined') {
-        const decodedDate = decodeURIComponent(dateParam);
-        setPickedDate(Number(decodedDate));
+      if (dateParam !== undefined) {
+        let decodedDate = decodeURIComponent(dateParam);
+        sessionStorage.setItem('dateParam', decodedDate);
+        if (decodedDate === 'NaN') {
+          decodedDate = '날짜 선택';
+        } else {
+          setPickedDate(Number(decodedDate));
+
+        }
         setDatePickerPlaceHolder(decodedDate);
-      }
+      } 
     }
-    if (duration !== null && dateParam !== undefined) {
+    if (duration !== null) {
       const decodedDuration = decodeURIComponent(duration);
+      sessionStorage.setItem('durationParam', decodedDuration);
+
       setPopupDurationFilter(decodedDuration);
     }
+    
   };
 
   // url
   useEffect(() => {
     getURLInfo();
-  }, []);
+  }, [window.location.pathname, window.location.search]);
 
   // 검색
   useEffect(() => {
@@ -338,7 +374,6 @@ const Search: React.FC = () => {
     saveSearchList,
     saveDatePickerList,
     savePopupDurationList,
-    saveDepartmentList,
     saveLocationList,
     saveItemList,
     saveOtherList,
@@ -346,31 +381,47 @@ const Search: React.FC = () => {
 
   // 지역, 날짜, 기타 사항 필터
   const startFilter = () => {
+    if (savePopupDurationList === undefined && saveLocationList === undefined && saveItemList === undefined) {
+      setStoreList(data);
+    } else {
     let result: Store[] = [];
     // 1. 검색 & 기간 필터
-    result = saveSearchList?.filter((store: Store) =>
-      savePopupDurationList.includes(store),
-    );
+    if (savePopupDurationList === undefined) {
+      result = data;
+     } else {
+      result = saveSearchList?.filter((store: Store) =>
+        savePopupDurationList.includes(store),
+      );
+    }
     // 2. #1에서 나온 목록에서 위치 필터
     let result2: Store[] = [];
-    result?.map((store: Store, index) => {
-      for (let i = 0; i < saveLocationList.length; i++) {
-        if (saveLocationList[i].id === store.id) {
-          result2.push(store);
+    if (saveLocationList === undefined) {
+      result2 = result;
+    } else {
+      result?.map((store: Store, index) => {
+        for (let i = 0; i < saveLocationList.length; i++) {
+          if (saveLocationList[i].id === store.id) {
+            result2.push(store);
+          }
         }
-      }
-    });
+      });
+    }
     // 3. #2에서 나온 목록에서 위치 필터
     let result3: Store[] = [];
-    result2.map((store: Store, index) => {
+    if (result2 === undefined) {
+      result2 = data;
+    } else {
+    result2.map((store: Store) => {
       for (let i = 0; i < saveDatePickerList.length; i++) {
         if (saveDatePickerList[i].id === store.id) {
           result3.push(store);
         }
       }
     });
+  }
     // 4. #3에서 나온 목록에서 제품 필터
     let result4: Store[] = [];
+
     result3.map((store: Store, index) => {
       for (let i = 0; i < saveItemList.length; i++) {
         if (saveItemList[i].id === store.id) {
@@ -388,6 +439,7 @@ const Search: React.FC = () => {
       }
     });
     setStoreList(result5);
+    }
   };
 
   // 모달 클릭 값
@@ -413,6 +465,7 @@ const Search: React.FC = () => {
           <ImSearch />
           <S.KeyWordInputTitle>키워드</S.KeyWordInputTitle>
           <S.SearchInput
+            value={searchTerm}
             placeholder="키워드를 입력해주세요."
             onChange={(event) => setSearchTerm(event.target.value)}
           />
@@ -428,12 +481,12 @@ const Search: React.FC = () => {
                 <S.DatePickerContainer
                   selected={dateSelected ? new Date(dateSelected) : null}
                   locale={ko}
-                  onChange={(date) => setDateSelected(date?.toString())}
+                  onChange={(date) => setDateSelected(date)}
                   dateFormat="yyyy-MM-dd"
                   minDate={new Date()}
                   showPopperArrow={false}
                   isClearable={true}
-                  placeholderText={datePickerPlaceHolder}
+                  placeholderText={(datePickerPlaceHolder.length !== 0) || (datePickerPlaceHolder !== 'NaN') ? datePickerPlaceHolder : '날짜 선택'}
                   closeOnScroll={true} // 스크롤을 움직였을 때 자동으로 닫히도록 설정
                 />
               </S.DatePickerWrapper>
@@ -549,6 +602,7 @@ const Search: React.FC = () => {
           )}
         </S.FilterResult>
         <S.CalendarContainer>
+          <ColorBox/>
           {storeList !== undefined ? (
             <StoreCalendar storeList={storeList} />
           ) : null}

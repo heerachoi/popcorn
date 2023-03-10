@@ -170,3 +170,16 @@ export const userInfoState = atom({
     accessToken: '',
   },
 });
+
+
+export const SearchKey = atom({
+  key: 'searchKey',
+  default: {
+    keyword: '',
+    date: '',
+    duration: '',
+    location: '',
+    item: '',
+    other: '',
+  },
+});

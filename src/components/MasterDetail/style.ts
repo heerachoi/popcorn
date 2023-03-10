@@ -121,7 +121,7 @@ export const ButtonBox = styled.div`
   align-items: center;
 `;
 
-export const CancleBtn = styled.button`
+export const CancelBtn = styled.button`
   border: 1px solid ${COLORS.gray7};
   border-radius: 8px;
   margin: 15px;
