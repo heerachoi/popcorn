@@ -424,7 +424,7 @@ const SignUp = () => {
           </S.FormBtnWrap>
         </S.FormItemWrap>
         <S.FormBtnWrap>
-          <S.CancleBtn onClick={() => navigate('/login')}>취소</S.CancleBtn>
+          <S.CancelBtn onClick={() => navigate('/login')}>취소</S.CancelBtn>
           {/* 모든 조건을 충족하면 회원가입을 누를 수 있다. */}
           <S.SignUpBtn disabled={isSignUpBtnDisabled()}>회원가입</S.SignUpBtn>
         </S.FormBtnWrap>
