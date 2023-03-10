@@ -23,7 +23,6 @@ export const ModalWrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  /* overflow-y: auto; */
   outline: 0;
 `
 
@@ -87,7 +86,7 @@ export const CategoryButton = styled.div<CategoryItemProps>`
   font-size: 16px;
   border-radius: 20px;
   height: 40px;
-  background-color: ${props => props.active ? `${COLORS.orange2}`:`${COLORS.gray3}` };
+  background-color: ${props => props.active ? `${COLORS.orange4}`:`${COLORS.gray3}` };
   cursor : pointer;
 `
 

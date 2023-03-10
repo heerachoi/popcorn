@@ -1,10 +1,12 @@
+// library
 import axios from 'axios';
-import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getNewStoreReport } from '../../services/api';
-import * as S from './style';
+// API
 import { JSON_API } from '../../services/api';
+import { getNewStoreReport } from '../../services/api';
+// style
+import * as S from './style';
 
 const NewStoreReportDetail = () => {
   const navigate = useNavigate();

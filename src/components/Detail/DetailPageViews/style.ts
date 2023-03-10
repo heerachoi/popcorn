@@ -32,7 +32,7 @@ export const GrapfBox = styled.div`
 export const GrapTitleBackground = styled.div`
   width: 145px;
   height: 18px;
-  background-color: ${COLORS.yellow};
+  background-color: ${COLORS.yellow1};
   position: absolute;
   box-sizing: border-box;
   border-radius: 12px;

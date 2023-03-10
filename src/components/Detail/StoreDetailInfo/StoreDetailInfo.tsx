@@ -1,5 +1,3 @@
-/* style */
-import * as S from './style';
 /* library */
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -22,6 +20,8 @@ import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
 import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
 import Instagram from '../../../assets/Img/Instagram.svg';
 import LinkImg from '../../../assets/Img/Link.svg';
+/* style */
+import * as S from './style';
 
 interface Props {
   detailData: Store;
@@ -67,7 +67,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
         data[i].store === detailData?.id
       ) {
         // 유저가 북마크를 했음
-        setChangeColor(`${COLORS.orange2}`);
+        setChangeColor(`${COLORS.orange4}`);
         setBookMarkState(true);
         setCurrentBookMarkId(user.userInfomation.id + detailData?.id);
         break;
@@ -79,7 +79,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     }
   };
   // 클릭했을 때 북마크에 추가 + 삭제
-  const postBookmarkHandler = async () => {
+const postBookmarkHandler = async () => {
     if (user.isLogin) {
       if (bookMarkState) {
         // 북마크가 있을 경우 삭제
@@ -182,7 +182,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                     <Link
                       to={detailData?.sns}
                       target="_blank"
-                      style={{ color: '#323232' }}
+                      style={{ color: `${COLORS.black}` }}
                     >
                       {detailData.sns.includes('instagram') ? (
                         <S.SnsImg src={Instagram} />

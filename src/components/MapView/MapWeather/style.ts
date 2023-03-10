@@ -22,5 +22,5 @@ export const WeatherText = styled.span`
 `;
 
 export const WeatherSpan = styled.span`
-  color: ${COLORS.orange6};
+  color: ${COLORS.orange1};
 `;

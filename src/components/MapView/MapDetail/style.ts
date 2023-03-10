@@ -73,7 +73,7 @@ export const CategoryFoodBtn = styled.button`
 
 export const CategoryCafeBtn = styled(CategoryFoodBtn)`
   background-color: ${(props: StyleProps) =>
-    props.category === '카페' ? COLORS.orange5 : COLORS.gray3};
+    props.category === '카페' ? COLORS.orange2 : COLORS.gray3};
 `;
 
 export const DetailImg = styled.img`
@@ -84,7 +84,6 @@ export const DetailImg = styled.img`
 export const DetailInfoWrap = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
 `;
 
 export const DetailTitleWrap = styled.div`
@@ -151,7 +150,7 @@ export const NavigationBtn = styled.button`
   height: 40px;
   left: 24px;
   top: 722px;
-  background: ${COLORS.green3};
+  background: ${COLORS.green4};
   border: 1px solid ${COLORS.green1};
   color: ${COLORS.green1};
   border-radius: 8px;
@@ -178,7 +177,7 @@ export const Wrap = styled.div`
   background-color: ${(props: FoodCardWrapProps) =>
     props.info?.title === props.food.title &&
     props.info?.address === props.info.address
-      ? COLORS.green3
+      ? COLORS.green4
       : COLORS.gray8};
   border-radius: 8px;
   display: flex;
@@ -193,12 +192,12 @@ export const Wrap = styled.div`
         props.info?.title === props.food.title &&
         props.info?.address === props.info.address
           ? COLORS.green1
-          : COLORS.orange2};
+          : COLORS.orange4};
     background-color: ${(props: FoodCardWrapProps) =>
       props.info?.title === props.food.title &&
       props.info?.address === props.info.address
-        ? COLORS.green3
-        : COLORS.orange4};
+        ? COLORS.green4
+        : COLORS.yellow3};
   }
 `;
 
@@ -218,7 +217,7 @@ export const DetailDescription = styled.span`
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
-  color: #a6a6a6;
+  color: ${COLORS.gray9};
 `;
 
 export const DetailDescriptionWrap = styled.div`

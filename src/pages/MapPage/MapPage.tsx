@@ -1,8 +1,8 @@
+// library
 import axios from 'axios';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import * as S from './style';
 import {
   mapCategoryValue,
   mapFoodData,
@@ -11,15 +11,21 @@ import {
   mapSearchValue,
   popupList,
 } from '../../atoms';
+// api
 import { getPopupData } from '../../services/api';
+// component
 import Maps from '../../components/MapView/Map/Maps';
 import MapDataList from '../../components/MapView/MapData/MapDataList';
 import MapSearch from '../../components/MapView/MapSearch/MapSearch';
 import DetailBox from '../../components/MapView/MapDetail/DetailBox';
-import arrow from '../../assets/Img/arrow.svg';
 import LoadingAnimation from '../../components/GlobalComponents/LoadingAnimation';
+// types
 import { LocationType, FoodData, Params } from '../../types/map';
 import { Store } from '../../types/data/storeInterface';
+// style
+import * as S from './style';
+import arrow from '../../assets/Img/arrow.svg';
+
 
 const MapPage = () => {
   const [popupInfo, setPopupInfo] = useState<Store | undefined>();

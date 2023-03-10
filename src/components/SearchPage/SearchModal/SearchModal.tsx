@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import * as S from './style';
-
 // Interface
 import { ButtonValue } from '../../../types/modal/modalInterface';
 //Recoil
-import { atom, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 // Component
 import { ModalButtonData } from '../../../utils/ModalButtonData/ModalButtonData';
 import { ItemModalButtonData } from '../../../utils/ModalButtonData/ItemModalButtonData';
@@ -14,6 +12,8 @@ import { OtherModalButtonData } from '../../../utils/ModalButtonData/OtherModalB
 import {CgClose} from 'react-icons/cg';
 // util
 import { checkForAllButton } from '../../../utils/Buttons';
+// style
+import * as S from './style';
 
 const Modal = ({ isShowing, hide, value }: { isShowing: boolean, hide: () => void, value: string }) => {
   

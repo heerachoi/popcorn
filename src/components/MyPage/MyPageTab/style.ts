@@ -23,6 +23,7 @@ export const MyBookmarkReportTabMenu = styled.ul`
 `;
 
 export const MyTitleTabTitleBox = styled.div``;
+
 export const MyTitleTabBtn = styled.button`
   background-color: transparent;
   font-family: 'Apple SD Gothic Neo';
@@ -56,6 +57,6 @@ export const MyContentBox = styled.div`
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    background: #ccc;
+    background: ${COLORS.gray7};
   }
 `;

@@ -23,9 +23,6 @@ export const SwiperContainer = styled(Slider)`
   }
 
   .slick-arrow {
-    /* display: flex; */
-    /* z-index: 999; */
-    /* background-color: aliceblue; */
     width: 52px;
     height: 59px;
     background: url(${ArrowBackgroundOff});
@@ -38,7 +35,6 @@ export const SwiperContainer = styled(Slider)`
   }
 
   .slick-track:before {
-    /* background-color: aliceblue; */
   }
 
   .slick-slide {
@@ -66,7 +62,6 @@ export const SwiperContainer = styled(Slider)`
     width: 55px;
     height: 59px;
     object-fit: cover;
-    /* background-color: black; */
     &:hover {
       background: url(${ArrowBackgroundOn});
     }
@@ -84,8 +79,8 @@ export const StoreContainer = styled.div`
   border-radius: 8px;
   cursor: pointer;
   &:hover {
-    background-color: ${COLORS.orange4};
-    border: 1px solid ${COLORS.orange2};
+    background-color: ${COLORS.yellow3};
+    border: 1px solid ${COLORS.orange4};
   }
 
 `;
@@ -143,7 +138,7 @@ export const Category = styled.div`
   display: flex;
   align-items: center;
   &:hover {
-    background-color: ${COLORS.orange2};
+    background-color: ${COLORS.orange4};
   }
 `;
 

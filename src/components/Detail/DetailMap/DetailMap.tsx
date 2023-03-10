@@ -1,9 +1,11 @@
+// library
 import { useLocation } from 'react-router-dom';
+// API
 import { CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
+// style
 import * as S from './style';
 
 // map를 호출해서 detailData.lat, detailData.lon의 위치를 마커표시해준다.
-
 const DetailMap = () => {
   const { state: detailData } = useLocation();
 

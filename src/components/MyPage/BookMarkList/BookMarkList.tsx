@@ -1,13 +1,16 @@
+// library
 import { useQuery } from 'react-query';
-import * as S from './style';
-import { getBookMark, getPopupData } from '../../../services/api';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { userInfo } from '../../../atoms';
-import BookmarkNoResult from '../NoResults/BookmarkNoResult';
-import { kakaoAccessToken, userInfoState } from '../../../atoms';
 import { useNavigate } from 'react-router';
-import { Store } from '../../../types/data/storeInterface';
+import { userInfo } from '../../../atoms';
+import { kakaoAccessToken, userInfoState } from '../../../atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+// component
+import BookmarkNoResult from '../NoResults/BookmarkNoResult';
 import BookMarkStore from './BookMarkStore';
+// API
+import { getBookMark } from '../../../services/api';
+// style
+import * as S from './style';
 
 const BookMarkList = () => {
   const user = useRecoilValue(userInfo);

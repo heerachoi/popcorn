@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
-import NewStoreReportList from '../../components/MasterPage/NewStoreReportList';
-import ErrReportList from '../../components/MasterPage/ErrReportList';
-import * as S from './style';
+// library
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { isActiveMenu } from '../../atoms';
+// component
+import NewStoreReportList from '../../components/MasterPage/NewStoreReportList';
+import ErrReportList from '../../components/MasterPage/ErrReportList';
 
-
+// style
+import * as S from './style';
 
 const MasterPage = () => {
   const navigate = useNavigate();

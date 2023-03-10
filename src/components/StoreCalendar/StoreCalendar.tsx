@@ -1,10 +1,14 @@
+// library
+import moment from 'moment';
 import { useCallback, useMemo } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import moment from 'moment';
-import { Store } from '../../types/data/storeInterface';
 import { useNavigate } from 'react-router-dom';
+// types
+import { Store } from '../../types/data/storeInterface';
+// style
 import COLORS from '../../assets/CSS/colors';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+
 interface Props {
   storeList: Store[];
 }
@@ -46,22 +50,22 @@ const StoreCalendar = ({ storeList }: Props) => {
       },
       ...(event.item === '패션' && {
         style: {
-          backgroundColor: `${COLORS.green2}`,
+          backgroundColor: `${COLORS.green3}`,
         },
       }),
       ...(event.item === '식음료' && {
         style: {
-          backgroundColor: `${COLORS.orange1}`,
+          backgroundColor: `${COLORS.orange3}`,
         },
       }),
       ...(event.item === '캐릭터' && {
         style: {
-          backgroundColor: `${COLORS.orange2}`,
+          backgroundColor: `${COLORS.orange4}`,
         },
       }),
       ...(event.item === '소품' && {
         style: {
-          backgroundColor: `${COLORS.orange5}`,
+          backgroundColor: `${COLORS.orange2}`,
         },
       }),
       ...(event.item === '주류' && {

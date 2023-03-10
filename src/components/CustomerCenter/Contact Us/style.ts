@@ -21,7 +21,6 @@ export const cardBox = styled.div`
   margin-top: 48px;
 
   @media screen and (max-width: 1040px) {
-    /* width: 340px; */
     height: 150px;
     margin-top: 10px;    
   }
@@ -65,7 +64,7 @@ export const TitleText = styled.p`
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: ${COLORS.orange6};
+  color: ${COLORS.orange1};
 
   @media screen and (max-width: 1040px) {
     font-size: 14px;

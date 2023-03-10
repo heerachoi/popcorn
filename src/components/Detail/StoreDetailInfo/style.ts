@@ -32,7 +32,6 @@ export const TitleWrap = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 48px;
-  /* background-color: beige; */
   @media screen and (max-width: 700px) {
     flex-direction: column;
     gap: 27px;
@@ -131,7 +130,6 @@ export const InfoContentBox = styled.div`
 export const InfoSubBox = styled.div`
   display: flex;
   flex-direction: row;
-  /* background-color: aliceblue; */
 
   @media screen and (max-width: 700px) {
     flex-direction: column;
@@ -141,11 +139,10 @@ export const InfoSubBox = styled.div`
 `;
 
 export const InfoTitle = styled.div`
-  /* position: relative; */
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 16px;
-  color: ${COLORS.orange6};
+  color: ${COLORS.orange1};
   width: 170px;
 `;
 

@@ -1,12 +1,14 @@
-import { VscSearch } from 'react-icons/vsc';
+// library
+import { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { mapSearchValue } from '../../../atoms';
-import * as S from './style';
-import COLORS from '../../../assets/CSS/colors';
+// types
 import MapWeather from '../MapWeather/MapWeather';
 import { LocationType } from '../../../types/map';
-import { useEffect, useState } from 'react';
-
+// style
+import * as S from './style';
+import { VscSearch } from 'react-icons/vsc';
+import COLORS from '../../../assets/CSS/colors';
 interface Props {
   onSearchSubmitHandler: (event: React.FormEvent<HTMLFormElement>) => void;
   myLocation: LocationType;
@@ -32,7 +34,7 @@ const MapSearch = ({ onSearchSubmitHandler, myLocation }: Props) => {
     <S.Wrap>
       <form name="팝업스토어" onSubmit={onSearchSubmitHandler}>
         <S.VscIconWrap>
-          <VscSearch size={20} color={COLORS.green}></VscSearch>
+          <VscSearch size={20} color={COLORS.green2}></VscSearch>
           <S.KeywordText>키워드</S.KeywordText>
         </S.VscIconWrap>
         <S.SearchInput

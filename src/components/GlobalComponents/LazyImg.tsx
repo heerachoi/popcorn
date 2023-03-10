@@ -1,10 +1,13 @@
+// library
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { DetailImg } from '../MapView/MapData/stlye';
+// component
 import LoadingAnimation from './LoadingAnimation';
+// style
+import { DetailImg } from '../MapView/MapData/stlye';
 
 const LazyImg = ({ src }: { src: string }) => {
-  const [showList, setShowList] = useState(false);
+  const [showList, setShowList] = useState<boolean>(false);
   const { ref, inView } = useInView({
     // inView를 통해 보여지는지 구분한다.
     threshold: 0,

@@ -1,19 +1,23 @@
+// library
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
 import { useLocation } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userInfo } from '../../atoms';
+// component
 import DetailMap from '../../components/Detail/DetailMap/DetailMap';
 import DetailPageViews from '../../components/Detail/DetailPageViews/DetailPageViews';
 import StoreDetailInfo from '../../components/Detail/StoreDetailInfo/StoreDetailInfo';
+// types
 import { Store } from '../../types/data/storeInterface';
+// API
 import { JSON_API } from '../../services/api';
 
 const DetailPage: any = () => {
   const detailData = useLocation().state as Store;
   const users = useRecoilValue(userInfo);
-  const [userAge, setUserAge] = useState('');
+  const [userAge, setUserAge] = useState<string>('');
   const [data, setData] = useState<Store>(detailData);
 
   const queryClient = useQueryClient();

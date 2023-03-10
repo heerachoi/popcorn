@@ -1,5 +1,5 @@
+// library
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import * as S from './stlye';
 import {
   mapCategoryValue,
   mapFoodSearchValue,
@@ -8,9 +8,12 @@ import {
   mapDetailBoxPopup,
   mapLevel,
 } from '../../../atoms';
-import LazyImg from '../../GlobalComponents/LazyImg';
+// types
 import { Store } from '../../../types/data/storeInterface';
 import { AddressResult, LocationType } from '../../../types/map';
+// style
+import * as S from './stlye';
+import LazyImg from '../../GlobalComponents/LazyImg';
 
 interface Props {
   popup: Store;
@@ -88,7 +91,6 @@ const MapDataCard = ({
           popup={popup.title}
           onClick={popupCenterChangeHandler}
         >
-          {/* <S.DetailImg src={popup?.imgURL} alt="사진" /> */}
           <LazyImg src={popup?.imgURL[0]} />
           <S.DetailWrap>
             <S.DetailTitle>{popup?.title}</S.DetailTitle>

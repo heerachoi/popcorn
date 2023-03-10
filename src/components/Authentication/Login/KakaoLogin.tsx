@@ -1,15 +1,18 @@
-import { useLocation } from 'react-router-dom';
+// libaray
 import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import QueryString from 'qs';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { kakaoAccessToken, userInfoState } from '../../../atoms';
+// firebase
+import { updateProfile } from 'firebase/auth';
+// API
 import { JSON_API } from '../../../services/api';
+// style
 import * as S from './style';
 import kakaoLogo from '../../../assets/Img/kakaoLogo.svg';
-import { useRecoilState } from 'recoil';
-import { modalStatus } from '../../../atoms';
-import { kakaoAccessToken, userInfoState } from '../../../atoms';
-import { useNavigate } from 'react-router-dom';
-import { updateProfile } from 'firebase/auth';
+
 
 interface UserInfo {
   age: string;
