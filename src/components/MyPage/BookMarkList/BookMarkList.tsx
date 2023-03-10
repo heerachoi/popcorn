@@ -25,10 +25,11 @@ const BookMarkList = () => {
     return <p>Loading...</p>;
   }
 
+  console.log();
   const bookmarkList = data?.filter((bookmark: any) => {
-    return userInfos?.id === bookmark?.user;
+    return String(userInfos?.id) === bookmark?.user;
   });
-
+  //
   return (
     <>
       {bookmarkList.length === 0 ? (
