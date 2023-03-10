@@ -28,11 +28,10 @@ const NewStoreReportList = () => {
   );
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
-    console.log('error', error);
+    console.log( error);
     return <p>Error!!!!</p>;
   }
 
@@ -45,7 +44,6 @@ const NewStoreReportList = () => {
       statusFalse.push(item);
     }
   });
-  console.log('statusFalse', statusFalse);
 
   const resentStatusTrue = statusTrue.sort(
     (a, b) =>

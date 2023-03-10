@@ -82,7 +82,6 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   const postBookmarkHandler = async () => {
     if (user.isLogin) {
       if (bookMarkState) {
-        console.log('bookMarkState', bookMarkState);
 
         // 북마크가 있을 경우 삭제
         try {

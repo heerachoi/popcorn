@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
-import { globalBtn } from '../../atoms';
-import { useSetRecoilState } from 'recoil';
+import { globalBtn, userInfo } from '../../atoms';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { ko } from 'date-fns/esm/locale';
 // firebase
@@ -42,7 +42,8 @@ const NewStoreReport = () => {
   const [imgFile, setImgFile] = useState<string>(''); // 이미지 파일
   const [fileName, setFileName] = useState<string>(''); // 이미지 파일 이름
   const [etcContent, setEtcContent] = useState<string>('');
-  const user = auth?.currentUser;
+  // const user = auth?.currentUser;
+  const user = useRecoilValue(userInfo)
 
   // input onChange 함수
   const newStoreInputonChangeHandler = (
@@ -109,7 +110,7 @@ const NewStoreReport = () => {
     // db에 올라가는 데이터 구조
     const newStore = {
       id: uuidv4(),
-      user,
+      user: String(user.userInfomation.id),
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
       storeAddress: newStoreInput.storeAddress,

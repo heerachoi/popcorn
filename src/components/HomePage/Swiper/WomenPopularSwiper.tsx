@@ -20,11 +20,10 @@ const WomenPopularSwiper: React.FC = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
-    console.log('오류내용', error);
+    console.log( error);
     return <p>Error!!!</p>;
   }
 
