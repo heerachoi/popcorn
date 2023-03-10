@@ -1267,58 +1267,52 @@
       "category": "기타"
     }
   ],
-  "users": [{
-"age": "1995-04-12",
-"email": "abcwockd95@naver.com",
-"gender": "male",
-"nickName": "재창이",
-"phoneNumber": "01063183932",
-"profileImg": null,
-"id": "T0343pkxEAf5tUL3ZQoV7G3vHfs2"
-},
-{
-"age": "20",
-"email": "abcwockd95@naver.com",
-"nickName": "한재창",
-"id": 2689331677,
-"gender": "male",
-"accessToken": "Yspkx9gKxUzfBWh9uFYloZgH1niZ-l8H-93sz5YRCj11WgAAAYbI-Cgv"
-},
-{
-"age": "1993-06-13",
-"email": "master@gmail.com",
-"gender": "female",
-"nickName": "운영자",
-"phoneNumber": "01086256038",
-"profileImg": null,
-"id": "cbCu7b1YqHZkRT88wEddSmzM6u42"
-},
-{
-"age": "30",
-"email": "mljkpl-hwa@hanmail.net",
-"nickName": "은",
-"id": 2697848176,
-"gender": "female",
-"accessToken": "K-5npvxbsdCPJfrRfpDStwGsuJjFpg8RHQzaop0NCj10EQAAAYbI-XUQ"
-},
-{
-"age": "2008-07-18",
-"email": "jieun12@naver.com",
-"gender": "male",
-"nickName": "배고파",
-"phoneNumber": "01086256038",
-"profileImg": null,
-"id": "vXLobazEqvheXDZP1bL9WJ8EkCw1"
-},
-{
-"age": "1985-12-29",
-"email": "popcorn@gmail.com",
-"gender": "female",
-"nickName": "팝코니",
-"phoneNumber": "01028846776",
-"profileImg": null,
-"id": "pJPlM8pjsfZve2eu2tYgZ333nDd2"
-}],
+  "users": [
+    {
+      "age": "1995-04-12",
+      "email": "abcwockd95@naver.com",
+      "gender": "male",
+      "nickName": "재창이",
+      "phoneNumber": "01063183932",
+      "profileImg": null,
+      "id": "T0343pkxEAf5tUL3ZQoV7G3vHfs2"
+    },
+    {
+      "age": "1993-06-13",
+      "email": "master@gmail.com",
+      "gender": "female",
+      "nickName": "운영자",
+      "phoneNumber": "01086256038",
+      "profileImg": null,
+      "id": "cbCu7b1YqHZkRT88wEddSmzM6u42"
+    },
+    {
+      "age": "30",
+      "email": "mljkpl-hwa@hanmail.net",
+      "nickName": "은",
+      "id": 2697848176,
+      "gender": "female",
+      "accessToken": "K-5npvxbsdCPJfrRfpDStwGsuJjFpg8RHQzaop0NCj10EQAAAYbI-XUQ"
+    },
+    {
+      "age": "2008-07-18",
+      "email": "jieun12@naver.com",
+      "gender": "male",
+      "nickName": "배고파",
+      "phoneNumber": "01086256038",
+      "profileImg": null,
+      "id": "vXLobazEqvheXDZP1bL9WJ8EkCw1"
+    },
+    {
+      "age": "1985-12-29",
+      "email": "popcorn@gmail.com",
+      "gender": "female",
+      "nickName": "팝코니",
+      "phoneNumber": "01028846776",
+      "profileImg": null,
+      "id": "pJPlM8pjsfZve2eu2tYgZ333nDd2"
+    }
+  ],
   "likeHate": [],
   "BookMarkList": [],
   "newStores": [],

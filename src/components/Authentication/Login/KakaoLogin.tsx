@@ -13,7 +13,6 @@ import { JSON_API } from '../../../services/api';
 import * as S from './style';
 import kakaoLogo from '../../../assets/Img/kakaoLogo.svg';
 
-
 interface UserInfo {
   age: string;
   email: string;
@@ -26,10 +25,10 @@ interface UserInfo {
 // 카카오 로그인 기능 구현 코드
 const KakaoLogin = () => {
   const location = useLocation(); // useLocation hook 사용
-  const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  // const REACT_APP_REST_API_KEY = 'fbbe0ffd8e5a9275920fc4b89603b870';
-  const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
-  // const REDIRECT_URI = 'http://localhost:3000/login';
+  // const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+  const REACT_APP_REST_API_KEY = 'fbbe0ffd8e5a9275920fc4b89603b870';
+  // const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
+  const REDIRECT_URI = 'http://localhost:3000/login';
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
   const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET; // 카카오 디벨로퍼스에서 발급받은 client secret 키
   //주소창에 파라미터code를 가져온다 split 메서드를 활용한다
@@ -88,7 +87,7 @@ const KakaoLogin = () => {
   // 유저정보 저장
   const saveUserInfoToServer = async (user: any) => {
     let newUserInfo: UserInfo = {
-      age: user.data.kakao_account.age_range.slice(0, 2),
+      age: user.data.kakao_account.age_range.slice(0, 2) + '대',
       email: user.data.kakao_account.email,
       nickName: user.data.properties.nickname,
       id: user.data.id,
