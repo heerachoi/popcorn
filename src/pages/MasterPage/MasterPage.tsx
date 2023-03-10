@@ -35,7 +35,6 @@ const MasterPage = () => {
         <S.ReportListContainer>
           <S.TabMenu>
             {tabMenuArr.map((item: any, idx: number) => {
-            console.log('item',item);
               return (
                 
                 <S.MenuTitleBox key={item.id}>

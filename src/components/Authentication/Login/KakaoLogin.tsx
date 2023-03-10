@@ -118,17 +118,17 @@ const KakaoLogin = () => {
       .catch((error) => {
         console.log(error);
       });
-    const downloadImageUrl =
-      'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/basic_profileImg.png?alt=media&token=5fb9fc96-2bab-4a01-928e-3b21543d9df7';
+    // const downloadImageUrl =
+    //   'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/basic_profileImg.png?alt=media&token=5fb9fc96-2bab-4a01-928e-3b21543d9df7';
 
-    try {
-      await updateProfile(currentUser, {
-        displayName: nickName,
-        photoURL: downloadImageUrl,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   await updateProfile(currentUser, {
+    //     displayName: nickName,
+    //     photoURL: downloadImageUrl,
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   useEffect(() => {

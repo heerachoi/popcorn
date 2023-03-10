@@ -12,7 +12,6 @@ const BookMarkStore = ({ li }: any) => {
   const popup = popupData?.filter((pop: any) => {
     return pop.id === li.store;
   })[0];
-  console.log('popup', popup);
 
   return (
     <S.BookMarkCard

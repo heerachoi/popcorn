@@ -1,3 +1,5 @@
+/* style */
+import * as S from './style';
 /* library */
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -14,54 +16,28 @@ import StoreEmoji from '../StoreEmoji/StoreEmoji';
 import { auth } from '../../../services/firebase';
 import { JSON_API } from '../../../services/api';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { kakaoAccessToken, userInfoState } from '../../../atoms';
+import { kakaoAccessToken, userInfo, userInfoState } from '../../../atoms';
 /* img */
 import bookmarkHeartBlack from '../../../assets/Img/State=Default.svg';
 import bookmarkHeartOrange from '../../../assets/Img/State=Pressed.svg';
 import Instagram from '../../../assets/Img/Instagram.svg';
 import LinkImg from '../../../assets/Img/Link.svg';
-/* style */
-import * as S from './style';
 
 interface Props {
   detailData: Store;
 }
 
 const StoreDetailInfo = ({ detailData }: Props) => {
-  const [currentUser, setCurrentUser] = useState<any>('');
   const [changeColor, setChangeColor] = useState<string>(`${COLORS.gray5}`);
   const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
-  const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-  const accessToken = useRecoilValue(kakaoAccessToken);
+  const user = useRecoilValue(userInfo);
 
   const days = ['월', '화', '수', '목', '금', '토', '일'];
 
   useEffect(() => {
-    if (accessToken !== '') {
-      setCurrentUser({
-        isLogin: true,
-        userInfomation: {
-          displayName: kakaoUserInfo.nickName,
-          email: kakaoUserInfo.email,
-          photoURL: '',
-          uid: '',
-          age: kakaoUserInfo.age,
-          gender: kakaoUserInfo.gender,
-          phoneNumber: '',
-          id: kakaoUserInfo.id,
-        },
-      });
-      fetchBookmarks();
-    } else {
-      auth.onAuthStateChanged((user) => {
-        if (user) {
-          setCurrentUser(auth.currentUser);
-          fetchBookmarks();
-        }
-      });
-    }
-  }, [currentUser, accessToken]);
+    fetchBookmarks();
+  }, [user.isLogin]);
 
   // 북마크 상태 업데이트
   useEffect(() => {
@@ -69,9 +45,9 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   }, [bookMarkState, changeColor]);
 
   const NewBookmark = {
-    id: currentUser.uid + detailData?.id,
+    id: user.userInfomation.id + detailData?.id,
     store: detailData?.id,
-    user: accessToken ? kakaoUserInfo.id : currentUser?.uid,
+    user: String(user.userInfomation.id),
     notification: false,
     title: detailData?.title,
     open: detailData?.open,
@@ -84,15 +60,16 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   // 카카오로 로그인 시에도 북마크 추가 잘됨
   const fetchBookmarks = async () => {
     const { data } = await axios.get(`${JSON_API}/BookMarkList`); // 북마크 리스트
+    //
     for (let i = 0; i < data.length; i++) {
       if (
-        data[i].user === currentUser.uid &&
+        data[i].user === String(user.userInfomation.id) &&
         data[i].store === detailData?.id
       ) {
         // 유저가 북마크를 했음
-        setChangeColor(`${COLORS.orange4}`);
+        setChangeColor(`${COLORS.orange2}`);
         setBookMarkState(true);
-        setCurrentBookMarkId(currentUser.uid + detailData?.id);
+        setCurrentBookMarkId(user.userInfomation.id + detailData?.id);
         break;
       } else {
         // 북마크안했음
@@ -101,52 +78,26 @@ const StoreDetailInfo = ({ detailData }: Props) => {
       }
     }
   };
-
   // 클릭했을 때 북마크에 추가 + 삭제
   const postBookmarkHandler = async () => {
-    if (currentUser) {
+    if (user.isLogin) {
       if (bookMarkState) {
         // 북마크가 있을 경우 삭제
         try {
-          if (accessToken) {
-            try {
-              axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`, {
-                headers: { Authorization: `Bearer ${accessToken}` },
-              });
-              setChangeColor(`${COLORS.gray5}`);
-              setBookMarkState(false);
-            } catch (error) {
-              console.log('error', error);
-            }
-          } else {
-            // Firebase Auth를 사용하는 경우
-            await axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);
-            setChangeColor(`${COLORS.gray5}`);
-            setBookMarkState(false);
-          }
+          await axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);
+          setChangeColor(`${COLORS.gray5}`);
+          setBookMarkState(false);
+          // }
         } catch (error) {
           console.log('error', error);
         }
       } else {
         //북마크가 없을 경우 추가
         try {
-          if (accessToken) {
-            // Kakao Access Token이 존재하는 경우
-            const response = await axios.post(
-              `${JSON_API}/BookMarkList`,
-              NewBookmark,
-              {
-                headers: { Authorization: `Bearer ${accessToken}` },
-              },
-            );
-            setChangeColor(`${COLORS.orange4}`);
-            setBookMarkState(true);
-          } else {
-            // Firebase Auth를 사용하는 경우
-            await axios.post(`${JSON_API}/BookMarkList`, NewBookmark);
-            setChangeColor(`${COLORS.orange4}`);
-            setBookMarkState(true);
-          }
+          await axios.post(`${JSON_API}/BookMarkList`, NewBookmark);
+          setChangeColor(`${COLORS.orange2}`);
+          setBookMarkState(true);
+          // }
         } catch (error) {
           console.log('error', error);
         }
@@ -231,7 +182,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
                     <Link
                       to={detailData?.sns}
                       target="_blank"
-                      style={{ color: `${COLORS.black}` }}
+                      style={{ color: '#323232' }}
                     >
                       {detailData.sns.includes('instagram') ? (
                         <S.SnsImg src={Instagram} />
