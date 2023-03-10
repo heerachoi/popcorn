@@ -4,7 +4,7 @@ export interface UserInfoState {
 }
 
 export interface UserInfomation {
-  displayName: string | null;
+  nickName: string | null;
   email: string | null;
   photoURL: string | null;
   age: string;

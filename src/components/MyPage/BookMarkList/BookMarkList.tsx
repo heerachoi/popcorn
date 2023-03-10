@@ -11,6 +11,7 @@ import BookMarkStore from './BookMarkStore';
 import { getBookMark } from '../../../services/api';
 // style
 import * as S from './style';
+import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 
 const BookMarkList = () => {
   const user = useRecoilValue(userInfo);
@@ -22,12 +23,14 @@ const BookMarkList = () => {
   const navigate = useNavigate();
   if (isLoading) {
     console.log('로딩중');
-    return <p>Loading...</p>;
+    return <p><LoadingAnimation /></p>;
   }
 
+  console.log();
   const bookmarkList = data?.filter((bookmark: any) => {
-    return userInfos?.id === bookmark?.user;
+    return String(userInfos?.id) === bookmark?.user;
   });
+  
 
   return (
     <>
@@ -36,7 +39,7 @@ const BookMarkList = () => {
       ) : (
         <S.BookMarkContainer>
           {bookmarkList.map((li: any) => {
-            return <BookMarkStore li={li} />;
+            return <BookMarkStore li={li} key={li.id}/>;
           })}
         </S.BookMarkContainer>
       )}

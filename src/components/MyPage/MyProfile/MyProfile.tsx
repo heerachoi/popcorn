@@ -57,7 +57,7 @@ const MyProfile = () => {
       setImgProfileUrl(currentUserInfos?.photoURL);
     }
   }, [currentUserInfos?.photoURL]);
-
+  console.log('kakaoUser', kakaoUserInfo.nickName);
   return (
     <S.MyPageAll>
       <S.MyProfileBox>
@@ -76,7 +76,7 @@ const MyProfile = () => {
         <S.MyProfileNickname>
           {currentUser.displayName
             ? currentUser.displayName
-            : kakaoUserInfo.nickName}
+            : user.userInfomation.nickName}
           님
         </S.MyProfileNickname>
         <S.WelcomeText>환영합니다!</S.WelcomeText>
