@@ -159,6 +159,11 @@ export const kakaoAccessToken = atom<string | undefined | null>({
   default: localStorage.getItem('token_for_kakaotalk'),
 });
 
+export const kakaoRefreshToken = atom<string | undefined | null>({
+  key: 'kakaoRefreshToken',
+  default: localStorage.getItem('refresh_token_for_kakaotalk'),
+});
+
 export const userInfoState = atom({
   key: 'userInfoState',
   default: {

@@ -5,8 +5,6 @@ import QueryString from 'qs';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { kakaoAccessToken, userInfoState } from '../../../atoms';
-// firebase
-import { updateProfile } from 'firebase/auth';
 // API
 import { JSON_API } from '../../../services/api';
 // style
@@ -24,30 +22,19 @@ interface UserInfo {
 
 // 카카오 로그인 기능 구현 코드
 const KakaoLogin = () => {
-  const location = useLocation(); // useLocation hook 사용
-  // const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  const REACT_APP_REST_API_KEY = 'fbbe0ffd8e5a9275920fc4b89603b870';
-  // const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
-  const REDIRECT_URI = 'http://localhost:3000/login';
+  const location = useLocation();
+  const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
+  const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
   const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET; // 카카오 디벨로퍼스에서 발급받은 client secret 키
-  //주소창에 파라미터code를 가져온다 split 메서드를 활용한다
   const KAKAO_CODE = location.search.split('=')[1];
   const [accessToken, setAccessToken] = useRecoilState(kakaoAccessToken);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-  //nickname state
-  const [nickName, setNickName] = useState('');
-  //popcorn id = kakao email
-  const [userId, setUserId] = useState('');
-  const [age, setAge] = useState('');
   const [id, setId] = useState('');
-  const [gender, setGender] = useState('');
   const navigate = useNavigate();
   const kakaoLoginHandler = () => {
     window.location.replace(link);
   };
-
-  const code = new URL(window.location.href).searchParams.get('code');
 
   //카카오 서버로 클라이언트 시크릿키값과 파라미터의 코드값을 보내 액세스토큰을 요청
   const getUser = async () => {
@@ -77,13 +64,13 @@ const KakaoLogin = () => {
         Authorization: `Bearer ${ACCESS_TOKEN.access_token}`,
       },
     });
-
     // 유저 정보를 json-server에 저장
     saveUserInfoToServer(user);
     localStorage.setItem('kakao_user_id', user.data.id);
     navigate('/');
   };
   const [currentUser, setCurrentUser] = useState<any>();
+
   // 유저정보 저장
   const saveUserInfoToServer = async (user: any) => {
     let newUserInfo: UserInfo = {
@@ -102,23 +89,10 @@ const KakaoLogin = () => {
     setCurrentUser(id);
     axios
       .post(`${JSON_API}/users`, newUserInfo)
-      .then((response) => {
-        console.log(response.data);
-      })
+      .then((response) => {})
       .catch((error) => {
         console.log(error);
       });
-    // const downloadImageUrl =
-    //   'https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/basic_profileImg.png?alt=media&token=5fb9fc96-2bab-4a01-928e-3b21543d9df7';
-
-    // try {
-    //   await updateProfile(currentUser, {
-    //     displayName: nickName,
-    //     photoURL: downloadImageUrl,
-    //   });
-    // } catch (error) {
-    //   console.log(error);
-    // }
   };
 
   useEffect(() => {

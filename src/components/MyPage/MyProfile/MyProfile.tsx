@@ -1,6 +1,5 @@
 // library
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { userInfo } from '../../../atoms';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import {
@@ -20,21 +19,19 @@ import * as S from './style';
 import MyProfileStar1 from '../../../assets/Img/MyProfileStar1.svg';
 import MyProfileStar2 from '../../../assets/Img/MyProfileStar2.svg';
 import basicProfileImg from '../../../assets/Img/basicProfileImg.svg';
+import { User } from 'firebase/auth';
 
-type CurrentUserProfile = any;
+type CurrentUserProfile = User | null;
 const MyProfile = () => {
   const user = useRecoilValue(userInfo);
   const userInfos = user.userInfomation;
   const currentUserProfile: CurrentUserProfile = auth.currentUser;
-
   const [open, setOpen] = useRecoilState(editModal);
   const handleOpen = () => setOpen(true);
   const [currentUser, setCurrentUser] = useState<any>('');
-
-  const [imgUploadUrl, setImgUploadUrl] = useState<any>(); // 업로드한 이미지 url
+  const [imgUploadUrl, setImgUploadUrl] = useState<string | null>(); // 업로드한 이미지 url
   const [imgProfileUrl, setImgProfileUrl] = useRecoilState(profileState);
-  const navigate = useNavigate();
-  const currentUserInfos: any = auth.currentUser;
+  const currentUserInfos: User | null = auth.currentUser;
   const accessToken = useRecoilValue(kakaoAccessToken);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
 
@@ -50,11 +47,9 @@ const MyProfile = () => {
     });
   }, [auth.currentUser]);
 
-  // user가 없거나 accessToken이 없을 때 navigate('/')로 이동시켜주는 코드 작성해줘
-  // 바뀔 때마다 실행해달라
   useEffect(() => {
     if (currentUserInfos?.photoURL !== undefined) {
-      setImgProfileUrl(currentUserInfos?.photoURL);
+      setImgProfileUrl(currentUserInfos?.photoURL || '');
     }
   }, [currentUserInfos?.photoURL]);
   console.log('kakaoUser', kakaoUserInfo.nickName);

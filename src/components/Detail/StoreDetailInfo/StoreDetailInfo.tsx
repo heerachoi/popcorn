@@ -10,7 +10,6 @@ import StoreDetailImg from '../StoreDetailImg/StoreDetailImg';
 /* componant */
 import { Store } from '../../../types/data/storeInterface';
 import COLORS from '../../../assets/CSS/colors';
-import { BookMark } from '../../../types/data/storeInterface';
 import StoreEmoji from '../StoreEmoji/StoreEmoji';
 /* firebase */
 import { auth } from '../../../services/firebase';
@@ -35,6 +34,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
 
   const days = ['월', '화', '수', '목', '금', '토', '일'];
 
+  // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     fetchBookmarks();
   }, [user.isLogin]);
@@ -79,9 +79,11 @@ const StoreDetailInfo = ({ detailData }: Props) => {
     }
   };
   // 클릭했을 때 북마크에 추가 + 삭제
-const postBookmarkHandler = async () => {
+  const postBookmarkHandler = async () => {
     if (user.isLogin) {
       if (bookMarkState) {
+        console.log('bookMarkState', bookMarkState);
+
         // 북마크가 있을 경우 삭제
         try {
           await axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);
@@ -106,6 +108,7 @@ const postBookmarkHandler = async () => {
       alert('로그인이 필요합니다!');
     }
   };
+
   return (
     <S.StoreDetailInfoWrap>
       <S.DetailContainer>

@@ -6,7 +6,7 @@ import popcornBnr1 from '../../../assets/Logo/popcornBanner1 2.svg';
 import popcornBnr2 from '../../../assets/Logo/popcornBanner2 2.svg';
 import popcornBnr3 from '../../../assets/Logo/popcornBanner3 3.svg';
 
-const Banner: any = () => {
+const Banner = () => {
   const settings: any = {
     dots: true,
     lazyLoad: true,

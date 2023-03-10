@@ -27,7 +27,6 @@ const Layout = ({ children }: Props) => {
   const { data: userDataFromJson } = useQuery('user', getUser);
   const kakaoUserInfo = useRecoilValue(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
-
   const { pathname } = useLocation();
 
   // 로그인 상태를 전역적으로 관리해주는 함수
@@ -89,7 +88,6 @@ const Layout = ({ children }: Props) => {
     const myUser = userDataFromJson?.filter((user: UserInfomation) => {
       return users.userInfomation.id === String(user.id);
     })[0];
-
     // myUser가 빈 값이 아닐 때
     // 한번 더 set 해주는 이유 : 성별, 나이 조회수 및 마이페이지에서 정보수정을 하기 위해서
     if (!!myUser) {

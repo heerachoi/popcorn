@@ -11,7 +11,7 @@ import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 interface Faq {
   id: string;
   Q: string;
-  A: string
+  A: string;
 }
 
 const Faq = () => {
@@ -19,11 +19,9 @@ const Faq = () => {
   const { isLoading, isError, data, error } = useQuery('FAQ', getFaq);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
-    console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
   const clickHandler = (i: number) => {
@@ -40,7 +38,7 @@ const Faq = () => {
           <S.Container key={qa.id}>
             <S.TitleBox onClick={() => clickHandler(i)}>
               <S.TitleText>Q. {qa.Q}</S.TitleText>
-              {isClicked === i ? <IoIosArrowUp /> : <IoIosArrowDown /> }
+              {isClicked === i ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </S.TitleBox>
             <S.AnswerBox className={isClicked === i ? 'show' : ''}>
               <S.AnswerText>A. {qa.A}</S.AnswerText>
