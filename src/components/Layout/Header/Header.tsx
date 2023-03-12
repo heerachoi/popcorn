@@ -10,6 +10,8 @@ import * as S from './style';
 import { ImCross } from 'react-icons/im';
 import Title from '../../../assets/Logo/popcorn_logo.svg';
 import HoverImg from '../../../assets/Logo/HeaderHovered.svg';
+import mapGreen from '../../../assets/Img/mapPin=green.svg';
+import mapHover from '../../../assets/Img/mapPin=orange.svg';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -137,7 +139,7 @@ const Header = () => {
               </S.CategoryBtn>
             </S.TextBackground>
           )}
-          <S.MenuImageBackground>
+          <S.mapDiv>
             {isToggled ? (
               <S.MenuText
                 onClick={() => globalBtnModalStatusChangeHandler('/map')}
@@ -145,11 +147,11 @@ const Header = () => {
                 지도
               </S.MenuText>
             ) : (
-              <S.MapIcon
+              <S.mapPinImg
                 onClick={() => globalBtnModalStatusChangeHandler('/map')}
               />
             )}
-          </S.MenuImageBackground>
+          </S.mapDiv>
         </S.BtnWrap>
         <S.MobileMenuContainer>
           <S.MenuIconContainer onClick={() => setIsToggled(!isToggled)}>

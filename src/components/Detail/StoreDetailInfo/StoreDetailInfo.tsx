@@ -31,7 +31,6 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
   const user = useRecoilValue(userInfo);
-console.log('user', user);
 
   const days = ['월', '화', '수', '목', '금', '토', '일'];
 

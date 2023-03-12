@@ -13,7 +13,6 @@ export const CurrentlyOpen = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
@@ -48,7 +47,6 @@ export const PopularToWomen = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
@@ -87,7 +85,6 @@ export const PopularToMen = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
