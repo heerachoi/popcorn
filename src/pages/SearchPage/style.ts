@@ -85,25 +85,22 @@ export const SearchInput = styled.input`
 
 export const SearchItemContainer = styled.div`
   width: 100%;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 export const DateSearchContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 export const CategorySearchContainer = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: row;
   gap: 10px;
-  cursor:pointer;
+  cursor: pointer;
 `;
-
-
-
 
 export const SearchTagContainer = styled.div`
   display: flex;
@@ -137,23 +134,20 @@ export const SearchTagContainer = styled.div`
 
 export const FilterWithIcon = styled(SearchTagContainer)`
   @media screen and (max-width: 1430px) {
-      height: 48px;
-
+    height: 48px;
   }
-`
+`;
 
 export const LocationFilterTitle = styled(SearchTagContainer)`
   @media screen and (max-width: 480px) {
     max-width: 40px;
   }
-`
+`;
 
 export const IconTitleContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-
-
 
 export const SearchEventPeriod = styled.select`
   outline: none;
@@ -171,7 +165,7 @@ export const Option = styled.option`
 export const DatePickerWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  z-index:999;
+  z-index: 999;
 `;
 
 export const DatePickerContainer = styled(DatePicker)`
@@ -266,10 +260,9 @@ export const StoreInformation = styled.div`
 export const CalendarContainer = styled.div`
   width: 100%;
   max-width: 500px;
-  .rbc-calendar{
-
+  .rbc-calendar {
   }
-  .rbc-toolbar{
+  .rbc-toolbar {
     background-color: ${COLORS.orange2};
     border: none;
     color: white;
@@ -280,27 +273,26 @@ export const CalendarContainer = styled.div`
     margin-bottom: 0px;
     padding: 4px 0;
   }
-  .rbc-toolbar button  {
+  .rbc-toolbar button {
     color: ${COLORS.white};
     border: ${COLORS.white};
-    font-size: 14px;    
+    font-size: 14px;
   }
-  .rbc-toolbar button:hover  {
+  .rbc-toolbar button:hover {
     color: ${COLORS.orange2};
     background-color: ${COLORS.white};
   }
   .rbc-month-header {
     height: 40.7px;
     background-color: ${COLORS.gray8};
-    font-weight:none;
+    font-weight: none;
   }
-  .rbc-header{
+  .rbc-header {
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: none;
     color: ${COLORS.gray2};
-
   }
   .rbc-off-range-bg {
     background-color: ${COLORS.white};
@@ -327,15 +319,15 @@ export const CalendarContainer = styled.div`
     font-weight: normal;
     font-size: 12px;
     @media screen and (max-width: 400px) {
-    font-size: 9px;
-  }
+      font-size: 9px;
+    }
   }
   .rbc-event-content {
     font-size: 13px;
     border-radius: 5px;
-  }  
+  }
   @media screen and (max-width: 1100px) {
-    max-width:800px;
+    max-width: 800px;
   }
   @media screen and (max-width: 400px) {
     height: 1500px;
@@ -371,13 +363,14 @@ export const Category = styled.div`
   font-size: 12px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   &:hover {
     background-color: ${COLORS.orange4};
   }
   @media screen and (max-width: 1100px) {
     padding: 4px 8px 3px;
   }
-    @media screen and (max-width: 600px) {
+  @media screen and (max-width: 600px) {
     font-weight: 500;
   }
 `;

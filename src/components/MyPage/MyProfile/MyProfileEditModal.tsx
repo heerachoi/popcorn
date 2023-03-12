@@ -144,12 +144,10 @@ const MyProfileEditModal = () => {
                     <S.MyContentBox>
                       <S.EditModalImgLabelInputWrapper>
                         <S.EditModalProfileImgLabel htmlFor="modalProfileUploadImg">
-                          {imgProfileUrl && (
-                            <S.EditModalProfileImgShow
-                              src={
-                                imgProfileUrl ? imgProfileUrl : basicProfileImg
-                              }
-                            />
+                          {imgProfileUrl ? (
+                            <S.EditModalProfileImgShow src={imgProfileUrl} />
+                          ) : (
+                            <S.EditModalProfileImgShow src={basicProfileImg} />
                           )}
                           <S.EditModalProfileImgInput
                             type="file"
