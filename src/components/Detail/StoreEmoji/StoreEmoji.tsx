@@ -46,7 +46,7 @@ const StoreEmoji = ({ detailData }: Props) => {
     } else {
       likeCountHandler();
       hateCountHandler();
-      return console.log('로그인 안됨');
+      return;
     }
   }, [user.isLogin]);
 
