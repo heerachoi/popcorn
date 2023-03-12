@@ -12,7 +12,10 @@
 
 <br/>
 
-[📕 팀 노션](https://spicy-newsboy-3e0.notion.site/POPCORN-f89f7099782341b0badbdf5556cebae5) 
+[📕 팀 노션](https://spicy-newsboy-3e0.notion.site/POPCORN-f89f7099782341b0badbdf5556cebae5)
+
+<br/>
+
 [🎬 시연영상](https://www.youtube.com/watch?v=v80lrAb66h0)
 
 <br/>
