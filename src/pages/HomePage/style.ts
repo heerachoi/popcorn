@@ -4,10 +4,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const HomePageContainer = styled.div`
-
-  /* max-width: 1040px;
+  max-width: 1060px;
   width: 100%;
-  margin: 0 auto; */
+  margin: 0 auto;
 `;
 
 export const SearchContainer = styled.div`
