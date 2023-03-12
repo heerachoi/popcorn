@@ -82,6 +82,7 @@ export const BookmarkClick = styled.button`
 
 export const BookMarkImg = styled.img`
   width: 20px;
+  margin-bottom: 5px;
 `;
 
 export const SideTitleIcon = styled.span`
@@ -89,7 +90,7 @@ export const SideTitleIcon = styled.span`
   font-style: normal;
   font-weight: 800;
   font-size: 13px;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
   color: ${COLORS.gray5};
   cursor: pointer;
 `;
@@ -99,7 +100,8 @@ export const ViewCount = styled.span`
   font-style: normal;
   font-weight: 800;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-top: 2px;
+  margin-bottom: 4px;
   color: ${COLORS.gray5};
 `;
 
