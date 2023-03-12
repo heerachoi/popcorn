@@ -1,6 +1,6 @@
 // library
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import {
@@ -139,6 +139,8 @@ const MapPage = () => {
       },
     );
   };
+
+  useEffect(() => setLoading(false), []);
 
   return (
     <>

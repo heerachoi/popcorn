@@ -7,6 +7,7 @@ import {
   mapModalStatus,
   mapDetailBoxPopup,
   mapLevel,
+  mapLoading,
 } from '../../../atoms';
 // types
 import { Store } from '../../../types/data/storeInterface';
@@ -36,6 +37,7 @@ const MapDataCard = ({
   const setMapModal = useSetRecoilState(mapModalStatus);
   const setMapDetailPopupItem = useSetRecoilState(mapDetailBoxPopup);
   const setLevel = useSetRecoilState(mapLevel);
+  const setLoading = useSetRecoilState(mapLoading);
 
   const condition =
     popup?.address.includes(search) || popup?.title.includes(search);
@@ -45,6 +47,7 @@ const MapDataCard = ({
   const popupCenterChangeHandler = () => {
     setLevel(4);
     setMapModal(true);
+    setLoading(true);
     setMyLocation({ Ma: popup.lat, La: popup.lon });
     searchAddrFromCoords(
       new kakao.maps.LatLng(+popup.lat, +popup.lon),
