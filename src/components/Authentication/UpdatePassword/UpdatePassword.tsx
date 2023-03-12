@@ -97,8 +97,7 @@ const UpdatePassword = ({ handleClose }: { handleClose: () => void }) => {
   const validatePasswordHandler = (
     event: React.FocusEvent<HTMLInputElement>,
   ) => {
-    let regexPw =
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+    let regexPw = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
     if (!regexPw.test(event.target.value)) {
       setHelperPasswordInput({
         ...helperPasswordInput,
@@ -116,7 +115,7 @@ const UpdatePassword = ({ handleClose }: { handleClose: () => void }) => {
     if (passwordInput.updatePassword !== passwordInput.updatePasswordCheck) {
       setHelperPasswordInput({
         ...helperPasswordInput,
-        updatePasswordCheck: '*비밀번호는가 다릅니다. 확인해주세요.',
+        updatePasswordCheck: '비밀번호가 다릅니다. 확인해주세요.',
       });
     } else {
       setHelperPasswordInput({

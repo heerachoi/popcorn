@@ -1,5 +1,6 @@
 // library
 import axios from 'axios';
+import { cacheAdapterEnhancer } from 'axios-extensions';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -74,60 +75,25 @@ const MapPage = () => {
           const Kakao = axios.create({
             baseURL: 'https://dapi.kakao.com',
             headers: {
+              // 'Cache-Control': 'no-cache',
+              // Expires: '1000',
               Authorization: 'KakaoAK ' + KAKAO_KEY,
             },
           });
 
-          const params1: Params = {
-            query: data[0].place_name,
-            sort: 'accuracy', // accuracy | recency 정확도 or 최신
-            page: 1, // 페이지번호
-            size: 1, // 한 페이지에 보여 질 문서의 개수
-          };
-
-          const params2: Params = {
-            query: data[1].place_name,
-            sort: 'accuracy', // accuracy | recency 정확도 or 최신
-            page: 1, // 페이지번호
-            size: 1, // 한 페이지에 보여 질 문서의 개수
-          };
-
-          // const getKaKaoImage = async (params: Params) => {
-          //   const { data: image } = await Kakao.get('/v2/search/image', {
-          //     params,
-          //   });
-          //   return image;
-          // };
-
-          const getArray = [params1, params2];
-          // const getPromiseAll = () => {
-          //   Promise.all(
-          //     getArray.map(async (param) => {
-          //       await Kakao.get('/v2/search/image', {
-          //         param,
-          //       });
-          //     }),
-          //   )
-          //     .then((result) => {
-          //       console.log(result);
-          //     })
-          //     .catch((e) => {
-          //       console.error(e);
-          //     });
-          // };
-
           if (category === '음식점' || category === '카페') {
             for (let i = 0; i < data.length; i++) {
-              // const params: Params = {
-              //   query: data[i].place_name,
-              //   sort: 'accuracy', // accuracy | recency 정확도 or 최신
-              //   page: 1, // 페이지번호
-              //   size: 1, // 한 페이지에 보여 질 문서의 개수
-              // };
+              const params: Params = {
+                query: data[i].place_name,
+                sort: 'accuracy', // accuracy | recency 정확도 or 최신
+                page: 1, // 페이지번호
+                size: 1, // 한 페이지에 보여 질 문서의 개수
+              };
 
-              // const { data: image } = await Kakao.get('/v2/search/image', {
-              //   params,
-              // });
+              const { data: image } = await Kakao.get('/v2/search/image', {
+                params,
+              });
+              console.log(image);
 
               // @ts-ignore
               markers.push({
@@ -141,9 +107,9 @@ const MapPage = () => {
                 placeURL: data[i].place_url,
                 id: data[i].id,
                 phone: data[i].phone,
-                // imgURL:
-                //   image.documents.length !== 0 &&
-                //   image.documents[0]?.thumbnail_url,
+                imgURL:
+                  image.documents.length !== 0 &&
+                  image.documents[0]?.thumbnail_url,
               });
               // @ts-ignore
               bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));

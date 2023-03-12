@@ -164,15 +164,13 @@ const Login = () => {
           onBlur={validateEmail}
         />
         <S.HelperText>{helperText.email}</S.HelperText>
-        {signInInput.password && (
-          <div
-            style={{ cursor: 'pointer' }}
-            className="password"
-            onClick={resetSignInInputClickHandler}
-          >
-            <S.CancleIcon size={18} />
-          </div>
-        )}
+        <div
+          style={{ cursor: 'pointer' }}
+          className="password"
+          onClick={resetSignInInputClickHandler}
+        >
+          {signInInput.password && <S.CancleIcon size={18} />}
+        </div>
         <S.FormInput
           placeholder="비밀번호를 입력해 주세요."
           value={signInInput.password}

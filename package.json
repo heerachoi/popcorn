@@ -67,10 +67,10 @@
   },
   "main": "server.ts",
   "scripts": {
-    "start": "node server.ts",
-    "start:dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "heroku-postbuild": "npm run build"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": []
