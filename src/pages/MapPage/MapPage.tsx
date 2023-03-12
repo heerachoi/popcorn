@@ -1,6 +1,5 @@
 // library
 import axios from 'axios';
-import { cacheAdapterEnhancer } from 'axios-extensions';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -75,8 +74,6 @@ const MapPage = () => {
           const Kakao = axios.create({
             baseURL: 'https://dapi.kakao.com',
             headers: {
-              // 'Cache-Control': 'no-cache',
-              // Expires: '1000',
               Authorization: 'KakaoAK ' + KAKAO_KEY,
             },
           });
