@@ -74,8 +74,6 @@ const MapPage = () => {
           const Kakao = axios.create({
             baseURL: 'https://dapi.kakao.com',
             headers: {
-              // 'Cache-Control': 'no-cache',
-              // Expires: '1000',
               Authorization: 'KakaoAK ' + KAKAO_KEY,
             },
           });
