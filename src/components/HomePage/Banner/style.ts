@@ -3,11 +3,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-export const StyledSlider = styled(Slider)`
+export const StyledSlider = styled(Slider)`  
   img {
     cursor: pointer;
-    width: 100vw;
+    width: 100%;
     height: 30rem;
+    margin: 0 auto;
     margin: 0 auto;
     display: flex;
     align-items: center;

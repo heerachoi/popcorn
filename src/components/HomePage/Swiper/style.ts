@@ -3,29 +3,28 @@ import COLORS from '../../../assets/CSS/colors';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import ArrowBackgroundOff from '../../../assets/Img/arrowBackgroundOff.png';
-import ArrowBackgroundOn from '../../../assets/Img/arrowBackgroundOn.png';
+import ArrowBackgroundOff from '../../../assets/Img/yellowArrow.png';
+import ArrowBackgroundOn from '../../../assets/Img/greenArrow.png';
 
 export const SwiperContainer = styled(Slider)`
   width: 1100px;
-  height: 506px;  
+  height: 506px;
 
   img {
     cursor: pointer;
     /* height: 334px; */
-    width: 334px;   
-    
-    @media screen and (max-width: 400px){
+    width: 334px;
+
+    @media screen and (max-width: 400px) {
       width: 300px;
       height: 300px;
-      
-    }  
+    }
   }
 
   .slick-arrow {
     width: 52px;
     height: 59px;
-    background: url(${ArrowBackgroundOn});    
+    background: url(${ArrowBackgroundOff});
   }
 
   li {
@@ -40,7 +39,7 @@ export const SwiperContainer = styled(Slider)`
     width: 334px;
     margin-right: 18px;
 
-    @media screen and (max-width: 400px){
+    @media screen and (max-width: 400px) {
       width: 300px;
     }
   }
@@ -49,22 +48,25 @@ export const SwiperContainer = styled(Slider)`
     right: -70px;
     z-index: 999;
     width: 52px;
-    height: 59px;
-    /* background: url(${ArrowBackgroundOn}); */
+    height: 57px;
+    background: url(${ArrowBackgroundOff});
     &:hover {
-      /* background: url(${ArrowBackgroundOn}); */
+      background: url(${ArrowBackgroundOn});
     }
   }
   .slick-prev {
     left: -75px;
     z-index: 999;
-    background: url(${ArrowBackgroundOn});
+    background: url(${ArrowBackgroundOff});
     width: 55px;
-    height: 59px;
+    height: 57px;
     object-fit: cover;
-    @media screen and (max-width: 400px){
-      display: none;  
-      z-index: 0;    
+    &:hover {
+      background: url(${ArrowBackgroundOn});
+    }
+    @media screen and (max-width: 400px) {
+      display: none;
+      z-index: 0;
     }
   }
 `;
@@ -79,7 +81,6 @@ export const StoreContainer = styled.div`
     background-color: ${COLORS.yellow3};
     border: 1px solid ${COLORS.orange4};
   }
-
 `;
 
 export const PopupImg = styled.img`
@@ -96,7 +97,6 @@ export const StoreInformation = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- 
 `;
 
 export const PopupTitle = styled.p`
@@ -104,7 +104,6 @@ export const PopupTitle = styled.p`
   font-size: 16px;
   color: ${COLORS.gray1};
   margin-bottom: 20px;
- 
 `;
 
 export const PopupDate = styled.p`

@@ -13,6 +13,7 @@ import StoreDetailInfo from '../../components/Detail/StoreDetailInfo/StoreDetail
 import { Store } from '../../types/data/storeInterface';
 // API
 import { JSON_API } from '../../services/api';
+import TopButton from '../../components/GlobalComponents/TopButton';
 
 const DetailPage: any = () => {
   const detailData = useLocation().state as Store;
@@ -99,6 +100,7 @@ const DetailPage: any = () => {
       <StoreDetailInfo detailData={data} />
       <DetailPageViews detailData={data} />
       <DetailMap />
+      <TopButton />
     </>
   );
 };

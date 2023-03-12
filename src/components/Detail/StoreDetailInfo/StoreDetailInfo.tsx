@@ -31,6 +31,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
   const user = useRecoilValue(userInfo);
+console.log('user', user);
 
   const days = ['월', '화', '수', '목', '금', '토', '일'];
 
@@ -120,7 +121,7 @@ const StoreDetailInfo = ({ detailData }: Props) => {
             <S.SideTitleWrap>
               <S.SideTitleIconText>
                 <S.ViewCount>{detailData?.view.all}</S.ViewCount>
-                <S.SideTitleText>조회수</S.SideTitleText>
+                <S.SideTitleText style={{marginTop:'10px'}}>조회수</S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>
