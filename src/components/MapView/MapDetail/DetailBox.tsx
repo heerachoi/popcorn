@@ -1,10 +1,11 @@
 // library
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import {
   mapCategoryValue,
   mapDetailBoxPopup,
   mapFoodSearchValue,
+  mapLoading,
 } from '../../../atoms';
 // component
 import FoodList from './FoodList';
@@ -13,8 +14,7 @@ import { FoodData, LocationType } from '../../../types/map';
 // style
 import * as S from './style';
 import Critical from '../../../assets/Img/Critical.svg';
-
-
+import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 
 interface Props {
   setMarkerHandler: (search: string, category: string) => void;
@@ -34,9 +34,11 @@ const DetailBox = ({
   const [category, setCategory] = useRecoilState(mapCategoryValue);
   const foodSearch = useRecoilValue(mapFoodSearchValue);
   const popup = useRecoilValue(mapDetailBoxPopup);
+  const [loading, setLoading] = useRecoilState(mapLoading);
 
   const categoryChangeHandler = async (category: string) => {
     setCategory(category);
+    setLoading(true);
     setMarkerHandler(`${foodSearch} ${category}`, category);
   };
 
@@ -72,27 +74,37 @@ const DetailBox = ({
           <S.BorderBottomLine />
         </S.NavigationBox>
       </S.DetailInfoWrap>
-      <S.CategoryWrap>
-        <S.CategoryImg src={Critical} />
-        <S.CategoryTitle>주변 키워드</S.CategoryTitle>
-        <S.CategoryBtnBox>
-          <S.CategoryFoodBtn
-            category={category}
-            type="submit"
-            onClick={() => categoryChangeHandler('음식점')}
-          >
-            음식점
-          </S.CategoryFoodBtn>
-          <S.CategoryCafeBtn
-            category={category}
-            type="submit"
-            onClick={() => categoryChangeHandler('카페')}
-          >
-            카페
-          </S.CategoryCafeBtn>
-        </S.CategoryBtnBox>
-      </S.CategoryWrap>
-      <FoodList setMyLocation={setMyLocation} setInfo={setInfo} info={info} />
+      {loading ? (
+        <LoadingAnimation />
+      ) : (
+        <>
+          <S.CategoryWrap>
+            <S.CategoryImg src={Critical} />
+            <S.CategoryTitle>주변 키워드</S.CategoryTitle>
+            <S.CategoryBtnBox>
+              <S.CategoryFoodBtn
+                category={category}
+                type="submit"
+                onClick={() => categoryChangeHandler('음식점')}
+              >
+                음식점
+              </S.CategoryFoodBtn>
+              <S.CategoryCafeBtn
+                category={category}
+                type="submit"
+                onClick={() => categoryChangeHandler('카페')}
+              >
+                카페
+              </S.CategoryCafeBtn>
+            </S.CategoryBtnBox>
+          </S.CategoryWrap>
+          <FoodList
+            setMyLocation={setMyLocation}
+            setInfo={setInfo}
+            info={info}
+          />
+        </>
+      )}
     </S.DetailBoxWrap>
   );
 };
