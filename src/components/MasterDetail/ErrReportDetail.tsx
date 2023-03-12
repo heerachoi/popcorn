@@ -29,6 +29,7 @@ const ErrReportDetail = () => {
 
   const selectedDetail = data?.filter((item: ErrReport) => item.id === paramId.id);
   const currentState = selectedDetail[0].status;
+  
 
   const checkHandler = () => {
     alert('확인');
@@ -58,7 +59,7 @@ const ErrReportDetail = () => {
                 <S.Grid>
                   <S.ReportTitle>제보자</S.ReportTitle>
                   <S.ReportContentText>
-                    {li.user.displayName}
+                    {li.userName}
                   </S.ReportContentText>
                 </S.Grid>
                 <S.Grid>

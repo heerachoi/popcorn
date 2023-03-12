@@ -75,7 +75,7 @@ export const PopularToWomen = () => {
     (a: Store, b: Store) =>
       Number(a.close.split('.').join('')) - Number(b.close.split('.').join('')),
   );
-  const womenTopTwo = womenViewSort.slice(0, 2);
+  const womenTopTwo = closingSoon.slice(0, 2);
   return womenTopTwo;
 };
 

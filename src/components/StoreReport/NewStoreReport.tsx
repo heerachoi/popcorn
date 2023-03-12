@@ -111,6 +111,7 @@ const NewStoreReport = () => {
     const newStore = {
       id: uuidv4(),
       user: String(user.userInfomation.id),
+      userName : user.userInfomation.nickName,
       title: newStoreInput.title,
       storeName: newStoreInput.storeName,
       storeAddress: newStoreInput.storeAddress,
