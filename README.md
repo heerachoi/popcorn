@@ -8,14 +8,12 @@
 
 <br/>
 
-🍿 POPCORN 방문하기
-<br/>
-https://popcorn-hazel.vercel.app/
+[🍿 POPCORN 방문하기](https://popcorn-hazel.vercel.app/)
 
 <br/>
 
-🌈 [📕 팀 노션](https://spicy-newsboy-3e0.notion.site/POPCORN-f89f7099782341b0badbdf5556cebae5) 
-🌈 [🎬 시연영상](https://www.youtube.com/watch?v=v80lrAb66h0)
+[📕 팀 노션](https://spicy-newsboy-3e0.notion.site/POPCORN-f89f7099782341b0badbdf5556cebae5) 
+[🎬 시연영상](https://www.youtube.com/watch?v=v80lrAb66h0)
 
 <br/>
 
@@ -55,7 +53,7 @@ https://popcorn-hazel.vercel.app/
 
 ## 🧑‍🔧서비스 아키텍쳐
 
-<img src="[https://user-images.githubusercontent.com/117061017/220928547-93bc8d32-66aa-4b3c-8535-f7b7dc0aeba7.jpg](https://user-images.githubusercontent.com/29205152/224541405-478eb6c3-156b-49ce-89db-6c91e5cb6bba.png)" width="100%"/>
+<img src="https://user-images.githubusercontent.com/29205152/224542019-bc1e80c3-56a6-4fa5-9a35-a79ec23b8c48.png" width="100%"/>
 
 <br/>
 
