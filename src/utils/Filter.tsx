@@ -35,12 +35,7 @@ export const CurrentlyOpen = () => {
 };
 
 // 뷰순위
-export const MostViews = () => {
-  // const currentlyOpen = CurrentlyOpen();
-  // const SortByViews = currentlyOpen.sort((a,b) => b.view.all - a.view.all);
-  // const ViewToThree = SortByViews.slice(0, 3);
-  // return ViewToThree;
-};
+export const MostViews = () => {};
 
 // 여성 인기 팝업스토어
 export const PopularToWomen = () => {

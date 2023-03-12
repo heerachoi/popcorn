@@ -31,8 +31,6 @@ const StoreDetailInfo = ({ detailData }: Props) => {
   const [bookMarkState, setBookMarkState] = useState<boolean>(false);
   const [currentBookMarkId, setCurrentBookMarkId] = useState<string>('');
   const user = useRecoilValue(userInfo);
-console.log('user', user);
-
   const days = ['월', '화', '수', '목', '금', '토', '일'];
 
   // 현재 로그인한 사용자 가져오기
@@ -83,7 +81,6 @@ console.log('user', user);
   const postBookmarkHandler = async () => {
     if (user.isLogin) {
       if (bookMarkState) {
-
         // 북마크가 있을 경우 삭제
         try {
           await axios.delete(`${JSON_API}/BookMarkList/${currentBookMarkId}`);
@@ -121,7 +118,9 @@ console.log('user', user);
             <S.SideTitleWrap>
               <S.SideTitleIconText>
                 <S.ViewCount>{detailData?.view.all}</S.ViewCount>
-                <S.SideTitleText style={{marginTop:'10px'}}>조회수</S.SideTitleText>
+                <S.SideTitleText style={{ marginTop: '10px' }}>
+                  조회수
+                </S.SideTitleText>
               </S.SideTitleIconText>
               <S.SideTitleIconText>
                 <S.SideTitleIcon>
