@@ -75,6 +75,7 @@ const UpdatePassword = ({ handleClose }: { handleClose: () => void }) => {
         {
           alert('변경완료');
           setCheck(false);
+          handleClose();
         },
       );
     } else if (!check) {
