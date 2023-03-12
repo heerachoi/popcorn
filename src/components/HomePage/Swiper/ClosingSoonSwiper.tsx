@@ -32,6 +32,7 @@ const ClosingSoonSwiper: React.FC = () => {
   });
   // 마감 순
   const closingSoon = closingSoonList.sort((a:Store,b:Store) => Number(a.close.split(".").join("")) - Number(b.close.split(".").join("")));
+
   
 
   const settings = {

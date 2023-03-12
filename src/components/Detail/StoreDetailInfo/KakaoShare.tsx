@@ -63,7 +63,7 @@ export const KakaoImgBtn = styled.button`
   cursor: pointer;
   padding: 0;
   width: 35px;
-  height: 18px;
+  height: 25px;
   font-family: 'Apple SD Gothic Neo';
   font-weight: 700;
   font-size: 16px;
