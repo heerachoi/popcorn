@@ -1,12 +1,13 @@
 // library
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import {
   mapCategoryValue,
   mapFoodData,
   mapLevel,
+  mapLoading,
   mapModalStatus,
   mapSearchValue,
   popupList,
@@ -40,6 +41,7 @@ const MapPage = () => {
   const popuplist = useRecoilValue(popupList); // popupData
   const setCategory = useSetRecoilState(mapCategoryValue); // 카테고리
   const setLevel = useSetRecoilState(mapLevel);
+  const setLoading = useSetRecoilState(mapLoading);
 
   const { data: popupData, isLoading } = useQuery('popupData', getPopupData);
 
@@ -125,6 +127,7 @@ const MapPage = () => {
             }
           }
           setFoodData(markers);
+          setLoading(false);
 
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
           if (category === '팝업스토어') {
@@ -136,6 +139,8 @@ const MapPage = () => {
       },
     );
   };
+
+  useEffect(() => setLoading(false), []);
 
   return (
     <>
