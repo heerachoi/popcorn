@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+<br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://user-images.githubusercontent.com/29205152/224542334-21b46b88-4606-450d-af1b-ab7352efa6f1.png" width="100%" />
 
-## Available Scripts
+# POPCORN🏡
 
-In the project directory, you can run:
+곳곳에 흩어져있는 팝업스토어들의 정보를 한 눈에 볼 수 있는 홈페이지입니다.
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[🍿 POPCORN 방문하기](https://popcorn-hazel.vercel.app/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/>
 
-### `npm test`
+[📕 팀 노션](https://spicy-newsboy-3e0.notion.site/POPCORN-f89f7099782341b0badbdf5556cebae5)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
 
-### `npm run build`
+[🎬 시연영상](https://www.youtube.com/watch?v=v80lrAb66h0)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⭐️주요 기능
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📌 로그인/회원가입
 
-### `npm run eject`
+- 회원가입시 휴대폰 인증번호 발송
+- 유효성 검사
+- 카카오 로그인
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 📌 메인 페이지
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 키워드 검색 및 카테고리별 검색
+- 카테고리별 팝업스토어 목록
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 📌 팝업스토어 검색
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 키워드 검색 및 진행중인 날짜, 팝업 기간, 위치, 제품 카테고리, 기타 카테고리로 필터링이 가능합니다.
+- 연관 검색결과에 따른 스토어들을 캘린더로 조회
 
-## Learn More
+### 📌 마스터 페이지
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 정보 오류, 수정 제보 목록 조회 (완료를 눌러 사용자에게 완료되었음을 알림)
+- 신규 팝업스토어 제보 목록 조회
+- 신규 팝업스토어 글쓰기
+- 팝업스토어 정보 수정
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 📌 Map
+
+- 팝업스토어 표시
+- 키워드 검색
+- 해당 위치 날씨, 기온
+- 주변 음식점, 카페 추천
+
+</br>
+
+## 🧑‍🔧서비스 아키텍쳐
+
+<img src="https://user-images.githubusercontent.com/29205152/224542019-bc1e80c3-56a6-4fa5-9a35-a79ec23b8c48.png" width="100%"/>
+
+<br/>
+
+## 👨‍👩‍👧‍👦팀원 소개
+
+| 이름        | GITHUB                                    | BLOG                                                 |
+| ----------- | ----------------------------------------- | ---------------------------------------------------- |
+| 최희라 (FE) | [heerachoi](https://github.com/heerachoi) | [@codesign](https://codesign.tistory.com/)           |
+| 한재창 (FE) | [JAECHANGG](https://github.com/JAECHANGG) | [@abcwockd9](https://velog.io/@abcwockd95)           |
+| 한지은 (FE) | [yjyyls](https://github.com/yjyyls)       | [@yjyyls6](https://yjyyls6.tistory.com/)             |
+| 김유안 (FE) | [innasz](https://github.com/innasz)       | [@innasz](https://velog.io/@innasz)                  |
+| 최현실 (DE) |                                           | [@hyunsilchoi](https://hyunsilchoi.creatorlink.net/) |
+
+<br/>

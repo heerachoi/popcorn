@@ -4,6 +4,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const HomePageContainer = styled.div`
+  max-width: 1060px;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 export const SearchContainer = styled.div`
@@ -29,14 +32,12 @@ export const HomePageContentContainer = styled.div`
   flex-direction: column;
   gap: 129px;
 
-  @media screen and (max-width: 400px) {    
-    gap: 80px;    
+  @media screen and (max-width: 400px) {
+    gap: 80px;
   }
 `;
 
-export const CategoryWrapper = styled.div`
-
-`;
+export const CategoryWrapper = styled.div``;
 
 // Popup Store 포스터 카드
 export const StoreContainer = styled.div`
@@ -48,7 +49,6 @@ export const StoreContainer = styled.div`
     background-color: ${COLORS.yellow3};
     border: 1px solid ${COLORS.orange4};
   }
- 
 `;
 
 export const PopupImg = styled.img`
