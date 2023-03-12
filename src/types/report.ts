@@ -1,6 +1,7 @@
 export interface ErrReport {
   id: string;
   user: any;
+  userName: string;
   title: string;
   storeName: string;
   infoErrContent: string;
@@ -14,6 +15,7 @@ export interface ErrReport {
 export interface NewStoreReport {
   id: string;
   user: any;
+  userName: string;
   title: string;
   storeName: string;
   storeAddress: string;

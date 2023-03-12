@@ -34,8 +34,6 @@ const MyProfile = () => {
   const currentUserInfos: User | null = auth.currentUser;
   const accessToken = useRecoilValue(kakaoAccessToken);
   const [kakaoUserInfo, setKakaoUserInfo] = useRecoilState(userInfoState);
-  console.log('accessToken', accessToken);
-  console.log('accessToken', typeof accessToken);
   // 현재 로그인한 사용자 가져오기
   useEffect(() => {
     auth.onAuthStateChanged((user) => {

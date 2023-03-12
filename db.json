@@ -500,6 +500,7 @@
       "lon": "127.0014998",
       "category": "팝업스토어"
     },
+
     {
       "id": "100",
       "view": {
@@ -908,6 +909,7 @@
       "lon": "127.0267427",
       "category": "126.9229443"
     },
+
     {
       "id": "201",
       "view": {
@@ -1264,7 +1266,457 @@
       ],
       "lat": "37.5575065",
       "lon": "126.9240936",
-      "category": "기타"
+      "category": "팝업스토어"
+    },
+    {
+      "id": "11",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "블루보틀 홍대 팝업 카페",
+      "address": "서울특별시 마포구 양화로 130 홍대 라이즈호텔 1층",
+      "open": "2023.03.03",
+      "close": "미정",
+      "location": "서울",
+      "item": "식음료",
+      "openingTime": [
+        "08:00",
+        "08:00",
+        "08:00",
+        "08:00",
+        "08:00",
+        "08:00",
+        "08:00"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00"
+      ],
+      "significantContent": "",
+      "explain": "새로운 계절, 새로운 학기, 새로운 시작을 맞이한 '홍대' 커뮤니티에서 블루보틀 팝업 카페를 3월 3일 금요일부터 만나보세요!",
+      "sns": "https://www.instagram.com/bluebottlekorea/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%B8%94%EB%A3%A8%EB%B3%B4%ED%8B%80%20%ED%99%8D%EB%8C%80%20%ED%8C%9D%EC%97%85%20%EC%B9%B4%ED%8E%98%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.07.16.png?alt=media&token=0df1068c-c8d3-42ec-95a7-be54562179bb",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%B8%94%EB%A3%A8%EB%B3%B4%ED%8B%80%20%ED%99%8D%EB%8C%80%20%ED%8C%9D%EC%97%85%20%EC%B9%B4%ED%8E%98%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.07.24.png?alt=media&token=4050ed92-2ce5-4dab-bc0f-f34ae855cd17",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%B8%94%EB%A3%A8%EB%B3%B4%ED%8B%80%20%ED%99%8D%EB%8C%80%20%ED%8C%9D%EC%97%85%20%EC%B9%B4%ED%8E%98%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.07.30.png?alt=media&token=f89d0b06-b0d0-48c5-9007-bb1d478fcbf0"
+      ],
+      "lat": "37.5543688",
+      "lon": "126.9213026",
+      "category": "팝업스토어"
+    },
+    {
+      "id": "12",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "폴로 랄프 로렌: 뉴욕 복싱 클럽",
+      "address": "서울특별시 성동구 아차산로 104 3층 무신사테라스 성수점",
+      "open": "2023.03.10",
+      "close": "2023.03.16",
+      "location": "서울",
+      "item": "패션",
+      "openingTime": [
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00",
+        "10:00"
+      ],
+      "closeTime": [
+        "19:00",
+        "19:00",
+        "19:00",
+        "19:00",
+        "19:00",
+        "19:00",
+        "19:00"
+      ],
+      "significantContent": "",
+      "explain": "뉴욕의 어느 복싱 짐을 그대로 옮겨 놓은 듯 꾸며놓은 팝업 현장에서 만나는 '폴로 랄프 로렌'의 <뉴욕 복싱 클럽 팝업스토어>",
+      "sns": "https://www.instagram.com/musinsaterrace/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%B4%EB%A1%9C%20%EB%9E%84%ED%94%84%20%EB%A1%9C%EB%A0%8C%3A%20%EB%89%B4%EC%9A%95%20%EB%B3%B5%EC%8B%B1%20%ED%81%B4%EB%9F%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.16.09.png?alt=media&token=6995542f-b57c-49d6-a10b-4bd2b8376b87",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%B4%EB%A1%9C%20%EB%9E%84%ED%94%84%20%EB%A1%9C%EB%A0%8C%3A%20%EB%89%B4%EC%9A%95%20%EB%B3%B5%EC%8B%B1%20%ED%81%B4%EB%9F%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.16.01.png?alt=media&token=4a88259e-2a31-4a5d-b4a3-c00d0b3267a7",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%B4%EB%A1%9C%20%EB%9E%84%ED%94%84%20%EB%A1%9C%EB%A0%8C%3A%20%EB%89%B4%EC%9A%95%20%EB%B3%B5%EC%8B%B1%20%ED%81%B4%EB%9F%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.16.21.png?alt=media&token=f8f3d37c-abd8-433f-9f4e-4ee2138484a5",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%B4%EB%A1%9C%20%EB%9E%84%ED%94%84%20%EB%A1%9C%EB%A0%8C%3A%20%EB%89%B4%EC%9A%95%20%EB%B3%B5%EC%8B%B1%20%ED%81%B4%EB%9F%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.16.26.png?alt=media&token=fe92cd79-8308-43fb-8639-d915fd924617",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%8F%B4%EB%A1%9C%20%EB%9E%84%ED%94%84%20%EB%A1%9C%EB%A0%8C%3A%20%EB%89%B4%EC%9A%95%20%EB%B3%B5%EC%8B%B1%20%ED%81%B4%EB%9F%BD%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.16.29.png?alt=media&token=724ac1b8-47c3-43ae-9236-29bf3b1ccaba"
+      ],
+      "lat": "37.5444502",
+      "lon": "127.0553861",
+      "category": "팝업스토어"
+    },
+    {
+      "id": "13",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "성수동에 나타난 프랑스 알프스",
+      "address": "서울특별시 성동구 성수일로 3길 8",
+      "open": "2023.03.10",
+      "close": "2023.03.18",
+      "location": "서울",
+      "item": "소품",
+      "openingTime": [
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00"
+      ],
+      "closeTime": [
+        "18:00",
+        "18:00",
+        "18:00",
+        "18:00",
+        "18:00",
+        "18:00",
+        "18:00"
+      ],
+      "significantContent": "",
+      "explain": "프랑스 알프스를 공통점으로 만난 두 브랜드 에비앙과 투르 드 프랑스의 갤러리 전시형 팝업",
+      "sns": "https://www.instagram.com/lottechilsung/",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%84%B1%EC%88%98%EB%8F%99%EC%97%90%20%EB%82%98%ED%83%80%EB%82%9C%20%ED%94%84%EB%9E%91%EC%8A%A4%20%EC%95%8C%ED%94%84%EC%8A%A4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.26.35.png?alt=media&token=b4342e36-adb9-4a36-b6ad-efc39e9e05f4",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%84%B1%EC%88%98%EB%8F%99%EC%97%90%20%EB%82%98%ED%83%80%EB%82%9C%20%ED%94%84%EB%9E%91%EC%8A%A4%20%EC%95%8C%ED%94%84%EC%8A%A4%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-03-12%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%208.27.28.png?alt=media&token=9b8227dd-d315-48c8-ab9c-261a460a9828"
+      ],
+      "lat": "37.5422366",
+      "lon": "127.0479082",
+      "category": "팝업스토어"
+    },
+    {
+      "id": "109",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "HAHA CREAM DOG",
+      "address": "서울특별시 서초구 신반포로 176 신세계백화점 강남점 지하1층",
+      "open": "2023.03.12",
+      "close": "2023.03.22",
+      "location": "서울",
+      "item": "식음료",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "significantContent": "",
+      "explain": "한국타이어와 하프커피의 콜라보로 진행되는 'HAHA CREAM DOG'은 음악을 소재로 국내에서는 쉽게 볼 수 없는 이국적인 느낌으로 스토어를 구성하여 도넛과 핫도그를 한국타이어 제품 모양으로 판매합니다.대표 메뉴로는 크로넛과 핫도그이며, 제품 패키지는 붐 박스 모양으로 만들어 핸드폰을 끼워 스피커로도 활용할 수 있는 흥미로운 요소를 추가했습니다. (이미지 출처 : 하프커피 공식인스타그램)",
+      "sns": "https://instagram.com/halff_coffeeroasters",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FHAHA%20CREAM%20DOG%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20185230.png?alt=media&token=4a0db82b-2817-408d-a64a-7c4f9e2f99fc",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FHAHA%20CREAM%20DOG%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20185711.png?alt=media&token=95aa78c7-afa2-4ce8-9ae3-5e7ce2fb2551",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FHAHA%20CREAM%20DOG%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20185756.png?alt=media&token=b164f6f6-0e0e-41ee-9e7b-36ff109b7fbf",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FHAHA%20CREAM%20DOG%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20185837.png?alt=media&token=b31ea36a-c00d-4268-bda7-9a7d574f9d5e",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2FHAHA%20CREAM%20DOG%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20185957.png?alt=media&token=0df5b4c4-fd79-442e-a5fb-c95f6b10738a"
+      ],
+      "lat": "37.5041299",
+      "lon": "127.0030692",
+      "category": "팝업스토어"
+    },
+    {
+      "id": "110",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "보테가 베네타(BOTTEGA VENETA)",
+      "address": "서울특별시 송파구 올림픽로 300 롯데백화점 에비뉴엘 월드타워점 B1",
+      "open": "2023.03.09",
+      "close": "2023.03.19",
+      "location": "서울",
+      "item": "패션",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "significantContent": "",
+      "explain": "롯데 에비뉴엘 잠실점에 럭셔리 브랜드 팝업 전용 공간 '더 크라운'의 첫 주인공 '보테가베네타'\n올 시즌 새로운 컨셉트를 담은 다채로운 신상품과 가에타노 페세의 한정판 'COMESTAI 의자'도 함께 만날 수 있는 팝업스토어\n(이미지 출처: Gaetano Pesce 인스타그램)",
+      "sns": "https://instagram.com/gaetano.pesce",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EB%B3%B4%ED%85%8C%EA%B0%80%EB%B2%A0%EB%84%A4%ED%83%80%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20201743.png?alt=media&token=234c0567-fbbe-4cd8-a376-16dbfb0c1e09"
+      ],
+      "lat": "37.512574",
+      "lon": "127.1023697",
+      "category": "팝업스토어"
+    },
+    {
+      "id": "111",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "사바이 사바이(SABAI SABAI)",
+      "address": "대구광역시 중구 달구벌대로 2077 더현대 대구 4층",
+      "open": "2023.03.03",
+      "close": "2023.03.16",
+      "location": "대구",
+      "item": "소품",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "significantContent": "",
+      "explain": "인테리어 소품샵 '사바이 사바이' 팝업스토어\n(이미지 출처: 사바이 사바이 인스타그램)",
+      "sns": "https://instagram.com/sabai_.sabai",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%82%AC%EB%B0%94%EC%9D%B4%EC%82%AC%EB%B0%94%EC%9D%B4%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20202632.png?alt=media&token=47910dab-ce85-449a-8760-c1ebac936c1a",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%82%AC%EB%B0%94%EC%9D%B4%EC%82%AC%EB%B0%94%EC%9D%B4%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20202855.png?alt=media&token=fbe9fca1-a416-44a4-8490-02435c4a1951",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%82%AC%EB%B0%94%EC%9D%B4%EC%82%AC%EB%B0%94%EC%9D%B4%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20202916.png?alt=media&token=60ed7291-64f0-4644-86e3-32b0e66e9f10",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%82%AC%EB%B0%94%EC%9D%B4%EC%82%AC%EB%B0%94%EC%9D%B4%2F%ED%99%94%EB%A9%B4%20%EC%BA%A1%EC%B2%98%202023-03-12%20202935.png?alt=media&token=639f966b-c137-4565-a7bb-9e9e4f4a64c5",
+        "https://console.firebase.google.com/project/popcorn1-4b47e/storage/popcorn1-4b47e.appspot.com/files/~2FpopupStoreImg~2F%EC%82%AC%EB%B0%94%EC%9D%B4%EC%82%AC%EB%B0%94%EC%9D%B4?hl=ko"
+      ],
+      "lat": "35.8667125",
+      "lon": "128.5906406",
+      "category": "팝업스토어"
+    },
+    {
+      "id": "208",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "쿵야 레스토랑즈",
+      "address": "서울특별시 구로구 경인로 662 현대백화점 디큐브시티 지하 1층",
+      "open": "2023.03.10",
+      "close": "2023.03.19",
+      "location": "서울",
+      "item": "캐릭터",
+      "openingTime": [
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00",
+        "11:00"
+      ],
+      "closeTime": [
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:00",
+        "21:30",
+        "21:30",
+        "21:30"
+      ],
+      "significantContent": "",
+      "explain": "넷마블의 콘텐츠 마케팅자회사 엠엔비가 진행하는 '쿵야 레스토랑즈' 팝업스토어는 행운 상점 콘셉트로 구현되어 신규 굿즈, 체험존 및 포토존 등 다양한 콘텐츠가 제공된다. 체험존에 마련된 행운박스 자판기에서는 키링, 행운엽서, 포토카드 등 디자인 굿즈 20여종이 랜덤으로 구성된 '행운박스'를 구매할 수 있다.",
+      "sns": "https://instagram.com/ky_restaurantz?igshid=YmMyMTA2M2Y=",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%BF%B5%EC%95%BC%20%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91%EC%A6%88%2F%EC%BF%B5%EC%95%BC1.png?alt=media&token=9f537cb5-7555-447e-9b14-e540541b8d77",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%BF%B5%EC%95%BC%20%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91%EC%A6%88%2F%EC%BF%B5%EC%95%BC2.png?alt=media&token=c4fbb480-340e-4ab7-a835-a18e9c18beef",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%BF%B5%EC%95%BC%20%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91%EC%A6%88%2F%EC%BF%B5%EC%95%BC3.png?alt=media&token=d9078eef-c8f3-4d5e-9ad6-dda7c9e6f76b",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%BF%B5%EC%95%BC%20%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91%EC%A6%88%2F%EC%BF%B5%EC%95%BC4.png?alt=media&token=798ef217-2d38-49bc-8fbb-cb44cb3a5071",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%EC%BF%B5%EC%95%BC%20%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91%EC%A6%88%2F%EC%BF%B5%EC%95%BC5.png?alt=media&token=0b343071-41d5-4372-9c05-01748b3c3e30"
+      ],
+      "lat": "37.5084321",
+      "lon": "126.8887332",
+      "category": "팝업스토어"
+    },
+    {
+      "id": "209",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "51PERCENT",
+      "address": "서울특별시 영등포구 여의대로 108 더현대 서울 지하 2층 아이코닉존",
+      "open": "2023.03.09",
+      "close": "2023.03.22",
+      "location": "서울",
+      "item": "패션",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "significantContent": "",
+      "explain": "의류브랜드 51percent의 더현대 서울 팝업스토어",
+      "sns": "https://instagram.com/51percent_official?igshid=YmMyMTA2M2Y=",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F51percent%2F51percent1.png?alt=media&token=1be3610b-ff22-444c-a9fd-cddee99f0061",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F51percent%2F51percent2.png?alt=media&token=8aa2ac0e-cde7-4428-971e-099dd527ea9b",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F51percent%2F51percent3.png?alt=media&token=11739bac-951b-4eef-825c-914633ccc61a",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F51percent%2F51percent4.png?alt=media&token=e9044980-ca60-4e43-97ea-db5e0d5b18b4",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F51percent%2F51percent5.png?alt=media&token=75ad3465-f46f-49a0-b41b-5b47b4cea632"
+      ],
+      "lat": "37.5258975",
+      "lon": "126.9284261",
+      "category": "팝업스토어"
+    },
+    {
+      "id": "210",
+      "view": {
+        "10": 0,
+        "20": 0,
+        "30": 0,
+        "40+": 0,
+        "female": 0,
+        "male": 0,
+        "연령모름": 0,
+        "성별모름": 0,
+        "all": 0
+      },
+      "title": "호떡스 X 플레이인더박스: 호호텔",
+      "address": "서울특별시 영등포구 여의대로 108 더현대 서울 5층 플레이인더박스",
+      "open": "2023.03.07",
+      "close": "2023.05.08",
+      "location": "서울",
+      "item": "캐릭터",
+      "openingTime": [
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30",
+        "10:30"
+      ],
+      "closeTime": [
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:00",
+        "20:30",
+        "20:30",
+        "20:30"
+      ],
+      "significantContent": "",
+      "explain": "호떡스의 상상이 가득한 환상의 나라로 초대할께! '호떡스'와 '플레이인더박스'의 콜라보 팝업 스토어",
+      "sns": "https://instagram.com/hoddeoks_?igshid=YmMyMTA2M2Y=",
+      "imgURL": [
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%98%B8%EB%96%A1%EC%8A%A4%2F%ED%98%B8%EB%96%A1%EC%8A%A41.png?alt=media&token=dc2e8228-7dbd-4d9e-ab57-526b563cd32f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%98%B8%EB%96%A1%EC%8A%A4%2F%ED%98%B8%EB%96%A1%EC%8A%A42.png?alt=media&token=1cd47b20-3411-46e4-ac8f-208e34d3221f",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%98%B8%EB%96%A1%EC%8A%A4%2F%ED%98%B8%EB%96%A1%EC%8A%A43.png?alt=media&token=1b1a41e6-7df1-4ed2-969f-44ddd4b70115",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%98%B8%EB%96%A1%EC%8A%A4%2F%ED%98%B8%EB%96%A1%EC%8A%A44.png?alt=media&token=502ab7ca-7594-4342-a58e-40ac2a8531c7",
+        "https://firebasestorage.googleapis.com/v0/b/popcorn1-4b47e.appspot.com/o/popupStoreImg%2F%ED%98%B8%EB%96%A1%EC%8A%A4%2F%ED%98%B8%EB%96%A1%EC%8A%A45.png?alt=media&token=3f982d4f-403a-41c0-b24a-4f6a573c88d2"
+      ],
+      "lat": "37.5255667",
+      "lon": "126.9288985",
+      "category": "팝업스토어"
     }
   ],
   "users": [
