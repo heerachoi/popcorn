@@ -1,6 +1,5 @@
 // library
 import axios from 'axios';
-import { cacheAdapterEnhancer } from 'axios-extensions';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
