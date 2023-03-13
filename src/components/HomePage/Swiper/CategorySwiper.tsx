@@ -26,7 +26,7 @@ const CategorySwiper: React.FC = () => {
    */
   const popupList = data.filter((store: Store) => {
     return (
-      parseInt(store.open.split('.').join('')) >= todayDate - 140 &&
+      parseInt(store.open.split('.').join('')) >= todayDate - 10 &&
       todayDate <= parseInt(store.close.split('.').join(''))
     );
   });

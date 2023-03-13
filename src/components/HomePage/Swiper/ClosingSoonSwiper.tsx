@@ -27,7 +27,7 @@ const ClosingSoonSwiper: React.FC = () => {
   const closingSoonList = data.filter((store: Store) => {
     return (
       parseInt(store.close.split('.').join('')) >= todayDate &&
-      todayDate + 100 >= parseInt(store.close.split('.').join(''))
+      todayDate + 5 >= parseInt(store.close.split('.').join(''))
     );
   });
   // 마감 순
