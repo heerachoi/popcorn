@@ -74,12 +74,6 @@ const Search: React.FC = () => {
     searchFilterHandler();
   }, [searchTerm]);
 
-  useEffect(() => {
-    if (!data) {
-      setStoreList(data);
-    }
-  }, [data]);
-
   // 검색 필터
   const searchFilterHandler = () => {
     data?.forEach((store: Store) => {
