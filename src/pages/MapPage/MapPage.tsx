@@ -43,7 +43,9 @@ const MapPage = () => {
   const setLevel = useSetRecoilState(mapLevel);
   const setLoading = useSetRecoilState(mapLoading);
 
-  const { data: popupData, isLoading } = useQuery('popupData', getPopupData);
+  const { data: popupData, isLoading } = useQuery('popup', getPopupData, {
+    staleTime: 500000,
+  });
 
   const onSearchSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -92,7 +94,6 @@ const MapPage = () => {
               const { data: image } = await Kakao.get('/v2/search/image', {
                 params,
               });
-              console.log(image);
 
               // @ts-ignore
               markers.push({
@@ -131,7 +132,7 @@ const MapPage = () => {
 
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
           if (category === '팝업스토어') {
-            map.panTo(map.setBounds(bounds));
+            map.setBounds(bounds);
             let latlng = map.getCenter();
             setMyLocation(latlng);
           }
