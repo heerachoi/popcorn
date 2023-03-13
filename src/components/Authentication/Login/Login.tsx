@@ -31,7 +31,7 @@ const Login = () => {
   const modalStatusReset = useResetRecoilState(modalStatus);
 
   const initSignInInput = {
-    email: signUpEmail,
+    email: signUpEmail !== null ? signUpEmail : '',
     password: '',
   };
 
