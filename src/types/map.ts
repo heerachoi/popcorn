@@ -31,3 +31,7 @@ export interface AirPollutionChangeTheText {
 export interface AddressResult {
   [key: string]: string | number;
 }
+
+export interface weatherKoText {
+  [key: string]: string 
+}
