@@ -24,7 +24,9 @@ type Props = {
 const Layout = ({ children }: Props) => {
   const [users, setUsers] = useRecoilState(userInfo);
   const reset = useResetRecoilState(userInfo);
-  const { data: userDataFromJson } = useQuery('user', getUser);
+  const { data: userDataFromJson } = useQuery('user', getUser, {
+    staleTime: 500000,
+  });
   const kakaoUserInfo = useRecoilValue(userInfoState);
   const accessToken = useRecoilValue(kakaoAccessToken);
   const { pathname } = useLocation();

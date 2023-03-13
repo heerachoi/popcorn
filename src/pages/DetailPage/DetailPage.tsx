@@ -19,7 +19,6 @@ const DetailPage: any = () => {
   const detailData = useLocation().state as Store;
   const users = useRecoilValue(userInfo);
   const [userAge, setUserAge] = useState<string>('');
-  const [data, setData] = useState<Store>(detailData);
 
   const queryClient = useQueryClient();
 
@@ -77,9 +76,8 @@ const DetailPage: any = () => {
     }
   };
   const mutation = useMutation(() => upDateViews(), {
-    onSuccess: (data) => {
-      setData(data?.data);
-      // queryClient.invalidateQueries('popup');
+    onSuccess: () => {
+      queryClient.invalidateQueries('popup');
     },
   });
 
@@ -97,8 +95,8 @@ const DetailPage: any = () => {
 
   return (
     <>
-      <StoreDetailInfo detailData={data} />
-      <DetailPageViews detailData={data} />
+      <StoreDetailInfo detailData={detailData} />
+      <DetailPageViews detailData={detailData} />
       <DetailMap />
       <TopButton />
     </>

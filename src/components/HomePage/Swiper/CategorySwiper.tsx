@@ -14,7 +14,7 @@ import * as S from './style';
 const CategorySwiper: React.FC = () => {
   const navigate = useNavigate();
   const [todayDate, setTodayDate] = useState<number | any>(0);
-  const { data } = useQuery('popup', getPopupData);
+  const { data } = useQuery('popup', getPopupData, { staleTime: 500000 });
 
   // 오늘날짜
   useEffect(() => {
@@ -26,7 +26,7 @@ const CategorySwiper: React.FC = () => {
    */
   const popupList = data.filter((store: Store) => {
     return (
-      parseInt(store.open.split('.').join('')) >= todayDate - 140 &&
+      parseInt(store.open.split('.').join('')) >= todayDate - 10 &&
       todayDate <= parseInt(store.close.split('.').join(''))
     );
   });

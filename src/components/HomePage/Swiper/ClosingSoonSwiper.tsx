@@ -1,5 +1,5 @@
 // library
-import {useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 // utils
@@ -9,12 +9,12 @@ import { getPopupData } from '../../../services/api';
 // types
 import { Store } from '../../../types/data/storeInterface';
 // style
-import * as S from './style'
+import * as S from './style';
 
 const ClosingSoonSwiper: React.FC = () => {
   const navigate = useNavigate();
-  const [todayDate, setTodayDate] = useState<number|any>();
-  const { data } = useQuery('popup', getPopupData);
+  const [todayDate, setTodayDate] = useState<number | any>();
+  const { data } = useQuery('popup', getPopupData, { staleTime: 500000 });
   // 오늘날짜
   useEffect(() => {
     setTodayDate(getTodayDate());
@@ -24,16 +24,17 @@ const ClosingSoonSwiper: React.FC = () => {
    * 곧 마감해요
    * 개선: 달력별 다른 날짜 계산 필요
    */
-  const closingSoonList = data.filter((store:Store) => {
+  const closingSoonList = data.filter((store: Store) => {
     return (
       parseInt(store.close.split('.').join('')) >= todayDate &&
-      todayDate + 100 >= parseInt(store.close.split('.').join(''))
+      todayDate + 5 >= parseInt(store.close.split('.').join(''))
     );
   });
   // 마감 순
-  const closingSoon = closingSoonList.sort((a:Store,b:Store) => Number(a.close.split(".").join("")) - Number(b.close.split(".").join("")));
-
-  
+  const closingSoon = closingSoonList.sort(
+    (a: Store, b: Store) =>
+      Number(a.close.split('.').join('')) - Number(b.close.split('.').join('')),
+  );
 
   const settings = {
     dots: false,
@@ -62,44 +63,52 @@ const ClosingSoonSwiper: React.FC = () => {
       },
     ],
   };
-  
-   return (
-        <S.SwiperContainer {...settings}>
-          {closingSoon.map((popup:Store) => (
-            <S.StoreContainer
-              key={popup.id}
-              onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
-            >
-            <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진"/>
-            <S.StoreInformation>
-               <S.InformationContainer>
-                <S.PopupTitle>{popup.title}</S.PopupTitle>
-                <S.PopupDate>
+
+  return (
+    <S.SwiperContainer {...settings}>
+      {closingSoon.map((popup: Store) => (
+        <S.StoreContainer
+          key={popup.id}
+          onClick={() => navigate(`/detail/${popup.id}`, { state: popup })}
+        >
+          <S.PopupImg src={popup.imgURL[0]} alt="팝업스토어사진" />
+          <S.StoreInformation>
+            <S.InformationContainer>
+              <S.PopupTitle>{popup.title}</S.PopupTitle>
+              <S.PopupDate>
                 {popup.open} - {popup.close}
-                </S.PopupDate>
-               </S.InformationContainer>
-              <S.CategoryContainer>
-                <S.Category onClick={(event) => { 
-                    event.stopPropagation(); 
-                    navigate(`/search?search=${popup.location}`);
-                  }}> 
-                  {popup.location} 
-                </S.Category>
-                <S.Category onClick={(event) => {
-                    event.stopPropagation();
-                    navigate(`/search?search=${popup.category}`);
-                  }}>{popup.category}
-                </S.Category>
-                <S.Category onClick={(event) => {
-                    event.stopPropagation();
-                    navigate(`/search?search=${popup.item}`);
-                  }}>{popup.item}</S.Category>
-              </S.CategoryContainer>
-            </S.StoreInformation>
-            </S.StoreContainer>
-          ))}
-        </S.SwiperContainer>
-    
+              </S.PopupDate>
+            </S.InformationContainer>
+            <S.CategoryContainer>
+              <S.Category
+                onClick={(event) => {
+                  event.stopPropagation();
+                  navigate(`/search?search=${popup.location}`);
+                }}
+              >
+                {popup.location}
+              </S.Category>
+              <S.Category
+                onClick={(event) => {
+                  event.stopPropagation();
+                  navigate(`/search?search=${popup.category}`);
+                }}
+              >
+                {popup.category}
+              </S.Category>
+              <S.Category
+                onClick={(event) => {
+                  event.stopPropagation();
+                  navigate(`/search?search=${popup.item}`);
+                }}
+              >
+                {popup.item}
+              </S.Category>
+            </S.CategoryContainer>
+          </S.StoreInformation>
+        </S.StoreContainer>
+      ))}
+    </S.SwiperContainer>
   );
 };
 

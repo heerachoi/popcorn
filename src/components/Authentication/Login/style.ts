@@ -145,7 +145,10 @@ export const TextBackground = styled.div`
   }
 `;
 
-export const CancleIcon = styled(MdCancel)`
+export const CancleInonBox = styled.div`
+  z-index: 999;
+  width: 20px;
+  height: 20px;
   position: relative;
   left: 170px;
   bottom: -45px;
@@ -153,6 +156,10 @@ export const CancleIcon = styled(MdCancel)`
   @media screen and (max-width: 580px) {
     left: 100px;
   }
+`;
+
+export const CancleIcon = styled(MdCancel)`
+  position: absolute;
 `;
 
 export const KakaoLoginBtn = styled.button`
