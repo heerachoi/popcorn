@@ -8,7 +8,9 @@ import * as S from './style';
 
 const BookMarkStore = ({ li }: any) => {
   const navigate = useNavigate();
-  const { data: popupData } = useQuery('popupStore', getPopupData);
+  const { data: popupData } = useQuery('popup', getPopupData, {
+    staleTime: 500000,
+  });
   const popup = popupData?.filter((pop: any) => {
     return pop.id === li.store;
   })[0];
