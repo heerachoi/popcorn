@@ -14,7 +14,7 @@ import * as S from './style';
 const ClosingSoonSwiper: React.FC = () => {
   const navigate = useNavigate();
   const [todayDate, setTodayDate] = useState<number | any>();
-  const { data } = useQuery('popup', getPopupData);
+  const { data } = useQuery('popup', getPopupData, { staleTime: 500000 });
   // 오늘날짜
   useEffect(() => {
     setTodayDate(getTodayDate());

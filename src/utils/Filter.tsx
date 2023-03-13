@@ -10,7 +10,9 @@ import LoadingAnimation from '../components/GlobalComponents/LoadingAnimation';
 // 현재 진행중인 스토어
 export const CurrentlyOpen = () => {
   const todayDate = getTodayDate();
-  const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
+  const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
+    staleTime: 500000,
+  });
 
   if (isLoading) {
     return <LoadingAnimation />;
@@ -39,7 +41,9 @@ export const MostViews = () => {};
 // 여성 인기 팝업스토어
 export const PopularToWomen = () => {
   const todayDate = getTodayDate();
-  const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
+  const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
+    staleTime: 500000,
+  });
 
   if (isLoading) {
     return <LoadingAnimation />;
@@ -68,7 +72,9 @@ export const PopularToWomen = () => {
 // 남성 인기 팝업스토어
 export const PopularToMen = () => {
   const todayDate = getTodayDate();
-  const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
+  const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
+    staleTime: 500000,
+  });
 
   if (isLoading) {
     return <LoadingAnimation />;

@@ -31,7 +31,7 @@ const Login = () => {
   const modalStatusReset = useResetRecoilState(modalStatus);
 
   const initSignInInput = {
-    email: signUpEmail,
+    email: signUpEmail !== null ? signUpEmail : '',
     password: '',
   };
 
@@ -77,7 +77,7 @@ const Login = () => {
   ) => {
     setSignInInput({
       ...signInInput,
-      [event.currentTarget.className]: '',
+      [event.currentTarget.id]: '',
     });
   };
 
@@ -146,15 +146,13 @@ const Login = () => {
       </S.TitleWrap>
       <S.FormWrap onSubmit={signInClickHandler}>
         {/* 이메일 전체 지우기 버튼 */}
-        {signInInput.email && (
-          <div
-            style={{ cursor: 'pointer' }}
-            className="email"
-            onClick={resetSignInInputClickHandler}
-          >
-            <S.CancleIcon size={18} />
-          </div>
-        )}
+        <S.CancleInonBox
+          style={{ cursor: 'pointer' }}
+          id="email"
+          onClick={resetSignInInputClickHandler}
+        >
+          {signInInput.email && <S.CancleIcon size={18} />}
+        </S.CancleInonBox>
         <S.FormInput
           placeholder="아이디를 입력해 주세요."
           value={signInInput.email}
@@ -164,13 +162,13 @@ const Login = () => {
           onBlur={validateEmail}
         />
         <S.HelperText>{helperText.email}</S.HelperText>
-        <div
+        <S.CancleInonBox
           style={{ cursor: 'pointer' }}
-          className="password"
+          id="password"
           onClick={resetSignInInputClickHandler}
         >
           {signInInput.password && <S.CancleIcon size={18} />}
-        </div>
+        </S.CancleInonBox>
         <S.FormInput
           placeholder="비밀번호를 입력해 주세요."
           value={signInInput.password}
@@ -189,7 +187,9 @@ const Login = () => {
           </S.NavigateBtn>
         </S.FormBtnWrap>
         <S.FormSignWrap>
-          <S.NavigateBtn as="span">아직 회원이 아니신가요?</S.NavigateBtn>
+          <S.NavigateBtn style={{ cursor: 'default' }} as="span">
+            아직 회원이 아니신가요?
+          </S.NavigateBtn>
           <S.SignUpBtn onClick={() => navigate('/signup')}>
             회원가입
           </S.SignUpBtn>
