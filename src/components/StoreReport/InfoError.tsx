@@ -131,6 +131,7 @@ const InfoError = () => {
     const newErrModifiInfo = {
       id: uuidv4(),
       user: String(user.userInfomation.id),
+      userName : user.userInfomation.nickName,
       title: infoErrModifiInput.title,
       storeName: infoErrModifiInput.storeName,
       infoErrContent: errContent.infoErrContent,

@@ -62,7 +62,7 @@ const NewStoreReportList = () => {
   );
 
   const statusSort = resentStatusFalse.concat(resentStatusTrue);
-
+        
   return (
     <S.ContentWrap>
       <S.ListContainer>
@@ -77,7 +77,7 @@ const NewStoreReportList = () => {
                 <S.DateText>{li.reportedDate}</S.DateText>
               </S.ListContent>
               <S.ListContent>
-                <S.NameText>{li.user.displayName}</S.NameText>
+                <S.NameText>{li.userName}</S.NameText>
                 {li.status === false ? (
                   <S.StatusText>진행중</S.StatusText>
                 ) : (

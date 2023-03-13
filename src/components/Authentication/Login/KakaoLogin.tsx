@@ -25,8 +25,8 @@ const KakaoLogin = () => {
   const location = useLocation();
   const REACT_APP_REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
   // const REACT_APP_REST_API_KEY = 'fbbe0ffd8e5a9275920fc4b89603b870';
-  //const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
-  const REDIRECT_URI = 'http://localhost:3000/login';
+  const REDIRECT_URI = 'https://popcorn-hazel.vercel.app/login';
+  // const REDIRECT_URI = 'http://localhost:3000/login';
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REACT_APP_REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`; // 인가코드 요청 URL
   const REACT_APP_CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET; // 카카오 디벨로퍼스에서 발급받은 client secret 키
   const KAKAO_CODE = location.search.split('=')[1];
