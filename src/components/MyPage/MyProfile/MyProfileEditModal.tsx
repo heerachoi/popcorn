@@ -48,7 +48,7 @@ const MyProfileEditModal = () => {
         setCurrentUser(currentUserInfos);
         setNickname(currentUserInfos?.displayName);
       } else {
-        return console.log('로그인 안됨');
+        return;
       }
     });
   }, [currentUser]);

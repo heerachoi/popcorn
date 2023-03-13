@@ -1,12 +1,13 @@
 // library
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import {
   mapCategoryValue,
   mapFoodData,
   mapLevel,
+  mapLoading,
   mapModalStatus,
   mapSearchValue,
   popupList,
@@ -40,6 +41,7 @@ const MapPage = () => {
   const popuplist = useRecoilValue(popupList); // popupData
   const setCategory = useSetRecoilState(mapCategoryValue); // 카테고리
   const setLevel = useSetRecoilState(mapLevel);
+  const setLoading = useSetRecoilState(mapLoading);
 
   const { data: popupData, isLoading } = useQuery('popupData', getPopupData);
 
@@ -78,56 +80,19 @@ const MapPage = () => {
             },
           });
 
-          const params1: Params = {
-            query: data[0].place_name,
-            sort: 'accuracy', // accuracy | recency 정확도 or 최신
-            page: 1, // 페이지번호
-            size: 1, // 한 페이지에 보여 질 문서의 개수
-          };
-
-          const params2: Params = {
-            query: data[1].place_name,
-            sort: 'accuracy', // accuracy | recency 정확도 or 최신
-            page: 1, // 페이지번호
-            size: 1, // 한 페이지에 보여 질 문서의 개수
-          };
-
-          // const getKaKaoImage = async (params: Params) => {
-          //   const { data: image } = await Kakao.get('/v2/search/image', {
-          //     params,
-          //   });
-          //   return image;
-          // };
-
-          const getArray = [params1, params2];
-          // const getPromiseAll = () => {
-          //   Promise.all(
-          //     getArray.map(async (param) => {
-          //       await Kakao.get('/v2/search/image', {
-          //         param,
-          //       });
-          //     }),
-          //   )
-          //     .then((result) => {
-          //       console.log(result);
-          //     })
-          //     .catch((e) => {
-          //       console.error(e);
-          //     });
-          // };
-
           if (category === '음식점' || category === '카페') {
             for (let i = 0; i < data.length; i++) {
-              // const params: Params = {
-              //   query: data[i].place_name,
-              //   sort: 'accuracy', // accuracy | recency 정확도 or 최신
-              //   page: 1, // 페이지번호
-              //   size: 1, // 한 페이지에 보여 질 문서의 개수
-              // };
+              const params: Params = {
+                query: data[i].place_name,
+                sort: 'accuracy', // accuracy | recency 정확도 or 최신
+                page: 1, // 페이지번호
+                size: 1, // 한 페이지에 보여 질 문서의 개수
+              };
 
-              // const { data: image } = await Kakao.get('/v2/search/image', {
-              //   params,
-              // });
+              const { data: image } = await Kakao.get('/v2/search/image', {
+                params,
+              });
+              console.log(image);
 
               // @ts-ignore
               markers.push({
@@ -141,9 +106,9 @@ const MapPage = () => {
                 placeURL: data[i].place_url,
                 id: data[i].id,
                 phone: data[i].phone,
-                // imgURL:
-                //   image.documents.length !== 0 &&
-                //   image.documents[0]?.thumbnail_url,
+                imgURL:
+                  image.documents.length !== 0 &&
+                  image.documents[0]?.thumbnail_url,
               });
               // @ts-ignore
               bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
@@ -162,6 +127,7 @@ const MapPage = () => {
             }
           }
           setFoodData(markers);
+          setLoading(false);
 
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
           if (category === '팝업스토어') {
@@ -173,6 +139,8 @@ const MapPage = () => {
       },
     );
   };
+
+  useEffect(() => setLoading(false), []);
 
   return (
     <>

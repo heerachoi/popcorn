@@ -13,7 +13,6 @@ export const CurrentlyOpen = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
@@ -43,7 +42,6 @@ export const PopularToWomen = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
@@ -62,18 +60,9 @@ export const PopularToWomen = () => {
       currentlyOpen.push(store);
     });
 
-  // 여성 조회 많은 순
-  const womenViewSort = currentlyOpen.sort(
-    (a: Store, b: Store) => b.view.female - a.view.female,
-  );
-
-  // 마감 순
-  const closingSoon = womenViewSort.sort(
-    (a: Store, b: Store) =>
-      Number(a.close.split('.').join('')) - Number(b.close.split('.').join('')),
-  );
-  const womenTopTwo = womenViewSort.slice(0, 2);
-  return womenTopTwo;
+  return currentlyOpen
+    .sort((a: Store, b: Store) => b.view.female - a.view.female)
+    .slice(0, 2);
 };
 
 // 남성 인기 팝업스토어
@@ -82,7 +71,6 @@ export const PopularToMen = () => {
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData);
 
   if (isLoading) {
-    console.log('로딩중');
     return <LoadingAnimation />;
   }
   if (isError) {
@@ -102,14 +90,16 @@ export const PopularToMen = () => {
     });
 
   // 남성 조회 많은 순
-  const menViewSort = currentlyOpen.sort(
-    (a: Store, b: Store) => b.view.male - a.view.male,
-  );
-  // 마감 순
-  const closingSoon = menViewSort.sort(
-    (a: Store, b: Store) =>
-      Number(a.close.split('.').join('')) - Number(b.close.split('.').join('')),
-  );
-  const menTopTwo = menViewSort.slice(0, 2);
-  return menTopTwo;
+  // const menViewSort = currentlyOpen.sort(
+  //   (a: Store, b: Store) => b.view.male - a.view.male,
+  // );
+  // // 마감 순
+  // const closingSoon = menViewSort.sort(
+  //   (a: Store, b: Store) =>
+  //     Number(a.close.split('.').join('')) - Number(b.close.split('.').join('')),
+  // );
+  // const menTopTwo = menViewSort.slice(0, 2);
+  return currentlyOpen
+    .sort((a: Store, b: Store) => b.view.male - a.view.male)
+    .slice(0, 2);
 };

@@ -28,7 +28,7 @@ const DetailPage: any = () => {
 
   // 유저의 나이 계산
   let age =
-    typeof birthDay !== 'object'
+    typeof birthDay === 'object'
       ? today.getFullYear() - birthDay.getFullYear()
       : users.userInfomation.age;
   const upForey =
