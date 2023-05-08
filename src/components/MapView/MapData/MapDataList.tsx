@@ -18,6 +18,7 @@ interface Props {
   setMarkerHandler: (search: string, category: string) => void;
   setPopupInfo: React.Dispatch<React.SetStateAction<Store | undefined>>;
   popupInfo?: Store;
+  todayDate: number | any;
 }
 
 const MapDataList = ({
@@ -26,13 +27,15 @@ const MapDataList = ({
   setMarkerHandler,
   setPopupInfo,
   popupInfo,
+  todayDate,
 }: Props) => {
   const search = useRecoilValue(mapSearchValue);
   const [popuplist, setPopupList] = useRecoilState(popupList);
 
   const filter = popupData.filter(
     (popup: Store) =>
-      popup?.address.includes(search) || popup?.title.includes(search),
+      (popup?.address.includes(search) || popup?.title.includes(search)) &&
+      parseInt(popup.close.split('.').join('')) >= todayDate,
   );
 
   useEffect(() => {
@@ -44,7 +47,7 @@ const MapDataList = ({
       {popuplist?.length === 0 ? (
         <NotFound />
       ) : (
-        popupData?.map((popup: Store) => (
+        popuplist?.map((popup: Store) => (
           <MapDataCard
             key={popup.id}
             popup={popup}

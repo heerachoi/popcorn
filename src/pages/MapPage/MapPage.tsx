@@ -54,8 +54,9 @@ const MapPage = () => {
     event.preventDefault();
     setCategory('팝업스토어');
     setMapModal(false);
+
     // 검색할 때 팝업리스트가 없으면 return 해서 지도가 옮겨지지 않게 하고 검색결과가 없다고 알려준다.
-    if (popuplist.length === 0) return alert('검색 결과가 없습니다.');
+    // if (popuplist.length === 0) return alert('검색 결과가 없습니다.');
     // new kakao.maps.services.Places(); 키워드로 검색하면 object를 반환해준다.
     setMarkerHandler(search, '팝업스토어');
     // 디테일 카드를 클릭하고 다시 검색하면 레벨 설정이 제대로 작동안되서 초기화 해줘야 함.
@@ -144,20 +145,18 @@ const MapPage = () => {
     );
   };
 
-  // 오늘날짜
-  useEffect(() => {
-    setTodayDate(getTodayDate());
-  }, []);
-
   useEffect(() => {
     const popups = popupData?.filter((store: Store) => {
       return parseInt(store.close.split('.').join('')) >= todayDate;
     });
     setPopuplist(popups);
+  }, [popupData]);
+
+  useEffect(() => {
+    setTodayDate(getTodayDate());
     setLoading(false);
   }, []);
 
-  console.log(popupData);
   return (
     <>
       {isLoading ? (
@@ -175,6 +174,7 @@ const MapPage = () => {
               setMarkerHandler={setMarkerHandler}
               setPopupInfo={setPopupInfo}
               popupInfo={popupInfo}
+              todayDate={todayDate}
             />
           </div>
           {mapModal && (
