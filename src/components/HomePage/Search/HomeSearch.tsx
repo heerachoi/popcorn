@@ -15,9 +15,13 @@ import * as S from './style';
 
 const HomeSearch = () => {
   const navigate = useNavigate();
-  const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
+  const { isLoading, isError, data, error, isSuccess } = useQuery('popup', getPopupData, {
     staleTime: 500000,
   });
+
+  if(isSuccess) {
+    console.log('호출성공.')
+  }
 
   // 팝업 스토어 필터된 리스트
   let searchList: Store[] = [];
