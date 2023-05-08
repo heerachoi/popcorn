@@ -1,10 +1,7 @@
 // library
 import { useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import {
-  mapSearchValue,
-  popupList,
-} from '../../../atoms';
+import { mapSearchValue, popupList } from '../../../atoms';
 // component
 import MapDataCard from './MapDataCard';
 import NotFound from '../../GlobalComponents/NotFound';
@@ -44,7 +41,7 @@ const MapDataList = ({
 
   return (
     <Wrap>
-      {popuplist.length === 0 ? (
+      {popuplist?.length === 0 ? (
         <NotFound />
       ) : (
         popupData?.map((popup: Store) => (

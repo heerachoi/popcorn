@@ -26,8 +26,11 @@ import { Store } from '../../types/data/storeInterface';
 // style
 import * as S from './style';
 import arrow from '../../assets/Img/arrow.svg';
+import { now } from 'moment';
+import { getTodayDate } from '../../utils/FormatDate';
 
 const MapPage = () => {
+  const [todayDate, setTodayDate] = useState<number | any>();
   const [popupInfo, setPopupInfo] = useState<Store | undefined>();
   const [info, setInfo] = useState<FoodData>();
   const [map, setMap] = useState<any>(); // 맵
@@ -37,8 +40,8 @@ const MapPage = () => {
   }); // 나의 위치
   const [foodData, setFoodData] = useRecoilState(mapFoodData); // 음식점, 카페 데이터
   const [mapModal, setMapModal] = useRecoilState(mapModalStatus);
+  const [popuplist, setPopuplist] = useRecoilState(popupList); // popupData
   const search = useRecoilValue(mapSearchValue); // 검색어
-  const popuplist = useRecoilValue(popupList); // popupData
   const setCategory = useSetRecoilState(mapCategoryValue); // 카테고리
   const setLevel = useSetRecoilState(mapLevel);
   const setLoading = useSetRecoilState(mapLoading);
@@ -141,8 +144,20 @@ const MapPage = () => {
     );
   };
 
-  useEffect(() => setLoading(false), []);
+  // 오늘날짜
+  useEffect(() => {
+    setTodayDate(getTodayDate());
+  }, []);
 
+  useEffect(() => {
+    const popups = popupData?.filter((store: Store) => {
+      return parseInt(store.close.split('.').join('')) >= todayDate;
+    });
+    setPopuplist(popups);
+    setLoading(false);
+  }, []);
+
+  console.log(popupData);
   return (
     <>
       {isLoading ? (
