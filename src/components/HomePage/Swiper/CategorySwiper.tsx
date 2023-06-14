@@ -11,10 +11,13 @@ import { Store } from '../../../types/data/storeInterface';
 // style
 import * as S from './style';
 
-const CategorySwiper: React.FC = () => {
+interface Props {
+  data: Store[];
+}
+
+const CategorySwiper = ({ data }: Props) => {
   const navigate = useNavigate();
   const [todayDate, setTodayDate] = useState<number | any>(0);
-  const { data } = useQuery('popup', getPopupData, { staleTime: 500000 });
 
   // 오늘날짜
   useEffect(() => {
@@ -64,7 +67,11 @@ const CategorySwiper: React.FC = () => {
       },
     ],
   };
-  return (
+  return openingSoon.length === 0 ? (
+    <S.NotFoundBox>
+      <S.NotFoundText>최근에 오픈한 팝업스토어가 없습니다.</S.NotFoundText>
+    </S.NotFoundBox>
+  ) : (
     <S.SwiperContainer {...settings}>
       {openingSoon.map((popup: Store) => (
         <S.StoreContainer

@@ -17,6 +17,7 @@ interface Props {
 
 const FoodList = ({ setMyLocation, setInfo, info }: Props) => {
   const foodData = useRecoilValue(mapFoodData);
+  console.log(foodData);
 
   return (
     <Wrap>

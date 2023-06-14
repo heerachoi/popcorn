@@ -13,21 +13,14 @@ import { PopularToWomen } from '../../../utils/Filter';
 import * as S from './style';
 import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 
-const WomenPopularSwiper: React.FC = () => {
+interface Props {
+  data: Store[];
+}
+
+const WomenPopularSwiper = ({ data }: Props) => {
   const navigate = useNavigate();
   const womenTopTwo = PopularToWomen();
   const [todayDate, setTodayDate] = useState<number | any>();
-  const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
-    staleTime: 500000,
-  });
-
-  if (isLoading) {
-    return <LoadingAnimation />;
-  }
-  if (isError) {
-    console.log(error);
-    return <p>Error!!!</p>;
-  }
 
   // 오늘날짜
   useEffect(() => {

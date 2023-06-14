@@ -11,7 +11,7 @@ import LoadingAnimation from '../components/GlobalComponents/LoadingAnimation';
 export const CurrentlyOpen = () => {
   const todayDate = getTodayDate();
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
-    staleTime: 500000,
+    staleTime: 5 * 60 * 1000,
   });
 
   if (isLoading) {
@@ -42,7 +42,7 @@ export const MostViews = () => {};
 export const PopularToWomen = () => {
   const todayDate = getTodayDate();
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
-    staleTime: 500000,
+    staleTime: 5 * 60 * 1000,
   });
 
   if (isLoading) {
@@ -73,14 +73,13 @@ export const PopularToWomen = () => {
 export const PopularToMen = () => {
   const todayDate = getTodayDate();
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
-    staleTime: 500000,
+    staleTime: 5 * 60 * 1000,
   });
 
   if (isLoading) {
     return <LoadingAnimation />;
   }
   if (isError) {
-    console.log('오류내용', error);
     return <p>Error!!!</p>;
   }
 

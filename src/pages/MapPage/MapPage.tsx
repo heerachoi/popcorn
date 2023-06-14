@@ -26,11 +26,9 @@ import { Store } from '../../types/data/storeInterface';
 // style
 import * as S from './style';
 import arrow from '../../assets/Img/arrow.svg';
-import { now } from 'moment';
 import { getTodayDate } from '../../utils/FormatDate';
 
 const MapPage = () => {
-  const [todayDate, setTodayDate] = useState<number | any>();
   const [popupInfo, setPopupInfo] = useState<Store | undefined>();
   const [info, setInfo] = useState<FoodData>();
   const [map, setMap] = useState<any>(); // 맵
@@ -47,7 +45,7 @@ const MapPage = () => {
   const setLoading = useSetRecoilState(mapLoading);
 
   const { data: popupData, isLoading } = useQuery('popup', getPopupData, {
-    staleTime: 500000,
+    staleTime: 5 * 60 * 1000,
   });
 
   const onSearchSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
@@ -68,7 +66,7 @@ const MapPage = () => {
     // ps.keywordSearch(검색어, (키워드 데이터 [], 검색 상태 OK 여부, total count, page 수))
 
     ps.keywordSearch(
-      category === '팝업스토어' ? search : `${search} ${category}`,
+      category === '팝업스토어' ? search : `${search}`,
       async (data, status, _pagination) => {
         if (status === kakao.maps.services.Status.OK) {
           // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해 LatLngBounds 객체에 좌표를 추가합니다
@@ -131,6 +129,9 @@ const MapPage = () => {
               }
             }
           }
+
+          console.log('vvv', search);
+          console.log('마커', data);
           setFoodData(markers);
           setLoading(false);
 
@@ -145,17 +146,22 @@ const MapPage = () => {
     );
   };
 
-  useEffect(() => {
+  // 진행중, 마감 팝업스토어 필터링
+  const popupDataFilter = () => {
+    const date = getTodayDate();
     const popups = popupData?.filter((store: Store) => {
-      return parseInt(store.close.split('.').join('')) >= todayDate;
+      return parseInt(store.close.split('.').join('')) >= date;
     });
     setPopuplist(popups);
-  }, [popupData]);
+  };
 
   useEffect(() => {
-    setTodayDate(getTodayDate());
     setLoading(false);
   }, []);
+
+  useEffect(() => {
+    popupDataFilter();
+  }, [popupData]);
 
   return (
     <>
@@ -174,7 +180,6 @@ const MapPage = () => {
               setMarkerHandler={setMarkerHandler}
               setPopupInfo={setPopupInfo}
               popupInfo={popupInfo}
-              todayDate={todayDate}
             />
           </div>
           {mapModal && (

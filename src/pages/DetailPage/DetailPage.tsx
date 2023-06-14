@@ -19,7 +19,6 @@ const DetailPage: any = () => {
   const detailData = useLocation().state as Store;
   const users = useRecoilValue(userInfo);
   const [userAge, setUserAge] = useState<string>('');
-  const [data, setData] = useState<Store>(detailData);
 
   const queryClient = useQueryClient();
 
@@ -48,27 +47,33 @@ const DetailPage: any = () => {
     if (age > 40 || upForey) setUserAge('40+');
   };
 
+  const mutation = useMutation(() => upDateViews(), {
+    onSuccess: () =>
+      queryClient.invalidateQueries('popup', {
+        refetchInactive: true,
+      }),
+  });
+
   // 데이터를 업데이트 해주는 함수
-  // 연령대 + 1, 성별 + 1 전체 수 + 1,
   const upDateViews = async () => {
     try {
       if (!users.isLogin) {
-        return await axios.patch(`${JSON_API}/Store/${detailData.id}`, {
+        await axios.patch(`${JSON_API}/Store/${detailData?.id}`, {
           view: {
-            ...detailData.view,
-            연령모름: detailData.view['연령모름'] + 1,
-            성별모름: detailData.view['성별모름'] + 1,
-            all: detailData.view['all'] + 1,
+            ...detailData?.view,
+            연령모름: detailData?.view['연령모름'] + 1,
+            성별모름: detailData?.view['성별모름'] + 1,
+            all: detailData?.view['all'] + 1,
           },
         });
       } else {
-        return await axios.patch(`${JSON_API}/Store/${detailData.id}`, {
+        await axios.patch(`${JSON_API}/Store/${detailData?.id}`, {
           view: {
-            ...detailData.view,
-            [userAge]: detailData.view[userAge] + 1,
+            ...detailData?.view,
+            [userAge]: detailData?.view[userAge] + 1,
             [users.userInfomation.gender]:
-              detailData.view[users.userInfomation.gender] + 1,
-            all: detailData.view['all'] + 1,
+              detailData?.view[users.userInfomation.gender] + 1,
+            all: detailData?.view['all'] + 1,
           },
         });
       }
@@ -76,13 +81,6 @@ const DetailPage: any = () => {
       console.log(error);
     }
   };
-  const mutation = useMutation(() => upDateViews(), {
-    onSuccess: ({ data }: any) => {
-      console.log(data);
-      // queryClient.invalidateQueries('popup');
-      setData(data);
-    },
-  });
 
   // age 값이 변하면 연령대 설정하기
   useEffect(() => {
@@ -98,8 +96,8 @@ const DetailPage: any = () => {
 
   return (
     <>
-      <StoreDetailInfo detailData={data} />
-      <DetailPageViews detailData={data} />
+      <StoreDetailInfo detailData={detailData} />
+      <DetailPageViews detailData={detailData} />
       <DetailMap />
       <TopButton />
     </>

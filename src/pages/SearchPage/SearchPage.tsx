@@ -33,7 +33,7 @@ const Search: React.FC = () => {
   // 검색
   const navigate = useNavigate();
   const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
-    staleTime: 500000,
+    staleTime: 5 * 60 * 1000,
   });
   // 팝업 스토어 필터된 리스트 상태관리
   const [storeList, setStoreList] = useState<Store[]>(data);

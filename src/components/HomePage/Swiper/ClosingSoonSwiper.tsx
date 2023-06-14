@@ -11,10 +11,14 @@ import { Store } from '../../../types/data/storeInterface';
 // style
 import * as S from './style';
 
-const ClosingSoonSwiper: React.FC = () => {
+interface Props {
+  data: Store[];
+}
+
+const ClosingSoonSwiper = ({ data }: Props) => {
   const navigate = useNavigate();
   const [todayDate, setTodayDate] = useState<number | any>();
-  const { data } = useQuery('popup', getPopupData, { staleTime: 500000 });
+
   // 오늘날짜
   useEffect(() => {
     setTodayDate(getTodayDate());
@@ -64,7 +68,11 @@ const ClosingSoonSwiper: React.FC = () => {
     ],
   };
 
-  return (
+  return closingSoon.length === 0 ? (
+    <S.NotFoundBox>
+      <S.NotFoundText>곧 마감되는 팝업스토어가 없습니다.</S.NotFoundText>
+    </S.NotFoundBox>
+  ) : (
     <S.SwiperContainer {...settings}>
       {closingSoon.map((popup: Store) => (
         <S.StoreContainer

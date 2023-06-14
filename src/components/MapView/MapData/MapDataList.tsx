@@ -11,6 +11,7 @@ import { LocationType } from '../../../types/map';
 // style
 import styled from 'styled-components';
 import COLORS from '../../../assets/CSS/colors';
+import { getTodayDate } from '../../../utils/FormatDate';
 
 interface Props {
   popupData: Store[];
@@ -18,7 +19,6 @@ interface Props {
   setMarkerHandler: (search: string, category: string) => void;
   setPopupInfo: React.Dispatch<React.SetStateAction<Store | undefined>>;
   popupInfo?: Store;
-  todayDate: number | any;
 }
 
 const MapDataList = ({
@@ -27,15 +27,15 @@ const MapDataList = ({
   setMarkerHandler,
   setPopupInfo,
   popupInfo,
-  todayDate,
 }: Props) => {
   const search = useRecoilValue(mapSearchValue);
   const [popuplist, setPopupList] = useRecoilState(popupList);
 
+  const date = getTodayDate();
   const filter = popupData.filter(
     (popup: Store) =>
       (popup?.address.includes(search) || popup?.title.includes(search)) &&
-      parseInt(popup.close.split('.').join('')) >= todayDate,
+      parseInt(popup.close.split('.').join('')) >= date,
   );
 
   useEffect(() => {

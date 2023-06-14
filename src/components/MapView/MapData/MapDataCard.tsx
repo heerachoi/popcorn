@@ -70,6 +70,7 @@ const MapDataCard = ({
   // 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
   const displayCenterInfo = (result: AddressResult[], status: string) => {
     if (status === kakao.maps.services.Status.OK) {
+      console.log(result[1].region_1depth_name, result[1].region_3depth_name);
       setFoodSearch(
         `${result[1].region_1depth_name} ${result[1].region_3depth_name}`,
       );

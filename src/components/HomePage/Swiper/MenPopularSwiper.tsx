@@ -13,22 +13,15 @@ import { Store } from '../../../types/data/storeInterface';
 import * as S from './style';
 import LoadingAnimation from '../../GlobalComponents/LoadingAnimation';
 
-const MenPopularSwiper: React.FC = () => {
+interface Props {
+  data: Store[];
+}
+
+const MenPopularSwiper = ({ data }: Props) => {
   const navigate = useNavigate();
   const menTopTwo = PopularToMen();
 
   const [todayDate, setTodayDate] = useState<number | any>();
-  const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
-    staleTime: 500000,
-  });
-
-  if (isLoading) {
-    return <LoadingAnimation />;
-  }
-  if (isError) {
-    console.log(error);
-    return <p>Error!!!</p>;
-  }
 
   // 오늘날짜
   useEffect(() => {

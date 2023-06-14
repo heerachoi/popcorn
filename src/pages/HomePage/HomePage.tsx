@@ -15,8 +15,8 @@ import * as S from './style';
 import LoadingAnimation from '../../components/GlobalComponents/LoadingAnimation';
 
 const HomePage = () => {
-  const { isLoading, isError, data, error } = useQuery('popup', getPopupData, {
-    staleTime: 500000,
+  const { isLoading, isError, data } = useQuery('popup', getPopupData, {
+    staleTime: 5 * 60 * 1000,
     onSettled: () => {
       console.log('호출 되면 안된다.');
     },
@@ -42,9 +42,7 @@ const HomePage = () => {
             <S.ListTitle>최근 오픈했어요!</S.ListTitle>
           </S.ListTitleContainer>
           <S.CategoryListContainer>
-            <S.FilterStoreList>
-              <CategorySwiper />
-            </S.FilterStoreList>
+            <CategorySwiper data={data} />
           </S.CategoryListContainer>
         </S.CategoryWrapper>
         <S.CategoryWrapper>
@@ -53,9 +51,7 @@ const HomePage = () => {
             <S.ListTitle>곧 마감해요</S.ListTitle>
           </S.ListTitleContainer>
           <S.CategoryListContainer>
-            <S.FilterStoreList>
-              <ClosingSoonSwiper />
-            </S.FilterStoreList>
+            <ClosingSoonSwiper data={data} />
           </S.CategoryListContainer>
         </S.CategoryWrapper>
         <S.CategoryWrapper>
@@ -65,7 +61,7 @@ const HomePage = () => {
           </S.ListTitleContainer>
           <S.CategoryListContainer>
             <S.FilterStoreList>
-              <WomenPopularSwiper />
+              <WomenPopularSwiper data={data} />
             </S.FilterStoreList>
           </S.CategoryListContainer>
         </S.CategoryWrapper>
@@ -76,7 +72,7 @@ const HomePage = () => {
           </S.ListTitleContainer>
           <S.CategoryListContainer>
             <S.FilterStoreList>
-              <MenPopularSwiper />
+              <MenPopularSwiper data={data} />
             </S.FilterStoreList>
           </S.CategoryListContainer>
         </S.CategoryWrapper>

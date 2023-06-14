@@ -173,3 +173,11 @@ export const SeeMoreText = styled.div`
     background: rgba(143, 106, 10, 0.3);
   }
 `;
+
+export const NotFoundBox = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+export const NotFoundText = styled.span`
+  font-weight: bold;
+`;

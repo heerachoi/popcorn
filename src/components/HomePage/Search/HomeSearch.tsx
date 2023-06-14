@@ -19,7 +19,7 @@ const HomeSearch = () => {
     'popup',
     getPopupData,
     {
-      staleTime: 500000,
+      staleTime: 5 * 60 * 1000,
     },
   );
 
